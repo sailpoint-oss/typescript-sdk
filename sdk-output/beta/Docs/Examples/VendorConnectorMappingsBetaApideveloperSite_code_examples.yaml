@@ -1,0 +1,62 @@
+- path: /vendor-connector-mappings
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $vendorConnectorMappingBeta = @"
+        
+        "@
+        
+        # Create Vendor Connector Mapping
+        
+        try {
+            $Result = ConvertFrom-JsonTovendorConnectorMappingBeta -Json $vendorConnectorMappingBeta
+            -BetavendorConnectorMappingBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetavendorConnectorMappingBeta $vendorConnectorMappingBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /vendor-connector-mappings
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $vendorConnectorMappingBeta = @"
+        
+        "@
+        
+        # Delete Vendor Connector Mapping
+        
+        try {
+            $Result = ConvertFrom-JsonTovendorConnectorMappingBeta -Json $vendorConnectorMappingBeta
+            -BetavendorConnectorMappingBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetavendorConnectorMappingBeta $vendorConnectorMappingBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /vendor-connector-mappings
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        
+        # List Vendor Connector Mappings
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

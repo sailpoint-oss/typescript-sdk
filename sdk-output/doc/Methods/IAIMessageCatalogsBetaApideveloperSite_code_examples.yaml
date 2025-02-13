@@ -1,0 +1,22 @@
+- path: /translation-catalogs/{catalog-id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIMessageCatalogsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIMessageCatalogsBetaApi = new IAIMessageCatalogsBetaApi(apiConfig);
+
+        const catalogId : 'recommender' | 'access-request-recommender' = "recommender"; // The ID of the message catalog.
+
+        try {
+          const val = await iAIMessageCatalogsBetaApi.getMessageCatalogs(catalogId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIMessageCatalogsBetaApi.getMessageCatalogs(catalogId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

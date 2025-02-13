@@ -1,0 +1,43 @@
+- path: /public-identities-config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, PublicIdentitiesConfigBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const publicIdentitiesConfigBetaApi = new PublicIdentitiesConfigBetaApi(apiConfig);
+
+
+        try {
+          const val = await publicIdentitiesConfigBetaApi.getPublicIdentityConfig();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await publicIdentitiesConfigBetaApi.getPublicIdentityConfig();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /public-identities-config
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, PublicIdentitiesConfigBetaApi, PublicIdentityConfigBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const publicIdentitiesConfigBetaApi = new PublicIdentitiesConfigBetaApi(apiConfig);
+
+        const publicIdentityConfigBeta : PublicIdentityConfigBeta = ; // 
+
+        try {
+          const val = await publicIdentitiesConfigBetaApi.updatePublicIdentityConfig(publicIdentityConfigBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await publicIdentitiesConfigBetaApi.updatePublicIdentityConfig(publicIdentityConfigBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

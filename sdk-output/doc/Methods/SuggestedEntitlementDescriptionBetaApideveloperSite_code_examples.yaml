@@ -1,0 +1,160 @@
+- path: /suggested-entitlement-description-batches/{batchId}/stats
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SuggestedEntitlementDescriptionBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const suggestedEntitlementDescriptionBetaApi = new SuggestedEntitlementDescriptionBetaApi(apiConfig);
+
+        const batchId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // Batch Id
+
+        try {
+          const val = await suggestedEntitlementDescriptionBetaApi.getSedBatchStats(batchId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await suggestedEntitlementDescriptionBetaApi.getSedBatchStats(batchId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /suggested-entitlement-description-batches
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SuggestedEntitlementDescriptionBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const suggestedEntitlementDescriptionBetaApi = new SuggestedEntitlementDescriptionBetaApi(apiConfig);
+
+
+        try {
+          const val = await suggestedEntitlementDescriptionBetaApi.getSedBatches();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await suggestedEntitlementDescriptionBetaApi.getSedBatches();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /suggested-entitlement-descriptions
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SuggestedEntitlementDescriptionBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const suggestedEntitlementDescriptionBetaApi = new SuggestedEntitlementDescriptionBetaApi(apiConfig);
+
+        const limit = limit=25; // number | Integer specifying the maximum number of records to return in a single API call.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+        const filters = "displayName co "Read and Write""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq, ne*  **displayName**: *eq, ne, co*  **sourceName**: *eq, ne, co*  **sourceId**: *eq, ne*  **status**: *eq, ne*  **fullText**: *co*
+        const sorters = "sorters=displayName"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, sourceName, status**
+        const count = count=true; // boolean | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). Since requesting a total count can have a performance impact, it is recommended not to send `count=true` if that value will not be used.
+        const countOnly = count-only=true; // boolean | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the Coun parameter in that this one skip executing the actual query and always return an empty array.
+        const requestedByAnyone = requested-by-anyone=true; // boolean | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested
+        const showPendingStatusOnly = show-pending-status-only=true; // boolean | Will limit records to items that are in \"suggested\" or \"approved\" status
+
+        try {
+          const val = await suggestedEntitlementDescriptionBetaApi.listSeds();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await suggestedEntitlementDescriptionBetaApi.listSeds(limit, filters, sorters, count, countOnly, requestedByAnyone, showPendingStatusOnly);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /suggested-entitlement-descriptions
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SuggestedEntitlementDescriptionBetaApi, SedPatchBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const suggestedEntitlementDescriptionBetaApi = new SuggestedEntitlementDescriptionBetaApi(apiConfig);
+
+        const id : string = "ebab396f-0af1-4050-89b7-dafc63ec70e7"; // id is sed id
+        const sedPatchBeta : Array<SedPatchBeta> = ; // Sed Patch Request
+
+        try {
+          const val = await suggestedEntitlementDescriptionBetaApi.patchSed(id, sedPatchBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await suggestedEntitlementDescriptionBetaApi.patchSed(id, sedPatchBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /suggested-entitlement-description-approvals
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SuggestedEntitlementDescriptionBetaApi, SedApprovalBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const suggestedEntitlementDescriptionBetaApi = new SuggestedEntitlementDescriptionBetaApi(apiConfig);
+
+        const sedApprovalBeta : Array<SedApprovalBeta> = ; // Sed Approval
+
+        try {
+          const val = await suggestedEntitlementDescriptionBetaApi.submitSedApproval(sedApprovalBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await suggestedEntitlementDescriptionBetaApi.submitSedApproval(sedApprovalBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /suggested-entitlement-description-assignments
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SuggestedEntitlementDescriptionBetaApi, SedAssignmentBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const suggestedEntitlementDescriptionBetaApi = new SuggestedEntitlementDescriptionBetaApi(apiConfig);
+
+        const sedAssignmentBeta : SedAssignmentBeta = ; // Sed Assignment Request
+
+        try {
+          const val = await suggestedEntitlementDescriptionBetaApi.submitSedAssignment(sedAssignmentBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await suggestedEntitlementDescriptionBetaApi.submitSedAssignment(sedAssignmentBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /suggested-entitlement-description-batches
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SuggestedEntitlementDescriptionBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const suggestedEntitlementDescriptionBetaApi = new SuggestedEntitlementDescriptionBetaApi(apiConfig);
+
+        const sedBatchRequestBeta = ; // SedBatchRequestBeta | Sed Batch Request
+
+        try {
+          const val = await suggestedEntitlementDescriptionBetaApi.submitSedBatchRequest();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await suggestedEntitlementDescriptionBetaApi.submitSedBatchRequest(sedBatchRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

@@ -1,0 +1,135 @@
+- path: /launchers
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, LaunchersBetaApi, LauncherRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const launchersBetaApi = new LaunchersBetaApi(apiConfig);
+
+        const launcherRequestBeta : LauncherRequestBeta = ; // Payload to create a Launcher
+
+        try {
+          const val = await launchersBetaApi.createLauncher(launcherRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await launchersBetaApi.createLauncher(launcherRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /launchers/{launcherID}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, LaunchersBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const launchersBetaApi = new LaunchersBetaApi(apiConfig);
+
+        const launcherID : string = "e3012408-8b61-4564-ad41-c5ec131c325b"; // ID of the Launcher to be deleted
+
+        try {
+          const val = await launchersBetaApi.deleteLauncher(launcherID);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await launchersBetaApi.deleteLauncher(launcherID);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /launchers/{launcherID}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, LaunchersBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const launchersBetaApi = new LaunchersBetaApi(apiConfig);
+
+        const launcherID : string = "e3012408-8b61-4564-ad41-c5ec131c325b"; // ID of the Launcher to be retrieved
+
+        try {
+          const val = await launchersBetaApi.getLauncher(launcherID);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await launchersBetaApi.getLauncher(launcherID);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /launchers
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, LaunchersBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const launchersBetaApi = new LaunchersBetaApi(apiConfig);
+
+        const filters = "disabled eq "true""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **description**: *sw*  **disabled**: *eq*  **name**: *sw*
+        const next = "eyJuZXh0IjoxMjN9Cg=="; // string | Pagination marker
+        const limit = 42; // number | Number of Launchers to return
+
+        try {
+          const val = await launchersBetaApi.getLaunchers();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await launchersBetaApi.getLaunchers(filters, next, limit);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /launchers/{launcherID}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, LaunchersBetaApi, LauncherRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const launchersBetaApi = new LaunchersBetaApi(apiConfig);
+
+        const launcherID : string = "e3012408-8b61-4564-ad41-c5ec131c325b"; // ID of the Launcher to be replaced
+        const launcherRequestBeta : LauncherRequestBeta = ; // Payload to replace Launcher
+
+        try {
+          const val = await launchersBetaApi.putLauncher(launcherID, launcherRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await launchersBetaApi.putLauncher(launcherID, launcherRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /beta/launchers/{launcherID}/launch
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, LaunchersBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const launchersBetaApi = new LaunchersBetaApi(apiConfig);
+
+        const launcherID : string = "e3012408-8b61-4564-ad41-c5ec131c325b"; // ID of the Launcher to be launched
+
+        try {
+          const val = await launchersBetaApi.startLauncher(launcherID);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await launchersBetaApi.startLauncher(launcherID);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

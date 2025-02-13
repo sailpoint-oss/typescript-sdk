@@ -1,0 +1,123 @@
+- path: /launchers
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $launcherRequestBeta = @"
+        
+        "@
+        
+        # Create launcher
+        
+        try {
+            $Result = ConvertFrom-JsonTolauncherRequestBeta -Json $launcherRequestBeta
+            -BetalauncherRequestBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetalauncherRequestBeta $launcherRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /launchers/{launcherID}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $launcherID =  # string | ID of the Launcher to be deleted (default to undefined)
+        
+        # Delete Launcher
+        
+        try {
+            -BetalauncherID $launcherID 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetalauncherID $launcherID  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /launchers/{launcherID}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $launcherID =  # string | ID of the Launcher to be retrieved (default to undefined)
+        
+        # Get Launcher by ID
+        
+        try {
+            -BetalauncherID $launcherID 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetalauncherID $launcherID  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /launchers
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **description**: *sw*  **disabled**: *eq*  **name**: *sw* (optional) (default to undefined)
+        $next =  # string | Pagination marker (optional) (default to undefined)
+        $limit =  # number | Number of Launchers to return (optional) (default to 10)
+        
+        # List all Launchers for tenant
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betafilters $filters -Betanext $next -Betalimit $limit  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /launchers/{launcherID}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $launcherID =  # string | ID of the Launcher to be replaced (default to undefined)
+        $launcherRequestBeta = @"
+        
+        "@
+        
+        # Replace Launcher
+        
+        try {
+            $Result = ConvertFrom-JsonTolauncherRequestBeta -Json $launcherRequestBeta
+            -BetalauncherID $launcherID -BetalauncherRequestBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetalauncherID $launcherID -BetalauncherRequestBeta $launcherRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /beta/launchers/{launcherID}/launch
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $launcherID =  # string | ID of the Launcher to be launched (default to undefined)
+        
+        # Launch a Launcher
+        
+        try {
+            -BetalauncherID $launcherID 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetalauncherID $launcherID  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

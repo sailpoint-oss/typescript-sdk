@@ -1,0 +1,66 @@
+- path: /auth-profiles/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AuthProfileBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const authProfileBetaApi = new AuthProfileBetaApi(apiConfig);
+
+        const id : string = "2c91808a7813090a017814121919ecca"; // ID of the Auth Profile to get.
+
+        try {
+          const val = await authProfileBetaApi.getProfileConfig(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await authProfileBetaApi.getProfileConfig(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /auth-profiles
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AuthProfileBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const authProfileBetaApi = new AuthProfileBetaApi(apiConfig);
+
+
+        try {
+          const val = await authProfileBetaApi.getProfileConfigList();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await authProfileBetaApi.getProfileConfigList();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /auth-profiles/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AuthProfileBetaApi, JsonPatchOperationBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const authProfileBetaApi = new AuthProfileBetaApi(apiConfig);
+
+        const id : string = "2c91808a7813090a017814121919ecca"; // ID of the Auth Profile to patch.
+        const jsonPatchOperationBeta : Array<JsonPatchOperationBeta> = ; // 
+
+        try {
+          const val = await authProfileBetaApi.patchProfileConfig(id, jsonPatchOperationBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await authProfileBetaApi.patchProfileConfig(id, jsonPatchOperationBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

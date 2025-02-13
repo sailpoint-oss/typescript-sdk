@@ -1,0 +1,46 @@
+- path: /generic-approvals/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ApprovalsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const approvalsBetaApi = new ApprovalsBetaApi(apiConfig);
+
+        const id : string = "38453251-6be2-5f8f-df93-5ce19e295837"; // ID of the approval that to be returned.
+
+        try {
+          const val = await approvalsBetaApi.getApproval(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await approvalsBetaApi.getApproval(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /generic-approvals
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ApprovalsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const approvalsBetaApi = new ApprovalsBetaApi(apiConfig);
+
+        const mine = true; // boolean | Returns the list of approvals for the current caller.
+        const requesterId = "17e633e7d57e481569df76323169deb6a"; // string | Returns the list of approvals for a given requester ID.
+        const filters = "filters=status eq PENDING"; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq*
+
+        try {
+          const val = await approvalsBetaApi.getApprovals();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await approvalsBetaApi.getApprovals(mine, requesterId, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

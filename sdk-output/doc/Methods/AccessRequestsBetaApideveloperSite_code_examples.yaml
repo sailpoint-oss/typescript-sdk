@@ -1,0 +1,140 @@
+- path: /access-requests/cancel
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccessRequestsBetaApi, CancelAccessRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accessRequestsBetaApi = new AccessRequestsBetaApi(apiConfig);
+
+        const cancelAccessRequestBeta : CancelAccessRequestBeta = {accountActivityId=2c91808568c529c60168cca6f90c1313, comment=I requested this role by mistake.}; // 
+
+        try {
+          const val = await accessRequestsBetaApi.cancelAccessRequest(cancelAccessRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accessRequestsBetaApi.cancelAccessRequest(cancelAccessRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /access-requests/close
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccessRequestsBetaApi, CloseAccessRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accessRequestsBetaApi = new AccessRequestsBetaApi(apiConfig);
+
+        const closeAccessRequestBeta : CloseAccessRequestBeta = {accessRequestIds=[2c90ad2a70ace7d50170acf22ca90010], executionStatus=Terminated, completionStatus=Failure, message=The IdentityNow Administrator manually closed this request.}; // 
+
+        try {
+          const val = await accessRequestsBetaApi.closeAccessRequest(closeAccessRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accessRequestsBetaApi.closeAccessRequest(closeAccessRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /access-requests
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccessRequestsBetaApi, AccessRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accessRequestsBetaApi = new AccessRequestsBetaApi(apiConfig);
+
+        const accessRequestBeta : AccessRequestBeta = ; // 
+
+        try {
+          const val = await accessRequestsBetaApi.createAccessRequest(accessRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accessRequestsBetaApi.createAccessRequest(accessRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /access-request-config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccessRequestsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accessRequestsBetaApi = new AccessRequestsBetaApi(apiConfig);
+
+
+        try {
+          const val = await accessRequestsBetaApi.getAccessRequestConfig();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accessRequestsBetaApi.getAccessRequestConfig();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /access-request-status
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccessRequestsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accessRequestsBetaApi = new AccessRequestsBetaApi(apiConfig);
+
+        const requestedFor = "2c9180877b2b6ea4017b2c545f971429"; // string | Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
+        const requestedBy = "2c9180877b2b6ea4017b2c545f971429"; // string | Filter the results by the identity who made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
+        const regardingIdentity = "2c9180877b2b6ea4017b2c545f971429"; // string | Filter the results by the specified identity who is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*.
+        const assignedTo = "2c9180877b2b6ea4017b2c545f971429"; // string | Filter the results by the specified identity who is the owner of the Identity Request Work Item. *me* indicates the current user.
+        const count = false; // boolean | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored.
+        const limit = 100; // number | Max number of results to return.
+        const offset = 10; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified.
+        const filters = "accountActivityItemId eq "2c918086771c86df0177401efcdf54c0""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *in*  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
+        const sorters = "created"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name**
+        const requestState = "request-state=EXECUTING"; // string | Filter the results by the state of the request. The only valid value is *EXECUTING*.
+
+        try {
+          const val = await accessRequestsBetaApi.listAccessRequestStatus();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accessRequestsBetaApi.listAccessRequestStatus(requestedFor, requestedBy, regardingIdentity, assignedTo, count, limit, offset, filters, sorters, requestState);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /access-request-config
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccessRequestsBetaApi, AccessRequestConfigBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accessRequestsBetaApi = new AccessRequestsBetaApi(apiConfig);
+
+        const accessRequestConfigBeta : AccessRequestConfigBeta = ; // 
+
+        try {
+          const val = await accessRequestsBetaApi.setAccessRequestConfig(accessRequestConfigBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accessRequestsBetaApi.setAccessRequestConfig(accessRequestConfigBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

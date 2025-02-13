@@ -1,0 +1,65 @@
+- path: /recommendations/request
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRecommendationsBetaApi, RecommendationRequestDtoBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRecommendationsBetaApi = new IAIRecommendationsBetaApi(apiConfig);
+
+        const recommendationRequestDtoBeta : RecommendationRequestDtoBeta = ; // 
+
+        try {
+          const val = await iAIRecommendationsBetaApi.getRecommendations(recommendationRequestDtoBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRecommendationsBetaApi.getRecommendations(recommendationRequestDtoBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /recommendations/config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRecommendationsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRecommendationsBetaApi = new IAIRecommendationsBetaApi(apiConfig);
+
+
+        try {
+          const val = await iAIRecommendationsBetaApi.getRecommendationsConfig();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRecommendationsBetaApi.getRecommendationsConfig();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /recommendations/config
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRecommendationsBetaApi, RecommendationConfigDtoBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRecommendationsBetaApi = new IAIRecommendationsBetaApi(apiConfig);
+
+        const recommendationConfigDtoBeta : RecommendationConfigDtoBeta = ; // 
+
+        try {
+          const val = await iAIRecommendationsBetaApi.updateRecommendationsConfig(recommendationConfigDtoBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRecommendationsBetaApi.updateRecommendationsConfig(recommendationConfigDtoBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

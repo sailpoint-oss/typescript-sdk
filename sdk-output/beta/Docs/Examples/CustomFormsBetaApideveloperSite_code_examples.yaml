@@ -1,0 +1,394 @@
+- path: /form-definitions
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $createFormDefinitionRequestBeta = @"
+        {name=my form, description=my form description, owner={type=IDENTITY, id=00000000-0000-0000-0000-000000000000}, formElements=[{id=000000000000, elementType=SECTION, config={alignment=LEFT, description=elementType must be 'SECTION' for the root formElements,  child formElements must be within the 'config' attribute, label=Section, labelStyle=h2, showLabel=true, formElements=[{id=0000000000000, key=textField, elementType=TEXT, config={default=, description=, helpText=form element type text, label=Text Field, placeholder=, required=false}, validations=[]}]}}]}
+        "@
+        
+        # Creates a form definition.
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -BetacreateFormDefinitionRequestBeta $createFormDefinitionRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /form-definitions/template
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $createFormDefinitionRequestBeta = @"
+        {name=my form, description=my form description, owner={type=IDENTITY, id=00000000-0000-0000-0000-000000000000}, formElements=[{id=000000000000, elementType=SECTION, config={alignment=LEFT, description=elementType must be 'SECTION' for the root formElements,  child formElements must be within the 'config' attribute, label=Section, labelStyle=h2, showLabel=true, formElements=[{id=0000000000000, key=textField, elementType=TEXT, config={default=, description=, helpText=form element type text, label=Text Field, placeholder=, required=false}, validations=[]}]}}]}
+        "@
+        
+        # Create a form definition by template.
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -BetacreateFormDefinitionRequestBeta $createFormDefinitionRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /form-definitions/forms-action-dynamic-schema
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $body = @"
+        {id=sp:forms, attributes={formDefinitionId=00000000-0000-0000-0000-000000000000}, description=AnotherDescription, type=action, versionNumber=1}
+        "@
+        
+        # Generate JSON Schema dynamically.
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betabody $body  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /form-definitions/{formDefinitionID}/upload
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $formDefinitionID =  # string | FormDefinitionID  String specifying FormDefinitionID (default to undefined)
+        $file =  # File | File specifying the multipart (default to undefined)
+        
+        # Upload new form definition file.
+        
+        try {
+            -BetaformDefinitionID $formDefinitionID -Betafile $file 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaformDefinitionID $formDefinitionID -Betafile $file  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /form-instances
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $body = @"
+        {expire=2023-06-20T15:57:55.332882Z, formDefinitionId=00000000-0000-0000-0000-000000000000, recipients=[{type=IDENTITY, id=an-identity-id}], createdBy={type=WORKFLOW_EXECUTION, id=a-workflow-execution-id}}
+        "@
+        
+        # Creates a form instance.
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betabody $body  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /form-definitions/{formDefinitionID}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $formDefinitionID =  # string | Form definition ID (default to undefined)
+        
+        # Deletes a form definition.
+        
+        try {
+            -BetaformDefinitionID $formDefinitionID 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaformDefinitionID $formDefinitionID  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /form-definitions/export
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $offset =  # number | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
+        $limit =  # number | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in* (optional) (default to undefined)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, created, modified** (optional) (default to 'name')
+        
+        # List form definitions by tenant.
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaoffset $offset -Betalimit $limit -Betafilters $filters -Betasorters $sorters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /form-definitions/{formDefinitionID}/file/{fileID}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $formDefinitionID =  # string | FormDefinitionID  Form definition ID (default to undefined)
+        $fileID =  # string | FileID  String specifying the hashed name of the uploaded file we are retrieving. (default to undefined)
+        
+        # Download definition file by fileId.
+        
+        try {
+            -BetaformDefinitionID $formDefinitionID -BetafileID $fileID 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaformDefinitionID $formDefinitionID -BetafileID $fileID  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /form-definitions/{formDefinitionID}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $formDefinitionID =  # string | Form definition ID (default to undefined)
+        
+        # Return a form definition.
+        
+        try {
+            -BetaformDefinitionID $formDefinitionID 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaformDefinitionID $formDefinitionID  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /form-instances/{formInstanceID}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $formInstanceID =  # string | Form instance ID (default to undefined)
+        
+        # Returns a form instance.
+        
+        try {
+            -BetaformInstanceID $formInstanceID 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaformInstanceID $formInstanceID  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /form-instances/{formInstanceID}/file/{fileID}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $formInstanceID =  # string | FormInstanceID  Form instance ID (default to undefined)
+        $fileID =  # string | FileID  String specifying the hashed name of the uploaded file we are retrieving. (default to undefined)
+        
+        # Download instance file by fileId.
+        
+        try {
+            -BetaformInstanceID $formInstanceID -BetafileID $fileID 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaformInstanceID $formInstanceID -BetafileID $fileID  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /form-definitions/import
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        # Array<ImportFormDefinitionsRequestInnerBeta> | Body is the request payload to import form definitions (optional)
+        $body = @"[{version=1, self={name=All fields not required, id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, type=FORM_DEFINITION}, object={id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, name=All fields not required, description=description, owner={type=IDENTITY, id=3447d8ec2602455ab6f1e8408a0f0150}, usedBy=[{type=WORKFLOW, id=5008594c-dacc-4295-8fee-41df60477304}, {type=WORKFLOW, id=97e75a75-c179-4fbc-a2da-b5fa4aaa8743}], formInput=[{type=STRING, label=input1, description=A single dynamic scalar value (i.e. number, string, date, etc) that can be passed into the form for use in conditional logic}], formElements=[{id=3069272797630701, elementType=SECTION, config={label=First Section, formElements=[{id=3069272797630700, elementType=TEXT, key=firstName, config={label=First Name}}, {id=3498415402897539, elementType=TEXT, key=lastName, config={label=Last Name}}]}}], formConditions=[{ruleOperator=AND, rules=[{sourceType=INPUT, source=Department, operator=EQ, valueType=STRING, value=Sales}], effects=[{effectType=HIDE, config={element=2614088730489570}}]}], created=2022-10-04T19:27:04.456Z, modified=2022-11-16T20:45:02.172Z}}]"@ 
+        
+        
+        # Import form definitions from export.
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betabody $body  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /form-definitions/{formDefinitionID}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $formDefinitionID =  # string | Form definition ID (default to undefined)
+        $body =  # Array<{ [key: string]: object; }> | Body is the request payload to patch a form definition, check: https://jsonpatch.com (optional)
+        $body = @"[{op=replace, path=/description, value=test-description}]"@ 
+        
+        
+        # Patch a form definition.
+        
+        try {
+            -BetaformDefinitionID $formDefinitionID 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaformDefinitionID $formDefinitionID -Betabody $body  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /form-instances/{formInstanceID}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $formInstanceID =  # string | Form instance ID (default to undefined)
+        $body =  # Array<{ [key: string]: object; }> | Body is the request payload to patch a form instance, check: https://jsonpatch.com (optional)
+        $body = @"[{op=replace, path=/state, value=SUBMITTED}, {op=replace, path=/formData, value={a-key-1=a-value-1, a-key-2=true, a-key-3=1}}]"@ 
+        
+        
+        # Patch a form instance.
+        
+        try {
+            -BetaformInstanceID $formInstanceID 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaformInstanceID $formInstanceID -Betabody $body  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /form-definitions
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $offset =  # number | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
+        $limit =  # number | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in* (optional) (default to undefined)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, created, modified** (optional) (default to 'name')
+        
+        # Export form definitions by tenant.
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaoffset $offset -Betalimit $limit -Betafilters $filters -Betasorters $sorters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /form-instances/{formInstanceID}/data-source/{formElementID}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $formInstanceID =  # string | Form instance ID (default to undefined)
+        $formElementID =  # string | Form element ID (default to undefined)
+        $limit =  # number | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the `in` operator. The `not` composite operator must be used in front of the field. For example, the following is valid: `not value in (\"ID01\")` (optional) (default to undefined)
+        $query =  # string | String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a \"starts with\" filter against  several fields. (optional) (default to undefined)
+        
+        # Retrieves dynamic data by element.
+        
+        try {
+            -BetaformInstanceID $formInstanceID -BetaformElementID $formElementID 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaformInstanceID $formInstanceID -BetaformElementID $formElementID -Betalimit $limit -Betafilters $filters -Betaquery $query  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /form-instances
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        
+        # List form instances by tenant.
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /form-definitions/predefined-select-options
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        
+        # List predefined select options.
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /form-definitions/{formDefinitionID}/data-source
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $formDefinitionID =  # string | Form definition ID (default to undefined)
+        $limit =  # number | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 10)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the `in` operator. The `not` composite operator must be used in front of the field. For example, the following is valid: `not value in (\"ID01\")` (optional) (default to undefined)
+        $query =  # string | String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a \"starts with\" filter against  several fields. (optional) (default to undefined)
+        $formElementPreviewRequestBeta = @"
+        
+        "@
+        
+        # Preview form definition data source.
+        
+        try {
+            -BetaformDefinitionID $formDefinitionID 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaformDefinitionID $formDefinitionID -Betalimit $limit -Betafilters $filters -Betaquery $query -BetaformElementPreviewRequestBeta $formElementPreviewRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

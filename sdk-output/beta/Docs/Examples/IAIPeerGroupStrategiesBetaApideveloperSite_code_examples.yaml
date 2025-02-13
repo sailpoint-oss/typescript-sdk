@@ -1,0 +1,22 @@
+- path: /peer-group-strategies/{strategy}/identity-outliers
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $strategy =  # string | The strategy used to create peer groups. Currently, \'entitlement\' is supported. (default to undefined)
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        
+        # Identity Outliers List
+        
+        try {
+            -Betastrategy $strategy 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betastrategy $strategy -Betalimit $limit -Betaoffset $offset -Betacount $count  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

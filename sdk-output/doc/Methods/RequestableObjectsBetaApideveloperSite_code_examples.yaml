@@ -1,0 +1,30 @@
+- path: /requestable-objects
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, RequestableObjectsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const requestableObjectsBetaApi = new RequestableObjectsBetaApi(apiConfig);
+
+        const identityId = "e7eab60924f64aa284175b9fa3309599"; // string | If present, the value returns only requestable objects for the specified identity.  * Admin users can call this with any identity ID value.  * Non-admin users can only specify *me* or pass their own identity ID value.  * If absent, returns a list of all requestable objects for the tenant. Only admin users can make such a call. In this case, the available, pending, assigned accesses will not be annotated in the result.
+        const types = ROLE,ACCESS_PROFILE; // Array<RequestableObjectTypeBeta> | Filters the results to the specified type/types, where each type is one of ROLE or ACCESS_PROFILE. If absent, all types are returned. Support for additional types may be added in the future without notice.
+        const term = "Finance Role"; // string | It allows searching requestable access items with a partial match on the name or description. If term is provided, then the *filter* query parameter will be ignored.
+        const statuses = [ASSIGNED, PENDING]; // Array<RequestableObjectRequestStatusBeta> | Filters the result to the specified status/statuses, where each status is one of AVAILABLE, ASSIGNED, or PENDING. It is an error to specify this parameter without also specifying an *identity-id* parameter. Additional statuses may be added in the future without notice.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "name sw "bob""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw* 
+        const sorters = "name"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** 
+
+        try {
+          const val = await requestableObjectsBetaApi.listRequestableObjects();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await requestableObjectsBetaApi.listRequestableObjects(identityId, types, term, statuses, limit, offset, count, filters, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

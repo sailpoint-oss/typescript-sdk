@@ -1,0 +1,435 @@
+- path: /form-definitions
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CustomFormsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const customFormsBetaApi = new CustomFormsBetaApi(apiConfig);
+
+        const createFormDefinitionRequestBeta = {name=my form, description=my form description, owner={type=IDENTITY, id=00000000-0000-0000-0000-000000000000}, formElements=[{id=000000000000, elementType=SECTION, config={alignment=LEFT, description=elementType must be 'SECTION' for the root formElements,  child formElements must be within the 'config' attribute, label=Section, labelStyle=h2, showLabel=true, formElements=[{id=0000000000000, key=textField, elementType=TEXT, config={default=, description=, helpText=form element type text, label=Text Field, placeholder=, required=false}, validations=[]}]}}]}; // CreateFormDefinitionRequestBeta | Body is the request payload to create form definition request
+
+        try {
+          const val = await customFormsBetaApi.createFormDefinition();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await customFormsBetaApi.createFormDefinition(createFormDefinitionRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /form-definitions/template
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CustomFormsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const customFormsBetaApi = new CustomFormsBetaApi(apiConfig);
+
+        const createFormDefinitionRequestBeta = {name=my form, description=my form description, owner={type=IDENTITY, id=00000000-0000-0000-0000-000000000000}, formElements=[{id=000000000000, elementType=SECTION, config={alignment=LEFT, description=elementType must be 'SECTION' for the root formElements,  child formElements must be within the 'config' attribute, label=Section, labelStyle=h2, showLabel=true, formElements=[{id=0000000000000, key=textField, elementType=TEXT, config={default=, description=, helpText=form element type text, label=Text Field, placeholder=, required=false}, validations=[]}]}}]}; // CreateFormDefinitionRequestBeta | Body is the request payload to create form definition request
+
+        try {
+          const val = await customFormsBetaApi.createFormDefinitionByTemplate();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await customFormsBetaApi.createFormDefinitionByTemplate(createFormDefinitionRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /form-definitions/forms-action-dynamic-schema
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CustomFormsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const customFormsBetaApi = new CustomFormsBetaApi(apiConfig);
+
+        const body = {id=sp:forms, attributes={formDefinitionId=00000000-0000-0000-0000-000000000000}, description=AnotherDescription, type=action, versionNumber=1}; // FormDefinitionDynamicSchemaRequestBeta | Body is the request payload to create a form definition dynamic schema
+
+        try {
+          const val = await customFormsBetaApi.createFormDefinitionDynamicSchema();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await customFormsBetaApi.createFormDefinitionDynamicSchema(body);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /form-definitions/{formDefinitionID}/upload
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CustomFormsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const customFormsBetaApi = new CustomFormsBetaApi(apiConfig);
+
+        const formDefinitionID : string = "00000000-0000-0000-0000-000000000000"; // FormDefinitionID  String specifying FormDefinitionID
+        const file : File = BINARY_DATA_HERE; // File specifying the multipart
+
+        try {
+          const val = await customFormsBetaApi.createFormDefinitionFileRequest(formDefinitionID, file);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await customFormsBetaApi.createFormDefinitionFileRequest(formDefinitionID, file);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /form-instances
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CustomFormsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const customFormsBetaApi = new CustomFormsBetaApi(apiConfig);
+
+        const body = {expire=2023-06-20T15:57:55.332882Z, formDefinitionId=00000000-0000-0000-0000-000000000000, recipients=[{type=IDENTITY, id=an-identity-id}], createdBy={type=WORKFLOW_EXECUTION, id=a-workflow-execution-id}}; // CreateFormInstanceRequestBeta | Body is the request payload to create a form instance
+
+        try {
+          const val = await customFormsBetaApi.createFormInstance();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await customFormsBetaApi.createFormInstance(body);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /form-definitions/{formDefinitionID}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CustomFormsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const customFormsBetaApi = new CustomFormsBetaApi(apiConfig);
+
+        const formDefinitionID : string = "00000000-0000-0000-0000-000000000000"; // Form definition ID
+
+        try {
+          const val = await customFormsBetaApi.deleteFormDefinition(formDefinitionID);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await customFormsBetaApi.deleteFormDefinition(formDefinitionID);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /form-definitions/export
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CustomFormsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const customFormsBetaApi = new CustomFormsBetaApi(apiConfig);
+
+        const offset = 0; // number | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+        const limit = 250; // number | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+        const filters = "name sw "my form""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in*
+        const sorters = "name"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, created, modified**
+
+        try {
+          const val = await customFormsBetaApi.exportFormDefinitionsByTenant();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await customFormsBetaApi.exportFormDefinitionsByTenant(offset, limit, filters, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /form-definitions/{formDefinitionID}/file/{fileID}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CustomFormsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const customFormsBetaApi = new CustomFormsBetaApi(apiConfig);
+
+        const formDefinitionID : string = "00000000-0000-0000-0000-000000000000"; // FormDefinitionID  Form definition ID
+        const fileID : string = "00000031N0J7R2B57M8YG73J7M.png"; // FileID  String specifying the hashed name of the uploaded file we are retrieving.
+
+        try {
+          const val = await customFormsBetaApi.getFileFromS3(formDefinitionID, fileID);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await customFormsBetaApi.getFileFromS3(formDefinitionID, fileID);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /form-definitions/{formDefinitionID}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CustomFormsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const customFormsBetaApi = new CustomFormsBetaApi(apiConfig);
+
+        const formDefinitionID : string = "00000000-0000-0000-0000-000000000000"; // Form definition ID
+
+        try {
+          const val = await customFormsBetaApi.getFormDefinitionByKey(formDefinitionID);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await customFormsBetaApi.getFormDefinitionByKey(formDefinitionID);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /form-instances/{formInstanceID}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CustomFormsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const customFormsBetaApi = new CustomFormsBetaApi(apiConfig);
+
+        const formInstanceID : string = "00000000-0000-0000-0000-000000000000"; // Form instance ID
+
+        try {
+          const val = await customFormsBetaApi.getFormInstanceByKey(formInstanceID);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await customFormsBetaApi.getFormInstanceByKey(formInstanceID);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /form-instances/{formInstanceID}/file/{fileID}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CustomFormsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const customFormsBetaApi = new CustomFormsBetaApi(apiConfig);
+
+        const formInstanceID : string = "00000000-0000-0000-0000-000000000000"; // FormInstanceID  Form instance ID
+        const fileID : string = "00000031N0J7R2B57M8YG73J7M.png"; // FileID  String specifying the hashed name of the uploaded file we are retrieving.
+
+        try {
+          const val = await customFormsBetaApi.getFormInstanceFile(formInstanceID, fileID);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await customFormsBetaApi.getFormInstanceFile(formInstanceID, fileID);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /form-definitions/import
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CustomFormsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const customFormsBetaApi = new CustomFormsBetaApi(apiConfig);
+
+        const body = [{version=1, self={name=All fields not required, id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, type=FORM_DEFINITION}, object={id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, name=All fields not required, description=description, owner={type=IDENTITY, id=3447d8ec2602455ab6f1e8408a0f0150}, usedBy=[{type=WORKFLOW, id=5008594c-dacc-4295-8fee-41df60477304}, {type=WORKFLOW, id=97e75a75-c179-4fbc-a2da-b5fa4aaa8743}], formInput=[{type=STRING, label=input1, description=A single dynamic scalar value (i.e. number, string, date, etc) that can be passed into the form for use in conditional logic}], formElements=[{id=3069272797630701, elementType=SECTION, config={label=First Section, formElements=[{id=3069272797630700, elementType=TEXT, key=firstName, config={label=First Name}}, {id=3498415402897539, elementType=TEXT, key=lastName, config={label=Last Name}}]}}], formConditions=[{ruleOperator=AND, rules=[{sourceType=INPUT, source=Department, operator=EQ, valueType=STRING, value=Sales}], effects=[{effectType=HIDE, config={element=2614088730489570}}]}], created=2022-10-04T19:27:04.456Z, modified=2022-11-16T20:45:02.172Z}}]; // Array<ImportFormDefinitionsRequestInnerBeta> | Body is the request payload to import form definitions
+
+        try {
+          const val = await customFormsBetaApi.importFormDefinitions();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await customFormsBetaApi.importFormDefinitions(body);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /form-definitions/{formDefinitionID}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CustomFormsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const customFormsBetaApi = new CustomFormsBetaApi(apiConfig);
+
+        const formDefinitionID : string = "00000000-0000-0000-0000-000000000000"; // Form definition ID
+        const body = [{op=replace, path=/description, value=test-description}]; // Array<{ [key: string]: object; }> | Body is the request payload to patch a form definition, check: https://jsonpatch.com
+
+        try {
+          const val = await customFormsBetaApi.patchFormDefinition(formDefinitionID);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await customFormsBetaApi.patchFormDefinition(formDefinitionID, body);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /form-instances/{formInstanceID}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CustomFormsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const customFormsBetaApi = new CustomFormsBetaApi(apiConfig);
+
+        const formInstanceID : string = "00000000-0000-0000-0000-000000000000"; // Form instance ID
+        const body = [{op=replace, path=/state, value=SUBMITTED}, {op=replace, path=/formData, value={a-key-1=a-value-1, a-key-2=true, a-key-3=1}}]; // Array<{ [key: string]: object; }> | Body is the request payload to patch a form instance, check: https://jsonpatch.com
+
+        try {
+          const val = await customFormsBetaApi.patchFormInstance(formInstanceID);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await customFormsBetaApi.patchFormInstance(formInstanceID, body);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /form-definitions
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CustomFormsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const customFormsBetaApi = new CustomFormsBetaApi(apiConfig);
+
+        const offset = 250; // number | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+        const limit = 250; // number | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+        const filters = "name sw "my form""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in*
+        const sorters = "name"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, created, modified**
+
+        try {
+          const val = await customFormsBetaApi.searchFormDefinitionsByTenant();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await customFormsBetaApi.searchFormDefinitionsByTenant(offset, limit, filters, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /form-instances/{formInstanceID}/data-source/{formElementID}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CustomFormsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const customFormsBetaApi = new CustomFormsBetaApi(apiConfig);
+
+        const formInstanceID : string = "00000000-0000-0000-0000-000000000000"; // Form instance ID
+        const formElementID : string = "1"; // Form element ID
+        const limit = 250; // number | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+        const filters = "value eq "ID01""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the `in` operator. The `not` composite operator must be used in front of the field. For example, the following is valid: `not value in (\"ID01\")`
+        const query = "support"; // string | String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a \"starts with\" filter against  several fields.
+
+        try {
+          const val = await customFormsBetaApi.searchFormElementDataByElementID(formInstanceID, formElementID);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await customFormsBetaApi.searchFormElementDataByElementID(formInstanceID, formElementID, limit, filters, query);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /form-instances
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CustomFormsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const customFormsBetaApi = new CustomFormsBetaApi(apiConfig);
+
+
+        try {
+          const val = await customFormsBetaApi.searchFormInstancesByTenant();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await customFormsBetaApi.searchFormInstancesByTenant();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /form-definitions/predefined-select-options
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CustomFormsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const customFormsBetaApi = new CustomFormsBetaApi(apiConfig);
+
+
+        try {
+          const val = await customFormsBetaApi.searchPreDefinedSelectOptions();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await customFormsBetaApi.searchPreDefinedSelectOptions();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /form-definitions/{formDefinitionID}/data-source
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CustomFormsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const customFormsBetaApi = new CustomFormsBetaApi(apiConfig);
+
+        const formDefinitionID : string = "00000000-0000-0000-0000-000000000000"; // Form definition ID
+        const limit = 10; // number | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+        const filters = "value eq "ID01""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the `in` operator. The `not` composite operator must be used in front of the field. For example, the following is valid: `not value in (\"ID01\")`
+        const query = "ac"; // string | String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a \"starts with\" filter against  several fields.
+        const formElementPreviewRequestBeta = ; // FormElementPreviewRequestBeta | Body is the request payload to create a form definition dynamic schema
+
+        try {
+          const val = await customFormsBetaApi.showPreviewDataSource(formDefinitionID);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await customFormsBetaApi.showPreviewDataSource(formDefinitionID, limit, filters, query, formElementPreviewRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

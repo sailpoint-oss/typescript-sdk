@@ -1,0 +1,182 @@
+- path: /ai-access-request-recommendations/ignored-items
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $accessRequestRecommendationActionItemDtoBeta = @"
+        
+        "@
+        
+        # Notification of Ignored Access Request Recommendations
+        
+        try {
+            $Result = ConvertFrom-JsonToaccessRequestRecommendationActionItemDtoBeta -Json $accessRequestRecommendationActionItemDtoBeta
+            -BetaaccessRequestRecommendationActionItemDtoBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaaccessRequestRecommendationActionItemDtoBeta $accessRequestRecommendationActionItemDtoBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /ai-access-request-recommendations/requested-items
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $accessRequestRecommendationActionItemDtoBeta = @"
+        
+        "@
+        
+        # Notification of Requested Access Request Recommendations
+        
+        try {
+            $Result = ConvertFrom-JsonToaccessRequestRecommendationActionItemDtoBeta -Json $accessRequestRecommendationActionItemDtoBeta
+            -BetaaccessRequestRecommendationActionItemDtoBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaaccessRequestRecommendationActionItemDtoBeta $accessRequestRecommendationActionItemDtoBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /ai-access-request-recommendations/viewed-items
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $accessRequestRecommendationActionItemDtoBeta = @"
+        
+        "@
+        
+        # Notification of Viewed Access Request Recommendations
+        
+        try {
+            $Result = ConvertFrom-JsonToaccessRequestRecommendationActionItemDtoBeta -Json $accessRequestRecommendationActionItemDtoBeta
+            -BetaaccessRequestRecommendationActionItemDtoBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaaccessRequestRecommendationActionItemDtoBeta $accessRequestRecommendationActionItemDtoBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /ai-access-request-recommendations/viewed-items/bulk-create
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        # Array<AccessRequestRecommendationActionItemDtoBeta> | The recommended access items that were viewed for an identity.
+        $accessRequestRecommendationActionItemDtoBeta = @""@ 
+        
+        
+        # Notification of Viewed Access Request Recommendations in Bulk
+        
+        try {
+            $Result = ConvertFrom-JsonToaccessRequestRecommendationActionItemDtoBeta -Json $accessRequestRecommendationActionItemDtoBeta
+            -BetaaccessRequestRecommendationActionItemDtoBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaaccessRequestRecommendationActionItemDtoBeta $accessRequestRecommendationActionItemDtoBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /ai-access-request-recommendations
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $identityId =  # string | Get access request recommendations for an identityId. *me* indicates the current user. (optional) (default to 'me')
+        $limit =  # number | Max number of results to return. (optional) (default to 15)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $includeTranslationMessages =  # boolean | If *true* it will populate a list of translation messages in the response. (optional) (default to false)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.name**: *co*  **access.type**: *eq, in*  **access.description**: *co, eq, in* (optional) (default to undefined)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, access.type**  By default the recommendations are sorted by highest confidence first. (optional) (default to undefined)
+        
+        # Identity Access Request Recommendations
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaidentityId $identityId -Betalimit $limit -Betaoffset $offset -Betacount $count -BetaincludeTranslationMessages $includeTranslationMessages -Betafilters $filters -Betasorters $sorters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /ai-access-request-recommendations/ignored-items
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.id**: *eq, in*  **access.type**: *eq, in*  **identityId**: *eq, in* (optional) (default to undefined)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional) (default to undefined)
+        
+        # List of Ignored Access Request Recommendations
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betalimit $limit -Betaoffset $offset -Betacount $count -Betafilters $filters -Betasorters $sorters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /ai-access-request-recommendations/requested-items
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.id**: *eq, in*  **access.type**: *eq, in*  **identityId**: *eq, in* (optional) (default to undefined)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional) (default to undefined)
+        
+        # List of Requested Access Request Recommendations
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betalimit $limit -Betaoffset $offset -Betacount $count -Betafilters $filters -Betasorters $sorters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /ai-access-request-recommendations/viewed-items
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.id**: *eq, in*  **access.type**: *eq, in*  **identityId**: *eq, in* (optional) (default to undefined)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional) (default to undefined)
+        
+        # List of Viewed Access Request Recommendations
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betalimit $limit -Betaoffset $offset -Betacount $count -Betafilters $filters -Betasorters $sorters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

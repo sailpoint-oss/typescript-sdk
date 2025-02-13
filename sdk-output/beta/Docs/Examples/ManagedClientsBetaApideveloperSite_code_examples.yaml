@@ -1,0 +1,43 @@
+- path: /managed-clients/{id}/status
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | ID of the Managed Client Status to get (default to undefined)
+        $type =  # ManagedClientTypeBeta | Type of the Managed Client Status to get (default to undefined)
+        
+        # Specified Managed Client Status.
+        
+        try {
+            -Betaid $id -Betatype $type 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -Betatype $type  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-clients/{id}/status
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | ID of the Managed Client Status to update (default to undefined)
+        $managedClientStatusBeta = @"
+        
+        "@
+        
+        # Handle status request from client
+        
+        try {
+            $Result = ConvertFrom-JsonTomanagedClientStatusBeta -Json $managedClientStatusBeta
+            -Betaid $id -BetamanagedClientStatusBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetamanagedClientStatusBeta $managedClientStatusBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

@@ -1,0 +1,194 @@
+- path: /roles
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, RolesBetaApi, RoleBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const rolesBetaApi = new RolesBetaApi(apiConfig);
+
+        const roleBeta : RoleBeta = ; // 
+
+        try {
+          const val = await rolesBetaApi.createRole(roleBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await rolesBetaApi.createRole(roleBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /roles/bulk-delete
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, RolesBetaApi, RoleBulkDeleteRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const rolesBetaApi = new RolesBetaApi(apiConfig);
+
+        const roleBulkDeleteRequestBeta : RoleBulkDeleteRequestBeta = {roleIds=[2c91808876438bb2017668b91919ecca, 2c91808876438ba801766e129f151816]}; // 
+
+        try {
+          const val = await rolesBetaApi.deleteBulkRoles(roleBulkDeleteRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await rolesBetaApi.deleteBulkRoles(roleBulkDeleteRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /roles/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, RolesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const rolesBetaApi = new RolesBetaApi(apiConfig);
+
+        const id : string = "2c91808a7813090a017814121e121518"; // ID of the Role
+
+        try {
+          const val = await rolesBetaApi.deleteRole(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await rolesBetaApi.deleteRole(id);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /roles/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, RolesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const rolesBetaApi = new RolesBetaApi(apiConfig);
+
+        const id : string = "2c91808a7813090a017814121e121518"; // ID of the Role
+
+        try {
+          const val = await rolesBetaApi.getRole(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await rolesBetaApi.getRole(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /roles/{id}/assigned-identities
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, RolesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const rolesBetaApi = new RolesBetaApi(apiConfig);
+
+        const id : string = "2c91808a7813090a017814121e121518"; // ID of the Role for which the assigned Identities are to be listed
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "name sw Joe"; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **aliasName**: *eq, sw*  **email**: *eq, sw*  **name**: *eq, sw, co*
+        const sorters = "aliasName,name"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, aliasName, email**
+
+        try {
+          const val = await rolesBetaApi.getRoleAssignedIdentities(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await rolesBetaApi.getRoleAssignedIdentities(id, limit, offset, count, filters, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /roles/{id}/entitlements
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, RolesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const rolesBetaApi = new RolesBetaApi(apiConfig);
+
+        const id : string = "2c91808a7813090a017814121919ecca"; // ID of the containing role
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "attribute eq "memberOf""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **attribute**: *eq, sw*  **value**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in*
+        const sorters = "name,-modified"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified**
+
+        try {
+          const val = await rolesBetaApi.getRoleEntitlements(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await rolesBetaApi.getRoleEntitlements(id, limit, offset, count, filters, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /roles
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, RolesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const rolesBetaApi = new RolesBetaApi(apiConfig);
+
+        const forSubadmin = "5168015d32f890ca15812c9180835d2e"; // string | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\'s ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin.
+        const limit = 50; // number | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "requestable eq false"; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*
+        const sorters = "name,-modified"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
+        const forSegmentIds = "0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d"; // string | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
+        const includeUnsegmented = false; // boolean | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+
+        try {
+          const val = await rolesBetaApi.listRoles();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await rolesBetaApi.listRoles(forSubadmin, limit, offset, count, filters, sorters, forSegmentIds, includeUnsegmented);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /roles/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, RolesBetaApi, JsonPatchOperationBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const rolesBetaApi = new RolesBetaApi(apiConfig);
+
+        const id : string = "2c91808a7813090a017814121e121518"; // ID of the Role to patch
+        const jsonPatchOperationBeta : Array<JsonPatchOperationBeta> = [{op=replace, path=/requestable, value=true}, {op=replace, path=/enabled, value=true}]; // 
+
+        try {
+          const val = await rolesBetaApi.patchRole(id, jsonPatchOperationBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await rolesBetaApi.patchRole(id, jsonPatchOperationBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

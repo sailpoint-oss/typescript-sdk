@@ -1,0 +1,187 @@
+- path: /tagged-objects/{type}/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TaggedObjectsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const taggedObjectsBetaApi = new TaggedObjectsBetaApi(apiConfig);
+
+        const type : 'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE' = "ROLE"; // The type of object to delete tags from.
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The ID of the object to delete tags from.
+
+        try {
+          const val = await taggedObjectsBetaApi.deleteTaggedObject(type, id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await taggedObjectsBetaApi.deleteTaggedObject(type, id);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /tagged-objects/bulk-remove
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TaggedObjectsBetaApi, BulkTaggedObjectBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const taggedObjectsBetaApi = new TaggedObjectsBetaApi(apiConfig);
+
+        const bulkTaggedObjectBeta : BulkTaggedObjectBeta = ; // Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+
+        try {
+          const val = await taggedObjectsBetaApi.deleteTagsToManyObject(bulkTaggedObjectBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await taggedObjectsBetaApi.deleteTagsToManyObject(bulkTaggedObjectBeta);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /tagged-objects/{type}/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TaggedObjectsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const taggedObjectsBetaApi = new TaggedObjectsBetaApi(apiConfig);
+
+        const type : 'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE' = "ROLE"; // The type of tagged object to retrieve.
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The ID of the object reference to retrieve.
+
+        try {
+          const val = await taggedObjectsBetaApi.getTaggedObject(type, id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await taggedObjectsBetaApi.getTaggedObject(type, id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /tagged-objects
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TaggedObjectsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const taggedObjectsBetaApi = new TaggedObjectsBetaApi(apiConfig);
+
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "tagName eq "BU_FINANCE""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq, in*  **objectRef.type**: *eq, in*  **tagName**: *eq, in*
+
+        try {
+          const val = await taggedObjectsBetaApi.listTaggedObjects();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await taggedObjectsBetaApi.listTaggedObjects(limit, offset, count, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /tagged-objects/{type}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TaggedObjectsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const taggedObjectsBetaApi = new TaggedObjectsBetaApi(apiConfig);
+
+        const type : 'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE' = "ROLE"; // The type of tagged object to retrieve.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "objectRef.id eq "2c91808568c529c60168cca6f90c1313""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq*  **objectRef.type**: *eq*
+
+        try {
+          const val = await taggedObjectsBetaApi.listTaggedObjectsByType(type);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await taggedObjectsBetaApi.listTaggedObjectsByType(type, limit, offset, count, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /tagged-objects/{type}/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TaggedObjectsBetaApi, TaggedObjectBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const taggedObjectsBetaApi = new TaggedObjectsBetaApi(apiConfig);
+
+        const type : 'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE' = "ROLE"; // The type of tagged object to update.
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The ID of the object reference to update.
+        const taggedObjectBeta : TaggedObjectBeta = ; // 
+
+        try {
+          const val = await taggedObjectsBetaApi.putTaggedObject(type, id, taggedObjectBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await taggedObjectsBetaApi.putTaggedObject(type, id, taggedObjectBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /tagged-objects
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TaggedObjectsBetaApi, TaggedObjectBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const taggedObjectsBetaApi = new TaggedObjectsBetaApi(apiConfig);
+
+        const taggedObjectBeta : TaggedObjectBeta = ; // 
+
+        try {
+          const val = await taggedObjectsBetaApi.setTagToObject(taggedObjectBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await taggedObjectsBetaApi.setTagToObject(taggedObjectBeta);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /tagged-objects/bulk-add
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TaggedObjectsBetaApi, BulkTaggedObjectBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const taggedObjectsBetaApi = new TaggedObjectsBetaApi(apiConfig);
+
+        const bulkTaggedObjectBeta : BulkTaggedObjectBeta = ; // Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+
+        try {
+          const val = await taggedObjectsBetaApi.setTagsToManyObjects(bulkTaggedObjectBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await taggedObjectsBetaApi.setTagsToManyObjects(bulkTaggedObjectBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

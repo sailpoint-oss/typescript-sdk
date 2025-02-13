@@ -1,0 +1,174 @@
+- path: /mfa/{method}/delete
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, MFAConfigurationBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const mFAConfigurationBetaApi = new MFAConfigurationBetaApi(apiConfig);
+
+        const method : 'okta-verify' | 'duo-web' = "okta-verify"; // The name of the MFA method. The currently supported method names are \'okta-verify\' and \'duo-web\'.
+
+        try {
+          const val = await mFAConfigurationBetaApi.deleteMFAConfig(method);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await mFAConfigurationBetaApi.deleteMFAConfig(method);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /mfa/duo-web/config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, MFAConfigurationBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const mFAConfigurationBetaApi = new MFAConfigurationBetaApi(apiConfig);
+
+
+        try {
+          const val = await mFAConfigurationBetaApi.getMFADuoConfig();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await mFAConfigurationBetaApi.getMFADuoConfig();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /mfa/kba/config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, MFAConfigurationBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const mFAConfigurationBetaApi = new MFAConfigurationBetaApi(apiConfig);
+
+        const allLanguages = allLanguages=true; // boolean | Indicator whether the question text should be returned in all configured languages    * If true, the question text is returned in all languages that it is configured in.    * If false, the question text is returned in the user locale if available, else for the default locale.     * If not passed, it behaves the same way as passing this parameter as false
+
+        try {
+          const val = await mFAConfigurationBetaApi.getMFAKbaConfig();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await mFAConfigurationBetaApi.getMFAKbaConfig(allLanguages);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /mfa/okta-verify/config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, MFAConfigurationBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const mFAConfigurationBetaApi = new MFAConfigurationBetaApi(apiConfig);
+
+
+        try {
+          const val = await mFAConfigurationBetaApi.getMFAOktaConfig();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await mFAConfigurationBetaApi.getMFAOktaConfig();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /mfa/duo-web/config
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, MFAConfigurationBetaApi, MfaDuoConfigBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const mFAConfigurationBetaApi = new MFAConfigurationBetaApi(apiConfig);
+
+        const mfaDuoConfigBeta : MfaDuoConfigBeta = {mfaMethod=duo-web, enabled=true, host=www.example.com, accessKey=qw123Y3QlA5UqocYpdU3rEkzrK2D497y, identityAttribute=email, configProperties={skey=12q3WERlcUHWJmiMqyCXI3uOF7EaDJTbdeOp6E2B, ikey=Q123WE45R6TY7890ZXCV}}; // 
+
+        try {
+          const val = await mFAConfigurationBetaApi.setMFADuoConfig(mfaDuoConfigBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await mFAConfigurationBetaApi.setMFADuoConfig(mfaDuoConfigBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /mfa/kba/config/answers
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, MFAConfigurationBetaApi, KbaAnswerRequestItemBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const mFAConfigurationBetaApi = new MFAConfigurationBetaApi(apiConfig);
+
+        const kbaAnswerRequestItemBeta : Array<KbaAnswerRequestItemBeta> = [{id=173423, answer=822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34}, {id=c54fee53-2d63-4fc5-9259-3e93b9994135, answer=9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08}]; // 
+
+        try {
+          const val = await mFAConfigurationBetaApi.setMFAKBAConfig(kbaAnswerRequestItemBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await mFAConfigurationBetaApi.setMFAKBAConfig(kbaAnswerRequestItemBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /mfa/okta-verify/config
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, MFAConfigurationBetaApi, MfaOktaConfigBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const mFAConfigurationBetaApi = new MFAConfigurationBetaApi(apiConfig);
+
+        const mfaOktaConfigBeta : MfaOktaConfigBeta = {mfaMethod=okta-verify, enabled=true, host=www.example.com, accessKey=dk778Y3QlA5UqocYpdU3rEkzrK2D497y, identityAttribute=email}; // 
+
+        try {
+          const val = await mFAConfigurationBetaApi.setMFAOktaConfig(mfaOktaConfigBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await mFAConfigurationBetaApi.setMFAOktaConfig(mfaOktaConfigBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /mfa/{method}/test
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, MFAConfigurationBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const mFAConfigurationBetaApi = new MFAConfigurationBetaApi(apiConfig);
+
+        const method : 'okta-verify' | 'duo-web' = "okta-verify"; // The name of the MFA method. The currently supported method names are \'okta-verify\' and \'duo-web\'.
+
+        try {
+          const val = await mFAConfigurationBetaApi.testMFAConfig(method);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await mFAConfigurationBetaApi.testMFAConfig(method);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

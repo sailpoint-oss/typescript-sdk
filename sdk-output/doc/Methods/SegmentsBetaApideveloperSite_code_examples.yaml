@@ -1,0 +1,113 @@
+- path: /segments
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SegmentsBetaApi, SegmentBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const segmentsBetaApi = new SegmentsBetaApi(apiConfig);
+
+        const segmentBeta : SegmentBeta = ; // 
+
+        try {
+          const val = await segmentsBetaApi.createSegment(segmentBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await segmentsBetaApi.createSegment(segmentBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /segments/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SegmentsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const segmentsBetaApi = new SegmentsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The segment ID to delete.
+
+        try {
+          const val = await segmentsBetaApi.deleteSegment(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await segmentsBetaApi.deleteSegment(id);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /segments/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SegmentsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const segmentsBetaApi = new SegmentsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The segment ID to retrieve.
+
+        try {
+          const val = await segmentsBetaApi.getSegment(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await segmentsBetaApi.getSegment(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /segments
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SegmentsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const segmentsBetaApi = new SegmentsBetaApi(apiConfig);
+
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await segmentsBetaApi.listSegments();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await segmentsBetaApi.listSegments(limit, offset, count);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /segments/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SegmentsBetaApi, object } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const segmentsBetaApi = new SegmentsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The segment ID to modify.
+        const requestBody : Array<object> = [{op=replace, path=/visibilityCriteria, value={expression={operator=AND, children=[{operator=EQUALS, attribute=location, value={type=STRING, value=Philadelphia}}, {operator=EQUALS, attribute=department, value={type=STRING, value=HR}}]}}}]; // A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * owner * visibilityCriteria * active 
+
+        try {
+          const val = await segmentsBetaApi.patchSegment(id, requestBody);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await segmentsBetaApi.patchSegment(id, requestBody);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

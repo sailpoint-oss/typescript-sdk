@@ -1,0 +1,84 @@
+- path: /personal-access-tokens
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $createPersonalAccessTokenRequestBeta = @"
+        
+        "@
+        
+        # Create Personal Access Token
+        
+        try {
+            $Result = ConvertFrom-JsonTocreatePersonalAccessTokenRequestBeta -Json $createPersonalAccessTokenRequestBeta
+            -BetacreatePersonalAccessTokenRequestBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetacreatePersonalAccessTokenRequestBeta $createPersonalAccessTokenRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /personal-access-tokens/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The personal access token id (default to undefined)
+        
+        # Delete Personal Access Token
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /personal-access-tokens
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $ownerId =  # string | The identity ID of the owner whose personal access tokens should be listed.  If \"me\", the caller should have the following right: \'idn:my-personal-access-tokens:read\' If an actual owner ID or if the `owner-id` parameter is omitted in the request,  the caller should have the following right: \'idn:all-personal-access-tokens:read\'.  If the caller has the following right, then managed personal access tokens associated with `owner-id` will be retrieved: \'idn:managed-personal-access-tokens:read\' (optional) (default to undefined)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional) (default to undefined)
+        
+        # List Personal Access Tokens
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaownerId $ownerId -Betafilters $filters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /personal-access-tokens/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The Personal Access Token id (default to undefined)
+        # Array<JsonPatchOperationBeta> | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
+        $jsonPatchOperationBeta = @"[{op=replace, path=/name, value=New name}, {op=replace, path=/scope, value=[sp:scopes:all]}]"@ 
+        
+        
+        # Patch Personal Access Token
+        
+        try {
+            $Result = ConvertFrom-JsonTojsonPatchOperationBeta -Json $jsonPatchOperationBeta
+            -Betaid $id -BetajsonPatchOperationBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetajsonPatchOperationBeta $jsonPatchOperationBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

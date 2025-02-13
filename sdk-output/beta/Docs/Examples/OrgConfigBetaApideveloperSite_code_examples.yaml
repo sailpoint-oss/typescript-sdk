@@ -1,0 +1,58 @@
+- path: /org-config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        
+        # Get Org configuration settings
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /org-config/valid-time-zones
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        
+        # Get list of time zones
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /org-config
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        # Array<JsonPatchOperationBeta> | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        $jsonPatchOperationBeta = @"[{op=replace, path=/timeZone, value=America/Toronto}]"@ 
+        
+        
+        # Patch an Org configuration property
+        
+        try {
+            $Result = ConvertFrom-JsonTojsonPatchOperationBeta -Json $jsonPatchOperationBeta
+            -BetajsonPatchOperationBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetajsonPatchOperationBeta $jsonPatchOperationBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

@@ -1,0 +1,21 @@
+- path: /tenant
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TenantBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const tenantBetaApi = new TenantBetaApi(apiConfig);
+
+
+        try {
+          const val = await tenantBetaApi.getTenant();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await tenantBetaApi.getTenant();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

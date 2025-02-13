@@ -1,0 +1,41 @@
+- path: /icons/{objectType}/{objectId}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $objectType =  # string | Object type. Available options [\'application\'] (default to undefined)
+        $objectId =  # string | Object id. (default to undefined)
+        
+        # Delete an icon
+        
+        try {
+            -BetaobjectType $objectType -BetaobjectId $objectId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaobjectType $objectType -BetaobjectId $objectId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /icons/{objectType}/{objectId}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $objectType =  # string | Object type. Available options [\'application\'] (default to undefined)
+        $objectId =  # string | Object id. (default to undefined)
+        $image =  # File | file with icon. Allowed mime-types [\\\'image/png\\\', \\\'image/jpeg\\\'] (default to undefined)
+        
+        # Update an icon
+        
+        try {
+            -BetaobjectType $objectType -BetaobjectId $objectId -Betaimage $image 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaobjectType $objectType -BetaobjectId $objectId -Betaimage $image  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

@@ -1,0 +1,987 @@
+- path: /sources/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const id : string = "2c9180835d191a86015d28455b4a2329"; // Source ID.
+
+        try {
+          const val = await sourcesBetaApi._delete(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi._delete(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/provisioning-policies
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi, ProvisioningPolicyDtoBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "2c9180835d191a86015d28455b4a2329"; // The Source id
+        const provisioningPolicyDtoBeta : ProvisioningPolicyDtoBeta = {name=Account, description=Account Provisioning Policy, usageType=CREATE, fields=[{name=displayName, transform={type=identityAttribute, attributes={name=displayName}}, attributes={}, isRequired=false, type=string, isMultiValued=false}, {name=distinguishedName, transform={type=usernameGenerator, attributes={sourceCheck=true, patterns=[CN=$fi $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com, CN=$fti $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com, CN=$fn $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com, CN=$fn$ln${uniqueCounter},OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com], fn={type=identityAttribute, attributes={name=firstname}}, ln={type=identityAttribute, attributes={name=lastname}}, fi={type=substring, attributes={input={type=identityAttribute, attributes={name=firstname}}, begin=0.0, end=1.0}}, fti={type=substring, attributes={input={type=identityAttribute, attributes={name=firstname}}, begin=0.0, end=2.0}}}}, attributes={cloudMaxUniqueChecks=5, cloudMaxSize=100, cloudRequired=true}, isRequired=false, type=, isMultiValued=false}, {name=description, transform={type=static, attributes={value=}}, attributes={}, isRequired=false, type=string, isMultiValued=false}]}; // 
+
+        try {
+          const val = await sourcesBetaApi.createProvisioningPolicy(sourceId, provisioningPolicyDtoBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.createProvisioningPolicy(sourceId, provisioningPolicyDtoBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi, SourceBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceBeta : SourceBeta = ; // 
+        const provisionAsCsv = false; // boolean | If this parameter is `true`, it configures the source as a Delimited File (CSV) source. Setting this to `true` will automatically set the `type` of the source to `DelimitedFile`.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don\'t set this query parameter and you attempt to set the `type` attribute directly, the request won\'t correctly generate the source.  
+
+        try {
+          const val = await sourcesBetaApi.createSource(sourceBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.createSource(sourceBeta, provisionAsCsv);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/schemas
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi, SchemaBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "2c9180835d191a86015d28455b4a2329"; // Source ID.
+        const schemaBeta : SchemaBeta = ; // 
+
+        try {
+          const val = await sourcesBetaApi.createSourceSchema(sourceId, schemaBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.createSourceSchema(sourceId, schemaBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/remove-accounts
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "ebbf35756e1140699ce52b233121384a"; // The source id
+
+        try {
+          const val = await sourcesBetaApi.deleteAccountsAsync(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.deleteAccountsAsync(sourceId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/native-change-detection-config
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "2c9180835d191a86015d28455b4a2329"; // The source id
+
+        try {
+          const val = await sourcesBetaApi.deleteNativeChangeDetectionConfig(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.deleteNativeChangeDetectionConfig(sourceId);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/provisioning-policies/{usageType}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi,  } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "2c9180835d191a86015d28455b4a2329"; // The Source ID.
+        const usageType : UsageTypeBeta = CREATE; // The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
+
+        try {
+          const val = await sourcesBetaApi.deleteProvisioningPolicy(sourceId, usageType);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.deleteProvisioningPolicy(sourceId, usageType);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/schemas/{schemaId}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "2c9180835d191a86015d28455b4a2329"; // The Source ID.
+        const schemaId : string = "2c9180835d191a86015d28455b4a2329"; // The Schema ID.
+
+        try {
+          const val = await sourcesBetaApi.deleteSourceSchema(sourceId, schemaId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.deleteSourceSchema(sourceId, schemaId);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/correlation-config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "2c9180835d191a86015d28455b4a2329"; // The source id
+
+        try {
+          const val = await sourcesBetaApi.getCorrelationConfig(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.getCorrelationConfig(sourceId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/native-change-detection-config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "2c9180835d191a86015d28455b4a2329"; // The source id
+
+        try {
+          const val = await sourcesBetaApi.getNativeChangeDetectionConfig(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.getNativeChangeDetectionConfig(sourceId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/provisioning-policies/{usageType}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi,  } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "2c9180835d191a86015d28455b4a2329"; // The Source ID.
+        const usageType : UsageTypeBeta = CREATE; // The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
+
+        try {
+          const val = await sourcesBetaApi.getProvisioningPolicy(sourceId, usageType);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.getProvisioningPolicy(sourceId, usageType);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const id : string = "2c9180835d191a86015d28455b4a2329"; // Source ID.
+
+        try {
+          const val = await sourcesBetaApi.getSource(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.getSource(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/schemas/accounts
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "8c190e6787aa4ed9a90bd9d5344523fb"; // The Source id
+
+        try {
+          const val = await sourcesBetaApi.getSourceAccountsSchema(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.getSourceAccountsSchema(sourceId);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{id}/attribute-sync-config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const id : string = "2c9180835d191a86015d28455b4a2329"; // The source id
+
+        try {
+          const val = await sourcesBetaApi.getSourceAttrSyncConfig(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.getSourceAttrSyncConfig(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{id}/connectors/source-config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const id : string = "id_example"; // The Source id
+        const locale = "locale_example"; // 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl' | The locale to apply to the config. If no viable locale is given, it will default to \"en\"
+
+        try {
+          const val = await sourcesBetaApi.getSourceConfig(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.getSourceConfig(id, locale);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/entitlement-request-config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "8c190e6787aa4ed9a90bd9d5344523fb"; // The Source id
+
+        try {
+          const val = await sourcesBetaApi.getSourceEntitlementRequestConfig(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.getSourceEntitlementRequestConfig(sourceId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/schemas/entitlements
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "8c190e6787aa4ed9a90bd9d5344523fb"; // The Source id
+        const schemaName = "?schemaName=group"; // string | Name of entitlement schema
+
+        try {
+          const val = await sourcesBetaApi.getSourceEntitlementsSchema(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.getSourceEntitlementsSchema(sourceId, schemaName);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/schemas/{schemaId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "2c9180835d191a86015d28455b4a2329"; // The Source ID.
+        const schemaId : string = "2c9180835d191a86015d28455b4a2329"; // The Schema ID.
+
+        try {
+          const val = await sourcesBetaApi.getSourceSchema(sourceId, schemaId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.getSourceSchema(sourceId, schemaId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/schemas
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "2c9180835d191a86015d28455b4a2329"; // Source ID.
+        const includeTypes = "group"; // 'group' | 'user' | If set to \'group\', then the account schema is filtered and only group schemas are returned. Only a value of \'group\' is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas.
+        const includeNames = "account"; // string | A comma-separated list of schema names to filter result.
+
+        try {
+          const val = await sourcesBetaApi.getSourceSchemas(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.getSourceSchemas(sourceId, includeTypes, includeNames);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/load-accounts
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "ef38f94347e94562b5bb8424a56397d8"; // Source Id
+        const file = BINARY_DATA_HERE; // File | The CSV file containing the source accounts to aggregate.
+        const disableOptimization = "disableOptimization_example"; // string | Use this flag to reprocess every account whether or not the data has changed.
+
+        try {
+          const val = await sourcesBetaApi.importAccounts(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.importAccounts(sourceId, file, disableOptimization);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/load-entitlements
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "ef38f94347e94562b5bb8424a56397d8"; // Source Id
+        const file = BINARY_DATA_HERE; // File | The CSV file containing the source entitlements to aggregate.
+
+        try {
+          const val = await sourcesBetaApi.importEntitlements(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.importEntitlements(sourceId, file);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/schemas/accounts
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "8c190e6787aa4ed9a90bd9d5344523fb"; // The Source id
+        const file = BINARY_DATA_HERE; // File | 
+
+        try {
+          const val = await sourcesBetaApi.importSourceAccountsSchema(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.importSourceAccountsSchema(sourceId, file);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/upload-connector-file
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "8c190e6787aa4ed9a90bd9d5344523fb"; // The Source id
+        const file = BINARY_DATA_HERE; // File | 
+
+        try {
+          const val = await sourcesBetaApi.importSourceConnectorFile(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.importSourceConnectorFile(sourceId, file);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/schemas/entitlements
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "8c190e6787aa4ed9a90bd9d5344523fb"; // The Source id
+        const schemaName = "?schemaName=group"; // string | Name of entitlement schema
+        const file = BINARY_DATA_HERE; // File | 
+
+        try {
+          const val = await sourcesBetaApi.importSourceEntitlementsSchema(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.importSourceEntitlementsSchema(sourceId, schemaName, file);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/load-uncorrelated-accounts
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "75dbec1ebe154d5785da27b95e1dd5d7"; // Source Id
+        const file = BINARY_DATA_HERE; // File | 
+
+        try {
+          const val = await sourcesBetaApi.importUncorrelatedAccounts(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.importUncorrelatedAccounts(sourceId, file);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/provisioning-policies
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "2c9180835d191a86015d28455b4a2329"; // The Source id
+
+        try {
+          const val = await sourcesBetaApi.listProvisioningPolicies(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.listProvisioningPolicies(sourceId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "name eq "Employees""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **name**: *co, eq, in, sw, ge, gt, ne, isnull*  **type**: *eq, in, ge, gt, ne, isnull, sw*  **owner.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **features**: *ca, co*  **created**: *eq*  **modified**: *eq*  **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **description**: *eq, sw*  **authoritative**: *eq, ne, isnull*  **healthy**: *isnull*  **status**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **connectionType**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **connectorName**: *eq, ge, gt, in, ne, isnull, sw*  **category**: *co, eq, ge, gt, in, le, lt, ne, sw*
+        const sorters = "name"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status, id, description, owner.id, accountCorrelationConfig.id, accountCorrelationConfig.name, managerCorrelationRule.type, managerCorrelationRule.id, managerCorrelationRule.name, authoritative, managementWorkgroup.id, connectorName, connectionType**
+        const forSubadmin = "name"; // string | Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned.
+        const includeIDNSource = true; // boolean | Include the IdentityNow source in the response.
+
+        try {
+          const val = await sourcesBetaApi.listSources();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.listSources(limit, offset, count, filters, sorters, forSubadmin, includeIDNSource);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/connector/peek-resource-objects
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi, ResourceObjectsRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "cef3ee201db947c5912551015ba0c679"; // The ID of the Source
+        const resourceObjectsRequestBeta : ResourceObjectsRequestBeta = ; // 
+
+        try {
+          const val = await sourcesBetaApi.peekResourceObjects(sourceId, resourceObjectsRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.peekResourceObjects(sourceId, resourceObjectsRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/connector/ping-cluster
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "cef3ee201db947c5912551015ba0c679"; // The ID of the Source
+
+        try {
+          const val = await sourcesBetaApi.pingCluster(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.pingCluster(sourceId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/correlation-config
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi, CorrelationConfigBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "2c9180835d191a86015d28455b4a2329"; // The source id
+        const correlationConfigBeta : CorrelationConfigBeta = ; // 
+
+        try {
+          const val = await sourcesBetaApi.putCorrelationConfig(sourceId, correlationConfigBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.putCorrelationConfig(sourceId, correlationConfigBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/native-change-detection-config
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi, NativeChangeDetectionConfigBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "2c9180835d191a86015d28455b4a2329"; // The source id
+        const nativeChangeDetectionConfigBeta : NativeChangeDetectionConfigBeta = ; // 
+
+        try {
+          const val = await sourcesBetaApi.putNativeChangeDetectionConfig(sourceId, nativeChangeDetectionConfigBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.putNativeChangeDetectionConfig(sourceId, nativeChangeDetectionConfigBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/provisioning-policies/{usageType}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi, , ProvisioningPolicyDtoBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "2c9180835d191a86015d28455b4a2329"; // The Source ID.
+        const usageType : UsageTypeBeta = CREATE; // The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
+        const provisioningPolicyDtoBeta : ProvisioningPolicyDtoBeta = ; // 
+
+        try {
+          const val = await sourcesBetaApi.putProvisioningPolicy(sourceId, usageType, provisioningPolicyDtoBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.putProvisioningPolicy(sourceId, usageType, provisioningPolicyDtoBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi, SourceBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const id : string = "2c9180835d191a86015d28455b4a2329"; // Source ID.
+        const sourceBeta : SourceBeta = ; // 
+
+        try {
+          const val = await sourcesBetaApi.putSource(id, sourceBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.putSource(id, sourceBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{id}/attribute-sync-config
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi, AttrSyncSourceConfigBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const id : string = "2c9180835d191a86015d28455b4a2329"; // The source id
+        const attrSyncSourceConfigBeta : AttrSyncSourceConfigBeta = ; // 
+
+        try {
+          const val = await sourcesBetaApi.putSourceAttrSyncConfig(id, attrSyncSourceConfigBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.putSourceAttrSyncConfig(id, attrSyncSourceConfigBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/schemas/{schemaId}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi, SchemaBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "2c9180835d191a86015d28455b4a2329"; // The Source ID.
+        const schemaId : string = "2c9180835d191a86015d28455b4a2329"; // The Schema ID.
+        const schemaBeta : SchemaBeta = ; // 
+
+        try {
+          const val = await sourcesBetaApi.putSourceSchema(sourceId, schemaId, schemaBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.putSourceSchema(sourceId, schemaId, schemaBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/synchronize-attributes
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "sourceId_example"; // The Source id
+
+        try {
+          const val = await sourcesBetaApi.syncAttributesForSource(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.syncAttributesForSource(sourceId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/connector/test-configuration
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "cef3ee201db947c5912551015ba0c679"; // The ID of the Source
+
+        try {
+          const val = await sourcesBetaApi.testSourceConfiguration(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.testSourceConfiguration(sourceId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/connector/check-connection
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "cef3ee201db947c5912551015ba0c679"; // The ID of the Source.
+
+        try {
+          const val = await sourcesBetaApi.testSourceConnection(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.testSourceConnection(sourceId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/provisioning-policies/bulk-update
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi, ProvisioningPolicyDtoBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "2c9180835d191a86015d28455b4a2329"; // The Source id.
+        const provisioningPolicyDtoBeta : Array<ProvisioningPolicyDtoBeta> = ; // 
+
+        try {
+          const val = await sourcesBetaApi.updateProvisioningPoliciesInBulk(sourceId, provisioningPolicyDtoBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.updateProvisioningPoliciesInBulk(sourceId, provisioningPolicyDtoBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/provisioning-policies/{usageType}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi, , JsonPatchOperationBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "2c9180835d191a86015d28455b4a2329"; // The Source id.
+        const usageType : UsageTypeBeta = CREATE; // The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
+        const jsonPatchOperationBeta : Array<JsonPatchOperationBeta> = [{op=add, path=/fields/0, value={name=email, transform={type=identityAttribute, attributes={name=email}}, attributes={}, isRequired=false, type=string, isMultiValued=false}}]; // The JSONPatch payload used to update the schema.
+
+        try {
+          const val = await sourcesBetaApi.updateProvisioningPolicy(sourceId, usageType, jsonPatchOperationBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.updateProvisioningPolicy(sourceId, usageType, jsonPatchOperationBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi, JsonPatchOperationBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const id : string = "2c9180835d191a86015d28455b4a2329"; // Source ID.
+        const jsonPatchOperationBeta : Array<JsonPatchOperationBeta> = [{op=replace, path=/description, value=new description}]; // A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
+
+        try {
+          const val = await sourcesBetaApi.updateSource(id, jsonPatchOperationBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.updateSource(id, jsonPatchOperationBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/entitlement-request-config
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi, SourceEntitlementRequestConfigBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "8c190e6787aa4ed9a90bd9d5344523fb"; // The Source id
+        const sourceEntitlementRequestConfigBeta : SourceEntitlementRequestConfigBeta = {accessRequestConfig={approvalSchemes=[]}}; // 
+
+        try {
+          const val = await sourcesBetaApi.updateSourceEntitlementRequestConfig(sourceId, sourceEntitlementRequestConfigBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.updateSourceEntitlementRequestConfig(sourceId, sourceEntitlementRequestConfigBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sources/{sourceId}/schemas/{schemaId}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourcesBetaApi, JsonPatchOperationBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourcesBetaApi = new SourcesBetaApi(apiConfig);
+
+        const sourceId : string = "2c9180835d191a86015d28455b4a2329"; // The Source id.
+        const schemaId : string = "2c9180835d191a86015d28455b4a2329"; // The Schema id.
+        const jsonPatchOperationBeta : Array<JsonPatchOperationBeta> = [{op=replace, path=/displayAttribute, value={new-display-attribute=null}}]; // The JSONPatch payload used to update the schema.
+
+        try {
+          const val = await sourcesBetaApi.updateSourceSchema(sourceId, schemaId, jsonPatchOperationBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourcesBetaApi.updateSourceSchema(sourceId, schemaId, jsonPatchOperationBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

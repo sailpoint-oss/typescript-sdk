@@ -1,0 +1,55 @@
+---
+title: {{classname}}
+pagination_label: {{classname}}
+sidebar_label: {{classname}}
+sidebar_class_name: typescriptsdk
+keywords: ['typescript', 'sdk', '{{classname}}'] 
+tags: ['SDK', 'Software Development Kit', '{{classname}}']
+---
+
+# {{classname}}{{#description}}
+
+{{.}}{{/description}}
+
+All URIs are relative to *{{basePath}}*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+{{#operations}}{{#operation}}[**{{operationId}}**]({{classname}}.md#{{operationId}}) | **{{httpMethod}}** {{path}} | {{summary}}
+{{/operation}}{{/operations}}
+
+{{#operations}}
+{{#operation}}
+
+## {{operationId}}
+
+> {{#returnType}}{{.}} {{/returnType}}{{operationId}}({{#requiredParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/requiredParams}}{{#optionalParams}}{{#-first}}{{#hasRequiredParams}}, {{/hasRequiredParams}}{{/-first}}{{{paramName}}}{{^-last}}, {{/-last}}{{/optionalParams}})
+
+{{{summary}}}{{#notes}}
+
+{{{.}}}{{/notes}}
+
+### Parameters
+
+{{^allParams}}This endpoint does not need any parameter.{{/allParams}}{{#allParams}}{{#-last}}
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------{{/-last}}{{/allParams}}
+{{#allParams}} **{{paramName}}** | {{#isPrimitiveType}}**{{dataType}}**{{/isPrimitiveType}}{{^isPrimitiveType}}{{#isFile}}**{{dataType}}**{{/isFile}}{{^isFile}}[**{{dataType}}**](../Models/{{baseType}}.md){{/isFile}}{{/isPrimitiveType}}| {{description}} | {{^required}}[optional] {{/required}}{{#defaultValue}}[default to {{.}}]{{/defaultValue}}
+{{/allParams}}
+
+### Return type
+
+{{#returnType}}{{#returnTypeIsPrimitive}}**{{returnType}}**{{/returnTypeIsPrimitive}}{{^returnTypeIsPrimitive}}[**{{returnType}}**](../Models/{{returnBaseType}}.md){{/returnTypeIsPrimitive}}{{/returnType}}{{^returnType}}null (empty response body){{/returnType}}
+
+### Authorization
+
+{{^authMethods}}No authorization required{{/authMethods}}{{#authMethods}}[{{name}}](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication){{^-last}}, {{/-last}}{{/authMethods}}
+
+<details>
+<summary>Example</summary>
+
+{{> api_doc_example }}
+</details>
+
+{{/operation}}
+{{/operations}}

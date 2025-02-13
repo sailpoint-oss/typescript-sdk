@@ -1,0 +1,189 @@
+- path: /access-profiles
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccessProfilesBetaApi, AccessProfileBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accessProfilesBetaApi = new AccessProfilesBetaApi(apiConfig);
+
+        const accessProfileBeta : AccessProfileBeta = ; // 
+
+        try {
+          const val = await accessProfilesBetaApi.createAccessProfile(accessProfileBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accessProfilesBetaApi.createAccessProfile(accessProfileBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /access-profiles/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccessProfilesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accessProfilesBetaApi = new AccessProfilesBetaApi(apiConfig);
+
+        const id : string = "2c91808a7813090a017814121919ecca"; // ID of the Access Profile to delete
+
+        try {
+          const val = await accessProfilesBetaApi.deleteAccessProfile(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accessProfilesBetaApi.deleteAccessProfile(id);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /access-profiles/bulk-delete
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccessProfilesBetaApi, AccessProfileBulkDeleteRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accessProfilesBetaApi = new AccessProfilesBetaApi(apiConfig);
+
+        const accessProfileBulkDeleteRequestBeta : AccessProfileBulkDeleteRequestBeta = {bestEffortOnly=true, accessProfileIds=[2c91808876438bb2017668b91919ecca, 2c91808876438ba801766e129f151816]}; // 
+
+        try {
+          const val = await accessProfilesBetaApi.deleteAccessProfilesInBulk(accessProfileBulkDeleteRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accessProfilesBetaApi.deleteAccessProfilesInBulk(accessProfileBulkDeleteRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /access-profiles/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccessProfilesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accessProfilesBetaApi = new AccessProfilesBetaApi(apiConfig);
+
+        const id : string = "2c9180837ca6693d017ca8d097500149"; // ID of the Access Profile
+
+        try {
+          const val = await accessProfilesBetaApi.getAccessProfile(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accessProfilesBetaApi.getAccessProfile(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /access-profiles/{id}/entitlements
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccessProfilesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accessProfilesBetaApi = new AccessProfilesBetaApi(apiConfig);
+
+        const id : string = "2c91808a7813090a017814121919ecca"; // ID of the access profile containing the entitlements.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "attribute eq "memberOf""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **attribute**: *eq, sw*  **value**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in*  Filtering is not supported for access profiles and entitlements that have the \'+\' symbol in their names.  
+        const sorters = "name,-modified"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified**
+
+        try {
+          const val = await accessProfilesBetaApi.getAccessProfileEntitlements(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accessProfilesBetaApi.getAccessProfileEntitlements(id, limit, offset, count, filters, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /access-profiles
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccessProfilesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accessProfilesBetaApi = new AccessProfilesBetaApi(apiConfig);
+
+        const forSubadmin = "8c190e6787aa4ed9a90bd9d5344523fb"; // string | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID, or the special value **me**, which is shorthand for the calling identity\'s ID.  A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an identity that is not a subadmin.
+        const limit = 50; // number | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "name eq "SailPoint Support""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Filtering is not supported for access profiles and entitlements that have the \'+\' symbol in their names. 
+        const sorters = "name,-modified"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
+        const forSegmentIds = "0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d"; // string | If present and not empty, additionally filters access profiles to those which are assigned to the segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error.
+        const includeUnsegmented = false; // boolean | Indicates whether the response list should contain unsegmented access profiles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+
+        try {
+          const val = await accessProfilesBetaApi.listAccessProfiles();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accessProfilesBetaApi.listAccessProfiles(forSubadmin, limit, offset, count, filters, sorters, forSegmentIds, includeUnsegmented);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /access-profiles/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccessProfilesBetaApi, JsonPatchOperationBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accessProfilesBetaApi = new AccessProfilesBetaApi(apiConfig);
+
+        const id : string = "2c91808a7813090a017814121919ecca"; // ID of the Access Profile to patch
+        const jsonPatchOperationBeta : Array<JsonPatchOperationBeta> = [{op=add, path=/entitlements, value=[{id=2c9180857725c14301772a93bb77242d, type=ENTITLEMENT, name=AD User Group}]}]; // 
+
+        try {
+          const val = await accessProfilesBetaApi.patchAccessProfile(id, jsonPatchOperationBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accessProfilesBetaApi.patchAccessProfile(id, jsonPatchOperationBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /access-profiles/bulk-update-requestable
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccessProfilesBetaApi, AccessProfileBulkUpdateRequestInnerBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accessProfilesBetaApi = new AccessProfilesBetaApi(apiConfig);
+
+        const accessProfileBulkUpdateRequestInnerBeta : Array<AccessProfileBulkUpdateRequestInnerBeta> = [{id=464ae7bf-791e-49fd-b746-06a2e4a89635, requestable=false}]; // 
+
+        try {
+          const val = await accessProfilesBetaApi.updateAccessProfilesInBulk(accessProfileBulkUpdateRequestInnerBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accessProfilesBetaApi.updateAccessProfilesInBulk(accessProfileBulkUpdateRequestInnerBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

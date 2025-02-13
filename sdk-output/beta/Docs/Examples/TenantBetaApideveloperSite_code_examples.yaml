@@ -1,0 +1,18 @@
+- path: /tenant
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        
+        # Get Tenant Information.
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

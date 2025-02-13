@@ -1,0 +1,227 @@
+- path: /identities/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Identity Id (default to undefined)
+        
+        # Delete identity
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /identities/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Identity Id (default to undefined)
+        
+        # Identity Details
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /identities/{identityId}/ownership
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $identityId =  # string | Identity ID. (default to undefined)
+        
+        # Get ownership details
+        
+        try {
+            -BetaidentityId $identityId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaidentityId $identityId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /identities/{identityId}/role-assignments/{assignmentId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $identityId =  # string | Identity Id (default to undefined)
+        $assignmentId =  # string | Assignment Id (default to undefined)
+        
+        # Role assignment details
+        
+        try {
+            -BetaidentityId $identityId -BetaassignmentId $assignmentId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaidentityId $identityId -BetaassignmentId $assignmentId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /identities/{identityId}/role-assignments
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $identityId =  # string | Identity Id to get the role assignments for (default to undefined)
+        $roleId =  # string | Role Id to filter the role assignments with (optional) (default to undefined)
+        $roleName =  # string | Role name to filter the role assignments with (optional) (default to undefined)
+        
+        # List role assignments
+        
+        try {
+            -BetaidentityId $identityId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaidentityId $identityId -BetaroleId $roleId -BetaroleName $roleName  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /identities
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq* (optional) (default to undefined)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus** (optional) (default to undefined)
+        $defaultFilter =  # 'CORRELATED_ONLY' | 'NONE' | Adds additional filter to filters query parameter.  CORRELATED_ONLY adds correlated=true and returns only identities that are correlated.  NONE does not add any and returns all identities that satisfy filters query parameter. (optional) (default to 'CORRELATED_ONLY')
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # List Identities
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betafilters $filters -Betasorters $sorters -BetadefaultFilter $defaultFilter -Betacount $count -Betalimit $limit -Betaoffset $offset  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /identities/{id}/reset
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $identityId =  # string | Identity Id (default to undefined)
+        
+        # Reset an identity
+        
+        try {
+            -BetaidentityId $identityId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaidentityId $identityId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /identities/{id}/verification/account/send
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Identity ID (default to undefined)
+        $sendAccountVerificationRequestBeta = @"
+        
+        "@
+        
+        # Send password reset email
+        
+        try {
+            $Result = ConvertFrom-JsonTosendAccountVerificationRequestBeta -Json $sendAccountVerificationRequestBeta
+            -Betaid $id -BetasendAccountVerificationRequestBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetasendAccountVerificationRequestBeta $sendAccountVerificationRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /identities/invite
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $inviteIdentitiesRequestBeta = @"
+        
+        "@
+        
+        # Invite identities to register
+        
+        try {
+            $Result = ConvertFrom-JsonToinviteIdentitiesRequestBeta -Json $inviteIdentitiesRequestBeta
+            -BetainviteIdentitiesRequestBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetainviteIdentitiesRequestBeta $inviteIdentitiesRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /identities/process
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $processIdentitiesRequestBeta = @"
+        
+        "@
+        
+        # Process a list of identityIds
+        
+        try {
+            $Result = ConvertFrom-JsonToprocessIdentitiesRequestBeta -Json $processIdentitiesRequestBeta
+            -BetaprocessIdentitiesRequestBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaprocessIdentitiesRequestBeta $processIdentitiesRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /identities/{identityId}/synchronize-attributes
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $identityId =  # string | The Identity id (default to undefined)
+        
+        # Attribute synchronization for single identity.
+        
+        try {
+            -BetaidentityId $identityId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaidentityId $identityId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

@@ -1,0 +1,31 @@
+{{#operations}}
+{{#operation}}
+- path: {{path}}
+  method: {{httpMethod}}
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        {{#lambda.indented}}import { Configuration, {{classname}}{{#requiredParams}}{{^isPrimitiveType}}, {{baseType}}{{/isPrimitiveType}}{{/requiredParams}} } from "sailpoint-api-client";{{/lambda.indented}}
+        const apiConfig = new Configuration();
+        const {{#lambda.camelcase}}{{classname}}{{/lambda.camelcase}} = new {{classname}}(apiConfig);
+
+        {{#requiredParams}}
+        const {{{paramName}}} : {{{dataType}}} = {{#isString}}"{{/isString}}{{{example}}}{{#isString}}"{{/isString}}; // {{{description}}}
+        {{/requiredParams}}
+        {{#optionalParams}}
+        const {{{paramName}}} = {{#isString}}"{{/isString}}{{{example}}}{{#isString}}"{{/isString}}; // {{{dataType}}} | {{{description}}}
+        {{/optionalParams}}
+
+        try {
+          const val = await {{#lambda.camelcase}}{{classname}}{{/lambda.camelcase}}.{{{operationId}}}({{#requiredParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/requiredParams}});
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await {{#lambda.camelcase}}{{classname}}{{/lambda.camelcase}}.{{{operationId}}}({{#requiredParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/requiredParams}}{{#optionalParams}}{{#-first}}{{#hasRequiredParams}}, {{/hasRequiredParams}}{{/-first}}{{{paramName}}}{{^-last}}, {{/-last}}{{/optionalParams}});
+          {{#returnType}}console.log('API called successfully. Returned data: ' + val.data);{{/returnType}}
+          {{^returnType}}console.log('API called successfully.');{{/returnType}}
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+{{/operation}}
+{{/operations}}

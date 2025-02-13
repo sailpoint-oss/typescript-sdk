@@ -1,0 +1,175 @@
+- path: /tagged-objects/{type}/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $type =  # 'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE' | The type of object to delete tags from. (default to undefined)
+        $id =  # string | The ID of the object to delete tags from. (default to undefined)
+        
+        # Delete Object Tags
+        
+        try {
+            -Betatype $type -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betatype $type -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /tagged-objects/bulk-remove
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $bulkTaggedObjectBeta = @"
+        
+        "@
+        
+        # Remove Tags from Multiple Objects
+        
+        try {
+            $Result = ConvertFrom-JsonTobulkTaggedObjectBeta -Json $bulkTaggedObjectBeta
+            -BetabulkTaggedObjectBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetabulkTaggedObjectBeta $bulkTaggedObjectBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /tagged-objects/{type}/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $type =  # 'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE' | The type of tagged object to retrieve. (default to undefined)
+        $id =  # string | The ID of the object reference to retrieve. (default to undefined)
+        
+        # Get Tagged Object
+        
+        try {
+            -Betatype $type -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betatype $type -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /tagged-objects
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq, in*  **objectRef.type**: *eq, in*  **tagName**: *eq, in* (optional) (default to undefined)
+        
+        # List Tagged Objects
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betalimit $limit -Betaoffset $offset -Betacount $count -Betafilters $filters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /tagged-objects/{type}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $type =  # 'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE' | The type of tagged object to retrieve. (default to undefined)
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq*  **objectRef.type**: *eq* (optional) (default to undefined)
+        
+        # List Tagged Objects by Type
+        
+        try {
+            -Betatype $type 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betatype $type -Betalimit $limit -Betaoffset $offset -Betacount $count -Betafilters $filters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /tagged-objects/{type}/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $type =  # 'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE' | The type of tagged object to update. (default to undefined)
+        $id =  # string | The ID of the object reference to update. (default to undefined)
+        $taggedObjectBeta = @"
+        
+        "@
+        
+        # Update Tagged Object
+        
+        try {
+            $Result = ConvertFrom-JsonTotaggedObjectBeta -Json $taggedObjectBeta
+            -Betatype $type -Betaid $id -BetataggedObjectBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betatype $type -Betaid $id -BetataggedObjectBeta $taggedObjectBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /tagged-objects
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $taggedObjectBeta = @"
+        
+        "@
+        
+        # Add Tag to Object
+        
+        try {
+            $Result = ConvertFrom-JsonTotaggedObjectBeta -Json $taggedObjectBeta
+            -BetataggedObjectBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetataggedObjectBeta $taggedObjectBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /tagged-objects/bulk-add
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $bulkTaggedObjectBeta = @"
+        
+        "@
+        
+        # Tag Multiple Objects
+        
+        try {
+            $Result = ConvertFrom-JsonTobulkTaggedObjectBeta -Json $bulkTaggedObjectBeta
+            -BetabulkTaggedObjectBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetabulkTaggedObjectBeta $bulkTaggedObjectBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

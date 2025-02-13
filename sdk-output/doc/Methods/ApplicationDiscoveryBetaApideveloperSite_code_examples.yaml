@@ -1,0 +1,114 @@
+- path: /discovered-applications/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ApplicationDiscoveryBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const applicationDiscoveryBetaApi = new ApplicationDiscoveryBetaApi(apiConfig);
+
+        const id : string = "123e4567-e89b-12d3-a456-426655440000"; // Discovered application\'s ID.
+
+        try {
+          const val = await applicationDiscoveryBetaApi.getDiscoveredApplicationByID(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await applicationDiscoveryBetaApi.getDiscoveredApplicationByID(id);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /discovered-applications
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ApplicationDiscoveryBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const applicationDiscoveryBetaApi = new ApplicationDiscoveryBetaApi(apiConfig);
+
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const detail = "FULL"; // 'SLIM' | 'FULL' | Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior.
+        const filter = "name eq "Okta" and description co "Okta" and discoverySource in ("csv", "Okta Saas")"; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in* 
+        const sorters = "name"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource**
+
+        try {
+          const val = await applicationDiscoveryBetaApi.getDiscoveredApplications();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await applicationDiscoveryBetaApi.getDiscoveredApplications(limit, offset, detail, filter, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /manual-discover-applications-template
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ApplicationDiscoveryBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const applicationDiscoveryBetaApi = new ApplicationDiscoveryBetaApi(apiConfig);
+
+
+        try {
+          const val = await applicationDiscoveryBetaApi.getManualDiscoverApplicationsCsvTemplate();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await applicationDiscoveryBetaApi.getManualDiscoverApplicationsCsvTemplate();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /discovered-applications/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ApplicationDiscoveryBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const applicationDiscoveryBetaApi = new ApplicationDiscoveryBetaApi(apiConfig);
+
+        const id : string = "123e4567-e89b-12d3-a456-426655440000"; // Discovered application\'s ID.
+        const jsonPatchOperationsBeta = [{op=replace, path=/dismissed, value=true}]; // Array<JsonPatchOperationsBeta> | 
+
+        try {
+          const val = await applicationDiscoveryBetaApi.patchDiscoveredApplicationByID(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await applicationDiscoveryBetaApi.patchDiscoveredApplicationByID(id, jsonPatchOperationsBeta);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /manual-discover-applications
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ApplicationDiscoveryBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const applicationDiscoveryBetaApi = new ApplicationDiscoveryBetaApi(apiConfig);
+
+        const file : File = BINARY_DATA_HERE; // The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered.
+
+        try {
+          const val = await applicationDiscoveryBetaApi.sendManualDiscoverApplicationsCsvTemplate(file);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await applicationDiscoveryBetaApi.sendManualDiscoverApplicationsCsvTemplate(file);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

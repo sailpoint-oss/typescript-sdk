@@ -1,0 +1,235 @@
+- path: /workgroups
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, GovernanceGroupsBetaApi, WorkgroupDtoBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const governanceGroupsBetaApi = new GovernanceGroupsBetaApi(apiConfig);
+
+        const workgroupDtoBeta : WorkgroupDtoBeta = ; // 
+
+        try {
+          const val = await governanceGroupsBetaApi.createWorkgroup(workgroupDtoBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await governanceGroupsBetaApi.createWorkgroup(workgroupDtoBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workgroups/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, GovernanceGroupsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const governanceGroupsBetaApi = new GovernanceGroupsBetaApi(apiConfig);
+
+        const id : string = "2c9180837ca6693d017ca8d097500149"; // ID of the Governance Group
+
+        try {
+          const val = await governanceGroupsBetaApi.deleteWorkgroup(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await governanceGroupsBetaApi.deleteWorkgroup(id);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workgroups/{workgroupId}/members/bulk-delete
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, GovernanceGroupsBetaApi, BulkWorkgroupMembersRequestInnerBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const governanceGroupsBetaApi = new GovernanceGroupsBetaApi(apiConfig);
+
+        const workgroupId : string = "2c91808a7813090a017814121919ecca"; // ID of the Governance Group.
+        const bulkWorkgroupMembersRequestInnerBeta : Array<BulkWorkgroupMembersRequestInnerBeta> = ; // List of identities to be removed from  a Governance Group members list.
+
+        try {
+          const val = await governanceGroupsBetaApi.deleteWorkgroupMembers(workgroupId, bulkWorkgroupMembersRequestInnerBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await governanceGroupsBetaApi.deleteWorkgroupMembers(workgroupId, bulkWorkgroupMembersRequestInnerBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workgroups/bulk-delete
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, GovernanceGroupsBetaApi, WorkgroupBulkDeleteRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const governanceGroupsBetaApi = new GovernanceGroupsBetaApi(apiConfig);
+
+        const workgroupBulkDeleteRequestBeta : WorkgroupBulkDeleteRequestBeta = {ids=[567a697e-885b-495a-afc5-d55e1c23a302, c7b0f7b2-1e78-4063-b294-a555333dacd2]}; // 
+
+        try {
+          const val = await governanceGroupsBetaApi.deleteWorkgroupsInBulk(workgroupBulkDeleteRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await governanceGroupsBetaApi.deleteWorkgroupsInBulk(workgroupBulkDeleteRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workgroups/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, GovernanceGroupsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const governanceGroupsBetaApi = new GovernanceGroupsBetaApi(apiConfig);
+
+        const id : string = "2c9180837ca6693d017ca8d097500149"; // ID of the Governance Group
+
+        try {
+          const val = await governanceGroupsBetaApi.getWorkgroup(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await governanceGroupsBetaApi.getWorkgroup(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workgroups/{workgroupId}/connections
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, GovernanceGroupsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const governanceGroupsBetaApi = new GovernanceGroupsBetaApi(apiConfig);
+
+        const workgroupId : string = "2c91808a7813090a017814121919ecca"; // ID of the Governance Group.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const limit = 50; // number | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const sorters = "name,-modified"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
+
+        try {
+          const val = await governanceGroupsBetaApi.listConnections(workgroupId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await governanceGroupsBetaApi.listConnections(workgroupId, offset, limit, count, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workgroups/{workgroupId}/members
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, GovernanceGroupsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const governanceGroupsBetaApi = new GovernanceGroupsBetaApi(apiConfig);
+
+        const workgroupId : string = "2c91808a7813090a017814121919ecca"; // ID of the Governance Group.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const limit = 50; // number | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const sorters = "name,-modified"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
+
+        try {
+          const val = await governanceGroupsBetaApi.listWorkgroupMembers(workgroupId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await governanceGroupsBetaApi.listWorkgroupMembers(workgroupId, offset, limit, count, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workgroups
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, GovernanceGroupsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const governanceGroupsBetaApi = new GovernanceGroupsBetaApi(apiConfig);
+
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const limit = 50; // number | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "name sw "Test""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, sw, in*  **memberships.identityId**: *eq, in*
+        const sorters = "name,-modified"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified, id, description**
+
+        try {
+          const val = await governanceGroupsBetaApi.listWorkgroups();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await governanceGroupsBetaApi.listWorkgroups(offset, limit, count, filters, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workgroups/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, GovernanceGroupsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const governanceGroupsBetaApi = new GovernanceGroupsBetaApi(apiConfig);
+
+        const id : string = "2c9180837ca6693d017ca8d097500149"; // ID of the Governance Group
+        const jsonPatchOperationBeta = [{op=replace, path=/description, value=Governance Group new description.}]; // Array<JsonPatchOperationBeta> | 
+
+        try {
+          const val = await governanceGroupsBetaApi.patchWorkgroup(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await governanceGroupsBetaApi.patchWorkgroup(id, jsonPatchOperationBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workgroups/{workgroupId}/members/bulk-add
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, GovernanceGroupsBetaApi, BulkWorkgroupMembersRequestInnerBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const governanceGroupsBetaApi = new GovernanceGroupsBetaApi(apiConfig);
+
+        const workgroupId : string = "2c91808a7813090a017814121919ecca"; // ID of the Governance Group.
+        const bulkWorkgroupMembersRequestInnerBeta : Array<BulkWorkgroupMembersRequestInnerBeta> = ; // List of identities to be added to a Governance Group members list.
+
+        try {
+          const val = await governanceGroupsBetaApi.updateWorkgroupMembers(workgroupId, bulkWorkgroupMembersRequestInnerBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await governanceGroupsBetaApi.updateWorkgroupMembers(workgroupId, bulkWorkgroupMembersRequestInnerBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

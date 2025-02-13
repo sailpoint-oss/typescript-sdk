@@ -1,0 +1,267 @@
+- path: /multihosts
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $multiHostIntegrationsCreateBeta = @"
+        
+        "@
+        
+        # Create Multi-Host Integration
+        
+        try {
+            $Result = ConvertFrom-JsonTomultiHostIntegrationsCreateBeta -Json $multiHostIntegrationsCreateBeta
+            -BetamultiHostIntegrationsCreateBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetamultiHostIntegrationsCreateBeta $multiHostIntegrationsCreateBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/{id}
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | ID of the Multi-Host Integration. (default to undefined)
+        # Array<MultiHostIntegrationsCreateSourcesBeta> | The specifics of the sources to create within Multi-Host Integration.
+        $multiHostIntegrationsCreateSourcesBeta = @""@ 
+        
+        
+        # Create Sources Within Multi-Host Integration
+        
+        try {
+            $Result = ConvertFrom-JsonTomultiHostIntegrationsCreateSourcesBeta -Json $multiHostIntegrationsCreateSourcesBeta
+            -Betaid $id -BetamultiHostIntegrationsCreateSourcesBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetamultiHostIntegrationsCreateSourcesBeta $multiHostIntegrationsCreateSourcesBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | ID of Multi-Host Integration to delete. (default to undefined)
+        
+        # Delete Multi-Host Integration
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/{multihostId}/acctAggregationGroups
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $multiHostId =  # string | ID of the Multi-Host Integration to update (default to undefined)
+        
+        # Get Account Aggregation Groups Within Multi-Host Integration ID
+        
+        try {
+            -BetamultiHostId $multiHostId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetamultiHostId $multiHostId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/{multiHostId}/entitlementAggregationGroups
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $multiHostId =  # string | ID of the Multi-Host Integration to update (default to undefined)
+        
+        # Get Entitlement Aggregation Groups Within Multi-Host Integration ID
+        
+        try {
+            -BetamultiHostId $multiHostId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetamultiHostId $multiHostId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | ID of the Multi-Host Integration. (default to undefined)
+        
+        # Get Multi-Host Integration By ID
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** (optional) (default to undefined)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **type**: *in*  **forSubAdminId**: *in* (optional) (default to undefined)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $forSubadmin =  # string | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity or SOURCE_SUBADMIN identity.  The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\'s ID.  A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional) (default to undefined)
+        
+        # List All Existing Multi-Host Integrations
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaoffset $offset -Betalimit $limit -Betasorters $sorters -Betafilters $filters -Betacount $count -BetaforSubadmin $forSubadmin  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/{multiHostId}/sources/errors
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $multiHostId =  # string | ID of the Multi-Host Integration (default to undefined)
+        
+        # List Multi-Host Source Creation Errors
+        
+        try {
+            -BetamultiHostId $multiHostId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetamultiHostId $multiHostId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/types
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        
+        # List Multi-Host Integration Types
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/{id}/sources
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** (optional) (default to undefined)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *in* (optional) (default to undefined)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        
+        # List Sources Within Multi-Host Integration
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaoffset $offset -Betalimit $limit -Betasorters $sorters -Betafilters $filters -Betacount $count  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/{multihost_id}/sources/testConnection
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $multihostId =  # string | ID of the Multi-Host Integration (default to undefined)
+        
+        # Test Configuration For Multi-Host Integration
+        
+        try {
+            -BetamultihostId $multihostId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetamultihostId $multihostId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/{multihost_id}/sources/{sourceId}/testConnection
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $multihostId =  # string | ID of the Multi-Host Integration (default to undefined)
+        $sourceId =  # string | ID of the source within the Multi-Host Integration (default to undefined)
+        
+        # Test Configuration For Multi-Host Integration\'s Single Source
+        
+        try {
+            -BetamultihostId $multihostId -BetasourceId $sourceId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetamultihostId $multihostId -BetasourceId $sourceId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $multihostId =  # string | ID of the Multi-Host Integration to update. (default to undefined)
+        # Array<UpdateMultiHostSourcesRequestInnerBeta> | This endpoint allows you to update a Multi-Host Integration. 
+        $updateMultiHostSourcesRequestInnerBeta = @"[{op=add, path=/description, value=MDK Multi-Host Integration 222 description}]"@ 
+        
+        
+        # Update Multi-Host Integration
+        
+        try {
+            $Result = ConvertFrom-JsonToupdateMultiHostSourcesRequestInnerBeta -Json $updateMultiHostSourcesRequestInnerBeta
+            -BetamultihostId $multihostId -BetaupdateMultiHostSourcesRequestInnerBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetamultihostId $multihostId -BetaupdateMultiHostSourcesRequestInnerBeta $updateMultiHostSourcesRequestInnerBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

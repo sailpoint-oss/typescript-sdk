@@ -1,0 +1,102 @@
+- path: /oauth-clients
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $createOAuthClientRequestBeta = @"
+        
+        "@
+        
+        # Create OAuth Client
+        
+        try {
+            $Result = ConvertFrom-JsonTocreateOAuthClientRequestBeta -Json $createOAuthClientRequestBeta
+            -BetacreateOAuthClientRequestBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetacreateOAuthClientRequestBeta $createOAuthClientRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /oauth-clients/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The OAuth client id (default to undefined)
+        
+        # Delete OAuth Client
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /oauth-clients/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The OAuth client id (default to undefined)
+        
+        # Get OAuth Client
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /oauth-clients
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional) (default to undefined)
+        
+        # List OAuth Clients
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betafilters $filters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /oauth-clients/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The OAuth client id (default to undefined)
+        # Array<JsonPatchOperationBeta> | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
+        $jsonPatchOperationBeta = @"[{op=replace, path=/strongAuthSupported, value=true}, {op=replace, path=/businessName, value=acme-solar}]"@ 
+        
+        
+        # Patch OAuth Client
+        
+        try {
+            $Result = ConvertFrom-JsonTojsonPatchOperationBeta -Json $jsonPatchOperationBeta
+            -Betaid $id -BetajsonPatchOperationBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetajsonPatchOperationBeta $jsonPatchOperationBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

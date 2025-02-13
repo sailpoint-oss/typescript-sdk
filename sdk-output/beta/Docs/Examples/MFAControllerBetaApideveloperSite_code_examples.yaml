@@ -1,0 +1,133 @@
+- path: /mfa/token/send
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sendTokenRequestBeta = @"
+        {userAlias=will.albin, deliveryType=EMAIL_WORK}
+        "@
+        
+        # Create and send user token
+        
+        try {
+            $Result = ConvertFrom-JsonTosendTokenRequestBeta -Json $sendTokenRequestBeta
+            -BetasendTokenRequestBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasendTokenRequestBeta $sendTokenRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /mfa/{method}/poll
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $method =  # string | The name of the MFA method. The currently supported method names are \'okta-verify\', \'duo-web\', \'kba\',\'token\', \'rsa\' (default to undefined)
+        $verificationPollRequestBeta = @"
+        {requestId=089899f13a8f4da7824996191587bab9}
+        "@
+        
+        # Polling MFA method by VerificationPollRequest
+        
+        try {
+            $Result = ConvertFrom-JsonToverificationPollRequestBeta -Json $verificationPollRequestBeta
+            -Betamethod $method -BetaverificationPollRequestBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betamethod $method -BetaverificationPollRequestBeta $verificationPollRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /mfa/duo-web/verify
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $duoVerificationRequestBeta = @"
+        {userId=2c9180947f0ef465017f215cbcfd004b, signedResponse=AUTH|d2lsbC5hbGJpbnxESTZNMFpHSThKQVRWTVpZN0M5VXwxNzAxMjUzMDg5|f1f5f8ced5b340f3d303b05d0efa0e43b6a8f970:APP|d2lsbC5hbGJpbnxESTZNMFpHSThKQVRWTVpZN0M5VXwxNzAxMjU2NjE5|cb44cf44353f5127edcae31b1da0355f87357db2}
+        "@
+        
+        # Verifying authentication via Duo method
+        
+        try {
+            $Result = ConvertFrom-JsonToduoVerificationRequestBeta -Json $duoVerificationRequestBeta
+            -BetaduoVerificationRequestBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaduoVerificationRequestBeta $duoVerificationRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /mfa/kba/authenticate
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        # Array<KbaAnswerRequestItemBeta> | 
+        $kbaAnswerRequestItemBeta = @"[{id=173423, answer=822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34}, {id=c54fee53-2d63-4fc5-9259-3e93b9994135, answer=9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08}]"@ 
+        
+        
+        # Authenticate KBA provided MFA method
+        
+        try {
+            $Result = ConvertFrom-JsonTokbaAnswerRequestItemBeta -Json $kbaAnswerRequestItemBeta
+            -BetakbaAnswerRequestItemBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetakbaAnswerRequestItemBeta $kbaAnswerRequestItemBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /mfa/okta-verify/verify
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $oktaVerificationRequestBeta = @"
+        {userId=example@mail.com}
+        "@
+        
+        # Verifying authentication via Okta method
+        
+        try {
+            $Result = ConvertFrom-JsonTooktaVerificationRequestBeta -Json $oktaVerificationRequestBeta
+            -BetaoktaVerificationRequestBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaoktaVerificationRequestBeta $oktaVerificationRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /mfa/token/authenticate
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $tokenAuthRequestBeta = @"
+        {token=12345, userAlias=will.albin, deliveryType=EMAIL_WORK}
+        "@
+        
+        # Authenticate Token provided MFA method
+        
+        try {
+            $Result = ConvertFrom-JsonTotokenAuthRequestBeta -Json $tokenAuthRequestBeta
+            -BetatokenAuthRequestBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetatokenAuthRequestBeta $tokenAuthRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

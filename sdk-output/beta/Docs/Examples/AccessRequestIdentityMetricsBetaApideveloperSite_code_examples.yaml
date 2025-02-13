@@ -1,0 +1,21 @@
+- path: /access-request-identity-metrics/{identityId}/requested-objects/{requestedObjectId}/type/{type}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $identityId =  # string | Manager\'s identity ID. (default to undefined)
+        $requestedObjectId =  # string | Requested access item\'s ID. (default to undefined)
+        $type =  # string | Requested access item\'s type. (default to undefined)
+        
+        # Return access request identity metrics
+        
+        try {
+            -BetaidentityId $identityId -BetarequestedObjectId $requestedObjectId -Betatype $type 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaidentityId $identityId -BetarequestedObjectId $requestedObjectId -Betatype $type  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

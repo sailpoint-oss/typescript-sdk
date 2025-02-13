@@ -1,0 +1,212 @@
+- path: /role-insights/requests
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, RoleInsightsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const roleInsightsBetaApi = new RoleInsightsBetaApi(apiConfig);
+
+
+        try {
+          const val = await roleInsightsBetaApi.createRoleInsightRequests();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await roleInsightsBetaApi.createRoleInsightRequests();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-insights/{insightId}/entitlement-changes/download
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, RoleInsightsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const roleInsightsBetaApi = new RoleInsightsBetaApi(apiConfig);
+
+        const insightId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The role insight id
+        const sorters = "identitiesWithAccess"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **identitiesWithAccess**  The default sort is **identitiesWithAccess** in descending order.
+        const filters = "name sw "r""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **description**: *sw*
+
+        try {
+          const val = await roleInsightsBetaApi.downloadRoleInsightsEntitlementsChanges(insightId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await roleInsightsBetaApi.downloadRoleInsightsEntitlementsChanges(insightId, sorters, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-insights/{insightId}/entitlement-changes/{entitlementId}/identities
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, RoleInsightsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const roleInsightsBetaApi = new RoleInsightsBetaApi(apiConfig);
+
+        const insightId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The role insight id
+        const entitlementId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The entitlement id
+        const hasEntitlement = true; // boolean | Identity has this entitlement or not
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const sorters = "name"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
+        const filters = "name sw "Jan""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*
+
+        try {
+          const val = await roleInsightsBetaApi.getEntitlementChangesIdentities(insightId, entitlementId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await roleInsightsBetaApi.getEntitlementChangesIdentities(insightId, entitlementId, hasEntitlement, offset, limit, count, sorters, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-insights/{insightId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, RoleInsightsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const roleInsightsBetaApi = new RoleInsightsBetaApi(apiConfig);
+
+        const insightId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The role insight id
+
+        try {
+          const val = await roleInsightsBetaApi.getRoleInsight(insightId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await roleInsightsBetaApi.getRoleInsight(insightId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-insights
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, RoleInsightsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const roleInsightsBetaApi = new RoleInsightsBetaApi(apiConfig);
+
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const sorters = "numberOfUpdates"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **numberOfUpdates, identitiesWithAccess, totalNumberOfIdentities**
+        const filters = "name sw "John""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **ownerName**: *sw*  **description**: *sw*
+
+        try {
+          const val = await roleInsightsBetaApi.getRoleInsights();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await roleInsightsBetaApi.getRoleInsights(offset, limit, count, sorters, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-insights/{insightId}/current-entitlements
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, RoleInsightsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const roleInsightsBetaApi = new RoleInsightsBetaApi(apiConfig);
+
+        const insightId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The role insight id
+        const filters = "name sw "r""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **description**: *sw*
+
+        try {
+          const val = await roleInsightsBetaApi.getRoleInsightsCurrentEntitlements(insightId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await roleInsightsBetaApi.getRoleInsightsCurrentEntitlements(insightId, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-insights/{insightId}/entitlement-changes
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, RoleInsightsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const roleInsightsBetaApi = new RoleInsightsBetaApi(apiConfig);
+
+        const insightId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The role insight id
+        const sorters = "sorters_example"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **identitiesWithAccess, name**
+        const filters = "name sw "Admin""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **description**: *sw*
+
+        try {
+          const val = await roleInsightsBetaApi.getRoleInsightsEntitlementsChanges(insightId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await roleInsightsBetaApi.getRoleInsightsEntitlementsChanges(insightId, sorters, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-insights/requests/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, RoleInsightsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const roleInsightsBetaApi = new RoleInsightsBetaApi(apiConfig);
+
+        const id : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The role insights request id
+
+        try {
+          const val = await roleInsightsBetaApi.getRoleInsightsRequests(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await roleInsightsBetaApi.getRoleInsightsRequests(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-insights/summary
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, RoleInsightsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const roleInsightsBetaApi = new RoleInsightsBetaApi(apiConfig);
+
+
+        try {
+          const val = await roleInsightsBetaApi.getRoleInsightsSummary();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await roleInsightsBetaApi.getRoleInsightsSummary();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

@@ -1,0 +1,901 @@
+- path: /sources/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Source ID. (default to undefined)
+        
+        # Delete Source by ID
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/provisioning-policies
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | The Source id (default to undefined)
+        $provisioningPolicyDtoBeta = @"
+        {name=Account, description=Account Provisioning Policy, usageType=CREATE, fields=[{name=displayName, transform={type=identityAttribute, attributes={name=displayName}}, attributes={}, isRequired=false, type=string, isMultiValued=false}, {name=distinguishedName, transform={type=usernameGenerator, attributes={sourceCheck=true, patterns=[CN=$fi $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com, CN=$fti $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com, CN=$fn $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com, CN=$fn$ln${uniqueCounter},OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com], fn={type=identityAttribute, attributes={name=firstname}}, ln={type=identityAttribute, attributes={name=lastname}}, fi={type=substring, attributes={input={type=identityAttribute, attributes={name=firstname}}, begin=0.0, end=1.0}}, fti={type=substring, attributes={input={type=identityAttribute, attributes={name=firstname}}, begin=0.0, end=2.0}}}}, attributes={cloudMaxUniqueChecks=5, cloudMaxSize=100, cloudRequired=true}, isRequired=false, type=, isMultiValued=false}, {name=description, transform={type=static, attributes={value=}}, attributes={}, isRequired=false, type=string, isMultiValued=false}]}
+        "@
+        
+        # Create Provisioning Policy
+        
+        try {
+            $Result = ConvertFrom-JsonToprovisioningPolicyDtoBeta -Json $provisioningPolicyDtoBeta
+            -BetasourceId $sourceId -BetaprovisioningPolicyDtoBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId -BetaprovisioningPolicyDtoBeta $provisioningPolicyDtoBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceBeta = @"
+        
+        "@
+        $provisionAsCsv =  # boolean | If this parameter is `true`, it configures the source as a Delimited File (CSV) source. Setting this to `true` will automatically set the `type` of the source to `DelimitedFile`.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don\'t set this query parameter and you attempt to set the `type` attribute directly, the request won\'t correctly generate the source.   (optional) (default to undefined)
+        
+        # Creates a source in IdentityNow.
+        
+        try {
+            $Result = ConvertFrom-JsonTosourceBeta -Json $sourceBeta
+            -BetasourceBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceBeta $sourceBeta -BetaprovisionAsCsv $provisionAsCsv  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/schemas
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | Source ID. (default to undefined)
+        $schemaBeta = @"
+        
+        "@
+        
+        # Create Schema on Source
+        
+        try {
+            $Result = ConvertFrom-JsonToschemaBeta -Json $schemaBeta
+            -BetasourceId $sourceId -BetaschemaBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId -BetaschemaBeta $schemaBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{id}/remove-accounts
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The source id (default to undefined)
+        
+        # Remove All Accounts in a Source
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/native-change-detection-config
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The source id (default to undefined)
+        
+        # Delete Native Change Detection Configuration
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/provisioning-policies/{usageType}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | The Source ID. (default to undefined)
+        $usageType =  # UsageTypeBeta | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.  (default to undefined)
+        
+        # Delete Provisioning Policy by UsageType
+        
+        try {
+            -BetasourceId $sourceId -BetausageType $usageType 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId -BetausageType $usageType  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/schemas/{schemaId}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | The Source ID. (default to undefined)
+        $schemaId =  # string | The Schema ID. (default to undefined)
+        
+        # Delete Source Schema by ID
+        
+        try {
+            -BetasourceId $sourceId -BetaschemaId $schemaId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId -BetaschemaId $schemaId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{id}/correlation-config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The source id (default to undefined)
+        
+        # Get Source Correlation Configuration
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/native-change-detection-config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The source id (default to undefined)
+        
+        # Native Change Detection Configuration
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/provisioning-policies/{usageType}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | The Source ID. (default to undefined)
+        $usageType =  # UsageTypeBeta | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.  (default to undefined)
+        
+        # Get Provisioning Policy by UsageType
+        
+        try {
+            -BetasourceId $sourceId -BetausageType $usageType 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId -BetausageType $usageType  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Source ID. (default to undefined)
+        
+        # Get Source by ID
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{id}/schemas/accounts
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The Source id (default to undefined)
+        
+        # Downloads source accounts schema template
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{id}/attribute-sync-config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The source id (default to undefined)
+        
+        # Attribute Sync Config
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{id}/connectors/source-config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The Source id (default to undefined)
+        $locale =  # 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl' | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (optional) (default to undefined)
+        
+        # Gets source config with language translations
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -Betalocale $locale  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{id}/entitlement-request-config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        
+        # Get Source Entitlement Request Configuration
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{id}/schemas/entitlements
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The Source id (default to undefined)
+        $schemaName =  # string | Name of entitlement schema (optional) (default to undefined)
+        
+        # Downloads source entitlements schema template
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetaschemaName $schemaName  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/schemas/{schemaId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | The Source ID. (default to undefined)
+        $schemaId =  # string | The Schema ID. (default to undefined)
+        
+        # Get Source Schema by ID
+        
+        try {
+            -BetasourceId $sourceId -BetaschemaId $schemaId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId -BetaschemaId $schemaId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/schemas
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | Source ID. (default to undefined)
+        $includeTypes =  # 'group' | 'user' | If set to \'group\', then the account schema is filtered and only group schemas are returned. Only a value of \'group\' is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas. (optional) (default to undefined)
+        $includeNames =  # string | A comma-separated list of schema names to filter result. (optional) (default to undefined)
+        
+        # List Schemas on Source
+        
+        try {
+            -BetasourceId $sourceId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId -BetaincludeTypes $includeTypes -BetaincludeNames $includeNames  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{id}/load-accounts
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Source Id (default to undefined)
+        $file =  # File | The CSV file containing the source accounts to aggregate. (optional) (default to undefined)
+        $disableOptimization =  # string | Use this flag to reprocess every account whether or not the data has changed. (optional) (default to undefined)
+        
+        # Account Aggregation
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -Betafile $file -BetadisableOptimization $disableOptimization  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{id}/load-entitlements
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Source Id (default to undefined)
+        $file =  # File | The CSV file containing the source entitlements to aggregate. (optional) (default to undefined)
+        
+        # Entitlement Aggregation
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -Betafile $file  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{id}/schemas/accounts
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The Source id (default to undefined)
+        $file =  # File |  (optional) (default to undefined)
+        
+        # Uploads source accounts schema template
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -Betafile $file  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/upload-connector-file
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | The Source id (default to undefined)
+        $file =  # File |  (optional) (default to undefined)
+        
+        # Upload connector file to source
+        
+        try {
+            -BetasourceId $sourceId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId -Betafile $file  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{id}/schemas/entitlements
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The Source id (default to undefined)
+        $schemaName =  # string | Name of entitlement schema (optional) (default to undefined)
+        $file =  # File |  (optional) (default to undefined)
+        
+        # Uploads source entitlements schema template
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetaschemaName $schemaName -Betafile $file  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{id}/load-uncorrelated-accounts
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Source Id (default to undefined)
+        $file =  # File |  (optional) (default to undefined)
+        
+        # Process Uncorrelated Accounts
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -Betafile $file  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/provisioning-policies
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | The Source id (default to undefined)
+        
+        # Lists ProvisioningPolicies
+        
+        try {
+            -BetasourceId $sourceId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **name**: *co, eq, in, sw, ge, gt, ne, isnull*  **type**: *eq, in, ge, gt, ne, isnull, sw*  **owner.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **features**: *ca, co*  **created**: *eq*  **modified**: *eq*  **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **description**: *eq, sw*  **authoritative**: *eq, ne, isnull*  **healthy**: *isnull*  **status**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **connectionType**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **connectorName**: *eq, ge, gt, in, ne, isnull, sw*  **category**: *co, eq, ge, gt, in, le, lt, ne, sw* (optional) (default to undefined)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status, id, description, owner.id, accountCorrelationConfig.id, accountCorrelationConfig.name, managerCorrelationRule.type, managerCorrelationRule.id, managerCorrelationRule.name, authoritative, managementWorkgroup.id, connectorName, connectionType** (optional) (default to undefined)
+        $forSubadmin =  # string | Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned. (optional) (default to undefined)
+        $includeIDNSource =  # boolean | Include the IdentityNow source in the response. (optional) (default to false)
+        
+        # Lists all sources in IdentityNow.
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betalimit $limit -Betaoffset $offset -Betacount $count -Betafilters $filters -Betasorters $sorters -BetaforSubadmin $forSubadmin -BetaincludeIDNSource $includeIDNSource  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/connector/peek-resource-objects
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | The ID of the Source (default to undefined)
+        $resourceObjectsRequestBeta = @"
+        
+        "@
+        
+        # Peek source connector\'s resource objects
+        
+        try {
+            $Result = ConvertFrom-JsonToresourceObjectsRequestBeta -Json $resourceObjectsRequestBeta
+            -BetasourceId $sourceId -BetaresourceObjectsRequestBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId -BetaresourceObjectsRequestBeta $resourceObjectsRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/connector/ping-cluster
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | The ID of the Source (default to undefined)
+        
+        # Ping cluster for source connector
+        
+        try {
+            -BetasourceId $sourceId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{id}/correlation-config
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The source id (default to undefined)
+        $correlationConfigBeta = @"
+        
+        "@
+        
+        # Update Source Correlation Configuration
+        
+        try {
+            $Result = ConvertFrom-JsonTocorrelationConfigBeta -Json $correlationConfigBeta
+            -Betaid $id -BetacorrelationConfigBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetacorrelationConfigBeta $correlationConfigBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/native-change-detection-config
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The source id (default to undefined)
+        $nativeChangeDetectionConfigBeta = @"
+        
+        "@
+        
+        # Update Native Change Detection Configuration
+        
+        try {
+            $Result = ConvertFrom-JsonTonativeChangeDetectionConfigBeta -Json $nativeChangeDetectionConfigBeta
+            -Betaid $id -BetanativeChangeDetectionConfigBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetanativeChangeDetectionConfigBeta $nativeChangeDetectionConfigBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/provisioning-policies/{usageType}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | The Source ID. (default to undefined)
+        $usageType =  # UsageTypeBeta | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.  (default to undefined)
+        $provisioningPolicyDtoBeta = @"
+        
+        "@
+        
+        # Update Provisioning Policy by UsageType
+        
+        try {
+            $Result = ConvertFrom-JsonToprovisioningPolicyDtoBeta -Json $provisioningPolicyDtoBeta
+            -BetasourceId $sourceId -BetausageType $usageType -BetaprovisioningPolicyDtoBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId -BetausageType $usageType -BetaprovisioningPolicyDtoBeta $provisioningPolicyDtoBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Source ID. (default to undefined)
+        $sourceBeta = @"
+        
+        "@
+        
+        # Update Source (Full)
+        
+        try {
+            $Result = ConvertFrom-JsonTosourceBeta -Json $sourceBeta
+            -Betaid $id -BetasourceBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetasourceBeta $sourceBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{id}/attribute-sync-config
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The source id (default to undefined)
+        $attrSyncSourceConfigBeta = @"
+        
+        "@
+        
+        # Update Attribute Sync Config
+        
+        try {
+            $Result = ConvertFrom-JsonToattrSyncSourceConfigBeta -Json $attrSyncSourceConfigBeta
+            -Betaid $id -BetaattrSyncSourceConfigBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetaattrSyncSourceConfigBeta $attrSyncSourceConfigBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/schemas/{schemaId}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | The Source ID. (default to undefined)
+        $schemaId =  # string | The Schema ID. (default to undefined)
+        $schemaBeta = @"
+        
+        "@
+        
+        # Update Source Schema (Full)
+        
+        try {
+            $Result = ConvertFrom-JsonToschemaBeta -Json $schemaBeta
+            -BetasourceId $sourceId -BetaschemaId $schemaId -BetaschemaBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId -BetaschemaId $schemaId -BetaschemaBeta $schemaBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{id}/synchronize-attributes
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The Source id (default to undefined)
+        
+        # Synchronize single source attributes.
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/connector/test-configuration
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | The ID of the Source (default to undefined)
+        
+        # Test configuration for source connector
+        
+        try {
+            -BetasourceId $sourceId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/connector/check-connection
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | The ID of the Source. (default to undefined)
+        
+        # Check connection for source connector.
+        
+        try {
+            -BetasourceId $sourceId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/provisioning-policies/bulk-update
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | The Source id. (default to undefined)
+        # Array<ProvisioningPolicyDtoBeta> | 
+        $provisioningPolicyDtoBeta = @""@ 
+        
+        
+        # Bulk Update Provisioning Policies
+        
+        try {
+            $Result = ConvertFrom-JsonToprovisioningPolicyDtoBeta -Json $provisioningPolicyDtoBeta
+            -BetasourceId $sourceId -BetaprovisioningPolicyDtoBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId -BetaprovisioningPolicyDtoBeta $provisioningPolicyDtoBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/provisioning-policies/{usageType}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | The Source id. (default to undefined)
+        $usageType =  # UsageTypeBeta | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.  (default to undefined)
+        # Array<JsonPatchOperationBeta> | The JSONPatch payload used to update the schema.
+        $jsonPatchOperationBeta = @"[{op=add, path=/fields/0, value={name=email, transform={type=identityAttribute, attributes={name=email}}, attributes={}, isRequired=false, type=string, isMultiValued=false}}]"@ 
+        
+        
+        # Partial update of Provisioning Policy
+        
+        try {
+            $Result = ConvertFrom-JsonTojsonPatchOperationBeta -Json $jsonPatchOperationBeta
+            -BetasourceId $sourceId -BetausageType $usageType -BetajsonPatchOperationBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId -BetausageType $usageType -BetajsonPatchOperationBeta $jsonPatchOperationBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Source ID. (default to undefined)
+        # Array<JsonPatchOperationBeta> | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
+        $jsonPatchOperationBeta = @"[{op=replace, path=/description, value=new description}]"@ 
+        
+        
+        # Update Source (Partial)
+        
+        try {
+            $Result = ConvertFrom-JsonTojsonPatchOperationBeta -Json $jsonPatchOperationBeta
+            -Betaid $id -BetajsonPatchOperationBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetajsonPatchOperationBeta $jsonPatchOperationBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{id}/entitlement-request-config
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceEntitlementRequestConfigBeta = @"
+        {accessRequestConfig={approvalSchemes=[]}}
+        "@
+        
+        # Update Source Entitlement Request Configuration
+        
+        try {
+            $Result = ConvertFrom-JsonTosourceEntitlementRequestConfigBeta -Json $sourceEntitlementRequestConfigBeta
+            -BetasourceEntitlementRequestConfigBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceEntitlementRequestConfigBeta $sourceEntitlementRequestConfigBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/schemas/{schemaId}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | The Source id. (default to undefined)
+        $schemaId =  # string | The Schema id. (default to undefined)
+        # Array<JsonPatchOperationBeta> | The JSONPatch payload used to update the schema.
+        $jsonPatchOperationBeta = @"[{op=replace, path=/displayAttribute, value={new-display-attribute=null}}]"@ 
+        
+        
+        # Update Source Schema (Partial)
+        
+        try {
+            $Result = ConvertFrom-JsonTojsonPatchOperationBeta -Json $jsonPatchOperationBeta
+            -BetasourceId $sourceId -BetaschemaId $schemaId -BetajsonPatchOperationBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId -BetaschemaId $schemaId -BetajsonPatchOperationBeta $jsonPatchOperationBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

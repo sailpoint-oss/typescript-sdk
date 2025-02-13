@@ -1,0 +1,620 @@
+- path: /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/provision
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const sessionId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The role mining session id
+        const potentialRoleId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // A potential role id in a role mining session
+        const minEntitlementPopularity = 56; // number | Minimum popularity required for an entitlement to be included in the provisioned role.
+        const includeCommonAccess = true; // boolean | Boolean determining whether common access entitlements will be included in the provisioned role.
+        const roleMiningPotentialRoleProvisionRequestBeta = ; // RoleMiningPotentialRoleProvisionRequestBeta | Required information to create a new role
+
+        try {
+          const val = await iAIRoleMiningBetaApi.createPotentialRoleProvisionRequest(sessionId, potentialRoleId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.createPotentialRoleProvisionRequest(sessionId, potentialRoleId, minEntitlementPopularity, includeCommonAccess, roleMiningPotentialRoleProvisionRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-mining-sessions
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi, RoleMiningSessionDtoBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const roleMiningSessionDtoBeta : RoleMiningSessionDtoBeta = ; // Role mining session parameters
+
+        try {
+          const val = await iAIRoleMiningBetaApi.createRoleMiningSessions(roleMiningSessionDtoBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.createRoleMiningSessions(roleMiningSessionDtoBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async/{exportId}/download
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const sessionId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The role mining session id
+        const potentialRoleId : string = "278359a6-04b7-4669-9468-924cf580964a"; // A potential role id in a role mining session
+        const exportId : string = "4940ffd4-836f-48a3-b2b0-6d498c3fdf40"; // The id of a previously run export job for this potential role
+
+        try {
+          const val = await iAIRoleMiningBetaApi.downloadRoleMiningPotentialRoleZip(sessionId, potentialRoleId, exportId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.downloadRoleMiningPotentialRoleZip(sessionId, potentialRoleId, exportId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const sessionId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The role mining session id
+        const potentialRoleId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // A potential role id in a role mining session
+
+        try {
+          const val = await iAIRoleMiningBetaApi.exportRoleMiningPotentialRole(sessionId, potentialRoleId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.exportRoleMiningPotentialRole(sessionId, potentialRoleId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const sessionId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The role mining session id
+        const potentialRoleId : string = "278359a6-04b7-4669-9468-924cf580964a"; // A potential role id in a role mining session
+        const roleMiningPotentialRoleExportRequestBeta = ; // RoleMiningPotentialRoleExportRequestBeta | 
+
+        try {
+          const val = await iAIRoleMiningBetaApi.exportRoleMiningPotentialRoleAsync(sessionId, potentialRoleId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.exportRoleMiningPotentialRoleAsync(sessionId, potentialRoleId, roleMiningPotentialRoleExportRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async/{exportId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const sessionId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The role mining session id
+        const potentialRoleId : string = "278359a6-04b7-4669-9468-924cf580964a"; // A potential role id in a role mining session
+        const exportId : string = "4940ffd4-836f-48a3-b2b0-6d498c3fdf40"; // The id of a previously run export job for this potential role
+
+        try {
+          const val = await iAIRoleMiningBetaApi.exportRoleMiningPotentialRoleStatus(sessionId, potentialRoleId, exportId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.exportRoleMiningPotentialRoleStatus(sessionId, potentialRoleId, exportId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-mining-potential-roles
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const sorters = "createdDate"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **createdDate, identityCount, entitlementCount, freshness, quality**
+        const filters = "(createdByName co "int") and (createdById sw "2c9180907") and (type eq "COMMON") and ((name co "entt") or (saved eq true))"; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **createdById**: *eq, sw, co*  **createdByName**: *eq, sw, co*  **description**: *sw, co*  **endDate**: *le, lt*  **freshness**: *eq, ge, gt, le, lt*  **name**: *eq, sw, co, ge, gt, le, lt*  **quality**: *eq, ge, gt, le, lt*  **startDate**: *ge, gt*  **saved**: *eq*  **type**: *eq, ge, gt, le, lt*  **scopingMethod**: *eq*  **sessionState**: *eq*  **identityAttribute**: *co*
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await iAIRoleMiningBetaApi.getAllPotentialRoleSummaries();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.getAllPotentialRoleSummaries(sorters, filters, offset, limit, count);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/entitlement-popularity-distribution
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const sessionId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The role mining session id
+        const potentialRoleId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // A potential role id in a role mining session
+        const includeCommonAccess = true; // boolean | Boolean determining whether common access entitlements will be included or not
+
+        try {
+          const val = await iAIRoleMiningBetaApi.getEntitlementDistributionPotentialRole(sessionId, potentialRoleId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.getEntitlementDistributionPotentialRole(sessionId, potentialRoleId, includeCommonAccess);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/entitlement-popularities
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const sessionId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The role mining session id
+        const potentialRoleId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // A potential role id in a role mining session
+        const includeCommonAccess = true; // boolean | Boolean determining whether common access entitlements will be included or not
+        const sorters = "popularity"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **popularity, entitlementName, applicationName**  The default sort is **popularity** in descending order. 
+        const filters = "applicationName sw "AD""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **applicationName**: *sw*  **entitlementRef.name**: *sw*
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await iAIRoleMiningBetaApi.getEntitlementsPotentialRole(sessionId, potentialRoleId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.getEntitlementsPotentialRole(sessionId, potentialRoleId, includeCommonAccess, sorters, filters, offset, limit, count);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/excluded-entitlements
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const sessionId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The role mining session id
+        const potentialRoleId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // A potential role id in a role mining session
+        const sorters = "populariity"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **popularity**
+        const filters = "applicationName sw "AD""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **applicationName**: *sw*  **entitlementRef.name**: *sw*
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await iAIRoleMiningBetaApi.getExcludedEntitlementsPotentialRole(sessionId, potentialRoleId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.getExcludedEntitlementsPotentialRole(sessionId, potentialRoleId, sorters, filters, offset, limit, count);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/identities
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const sessionId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The role mining session id
+        const potentialRoleId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // A potential role id in a role mining session
+        const sorters = "name"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
+        const filters = "filters_example"; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await iAIRoleMiningBetaApi.getIdentitiesPotentialRole(sessionId, potentialRoleId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.getIdentitiesPotentialRole(sessionId, potentialRoleId, sorters, filters, offset, limit, count);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const sessionId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The role mining session id
+        const potentialRoleId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // A potential role id in a role mining session
+
+        try {
+          const val = await iAIRoleMiningBetaApi.getPotentialRole(sessionId, potentialRoleId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.getPotentialRole(sessionId, potentialRoleId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}/applications
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const sessionId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The role mining session id
+        const potentialRoleId : string = "62f28d91-7d9f-4d17-be15-666d5b41d77f"; // A potential role id in a role mining session
+        const filters = "applicationName sw "test""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **applicationName**: *sw*
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await iAIRoleMiningBetaApi.getPotentialRoleApplications(sessionId, potentialRoleId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.getPotentialRoleApplications(sessionId, potentialRoleId, filters, offset, limit, count);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}/entitlements
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const sessionId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The role mining session id
+        const potentialRoleId : string = "62f28d91-7d9f-4d17-be15-666d5b41d77f"; // A potential role id in a role mining session
+        const filters = "entitlementRef.name sw "test""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **entitlementRef.name**: *sw*
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await iAIRoleMiningBetaApi.getPotentialRoleEntitlements(sessionId, potentialRoleId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.getPotentialRoleEntitlements(sessionId, potentialRoleId, filters, offset, limit, count);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-mining-potential-roles/{potentialRoleId}/sources/{sourceId}/identityUsage
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const potentialRoleId : string = "e0cc5d7d-bf7f-4f81-b2af-8885b09d9923"; // A potential role id
+        const sourceId : string = "2c9180877620c1460176267f336a106f"; // A source id
+        const sorters = "-usageCount"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/) Sorting is supported for the following fields: **displayName, email, usageCount**
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await iAIRoleMiningBetaApi.getPotentialRoleSourceIdentityUsage(potentialRoleId, sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.getPotentialRoleSourceIdentityUsage(potentialRoleId, sourceId, sorters, offset, limit, count);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-mining-sessions/{sessionId}/potential-role-summaries
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const sessionId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The role mining session id
+        const sorters = "createdDate"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **createdDate**
+        const filters = "(createdByName co "int")and (createdById sw "2c9180907")and (type eq "COMMON")and ((name co "entt")or (saved eq true))"; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **createdById**: *eq, sw, co*  **createdByName**: *eq, sw, co*  **description**: *sw, co*  **endDate**: *le, lt*  **freshness**: *eq, ge, gt, le, lt*  **name**: *eq, sw, co*  **quality**: *eq, ge, gt, le, lt*  **startDate**: *ge, gt*  **saved**: *eq*  **type**: *eq*
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await iAIRoleMiningBetaApi.getPotentialRoleSummaries(sessionId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.getPotentialRoleSummaries(sessionId, sorters, filters, offset, limit, count);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-mining-potential-roles/{potentialRoleId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const potentialRoleId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // A potential role id
+
+        try {
+          const val = await iAIRoleMiningBetaApi.getRoleMiningPotentialRole(potentialRoleId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.getRoleMiningPotentialRole(potentialRoleId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-mining-sessions/{sessionId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const sessionId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The role mining session id to be retrieved.
+
+        try {
+          const val = await iAIRoleMiningBetaApi.getRoleMiningSession(sessionId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.getRoleMiningSession(sessionId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-mining-sessions/{sessionId}/status
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const sessionId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The role mining session id
+
+        try {
+          const val = await iAIRoleMiningBetaApi.getRoleMiningSessionStatus(sessionId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.getRoleMiningSessionStatus(sessionId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-mining-sessions
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const filters = "saved eq "true" and name sw "RM Session""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **saved**: *eq*  **name**: *eq, sw*
+        const sorters = "createdBy,createdDate"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **createdBy, createdDate**
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await iAIRoleMiningBetaApi.getRoleMiningSessions();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.getRoleMiningSessions(filters, sorters, offset, limit, count);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-mining-potential-roles/saved
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const sorters = "modified"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/) Sorting is supported for the following fields: **modified**
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await iAIRoleMiningBetaApi.getSavedPotentialRoles();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.getSavedPotentialRoles(sorters, offset, limit, count);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi, PatchPotentialRoleRequestInnerBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const sessionId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The role mining session id
+        const potentialRoleId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The potential role summary id
+        const patchPotentialRoleRequestInnerBeta : Array<PatchPotentialRoleRequestInnerBeta> = [{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]; // 
+
+        try {
+          const val = await iAIRoleMiningBetaApi.patchPotentialRole(sessionId, potentialRoleId, patchPotentialRoleRequestInnerBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.patchPotentialRole(sessionId, potentialRoleId, patchPotentialRoleRequestInnerBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-mining-potential-roles/{potentialRoleId}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi, PatchPotentialRoleRequestInnerBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const potentialRoleId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The potential role summary id
+        const patchPotentialRoleRequestInnerBeta : Array<PatchPotentialRoleRequestInnerBeta> = [{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]; // 
+
+        try {
+          const val = await iAIRoleMiningBetaApi.patchRoleMiningPotentialRole(potentialRoleId, patchPotentialRoleRequestInnerBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.patchRoleMiningPotentialRole(potentialRoleId, patchPotentialRoleRequestInnerBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-mining-sessions/{sessionId}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi, JsonPatchOperationBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const sessionId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The role mining session id to be patched
+        const jsonPatchOperationBeta : Array<JsonPatchOperationBeta> = [{op=replace, path=/pruneThreshold, value=83}, {op=replace, path=/minNumIdentitiesInPotentialRole, value=10}, {op=replace, path=/saved, value=false}, {op=replace, path=/name, value=RM Session - 07/10/22}, {op=add, path=/name, value=RM Session - 07/10/22}]; // Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
+
+        try {
+          const val = await iAIRoleMiningBetaApi.patchRoleMiningSession(sessionId, jsonPatchOperationBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.patchRoleMiningSession(sessionId, jsonPatchOperationBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIRoleMiningBetaApi, RoleMiningPotentialRoleEditEntitlementsBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIRoleMiningBetaApi = new IAIRoleMiningBetaApi(apiConfig);
+
+        const sessionId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // The role mining session id
+        const potentialRoleId : string = "8c190e67-87aa-4ed9-a90b-d9d5344523fb"; // A potential role id in a role mining session
+        const roleMiningPotentialRoleEditEntitlementsBeta : RoleMiningPotentialRoleEditEntitlementsBeta = ; // Role mining session parameters
+
+        try {
+          const val = await iAIRoleMiningBetaApi.updateEntitlementsPotentialRole(sessionId, potentialRoleId, roleMiningPotentialRoleEditEntitlementsBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIRoleMiningBetaApi.updateEntitlementsPotentialRole(sessionId, potentialRoleId, roleMiningPotentialRoleEditEntitlementsBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

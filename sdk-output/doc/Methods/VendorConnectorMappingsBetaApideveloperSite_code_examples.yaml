@@ -1,0 +1,65 @@
+- path: /vendor-connector-mappings
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, VendorConnectorMappingsBetaApi, VendorConnectorMappingBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const vendorConnectorMappingsBetaApi = new VendorConnectorMappingsBetaApi(apiConfig);
+
+        const vendorConnectorMappingBeta : VendorConnectorMappingBeta = ; // 
+
+        try {
+          const val = await vendorConnectorMappingsBetaApi.createVendorConnectorMapping(vendorConnectorMappingBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await vendorConnectorMappingsBetaApi.createVendorConnectorMapping(vendorConnectorMappingBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /vendor-connector-mappings
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, VendorConnectorMappingsBetaApi, VendorConnectorMappingBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const vendorConnectorMappingsBetaApi = new VendorConnectorMappingsBetaApi(apiConfig);
+
+        const vendorConnectorMappingBeta : VendorConnectorMappingBeta = ; // 
+
+        try {
+          const val = await vendorConnectorMappingsBetaApi.deleteVendorConnectorMapping(vendorConnectorMappingBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await vendorConnectorMappingsBetaApi.deleteVendorConnectorMapping(vendorConnectorMappingBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /vendor-connector-mappings
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, VendorConnectorMappingsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const vendorConnectorMappingsBetaApi = new VendorConnectorMappingsBetaApi(apiConfig);
+
+
+        try {
+          const val = await vendorConnectorMappingsBetaApi.getVendorConnectorMappings();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await vendorConnectorMappingsBetaApi.getVendorConnectorMappings();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

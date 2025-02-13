@@ -1,0 +1,46 @@
+- path: /managed-clients/{id}/status
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ManagedClientsBetaApi,  } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const managedClientsBetaApi = new ManagedClientsBetaApi(apiConfig);
+
+        const id : string = "aClientId"; // ID of the Managed Client Status to get
+        const type : ManagedClientTypeBeta = ; // Type of the Managed Client Status to get
+
+        try {
+          const val = await managedClientsBetaApi.getManagedClientStatus(id, type);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await managedClientsBetaApi.getManagedClientStatus(id, type);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /managed-clients/{id}/status
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ManagedClientsBetaApi, ManagedClientStatusBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const managedClientsBetaApi = new ManagedClientsBetaApi(apiConfig);
+
+        const id : string = "aClientId"; // ID of the Managed Client Status to update
+        const managedClientStatusBeta : ManagedClientStatusBeta = ; // 
+
+        try {
+          const val = await managedClientsBetaApi.updateManagedClientStatus(id, managedClientStatusBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await managedClientsBetaApi.updateManagedClientStatus(id, managedClientStatusBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

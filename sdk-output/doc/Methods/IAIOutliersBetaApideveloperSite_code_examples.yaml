@@ -1,0 +1,218 @@
+- path: /outliers/export
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIOutliersBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIOutliersBetaApi = new IAIOutliersBetaApi(apiConfig);
+
+        const type = "LOW_SIMILARITY"; // 'LOW_SIMILARITY' | 'STRUCTURAL' | Type of the identity outliers snapshot to filter on
+
+        try {
+          const val = await iAIOutliersBetaApi.exportOutliersZip();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIOutliersBetaApi.exportOutliersZip(type);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /outlier-summaries
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIOutliersBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIOutliersBetaApi = new IAIOutliersBetaApi(apiConfig);
+
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const type = "LOW_SIMILARITY"; // 'LOW_SIMILARITY' | 'STRUCTURAL' | Type of the identity outliers snapshot to filter on
+        const filters = "snapshotDate ge "2022-02-07T20:13:29.356648026Z""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **snapshotDate**: *ge, le*
+        const sorters = "snapshotDate"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **snapshotDate**
+
+        try {
+          const val = await iAIOutliersBetaApi.getIdentityOutlierSnapshots();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIOutliersBetaApi.getIdentityOutlierSnapshots(limit, offset, type, filters, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /outliers
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIOutliersBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIOutliersBetaApi = new IAIOutliersBetaApi(apiConfig);
+
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const type = "LOW_SIMILARITY"; // 'LOW_SIMILARITY' | 'STRUCTURAL' | Type of the identity outliers snapshot to filter on
+        const filters = "attributes.displayName sw "John" and certStatus eq "false""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **attributes**: *eq, sw, co, in*  **firstDetectionDate**: *ge, le*  **certStatus**: *eq*  **ignored**: *eq*  **score**: *ge, le*
+        const sorters = "attributes.displayName,firstDetectionDate,-score"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **firstDetectionDate, attributes, score**
+
+        try {
+          const val = await iAIOutliersBetaApi.getIdentityOutliers();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIOutliersBetaApi.getIdentityOutliers(limit, offset, count, type, filters, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /outlier-summaries/latest
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIOutliersBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIOutliersBetaApi = new IAIOutliersBetaApi(apiConfig);
+
+        const type = "LOW_SIMILARITY"; // 'LOW_SIMILARITY' | 'STRUCTURAL' | Type of the identity outliers snapshot to filter on
+
+        try {
+          const val = await iAIOutliersBetaApi.getLatestIdentityOutlierSnapshots();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIOutliersBetaApi.getLatestIdentityOutlierSnapshots(type);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /outlier-feature-summaries/{outlierFeatureId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIOutliersBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIOutliersBetaApi = new IAIOutliersBetaApi(apiConfig);
+
+        const outlierFeatureId : string = "04654b66-7561-4090-94f9-abee0722a1af"; // Contributing feature id
+
+        try {
+          const val = await iAIOutliersBetaApi.getOutlierContributingFeatureSummary(outlierFeatureId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIOutliersBetaApi.getOutlierContributingFeatureSummary(outlierFeatureId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /outliers/{outlierId}/contributing-features
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIOutliersBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIOutliersBetaApi = new IAIOutliersBetaApi(apiConfig);
+
+        const outlierId : string = "2c918085842e69ae018432d22ccb212f"; // The outlier id
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const includeTranslationMessages = "include-translation-messages="; // string | Whether or not to include translation messages object in returned response
+        const sorters = "importance"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **importance**
+
+        try {
+          const val = await iAIOutliersBetaApi.getPeerGroupOutliersContributingFeatures(outlierId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIOutliersBetaApi.getPeerGroupOutliersContributingFeatures(outlierId, limit, offset, count, includeTranslationMessages, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /outliers/ignore
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIOutliersBetaApi, string } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIOutliersBetaApi = new IAIOutliersBetaApi(apiConfig);
+
+        const requestBody : Array<string> = ; // 
+
+        try {
+          const val = await iAIOutliersBetaApi.ignoreIdentityOutliers(requestBody);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIOutliersBetaApi.ignoreIdentityOutliers(requestBody);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /outliers/{outlierId}/feature-details/{contributingFeatureName}/access-items
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIOutliersBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIOutliersBetaApi = new IAIOutliersBetaApi(apiConfig);
+
+        const outlierId : string = "2c918085842e69ae018432d22ccb212f"; // The outlier id
+        const contributingFeatureName : 'radical_entitlement_count' | 'entitlement_count' | 'max_jaccard_similarity' | 'mean_max_bundle_concurrency' | 'single_entitlement_bundle_count' | 'peerless_score' = "entitlement_count"; // The name of contributing feature
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const accessType = "ENTITLEMENT"; // string | The type of access item for the identity outlier contributing feature. If not provided, it returns all.
+        const sorters = "displayName"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName**
+
+        try {
+          const val = await iAIOutliersBetaApi.listOutliersContributingFeatureAccessItems(outlierId, contributingFeatureName);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIOutliersBetaApi.listOutliersContributingFeatureAccessItems(outlierId, contributingFeatureName, limit, offset, count, accessType, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /outliers/unignore
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIOutliersBetaApi, string } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIOutliersBetaApi = new IAIOutliersBetaApi(apiConfig);
+
+        const requestBody : Array<string> = ; // 
+
+        try {
+          const val = await iAIOutliersBetaApi.unIgnoreIdentityOutliers(requestBody);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIOutliersBetaApi.unIgnoreIdentityOutliers(requestBody);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

@@ -1,0 +1,286 @@
+- path: /historical-identities/{id}/compare
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IdentityHistoryBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const identityHistoryBetaApi = new IdentityHistoryBetaApi(apiConfig);
+
+        const id : string = "8c190e6787aa4ed9a90bd9d5344523fb"; // The identity id
+        const snapshot1 = "2007-03-01T13:00:00Z"; // string | The snapshot 1 of identity
+        const snapshot2 = "2008-03-01T13:00:00Z"; // string | The snapshot 2 of identity
+        const accessItemTypes = ; // Array<string> | An optional list of access item types (app, account, entitlement, etc...) to return.   If null or empty, all access items types are returned 
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await identityHistoryBetaApi.compareIdentitySnapshots(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await identityHistoryBetaApi.compareIdentitySnapshots(id, snapshot1, snapshot2, accessItemTypes, limit, offset, count);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /historical-identities/{id}/compare/{accessType}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IdentityHistoryBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const identityHistoryBetaApi = new IdentityHistoryBetaApi(apiConfig);
+
+        const id : string = "8c190e6787aa4ed9a90bd9d5344523fb"; // The identity id
+        const accessType : 'accessProfile' | 'account' | 'app' | 'entitlement' | 'role' = "role"; // The specific type which needs to be compared
+        const accessAssociated = 2007-03-01T13:00:00Z; // boolean | Indicates if added or removed access needs to be returned. true - added, false - removed, null - both added & removed
+        const snapshot1 = "2008-03-01T13:00:00Z"; // string | The snapshot 1 of identity
+        const snapshot2 = "2009-03-01T13:00:00Z"; // string | The snapshot 2 of identity
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await identityHistoryBetaApi.compareIdentitySnapshotsAccessType(id, accessType);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await identityHistoryBetaApi.compareIdentitySnapshotsAccessType(id, accessType, accessAssociated, snapshot1, snapshot2, limit, offset, count);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /historical-identities/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IdentityHistoryBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const identityHistoryBetaApi = new IdentityHistoryBetaApi(apiConfig);
+
+        const id : string = "8c190e6787aa4ed9a90bd9d5344523fb"; // The identity id
+
+        try {
+          const val = await identityHistoryBetaApi.getHistoricalIdentity(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await identityHistoryBetaApi.getHistoricalIdentity(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /historical-identities/{id}/events
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IdentityHistoryBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const identityHistoryBetaApi = new IdentityHistoryBetaApi(apiConfig);
+
+        const id : string = "8c190e6787aa4ed9a90bd9d5344523fb"; // The identity id
+        const from = "2024-03-01T13:00:00Z"; // string | The optional instant until which access events are returned
+        const eventTypes = [AccessAddedEvent, AccessRemovedEvent]; // Array<string> | An optional list of event types to return.  If null or empty, all events are returned
+        const accessItemTypes = [entitlement, account]; // Array<string> | An optional list of access item types (app, account, entitlement, etc...) to return.   If null or empty, all access items types are returned
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await identityHistoryBetaApi.getHistoricalIdentityEvents(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await identityHistoryBetaApi.getHistoricalIdentityEvents(id, from, eventTypes, accessItemTypes, limit, offset, count);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /historical-identities/{id}/snapshots/{date}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IdentityHistoryBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const identityHistoryBetaApi = new IdentityHistoryBetaApi(apiConfig);
+
+        const id : string = "8c190e6787aa4ed9a90bd9d5344523fb"; // The identity id
+        const date : string = "2007-03-01T13:00:00Z"; // The specified date
+
+        try {
+          const val = await identityHistoryBetaApi.getIdentitySnapshot(id, date);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await identityHistoryBetaApi.getIdentitySnapshot(id, date);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /historical-identities/{id}/snapshot-summary
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IdentityHistoryBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const identityHistoryBetaApi = new IdentityHistoryBetaApi(apiConfig);
+
+        const id : string = "8c190e6787aa4ed9a90bd9d5344523fb"; // The identity id
+        const before = "2007-03-01T13:00:00Z"; // string | The date before which snapshot summary is required
+        const interval = "interval_example"; // 'day' | 'month' | The interval indicating day or month. Defaults to month if not specified
+        const timeZone = "UTC"; // string | The time zone. Defaults to UTC if not provided
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await identityHistoryBetaApi.getIdentitySnapshotSummary(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await identityHistoryBetaApi.getIdentitySnapshotSummary(id, before, interval, timeZone, limit, offset, count);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /historical-identities/{id}/start-date
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IdentityHistoryBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const identityHistoryBetaApi = new IdentityHistoryBetaApi(apiConfig);
+
+        const id : string = "8c190e6787aa4ed9a90bd9d5344523fb"; // The identity id
+
+        try {
+          const val = await identityHistoryBetaApi.getIdentityStartDate(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await identityHistoryBetaApi.getIdentityStartDate(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /historical-identities
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IdentityHistoryBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const identityHistoryBetaApi = new IdentityHistoryBetaApi(apiConfig);
+
+        const startsWithQuery = "Ada"; // string | This param is used for starts-with search for first, last and display name of the identity
+        const isDeleted = true; // boolean | Indicates if we want to only list down deleted identities or not.
+        const isActive = true; // boolean | Indicates if we want to only list active or inactive identities.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await identityHistoryBetaApi.listHistoricalIdentities();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await identityHistoryBetaApi.listHistoricalIdentities(startsWithQuery, isDeleted, isActive, limit, offset);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /historical-identities/{id}/access-items
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IdentityHistoryBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const identityHistoryBetaApi = new IdentityHistoryBetaApi(apiConfig);
+
+        const id : string = "8c190e6787aa4ed9a90bd9d5344523fb"; // The identity id
+        const type = "account"; // string | The type of access item for the identity. If not provided, it defaults to account.  Types of access items: **accessProfile, account, app, entitlement, role**
+        const filters = "source eq "DataScienceDataset""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **source**: *eq*  **standalone**: *eq*  **privileged**: *eq*  **attribute**: *eq*  **cloudGoverned**: *eq*
+        const sorters = "name"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, value, standalone, privileged, attribute, source, cloudGoverned, removeDate, nativeIdentity, entitlementCount**
+        const query = "Dr. Arden"; // string | This param is used to search if certain fields of the access item contain the string provided.  Searching is supported for the following fields depending on the type:  Access Profiles: **name, description**  Accounts: **name, nativeIdentity**  Apps: **name**  Entitlements: **name, value, description**  Roles: **name, description**
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await identityHistoryBetaApi.listIdentityAccessItems(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await identityHistoryBetaApi.listIdentityAccessItems(id, type, filters, sorters, query, limit, count, offset);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /historical-identities/{id}/snapshots/{date}/access-items
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IdentityHistoryBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const identityHistoryBetaApi = new IdentityHistoryBetaApi(apiConfig);
+
+        const id : string = "8c190e6787aa4ed9a90bd9d5344523fb"; // Identity ID.
+        const date : string = "2007-03-01T13:00:00Z"; // Specified date.
+        const type = "account"; // 'role' | 'access_profile' | 'entitlement' | 'app' | 'account' | Access item type.
+
+        try {
+          const val = await identityHistoryBetaApi.listIdentitySnapshotAccessItems(id, date);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await identityHistoryBetaApi.listIdentitySnapshotAccessItems(id, date, type);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /historical-identities/{id}/snapshots
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IdentityHistoryBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const identityHistoryBetaApi = new IdentityHistoryBetaApi(apiConfig);
+
+        const id : string = "8c190e6787aa4ed9a90bd9d5344523fb"; // The identity id
+        const start = "2007-03-01T13:00:00Z"; // string | The specified start date
+        const interval = "interval_example"; // 'day' | 'month' | The interval indicating the range in day or month for the specified interval-name
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await identityHistoryBetaApi.listIdentitySnapshots(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await identityHistoryBetaApi.listIdentitySnapshots(id, start, interval, limit, offset, count);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

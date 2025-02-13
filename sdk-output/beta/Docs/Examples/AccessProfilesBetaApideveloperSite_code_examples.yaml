@@ -1,0 +1,177 @@
+- path: /access-profiles
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $accessProfileBeta = @"
+        
+        "@
+        
+        # Create Access Profile
+        
+        try {
+            $Result = ConvertFrom-JsonToaccessProfileBeta -Json $accessProfileBeta
+            -BetaaccessProfileBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaaccessProfileBeta $accessProfileBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-profiles/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | ID of the Access Profile to delete (default to undefined)
+        
+        # Delete the specified Access Profile
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-profiles/bulk-delete
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $accessProfileBulkDeleteRequestBeta = @"
+        {bestEffortOnly=true, accessProfileIds=[2c91808876438bb2017668b91919ecca, 2c91808876438ba801766e129f151816]}
+        "@
+        
+        # Delete Access Profile(s)
+        
+        try {
+            $Result = ConvertFrom-JsonToaccessProfileBulkDeleteRequestBeta -Json $accessProfileBulkDeleteRequestBeta
+            -BetaaccessProfileBulkDeleteRequestBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaaccessProfileBulkDeleteRequestBeta $accessProfileBulkDeleteRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-profiles/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | ID of the Access Profile (default to undefined)
+        
+        # Get an Access Profile
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-profiles/{id}/entitlements
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | ID of the access profile containing the entitlements. (default to undefined)
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **attribute**: *eq, sw*  **value**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in*  Filtering is not supported for access profiles and entitlements that have the \'+\' symbol in their names.   (optional) (default to undefined)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified** (optional) (default to undefined)
+        
+        # List Access Profile\'s Entitlements
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -Betalimit $limit -Betaoffset $offset -Betacount $count -Betafilters $filters -Betasorters $sorters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-profiles
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $forSubadmin =  # string | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID, or the special value **me**, which is shorthand for the calling identity\'s ID.  A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an identity that is not a subadmin. (optional) (default to undefined)
+        $limit =  # number | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Filtering is not supported for access profiles and entitlements that have the \'+\' symbol in their names.  (optional) (default to undefined)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional) (default to undefined)
+        $forSegmentIds =  # string | If present and not empty, additionally filters access profiles to those which are assigned to the segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error. (optional) (default to undefined)
+        $includeUnsegmented =  # boolean | Indicates whether the response list should contain unsegmented access profiles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional) (default to true)
+        
+        # List Access Profiles
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaforSubadmin $forSubadmin -Betalimit $limit -Betaoffset $offset -Betacount $count -Betafilters $filters -Betasorters $sorters -BetaforSegmentIds $forSegmentIds -BetaincludeUnsegmented $includeUnsegmented  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-profiles/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | ID of the Access Profile to patch (default to undefined)
+        # Array<JsonPatchOperationBeta> | 
+        $jsonPatchOperationBeta = @"[{op=add, path=/entitlements, value=[{id=2c9180857725c14301772a93bb77242d, type=ENTITLEMENT, name=AD User Group}]}]"@ 
+        
+        
+        # Patch a specified Access Profile
+        
+        try {
+            $Result = ConvertFrom-JsonTojsonPatchOperationBeta -Json $jsonPatchOperationBeta
+            -Betaid $id -BetajsonPatchOperationBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetajsonPatchOperationBeta $jsonPatchOperationBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-profiles/bulk-update-requestable
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        # Array<AccessProfileBulkUpdateRequestInnerBeta> | 
+        $accessProfileBulkUpdateRequestInnerBeta = @"[{id=464ae7bf-791e-49fd-b746-06a2e4a89635, requestable=false}]"@ 
+        
+        
+        # Update Access Profile(s) requestable field.
+        
+        try {
+            $Result = ConvertFrom-JsonToaccessProfileBulkUpdateRequestInnerBeta -Json $accessProfileBulkUpdateRequestInnerBeta
+            -BetaaccessProfileBulkUpdateRequestInnerBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaaccessProfileBulkUpdateRequestInnerBeta $accessProfileBulkUpdateRequestInnerBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

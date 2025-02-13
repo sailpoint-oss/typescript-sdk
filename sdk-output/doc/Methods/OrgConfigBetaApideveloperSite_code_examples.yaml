@@ -1,0 +1,64 @@
+- path: /org-config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, OrgConfigBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const orgConfigBetaApi = new OrgConfigBetaApi(apiConfig);
+
+
+        try {
+          const val = await orgConfigBetaApi.getOrgConfig();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await orgConfigBetaApi.getOrgConfig();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /org-config/valid-time-zones
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, OrgConfigBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const orgConfigBetaApi = new OrgConfigBetaApi(apiConfig);
+
+
+        try {
+          const val = await orgConfigBetaApi.getValidTimeZones();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await orgConfigBetaApi.getValidTimeZones();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /org-config
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, OrgConfigBetaApi, JsonPatchOperationBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const orgConfigBetaApi = new OrgConfigBetaApi(apiConfig);
+
+        const jsonPatchOperationBeta : Array<JsonPatchOperationBeta> = [{op=replace, path=/timeZone, value=America/Toronto}]; // A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+        try {
+          const val = await orgConfigBetaApi.patchOrgConfig(jsonPatchOperationBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await orgConfigBetaApi.patchOrgConfig(jsonPatchOperationBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

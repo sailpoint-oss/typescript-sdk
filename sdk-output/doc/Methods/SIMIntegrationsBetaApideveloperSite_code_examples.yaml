@@ -1,0 +1,156 @@
+- path: /sim-integrations
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SIMIntegrationsBetaApi, SimIntegrationDetailsBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sIMIntegrationsBetaApi = new SIMIntegrationsBetaApi(apiConfig);
+
+        const simIntegrationDetailsBeta : SimIntegrationDetailsBeta = ; // DTO containing the details of the SIM integration
+
+        try {
+          const val = await sIMIntegrationsBetaApi.createSIMIntegration(simIntegrationDetailsBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sIMIntegrationsBetaApi.createSIMIntegration(simIntegrationDetailsBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sim-integrations/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SIMIntegrationsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sIMIntegrationsBetaApi = new SIMIntegrationsBetaApi(apiConfig);
+
+        const id : string = "12345"; // The id of the integration to delete.
+
+        try {
+          const val = await sIMIntegrationsBetaApi.deleteSIMIntegration(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sIMIntegrationsBetaApi.deleteSIMIntegration(id);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sim-integrations/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SIMIntegrationsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sIMIntegrationsBetaApi = new SIMIntegrationsBetaApi(apiConfig);
+
+        const id : string = "12345"; // The id of the integration.
+
+        try {
+          const val = await sIMIntegrationsBetaApi.getSIMIntegration(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sIMIntegrationsBetaApi.getSIMIntegration(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sim-integrations
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SIMIntegrationsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sIMIntegrationsBetaApi = new SIMIntegrationsBetaApi(apiConfig);
+
+
+        try {
+          const val = await sIMIntegrationsBetaApi.getSIMIntegrations();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sIMIntegrationsBetaApi.getSIMIntegrations();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sim-integrations/{id}/beforeProvisioningRule
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SIMIntegrationsBetaApi, JsonPatchBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sIMIntegrationsBetaApi = new SIMIntegrationsBetaApi(apiConfig);
+
+        const id : string = "12345"; // SIM integration id
+        const jsonPatchBeta : JsonPatchBeta = ; // The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
+
+        try {
+          const val = await sIMIntegrationsBetaApi.patchBeforeProvisioningRule(id, jsonPatchBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sIMIntegrationsBetaApi.patchBeforeProvisioningRule(id, jsonPatchBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sim-integrations/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SIMIntegrationsBetaApi, JsonPatchBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sIMIntegrationsBetaApi = new SIMIntegrationsBetaApi(apiConfig);
+
+        const id : string = "12345"; // SIM integration id
+        const jsonPatchBeta : JsonPatchBeta = ; // The JsonPatch object that describes the changes of SIM
+
+        try {
+          const val = await sIMIntegrationsBetaApi.patchSIMAttributes(id, jsonPatchBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sIMIntegrationsBetaApi.patchSIMAttributes(id, jsonPatchBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /sim-integrations/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SIMIntegrationsBetaApi, SimIntegrationDetailsBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sIMIntegrationsBetaApi = new SIMIntegrationsBetaApi(apiConfig);
+
+        const id : string = "12345"; // The id of the integration.
+        const simIntegrationDetailsBeta : SimIntegrationDetailsBeta = ; // The full DTO of the integration containing the updated model
+
+        try {
+          const val = await sIMIntegrationsBetaApi.putSIMIntegration(id, simIntegrationDetailsBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sIMIntegrationsBetaApi.putSIMIntegration(id, simIntegrationDetailsBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

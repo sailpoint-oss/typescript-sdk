@@ -1,0 +1,235 @@
+- path: /trigger-invocations/{id}/complete
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TriggersBetaApi, CompleteInvocationBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const triggersBetaApi = new TriggersBetaApi(apiConfig);
+
+        const id : string = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"; // The ID of the invocation to complete.
+        const completeInvocationBeta : CompleteInvocationBeta = {secret=0f11f2a4-7c94-4bf3-a2bd-742580fe3bde, output={approved=false}}; // 
+
+        try {
+          const val = await triggersBetaApi.completeTriggerInvocation(id, completeInvocationBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await triggersBetaApi.completeTriggerInvocation(id, completeInvocationBeta);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /trigger-subscriptions
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TriggersBetaApi, SubscriptionPostRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const triggersBetaApi = new TriggersBetaApi(apiConfig);
+
+        const subscriptionPostRequestBeta : SubscriptionPostRequestBeta = {name=Access request subscription, description=Access requested to site xyz, triggerId=idn:access-requested, type=HTTP, httpConfig={url=https://www.example.com, httpDispatchMode=SYNC, httpAuthenticationType=BASIC_AUTH, basicAuthConfig={userName=user@example.com, password=eRtg4%6yuI!}}, enabled=true, filter=$[?($.identityId == "201327fda1c44704ac01181e963d463c")]}; // 
+
+        try {
+          const val = await triggersBetaApi.createSubscription(subscriptionPostRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await triggersBetaApi.createSubscription(subscriptionPostRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /trigger-subscriptions/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TriggersBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const triggersBetaApi = new TriggersBetaApi(apiConfig);
+
+        const id : string = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"; // Subscription ID
+
+        try {
+          const val = await triggersBetaApi.deleteSubscription(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await triggersBetaApi.deleteSubscription(id);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /trigger-subscriptions
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TriggersBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const triggersBetaApi = new TriggersBetaApi(apiConfig);
+
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "id eq "12cff757-c0c0-413b-8ad7-2a47956d1e89""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **triggerId**: *eq*  **type**: *eq, le*
+        const sorters = "triggerName"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **triggerId, triggerName**
+
+        try {
+          const val = await triggersBetaApi.listSubscriptions();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await triggersBetaApi.listSubscriptions(limit, offset, count, filters, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /trigger-invocations/status
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TriggersBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const triggersBetaApi = new TriggersBetaApi(apiConfig);
+
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "triggerId eq "idn:access-request-dynamic-approver""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **triggerId**: *eq*  **subscriptionId**: *eq*
+        const sorters = "created"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **triggerId, subscriptionName, created, completed**
+
+        try {
+          const val = await triggersBetaApi.listTriggerInvocationStatus();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await triggersBetaApi.listTriggerInvocationStatus(limit, offset, count, filters, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /triggers
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TriggersBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const triggersBetaApi = new TriggersBetaApi(apiConfig);
+
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "id eq "idn:access-request-post-approval""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ge, le*
+        const sorters = "name"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name**
+
+        try {
+          const val = await triggersBetaApi.listTriggers();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await triggersBetaApi.listTriggers(limit, offset, count, filters, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /trigger-subscriptions/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TriggersBetaApi, SubscriptionPatchRequestInnerBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const triggersBetaApi = new TriggersBetaApi(apiConfig);
+
+        const id : string = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"; // ID of the Subscription to patch
+        const subscriptionPatchRequestInnerBeta : Array<SubscriptionPatchRequestInnerBeta> = ; // 
+
+        try {
+          const val = await triggersBetaApi.patchSubscription(id, subscriptionPatchRequestInnerBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await triggersBetaApi.patchSubscription(id, subscriptionPatchRequestInnerBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /trigger-invocations/test
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TriggersBetaApi, TestInvocationBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const triggersBetaApi = new TriggersBetaApi(apiConfig);
+
+        const testInvocationBeta : TestInvocationBeta = {triggerId=idn:access-requested, input={identityId=201327fda1c44704ac01181e963d463c}, contentJson={workflowId=1234}}; // 
+
+        try {
+          const val = await triggersBetaApi.startTestTriggerInvocation(testInvocationBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await triggersBetaApi.startTestTriggerInvocation(testInvocationBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /trigger-subscriptions/validate-filter
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TriggersBetaApi, ValidateFilterInputDtoBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const triggersBetaApi = new TriggersBetaApi(apiConfig);
+
+        const validateFilterInputDtoBeta : ValidateFilterInputDtoBeta = {input={identityId=201327fda1c44704ac01181e963d463c}, filter=$[?($.identityId == "201327fda1c44704ac01181e963d463c")]}; // 
+
+        try {
+          const val = await triggersBetaApi.testSubscriptionFilter(validateFilterInputDtoBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await triggersBetaApi.testSubscriptionFilter(validateFilterInputDtoBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /trigger-subscriptions/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TriggersBetaApi, SubscriptionPutRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const triggersBetaApi = new TriggersBetaApi(apiConfig);
+
+        const id : string = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"; // Subscription ID
+        const subscriptionPutRequestBeta : SubscriptionPutRequestBeta = {name=Access request subscription, description=Access requested to site xyz, type=HTTP, httpConfig={url=https://www.example.com, httpDispatchMode=SYNC, httpAuthenticationType=BASIC_AUTH, basicAuthConfig={userName=user@example.com, password=eRtg4%6yuI!}}, enabled=true, filter=$[?($.identityId == "201327fda1c44704ac01181e963d463c")]}; // 
+
+        try {
+          const val = await triggersBetaApi.updateSubscription(id, subscriptionPutRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await triggersBetaApi.updateSubscription(id, subscriptionPutRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

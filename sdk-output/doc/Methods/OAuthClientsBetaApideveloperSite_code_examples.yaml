@@ -1,0 +1,111 @@
+- path: /oauth-clients
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, OAuthClientsBetaApi, CreateOAuthClientRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const oAuthClientsBetaApi = new OAuthClientsBetaApi(apiConfig);
+
+        const createOAuthClientRequestBeta : CreateOAuthClientRequestBeta = ; // 
+
+        try {
+          const val = await oAuthClientsBetaApi.createOauthClient(createOAuthClientRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await oAuthClientsBetaApi.createOauthClient(createOAuthClientRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /oauth-clients/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, OAuthClientsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const oAuthClientsBetaApi = new OAuthClientsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The OAuth client id
+
+        try {
+          const val = await oAuthClientsBetaApi.deleteOauthClient(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await oAuthClientsBetaApi.deleteOauthClient(id);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /oauth-clients/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, OAuthClientsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const oAuthClientsBetaApi = new OAuthClientsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The OAuth client id
+
+        try {
+          const val = await oAuthClientsBetaApi.getOauthClient(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await oAuthClientsBetaApi.getOauthClient(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /oauth-clients
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, OAuthClientsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const oAuthClientsBetaApi = new OAuthClientsBetaApi(apiConfig);
+
+        const filters = "lastUsed le 2023-02-05T10:59:27.214Z"; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull*
+
+        try {
+          const val = await oAuthClientsBetaApi.listOauthClients();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await oAuthClientsBetaApi.listOauthClients(filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /oauth-clients/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, OAuthClientsBetaApi, JsonPatchOperationBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const oAuthClientsBetaApi = new OAuthClientsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The OAuth client id
+        const jsonPatchOperationBeta : Array<JsonPatchOperationBeta> = [{op=replace, path=/strongAuthSupported, value=true}, {op=replace, path=/businessName, value=acme-solar}]; // A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
+
+        try {
+          const val = await oAuthClientsBetaApi.patchOauthClient(id, jsonPatchOperationBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await oAuthClientsBetaApi.patchOauthClient(id, jsonPatchOperationBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

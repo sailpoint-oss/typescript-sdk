@@ -1,0 +1,22 @@
+- path: /account-aggregations/{id}/status
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccountAggregationsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accountAggregationsBetaApi = new AccountAggregationsBetaApi(apiConfig);
+
+        const id : string = "2c91808477a6b0c60177a81146b8110b"; // The account aggregation id
+
+        try {
+          const val = await accountAggregationsBetaApi.getAccountAggregationStatus(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accountAggregationsBetaApi.getAccountAggregationStatus(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

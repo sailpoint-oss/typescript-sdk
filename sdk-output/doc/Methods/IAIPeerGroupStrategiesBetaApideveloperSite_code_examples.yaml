@@ -1,0 +1,25 @@
+- path: /peer-group-strategies/{strategy}/identity-outliers
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAIPeerGroupStrategiesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAIPeerGroupStrategiesBetaApi = new IAIPeerGroupStrategiesBetaApi(apiConfig);
+
+        const strategy : 'entitlement' = "entitlement"; // The strategy used to create peer groups. Currently, \'entitlement\' is supported.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await iAIPeerGroupStrategiesBetaApi.getPeerGroupOutliers(strategy);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAIPeerGroupStrategiesBetaApi.getPeerGroupOutliers(strategy, limit, offset, count);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

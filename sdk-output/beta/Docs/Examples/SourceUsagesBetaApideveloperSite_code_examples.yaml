@@ -1,0 +1,42 @@
+- path: /source-usages/{sourceId}/status
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | ID of IDN source (default to undefined)
+        
+        # Finds status of source usage
+        
+        try {
+            -BetasourceId $sourceId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /source-usages/{sourceId}/summaries
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | ID of IDN source (default to undefined)
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date** (optional) (default to undefined)
+        
+        # Returns source usage insights
+        
+        try {
+            -BetasourceId $sourceId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId -Betalimit $limit -Betaoffset $offset -Betacount $count -Betasorters $sorters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

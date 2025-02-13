@@ -1,0 +1,224 @@
+- path: /service-desk-integrations
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ServiceDeskIntegrationBetaApi, ServiceDeskIntegrationDtoBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const serviceDeskIntegrationBetaApi = new ServiceDeskIntegrationBetaApi(apiConfig);
+
+        const serviceDeskIntegrationDtoBeta : ServiceDeskIntegrationDtoBeta = ; // The specifics of a new integration to create
+
+        try {
+          const val = await serviceDeskIntegrationBetaApi.createServiceDeskIntegration(serviceDeskIntegrationDtoBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await serviceDeskIntegrationBetaApi.createServiceDeskIntegration(serviceDeskIntegrationDtoBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /service-desk-integrations/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ServiceDeskIntegrationBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const serviceDeskIntegrationBetaApi = new ServiceDeskIntegrationBetaApi(apiConfig);
+
+        const id : string = "anId"; // ID of Service Desk integration to delete
+
+        try {
+          const val = await serviceDeskIntegrationBetaApi.deleteServiceDeskIntegration(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await serviceDeskIntegrationBetaApi.deleteServiceDeskIntegration(id);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /service-desk-integrations/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ServiceDeskIntegrationBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const serviceDeskIntegrationBetaApi = new ServiceDeskIntegrationBetaApi(apiConfig);
+
+        const id : string = "anId"; // ID of the Service Desk integration to get
+
+        try {
+          const val = await serviceDeskIntegrationBetaApi.getServiceDeskIntegration(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await serviceDeskIntegrationBetaApi.getServiceDeskIntegration(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /service-desk-integrations
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ServiceDeskIntegrationBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const serviceDeskIntegrationBetaApi = new ServiceDeskIntegrationBetaApi(apiConfig);
+
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const sorters = "name"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
+        const filters = "id eq 2c91808b6ef1d43e016efba0ce470904"; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq*  **type**: *eq, in*  **cluster**: *eq, in*
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await serviceDeskIntegrationBetaApi.getServiceDeskIntegrationList();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await serviceDeskIntegrationBetaApi.getServiceDeskIntegrationList(offset, limit, sorters, filters, count);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /service-desk-integrations/templates/{scriptName}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ServiceDeskIntegrationBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const serviceDeskIntegrationBetaApi = new ServiceDeskIntegrationBetaApi(apiConfig);
+
+        const scriptName : string = "aScriptName"; // The scriptName value of the Service Desk integration template to get
+
+        try {
+          const val = await serviceDeskIntegrationBetaApi.getServiceDeskIntegrationTemplate(scriptName);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await serviceDeskIntegrationBetaApi.getServiceDeskIntegrationTemplate(scriptName);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /service-desk-integrations/types
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ServiceDeskIntegrationBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const serviceDeskIntegrationBetaApi = new ServiceDeskIntegrationBetaApi(apiConfig);
+
+
+        try {
+          const val = await serviceDeskIntegrationBetaApi.getServiceDeskIntegrationTypes();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await serviceDeskIntegrationBetaApi.getServiceDeskIntegrationTypes();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /service-desk-integrations/status-check-configuration
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ServiceDeskIntegrationBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const serviceDeskIntegrationBetaApi = new ServiceDeskIntegrationBetaApi(apiConfig);
+
+
+        try {
+          const val = await serviceDeskIntegrationBetaApi.getStatusCheckDetails();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await serviceDeskIntegrationBetaApi.getStatusCheckDetails();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /service-desk-integrations/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ServiceDeskIntegrationBetaApi, PatchServiceDeskIntegrationRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const serviceDeskIntegrationBetaApi = new ServiceDeskIntegrationBetaApi(apiConfig);
+
+        const id : string = "anId"; // ID of the Service Desk integration to update
+        const patchServiceDeskIntegrationRequestBeta : PatchServiceDeskIntegrationRequestBeta = ; // A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
+
+        try {
+          const val = await serviceDeskIntegrationBetaApi.patchServiceDeskIntegration(id, patchServiceDeskIntegrationRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await serviceDeskIntegrationBetaApi.patchServiceDeskIntegration(id, patchServiceDeskIntegrationRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /service-desk-integrations/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ServiceDeskIntegrationBetaApi, ServiceDeskIntegrationDtoBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const serviceDeskIntegrationBetaApi = new ServiceDeskIntegrationBetaApi(apiConfig);
+
+        const id : string = "anId"; // ID of the Service Desk integration to update
+        const serviceDeskIntegrationDtoBeta : ServiceDeskIntegrationDtoBeta = ; // The specifics of the integration to update
+
+        try {
+          const val = await serviceDeskIntegrationBetaApi.putServiceDeskIntegration(id, serviceDeskIntegrationDtoBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await serviceDeskIntegrationBetaApi.putServiceDeskIntegration(id, serviceDeskIntegrationDtoBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /service-desk-integrations/status-check-configuration
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ServiceDeskIntegrationBetaApi, QueuedCheckConfigDetailsBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const serviceDeskIntegrationBetaApi = new ServiceDeskIntegrationBetaApi(apiConfig);
+
+        const queuedCheckConfigDetailsBeta : QueuedCheckConfigDetailsBeta = ; // The modified time check configuration
+
+        try {
+          const val = await serviceDeskIntegrationBetaApi.updateStatusCheckDetails(queuedCheckConfigDetailsBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await serviceDeskIntegrationBetaApi.updateStatusCheckDetails(queuedCheckConfigDetailsBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

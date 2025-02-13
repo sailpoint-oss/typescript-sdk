@@ -1,0 +1,47 @@
+- path: /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, LifecycleStatesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const lifecycleStatesBetaApi = new LifecycleStatesBetaApi(apiConfig);
+
+        const identityProfileId : string = "2b838de9-db9b-abcf-e646-d4f274ad4238"; // Identity Profile ID.
+        const lifecycleStateId : string = "ef38f94347e94562b5bb8424a56397d8"; // Lifecycle State ID.
+
+        try {
+          const val = await lifecycleStatesBetaApi.getLifecycleStates(identityProfileId, lifecycleStateId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await lifecycleStatesBetaApi.getLifecycleStates(identityProfileId, lifecycleStateId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, LifecycleStatesBetaApi, JsonPatchOperationBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const lifecycleStatesBetaApi = new LifecycleStatesBetaApi(apiConfig);
+
+        const identityProfileId : string = "2b838de9-db9b-abcf-e646-d4f274ad4238"; // Identity Profile ID.
+        const lifecycleStateId : string = "ef38f94347e94562b5bb8424a56397d8"; // Lifecycle State ID.
+        const jsonPatchOperationBeta : Array<JsonPatchOperationBeta> = [{op=replace, path=/description, value=Updated description!}, {op=replace, path=/accessProfileIds, value=[2c918087742bab150174407a80f3125e, 2c918087742bab150174407a80f3124f]}, {op=replace, path=/accountActions, value=[{action=ENABLE, sourceIds=[2c9180846a2f82fb016a481c1b1560c5, 2c9180846a2f82fb016a481c1b1560cc]}, {action=DISABLE, sourceIds=[2c91808869a0c9980169a207258513fb]}]}, {op=replace, path=/emailNotificationOption, value={notifyManagers=true, notifyAllAdmins=false, notifySpecificUsers=false, emailAddressList=[]}}]; // A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
+
+        try {
+          const val = await lifecycleStatesBetaApi.updateLifecycleStates(identityProfileId, lifecycleStateId, jsonPatchOperationBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await lifecycleStatesBetaApi.updateLifecycleStates(identityProfileId, lifecycleStateId, jsonPatchOperationBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

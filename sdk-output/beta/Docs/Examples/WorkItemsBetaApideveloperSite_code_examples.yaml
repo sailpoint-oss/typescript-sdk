@@ -1,0 +1,262 @@
+- path: /work-items/{id}/approve/{approvalItemId}
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The ID of the work item (default to undefined)
+        $approvalItemId =  # string | The ID of the approval item. (default to undefined)
+        
+        # Approve an Approval Item
+        
+        try {
+            -Betaid $id -BetaapprovalItemId $approvalItemId 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetaapprovalItemId $approvalItemId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/bulk-approve/{id}
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The ID of the work item (default to undefined)
+        
+        # Bulk approve Approval Items
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/{id}
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The ID of the work item (default to undefined)
+        
+        # Complete a Work Item
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/{id}/forward
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The ID of the work item (default to undefined)
+        $workItemForwardBeta = @"
+        
+        "@
+        
+        # Forward a Work Item
+        
+        try {
+            $Result = ConvertFrom-JsonToworkItemForwardBeta -Json $workItemForwardBeta
+            -Betaid $id -BetaworkItemForwardBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetaworkItemForwardBeta $workItemForwardBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/completed
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $ownerId =  # string | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request. (optional) (default to undefined)
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        
+        # Completed Work Items
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaownerId $ownerId -Betalimit $limit -Betaoffset $offset -Betacount $count  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/completed/count
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $ownerId =  # string | ID of the work item owner. (optional) (default to undefined)
+        
+        # Count Completed Work Items
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaownerId $ownerId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/count
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $ownerId =  # string | ID of the work item owner. (optional) (default to undefined)
+        
+        # Count Work Items
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaownerId $ownerId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | ID of the work item. (default to undefined)
+        $ownerId =  # string | ID of the work item owner. (optional) (default to undefined)
+        
+        # Get a Work Item
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetaownerId $ownerId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/summary
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $ownerId =  # string | ID of the work item owner. (optional) (default to undefined)
+        
+        # Work Items Summary
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaownerId $ownerId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $ownerId =  # string | ID of the work item owner. (optional) (default to undefined)
+        
+        # List Work Items
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betalimit $limit -Betaoffset $offset -Betacount $count -BetaownerId $ownerId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/{id}/reject/{approvalItemId}
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The ID of the work item (default to undefined)
+        $approvalItemId =  # string | The ID of the approval item. (default to undefined)
+        
+        # Reject an Approval Item
+        
+        try {
+            -Betaid $id -BetaapprovalItemId $approvalItemId 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetaapprovalItemId $approvalItemId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/bulk-reject/{id}
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The ID of the work item (default to undefined)
+        
+        # Bulk reject Approval Items
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/{id}/submit-account-selection
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The ID of the work item (default to undefined)
+        $requestBody =  # { [key: string]: any; } | Account Selection Data map, keyed on fieldName
+        
+        # Submit Account Selections
+        
+        try {
+            $Result = ConvertFrom-JsonTorequestBody -Json $requestBody
+            -Betaid $id -BetarequestBody $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetarequestBody $requestBody  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

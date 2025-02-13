@@ -1,0 +1,40 @@
+- path: /public-identities-config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        
+        # Get Public Identity Config
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /public-identities-config
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $publicIdentityConfigBeta = @"
+        
+        "@
+        
+        # Update Public Identity Config
+        
+        try {
+            $Result = ConvertFrom-JsonTopublicIdentityConfigBeta -Json $publicIdentityConfigBeta
+            -BetapublicIdentityConfigBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetapublicIdentityConfigBeta $publicIdentityConfigBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

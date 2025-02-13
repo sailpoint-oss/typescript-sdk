@@ -1,0 +1,89 @@
+- path: /access-model-metadata/attributes/{key}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccessModelMetadataBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accessModelMetadataBetaApi = new AccessModelMetadataBetaApi(apiConfig);
+
+        const key : string = "iscPrivacy"; // Technical name of the Attribute.
+
+        try {
+          const val = await accessModelMetadataBetaApi.getAccessModelMetadataAttribute(key);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accessModelMetadataBetaApi.getAccessModelMetadataAttribute(key);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /access-model-metadata/attributes/{key}/values/{value}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccessModelMetadataBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accessModelMetadataBetaApi = new AccessModelMetadataBetaApi(apiConfig);
+
+        const key : string = "iscPrivacy"; // Technical name of the Attribute.
+        const value : string = "public"; // Technical name of the Attribute value.
+
+        try {
+          const val = await accessModelMetadataBetaApi.getAccessModelMetadataAttributeValue(key, value);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accessModelMetadataBetaApi.getAccessModelMetadataAttributeValue(key, value);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /access-model-metadata/attributes
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccessModelMetadataBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accessModelMetadataBetaApi = new AccessModelMetadataBetaApi(apiConfig);
+
+        const filters = "name eq "Privacy""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and*
+
+        try {
+          const val = await accessModelMetadataBetaApi.listAccessModelMetadataAttribute();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accessModelMetadataBetaApi.listAccessModelMetadataAttribute(filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /access-model-metadata/attributes/{key}/values
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccessModelMetadataBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accessModelMetadataBetaApi = new AccessModelMetadataBetaApi(apiConfig);
+
+        const key : string = "iscPrivacy"; // Technical name of the Attribute.
+
+        try {
+          const val = await accessModelMetadataBetaApi.listAccessModelMetadataAttributeValue(key);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accessModelMetadataBetaApi.listAccessModelMetadataAttributeValue(key);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

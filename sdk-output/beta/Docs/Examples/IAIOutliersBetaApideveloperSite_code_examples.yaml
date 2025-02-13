@@ -1,0 +1,197 @@
+- path: /outliers/export
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $type =  # 'LOW_SIMILARITY' | 'STRUCTURAL' | Type of the identity outliers snapshot to filter on (optional) (default to undefined)
+        
+        # IAI Identity Outliers Export
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betatype $type  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /outlier-summaries
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $type =  # 'LOW_SIMILARITY' | 'STRUCTURAL' | Type of the identity outliers snapshot to filter on (optional) (default to undefined)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **snapshotDate**: *ge, le* (optional) (default to undefined)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **snapshotDate** (optional) (default to undefined)
+        
+        # IAI Identity Outliers Summary
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betalimit $limit -Betaoffset $offset -Betatype $type -Betafilters $filters -Betasorters $sorters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /outliers
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $type =  # 'LOW_SIMILARITY' | 'STRUCTURAL' | Type of the identity outliers snapshot to filter on (optional) (default to undefined)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **attributes**: *eq, sw, co, in*  **firstDetectionDate**: *ge, le*  **certStatus**: *eq*  **ignored**: *eq*  **score**: *ge, le* (optional) (default to undefined)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **firstDetectionDate, attributes, score** (optional) (default to undefined)
+        
+        # IAI Get Identity Outliers
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betalimit $limit -Betaoffset $offset -Betacount $count -Betatype $type -Betafilters $filters -Betasorters $sorters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /outlier-summaries/latest
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $type =  # 'LOW_SIMILARITY' | 'STRUCTURAL' | Type of the identity outliers snapshot to filter on (optional) (default to undefined)
+        
+        # IAI Identity Outliers Latest Summary
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betatype $type  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /outlier-feature-summaries/{outlierFeatureId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $outlierFeatureId =  # string | Contributing feature id (default to undefined)
+        
+        # Get identity outlier contibuting feature summary
+        
+        try {
+            -BetaoutlierFeatureId $outlierFeatureId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaoutlierFeatureId $outlierFeatureId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /outliers/{outlierId}/contributing-features
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $outlierId =  # string | The outlier id (default to undefined)
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $includeTranslationMessages =  # string | Whether or not to include translation messages object in returned response (optional) (default to undefined)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **importance** (optional) (default to undefined)
+        
+        # Get identity outlier\'s contibuting features
+        
+        try {
+            -BetaoutlierId $outlierId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaoutlierId $outlierId -Betalimit $limit -Betaoffset $offset -Betacount $count -BetaincludeTranslationMessages $includeTranslationMessages -Betasorters $sorters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /outliers/ignore
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $requestBody =  # Array<string> | 
+        $requestBody = @""@ 
+        
+        
+        # IAI Identity Outliers Ignore
+        
+        try {
+            $Result = ConvertFrom-JsonTorequestBody -Json $requestBody
+            -BetarequestBody $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetarequestBody $requestBody  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /outliers/{outlierId}/feature-details/{contributingFeatureName}/access-items
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $outlierId =  # string | The outlier id (default to undefined)
+        $contributingFeatureName =  # 'radical_entitlement_count' | 'entitlement_count' | 'max_jaccard_similarity' | 'mean_max_bundle_concurrency' | 'single_entitlement_bundle_count' | 'peerless_score' | The name of contributing feature (default to undefined)
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $accessType =  # string | The type of access item for the identity outlier contributing feature. If not provided, it returns all. (optional) (default to undefined)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName** (optional) (default to undefined)
+        
+        # Gets a list of access items associated with each identity outlier contributing feature
+        
+        try {
+            -BetaoutlierId $outlierId -BetacontributingFeatureName $contributingFeatureName 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaoutlierId $outlierId -BetacontributingFeatureName $contributingFeatureName -Betalimit $limit -Betaoffset $offset -Betacount $count -BetaaccessType $accessType -Betasorters $sorters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /outliers/unignore
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $requestBody =  # Array<string> | 
+        $requestBody = @""@ 
+        
+        
+        # IAI Identity Outliers Unignore
+        
+        try {
+            $Result = ConvertFrom-JsonTorequestBody -Json $requestBody
+            -BetarequestBody $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetarequestBody $requestBody  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

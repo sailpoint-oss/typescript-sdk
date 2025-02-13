@@ -1,0 +1,47 @@
+- path: /icons/{objectType}/{objectId}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IconsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iconsBetaApi = new IconsBetaApi(apiConfig);
+
+        const objectType : 'application' = "application"; // Object type
+        const objectId : string = "a291e870-48c3-4953-b656-fb5ce2a93169"; // Object id.
+
+        try {
+          const val = await iconsBetaApi.deleteIcon(objectType, objectId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iconsBetaApi.deleteIcon(objectType, objectId);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /icons/{objectType}/{objectId}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IconsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iconsBetaApi = new IconsBetaApi(apiConfig);
+
+        const objectType : 'application' = "application"; // Object type
+        const objectId : string = "a291e870-48c3-4953-b656-fb5ce2a93169"; // Object id.
+        const image : File = BINARY_DATA_HERE; // file with icon. Allowed mime-types [\\\'image/png\\\', \\\'image/jpeg\\\']
+
+        try {
+          const val = await iconsBetaApi.setIcon(objectType, objectId, image);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iconsBetaApi.setIcon(objectType, objectId, image);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

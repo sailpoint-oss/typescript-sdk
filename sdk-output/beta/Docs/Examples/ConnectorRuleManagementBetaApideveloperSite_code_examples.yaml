@@ -1,0 +1,122 @@
+- path: /connector-rules
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $connectorRuleCreateRequestBeta = @"
+        
+        "@
+        
+        # Create Connector Rule
+        
+        try {
+            $Result = ConvertFrom-JsonToconnectorRuleCreateRequestBeta -Json $connectorRuleCreateRequestBeta
+            -BetaconnectorRuleCreateRequestBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaconnectorRuleCreateRequestBeta $connectorRuleCreateRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /connector-rules/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | ID of the connector rule to delete (default to undefined)
+        
+        # Delete a Connector-Rule
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /connector-rules/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | ID of the connector rule to retrieve (default to undefined)
+        
+        # Connector-Rule by ID
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /connector-rules
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        
+        # List Connector Rules
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /connector-rules/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | ID of the connector rule to update (default to undefined)
+        $connectorRuleUpdateRequestBeta = @"
+        
+        "@
+        
+        # Update a Connector Rule
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetaconnectorRuleUpdateRequestBeta $connectorRuleUpdateRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /connector-rules/validate
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceCodeBeta = @"
+        
+        "@
+        
+        # Validate Connector Rule
+        
+        try {
+            $Result = ConvertFrom-JsonTosourceCodeBeta -Json $sourceCodeBeta
+            -BetasourceCodeBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceCodeBeta $sourceCodeBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

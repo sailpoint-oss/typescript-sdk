@@ -1,0 +1,44 @@
+- path: /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $identityProfileId =  # string | Identity Profile ID. (default to undefined)
+        $lifecycleStateId =  # string | Lifecycle State ID. (default to undefined)
+        
+        # Get Lifecycle State
+        
+        try {
+            -BetaidentityProfileId $identityProfileId -BetalifecycleStateId $lifecycleStateId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaidentityProfileId $identityProfileId -BetalifecycleStateId $lifecycleStateId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $identityProfileId =  # string | Identity Profile ID. (default to undefined)
+        $lifecycleStateId =  # string | Lifecycle State ID. (default to undefined)
+        # Array<JsonPatchOperationBeta> | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
+        $jsonPatchOperationBeta = @"[{op=replace, path=/description, value=Updated description!}, {op=replace, path=/accessProfileIds, value=[2c918087742bab150174407a80f3125e, 2c918087742bab150174407a80f3124f]}, {op=replace, path=/accountActions, value=[{action=ENABLE, sourceIds=[2c9180846a2f82fb016a481c1b1560c5, 2c9180846a2f82fb016a481c1b1560cc]}, {action=DISABLE, sourceIds=[2c91808869a0c9980169a207258513fb]}]}, {op=replace, path=/emailNotificationOption, value={notifyManagers=true, notifyAllAdmins=false, notifySpecificUsers=false, emailAddressList=[]}}]"@ 
+        
+        
+        # Update Lifecycle State
+        
+        try {
+            $Result = ConvertFrom-JsonTojsonPatchOperationBeta -Json $jsonPatchOperationBeta
+            -BetaidentityProfileId $identityProfileId -BetalifecycleStateId $lifecycleStateId -BetajsonPatchOperationBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaidentityProfileId $identityProfileId -BetalifecycleStateId $lifecycleStateId -BetajsonPatchOperationBeta $jsonPatchOperationBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

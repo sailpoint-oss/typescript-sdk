@@ -1,0 +1,289 @@
+- path: /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, EntitlementsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const entitlementsBetaApi = new EntitlementsBetaApi(apiConfig);
+
+        const id : string = "2c91808c74ff913f0175097daa9d59cd"; // The entitlement id.
+        const attributeKey : string = "iscPrivacy"; // Technical name of the Attribute.
+        const attributeValue : string = "public"; // Technical name of the Attribute Value.
+
+        try {
+          const val = await entitlementsBetaApi.createAccessModelMetadataForEntitlement(id, attributeKey, attributeValue);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await entitlementsBetaApi.createAccessModelMetadataForEntitlement(id, attributeKey, attributeValue);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, EntitlementsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const entitlementsBetaApi = new EntitlementsBetaApi(apiConfig);
+
+        const id : string = "2c91808c74ff913f0175097daa9d59cd"; // The entitlement id.
+        const attributeKey : string = "iscPrivacy"; // Technical name of the Attribute.
+        const attributeValue : string = "public"; // Technical name of the Attribute Value.
+
+        try {
+          const val = await entitlementsBetaApi.deleteAccessModelMetadataFromEntitlement(id, attributeKey, attributeValue);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await entitlementsBetaApi.deleteAccessModelMetadataFromEntitlement(id, attributeKey, attributeValue);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /entitlements/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, EntitlementsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const entitlementsBetaApi = new EntitlementsBetaApi(apiConfig);
+
+        const id : string = "2c91808874ff91550175097daaec161c"; // The entitlement ID
+
+        try {
+          const val = await entitlementsBetaApi.getEntitlement(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await entitlementsBetaApi.getEntitlement(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /entitlements/{id}/entitlement-request-config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, EntitlementsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const entitlementsBetaApi = new EntitlementsBetaApi(apiConfig);
+
+        const id : string = "2c91808874ff91550175097daaec161c"; // Entitlement Id
+
+        try {
+          const val = await entitlementsBetaApi.getEntitlementRequestConfig(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await entitlementsBetaApi.getEntitlementRequestConfig(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /entitlements/aggregate/sources/{id}
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, EntitlementsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const entitlementsBetaApi = new EntitlementsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // Source Id
+        const csvFile = BINARY_DATA_HERE; // File | The CSV file containing the source entitlements to aggregate.
+
+        try {
+          const val = await entitlementsBetaApi.importEntitlementsBySource(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await entitlementsBetaApi.importEntitlementsBySource(id, csvFile);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /entitlements/{id}/children
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, EntitlementsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const entitlementsBetaApi = new EntitlementsBetaApi(apiConfig);
+
+        const id : string = "2c91808874ff91550175097daaec161c"; // Entitlement Id
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const sorters = "name,-modified"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id**
+        const filters = "attribute eq "memberOf""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*
+
+        try {
+          const val = await entitlementsBetaApi.listEntitlementChildren(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await entitlementsBetaApi.listEntitlementChildren(id, limit, offset, count, sorters, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /entitlements/{id}/parents
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, EntitlementsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const entitlementsBetaApi = new EntitlementsBetaApi(apiConfig);
+
+        const id : string = "2c91808c74ff913f0175097daa9d59cd"; // Entitlement Id
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const sorters = "name,-modified"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id**
+        const filters = "attribute eq "memberOf""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*
+
+        try {
+          const val = await entitlementsBetaApi.listEntitlementParents(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await entitlementsBetaApi.listEntitlementParents(id, limit, offset, count, sorters, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /entitlements
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, EntitlementsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const entitlementsBetaApi = new EntitlementsBetaApi(apiConfig);
+
+        const accountId = "ef38f94347e94562b5bb8424a56397d8"; // string | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). This parameter is deprecated. Please use [Account Entitlements API](https://developer.sailpoint.com/apis/beta/#operation/getAccountEntitlements) to get account entitlements.
+        const segmentedForIdentity = "me"; // string | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. By convention, the value **me** can stand in for the current user\'s Identity ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user\'s Identity.
+        const forSegmentIds = "041727d4-7d95-4779-b891-93cf41e98249,a378c9fa-bae5-494c-804e-a1e30f69f649"; // string | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s).
+        const includeUnsegmented = true; // boolean | Whether or not the response list should contain unsegmented Entitlements. If **for-segment-ids** and **segmented-for-identity** are both absent or empty, specifying **include-unsegmented=false** results in an error.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const sorters = "name,-modified"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable**
+        const filters = "attribute eq "memberOf""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*
+
+        try {
+          const val = await entitlementsBetaApi.listEntitlements();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await entitlementsBetaApi.listEntitlements(accountId, segmentedForIdentity, forSegmentIds, includeUnsegmented, offset, limit, count, sorters, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /entitlements/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, EntitlementsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const entitlementsBetaApi = new EntitlementsBetaApi(apiConfig);
+
+        const id : string = "2c91808a7813090a017814121e121518"; // ID of the entitlement to patch
+        const jsonPatchOperationBeta = [{op=replace, path=/requestable, value=true}, {op=replace, path=/privileged, value=true}]; // Array<JsonPatchOperationBeta> | 
+
+        try {
+          const val = await entitlementsBetaApi.patchEntitlement(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await entitlementsBetaApi.patchEntitlement(id, jsonPatchOperationBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /entitlements/{id}/entitlement-request-config
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, EntitlementsBetaApi, EntitlementRequestConfigBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const entitlementsBetaApi = new EntitlementsBetaApi(apiConfig);
+
+        const id : string = "2c91808a7813090a017814121e121518"; // Entitlement ID
+        const entitlementRequestConfigBeta : EntitlementRequestConfigBeta = ; // 
+
+        try {
+          const val = await entitlementsBetaApi.putEntitlementRequestConfig(id, entitlementRequestConfigBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await entitlementsBetaApi.putEntitlementRequestConfig(id, entitlementRequestConfigBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /entitlements/reset/sources/{sourceId}
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, EntitlementsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const entitlementsBetaApi = new EntitlementsBetaApi(apiConfig);
+
+        const sourceId : string = "2c91808a7813090a017814121919ecca"; // ID of source for the entitlement reset
+
+        try {
+          const val = await entitlementsBetaApi.resetSourceEntitlements(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await entitlementsBetaApi.resetSourceEntitlements(sourceId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /entitlements/bulk-update
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, EntitlementsBetaApi, EntitlementBulkUpdateRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const entitlementsBetaApi = new EntitlementsBetaApi(apiConfig);
+
+        const entitlementBulkUpdateRequestBeta : EntitlementBulkUpdateRequestBeta = ; // 
+
+        try {
+          const val = await entitlementsBetaApi.updateEntitlementsInBulk(entitlementBulkUpdateRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await entitlementsBetaApi.updateEntitlementsInBulk(entitlementBulkUpdateRequestBeta);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

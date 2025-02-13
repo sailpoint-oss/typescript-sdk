@@ -1,0 +1,183 @@
+- path: /reassignment-configurations
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $configurationItemRequestBeta = @"
+        
+        "@
+        
+        # Create a Reassignment Configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToconfigurationItemRequestBeta -Json $configurationItemRequestBeta
+            -BetaconfigurationItemRequestBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaconfigurationItemRequestBeta $configurationItemRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations/{identityId}/{configType}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $identityId =  # string | unique identity id (default to undefined)
+        $configType =  # ConfigTypeEnumBeta |  (default to undefined)
+        
+        # Delete Reassignment Configuration
+        
+        try {
+            -BetaidentityId $identityId -BetaconfigType $configType 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaidentityId $identityId -BetaconfigType $configType  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations/{identityId}/evaluate/{configType}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $identityId =  # string | unique identity id (default to undefined)
+        $configType =  # ConfigTypeEnumBeta | Reassignment work type (default to undefined)
+        $exclusionFilters =  # Array<string> | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional) (default to undefined)
+        
+        $exclusionFilters = @"SELF_REVIEW_DELEGATION"@
+        
+        # Evaluate Reassignment Configuration
+        
+        try {
+            -BetaidentityId $identityId -BetaconfigType $configType 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaidentityId $identityId -BetaconfigType $configType -BetaexclusionFilters $exclusionFilters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations/types
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        
+        # List Reassignment Config Types
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations/{identityId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $identityId =  # string | unique identity id (default to undefined)
+        
+        # Get Reassignment Configuration
+        
+        try {
+            -BetaidentityId $identityId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaidentityId $identityId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations/tenant-config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        
+        # Get Tenant-wide Reassignment Configuration settings
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        
+        # List Reassignment Configurations
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations/{identityId}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $identityId =  # string | unique identity id (default to undefined)
+        $configurationItemRequestBeta = @"
+        
+        "@
+        
+        # Update Reassignment Configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToconfigurationItemRequestBeta -Json $configurationItemRequestBeta
+            -BetaidentityId $identityId -BetaconfigurationItemRequestBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaidentityId $identityId -BetaconfigurationItemRequestBeta $configurationItemRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations/tenant-config
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $tenantConfigurationRequestBeta = @"
+        
+        "@
+        
+        # Update Tenant-wide Reassignment Configuration settings
+        
+        try {
+            $Result = ConvertFrom-JsonTotenantConfigurationRequestBeta -Json $tenantConfigurationRequestBeta
+            -BetatenantConfigurationRequestBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetatenantConfigurationRequestBeta $tenantConfigurationRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

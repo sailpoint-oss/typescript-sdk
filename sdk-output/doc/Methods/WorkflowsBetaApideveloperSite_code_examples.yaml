@@ -1,0 +1,408 @@
+- path: /workflow-executions/{id}/cancel
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkflowsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workflowsBetaApi = new WorkflowsBetaApi(apiConfig);
+
+        const id : string = "c17bea3a-574d-453c-9e04-4365fbf5af0b"; // The workflow execution ID
+
+        try {
+          const val = await workflowsBetaApi.cancelWorkflowExecution(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workflowsBetaApi.cancelWorkflowExecution(id);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workflows
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkflowsBetaApi, CreateWorkflowRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workflowsBetaApi = new WorkflowsBetaApi(apiConfig);
+
+        const createWorkflowRequestBeta : CreateWorkflowRequestBeta = {name=Send Email, owner={type=IDENTITY, id=2c91808568c529c60168cca6f90c1313, name=William Wilson}, description=Send an email to the identity who's attributes changed., definition={start=Send Email Test, steps={Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=action}, success={type=success}}}, enabled=false, trigger={type=EVENT, attributes={id=idn:identity-attributes-changed, filter=$.changes[?(@.attribute == 'manager')]}}}; // 
+
+        try {
+          const val = await workflowsBetaApi.createWorkflow(createWorkflowRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workflowsBetaApi.createWorkflow(createWorkflowRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workflows/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkflowsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workflowsBetaApi = new WorkflowsBetaApi(apiConfig);
+
+        const id : string = "c17bea3a-574d-453c-9e04-4365fbf5af0b"; // Id of the Workflow
+
+        try {
+          const val = await workflowsBetaApi.deleteWorkflow(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workflowsBetaApi.deleteWorkflow(id);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workflows/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkflowsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workflowsBetaApi = new WorkflowsBetaApi(apiConfig);
+
+        const id : string = "c17bea3a-574d-453c-9e04-4365fbf5af0b"; // Id of the workflow
+
+        try {
+          const val = await workflowsBetaApi.getWorkflow(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workflowsBetaApi.getWorkflow(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workflow-executions/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkflowsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workflowsBetaApi = new WorkflowsBetaApi(apiConfig);
+
+        const id : string = "c17bea3a-574d-453c-9e04-4365fbf5af0b"; // Workflow execution ID.
+
+        try {
+          const val = await workflowsBetaApi.getWorkflowExecution(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workflowsBetaApi.getWorkflowExecution(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workflow-executions/{id}/history
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkflowsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workflowsBetaApi = new WorkflowsBetaApi(apiConfig);
+
+        const id : string = "c17bea3a-574d-453c-9e04-4365fbf5af0b"; // Id of the workflow execution
+
+        try {
+          const val = await workflowsBetaApi.getWorkflowExecutionHistory(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workflowsBetaApi.getWorkflowExecutionHistory(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workflows/{id}/executions
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkflowsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workflowsBetaApi = new WorkflowsBetaApi(apiConfig);
+
+        const id : string = "c17bea3a-574d-453c-9e04-4365fbf5af0b"; // Workflow ID.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "status eq "Failed""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **startTime**: *eq, lt, le, gt, ge*  **status**: *eq*
+
+        try {
+          const val = await workflowsBetaApi.getWorkflowExecutions(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workflowsBetaApi.getWorkflowExecutions(id, limit, offset, count, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workflow-library
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkflowsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workflowsBetaApi = new WorkflowsBetaApi(apiConfig);
+
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await workflowsBetaApi.listCompleteWorkflowLibrary();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workflowsBetaApi.listCompleteWorkflowLibrary(limit, offset);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workflow-library/actions
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkflowsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workflowsBetaApi = new WorkflowsBetaApi(apiConfig);
+
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "id eq "sp:create-campaign""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*
+
+        try {
+          const val = await workflowsBetaApi.listWorkflowLibraryActions();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workflowsBetaApi.listWorkflowLibraryActions(limit, offset, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workflow-library/operators
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkflowsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workflowsBetaApi = new WorkflowsBetaApi(apiConfig);
+
+
+        try {
+          const val = await workflowsBetaApi.listWorkflowLibraryOperators();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workflowsBetaApi.listWorkflowLibraryOperators();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workflow-library/triggers
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkflowsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workflowsBetaApi = new WorkflowsBetaApi(apiConfig);
+
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "id eq "idn:identity-attributes-changed""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*
+
+        try {
+          const val = await workflowsBetaApi.listWorkflowLibraryTriggers();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workflowsBetaApi.listWorkflowLibraryTriggers(limit, offset, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workflows
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkflowsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workflowsBetaApi = new WorkflowsBetaApi(apiConfig);
+
+
+        try {
+          const val = await workflowsBetaApi.listWorkflows();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workflowsBetaApi.listWorkflows();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workflows/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkflowsBetaApi, JsonPatchOperationBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workflowsBetaApi = new WorkflowsBetaApi(apiConfig);
+
+        const id : string = "c17bea3a-574d-453c-9e04-4365fbf5af0b"; // Id of the Workflow
+        const jsonPatchOperationBeta : Array<JsonPatchOperationBeta> = [{op=replace, path=/name, value=Send Email}, {op=replace, path=/owner, value={type=IDENTITY, id=2c91808568c529c60168cca6f90c1313, name=William Wilson}}, {op=replace, path=/description, value=Send an email to the identity who's attributes changed.}, {op=replace, path=/enabled, value=false}, {op=replace, path=/definition, value={start=Send Email Test, steps={Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=action}, success={type=success}}}}, {op=replace, path=/trigger, value={type=EVENT, attributes={id=idn:identity-attributes-changed}}}]; // 
+
+        try {
+          const val = await workflowsBetaApi.patchWorkflow(id, jsonPatchOperationBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workflowsBetaApi.patchWorkflow(id, jsonPatchOperationBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workflows/execute/external/{id}
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkflowsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workflowsBetaApi = new WorkflowsBetaApi(apiConfig);
+
+        const id : string = "c17bea3a-574d-453c-9e04-4365fbf5af0b"; // Id of the workflow
+        const postExternalExecuteWorkflowRequestBeta = ; // PostExternalExecuteWorkflowRequestBeta | 
+
+        try {
+          const val = await workflowsBetaApi.postExternalExecuteWorkflow(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workflowsBetaApi.postExternalExecuteWorkflow(id, postExternalExecuteWorkflowRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workflows/{id}/external/oauth-clients
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkflowsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workflowsBetaApi = new WorkflowsBetaApi(apiConfig);
+
+        const id : string = "c17bea3a-574d-453c-9e04-4365fbf5af0b"; // Id of the workflow
+
+        try {
+          const val = await workflowsBetaApi.postWorkflowExternalTrigger(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workflowsBetaApi.postWorkflowExternalTrigger(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workflows/execute/external/{id}/test
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkflowsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workflowsBetaApi = new WorkflowsBetaApi(apiConfig);
+
+        const id : string = "c17bea3a-574d-453c-9e04-4365fbf5af0b"; // Id of the workflow
+        const testExternalExecuteWorkflowRequestBeta = ; // TestExternalExecuteWorkflowRequestBeta | 
+
+        try {
+          const val = await workflowsBetaApi.testExternalExecuteWorkflow(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workflowsBetaApi.testExternalExecuteWorkflow(id, testExternalExecuteWorkflowRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workflows/{id}/test
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkflowsBetaApi, TestWorkflowRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workflowsBetaApi = new WorkflowsBetaApi(apiConfig);
+
+        const id : string = "c17bea3a-574d-453c-9e04-4365fbf5af0b"; // Id of the workflow
+        const testWorkflowRequestBeta : TestWorkflowRequestBeta = {input={identity={id=ee769173319b41d19ccec6cea52f237b, name=john.doe, type=IDENTITY}, changes=[{attribute=department, oldValue=sales, newValue=marketing}, {attribute=manager, oldValue={id=ee769173319b41d19ccec6c235423237b, name=nice.guy, type=IDENTITY}, newValue={id=ee769173319b41d19ccec6c235423236c, name=mean.guy, type=IDENTITY}}, {attribute=email, oldValue=john.doe@hotmail.com, newValue=john.doe@gmail.com}]}}; // 
+
+        try {
+          const val = await workflowsBetaApi.testWorkflow(id, testWorkflowRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workflowsBetaApi.testWorkflow(id, testWorkflowRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /workflows/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkflowsBetaApi, WorkflowBodyBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workflowsBetaApi = new WorkflowsBetaApi(apiConfig);
+
+        const id : string = "c17bea3a-574d-453c-9e04-4365fbf5af0b"; // Id of the Workflow
+        const workflowBodyBeta : WorkflowBodyBeta = ; // 
+
+        try {
+          const val = await workflowsBetaApi.updateWorkflow(id, workflowBodyBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workflowsBetaApi.updateWorkflow(id, workflowBodyBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

@@ -1,0 +1,672 @@
+- path: /non-employee-approvals/{id}/approve
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Non-Employee approval item id (UUID) (default to undefined)
+        $nonEmployeeApprovalDecisionBeta = @"
+        
+        "@
+        
+        # Approve a Non-Employee Request
+        
+        try {
+            $Result = ConvertFrom-JsonTononEmployeeApprovalDecisionBeta -Json $nonEmployeeApprovalDecisionBeta
+            -Betaid $id -BetanonEmployeeApprovalDecisionBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetanonEmployeeApprovalDecisionBeta $nonEmployeeApprovalDecisionBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-records
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $nonEmployeeRequestBodyBeta = @"
+        
+        "@
+        
+        # Create Non-Employee Record
+        
+        try {
+            $Result = ConvertFrom-JsonTononEmployeeRequestBodyBeta -Json $nonEmployeeRequestBodyBeta
+            -BetanonEmployeeRequestBodyBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetanonEmployeeRequestBodyBeta $nonEmployeeRequestBodyBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-requests
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $nonEmployeeRequestBodyBeta = @"
+        
+        "@
+        
+        # Create Non-Employee Request
+        
+        try {
+            $Result = ConvertFrom-JsonTononEmployeeRequestBodyBeta -Json $nonEmployeeRequestBodyBeta
+            -BetanonEmployeeRequestBodyBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetanonEmployeeRequestBodyBeta $nonEmployeeRequestBodyBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $nonEmployeeSourceRequestBodyBeta = @"
+        
+        "@
+        
+        # Create Non-Employee Source
+        
+        try {
+            $Result = ConvertFrom-JsonTononEmployeeSourceRequestBodyBeta -Json $nonEmployeeSourceRequestBodyBeta
+            -BetanonEmployeeSourceRequestBodyBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetanonEmployeeSourceRequestBodyBeta $nonEmployeeSourceRequestBodyBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/{sourceId}/schema-attributes
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | The Source id (default to undefined)
+        $nonEmployeeSchemaAttributeBodyBeta = @"
+        
+        "@
+        
+        # Create Non-Employee Source Schema Attribute
+        
+        try {
+            $Result = ConvertFrom-JsonTononEmployeeSchemaAttributeBodyBeta -Json $nonEmployeeSchemaAttributeBodyBeta
+            -BetasourceId $sourceId -BetanonEmployeeSchemaAttributeBodyBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId -BetanonEmployeeSchemaAttributeBodyBeta $nonEmployeeSchemaAttributeBodyBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-records/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Non-Employee record id (UUID) (default to undefined)
+        
+        # Delete Non-Employee Record
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-records/bulk-delete
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $deleteNonEmployeeRecordInBulkRequestBeta = @"
+        
+        "@
+        
+        # Delete Multiple Non-Employee Records
+        
+        try {
+            $Result = ConvertFrom-JsonTodeleteNonEmployeeRecordInBulkRequestBeta -Json $deleteNonEmployeeRecordInBulkRequestBeta
+            -BetadeleteNonEmployeeRecordInBulkRequestBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetadeleteNonEmployeeRecordInBulkRequestBeta $deleteNonEmployeeRecordInBulkRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-requests/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Non-Employee request id in the UUID format (default to undefined)
+        
+        # Delete Non-Employee Request
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/{sourceId}/schema-attributes/{attributeId}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $attributeId =  # string | The Schema Attribute Id (UUID) (default to undefined)
+        $sourceId =  # string | The Source id (default to undefined)
+        
+        # Delete Non-Employee Source\'s Schema Attribute
+        
+        try {
+            -BetaattributeId $attributeId -BetasourceId $sourceId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaattributeId $attributeId -BetasourceId $sourceId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/{sourceId}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | Source Id (default to undefined)
+        
+        # Delete Non-Employee Source
+        
+        try {
+            -BetasourceId $sourceId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/{sourceId}/schema-attributes
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | The Source id (default to undefined)
+        
+        # Delete all custom schema attributes
+        
+        try {
+            -BetasourceId $sourceId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/{id}/non-employees/download
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Source Id (UUID) (default to undefined)
+        
+        # Exports Non-Employee Records to CSV
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/{id}/schema-attributes-template/download
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Source Id (UUID) (default to undefined)
+        
+        # Exports Source Schema Template
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-approvals/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Non-Employee approval item id (UUID) (default to undefined)
+        $includeDetail =  # string | The object nonEmployeeRequest will not be included detail when set to false. *Default value is true* (optional) (default to undefined)
+        
+        # Get a non-employee approval item detail
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetaincludeDetail $includeDetail  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-approvals/summary/{requested-for}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $requestedFor =  # string | The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use \"me\" instead to indicate the current user. (default to undefined)
+        
+        # Get Summary of Non-Employee Approval Requests
+        
+        try {
+            -BetarequestedFor $requestedFor 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetarequestedFor $requestedFor  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/{id}/non-employee-bulk-upload/status
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Source ID (UUID) (default to undefined)
+        
+        # Bulk upload status on source
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-records/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Non-Employee record id (UUID) (default to undefined)
+        
+        # Get a Non-Employee Record
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-requests/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Non-Employee request id (UUID) (default to undefined)
+        
+        # Get a Non-Employee Request
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-requests/summary/{requested-for}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $requestedFor =  # string | The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use \"me\" instead to indicate the current user. (default to undefined)
+        
+        # Get Summary of Non-Employee Requests
+        
+        try {
+            -BetarequestedFor $requestedFor 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetarequestedFor $requestedFor  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/{sourceId}/schema-attributes/{attributeId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $attributeId =  # string | The Schema Attribute Id (UUID) (default to undefined)
+        $sourceId =  # string | The Source id (default to undefined)
+        
+        # Get Schema Attribute Non-Employee Source
+        
+        try {
+            -BetaattributeId $attributeId -BetasourceId $sourceId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaattributeId $attributeId -BetasourceId $sourceId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/{sourceId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | Source Id (default to undefined)
+        
+        # Get a Non-Employee Source
+        
+        try {
+            -BetasourceId $sourceId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/{sourceId}/schema-attributes
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | The Source id (default to undefined)
+        
+        # List Schema Attributes Non-Employee Source
+        
+        try {
+            -BetasourceId $sourceId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/{id}/non-employee-bulk-upload
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Source Id (UUID) (default to undefined)
+        $data =  # File |  (default to undefined)
+        
+        # Imports, or Updates, Non-Employee Records
+        
+        try {
+            -Betaid $id -Betadata $data 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -Betadata $data  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-approvals
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $requestedFor =  # string | The identity for whom the request was made. *me* indicates the current user. (optional) (default to undefined)
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **approvalStatus**: *eq* (optional) (default to undefined)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional) (default to undefined)
+        
+        # Get List of Non-Employee Approval Requests
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -BetarequestedFor $requestedFor -Betalimit $limit -Betaoffset $offset -Betacount $count -Betafilters $filters -Betasorters $sorters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-records
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, accountName, sourceId, manager, firstName, lastName, email, phone, startDate, endDate, created, modified** (optional) (default to undefined)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq* (optional) (default to undefined)
+        
+        # List Non-Employee Records
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betalimit $limit -Betaoffset $offset -Betacount $count -Betasorters $sorters -Betafilters $filters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-requests
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $requestedFor =  # string | The identity for whom the request was made. *me* indicates the current user. (default to undefined)
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, approvalStatus, firstName, lastName, email, phone, accountName, startDate, endDate** (optional) (default to undefined)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq* (optional) (default to undefined)
+        
+        # List Non-Employee Requests
+        
+        try {
+            -BetarequestedFor $requestedFor 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetarequestedFor $requestedFor -Betalimit $limit -Betaoffset $offset -Betacount $count -Betasorters $sorters -Betafilters $filters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $requestedFor =  # string | The identity for whom the request was made. *me* indicates the current user. (default to undefined)
+        $nonEmployeeCount =  # boolean | The flag to determine whether return a non-employee count associate with source. (default to undefined)
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId** (optional) (default to undefined)
+        
+        # List Non-Employee Sources
+        
+        try {
+            -BetarequestedFor $requestedFor -BetanonEmployeeCount $nonEmployeeCount 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetarequestedFor $requestedFor -BetanonEmployeeCount $nonEmployeeCount -Betalimit $limit -Betaoffset $offset -Betacount $count -Betasorters $sorters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-records/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Non-employee record id (UUID) (default to undefined)
+        # Array<JsonPatchOperationBeta> | A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+        $jsonPatchOperationBeta = @"[{op=replace, path=/endDate, value={2019-08-23T18:40:35.772Z=null}}]"@ 
+        
+        
+        # Patch Non-Employee Record
+        
+        try {
+            $Result = ConvertFrom-JsonTojsonPatchOperationBeta -Json $jsonPatchOperationBeta
+            -Betaid $id -BetajsonPatchOperationBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetajsonPatchOperationBeta $jsonPatchOperationBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/{sourceId}/schema-attributes/{attributeId}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $attributeId =  # string | The Schema Attribute Id (UUID) (default to undefined)
+        $sourceId =  # string | The Source id (default to undefined)
+        # Array<JsonPatchOperationBeta> | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update \':\' \'label\', \'helpText\', \'placeholder\', \'required\'.
+        $jsonPatchOperationBeta = @"[{op=replace, path=/label, value={new attribute label=null}}]"@ 
+        
+        
+        # Patch Non-Employee Source\'s Schema Attribute
+        
+        try {
+            $Result = ConvertFrom-JsonTojsonPatchOperationBeta -Json $jsonPatchOperationBeta
+            -BetaattributeId $attributeId -BetasourceId $sourceId -BetajsonPatchOperationBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaattributeId $attributeId -BetasourceId $sourceId -BetajsonPatchOperationBeta $jsonPatchOperationBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/{sourceId}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sourceId =  # string | Source Id (default to undefined)
+        # Array<JsonPatchOperationBeta> | A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        $jsonPatchOperationBeta = @"[{op=replace, path=/name, value={new name=null}}, {op=replace, path=/approvers, value=[2c91809f703bb37a017040a2fe8748c7, 48b1f463c9e8427db5a5071bd81914b8]}]"@ 
+        
+        
+        # Patch a Non-Employee Source
+        
+        try {
+            $Result = ConvertFrom-JsonTojsonPatchOperationBeta -Json $jsonPatchOperationBeta
+            -BetasourceId $sourceId -BetajsonPatchOperationBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasourceId $sourceId -BetajsonPatchOperationBeta $jsonPatchOperationBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-approvals/{id}/reject
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Non-Employee approval item id (UUID) (default to undefined)
+        $nonEmployeeRejectApprovalDecisionBeta = @"
+        
+        "@
+        
+        # Reject a Non-Employee Request
+        
+        try {
+            $Result = ConvertFrom-JsonTononEmployeeRejectApprovalDecisionBeta -Json $nonEmployeeRejectApprovalDecisionBeta
+            -Betaid $id -BetanonEmployeeRejectApprovalDecisionBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetanonEmployeeRejectApprovalDecisionBeta $nonEmployeeRejectApprovalDecisionBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-records/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Non-employee record id (UUID) (default to undefined)
+        $nonEmployeeRequestBodyBeta = @"
+        
+        "@
+        
+        # Update Non-Employee Record
+        
+        try {
+            $Result = ConvertFrom-JsonTononEmployeeRequestBodyBeta -Json $nonEmployeeRequestBodyBeta
+            -Betaid $id -BetanonEmployeeRequestBodyBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetanonEmployeeRequestBodyBeta $nonEmployeeRequestBodyBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

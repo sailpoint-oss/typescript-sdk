@@ -1,0 +1,43 @@
+- path: /ui-metadata/tenant
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, UIMetadataBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const uIMetadataBetaApi = new UIMetadataBetaApi(apiConfig);
+
+
+        try {
+          const val = await uIMetadataBetaApi.getTenantUiMetadata();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await uIMetadataBetaApi.getTenantUiMetadata();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /ui-metadata/tenant
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, UIMetadataBetaApi, TenantUiMetadataItemUpdateRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const uIMetadataBetaApi = new UIMetadataBetaApi(apiConfig);
+
+        const tenantUiMetadataItemUpdateRequestBeta : TenantUiMetadataItemUpdateRequestBeta = ; // 
+
+        try {
+          const val = await uIMetadataBetaApi.setTenantUiMetadata(tenantUiMetadataItemUpdateRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await uIMetadataBetaApi.setTenantUiMetadata(tenantUiMetadataItemUpdateRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

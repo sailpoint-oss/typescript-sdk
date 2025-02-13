@@ -1,0 +1,92 @@
+- path: /managed-clusters/{id}/log-config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ManagedClustersBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const managedClustersBetaApi = new ManagedClustersBetaApi(apiConfig);
+
+        const id : string = "aClusterId"; // ID of ManagedCluster to get log configuration for
+
+        try {
+          const val = await managedClustersBetaApi.getClientLogConfiguration(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await managedClustersBetaApi.getClientLogConfiguration(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /managed-clusters/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ManagedClustersBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const managedClustersBetaApi = new ManagedClustersBetaApi(apiConfig);
+
+        const id : string = "aClusterId"; // ID of the ManagedCluster to get
+
+        try {
+          const val = await managedClustersBetaApi.getManagedCluster(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await managedClustersBetaApi.getManagedCluster(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /managed-clusters
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ManagedClustersBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const managedClustersBetaApi = new ManagedClustersBetaApi(apiConfig);
+
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "operational eq operation"; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq*
+
+        try {
+          const val = await managedClustersBetaApi.getManagedClusters();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await managedClustersBetaApi.getManagedClusters(offset, limit, count, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /managed-clusters/{id}/log-config
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ManagedClustersBetaApi, ClientLogConfigurationBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const managedClustersBetaApi = new ManagedClustersBetaApi(apiConfig);
+
+        const id : string = "aClusterId"; // ID of ManagedCluster to update log configuration for
+        const clientLogConfigurationBeta : ClientLogConfigurationBeta = ; // ClientLogConfiguration for given ManagedCluster
+
+        try {
+          const val = await managedClustersBetaApi.putClientLogConfiguration(id, clientLogConfigurationBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await managedClustersBetaApi.putClientLogConfiguration(id, clientLogConfigurationBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

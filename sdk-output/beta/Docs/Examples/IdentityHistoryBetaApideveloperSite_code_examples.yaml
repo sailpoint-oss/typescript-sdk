@@ -1,0 +1,259 @@
+- path: /historical-identities/{id}/compare
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The identity id (default to undefined)
+        $snapshot1 =  # string | The snapshot 1 of identity (optional) (default to undefined)
+        $snapshot2 =  # string | The snapshot 2 of identity (optional) (default to undefined)
+        $accessItemTypes =  # Array<string> | An optional list of access item types (app, account, entitlement, etc...) to return.   If null or empty, all access items types are returned  (optional) (default to undefined)
+        
+        
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        
+        # Gets a difference of count for each access item types for the given identity between 2 snapshots
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -Betasnapshot1 $snapshot1 -Betasnapshot2 $snapshot2 -BetaaccessItemTypes $accessItemTypes -Betalimit $limit -Betaoffset $offset -Betacount $count  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /historical-identities/{id}/compare/{access-type}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The identity id (default to undefined)
+        $accessType =  # string | The specific type which needs to be compared (default to undefined)
+        $accessAssociated =  # boolean | Indicates if added or removed access needs to be returned. true - added, false - removed, null - both added & removed (optional) (default to undefined)
+        $snapshot1 =  # string | The snapshot 1 of identity (optional) (default to undefined)
+        $snapshot2 =  # string | The snapshot 2 of identity (optional) (default to undefined)
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        
+        # Gets a list of differences of specific accessType for the given identity between 2 snapshots
+        
+        try {
+            -Betaid $id -BetaaccessType $accessType 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetaaccessType $accessType -BetaaccessAssociated $accessAssociated -Betasnapshot1 $snapshot1 -Betasnapshot2 $snapshot2 -Betalimit $limit -Betaoffset $offset -Betacount $count  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /historical-identities/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The identity id (default to undefined)
+        
+        # Get latest snapshot of identity
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /historical-identities/{id}/events
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The identity id (default to undefined)
+        $from =  # string | The optional instant until which access events are returned (optional) (default to undefined)
+        $eventTypes =  # Array<string> | An optional list of event types to return.  If null or empty, all events are returned (optional) (default to undefined)
+        
+        $eventTypes = @"[AccessAddedEvent, AccessRemovedEvent]"@
+        $accessItemTypes =  # Array<string> | An optional list of access item types (app, account, entitlement, etc...) to return.   If null or empty, all access items types are returned (optional) (default to undefined)
+        
+        $accessItemTypes = @"[entitlement, account]"@
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        
+        # Lists all events for the given identity
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -Betafrom $from -BetaeventTypes $eventTypes -BetaaccessItemTypes $accessItemTypes -Betalimit $limit -Betaoffset $offset -Betacount $count  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /historical-identities/{id}/snapshots/{date}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The identity id (default to undefined)
+        $date =  # string | The specified date (default to undefined)
+        
+        # Gets an identity snapshot at a given date
+        
+        try {
+            -Betaid $id -Betadate $date 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -Betadate $date  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /historical-identities/{id}/snapshot-summary
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The identity id (default to undefined)
+        $before =  # string | The date before which snapshot summary is required (optional) (default to undefined)
+        $interval =  # 'day' | 'month' | The interval indicating day or month. Defaults to month if not specified (optional) (default to undefined)
+        $timeZone =  # string | The time zone. Defaults to UTC if not provided (optional) (default to undefined)
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        
+        # Gets the summary for the event count for a specific identity
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -Betabefore $before -Betainterval $interval -BetatimeZone $timeZone -Betalimit $limit -Betaoffset $offset -Betacount $count  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /historical-identities/{id}/start-date
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The identity id (default to undefined)
+        
+        # Gets the start date of the identity
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /historical-identities
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $startsWithQuery =  # string | This param is used for starts-with search for first, last and display name of the identity (optional) (default to undefined)
+        $isDeleted =  # boolean | Indicates if we want to only list down deleted identities or not. (optional) (default to undefined)
+        $isActive =  # boolean | Indicates if we want to only list active or inactive identities. (optional) (default to undefined)
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # Lists all the identities
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -BetastartsWithQuery $startsWithQuery -BetaisDeleted $isDeleted -BetaisActive $isActive -Betalimit $limit -Betaoffset $offset  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /historical-identities/{id}/access-items
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The identity id (default to undefined)
+        $type =  # string | The type of access item for the identity. If not provided, it defaults to account.  Types of access items: **accessProfile, account, app, entitlement, role** (optional) (default to undefined)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **source**: *eq*  **standalone**: *eq*  **privileged**: *eq*  **attribute**: *eq*  **cloudGoverned**: *eq* (optional) (default to undefined)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, value, standalone, privileged, attribute, source, cloudGoverned, removeDate, nativeIdentity, entitlementCount** (optional) (default to undefined)
+        $query =  # string | This param is used to search if certain fields of the access item contain the string provided.  Searching is supported for the following fields depending on the type:  Access Profiles: **name, description**  Accounts: **name, nativeIdentity**  Apps: **name**  Entitlements: **name, value, description**  Roles: **name, description** (optional) (default to undefined)
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # List Access Items by Identity
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -Betatype $type -Betafilters $filters -Betasorters $sorters -Betaquery $query -Betalimit $limit -Betacount $count -Betaoffset $offset  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /historical-identities/{id}/snapshots/{date}/access-items
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Identity ID. (default to undefined)
+        $date =  # string | Specified date. (default to undefined)
+        $type =  # string | Access item type. (optional) (default to undefined)
+        
+        # Get Identity Access Items Snapshot
+        
+        try {
+            -Betaid $id -Betadate $date 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -Betadate $date -Betatype $type  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /historical-identities/{id}/snapshots
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The identity id (default to undefined)
+        $start =  # string | The specified start date (optional) (default to undefined)
+        $interval =  # 'day' | 'month' | The interval indicating the range in day or month for the specified interval-name (optional) (default to undefined)
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        
+        # Lists all the snapshots for the identity
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -Betastart $start -Betainterval $interval -Betalimit $limit -Betaoffset $offset -Betacount $count  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

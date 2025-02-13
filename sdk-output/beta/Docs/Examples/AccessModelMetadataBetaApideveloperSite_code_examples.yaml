@@ -1,0 +1,77 @@
+- path: /access-model-metadata/attributes/{key}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $key =  # string | Technical name of the Attribute. (default to undefined)
+        
+        # Get Access Model Metadata Attribute
+        
+        try {
+            -Betakey $key 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betakey $key  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-model-metadata/attributes/{key}/values/{value}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $key =  # string | Technical name of the Attribute. (default to undefined)
+        $value =  # string | Technical name of the Attribute value. (default to undefined)
+        
+        # Get Access Model Metadata Value
+        
+        try {
+            -Betakey $key -Betavalue $value 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betakey $key -Betavalue $value  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-model-metadata/attributes
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and* (optional) (default to undefined)
+        
+        # List Access Model Metadata Attributes
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betafilters $filters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-model-metadata/attributes/{key}/values
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $key =  # string | Technical name of the Attribute. (default to undefined)
+        
+        # List Access Model Metadata Values
+        
+        try {
+            -Betakey $key 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betakey $key  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

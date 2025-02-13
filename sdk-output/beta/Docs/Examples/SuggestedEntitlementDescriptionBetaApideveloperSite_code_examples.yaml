@@ -1,0 +1,150 @@
+- path: /suggested-entitlement-description-batches/{batchId}/stats
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $batchId =  # string | Batch Id (default to undefined)
+        
+        # Submit Sed Batch Stats Request
+        
+        try {
+            -BetabatchId $batchId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetabatchId $batchId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /suggested-entitlement-description-batches
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        
+        # List Sed Batch Request
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /suggested-entitlement-descriptions
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $limit =  # number | Integer specifying the maximum number of records to return in a single API call.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to undefined)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq, ne*  **displayName**: *eq, ne, co*  **sourceName**: *eq, ne, co*  **sourceId**: *eq, ne*  **status**: *eq, ne*  **fullText**: *co* (optional) (default to undefined)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, sourceName, status** (optional) (default to undefined)
+        $count =  # boolean | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). Since requesting a total count can have a performance impact, it is recommended not to send `count=true` if that value will not be used. (optional) (default to undefined)
+        $countOnly =  # boolean | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the Coun parameter in that this one skip executing the actual query and always return an empty array. (optional) (default to undefined)
+        $requestedByAnyone =  # boolean | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested (optional) (default to undefined)
+        $showPendingStatusOnly =  # boolean | Will limit records to items that are in \"suggested\" or \"approved\" status (optional) (default to undefined)
+        
+        # List Suggested Entitlement Descriptions
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betalimit $limit -Betafilters $filters -Betasorters $sorters -Betacount $count -BetacountOnly $countOnly -BetarequestedByAnyone $requestedByAnyone -BetashowPendingStatusOnly $showPendingStatusOnly  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /suggested-entitlement-descriptions
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | id is sed id (default to undefined)
+        # Array<SedPatchBeta> | Sed Patch Request
+        $sedPatchBeta = @""@ 
+        
+        
+        # Patch Suggested Entitlement Description
+        
+        try {
+            $Result = ConvertFrom-JsonTosedPatchBeta -Json $sedPatchBeta
+            -Betaid $id -BetasedPatchBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetasedPatchBeta $sedPatchBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /suggested-entitlement-description-approvals
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        # Array<SedApprovalBeta> | Sed Approval
+        $sedApprovalBeta = @""@ 
+        
+        
+        # Submit Bulk Approval Request
+        
+        try {
+            $Result = ConvertFrom-JsonTosedApprovalBeta -Json $sedApprovalBeta
+            -BetasedApprovalBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasedApprovalBeta $sedApprovalBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /suggested-entitlement-description-assignments
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sedAssignmentBeta = @"
+        
+        "@
+        
+        # Submit Sed Assignment Request
+        
+        try {
+            $Result = ConvertFrom-JsonTosedAssignmentBeta -Json $sedAssignmentBeta
+            -BetasedAssignmentBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasedAssignmentBeta $sedAssignmentBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /suggested-entitlement-description-batches
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $sedBatchRequestBeta = @"
+        
+        "@
+        
+        # Submit Sed Batch Request
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasedBatchRequestBeta $sedBatchRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

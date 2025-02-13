@@ -1,0 +1,147 @@
+- path: /sim-integrations
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $simIntegrationDetailsBeta = @"
+        
+        "@
+        
+        # Create new SIM integration
+        
+        try {
+            $Result = ConvertFrom-JsonTosimIntegrationDetailsBeta -Json $simIntegrationDetailsBeta
+            -BetasimIntegrationDetailsBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasimIntegrationDetailsBeta $simIntegrationDetailsBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sim-integrations/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The id of the integration to delete. (default to undefined)
+        
+        # Delete a SIM integration
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sim-integrations/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The id of the integration. (default to undefined)
+        
+        # Get a SIM integration details.
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sim-integrations
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        
+        # List the existing SIM integrations.
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sim-integrations/{id}/beforeProvisioningRule
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | SIM integration id (default to undefined)
+        $jsonPatchBeta = @"
+        
+        "@
+        
+        # Patch a SIM beforeProvisioningRule attribute.
+        
+        try {
+            $Result = ConvertFrom-JsonTojsonPatchBeta -Json $jsonPatchBeta
+            -Betaid $id -BetajsonPatchBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetajsonPatchBeta $jsonPatchBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sim-integrations/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | SIM integration id (default to undefined)
+        $jsonPatchBeta = @"
+        
+        "@
+        
+        # Patch a SIM attribute.
+        
+        try {
+            $Result = ConvertFrom-JsonTojsonPatchBeta -Json $jsonPatchBeta
+            -Betaid $id -BetajsonPatchBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetajsonPatchBeta $jsonPatchBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /sim-integrations/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The id of the integration. (default to undefined)
+        $simIntegrationDetailsBeta = @"
+        
+        "@
+        
+        # Update an existing SIM integration
+        
+        try {
+            $Result = ConvertFrom-JsonTosimIntegrationDetailsBeta -Json $simIntegrationDetailsBeta
+            -Betaid $id -BetasimIntegrationDetailsBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetasimIntegrationDetailsBeta $simIntegrationDetailsBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

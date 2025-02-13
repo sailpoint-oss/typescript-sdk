@@ -1,0 +1,336 @@
+- path: /source-apps
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AppsBetaApi, SourceAppCreateDtoBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const appsBetaApi = new AppsBetaApi(apiConfig);
+
+        const sourceAppCreateDtoBeta : SourceAppCreateDtoBeta = {name=new app name, description=app description, matchAllAccounts=true, accountSource={id=edcb0951812949d085b60cd8bf35bc78}}; // 
+
+        try {
+          const val = await appsBetaApi.createSourceApp(sourceAppCreateDtoBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await appsBetaApi.createSourceApp(sourceAppCreateDtoBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /source-apps/{id}/access-profiles/bulk-remove
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AppsBetaApi, string } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const appsBetaApi = new AppsBetaApi(apiConfig);
+
+        const id : string = "2c91808a7813090a017814121e121518"; // ID of the source app
+        const requestBody : Array<string> = ; // 
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await appsBetaApi.deleteAccessProfilesFromSourceAppByBulk(id, requestBody);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await appsBetaApi.deleteAccessProfilesFromSourceAppByBulk(id, requestBody, limit);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /source-apps/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AppsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const appsBetaApi = new AppsBetaApi(apiConfig);
+
+        const id : string = "2c9180835d191a86015d28455b4a2329"; // source app ID.
+
+        try {
+          const val = await appsBetaApi.deleteSourceApp(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await appsBetaApi.deleteSourceApp(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /source-apps/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AppsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const appsBetaApi = new AppsBetaApi(apiConfig);
+
+        const id : string = "2c91808a7813090a017814121e121518"; // ID of the source app
+
+        try {
+          const val = await appsBetaApi.getSourceApp(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await appsBetaApi.getSourceApp(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /source-apps/{id}/access-profiles
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AppsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const appsBetaApi = new AppsBetaApi(apiConfig);
+
+        const id : string = "2c91808a7813090a017814121e121518"; // ID of the source app
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "name eq "developer access profile""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*
+
+        try {
+          const val = await appsBetaApi.listAccessProfilesForSourceApp(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await appsBetaApi.listAccessProfilesForSourceApp(id, limit, offset, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /source-apps/all
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AppsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const appsBetaApi = new AppsBetaApi(apiConfig);
+
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const sorters = "name,-modified"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, owner.id, accountSource.id**
+        const filters = "enabled eq true"; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **accountSource.id**: *eq, in*  **enabled**: *eq*
+
+        try {
+          const val = await appsBetaApi.listAllSourceApp();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await appsBetaApi.listAllSourceApp(limit, count, offset, sorters, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /user-apps/all
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AppsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const appsBetaApi = new AppsBetaApi(apiConfig);
+
+        const filters : string = "name eq "user app name""; // Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **ownerId**: *eq*  **ownerName**: *eq, sw*  **ownerAlias**: *eq, sw*  **accountId**: *eq*  **sourceAppId**: *eq*
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await appsBetaApi.listAllUserApps(filters);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await appsBetaApi.listAllUserApps(filters, limit, count, offset);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /source-apps/assigned
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AppsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const appsBetaApi = new AppsBetaApi(apiConfig);
+
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const sorters = "name,-modified"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, accountSource.id**
+        const filters = "name eq "source app name""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **accountSource.id**: *eq, in*
+
+        try {
+          const val = await appsBetaApi.listAssignedSourceApp();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await appsBetaApi.listAssignedSourceApp(limit, count, offset, sorters, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /user-apps/{id}/available-accounts
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AppsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const appsBetaApi = new AppsBetaApi(apiConfig);
+
+        const id : string = "2c91808a7813090a017814121e121518"; // ID of the user app
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await appsBetaApi.listAvailableAccountsForUserApp(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await appsBetaApi.listAvailableAccountsForUserApp(id, limit, count, offset);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /source-apps
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AppsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const appsBetaApi = new AppsBetaApi(apiConfig);
+
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const sorters = "name,-modified"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, owner.id, accountSource.id**
+        const filters = "name eq "source app name""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **accountSource.id**: *eq, in*
+
+        try {
+          const val = await appsBetaApi.listAvailableSourceApps();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await appsBetaApi.listAvailableSourceApps(limit, count, offset, sorters, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /user-apps
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AppsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const appsBetaApi = new AppsBetaApi(apiConfig);
+
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "name eq "user app name""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **ownerName**: *eq, sw*  **ownerAlias**: *eq, sw*  **accountId**: *eq*  **sourceAppId**: *eq*
+
+        try {
+          const val = await appsBetaApi.listOwnedUserApps();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await appsBetaApi.listOwnedUserApps(limit, count, offset, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /source-apps/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AppsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const appsBetaApi = new AppsBetaApi(apiConfig);
+
+        const id : string = "2c91808a7813090a017814121e121518"; // ID of the source app to patch
+        const jsonPatchOperationBeta = [{op=replace, path=/enabled, value=true}, {op=replace, path=/matchAllAccounts, value=true}]; // Array<JsonPatchOperationBeta> | 
+
+        try {
+          const val = await appsBetaApi.patchSourceApp(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await appsBetaApi.patchSourceApp(id, jsonPatchOperationBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /user-apps/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AppsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const appsBetaApi = new AppsBetaApi(apiConfig);
+
+        const id : string = "2c91808a7813090a017814121e121518"; // ID of the user app to patch
+        const jsonPatchOperationBeta = ; // Array<JsonPatchOperationBeta> | 
+
+        try {
+          const val = await appsBetaApi.patchUserApp(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await appsBetaApi.patchUserApp(id, jsonPatchOperationBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /source-apps/bulk-update
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AppsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const appsBetaApi = new AppsBetaApi(apiConfig);
+
+        const sourceAppBulkUpdateRequestBeta = ; // SourceAppBulkUpdateRequestBeta | 
+
+        try {
+          const val = await appsBetaApi.updateSourceAppsInBulk();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await appsBetaApi.updateSourceAppsInBulk(sourceAppBulkUpdateRequestBeta);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

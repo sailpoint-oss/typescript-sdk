@@ -1,0 +1,219 @@
+- path: /workgroups
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $workgroupDtoBeta = @"
+        
+        "@
+        
+        # Create a new Governance Group.
+        
+        try {
+            $Result = ConvertFrom-JsonToworkgroupDtoBeta -Json $workgroupDtoBeta
+            -BetaworkgroupDtoBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaworkgroupDtoBeta $workgroupDtoBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /workgroups/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | ID of the Governance Group (default to undefined)
+        
+        # Delete a Governance Group
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /workgroups/{workgroupId}/members/bulk-delete
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $workgroupId =  # string | ID of the Governance Group. (default to undefined)
+        # Array<BulkWorkgroupMembersRequestInnerBeta> | List of identities to be removed from  a Governance Group members list.
+        $bulkWorkgroupMembersRequestInnerBeta = @""@ 
+        
+        
+        # Remove members from Governance Group
+        
+        try {
+            $Result = ConvertFrom-JsonTobulkWorkgroupMembersRequestInnerBeta -Json $bulkWorkgroupMembersRequestInnerBeta
+            -BetaworkgroupId $workgroupId -BetabulkWorkgroupMembersRequestInnerBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaworkgroupId $workgroupId -BetabulkWorkgroupMembersRequestInnerBeta $bulkWorkgroupMembersRequestInnerBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /workgroups/bulk-delete
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $workgroupBulkDeleteRequestBeta = @"
+        {ids=[567a697e-885b-495a-afc5-d55e1c23a302, c7b0f7b2-1e78-4063-b294-a555333dacd2]}
+        "@
+        
+        # Delete Governance Group(s)
+        
+        try {
+            $Result = ConvertFrom-JsonToworkgroupBulkDeleteRequestBeta -Json $workgroupBulkDeleteRequestBeta
+            -BetaworkgroupBulkDeleteRequestBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaworkgroupBulkDeleteRequestBeta $workgroupBulkDeleteRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /workgroups/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | ID of the Governance Group (default to undefined)
+        
+        # Get Governance Group by Id
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /workgroups/{workgroupId}/connections
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $workgroupId =  # string | ID of the Governance Group. (default to undefined)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $limit =  # number | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional) (default to undefined)
+        
+        # List connections for Governance Group
+        
+        try {
+            -BetaworkgroupId $workgroupId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaworkgroupId $workgroupId -Betaoffset $offset -Betalimit $limit -Betacount $count -Betasorters $sorters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /workgroups/{workgroupId}/members
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $workgroupId =  # string | ID of the Governance Group. (default to undefined)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $limit =  # number | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional) (default to undefined)
+        
+        # List Governance Group Members
+        
+        try {
+            -BetaworkgroupId $workgroupId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaworkgroupId $workgroupId -Betaoffset $offset -Betalimit $limit -Betacount $count -Betasorters $sorters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /workgroups
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $limit =  # number | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, sw, in*  **memberships.identityId**: *eq, in* (optional) (default to undefined)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified, id, description** (optional) (default to undefined)
+        
+        # List Governance Groups
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaoffset $offset -Betalimit $limit -Betacount $count -Betafilters $filters -Betasorters $sorters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /workgroups/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | ID of the Governance Group (default to undefined)
+        # Array<JsonPatchOperationBeta> |  (optional)
+        $jsonPatchOperationBeta = @"[{op=replace, path=/description, value=Governance Group new description.}]"@ 
+        
+        
+        # Patch a Governance Group
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetajsonPatchOperationBeta $jsonPatchOperationBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /workgroups/{workgroupId}/members/bulk-add
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $workgroupId =  # string | ID of the Governance Group. (default to undefined)
+        # Array<BulkWorkgroupMembersRequestInnerBeta> | List of identities to be added to a Governance Group members list.
+        $bulkWorkgroupMembersRequestInnerBeta = @""@ 
+        
+        
+        # Add members to Governance Group
+        
+        try {
+            $Result = ConvertFrom-JsonTobulkWorkgroupMembersRequestInnerBeta -Json $bulkWorkgroupMembersRequestInnerBeta
+            -BetaworkgroupId $workgroupId -BetabulkWorkgroupMembersRequestInnerBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetaworkgroupId $workgroupId -BetabulkWorkgroupMembersRequestInnerBeta $bulkWorkgroupMembersRequestInnerBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

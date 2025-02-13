@@ -1,0 +1,499 @@
+- path: /campaigns/{id}/complete
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationCampaignsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationCampaignsBetaApi = new CertificationCampaignsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // Campaign ID.
+        const completeCampaignOptionsBeta = ; // CompleteCampaignOptionsBeta | Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction=REVOKE
+
+        try {
+          const val = await certificationCampaignsBetaApi.completeCampaign(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationCampaignsBetaApi.completeCampaign(id, completeCampaignOptionsBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /campaigns
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationCampaignsBetaApi, CampaignBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationCampaignsBetaApi = new CertificationCampaignsBetaApi(apiConfig);
+
+        const campaignBeta : CampaignBeta = ; // 
+
+        try {
+          const val = await certificationCampaignsBetaApi.createCampaign(campaignBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationCampaignsBetaApi.createCampaign(campaignBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /campaign-templates
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationCampaignsBetaApi, CampaignTemplateBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationCampaignsBetaApi = new CertificationCampaignsBetaApi(apiConfig);
+
+        const campaignTemplateBeta : CampaignTemplateBeta = ; // 
+
+        try {
+          const val = await certificationCampaignsBetaApi.createCampaignTemplate(campaignTemplateBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationCampaignsBetaApi.createCampaignTemplate(campaignTemplateBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /campaign-templates/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationCampaignsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationCampaignsBetaApi = new CertificationCampaignsBetaApi(apiConfig);
+
+        const id : string = "2c9180835d191a86015d28455b4a2329"; // ID of the campaign template being deleted.
+
+        try {
+          const val = await certificationCampaignsBetaApi.deleteCampaignTemplate(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationCampaignsBetaApi.deleteCampaignTemplate(id);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /campaign-templates/{id}/schedule
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationCampaignsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationCampaignsBetaApi = new CertificationCampaignsBetaApi(apiConfig);
+
+        const id : string = "04bedce387bd47b2ae1f86eb0bb36dee"; // ID of the campaign template whose schedule is being deleted.
+
+        try {
+          const val = await certificationCampaignsBetaApi.deleteCampaignTemplateSchedule(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationCampaignsBetaApi.deleteCampaignTemplateSchedule(id);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /campaigns/delete
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationCampaignsBetaApi, DeleteCampaignsRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationCampaignsBetaApi = new CertificationCampaignsBetaApi(apiConfig);
+
+        const deleteCampaignsRequestBeta : DeleteCampaignsRequestBeta = ; // IDs of the campaigns to delete.
+
+        try {
+          const val = await certificationCampaignsBetaApi.deleteCampaigns(deleteCampaignsRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationCampaignsBetaApi.deleteCampaigns(deleteCampaignsRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /campaigns
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationCampaignsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationCampaignsBetaApi = new CertificationCampaignsBetaApi(apiConfig);
+
+        const detail = "FULL"; // 'SLIM' | 'FULL' | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "name eq "Manager Campaign""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **status**: *eq, in*
+        const sorters = "name"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created**
+
+        try {
+          const val = await certificationCampaignsBetaApi.getActiveCampaigns();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationCampaignsBetaApi.getActiveCampaigns(detail, limit, offset, count, filters, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /campaigns/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationCampaignsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationCampaignsBetaApi = new CertificationCampaignsBetaApi(apiConfig);
+
+        const id : string = "2c91808571bcfcf80171c23e4b4221fc"; // ID of the campaign to be retrieved.
+
+        try {
+          const val = await certificationCampaignsBetaApi.getCampaign(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationCampaignsBetaApi.getCampaign(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /campaigns/{id}/reports
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationCampaignsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationCampaignsBetaApi = new CertificationCampaignsBetaApi(apiConfig);
+
+        const id : string = "2c91808571bcfcf80171c23e4b4221fc"; // ID of the campaign whose reports are being fetched.
+
+        try {
+          const val = await certificationCampaignsBetaApi.getCampaignReports(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationCampaignsBetaApi.getCampaignReports(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /campaigns/reports-configuration
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationCampaignsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationCampaignsBetaApi = new CertificationCampaignsBetaApi(apiConfig);
+
+
+        try {
+          const val = await certificationCampaignsBetaApi.getCampaignReportsConfig();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationCampaignsBetaApi.getCampaignReportsConfig();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /campaign-templates/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationCampaignsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationCampaignsBetaApi = new CertificationCampaignsBetaApi(apiConfig);
+
+        const id : string = "2c9180835d191a86015d28455b4a2329"; // Requested campaign template\'s ID.
+
+        try {
+          const val = await certificationCampaignsBetaApi.getCampaignTemplate(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationCampaignsBetaApi.getCampaignTemplate(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /campaign-templates/{id}/schedule
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationCampaignsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationCampaignsBetaApi = new CertificationCampaignsBetaApi(apiConfig);
+
+        const id : string = "04bedce387bd47b2ae1f86eb0bb36dee"; // ID of the campaign template whose schedule is being fetched.
+
+        try {
+          const val = await certificationCampaignsBetaApi.getCampaignTemplateSchedule(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationCampaignsBetaApi.getCampaignTemplateSchedule(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /campaign-templates
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationCampaignsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationCampaignsBetaApi = new CertificationCampaignsBetaApi(apiConfig);
+
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const sorters = "name"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
+        const filters = "name eq "manager template""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, ge, gt, in, le, lt, ne, sw*  **id**: *eq, ge, gt, in, le, lt, ne, sw*
+
+        try {
+          const val = await certificationCampaignsBetaApi.getCampaignTemplates();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationCampaignsBetaApi.getCampaignTemplates(limit, offset, count, sorters, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /campaigns/{id}/reassign
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationCampaignsBetaApi, AdminReviewReassignBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationCampaignsBetaApi = new CertificationCampaignsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The certification campaign ID
+        const adminReviewReassignBeta : AdminReviewReassignBeta = ; // 
+
+        try {
+          const val = await certificationCampaignsBetaApi.move(id, adminReviewReassignBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationCampaignsBetaApi.move(id, adminReviewReassignBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /campaign-templates/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationCampaignsBetaApi, JsonPatchOperationBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationCampaignsBetaApi = new CertificationCampaignsBetaApi(apiConfig);
+
+        const id : string = "2c9180835d191a86015d28455b4a2329"; // ID of the campaign template being modified.
+        const jsonPatchOperationBeta : Array<JsonPatchOperationBeta> = [{op=replace, path=/description, value=Updated description!}, {op=replace, path=/campaign/filter/id, value=ff80818155fe8c080155fe8d925b0316}]; // A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
+
+        try {
+          const val = await certificationCampaignsBetaApi.patchCampaignTemplate(id, jsonPatchOperationBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationCampaignsBetaApi.patchCampaignTemplate(id, jsonPatchOperationBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /campaigns/reports-configuration
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationCampaignsBetaApi, CampaignReportsConfigBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationCampaignsBetaApi = new CertificationCampaignsBetaApi(apiConfig);
+
+        const campaignReportsConfigBeta : CampaignReportsConfigBeta = ; // Campaign report configuration.
+
+        try {
+          const val = await certificationCampaignsBetaApi.setCampaignReportsConfig(campaignReportsConfigBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationCampaignsBetaApi.setCampaignReportsConfig(campaignReportsConfigBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /campaign-templates/{id}/schedule
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationCampaignsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationCampaignsBetaApi = new CertificationCampaignsBetaApi(apiConfig);
+
+        const id : string = "04bedce387bd47b2ae1f86eb0bb36dee"; // ID of the campaign template being scheduled.
+        const scheduleBeta = {type=MONTHLY, hours={type=LIST, values=[17]}, days={type=LIST, values=[15]}}; // ScheduleBeta | 
+
+        try {
+          const val = await certificationCampaignsBetaApi.setCampaignTemplateSchedule(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationCampaignsBetaApi.setCampaignTemplateSchedule(id, scheduleBeta);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /campaigns/{id}/activate
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationCampaignsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationCampaignsBetaApi = new CertificationCampaignsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // Campaign ID.
+        const activateCampaignOptionsBeta = ; // ActivateCampaignOptionsBeta | Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller\'s timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format.
+
+        try {
+          const val = await certificationCampaignsBetaApi.startCampaign(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationCampaignsBetaApi.startCampaign(id, activateCampaignOptionsBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /campaigns/{id}/run-remediation-scan
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationCampaignsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationCampaignsBetaApi = new CertificationCampaignsBetaApi(apiConfig);
+
+        const id : string = "2c91808571bcfcf80171c23e4b4221fc"; // ID of the campaign the remediation scan is being run for.
+
+        try {
+          const val = await certificationCampaignsBetaApi.startCampaignRemediationScan(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationCampaignsBetaApi.startCampaignRemediationScan(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /campaigns/{id}/run-report/{type}
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationCampaignsBetaApi,  } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationCampaignsBetaApi = new CertificationCampaignsBetaApi(apiConfig);
+
+        const id : string = "2c91808571bcfcf80171c23e4b4221fc"; // ID of the campaign the report is being run for.
+        const type : ReportTypeBeta = ; // Type of report to run.
+
+        try {
+          const val = await certificationCampaignsBetaApi.startCampaignReport(id, type);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationCampaignsBetaApi.startCampaignReport(id, type);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /campaign-templates/{id}/generate
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationCampaignsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationCampaignsBetaApi = new CertificationCampaignsBetaApi(apiConfig);
+
+        const id : string = "2c9180835d191a86015d28455b4a2329"; // ID of the campaign template to use for generation.
+
+        try {
+          const val = await certificationCampaignsBetaApi.startGenerateCampaignTemplate(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationCampaignsBetaApi.startGenerateCampaignTemplate(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /campaigns/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationCampaignsBetaApi, object } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationCampaignsBetaApi = new CertificationCampaignsBetaApi(apiConfig);
+
+        const id : string = "2c91808571bcfcf80171c23e4b4221fc"; // ID of the campaign being modified.
+        const requestBody : Array<object> = [{op=replace, path=/name, value=This field has been updated!}, {op=copy, from=/name, path=/description}]; // A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
+
+        try {
+          const val = await certificationCampaignsBetaApi.updateCampaign(id, requestBody);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationCampaignsBetaApi.updateCampaign(id, requestBody);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

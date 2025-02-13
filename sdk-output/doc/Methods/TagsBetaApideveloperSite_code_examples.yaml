@@ -1,0 +1,92 @@
+- path: /tags
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TagsBetaApi, TagBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const tagsBetaApi = new TagsBetaApi(apiConfig);
+
+        const tagBeta : TagBeta = ; // 
+
+        try {
+          const val = await tagsBetaApi.createTag(tagBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await tagsBetaApi.createTag(tagBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /tags/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TagsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const tagsBetaApi = new TagsBetaApi(apiConfig);
+
+        const id : string = "329d96cf-3bdb-40a9-988a-b5037ab89022"; // The ID of the object reference to delete.
+
+        try {
+          const val = await tagsBetaApi.deleteTagById(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await tagsBetaApi.deleteTagById(id);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /tags/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TagsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const tagsBetaApi = new TagsBetaApi(apiConfig);
+
+        const id : string = "329d96cf-3bdb-40a9-988a-b5037ab89022"; // The ID of the object reference to retrieve.
+
+        try {
+          const val = await tagsBetaApi.getTagById(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await tagsBetaApi.getTagById(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /tags
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TagsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const tagsBetaApi = new TagsBetaApi(apiConfig);
+
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "id eq "27462f54-61c7-4140-b5da-d5dbe27fc6db""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*
+        const sorters = "name,-modified"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified**
+
+        try {
+          const val = await tagsBetaApi.listTags();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await tagsBetaApi.listTags(limit, offset, count, filters, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

@@ -3,9 +3,20 @@ files:
   package.mustache:
     templateType: SupportingFiles
     destinationFilename: package.json
+  api_doc.mustache:
+    templateType: APIDocs
+    destinationFilename: .md
+  model_doc.mustache:
+    templateType: ModelDocs
+    destinationFilename: .md
+  developerSite_code_examples.mustache:
+    templateType: APIDocs
+    destinationFilename: developerSite_code_examples.yaml
 npmName: sailpoint-sdk
 npmRepository: sailpoint.com
 npmVersion: 1.4.13
 useSingleRequestParameter: true
 apiVersion: v2024
 enumNameSuffix: V2024
+subModuleName: V2024
+funtionPrefix: V2024

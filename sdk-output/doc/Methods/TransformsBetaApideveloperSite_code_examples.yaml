@@ -1,0 +1,115 @@
+- path: /transforms
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TransformsBetaApi, TransformBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const transformsBetaApi = new TransformsBetaApi(apiConfig);
+
+        const transformBeta : TransformBeta = {name=Timestamp To Date, type=dateFormat, attributes={inputFormat=MMM dd yyyy, HH:mm:ss.SSS, outputFormat=yyyy/dd/MM}}; // The transform to be created.
+
+        try {
+          const val = await transformsBetaApi.createTransform(transformBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await transformsBetaApi.createTransform(transformBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /transforms/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TransformsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const transformsBetaApi = new TransformsBetaApi(apiConfig);
+
+        const id : string = "2cd78adghjkja34jh2b1hkjhasuecd"; // ID of the transform to delete
+
+        try {
+          const val = await transformsBetaApi.deleteTransform(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await transformsBetaApi.deleteTransform(id);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /transforms/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TransformsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const transformsBetaApi = new TransformsBetaApi(apiConfig);
+
+        const id : string = "2cd78adghjkja34jh2b1hkjhasuecd"; // ID of the transform to retrieve
+
+        try {
+          const val = await transformsBetaApi.getTransform(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await transformsBetaApi.getTransform(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /transforms
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TransformsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const transformsBetaApi = new TransformsBetaApi(apiConfig);
+
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const name = "ExampleTransformName123"; // string | Name of the transform to retrieve from the list.
+        const filters = "name eq "Uppercase""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **internal**: *eq*  **name**: *eq, sw*
+
+        try {
+          const val = await transformsBetaApi.listTransforms();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await transformsBetaApi.listTransforms(offset, limit, count, name, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /transforms/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, TransformsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const transformsBetaApi = new TransformsBetaApi(apiConfig);
+
+        const id : string = "2cd78adghjkja34jh2b1hkjhasuecd"; // ID of the transform to update
+        const transformBeta = {name=Timestamp To Date, type=dateFormat, attributes={inputFormat=MMM-dd-yyyy, HH:mm:ss.SSS, outputFormat=yyyy/dd/MM}}; // TransformBeta | The updated transform object. Must include \"name\", \"type\", and \"attributes\" fields, but \"name\" and \"type\" must not be modified.
+
+        try {
+          const val = await transformsBetaApi.updateTransform(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await transformsBetaApi.updateTransform(id, transformBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

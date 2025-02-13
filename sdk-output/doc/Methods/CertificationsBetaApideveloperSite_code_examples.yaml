@@ -1,0 +1,122 @@
+- path: /certifications/{certificationId}/access-review-items/{itemId}/permissions
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationsBetaApi = new CertificationsBetaApi(apiConfig);
+
+        const certificationId : string = "ef38f94347e94562b5bb8424a56397d8"; // The certification ID
+        const itemId : string = "2c91808671bcbab40171bd945d961227"; // The certification item ID
+        const filters = "target eq "SYS.OBJAUTH2""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **target**: *eq, sw*  **rights**: *ca*  All field values (second filter operands) are case-insensitive for this API.  Only a single *and* or *or* composite filter operator may be used. It must also be used between a target filter and a rights filter, not between 2 filters for the same field.  For example, the following is valid: `?filters=rights+ca+(%22CREATE%22)+and+target+eq+%22SYS.OBJAUTH2%22`  The following is invalid: `?filters=rights+ca+(%22CREATE%22)+and+rights+ca+(%SELECT%22)`
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await certificationsBetaApi.getIdentityCertificationItemPermissions(certificationId, itemId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationsBetaApi.getIdentityCertificationItemPermissions(certificationId, itemId, filters, limit, offset, count);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /certifications/{id}/tasks-pending
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationsBetaApi = new CertificationsBetaApi(apiConfig);
+
+        const id : string = "id_example"; // The identity campaign certification ID
+
+        try {
+          const val = await certificationsBetaApi.getIdentityCertificationPendingTasks(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationsBetaApi.getIdentityCertificationPendingTasks(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /certifications/{id}/tasks/{taskId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationsBetaApi = new CertificationsBetaApi(apiConfig);
+
+        const id : string = "id_example"; // The identity campaign certification ID
+        const taskId : string = "taskId_example"; // The certification task ID
+
+        try {
+          const val = await certificationsBetaApi.getIdentityCertificationTaskStatus(id, taskId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationsBetaApi.getIdentityCertificationTaskStatus(id, taskId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /certifications/{id}/reviewers
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationsBetaApi = new CertificationsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The certification ID
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "name eq "Bob""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **email**: *eq, sw*
+        const sorters = "name"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, email**
+
+        try {
+          const val = await certificationsBetaApi.listCertificationReviewers(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationsBetaApi.listCertificationReviewers(id, limit, offset, count, filters, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /certifications/{id}/reassign-async
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, CertificationsBetaApi, ReviewReassignBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const certificationsBetaApi = new CertificationsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The identity campaign certification ID
+        const reviewReassignBeta : ReviewReassignBeta = ; // 
+
+        try {
+          const val = await certificationsBetaApi.submitReassignCertsAsync(id, reviewReassignBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await certificationsBetaApi.submitReassignCertsAsync(id, reviewReassignBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

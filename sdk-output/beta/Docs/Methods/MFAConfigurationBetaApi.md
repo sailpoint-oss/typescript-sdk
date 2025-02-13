@@ -1,0 +1,313 @@
+---
+title: MFAConfigurationBetaApi
+pagination_label: MFAConfigurationBetaApi
+sidebar_label: MFAConfigurationBetaApi
+sidebar_class_name: typescriptsdk
+keywords: ['typescript', 'sdk', 'MFAConfigurationBetaApi'] 
+tags: ['SDK', 'Software Development Kit', 'MFAConfigurationBetaApi']
+---
+
+# MFAConfigurationBetaApi
+
+All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**deleteMFAConfig**](MFAConfigurationBetaApi.md#deleteMFAConfig) | **DELETE** /mfa/{method}/delete | Delete MFA method configuration
+[**getMFADuoConfig**](MFAConfigurationBetaApi.md#getMFADuoConfig) | **GET** /mfa/duo-web/config | Configuration of Duo MFA method
+[**getMFAKbaConfig**](MFAConfigurationBetaApi.md#getMFAKbaConfig) | **GET** /mfa/kba/config | Configuration of KBA MFA method
+[**getMFAOktaConfig**](MFAConfigurationBetaApi.md#getMFAOktaConfig) | **GET** /mfa/okta-verify/config | Configuration of Okta MFA method
+[**setMFADuoConfig**](MFAConfigurationBetaApi.md#setMFADuoConfig) | **PUT** /mfa/duo-web/config | Set Duo MFA configuration
+[**setMFAKBAConfig**](MFAConfigurationBetaApi.md#setMFAKBAConfig) | **POST** /mfa/kba/config/answers | Set MFA KBA configuration
+[**setMFAOktaConfig**](MFAConfigurationBetaApi.md#setMFAOktaConfig) | **PUT** /mfa/okta-verify/config | Set Okta MFA configuration
+[**testMFAConfig**](MFAConfigurationBetaApi.md#testMFAConfig) | **GET** /mfa/{method}/test | MFA method\&#39;s test configuration
+
+
+
+## deleteMFAConfig
+
+> MfaOktaConfigBeta deleteMFAConfig(method)
+
+Delete MFA method configuration
+
+This API removes the configuration for the specified MFA method.
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **method** | **string**| The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;. | [default to undefined]
+
+### Return type
+
+[**MfaOktaConfigBeta**](../Models/MfaOktaConfigBeta.md)
+
+### Authorization
+
+[userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication), [userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication)
+
+<details>
+<summary>Example</summary>
+
+```javascript
+import { Configuration, MFAConfigurationBetaApi } from "sailpoint-api-client";
+const apiConfig = new Configuration();
+const mFAConfigurationBetaApi = new MFAConfigurationBetaApi(apiConfig);
+const method : string = "okta-verify"; // The name of the MFA method. The currently supported method names are \'okta-verify\' and \'duo-web\'.
+const val = await mFAConfigurationBetaApi.deleteMFAConfig(method);
+console.log('API called successfully. Returned data: ' + val.data);
+```
+</details>
+
+
+## getMFADuoConfig
+
+> MfaDuoConfigBeta getMFADuoConfig()
+
+Configuration of Duo MFA method
+
+This API returns the configuration of an Duo MFA method.
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**MfaDuoConfigBeta**](../Models/MfaDuoConfigBeta.md)
+
+### Authorization
+
+[userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication), [userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication)
+
+<details>
+<summary>Example</summary>
+
+```javascript
+import { Configuration, MFAConfigurationBetaApi } from "sailpoint-api-client";
+const apiConfig = new Configuration();
+const mFAConfigurationBetaApi = new MFAConfigurationBetaApi(apiConfig);
+const val = await mFAConfigurationBetaApi.getMFADuoConfig();
+console.log('API called successfully. Returned data: ' + val.data);
+```
+</details>
+
+
+## getMFAKbaConfig
+
+> Array&lt;KbaQuestionBeta&gt; getMFAKbaConfig(allLanguages)
+
+Configuration of KBA MFA method
+
+This API returns the KBA configuration for MFA.
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **allLanguages** | **boolean**| Indicator whether the question text should be returned in all configured languages    * If true, the question text is returned in all languages that it is configured in.    * If false, the question text is returned in the user locale if available, else for the default locale.     * If not passed, it behaves the same way as passing this parameter as false | [optional] [default to undefined]
+
+### Return type
+
+[**Array&lt;KbaQuestionBeta&gt;**](../Models/KbaQuestionBeta.md)
+
+### Authorization
+
+[userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication), [userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication)
+
+<details>
+<summary>Example</summary>
+
+```javascript
+import { Configuration, MFAConfigurationBetaApi } from "sailpoint-api-client";
+const apiConfig = new Configuration();
+const mFAConfigurationBetaApi = new MFAConfigurationBetaApi(apiConfig);
+const allLanguages = allLanguages=true; // boolean | Indicator whether the question text should be returned in all configured languages    * If true, the question text is returned in all languages that it is configured in.    * If false, the question text is returned in the user locale if available, else for the default locale.     * If not passed, it behaves the same way as passing this parameter as false
+const val = await mFAConfigurationBetaApi.getMFAKbaConfig(allLanguages);
+console.log('API called successfully. Returned data: ' + val.data);
+```
+</details>
+
+
+## getMFAOktaConfig
+
+> MfaOktaConfigBeta getMFAOktaConfig()
+
+Configuration of Okta MFA method
+
+This API returns the configuration of an Okta MFA method.
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**MfaOktaConfigBeta**](../Models/MfaOktaConfigBeta.md)
+
+### Authorization
+
+[userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication), [userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication)
+
+<details>
+<summary>Example</summary>
+
+```javascript
+import { Configuration, MFAConfigurationBetaApi } from "sailpoint-api-client";
+const apiConfig = new Configuration();
+const mFAConfigurationBetaApi = new MFAConfigurationBetaApi(apiConfig);
+const val = await mFAConfigurationBetaApi.getMFAOktaConfig();
+console.log('API called successfully. Returned data: ' + val.data);
+```
+</details>
+
+
+## setMFADuoConfig
+
+> MfaDuoConfigBeta setMFADuoConfig(mfaDuoConfigBeta)
+
+Set Duo MFA configuration
+
+This API sets the configuration of an Duo MFA method.
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **mfaDuoConfigBeta** | [**MfaDuoConfigBeta**](../Models/MfaDuoConfigBeta.md)|  | 
+
+### Return type
+
+[**MfaDuoConfigBeta**](../Models/MfaDuoConfigBeta.md)
+
+### Authorization
+
+[userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication), [userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication)
+
+<details>
+<summary>Example</summary>
+
+```javascript
+import { Configuration, MFAConfigurationBetaApi, MfaDuoConfigBeta } from "sailpoint-api-client";
+const apiConfig = new Configuration();
+const mFAConfigurationBetaApi = new MFAConfigurationBetaApi(apiConfig);
+const mfaDuoConfigBeta : MfaDuoConfigBeta = {mfaMethod=duo-web, enabled=true, host=www.example.com, accessKey=qw123Y3QlA5UqocYpdU3rEkzrK2D497y, identityAttribute=email, configProperties={skey=12q3WERlcUHWJmiMqyCXI3uOF7EaDJTbdeOp6E2B, ikey=Q123WE45R6TY7890ZXCV}}; // 
+const val = await mFAConfigurationBetaApi.setMFADuoConfig(mfaDuoConfigBeta);
+console.log('API called successfully. Returned data: ' + val.data);
+```
+</details>
+
+
+## setMFAKBAConfig
+
+> Array&lt;KbaAnswerResponseItemBeta&gt; setMFAKBAConfig(kbaAnswerRequestItemBeta)
+
+Set MFA KBA configuration
+
+This API sets answers to challenge questions.  Any configured questions omitted from the request are removed from user KBA configuration.    
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **kbaAnswerRequestItemBeta** | [**Array&lt;KbaAnswerRequestItemBeta&gt;**](../Models/KbaAnswerRequestItemBeta.md)|  | 
+
+### Return type
+
+[**Array&lt;KbaAnswerResponseItemBeta&gt;**](../Models/KbaAnswerResponseItemBeta.md)
+
+### Authorization
+
+[userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication), [userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication)
+
+<details>
+<summary>Example</summary>
+
+```javascript
+import { Configuration, MFAConfigurationBetaApi, KbaAnswerRequestItemBeta } from "sailpoint-api-client";
+const apiConfig = new Configuration();
+const mFAConfigurationBetaApi = new MFAConfigurationBetaApi(apiConfig);
+const kbaAnswerRequestItemBeta : Array<KbaAnswerRequestItemBeta> = [{id=173423, answer=822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34}, {id=c54fee53-2d63-4fc5-9259-3e93b9994135, answer=9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08}]; // 
+const val = await mFAConfigurationBetaApi.setMFAKBAConfig(kbaAnswerRequestItemBeta);
+console.log('API called successfully. Returned data: ' + val.data);
+```
+</details>
+
+
+## setMFAOktaConfig
+
+> MfaOktaConfigBeta setMFAOktaConfig(mfaOktaConfigBeta)
+
+Set Okta MFA configuration
+
+This API sets the configuration of an Okta MFA method.
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **mfaOktaConfigBeta** | [**MfaOktaConfigBeta**](../Models/MfaOktaConfigBeta.md)|  | 
+
+### Return type
+
+[**MfaOktaConfigBeta**](../Models/MfaOktaConfigBeta.md)
+
+### Authorization
+
+[userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication), [userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication)
+
+<details>
+<summary>Example</summary>
+
+```javascript
+import { Configuration, MFAConfigurationBetaApi, MfaOktaConfigBeta } from "sailpoint-api-client";
+const apiConfig = new Configuration();
+const mFAConfigurationBetaApi = new MFAConfigurationBetaApi(apiConfig);
+const mfaOktaConfigBeta : MfaOktaConfigBeta = {mfaMethod=okta-verify, enabled=true, host=www.example.com, accessKey=dk778Y3QlA5UqocYpdU3rEkzrK2D497y, identityAttribute=email}; // 
+const val = await mFAConfigurationBetaApi.setMFAOktaConfig(mfaOktaConfigBeta);
+console.log('API called successfully. Returned data: ' + val.data);
+```
+</details>
+
+
+## testMFAConfig
+
+> MfaConfigTestResponseBeta testMFAConfig(method)
+
+MFA method\'s test configuration
+
+This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter.
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **method** | **string**| The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;. | [default to undefined]
+
+### Return type
+
+[**MfaConfigTestResponseBeta**](../Models/MfaConfigTestResponseBeta.md)
+
+### Authorization
+
+[userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication), [userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication)
+
+<details>
+<summary>Example</summary>
+
+```javascript
+import { Configuration, MFAConfigurationBetaApi } from "sailpoint-api-client";
+const apiConfig = new Configuration();
+const mFAConfigurationBetaApi = new MFAConfigurationBetaApi(apiConfig);
+const method : string = "okta-verify"; // The name of the MFA method. The currently supported method names are \'okta-verify\' and \'duo-web\'.
+const val = await mFAConfigurationBetaApi.testMFAConfig(method);
+console.log('API called successfully. Returned data: ' + val.data);
+```
+</details>
+

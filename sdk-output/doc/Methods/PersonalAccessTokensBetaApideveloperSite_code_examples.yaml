@@ -1,0 +1,90 @@
+- path: /personal-access-tokens
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, PersonalAccessTokensBetaApi, CreatePersonalAccessTokenRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const personalAccessTokensBetaApi = new PersonalAccessTokensBetaApi(apiConfig);
+
+        const createPersonalAccessTokenRequestBeta : CreatePersonalAccessTokenRequestBeta = ; // Name and scope of personal access token.
+
+        try {
+          const val = await personalAccessTokensBetaApi.createPersonalAccessToken(createPersonalAccessTokenRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await personalAccessTokensBetaApi.createPersonalAccessToken(createPersonalAccessTokenRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /personal-access-tokens/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, PersonalAccessTokensBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const personalAccessTokensBetaApi = new PersonalAccessTokensBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The personal access token id
+
+        try {
+          const val = await personalAccessTokensBetaApi.deletePersonalAccessToken(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await personalAccessTokensBetaApi.deletePersonalAccessToken(id);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /personal-access-tokens
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, PersonalAccessTokensBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const personalAccessTokensBetaApi = new PersonalAccessTokensBetaApi(apiConfig);
+
+        const ownerId = "2c9180867b50d088017b554662fb281e"; // string | The identity ID of the owner whose personal access tokens should be listed.  If \"me\", the caller should have the following right: \'idn:my-personal-access-tokens:read\' If an actual owner ID or if the `owner-id` parameter is omitted in the request,  the caller should have the following right: \'idn:all-personal-access-tokens:read\'.  If the caller has the following right, then managed personal access tokens associated with `owner-id` will be retrieved: \'idn:managed-personal-access-tokens:read\'
+        const filters = "lastUsed le 2023-02-05T10:59:27.214Z"; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull*
+
+        try {
+          const val = await personalAccessTokensBetaApi.listPersonalAccessTokens();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await personalAccessTokensBetaApi.listPersonalAccessTokens(ownerId, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /personal-access-tokens/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, PersonalAccessTokensBetaApi, JsonPatchOperationBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const personalAccessTokensBetaApi = new PersonalAccessTokensBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The Personal Access Token id
+        const jsonPatchOperationBeta : Array<JsonPatchOperationBeta> = [{op=replace, path=/name, value=New name}, {op=replace, path=/scope, value=[sp:scopes:all]}]; // A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
+
+        try {
+          const val = await personalAccessTokensBetaApi.patchPersonalAccessToken(id, jsonPatchOperationBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await personalAccessTokensBetaApi.patchPersonalAccessToken(id, jsonPatchOperationBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

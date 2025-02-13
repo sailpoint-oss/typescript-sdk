@@ -1,0 +1,24 @@
+- path: /access-request-identity-metrics/{identityId}/requested-objects/{requestedObjectId}/type/{type}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccessRequestIdentityMetricsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accessRequestIdentityMetricsBetaApi = new AccessRequestIdentityMetricsBetaApi(apiConfig);
+
+        const identityId : string = "7025c863-c270-4ba6-beea-edf3cb091573"; // Manager\'s identity ID.
+        const requestedObjectId : string = "2db501be-f0fb-4cc5-a695-334133c52891"; // Requested access item\'s ID.
+        const type : 'ENTITLEMENT' | 'ACCESS_PROFILE' | 'ROLE' = "ENTITLEMENT"; // Requested access item\'s type.
+
+        try {
+          const val = await accessRequestIdentityMetricsBetaApi.getAccessRequestIdentityMetrics(identityId, requestedObjectId, type);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accessRequestIdentityMetricsBetaApi.getAccessRequestIdentityMetrics(identityId, requestedObjectId, type);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

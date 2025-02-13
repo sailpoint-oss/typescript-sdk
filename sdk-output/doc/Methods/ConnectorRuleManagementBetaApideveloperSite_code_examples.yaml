@@ -1,0 +1,132 @@
+- path: /connector-rules
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ConnectorRuleManagementBetaApi, ConnectorRuleCreateRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const connectorRuleManagementBetaApi = new ConnectorRuleManagementBetaApi(apiConfig);
+
+        const connectorRuleCreateRequestBeta : ConnectorRuleCreateRequestBeta = ; // The connector rule to create
+
+        try {
+          const val = await connectorRuleManagementBetaApi.createConnectorRule(connectorRuleCreateRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await connectorRuleManagementBetaApi.createConnectorRule(connectorRuleCreateRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /connector-rules/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ConnectorRuleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const connectorRuleManagementBetaApi = new ConnectorRuleManagementBetaApi(apiConfig);
+
+        const id : string = "8c190e6787aa4ed9a90bd9d5344523fb"; // ID of the connector rule to delete
+
+        try {
+          const val = await connectorRuleManagementBetaApi.deleteConnectorRule(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await connectorRuleManagementBetaApi.deleteConnectorRule(id);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /connector-rules/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ConnectorRuleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const connectorRuleManagementBetaApi = new ConnectorRuleManagementBetaApi(apiConfig);
+
+        const id : string = "8c190e6787aa4ed9a90bd9d5344523fb"; // ID of the connector rule to retrieve
+
+        try {
+          const val = await connectorRuleManagementBetaApi.getConnectorRule(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await connectorRuleManagementBetaApi.getConnectorRule(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /connector-rules
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ConnectorRuleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const connectorRuleManagementBetaApi = new ConnectorRuleManagementBetaApi(apiConfig);
+
+
+        try {
+          const val = await connectorRuleManagementBetaApi.getConnectorRuleList();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await connectorRuleManagementBetaApi.getConnectorRuleList();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /connector-rules/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ConnectorRuleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const connectorRuleManagementBetaApi = new ConnectorRuleManagementBetaApi(apiConfig);
+
+        const id : string = "8c190e6787aa4ed9a90bd9d5344523fb"; // ID of the connector rule to update
+        const connectorRuleUpdateRequestBeta = ; // ConnectorRuleUpdateRequestBeta | The connector rule with updated data
+
+        try {
+          const val = await connectorRuleManagementBetaApi.updateConnectorRule(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await connectorRuleManagementBetaApi.updateConnectorRule(id, connectorRuleUpdateRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /connector-rules/validate
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, ConnectorRuleManagementBetaApi, SourceCodeBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const connectorRuleManagementBetaApi = new ConnectorRuleManagementBetaApi(apiConfig);
+
+        const sourceCodeBeta : SourceCodeBeta = ; // The code to validate
+
+        try {
+          const val = await connectorRuleManagementBetaApi.validateConnectorRule(sourceCodeBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await connectorRuleManagementBetaApi.validateConnectorRule(sourceCodeBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

@@ -1,0 +1,336 @@
+- path: /verified-domains
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NotificationsBetaApi, DomainAddressBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const notificationsBetaApi = new NotificationsBetaApi(apiConfig);
+
+        const domainAddressBeta : DomainAddressBeta = ; // 
+
+        try {
+          const val = await notificationsBetaApi.createDomainDkim(domainAddressBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await notificationsBetaApi.createDomainDkim(domainAddressBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /notification-templates
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NotificationsBetaApi, TemplateDtoBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const notificationsBetaApi = new NotificationsBetaApi(apiConfig);
+
+        const templateDtoBeta : TemplateDtoBeta = ; // 
+
+        try {
+          const val = await notificationsBetaApi.createNotificationTemplate(templateDtoBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await notificationsBetaApi.createNotificationTemplate(templateDtoBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /verified-from-addresses
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NotificationsBetaApi, EmailStatusDtoBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const notificationsBetaApi = new NotificationsBetaApi(apiConfig);
+
+        const emailStatusDtoBeta : EmailStatusDtoBeta = {email=sender@example.com}; // 
+
+        try {
+          const val = await notificationsBetaApi.createVerifiedFromAddress(emailStatusDtoBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await notificationsBetaApi.createVerifiedFromAddress(emailStatusDtoBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /notification-templates/bulk-delete
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NotificationsBetaApi, TemplateBulkDeleteDtoBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const notificationsBetaApi = new NotificationsBetaApi(apiConfig);
+
+        const templateBulkDeleteDtoBeta : Array<TemplateBulkDeleteDtoBeta> = ; // 
+
+        try {
+          const val = await notificationsBetaApi.deleteNotificationTemplatesInBulk(templateBulkDeleteDtoBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await notificationsBetaApi.deleteNotificationTemplatesInBulk(templateBulkDeleteDtoBeta);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /verified-from-addresses/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NotificationsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const notificationsBetaApi = new NotificationsBetaApi(apiConfig);
+
+        const id : string = "id_example"; // 
+
+        try {
+          const val = await notificationsBetaApi.deleteVerifiedFromAddress(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await notificationsBetaApi.deleteVerifiedFromAddress(id);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /verified-domains
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NotificationsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const notificationsBetaApi = new NotificationsBetaApi(apiConfig);
+
+
+        try {
+          const val = await notificationsBetaApi.getDkimAttributes();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await notificationsBetaApi.getDkimAttributes();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /mail-from-attributes/{identityId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NotificationsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const notificationsBetaApi = new NotificationsBetaApi(apiConfig);
+
+        const identityId : string = "bobsmith@sailpoint.com"; // Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
+
+        try {
+          const val = await notificationsBetaApi.getMailFromAttributes(identityId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await notificationsBetaApi.getMailFromAttributes(identityId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /notification-templates/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NotificationsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const notificationsBetaApi = new NotificationsBetaApi(apiConfig);
+
+        const id : string = "c17bea3a-574d-453c-9e04-4365fbf5af0b"; // Id of the Notification Template
+
+        try {
+          const val = await notificationsBetaApi.getNotificationTemplate(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await notificationsBetaApi.getNotificationTemplate(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /notification-template-context
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NotificationsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const notificationsBetaApi = new NotificationsBetaApi(apiConfig);
+
+
+        try {
+          const val = await notificationsBetaApi.getNotificationsTemplateContext();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await notificationsBetaApi.getNotificationsTemplateContext();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /verified-from-addresses
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NotificationsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const notificationsBetaApi = new NotificationsBetaApi(apiConfig);
+
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "email eq "john.doe@company.com""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, sw*
+        const sorters = "email"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email**
+
+        try {
+          const val = await notificationsBetaApi.listFromAddresses();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await notificationsBetaApi.listFromAddresses(limit, offset, count, filters, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /notification-preferences/{key}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NotificationsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const notificationsBetaApi = new NotificationsBetaApi(apiConfig);
+
+        const key : string = "cloud_manual_work_item_summary"; // The notification key.
+
+        try {
+          const val = await notificationsBetaApi.listNotificationPreferences(key);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await notificationsBetaApi.listNotificationPreferences(key);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /notification-template-defaults
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NotificationsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const notificationsBetaApi = new NotificationsBetaApi(apiConfig);
+
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "key eq "cloud_manual_work_item_summary""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw*
+
+        try {
+          const val = await notificationsBetaApi.listNotificationTemplateDefaults();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await notificationsBetaApi.listNotificationTemplateDefaults(limit, offset, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /notification-templates
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NotificationsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const notificationsBetaApi = new NotificationsBetaApi(apiConfig);
+
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "medium eq "EMAIL""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw*
+
+        try {
+          const val = await notificationsBetaApi.listNotificationTemplates();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await notificationsBetaApi.listNotificationTemplates(limit, offset, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /mail-from-attributes
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NotificationsBetaApi, MailFromAttributesDtoBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const notificationsBetaApi = new NotificationsBetaApi(apiConfig);
+
+        const mailFromAttributesDtoBeta : MailFromAttributesDtoBeta = {identity=BobSmith@sailpoint.com, mailFromDomain=example.sailpoint.com}; // 
+
+        try {
+          const val = await notificationsBetaApi.putMailFromAttributes(mailFromAttributesDtoBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await notificationsBetaApi.putMailFromAttributes(mailFromAttributesDtoBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /send-test-notification
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NotificationsBetaApi, SendTestNotificationRequestDtoBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const notificationsBetaApi = new NotificationsBetaApi(apiConfig);
+
+        const sendTestNotificationRequestDtoBeta : SendTestNotificationRequestDtoBeta = {key=cloud_manual_work_item_summary, medium=EMAIL, context={numberOfPendingTasks=4, ownerId=201327fda1c44704ac01181e963d463c}}; // 
+
+        try {
+          const val = await notificationsBetaApi.sendTestNotification(sendTestNotificationRequestDtoBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await notificationsBetaApi.sendTestNotification(sendTestNotificationRequestDtoBeta);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

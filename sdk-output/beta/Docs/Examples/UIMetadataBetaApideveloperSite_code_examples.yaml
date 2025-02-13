@@ -1,0 +1,40 @@
+- path: /ui-metadata/tenant
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        
+        # Get a tenant UI metadata
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /ui-metadata/tenant
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $tenantUiMetadataItemUpdateRequestBeta = @"
+        
+        "@
+        
+        # Update tenant UI metadata
+        
+        try {
+            $Result = ConvertFrom-JsonTotenantUiMetadataItemUpdateRequestBeta -Json $tenantUiMetadataItemUpdateRequestBeta
+            -BetatenantUiMetadataItemUpdateRequestBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetatenantUiMetadataItemUpdateRequestBeta $tenantUiMetadataItemUpdateRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

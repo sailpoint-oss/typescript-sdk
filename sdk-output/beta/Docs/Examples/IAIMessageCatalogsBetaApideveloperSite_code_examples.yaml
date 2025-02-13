@@ -1,0 +1,19 @@
+- path: /translation-catalogs/{catalog-id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $catalogId =  # 'recommender' | 'access-request-recommender' | The ID of the message catalog. (default to undefined)
+        
+        # Get Message catalogs
+        
+        try {
+            -BetacatalogId $catalogId 
+            
+            # Below is a request that includes all optional parameters
+            #  -BetacatalogId $catalogId  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

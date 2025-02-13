@@ -1,0 +1,223 @@
+- path: /trigger-invocations/{id}/complete
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | The ID of the invocation to complete. (default to undefined)
+        $completeInvocationBeta = @"
+        {secret=0f11f2a4-7c94-4bf3-a2bd-742580fe3bde, output={approved=false}}
+        "@
+        
+        # Complete Trigger Invocation
+        
+        try {
+            $Result = ConvertFrom-JsonTocompleteInvocationBeta -Json $completeInvocationBeta
+            -Betaid $id -BetacompleteInvocationBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetacompleteInvocationBeta $completeInvocationBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /trigger-subscriptions
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $subscriptionPostRequestBeta = @"
+        {name=Access request subscription, description=Access requested to site xyz, triggerId=idn:access-requested, type=HTTP, httpConfig={url=https://www.example.com, httpDispatchMode=SYNC, httpAuthenticationType=BASIC_AUTH, basicAuthConfig={userName=user@example.com, password=eRtg4%6yuI!}}, enabled=true, filter=$[?($.identityId == "201327fda1c44704ac01181e963d463c")]}
+        "@
+        
+        # Create a Subscription
+        
+        try {
+            $Result = ConvertFrom-JsonTosubscriptionPostRequestBeta -Json $subscriptionPostRequestBeta
+            -BetasubscriptionPostRequestBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasubscriptionPostRequestBeta $subscriptionPostRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /trigger-subscriptions/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Subscription ID (default to undefined)
+        
+        # Delete a Subscription
+        
+        try {
+            -Betaid $id 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /trigger-subscriptions
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **triggerId**: *eq*  **type**: *eq, le* (optional) (default to undefined)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **triggerId, triggerName** (optional) (default to undefined)
+        
+        # List Subscriptions
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betalimit $limit -Betaoffset $offset -Betacount $count -Betafilters $filters -Betasorters $sorters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /trigger-invocations/status
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **triggerId**: *eq*  **subscriptionId**: *eq* (optional) (default to undefined)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **triggerId, subscriptionName, created, completed** (optional) (default to undefined)
+        
+        # List Latest Invocation Statuses
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betalimit $limit -Betaoffset $offset -Betacount $count -Betafilters $filters -Betasorters $sorters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /triggers
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $limit =  # number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $offset =  # number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $count =  # boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        $filters =  # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ge, le* (optional) (default to undefined)
+        $sorters =  # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name** (optional) (default to undefined)
+        
+        # List Triggers
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #  -Betalimit $limit -Betaoffset $offset -Betacount $count -Betafilters $filters -Betasorters $sorters  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /trigger-subscriptions/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | ID of the Subscription to patch (default to undefined)
+        # Array<SubscriptionPatchRequestInnerBeta> | 
+        $subscriptionPatchRequestInnerBeta = @""@ 
+        
+        
+        # Patch a Subscription
+        
+        try {
+            $Result = ConvertFrom-JsonTosubscriptionPatchRequestInnerBeta -Json $subscriptionPatchRequestInnerBeta
+            -Betaid $id -BetasubscriptionPatchRequestInnerBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetasubscriptionPatchRequestInnerBeta $subscriptionPatchRequestInnerBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /trigger-invocations/test
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $testInvocationBeta = @"
+        {triggerId=idn:access-requested, input={identityId=201327fda1c44704ac01181e963d463c}, contentJson={workflowId=1234}}
+        "@
+        
+        # Start a Test Invocation
+        
+        try {
+            $Result = ConvertFrom-JsonTotestInvocationBeta -Json $testInvocationBeta
+            -BetatestInvocationBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetatestInvocationBeta $testInvocationBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /trigger-subscriptions/validate-filter
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $validateFilterInputDtoBeta = @"
+        {input={identityId=201327fda1c44704ac01181e963d463c}, filter=$[?($.identityId == "201327fda1c44704ac01181e963d463c")]}
+        "@
+        
+        # Validate a Subscription Filter
+        
+        try {
+            $Result = ConvertFrom-JsonTovalidateFilterInputDtoBeta -Json $validateFilterInputDtoBeta
+            -BetavalidateFilterInputDtoBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetavalidateFilterInputDtoBeta $validateFilterInputDtoBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /trigger-subscriptions/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $id =  # string | Subscription ID (default to undefined)
+        $subscriptionPutRequestBeta = @"
+        {name=Access request subscription, description=Access requested to site xyz, type=HTTP, httpConfig={url=https://www.example.com, httpDispatchMode=SYNC, httpAuthenticationType=BASIC_AUTH, basicAuthConfig={userName=user@example.com, password=eRtg4%6yuI!}}, enabled=true, filter=$[?($.identityId == "201327fda1c44704ac01181e963d463c")]}
+        "@
+        
+        # Update a Subscription
+        
+        try {
+            $Result = ConvertFrom-JsonTosubscriptionPutRequestBeta -Json $subscriptionPutRequestBeta
+            -Betaid $id -BetasubscriptionPutRequestBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaid $id -BetasubscriptionPutRequestBeta $subscriptionPutRequestBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

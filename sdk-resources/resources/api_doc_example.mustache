@@ -1,0 +1,38 @@
+```javascript
+import { Configuration, {{classname}}{{#requiredParams}}{{^isPrimitiveType}}, {{baseType}}{{/isPrimitiveType}}{{/requiredParams}} } from "sailpoint-api-client";
+const apiConfig = new Configuration();
+const {{#lambda.camelcase}}{{classname}}{{/lambda.camelcase}} = new {{classname}}(apiConfig);
+
+{{#examples}}{{#-first}}{{{example}}}{{/-first}}{{/examples}}
+
+
+{{#allParams}}
+{{^isArray}}
+{{#isModel}}
+const {{paramName}} : {{{dataType}}} = {{#requestBodyExamples}}{{#-first}}{{#examples}}{{example}}{{/examples}}{{/-first}}{{/requestBodyExamples}}{{^requestBodyExamples}}{{#example}}{{{example}}}{{/example}}{{/requestBodyExamples}}
+{{/isModel}}
+{{^isModel}}
+const {{{paramName}}} : {{{dataType}}} = {{#isString}}"{{/isString}}{{{example}}}{{#isString}}"{{/isString}}; // {{{description}}}{{^required}} (optional){{/required}}{{#defaultValue}} (default to {{{.}}}){{/defaultValue}}
+{{/isModel}}
+{{/isArray}}
+{{#isArray}}
+{{#items.isModel}}
+const {{{paramName}}} : {{{dataType}}} = {{#isString}}"{{/isString}}{{{example}}}{{#isString}}"{{/isString}}; // {{{description}}}{{^required}} (optional){{/required}}{{#defaultValue}} (default to {{{.}}}){{/defaultValue}}
+{{/items.isModel}}
+{{^items.isModel}}
+const {{{paramName}}} : {{{dataType}}} = {{#isString}}"{{/isString}}{{{example}}}{{#isString}}"{{/isString}}; // {{{description}}}{{^required}} (optional){{/required}}{{#defaultValue}} (default to {{{.}}}){{/defaultValue}}
+{{/items.isModel}}
+{{/isArray}}
+{{/allParams}}
+
+try {
+    const val = await {{#lambda.camelcase}}{{classname}}{{/lambda.camelcase}}.{{{operationId}}}({{#requiredParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/requiredParams}});
+    
+    // Below is a request that includes all optional parameters      
+    // const val = await {{#lambda.camelcase}}{{classname}}{{/lambda.camelcase}}.{{{operationId}}}({{#requiredParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/requiredParams}}{{#optionalParams}}{{#-first}}{{#hasRequiredParams}}, {{/hasRequiredParams}}{{/-first}}{{{paramName}}}{{^-last}}, {{/-last}}{{/optionalParams}});
+    {{#returnType}}console.log('API called successfully. Returned data: ' + val.data);{{/returnType}}
+    {{^returnType}}console.log('API called successfully.');{{/returnType}}
+} catch (error) {
+    console.error('Error occurred while calling API: ', error);
+}
+```

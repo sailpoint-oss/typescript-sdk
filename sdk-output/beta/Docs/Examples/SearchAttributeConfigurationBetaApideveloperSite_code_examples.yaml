@@ -1,0 +1,101 @@
+- path: /accounts/search-attribute-config
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $searchAttributeConfigBeta = @"
+        {name=newMailAttribute, displayName=New Mail Attribute, applicationAttributes={2c9180866166b5b0016167c32ef31a66=mail, 2c9180866166b5b0016167c32ef31a67=mail}}
+        "@
+        
+        # Create Extended Search Attributes
+        
+        try {
+            $Result = ConvertFrom-JsonTosearchAttributeConfigBeta -Json $searchAttributeConfigBeta
+            -BetasearchAttributeConfigBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetasearchAttributeConfigBeta $searchAttributeConfigBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/search-attribute-config/{name}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $name =  # string | Name of the extended search attribute configuration to delete. (default to undefined)
+        
+        # Delete Extended Search Attribute
+        
+        try {
+            -Betaname $name 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaname $name  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/search-attribute-config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        
+        # List Extended Search Attributes
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/search-attribute-config/{name}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $name =  # string | Name of the extended search attribute configuration to get. (default to undefined)
+        
+        # Get Extended Search Attribute
+        
+        try {
+            -Betaname $name 
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaname $name  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/search-attribute-config/{name}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $name =  # string | Name of the extended search attribute configuration to patch. (default to undefined)
+        # Array<JsonPatchOperationBeta> | 
+        $jsonPatchOperationBeta = @"[{op=replace, path=/name, value=newAttributeName}, {op=replace, path=/displayName, value=new attribute display name}, {op=add, path=/applicationAttributes, value={2c91808b79fd2422017a0b35d30f3968=employeeNumber}}]"@ 
+        
+        
+        # Update Extended Search Attribute
+        
+        try {
+            $Result = ConvertFrom-JsonTojsonPatchOperationBeta -Json $jsonPatchOperationBeta
+            -Betaname $name -BetajsonPatchOperationBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -Betaname $name -BetajsonPatchOperationBeta $jsonPatchOperationBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

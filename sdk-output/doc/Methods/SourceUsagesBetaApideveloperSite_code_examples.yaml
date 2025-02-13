@@ -1,0 +1,48 @@
+- path: /source-usages/{sourceId}/status
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourceUsagesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourceUsagesBetaApi = new SourceUsagesBetaApi(apiConfig);
+
+        const sourceId : string = "2c9180835d191a86015d28455b4a2329"; // ID of IDN source
+
+        try {
+          const val = await sourceUsagesBetaApi.getStatusBySourceId(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourceUsagesBetaApi.getStatusBySourceId(sourceId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /source-usages/{sourceId}/summaries
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SourceUsagesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const sourceUsagesBetaApi = new SourceUsagesBetaApi(apiConfig);
+
+        const sourceId : string = "2c9180835d191a86015d28455b4a2329"; // ID of IDN source
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const sorters = "-date"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date**
+
+        try {
+          const val = await sourceUsagesBetaApi.getUsagesBySourceId(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await sourceUsagesBetaApi.getUsagesBySourceId(sourceId, limit, offset, count, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

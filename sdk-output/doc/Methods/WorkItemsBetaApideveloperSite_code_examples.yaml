@@ -1,0 +1,297 @@
+- path: /work-items/{id}/approve/{approvalItemId}
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkItemsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workItemsBetaApi = new WorkItemsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The ID of the work item
+        const approvalItemId : string = "1211bcaa32112bcef6122adb21cef1ac"; // The ID of the approval item.
+
+        try {
+          const val = await workItemsBetaApi.approveApprovalItem(id, approvalItemId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workItemsBetaApi.approveApprovalItem(id, approvalItemId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /work-items/bulk-approve/{id}
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkItemsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workItemsBetaApi = new WorkItemsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The ID of the work item
+
+        try {
+          const val = await workItemsBetaApi.approveApprovalItemsInBulk(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workItemsBetaApi.approveApprovalItemsInBulk(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /work-items/{id}
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkItemsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workItemsBetaApi = new WorkItemsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The ID of the work item
+
+        try {
+          const val = await workItemsBetaApi.completeWorkItem(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workItemsBetaApi.completeWorkItem(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /work-items/{id}/forward
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkItemsBetaApi, WorkItemForwardBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workItemsBetaApi = new WorkItemsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The ID of the work item
+        const workItemForwardBeta : WorkItemForwardBeta = ; // 
+
+        try {
+          const val = await workItemsBetaApi.forwardWorkItem(id, workItemForwardBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workItemsBetaApi.forwardWorkItem(id, workItemForwardBeta);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /work-items/completed
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkItemsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workItemsBetaApi = new WorkItemsBetaApi(apiConfig);
+
+        const ownerId = "ownerId_example"; // string | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await workItemsBetaApi.getCompletedWorkItems();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workItemsBetaApi.getCompletedWorkItems(ownerId, limit, offset, count);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /work-items/completed/count
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkItemsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workItemsBetaApi = new WorkItemsBetaApi(apiConfig);
+
+        const ownerId = "ownerId_example"; // string | ID of the work item owner.
+
+        try {
+          const val = await workItemsBetaApi.getCountCompletedWorkItems();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workItemsBetaApi.getCountCompletedWorkItems(ownerId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /work-items/count
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkItemsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workItemsBetaApi = new WorkItemsBetaApi(apiConfig);
+
+        const ownerId = "ownerId_example"; // string | ID of the work item owner.
+
+        try {
+          const val = await workItemsBetaApi.getCountWorkItems();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workItemsBetaApi.getCountWorkItems(ownerId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /work-items/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkItemsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workItemsBetaApi = new WorkItemsBetaApi(apiConfig);
+
+        const id : string = "id_example"; // ID of the work item.
+        const ownerId = "ownerId_example"; // string | ID of the work item owner.
+
+        try {
+          const val = await workItemsBetaApi.getWorkItem(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workItemsBetaApi.getWorkItem(id, ownerId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /work-items/summary
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkItemsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workItemsBetaApi = new WorkItemsBetaApi(apiConfig);
+
+        const ownerId = "ownerId_example"; // string | ID of the work item owner.
+
+        try {
+          const val = await workItemsBetaApi.getWorkItemsSummary();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workItemsBetaApi.getWorkItemsSummary(ownerId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /work-items
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkItemsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workItemsBetaApi = new WorkItemsBetaApi(apiConfig);
+
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const ownerId = "ownerId_example"; // string | ID of the work item owner.
+
+        try {
+          const val = await workItemsBetaApi.listWorkItems();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workItemsBetaApi.listWorkItems(limit, offset, count, ownerId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /work-items/{id}/reject/{approvalItemId}
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkItemsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workItemsBetaApi = new WorkItemsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The ID of the work item
+        const approvalItemId : string = "1211bcaa32112bcef6122adb21cef1ac"; // The ID of the approval item.
+
+        try {
+          const val = await workItemsBetaApi.rejectApprovalItem(id, approvalItemId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workItemsBetaApi.rejectApprovalItem(id, approvalItemId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /work-items/bulk-reject/{id}
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkItemsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workItemsBetaApi = new WorkItemsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The ID of the work item
+
+        try {
+          const val = await workItemsBetaApi.rejectApprovalItemsInBulk(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workItemsBetaApi.rejectApprovalItemsInBulk(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /work-items/{id}/submit-account-selection
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkItemsBetaApi, any } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workItemsBetaApi = new WorkItemsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The ID of the work item
+        const requestBody : { [key: string]: any; } = {fieldName=fieldValue}; // Account Selection Data map, keyed on fieldName
+
+        try {
+          const val = await workItemsBetaApi.submitAccountSelection(id, requestBody);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workItemsBetaApi.submitAccountSelection(id, requestBody);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

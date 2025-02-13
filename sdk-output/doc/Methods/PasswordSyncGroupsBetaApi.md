@@ -1,0 +1,334 @@
+---
+title: PasswordSyncGroupsBetaApi
+pagination_label: PasswordSyncGroupsBetaApi
+sidebar_label: PasswordSyncGroupsBetaApi
+sidebar_class_name: typescriptsdk
+keywords: ['typescript', 'sdk', 'PasswordSyncGroupsBetaApi'] 
+tags: ['SDK', 'Software Development Kit', 'PasswordSyncGroupsBetaApi']
+---
+
+# PasswordSyncGroupsBetaApi
+
+All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**createPasswordSyncGroup**](PasswordSyncGroupsBetaApi.md#createPasswordSyncGroup) | **POST** /password-sync-groups | Create Password Sync Group
+[**deletePasswordSyncGroup**](PasswordSyncGroupsBetaApi.md#deletePasswordSyncGroup) | **DELETE** /password-sync-groups/{id} | Delete Password Sync Group by ID
+[**getPasswordSyncGroup**](PasswordSyncGroupsBetaApi.md#getPasswordSyncGroup) | **GET** /password-sync-groups/{id} | Get Password Sync Group by ID
+[**getPasswordSyncGroups**](PasswordSyncGroupsBetaApi.md#getPasswordSyncGroups) | **GET** /password-sync-groups | Get Password Sync Group List
+[**updatePasswordSyncGroup**](PasswordSyncGroupsBetaApi.md#updatePasswordSyncGroup) | **PUT** /password-sync-groups/{id} | Update Password Sync Group by ID
+
+
+
+## createPasswordSyncGroup
+
+> PasswordSyncGroupBeta createPasswordSyncGroup(passwordSyncGroupBeta)
+
+Create Password Sync Group
+
+This API creates a password sync group based on the specifications provided.
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **passwordSyncGroupBeta** | [**PasswordSyncGroupBeta**](../Models/PasswordSyncGroupBeta.md)|  | 
+
+### Return type
+
+[**PasswordSyncGroupBeta**](../Models/PasswordSyncGroupBeta.md)
+
+### Authorization
+
+[userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication), [userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication)
+
+<details>
+<summary>Example</summary>
+
+```javascript
+import { Configuration, PasswordSyncGroupsBetaApi, PasswordSyncGroupBeta } from "sailpoint-api-client";
+const apiConfig = new Configuration();
+const passwordSyncGroupsBetaApi = new PasswordSyncGroupsBetaApi(apiConfig);
+
+{
+  "created" : "2023-03-16T04:00:00Z",
+  "name" : "Password Sync Group 1",
+  "modified" : "2023-03-16T04:00:00Z",
+  "passwordPolicyId" : "2c91808d744ba0ce01746f93b6204501",
+  "id" : "6881f631-3bd5-4213-9c75-8e05cc3e35dd",
+  "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
+}
+
+
+const passwordSyncGroupBeta : PasswordSyncGroupBeta = 
+
+try {
+    const val = await passwordSyncGroupsBetaApi.createPasswordSyncGroup(passwordSyncGroupBeta);
+    
+    // Below is a request that includes all optional parameters      
+    // const val = await passwordSyncGroupsBetaApi.createPasswordSyncGroup(passwordSyncGroupBeta);
+    console.log('API called successfully. Returned data: ' + val.data);
+    
+} catch (error) {
+    console.error('Error occurred while calling API: ', error);
+}
+```
+</details>
+
+
+## deletePasswordSyncGroup
+
+> deletePasswordSyncGroup(id)
+
+Delete Password Sync Group by ID
+
+This API deletes the specified password sync group.
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| The ID of password sync group to delete. | [default to undefined]
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication), [userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication)
+
+<details>
+<summary>Example</summary>
+
+```javascript
+import { Configuration, PasswordSyncGroupsBetaApi } from "sailpoint-api-client";
+const apiConfig = new Configuration();
+const passwordSyncGroupsBetaApi = new PasswordSyncGroupsBetaApi(apiConfig);
+
+{
+  "causes" : [ {
+    "localeOrigin" : "DEFAULT",
+    "text" : "The request was syntactically correct but its content is semantically invalid.",
+    "locale" : "en-US"
+  }, {
+    "localeOrigin" : "DEFAULT",
+    "text" : "The request was syntactically correct but its content is semantically invalid.",
+    "locale" : "en-US"
+  } ],
+  "messages" : [ {
+    "localeOrigin" : "DEFAULT",
+    "text" : "The request was syntactically correct but its content is semantically invalid.",
+    "locale" : "en-US"
+  }, {
+    "localeOrigin" : "DEFAULT",
+    "text" : "The request was syntactically correct but its content is semantically invalid.",
+    "locale" : "en-US"
+  } ],
+  "detailCode" : "400.1 Bad Request Content",
+  "trackingId" : "e7eab60924f64aa284175b9fa3309599"
+}
+
+
+const id : string = "6881f631-3bd5-4213-9c75-8e05cc3e35dd"; // The ID of password sync group to delete. (default to undefined)
+
+try {
+    const val = await passwordSyncGroupsBetaApi.deletePasswordSyncGroup(id);
+    
+    // Below is a request that includes all optional parameters      
+    // const val = await passwordSyncGroupsBetaApi.deletePasswordSyncGroup(id);
+    
+    console.log('API called successfully.');
+} catch (error) {
+    console.error('Error occurred while calling API: ', error);
+}
+```
+</details>
+
+
+## getPasswordSyncGroup
+
+> PasswordSyncGroupBeta getPasswordSyncGroup(id)
+
+Get Password Sync Group by ID
+
+This API returns the sync group for the specified ID.
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| The ID of password sync group to retrieve. | [default to undefined]
+
+### Return type
+
+[**PasswordSyncGroupBeta**](../Models/PasswordSyncGroupBeta.md)
+
+### Authorization
+
+[userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication), [userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication)
+
+<details>
+<summary>Example</summary>
+
+```javascript
+import { Configuration, PasswordSyncGroupsBetaApi } from "sailpoint-api-client";
+const apiConfig = new Configuration();
+const passwordSyncGroupsBetaApi = new PasswordSyncGroupsBetaApi(apiConfig);
+
+{
+  "created" : "2023-03-16T04:00:00Z",
+  "name" : "Password Sync Group 1",
+  "modified" : "2023-03-16T04:00:00Z",
+  "passwordPolicyId" : "2c91808d744ba0ce01746f93b6204501",
+  "id" : "6881f631-3bd5-4213-9c75-8e05cc3e35dd",
+  "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
+}
+
+
+const id : string = "6881f631-3bd5-4213-9c75-8e05cc3e35dd"; // The ID of password sync group to retrieve. (default to undefined)
+
+try {
+    const val = await passwordSyncGroupsBetaApi.getPasswordSyncGroup(id);
+    
+    // Below is a request that includes all optional parameters      
+    // const val = await passwordSyncGroupsBetaApi.getPasswordSyncGroup(id);
+    console.log('API called successfully. Returned data: ' + val.data);
+    
+} catch (error) {
+    console.error('Error occurred while calling API: ', error);
+}
+```
+</details>
+
+
+## getPasswordSyncGroups
+
+> Array&lt;PasswordSyncGroupBeta&gt; getPasswordSyncGroups(limit, offset, count)
+
+Get Password Sync Group List
+
+This API returns a list of password sync groups.
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **number**| Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
+ **offset** | **number**| Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
+ **count** | **boolean**| If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to false]
+
+### Return type
+
+[**Array&lt;PasswordSyncGroupBeta&gt;**](../Models/PasswordSyncGroupBeta.md)
+
+### Authorization
+
+[userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication), [userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication)
+
+<details>
+<summary>Example</summary>
+
+```javascript
+import { Configuration, PasswordSyncGroupsBetaApi } from "sailpoint-api-client";
+const apiConfig = new Configuration();
+const passwordSyncGroupsBetaApi = new PasswordSyncGroupsBetaApi(apiConfig);
+
+[ {
+  "created" : "2023-03-16T04:00:00Z",
+  "name" : "Password Sync Group 1",
+  "modified" : "2023-03-16T04:00:00Z",
+  "passwordPolicyId" : "2c91808d744ba0ce01746f93b6204501",
+  "id" : "6881f631-3bd5-4213-9c75-8e05cc3e35dd",
+  "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
+}, {
+  "created" : "2023-03-16T04:00:00Z",
+  "name" : "Password Sync Group 1",
+  "modified" : "2023-03-16T04:00:00Z",
+  "passwordPolicyId" : "2c91808d744ba0ce01746f93b6204501",
+  "id" : "6881f631-3bd5-4213-9c75-8e05cc3e35dd",
+  "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
+} ]
+
+
+const limit : number = 250; // Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+const offset : number = 0; // Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+const count : boolean = true; // If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+
+try {
+    const val = await passwordSyncGroupsBetaApi.getPasswordSyncGroups();
+    
+    // Below is a request that includes all optional parameters      
+    // const val = await passwordSyncGroupsBetaApi.getPasswordSyncGroups(limit, offset, count);
+    console.log('API called successfully. Returned data: ' + val.data);
+    
+} catch (error) {
+    console.error('Error occurred while calling API: ', error);
+}
+```
+</details>
+
+
+## updatePasswordSyncGroup
+
+> PasswordSyncGroupBeta updatePasswordSyncGroup(id, passwordSyncGroupBeta)
+
+Update Password Sync Group by ID
+
+This API updates the specified password sync group.
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| The ID of password sync group to update. | [default to undefined]
+ **passwordSyncGroupBeta** | [**PasswordSyncGroupBeta**](../Models/PasswordSyncGroupBeta.md)|  | 
+
+### Return type
+
+[**PasswordSyncGroupBeta**](../Models/PasswordSyncGroupBeta.md)
+
+### Authorization
+
+[userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication), [userAuth](https://developer.sailpoint.com/docs/api/v3/identity-security-cloud-v-3-api#authentication)
+
+<details>
+<summary>Example</summary>
+
+```javascript
+import { Configuration, PasswordSyncGroupsBetaApi, PasswordSyncGroupBeta } from "sailpoint-api-client";
+const apiConfig = new Configuration();
+const passwordSyncGroupsBetaApi = new PasswordSyncGroupsBetaApi(apiConfig);
+
+{
+  "created" : "2023-03-16T04:00:00Z",
+  "name" : "Password Sync Group 1",
+  "modified" : "2023-03-16T04:00:00Z",
+  "passwordPolicyId" : "2c91808d744ba0ce01746f93b6204501",
+  "id" : "6881f631-3bd5-4213-9c75-8e05cc3e35dd",
+  "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
+}
+
+
+const id : string = "6881f631-3bd5-4213-9c75-8e05cc3e35dd"; // The ID of password sync group to update. (default to undefined)
+const passwordSyncGroupBeta : PasswordSyncGroupBeta = 
+
+try {
+    const val = await passwordSyncGroupsBetaApi.updatePasswordSyncGroup(id, passwordSyncGroupBeta);
+    
+    // Below is a request that includes all optional parameters      
+    // const val = await passwordSyncGroupsBetaApi.updatePasswordSyncGroup(id, passwordSyncGroupBeta);
+    console.log('API called successfully. Returned data: ' + val.data);
+    
+} catch (error) {
+    console.error('Error occurred while calling API: ', error);
+}
+```
+</details>
+

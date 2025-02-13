@@ -1,0 +1,110 @@
+- path: /accounts/search-attribute-config
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SearchAttributeConfigurationBetaApi, SearchAttributeConfigBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const searchAttributeConfigurationBetaApi = new SearchAttributeConfigurationBetaApi(apiConfig);
+
+        const searchAttributeConfigBeta : SearchAttributeConfigBeta = {name=newMailAttribute, displayName=New Mail Attribute, applicationAttributes={2c9180866166b5b0016167c32ef31a66=mail, 2c9180866166b5b0016167c32ef31a67=mail}}; // 
+
+        try {
+          const val = await searchAttributeConfigurationBetaApi.createSearchAttributeConfig(searchAttributeConfigBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await searchAttributeConfigurationBetaApi.createSearchAttributeConfig(searchAttributeConfigBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /accounts/search-attribute-config/{name}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SearchAttributeConfigurationBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const searchAttributeConfigurationBetaApi = new SearchAttributeConfigurationBetaApi(apiConfig);
+
+        const name : string = "newMailAttribute"; // Name of the extended search attribute configuration to delete.
+
+        try {
+          const val = await searchAttributeConfigurationBetaApi.deleteSearchAttributeConfig(name);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await searchAttributeConfigurationBetaApi.deleteSearchAttributeConfig(name);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /accounts/search-attribute-config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SearchAttributeConfigurationBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const searchAttributeConfigurationBetaApi = new SearchAttributeConfigurationBetaApi(apiConfig);
+
+
+        try {
+          const val = await searchAttributeConfigurationBetaApi.getSearchAttributeConfig();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await searchAttributeConfigurationBetaApi.getSearchAttributeConfig();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /accounts/search-attribute-config/{name}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SearchAttributeConfigurationBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const searchAttributeConfigurationBetaApi = new SearchAttributeConfigurationBetaApi(apiConfig);
+
+        const name : string = "newMailAttribute"; // Name of the extended search attribute configuration to get.
+
+        try {
+          const val = await searchAttributeConfigurationBetaApi.getSingleSearchAttributeConfig(name);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await searchAttributeConfigurationBetaApi.getSingleSearchAttributeConfig(name);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /accounts/search-attribute-config/{name}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, SearchAttributeConfigurationBetaApi, JsonPatchOperationBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const searchAttributeConfigurationBetaApi = new SearchAttributeConfigurationBetaApi(apiConfig);
+
+        const name : string = "promotedMailAttribute"; // Name of the extended search attribute configuration to patch.
+        const jsonPatchOperationBeta : Array<JsonPatchOperationBeta> = [{op=replace, path=/name, value=newAttributeName}, {op=replace, path=/displayName, value=new attribute display name}, {op=add, path=/applicationAttributes, value={2c91808b79fd2422017a0b35d30f3968=employeeNumber}}]; // 
+
+        try {
+          const val = await searchAttributeConfigurationBetaApi.patchSearchAttributeConfig(name, jsonPatchOperationBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await searchAttributeConfigurationBetaApi.patchSearchAttributeConfig(name, jsonPatchOperationBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

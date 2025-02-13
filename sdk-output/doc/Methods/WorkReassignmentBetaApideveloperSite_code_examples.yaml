@@ -1,0 +1,199 @@
+- path: /reassignment-configurations
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkReassignmentBetaApi, ConfigurationItemRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workReassignmentBetaApi = new WorkReassignmentBetaApi(apiConfig);
+
+        const configurationItemRequestBeta : ConfigurationItemRequestBeta = ; // 
+
+        try {
+          const val = await workReassignmentBetaApi.createReassignmentConfiguration(configurationItemRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workReassignmentBetaApi.createReassignmentConfiguration(configurationItemRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /reassignment-configurations/{identityId}/{configType}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkReassignmentBetaApi,  } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workReassignmentBetaApi = new WorkReassignmentBetaApi(apiConfig);
+
+        const identityId : string = "2c91808781a71ddb0181b9090b5c504e"; // unique identity id
+        const configType : ConfigTypeEnumBeta = ; // 
+
+        try {
+          const val = await workReassignmentBetaApi.deleteReassignmentConfiguration(identityId, configType);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workReassignmentBetaApi.deleteReassignmentConfiguration(identityId, configType);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /reassignment-configurations/{identityId}/evaluate/{configType}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkReassignmentBetaApi,  } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workReassignmentBetaApi = new WorkReassignmentBetaApi(apiConfig);
+
+        const identityId : string = "2c91808781a71ddb0181b9090b5c504e"; // unique identity id
+        const configType : ConfigTypeEnumBeta = accessRequests; // Reassignment work type
+        const exclusionFilters = SELF_REVIEW_DELEGATION; // Array<string> | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments
+
+        try {
+          const val = await workReassignmentBetaApi.getEvaluateReassignmentConfiguration(identityId, configType);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workReassignmentBetaApi.getEvaluateReassignmentConfiguration(identityId, configType, exclusionFilters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /reassignment-configurations/types
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkReassignmentBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workReassignmentBetaApi = new WorkReassignmentBetaApi(apiConfig);
+
+
+        try {
+          const val = await workReassignmentBetaApi.getReassignmentConfigTypes();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workReassignmentBetaApi.getReassignmentConfigTypes();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /reassignment-configurations/{identityId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkReassignmentBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workReassignmentBetaApi = new WorkReassignmentBetaApi(apiConfig);
+
+        const identityId : string = "2c91808781a71ddb0181b9090b5c504f"; // unique identity id
+
+        try {
+          const val = await workReassignmentBetaApi.getReassignmentConfiguration(identityId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workReassignmentBetaApi.getReassignmentConfiguration(identityId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /reassignment-configurations/tenant-config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkReassignmentBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workReassignmentBetaApi = new WorkReassignmentBetaApi(apiConfig);
+
+
+        try {
+          const val = await workReassignmentBetaApi.getTenantConfigConfiguration();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workReassignmentBetaApi.getTenantConfigConfiguration();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /reassignment-configurations
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkReassignmentBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workReassignmentBetaApi = new WorkReassignmentBetaApi(apiConfig);
+
+
+        try {
+          const val = await workReassignmentBetaApi.listReassignmentConfigurations();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workReassignmentBetaApi.listReassignmentConfigurations();
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /reassignment-configurations/{identityId}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkReassignmentBetaApi, ConfigurationItemRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workReassignmentBetaApi = new WorkReassignmentBetaApi(apiConfig);
+
+        const identityId : string = "2c91808781a71ddb0181b9090b5c504e"; // unique identity id
+        const configurationItemRequestBeta : ConfigurationItemRequestBeta = ; // 
+
+        try {
+          const val = await workReassignmentBetaApi.putReassignmentConfig(identityId, configurationItemRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workReassignmentBetaApi.putReassignmentConfig(identityId, configurationItemRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /reassignment-configurations/tenant-config
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, WorkReassignmentBetaApi, TenantConfigurationRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const workReassignmentBetaApi = new WorkReassignmentBetaApi(apiConfig);
+
+        const tenantConfigurationRequestBeta : TenantConfigurationRequestBeta = ; // 
+
+        try {
+          const val = await workReassignmentBetaApi.putTenantConfiguration(tenantConfigurationRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await workReassignmentBetaApi.putTenantConfiguration(tenantConfigurationRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

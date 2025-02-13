@@ -1,0 +1,62 @@
+- path: /recommendations/request
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $recommendationRequestDtoBeta = @"
+        
+        "@
+        
+        # Returns a Recommendation Based on Object
+        
+        try {
+            $Result = ConvertFrom-JsonTorecommendationRequestDtoBeta -Json $recommendationRequestDtoBeta
+            -BetarecommendationRequestDtoBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetarecommendationRequestDtoBeta $recommendationRequestDtoBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /recommendations/config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        
+        # Get certification recommendation config values
+        
+        try {
+            
+            
+            # Below is a request that includes all optional parameters
+            #   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }
+- path: /recommendations/config
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        $recommendationConfigDtoBeta = @"
+        
+        "@
+        
+        # Update certification recommendation config values
+        
+        try {
+            $Result = ConvertFrom-JsonTorecommendationConfigDtoBeta -Json $recommendationConfigDtoBeta
+            -BetarecommendationConfigDtoBeta $Result
+            
+            # Below is a request that includes all optional parameters
+            #  -BetarecommendationConfigDtoBeta $recommendationConfigDtoBeta  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling "
+            Write-Host $_.ErrorDetails
+        }

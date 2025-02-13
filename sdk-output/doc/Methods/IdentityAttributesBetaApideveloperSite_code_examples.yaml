@@ -1,0 +1,136 @@
+- path: /identity-attributes
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IdentityAttributesBetaApi, IdentityAttributeBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const identityAttributesBetaApi = new IdentityAttributesBetaApi(apiConfig);
+
+        const identityAttributeBeta : IdentityAttributeBeta = ; // 
+
+        try {
+          const val = await identityAttributesBetaApi.createIdentityAttribute(identityAttributeBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await identityAttributesBetaApi.createIdentityAttribute(identityAttributeBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /identity-attributes/{name}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IdentityAttributesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const identityAttributesBetaApi = new IdentityAttributesBetaApi(apiConfig);
+
+        const name : string = "displayName"; // The attribute\'s technical name.
+
+        try {
+          const val = await identityAttributesBetaApi.deleteIdentityAttribute(name);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await identityAttributesBetaApi.deleteIdentityAttribute(name);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /identity-attributes/bulk-delete
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IdentityAttributesBetaApi, IdentityAttributeNamesBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const identityAttributesBetaApi = new IdentityAttributesBetaApi(apiConfig);
+
+        const identityAttributeNamesBeta : IdentityAttributeNamesBeta = ; // 
+
+        try {
+          const val = await identityAttributesBetaApi.deleteIdentityAttributesInBulk(identityAttributeNamesBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await identityAttributesBetaApi.deleteIdentityAttributesInBulk(identityAttributeNamesBeta);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /identity-attributes/{name}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IdentityAttributesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const identityAttributesBetaApi = new IdentityAttributesBetaApi(apiConfig);
+
+        const name : string = "displayName"; // The attribute\'s technical name.
+
+        try {
+          const val = await identityAttributesBetaApi.getIdentityAttribute(name);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await identityAttributesBetaApi.getIdentityAttribute(name);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /identity-attributes
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IdentityAttributesBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const identityAttributesBetaApi = new IdentityAttributesBetaApi(apiConfig);
+
+        const includeSystem = false; // boolean | Include \'system\' attributes in the response.
+        const includeSilent = false; // boolean | Include \'silent\' attributes in the response.
+        const searchableOnly = false; // boolean | Include only \'searchable\' attributes in the response.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await identityAttributesBetaApi.listIdentityAttributes();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await identityAttributesBetaApi.listIdentityAttributes(includeSystem, includeSilent, searchableOnly, count);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /identity-attributes/{name}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IdentityAttributesBetaApi, IdentityAttributeBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const identityAttributesBetaApi = new IdentityAttributesBetaApi(apiConfig);
+
+        const name : string = "displayName"; // The attribute\'s technical name.
+        const identityAttributeBeta : IdentityAttributeBeta = ; // 
+
+        try {
+          const val = await identityAttributesBetaApi.putIdentityAttribute(name, identityAttributeBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await identityAttributesBetaApi.putIdentityAttribute(name, identityAttributeBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

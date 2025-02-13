@@ -1,0 +1,365 @@
+- path: /accounts
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccountsBetaApi, AccountAttributesCreateBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accountsBetaApi = new AccountsBetaApi(apiConfig);
+
+        const accountAttributesCreateBeta : AccountAttributesCreateBeta = ; // 
+
+        try {
+          const val = await accountsBetaApi.createAccount(accountAttributesCreateBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accountsBetaApi.createAccount(accountAttributesCreateBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /accounts/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccountsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accountsBetaApi = new AccountsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // Account ID.
+
+        try {
+          const val = await accountsBetaApi.deleteAccount(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accountsBetaApi.deleteAccount(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /accounts/{id}/remove
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccountsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accountsBetaApi = new AccountsBetaApi(apiConfig);
+
+        const id : string = "c350d6aa4f104c61b062cb632421ad10"; // The account id
+
+        try {
+          const val = await accountsBetaApi.deleteAccountAsync(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accountsBetaApi.deleteAccountAsync(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /accounts/{id}/disable
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccountsBetaApi, AccountToggleRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accountsBetaApi = new AccountsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The account id
+        const accountToggleRequestBeta : AccountToggleRequestBeta = ; // 
+
+        try {
+          const val = await accountsBetaApi.disableAccount(id, accountToggleRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accountsBetaApi.disableAccount(id, accountToggleRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /identities-accounts/{id}/disable
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccountsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accountsBetaApi = new AccountsBetaApi(apiConfig);
+
+        const id : string = "2c91808384203c2d018437e631158309"; // The identity id.
+
+        try {
+          const val = await accountsBetaApi.disableAccountForIdentity(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accountsBetaApi.disableAccountForIdentity(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /identities-accounts/disable
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccountsBetaApi, IdentitiesAccountsBulkRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accountsBetaApi = new AccountsBetaApi(apiConfig);
+
+        const identitiesAccountsBulkRequestBeta : IdentitiesAccountsBulkRequestBeta = ; // 
+
+        try {
+          const val = await accountsBetaApi.disableAccountsForIdentities(identitiesAccountsBulkRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accountsBetaApi.disableAccountsForIdentities(identitiesAccountsBulkRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /accounts/{id}/enable
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccountsBetaApi, AccountToggleRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accountsBetaApi = new AccountsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The account id
+        const accountToggleRequestBeta : AccountToggleRequestBeta = ; // 
+
+        try {
+          const val = await accountsBetaApi.enableAccount(id, accountToggleRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accountsBetaApi.enableAccount(id, accountToggleRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /identities-accounts/{id}/enable
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccountsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accountsBetaApi = new AccountsBetaApi(apiConfig);
+
+        const id : string = "2c91808384203c2d018437e631158309"; // The identity id.
+
+        try {
+          const val = await accountsBetaApi.enableAccountForIdentity(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accountsBetaApi.enableAccountForIdentity(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /identities-accounts/enable
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccountsBetaApi, IdentitiesAccountsBulkRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accountsBetaApi = new AccountsBetaApi(apiConfig);
+
+        const identitiesAccountsBulkRequestBeta : IdentitiesAccountsBulkRequestBeta = ; // 
+
+        try {
+          const val = await accountsBetaApi.enableAccountsForIdentities(identitiesAccountsBulkRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accountsBetaApi.enableAccountsForIdentities(identitiesAccountsBulkRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /accounts/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccountsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accountsBetaApi = new AccountsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // Account ID.
+
+        try {
+          const val = await accountsBetaApi.getAccount(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accountsBetaApi.getAccount(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /accounts/{id}/entitlements
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccountsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accountsBetaApi = new AccountsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The account id
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+        try {
+          const val = await accountsBetaApi.getAccountEntitlements(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accountsBetaApi.getAccountEntitlements(id, offset, limit, count);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /accounts
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccountsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accountsBetaApi = new AccountsBetaApi(apiConfig);
+
+        const detailLevel = "FULL"; // 'SLIM' | 'FULL' | This value determines whether the API provides `SLIM` or increased level of detail (`FULL`) for each account in the returned list. `FULL` is the default behavior.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "identityId eq "2c9180858082150f0180893dbaf44201""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*
+        const sorters = "id,name"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType**
+
+        try {
+          const val = await accountsBetaApi.listAccounts();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accountsBetaApi.listAccounts(detailLevel, limit, offset, count, filters, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /accounts/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccountsBetaApi, AccountAttributesBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accountsBetaApi = new AccountsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // Account ID.
+        const accountAttributesBeta : AccountAttributesBeta = ; // 
+
+        try {
+          const val = await accountsBetaApi.putAccount(id, accountAttributesBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accountsBetaApi.putAccount(id, accountAttributesBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /accounts/{id}/reload
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccountsBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accountsBetaApi = new AccountsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The account id
+
+        try {
+          const val = await accountsBetaApi.submitReloadAccount(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accountsBetaApi.submitReloadAccount(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /accounts/{id}/unlock
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccountsBetaApi, AccountUnlockRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accountsBetaApi = new AccountsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // The account ID.
+        const accountUnlockRequestBeta : AccountUnlockRequestBeta = ; // 
+
+        try {
+          const val = await accountsBetaApi.unlockAccount(id, accountUnlockRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accountsBetaApi.unlockAccount(id, accountUnlockRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /accounts/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, AccountsBetaApi, object } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const accountsBetaApi = new AccountsBetaApi(apiConfig);
+
+        const id : string = "ef38f94347e94562b5bb8424a56397d8"; // Account ID.
+        const requestBody : Array<object> = {Uncorrelate account={description=Remove account from Identity, value=[{op=remove, path=/identityId}]}, Reassign account={description=Move account from one Identity to another Identity, value=[{op=replace, path=/identityId, value=2c9180857725c14301772a93bb77242d}]}, Add account attribute={description=Add flat file account's attribute, value=[{op=add, path=/attributes/familyName, value=Smith}]}, Replace account attribute={description=Replace flat file account's attribute, value=[{op=replace, path=/attributes/familyName, value=Smith}]}, Remove account attribute={description=Remove flat file account's attribute, value=[{op=remove, path=/attributes/familyName}]}}; // A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+        try {
+          const val = await accountsBetaApi.updateAccount(id, requestBody);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await accountsBetaApi.updateAccount(id, requestBody);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

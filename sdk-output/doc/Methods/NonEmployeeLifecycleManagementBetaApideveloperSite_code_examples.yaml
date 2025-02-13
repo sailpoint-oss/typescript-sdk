@@ -1,0 +1,735 @@
+- path: /non-employee-approvals/{id}/approve
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi, NonEmployeeApprovalDecisionBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const id : string = "id_example"; // Non-Employee approval item id (UUID)
+        const nonEmployeeApprovalDecisionBeta : NonEmployeeApprovalDecisionBeta = ; // 
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.approveNonEmployeeRequest(id, nonEmployeeApprovalDecisionBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.approveNonEmployeeRequest(id, nonEmployeeApprovalDecisionBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-records
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi, NonEmployeeRequestBodyBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const nonEmployeeRequestBodyBeta : NonEmployeeRequestBodyBeta = ; // Non-Employee record creation request body.
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.createNonEmployeeRecord(nonEmployeeRequestBodyBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.createNonEmployeeRecord(nonEmployeeRequestBodyBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-requests
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi, NonEmployeeRequestBodyBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const nonEmployeeRequestBodyBeta : NonEmployeeRequestBodyBeta = ; // Non-Employee creation request body
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.createNonEmployeeRequest(nonEmployeeRequestBodyBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.createNonEmployeeRequest(nonEmployeeRequestBodyBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-sources
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi, NonEmployeeSourceRequestBodyBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const nonEmployeeSourceRequestBodyBeta : NonEmployeeSourceRequestBodyBeta = ; // Non-Employee source creation request body.
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.createNonEmployeeSource(nonEmployeeSourceRequestBodyBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.createNonEmployeeSource(nonEmployeeSourceRequestBodyBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-sources/{sourceId}/schema-attributes
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi, NonEmployeeSchemaAttributeBodyBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const sourceId : string = "2c91808b6ef1d43e016efba0ce470904"; // The Source id
+        const nonEmployeeSchemaAttributeBodyBeta : NonEmployeeSchemaAttributeBodyBeta = ; // 
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.createNonEmployeeSourceSchemaAttributes(sourceId, nonEmployeeSchemaAttributeBodyBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.createNonEmployeeSourceSchemaAttributes(sourceId, nonEmployeeSchemaAttributeBodyBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-records/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const id : string = "2c91808b6ef1d43e016efba0ce470904"; // Non-Employee record id (UUID)
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeRecord(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeRecord(id);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-records/bulk-delete
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi, DeleteNonEmployeeRecordInBulkRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const deleteNonEmployeeRecordInBulkRequestBeta : DeleteNonEmployeeRecordInBulkRequestBeta = ; // Non-Employee bulk delete request body.
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeRecordInBulk(deleteNonEmployeeRecordInBulkRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeRecordInBulk(deleteNonEmployeeRecordInBulkRequestBeta);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-requests/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const id : string = "2c91808b6ef1d43e016efba0ce470904"; // Non-Employee request id in the UUID format
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeRequest(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeRequest(id);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-sources/{sourceId}/schema-attributes/{attributeId}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const attributeId : string = "2c91808b6ef1d43e016efba0ce470904"; // The Schema Attribute Id (UUID)
+        const sourceId : string = "2c91808b6ef1d43e016efba0ce470904"; // The Source id
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeSchemaAttribute(attributeId, sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeSchemaAttribute(attributeId, sourceId);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-sources/{sourceId}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const sourceId : string = "2c91808b6ef1d43e016efba0ce470904"; // Source Id
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeSource(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeSource(sourceId);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-sources/{sourceId}/schema-attributes
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const sourceId : string = "2c91808b6ef1d43e016efba0ce470904"; // The Source id
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeSourceSchemaAttributes(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeSourceSchemaAttributes(sourceId);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-sources/{id}/non-employees/download
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const id : string = "2c918085842e69ae018432d22ccb212f"; // Source Id (UUID)
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.exportNonEmployeeRecords(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.exportNonEmployeeRecords(id);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-sources/{id}/schema-attributes-template/download
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const id : string = "2c918085842e69ae018432d22ccb212f"; // Source Id (UUID)
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.exportNonEmployeeSourceSchemaTemplate(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.exportNonEmployeeSourceSchemaTemplate(id);
+          
+          console.log('API called successfully.');
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-approvals/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const id : string = "ac10d20a-841e-1e7d-8184-32d2e22c0179"; // Non-Employee approval item id (UUID)
+        const includeDetail = "include-detail=false"; // string | The object nonEmployeeRequest will not be included detail when set to false. *Default value is true*
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.getNonEmployeeApproval(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.getNonEmployeeApproval(id, includeDetail);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-approvals/summary/{requested-for}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const requestedFor : string = "ac10d20a-841e-1e7d-8184-32d2e22c0179"; // The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use \"me\" instead to indicate the current user.
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.getNonEmployeeApprovalSummary(requestedFor);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.getNonEmployeeApprovalSummary(requestedFor);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-sources/{id}/non-employee-bulk-upload/status
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const id : string = "2c918085842e69ae018432d22ccb212f"; // Source ID (UUID)
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.getNonEmployeeBulkUploadStatus(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.getNonEmployeeBulkUploadStatus(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-records/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const id : string = "2c91808b6ef1d43e016efba0ce470904"; // Non-Employee record id (UUID)
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.getNonEmployeeRecord(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.getNonEmployeeRecord(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-requests/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const id : string = "2c91808b6ef1d43e016efba0ce470904"; // Non-Employee request id (UUID)
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.getNonEmployeeRequest(id);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.getNonEmployeeRequest(id);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-requests/summary/{requested-for}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const requestedFor : string = "ac10d20a-841e-1e7d-8184-32d2e22c0179"; // The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use \"me\" instead to indicate the current user.
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.getNonEmployeeRequestSummary(requestedFor);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.getNonEmployeeRequestSummary(requestedFor);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-sources/{sourceId}/schema-attributes/{attributeId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const attributeId : string = "2c918085842e69ae018432d22ccb212f"; // The Schema Attribute Id (UUID)
+        const sourceId : string = "2c918085842e69ae018432d22ccb212f"; // The Source id
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.getNonEmployeeSchemaAttribute(attributeId, sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.getNonEmployeeSchemaAttribute(attributeId, sourceId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-sources/{sourceId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const sourceId : string = "2c91808b7c28b350017c2a2ec5790aa1"; // Source Id
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.getNonEmployeeSource(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.getNonEmployeeSource(sourceId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-sources/{sourceId}/schema-attributes
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const sourceId : string = "2c918085842e69ae018432d22ccb212f"; // The Source id
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.getNonEmployeeSourceSchemaAttributes(sourceId);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.getNonEmployeeSourceSchemaAttributes(sourceId);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-sources/{id}/non-employee-bulk-upload
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const id : string = "e136567de87e4d029e60b3c3c55db56d"; // Source Id (UUID)
+        const data : File = BINARY_DATA_HERE; // 
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.importNonEmployeeRecordsInBulk(id, data);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.importNonEmployeeRecordsInBulk(id, data);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-approvals
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const requestedFor = "ac10d20a-841e-1e7d-8184-32d2e22c0179"; // string | The identity for whom the request was made. *me* indicates the current user.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "approvalStatus eq "PENDING""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **approvalStatus**: *eq*
+        const sorters = "created"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified**
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.listNonEmployeeApproval();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.listNonEmployeeApproval(requestedFor, limit, offset, count, filters, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-records
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const sorters = "accountName,sourceId"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, accountName, sourceId, manager, firstName, lastName, email, phone, startDate, endDate, created, modified**
+        const filters = "sourceId eq "2c91808568c529c60168cca6f90c1313""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.listNonEmployeeRecords();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.listNonEmployeeRecords(limit, offset, count, sorters, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-requests
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const requestedFor : string = "me"; // The identity for whom the request was made. *me* indicates the current user.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const sorters = "approvalStatus,firstName"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, approvalStatus, firstName, lastName, email, phone, accountName, startDate, endDate**
+        const filters = "sourceId eq "2c91808568c529c60168cca6f90c1313""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.listNonEmployeeRequests(requestedFor);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.listNonEmployeeRequests(requestedFor, limit, offset, count, sorters, filters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-sources
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const requestedFor : string = "me"; // The identity for whom the request was made. *me* indicates the current user.
+        const nonEmployeeCount : boolean = false; // The flag to determine whether return a non-employee count associate with source.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const sorters = "name,created"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId**
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.listNonEmployeeSources(requestedFor, nonEmployeeCount);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.listNonEmployeeSources(requestedFor, nonEmployeeCount, limit, offset, count, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-records/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi, JsonPatchOperationBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const id : string = "2c91808b6ef1d43e016efba0ce470904"; // Non-employee record id (UUID)
+        const jsonPatchOperationBeta : Array<JsonPatchOperationBeta> = [{op=replace, path=/endDate, value={2019-08-23T18:40:35.772Z=null}}]; // A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.patchNonEmployeeRecord(id, jsonPatchOperationBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.patchNonEmployeeRecord(id, jsonPatchOperationBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-sources/{sourceId}/schema-attributes/{attributeId}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi, JsonPatchOperationBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const attributeId : string = "2c91808b6ef1d43e016efba0ce470904"; // The Schema Attribute Id (UUID)
+        const sourceId : string = "2c91808b6ef1d43e016efba0ce470904"; // The Source id
+        const jsonPatchOperationBeta : Array<JsonPatchOperationBeta> = [{op=replace, path=/label, value={new attribute label=null}}]; // A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update \':\' \'label\', \'helpText\', \'placeholder\', \'required\'.
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.patchNonEmployeeSchemaAttribute(attributeId, sourceId, jsonPatchOperationBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.patchNonEmployeeSchemaAttribute(attributeId, sourceId, jsonPatchOperationBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-sources/{sourceId}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi, JsonPatchOperationBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const sourceId : string = "2c91808b6ef1d43e016efba0ce470904"; // Source Id
+        const jsonPatchOperationBeta : Array<JsonPatchOperationBeta> = [{op=replace, path=/name, value={new name=null}}, {op=replace, path=/approvers, value=[2c91809f703bb37a017040a2fe8748c7, 48b1f463c9e8427db5a5071bd81914b8]}]; // A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.patchNonEmployeeSource(sourceId, jsonPatchOperationBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.patchNonEmployeeSource(sourceId, jsonPatchOperationBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-approvals/{id}/reject
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi, NonEmployeeRejectApprovalDecisionBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const id : string = "id_example"; // Non-Employee approval item id (UUID)
+        const nonEmployeeRejectApprovalDecisionBeta : NonEmployeeRejectApprovalDecisionBeta = ; // 
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.rejectNonEmployeeRequest(id, nonEmployeeRejectApprovalDecisionBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.rejectNonEmployeeRequest(id, nonEmployeeRejectApprovalDecisionBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /non-employee-records/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, NonEmployeeLifecycleManagementBetaApi, NonEmployeeRequestBodyBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const nonEmployeeLifecycleManagementBetaApi = new NonEmployeeLifecycleManagementBetaApi(apiConfig);
+
+        const id : string = "2c91808b6ef1d43e016efba0ce470904"; // Non-employee record id (UUID)
+        const nonEmployeeRequestBodyBeta : NonEmployeeRequestBodyBeta = ; // Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+
+        try {
+          const val = await nonEmployeeLifecycleManagementBetaApi.updateNonEmployeeRecord(id, nonEmployeeRequestBodyBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await nonEmployeeLifecycleManagementBetaApi.updateNonEmployeeRecord(id, nonEmployeeRequestBodyBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }

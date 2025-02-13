@@ -1,0 +1,70 @@
+- path: /common-access
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAICommonAccessBetaApi, CommonAccessItemRequestBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAICommonAccessBetaApi = new IAICommonAccessBetaApi(apiConfig);
+
+        const commonAccessItemRequestBeta : CommonAccessItemRequestBeta = ; // 
+
+        try {
+          const val = await iAICommonAccessBetaApi.createCommonAccess(commonAccessItemRequestBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAICommonAccessBetaApi.createCommonAccess(commonAccessItemRequestBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /common-access
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAICommonAccessBetaApi } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAICommonAccessBetaApi = new IAICommonAccessBetaApi(apiConfig);
+
+        const offset = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const limit = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const count = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+        const filters = "access.type eq "ROLE""; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, sw*  **reviewedByUser** *eq*  **access.id**: *eq, sw*  **access.type**: *eq*  **access.name**: *sw, eq*  **access.description**: *sw, eq*
+        const sorters = "access.name"; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, status**  By default the common access items are sorted by name, ascending.
+
+        try {
+          const val = await iAICommonAccessBetaApi.getCommonAccess();
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAICommonAccessBetaApi.getCommonAccess(offset, limit, count, filters, sorters);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
+- path: /common-access/update-status
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK
+      source: |
+        import { Configuration, IAICommonAccessBetaApi, CommonAccessIDStatusBeta } from "sailpoint-api-client";
+        const apiConfig = new Configuration();
+        const iAICommonAccessBetaApi = new IAICommonAccessBetaApi(apiConfig);
+
+        const commonAccessIDStatusBeta : Array<CommonAccessIDStatusBeta> = ; // Confirm or deny in bulk the common access ids that are (or aren\'t) common access
+
+        try {
+          const val = await iAICommonAccessBetaApi.updateCommonAccessStatusInBulk(commonAccessIDStatusBeta);
+          
+          // Below is a request that includes all optional parameters 
+          // const val = await iAICommonAccessBetaApi.updateCommonAccessStatusInBulk(commonAccessIDStatusBeta);
+          console.log('API called successfully. Returned data: ' + val.data);
+          
+        } catch (error) {
+          console.error('Error occurred while calling API: ', error);
+        }
