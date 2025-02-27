@@ -9935,7 +9935,7 @@ export interface IdentityAttribute {
  */
 export interface IdentityAttributeConfig {
     /**
-     * The backend will only promote values if the profile/mapping is enabled.
+     * Backend will only promote values if the profile/mapping is enabled.
      * @type {boolean}
      * @memberof IdentityAttributeConfig
      */
@@ -9979,13 +9979,13 @@ export interface IdentityAttributePreview {
     'errorMessages'?: Array<ErrorMessageDto>;
 }
 /**
- * Defines a transformation definition for an identity attribute.
+ * Transform definition for an identity attribute.
  * @export
  * @interface IdentityAttributeTransform
  */
 export interface IdentityAttributeTransform {
     /**
-     * Name of the identity attribute.
+     * Identity attribute\'s name.
      * @type {string}
      * @memberof IdentityAttributeTransform
      */
@@ -10783,13 +10783,13 @@ export interface IdentityDocuments {
  */
 export interface IdentityExceptionReportReference {
     /**
-     * The id of the task result.
+     * Task result ID.
      * @type {string}
      * @memberof IdentityExceptionReportReference
      */
     'taskResultId'?: string;
     /**
-     * The name of the report.
+     * Report name.
      * @type {string}
      * @memberof IdentityExceptionReportReference
      */
@@ -10896,7 +10896,7 @@ export interface IdentityProfile {
      */
     'modified'?: string;
     /**
-     * The description of the Identity Profile.
+     * Identity profile\'s description.
      * @type {string}
      * @memberof IdentityProfile
      */
@@ -10908,7 +10908,7 @@ export interface IdentityProfile {
      */
     'owner'?: IdentityProfileAllOfOwner | null;
     /**
-     * The priority for an Identity Profile.
+     * Identity profile\'s priority.
      * @type {number}
      * @memberof IdentityProfile
      */
@@ -10920,13 +10920,13 @@ export interface IdentityProfile {
      */
     'authoritativeSource': IdentityProfileAllOfAuthoritativeSource;
     /**
-     * True if a identity refresh is needed. Typically triggered when a change on the source has been made.
+     * Set this value to \'True\' if an identity refresh is necessary. You would typically want to trigger an identity refresh when a change has been made on the source.
      * @type {boolean}
      * @memberof IdentityProfile
      */
     'identityRefreshRequired'?: boolean;
     /**
-     * The number of identities that belong to the Identity Profile.
+     * Number of identities belonging to the identity profile.
      * @type {number}
      * @memberof IdentityProfile
      */
@@ -10944,7 +10944,7 @@ export interface IdentityProfile {
      */
     'identityExceptionReportReference'?: IdentityExceptionReportReference | null;
     /**
-     * Indicates the value of requiresPeriodicRefresh attribute for the Identity Profile.
+     * Indicates the value of `requiresPeriodicRefresh` attribute for the identity profile.
      * @type {boolean}
      * @memberof IdentityProfile
      */
@@ -10957,19 +10957,19 @@ export interface IdentityProfile {
  */
 export interface IdentityProfileAllOfAuthoritativeSource {
     /**
-     * Type of the object to which this reference applies
+     * Authoritative source\'s object type.
      * @type {string}
      * @memberof IdentityProfileAllOfAuthoritativeSource
      */
     'type'?: IdentityProfileAllOfAuthoritativeSourceTypeV3;
     /**
-     * ID of the object to which this reference applies
+     * Authoritative source\'s ID.
      * @type {string}
      * @memberof IdentityProfileAllOfAuthoritativeSource
      */
     'id'?: string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Authoritative source\'s name.
      * @type {string}
      * @memberof IdentityProfileAllOfAuthoritativeSource
      */
@@ -10983,25 +10983,25 @@ export const IdentityProfileAllOfAuthoritativeSourceTypeV3 = {
 export type IdentityProfileAllOfAuthoritativeSourceTypeV3 = typeof IdentityProfileAllOfAuthoritativeSourceTypeV3[keyof typeof IdentityProfileAllOfAuthoritativeSourceTypeV3];
 
 /**
- * The owner of the Identity Profile.
+ * Identity profile\'s owner.
  * @export
  * @interface IdentityProfileAllOfOwner
  */
 export interface IdentityProfileAllOfOwner {
     /**
-     * Type of the object to which this reference applies
+     * Owner\'s object type.
      * @type {string}
      * @memberof IdentityProfileAllOfOwner
      */
     'type'?: IdentityProfileAllOfOwnerTypeV3;
     /**
-     * ID of the object to which this reference applies
+     * Owner\'s ID.
      * @type {string}
      * @memberof IdentityProfileAllOfOwner
      */
     'id'?: string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Owner\'s name.
      * @type {string}
      * @memberof IdentityProfileAllOfOwner
      */
@@ -14235,7 +14235,7 @@ export interface NonEmployeeSourceWithNECount {
      */
     'created'?: string;
     /**
-     * Number of non-employee records associated with this source.
+     * Number of non-employee records associated with this source. This value is \'NULL\' by default. To get the non-employee count, you must set the `non-employee-count` flag in your request to \'true\'.
      * @type {number}
      * @memberof NonEmployeeSourceWithNECount
      */
@@ -22598,7 +22598,7 @@ export type TransformAttributes = AccountAttribute | Base64Decode | Base64Encode
  */
 export interface TransformDefinition {
     /**
-     * The type of the transform definition.
+     * Transform definition type.
      * @type {string}
      * @memberof TransformDefinition
      */
@@ -23910,7 +23910,7 @@ export const WorkflowExecutionStatusV3 = {
     Completed: 'Completed',
     Failed: 'Failed',
     Canceled: 'Canceled',
-    Executing: 'Executing'
+    Running: 'Running'
 } as const;
 
 export type WorkflowExecutionStatusV3 = typeof WorkflowExecutionStatusV3[keyof typeof WorkflowExecutionStatusV3];
@@ -37541,8 +37541,8 @@ export class GlobalTenantSecuritySettingsApi extends BaseAPI {
 export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This creates an Identity Profile.    
-         * @summary Create an Identity Profile
+         * Creates an identity profile.    
+         * @summary Create Identity Profile
          * @param {IdentityProfile} identityProfile 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -37585,9 +37585,9 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.       The following rights are required to access this endpoint: idn:identity-profile:delete
-         * @summary Delete an Identity Profile
-         * @param {string} identityProfileId The Identity Profile ID.
+         * Delete an identity profile by ID. On success, this endpoint will return a reference to the bulk delete task result.
+         * @summary Delete Identity Profile
+         * @param {string} identityProfileId Identity profile ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -37776,9 +37776,9 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * This returns a single Identity Profile based on ID.
-         * @summary Get single Identity Profile
-         * @param {string} identityProfileId The Identity Profile ID.
+         * Get a single identity profile by ID.
+         * @summary Get Identity Profile
+         * @param {string} identityProfileId Identity profile ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -37866,12 +37866,12 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * This returns a list of Identity Profiles based on the specified query parameters.
-         * @summary Identity Profiles List
+         * Get a list of identity profiles, based on the specified query parameters.
+         * @summary List Identity Profiles
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **name**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **priority**: *eq, ne*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -38019,10 +38019,10 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * This updates the specified Identity Profile.     Some fields of the Schema cannot be updated. These fields are listed below: * id * name * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
-         * @summary Update the Identity Profile
-         * @param {string} identityProfileId The Identity Profile ID
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * Update a specified identity profile with this PATCH request.    You cannot update these fields: * id * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at the same time.
+         * @summary Update Identity Profile
+         * @param {string} identityProfileId Identity profile ID.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -38077,8 +38077,8 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IdentityProfilesApiAxiosParamCreator(configuration)
     return {
         /**
-         * This creates an Identity Profile.    
-         * @summary Create an Identity Profile
+         * Creates an identity profile.    
+         * @summary Create Identity Profile
          * @param {IdentityProfile} identityProfile 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -38090,9 +38090,9 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.       The following rights are required to access this endpoint: idn:identity-profile:delete
-         * @summary Delete an Identity Profile
-         * @param {string} identityProfileId The Identity Profile ID.
+         * Delete an identity profile by ID. On success, this endpoint will return a reference to the bulk delete task result.
+         * @summary Delete Identity Profile
+         * @param {string} identityProfileId Identity profile ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -38146,9 +38146,9 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This returns a single Identity Profile based on ID.
-         * @summary Get single Identity Profile
-         * @param {string} identityProfileId The Identity Profile ID.
+         * Get a single identity profile by ID.
+         * @summary Get Identity Profile
+         * @param {string} identityProfileId Identity profile ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -38172,12 +38172,12 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This returns a list of Identity Profiles based on the specified query parameters.
-         * @summary Identity Profiles List
+         * Get a list of identity profiles, based on the specified query parameters.
+         * @summary List Identity Profiles
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **name**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **priority**: *eq, ne*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -38215,10 +38215,10 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This updates the specified Identity Profile.     Some fields of the Schema cannot be updated. These fields are listed below: * id * name * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
-         * @summary Update the Identity Profile
-         * @param {string} identityProfileId The Identity Profile ID
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * Update a specified identity profile with this PATCH request.    You cannot update these fields: * id * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at the same time.
+         * @summary Update Identity Profile
+         * @param {string} identityProfileId Identity profile ID.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -38239,8 +38239,8 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
     const localVarFp = IdentityProfilesApiFp(configuration)
     return {
         /**
-         * This creates an Identity Profile.    
-         * @summary Create an Identity Profile
+         * Creates an identity profile.    
+         * @summary Create Identity Profile
          * @param {IdentityProfilesApiCreateIdentityProfileRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -38249,8 +38249,8 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
             return localVarFp.createIdentityProfile(requestParameters.identityProfile, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.       The following rights are required to access this endpoint: idn:identity-profile:delete
-         * @summary Delete an Identity Profile
+         * Delete an identity profile by ID. On success, this endpoint will return a reference to the bulk delete task result.
+         * @summary Delete Identity Profile
          * @param {IdentityProfilesApiDeleteIdentityProfileRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -38289,8 +38289,8 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
             return localVarFp.getDefaultIdentityAttributeConfig(requestParameters.identityProfileId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This returns a single Identity Profile based on ID.
-         * @summary Get single Identity Profile
+         * Get a single identity profile by ID.
+         * @summary Get Identity Profile
          * @param {IdentityProfilesApiGetIdentityProfileRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -38309,8 +38309,8 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
             return localVarFp.importIdentityProfiles(requestParameters.identityProfileExportedObject, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This returns a list of Identity Profiles based on the specified query parameters.
-         * @summary Identity Profiles List
+         * Get a list of identity profiles, based on the specified query parameters.
+         * @summary List Identity Profiles
          * @param {IdentityProfilesApiListIdentityProfilesRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -38339,8 +38339,8 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
             return localVarFp.syncIdentityProfile(requestParameters.identityProfileId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This updates the specified Identity Profile.     Some fields of the Schema cannot be updated. These fields are listed below: * id * name * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
-         * @summary Update the Identity Profile
+         * Update a specified identity profile with this PATCH request.    You cannot update these fields: * id * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at the same time.
+         * @summary Update Identity Profile
          * @param {IdentityProfilesApiUpdateIdentityProfileRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -38372,7 +38372,7 @@ export interface IdentityProfilesApiCreateIdentityProfileRequest {
  */
 export interface IdentityProfilesApiDeleteIdentityProfileRequest {
     /**
-     * The Identity Profile ID.
+     * Identity profile ID.
      * @type {string}
      * @memberof IdentityProfilesApiDeleteIdentityProfile
      */
@@ -38456,7 +38456,7 @@ export interface IdentityProfilesApiGetDefaultIdentityAttributeConfigRequest {
  */
 export interface IdentityProfilesApiGetIdentityProfileRequest {
     /**
-     * The Identity Profile ID.
+     * Identity profile ID.
      * @type {string}
      * @memberof IdentityProfilesApiGetIdentityProfile
      */
@@ -38505,7 +38505,7 @@ export interface IdentityProfilesApiListIdentityProfilesRequest {
     readonly count?: boolean
 
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **name**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **priority**: *eq, ne*
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne*
      * @type {string}
      * @memberof IdentityProfilesApiListIdentityProfiles
      */
@@ -38554,14 +38554,14 @@ export interface IdentityProfilesApiSyncIdentityProfileRequest {
  */
 export interface IdentityProfilesApiUpdateIdentityProfileRequest {
     /**
-     * The Identity Profile ID
+     * Identity profile ID.
      * @type {string}
      * @memberof IdentityProfilesApiUpdateIdentityProfile
      */
     readonly identityProfileId: string
 
     /**
-     * A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+     * List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
      * @type {Array<JsonPatchOperation>}
      * @memberof IdentityProfilesApiUpdateIdentityProfile
      */
@@ -38576,8 +38576,8 @@ export interface IdentityProfilesApiUpdateIdentityProfileRequest {
  */
 export class IdentityProfilesApi extends BaseAPI {
     /**
-     * This creates an Identity Profile.    
-     * @summary Create an Identity Profile
+     * Creates an identity profile.    
+     * @summary Create Identity Profile
      * @param {IdentityProfilesApiCreateIdentityProfileRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -38588,8 +38588,8 @@ export class IdentityProfilesApi extends BaseAPI {
     }
 
     /**
-     * This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.       The following rights are required to access this endpoint: idn:identity-profile:delete
-     * @summary Delete an Identity Profile
+     * Delete an identity profile by ID. On success, this endpoint will return a reference to the bulk delete task result.
+     * @summary Delete Identity Profile
      * @param {IdentityProfilesApiDeleteIdentityProfileRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -38636,8 +38636,8 @@ export class IdentityProfilesApi extends BaseAPI {
     }
 
     /**
-     * This returns a single Identity Profile based on ID.
-     * @summary Get single Identity Profile
+     * Get a single identity profile by ID.
+     * @summary Get Identity Profile
      * @param {IdentityProfilesApiGetIdentityProfileRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -38660,8 +38660,8 @@ export class IdentityProfilesApi extends BaseAPI {
     }
 
     /**
-     * This returns a list of Identity Profiles based on the specified query parameters.
-     * @summary Identity Profiles List
+     * Get a list of identity profiles, based on the specified query parameters.
+     * @summary List Identity Profiles
      * @param {IdentityProfilesApiListIdentityProfilesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -38696,8 +38696,8 @@ export class IdentityProfilesApi extends BaseAPI {
     }
 
     /**
-     * This updates the specified Identity Profile.     Some fields of the Schema cannot be updated. These fields are listed below: * id * name * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
-     * @summary Update the Identity Profile
+     * Update a specified identity profile with this PATCH request.    You cannot update these fields: * id * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at the same time.
+     * @summary Update Identity Profile
      * @param {IdentityProfilesApiUpdateIdentityProfileRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -42367,7 +42367,7 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
             };
         },
         /**
-         * This request will create a non-employee source. Requires role context of `idn:nesr:create`
+         * Create a non-employee source. 
          * @summary Create Non-Employee Source
          * @param {NonEmployeeSourceRequestBody} nonEmployeeSourceRequestBody Non-Employee source creation request body.
          * @param {*} [axiosOptions] Override http request option.
@@ -42390,11 +42390,11 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
 
     
@@ -43442,20 +43442,18 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
             };
         },
         /**
-         * This gets a list of non-employee sources. There are two contextual uses for the requested-for path parameter:    1. The user has the role context of `idn:nesr:read`, in which case he or she may request a list sources assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a list of the sources that he or she owns.
+         * Get a list of non-employee sources. There are two contextual uses for the `requested-for` path parameter:    1. If the user has the role context of `idn:nesr:read`, he or she may request a list sources assigned to a particular account manager by passing in that manager\'s `id`.   2. If the current user is an account manager, the user should provide \'me\' as the `requested-for` value. Doing so provide the user with a list of the sources he or she owns.
          * @summary List Non-Employee Sources
-         * @param {string} requestedFor The identity for whom the request was made. *me* indicates the current user.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {boolean} [nonEmployeeCount] The flag to determine whether return a non-employee count associate with source.
+         * @param {string} [requestedFor] Identity the request was made for. Use \&#39;me\&#39; to indicate the current user.
+         * @param {boolean} [nonEmployeeCount] Flag that determines whether the API will return a non-employee count associated with the source.
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listNonEmployeeSources: async (requestedFor: string, limit?: number, offset?: number, count?: boolean, nonEmployeeCount?: boolean, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'requestedFor' is not null or undefined
-            assertParamExists('listNonEmployeeSources', 'requestedFor', requestedFor)
+        listNonEmployeeSources: async (limit?: number, offset?: number, count?: boolean, requestedFor?: string, nonEmployeeCount?: boolean, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/non-employee-sources`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -43806,7 +43804,7 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This request will create a non-employee source. Requires role context of `idn:nesr:create`
+         * Create a non-employee source. 
          * @summary Create Non-Employee Source
          * @param {NonEmployeeSourceRequestBody} nonEmployeeSourceRequestBody Non-Employee source creation request body.
          * @param {*} [axiosOptions] Override http request option.
@@ -44124,19 +44122,19 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This gets a list of non-employee sources. There are two contextual uses for the requested-for path parameter:    1. The user has the role context of `idn:nesr:read`, in which case he or she may request a list sources assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a list of the sources that he or she owns.
+         * Get a list of non-employee sources. There are two contextual uses for the `requested-for` path parameter:    1. If the user has the role context of `idn:nesr:read`, he or she may request a list sources assigned to a particular account manager by passing in that manager\'s `id`.   2. If the current user is an account manager, the user should provide \'me\' as the `requested-for` value. Doing so provide the user with a list of the sources he or she owns.
          * @summary List Non-Employee Sources
-         * @param {string} requestedFor The identity for whom the request was made. *me* indicates the current user.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {boolean} [nonEmployeeCount] The flag to determine whether return a non-employee count associate with source.
+         * @param {string} [requestedFor] Identity the request was made for. Use \&#39;me\&#39; to indicate the current user.
+         * @param {boolean} [nonEmployeeCount] Flag that determines whether the API will return a non-employee count associated with the source.
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listNonEmployeeSources(requestedFor: string, limit?: number, offset?: number, count?: boolean, nonEmployeeCount?: boolean, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeSourceWithNECount>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeSources(requestedFor, limit, offset, count, nonEmployeeCount, sorters, axiosOptions);
+        async listNonEmployeeSources(limit?: number, offset?: number, count?: boolean, requestedFor?: string, nonEmployeeCount?: boolean, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeSourceWithNECount>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeSources(limit, offset, count, requestedFor, nonEmployeeCount, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.listNonEmployeeSources']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -44253,7 +44251,7 @@ export const NonEmployeeLifecycleManagementApiFactory = function (configuration?
             return localVarFp.createNonEmployeeRequest(requestParameters.nonEmployeeRequestBody, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This request will create a non-employee source. Requires role context of `idn:nesr:create`
+         * Create a non-employee source. 
          * @summary Create Non-Employee Source
          * @param {NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -44483,14 +44481,14 @@ export const NonEmployeeLifecycleManagementApiFactory = function (configuration?
             return localVarFp.listNonEmployeeRequests(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This gets a list of non-employee sources. There are two contextual uses for the requested-for path parameter:    1. The user has the role context of `idn:nesr:read`, in which case he or she may request a list sources assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a list of the sources that he or she owns.
+         * Get a list of non-employee sources. There are two contextual uses for the `requested-for` path parameter:    1. If the user has the role context of `idn:nesr:read`, he or she may request a list sources assigned to a particular account manager by passing in that manager\'s `id`.   2. If the current user is an account manager, the user should provide \'me\' as the `requested-for` value. Doing so provide the user with a list of the sources he or she owns.
          * @summary List Non-Employee Sources
          * @param {NonEmployeeLifecycleManagementApiListNonEmployeeSourcesRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listNonEmployeeSources(requestParameters: NonEmployeeLifecycleManagementApiListNonEmployeeSourcesRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<NonEmployeeSourceWithNECount>> {
-            return localVarFp.listNonEmployeeSources(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.nonEmployeeCount, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
+        listNonEmployeeSources(requestParameters: NonEmployeeLifecycleManagementApiListNonEmployeeSourcesRequest = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<NonEmployeeSourceWithNECount>> {
+            return localVarFp.listNonEmployeeSources(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.requestedFor, requestParameters.nonEmployeeCount, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This request will patch a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
@@ -45056,13 +45054,6 @@ export interface NonEmployeeLifecycleManagementApiListNonEmployeeRequestsRequest
  */
 export interface NonEmployeeLifecycleManagementApiListNonEmployeeSourcesRequest {
     /**
-     * The identity for whom the request was made. *me* indicates the current user.
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeSources
-     */
-    readonly requestedFor: string
-
-    /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeSources
@@ -45084,7 +45075,14 @@ export interface NonEmployeeLifecycleManagementApiListNonEmployeeSourcesRequest 
     readonly count?: boolean
 
     /**
-     * The flag to determine whether return a non-employee count associate with source.
+     * Identity the request was made for. Use \&#39;me\&#39; to indicate the current user.
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeSources
+     */
+    readonly requestedFor?: string
+
+    /**
+     * Flag that determines whether the API will return a non-employee count associated with the source.
      * @type {boolean}
      * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeSources
      */
@@ -45254,7 +45252,7 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
     }
 
     /**
-     * This request will create a non-employee source. Requires role context of `idn:nesr:create`
+     * Create a non-employee source. 
      * @summary Create Non-Employee Source
      * @param {NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -45530,15 +45528,15 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
     }
 
     /**
-     * This gets a list of non-employee sources. There are two contextual uses for the requested-for path parameter:    1. The user has the role context of `idn:nesr:read`, in which case he or she may request a list sources assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a list of the sources that he or she owns.
+     * Get a list of non-employee sources. There are two contextual uses for the `requested-for` path parameter:    1. If the user has the role context of `idn:nesr:read`, he or she may request a list sources assigned to a particular account manager by passing in that manager\'s `id`.   2. If the current user is an account manager, the user should provide \'me\' as the `requested-for` value. Doing so provide the user with a list of the sources he or she owns.
      * @summary List Non-Employee Sources
      * @param {NonEmployeeLifecycleManagementApiListNonEmployeeSourcesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public listNonEmployeeSources(requestParameters: NonEmployeeLifecycleManagementApiListNonEmployeeSourcesRequest, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).listNonEmployeeSources(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.nonEmployeeCount, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listNonEmployeeSources(requestParameters: NonEmployeeLifecycleManagementApiListNonEmployeeSourcesRequest = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).listNonEmployeeSources(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.requestedFor, requestParameters.nonEmployeeCount, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
