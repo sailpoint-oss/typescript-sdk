@@ -311,6 +311,86 @@ export const AccessItemReviewedByTypeV3 = {
 export type AccessItemReviewedByTypeV3 = typeof AccessItemReviewedByTypeV3[keyof typeof AccessItemReviewedByTypeV3];
 
 /**
+ * Metadata that describes an access item
+ * @export
+ * @interface AccessModelMetadata
+ */
+export interface AccessModelMetadata {
+    /**
+     * Unique identifier for the metadata type
+     * @type {string}
+     * @memberof AccessModelMetadata
+     */
+    'key'?: string;
+    /**
+     * Human readable name of the metadata type
+     * @type {string}
+     * @memberof AccessModelMetadata
+     */
+    'name'?: string;
+    /**
+     * Allows selecting multiple values
+     * @type {boolean}
+     * @memberof AccessModelMetadata
+     */
+    'multiselect'?: boolean;
+    /**
+     * The state of the metadata item
+     * @type {string}
+     * @memberof AccessModelMetadata
+     */
+    'status'?: string;
+    /**
+     * The type of the metadata item
+     * @type {string}
+     * @memberof AccessModelMetadata
+     */
+    'type'?: string;
+    /**
+     * The types of objects
+     * @type {Array<string>}
+     * @memberof AccessModelMetadata
+     */
+    'objectTypes'?: Array<string>;
+    /**
+     * Describes the metadata item
+     * @type {string}
+     * @memberof AccessModelMetadata
+     */
+    'description'?: string;
+    /**
+     * The value to assign to the metadata item
+     * @type {Array<AccessModelMetadataValuesInner>}
+     * @memberof AccessModelMetadata
+     */
+    'values'?: Array<AccessModelMetadataValuesInner>;
+}
+/**
+ * An individual value to assign to the metadata item
+ * @export
+ * @interface AccessModelMetadataValuesInner
+ */
+export interface AccessModelMetadataValuesInner {
+    /**
+     * The value to assign to the metdata item
+     * @type {string}
+     * @memberof AccessModelMetadataValuesInner
+     */
+    'value'?: string;
+    /**
+     * Display name of the value
+     * @type {string}
+     * @memberof AccessModelMetadataValuesInner
+     */
+    'name'?: string;
+    /**
+     * The status of the individual value
+     * @type {string}
+     * @memberof AccessModelMetadataValuesInner
+     */
+    'status'?: string;
+}
+/**
  * Access Profile
  * @export
  * @interface AccessProfile
@@ -1504,10 +1584,10 @@ export interface Account {
     'isMachine'?: boolean;
     /**
      * 
-     * @type {Recommendation}
+     * @type {AccountAllOfRecommendation}
      * @memberof Account
      */
-    'recommendation'?: Recommendation;
+    'recommendation'?: AccountAllOfRecommendation;
     /**
      * The account attributes that are aggregated
      * @type {{ [key: string]: any; }}
@@ -1576,16 +1656,16 @@ export interface Account {
     'hasEntitlements': boolean;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {AccountAllOfIdentity}
      * @memberof Account
      */
-    'identity'?: BaseReferenceDto;
+    'identity'?: AccountAllOfIdentity;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {AccountAllOfSourceOwner}
      * @memberof Account
      */
-    'sourceOwner'?: BaseReferenceDto;
+    'sourceOwner'?: AccountAllOfSourceOwner | null;
     /**
      * A string list containing the owning source\'s features
      * @type {string}
@@ -1600,10 +1680,10 @@ export interface Account {
     'origin'?: AccountOriginV3 | null;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {AccountAllOfOwnerIdentity}
      * @memberof Account
      */
-    'ownerIdentity'?: BaseReferenceDto;
+    'ownerIdentity'?: AccountAllOfOwnerIdentity;
 }
 
 export const AccountOriginV3 = {
@@ -2237,6 +2317,131 @@ export interface AccountActivitySearchedItem {
      */
     'sources'?: string;
 }
+/**
+ * The identity this account is correlated to
+ * @export
+ * @interface AccountAllOfIdentity
+ */
+export interface AccountAllOfIdentity {
+    /**
+     * The ID of the identity
+     * @type {string}
+     * @memberof AccountAllOfIdentity
+     */
+    'id'?: string;
+    /**
+     * The type of object being referenced
+     * @type {string}
+     * @memberof AccountAllOfIdentity
+     */
+    'type'?: AccountAllOfIdentityTypeV3;
+    /**
+     * display name of identity
+     * @type {string}
+     * @memberof AccountAllOfIdentity
+     */
+    'name'?: string;
+}
+
+export const AccountAllOfIdentityTypeV3 = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccountAllOfIdentityTypeV3 = typeof AccountAllOfIdentityTypeV3[keyof typeof AccountAllOfIdentityTypeV3];
+
+/**
+ * 
+ * @export
+ * @interface AccountAllOfOwnerIdentity
+ */
+export interface AccountAllOfOwnerIdentity {
+    /**
+     * 
+     * @type {DtoType}
+     * @memberof AccountAllOfOwnerIdentity
+     */
+    'type'?: DtoType;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountAllOfOwnerIdentity
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountAllOfOwnerIdentity
+     */
+    'name'?: string;
+}
+
+
+/**
+ * 
+ * @export
+ * @interface AccountAllOfRecommendation
+ */
+export interface AccountAllOfRecommendation {
+    /**
+     * Recommended type of account.
+     * @type {string}
+     * @memberof AccountAllOfRecommendation
+     */
+    'type': AccountAllOfRecommendationTypeV3;
+    /**
+     * Method used to produce the recommendation. DISCOVERY - suggested by AI, SOURCE - the account comes from a source flagged as containing machine accounts, CRITERIA - the account satisfies classification criteria.
+     * @type {string}
+     * @memberof AccountAllOfRecommendation
+     */
+    'method': AccountAllOfRecommendationMethodV3;
+}
+
+export const AccountAllOfRecommendationTypeV3 = {
+    Human: 'HUMAN',
+    Machine: 'MACHINE'
+} as const;
+
+export type AccountAllOfRecommendationTypeV3 = typeof AccountAllOfRecommendationTypeV3[keyof typeof AccountAllOfRecommendationTypeV3];
+export const AccountAllOfRecommendationMethodV3 = {
+    Discovery: 'DISCOVERY',
+    Source: 'SOURCE',
+    Criteria: 'CRITERIA'
+} as const;
+
+export type AccountAllOfRecommendationMethodV3 = typeof AccountAllOfRecommendationMethodV3[keyof typeof AccountAllOfRecommendationMethodV3];
+
+/**
+ * The owner of the source this account belongs to.
+ * @export
+ * @interface AccountAllOfSourceOwner
+ */
+export interface AccountAllOfSourceOwner {
+    /**
+     * The ID of the identity
+     * @type {string}
+     * @memberof AccountAllOfSourceOwner
+     */
+    'id'?: string;
+    /**
+     * The type of object being referenced
+     * @type {string}
+     * @memberof AccountAllOfSourceOwner
+     */
+    'type'?: AccountAllOfSourceOwnerTypeV3;
+    /**
+     * display name of identity
+     * @type {string}
+     * @memberof AccountAllOfSourceOwner
+     */
+    'name'?: string;
+}
+
+export const AccountAllOfSourceOwnerTypeV3 = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccountAllOfSourceOwnerTypeV3 = typeof AccountAllOfSourceOwnerTypeV3[keyof typeof AccountAllOfSourceOwnerTypeV3];
+
 /**
  * 
  * @export
@@ -3521,43 +3726,43 @@ export interface AuthUser {
      * @type {string}
      * @memberof AuthUser
      */
-    'identificationNumber'?: string;
+    'identificationNumber'?: string | null;
     /**
      * Auth user\'s email.
      * @type {string}
      * @memberof AuthUser
      */
-    'email'?: string;
+    'email'?: string | null;
     /**
      * Auth user\'s phone number.
      * @type {string}
      * @memberof AuthUser
      */
-    'phone'?: string;
+    'phone'?: string | null;
     /**
      * Auth user\'s work phone number.
      * @type {string}
      * @memberof AuthUser
      */
-    'workPhone'?: string;
+    'workPhone'?: string | null;
     /**
      * Auth user\'s personal email.
      * @type {string}
      * @memberof AuthUser
      */
-    'personalEmail'?: string;
+    'personalEmail'?: string | null;
     /**
      * Auth user\'s first name.
      * @type {string}
      * @memberof AuthUser
      */
-    'firstname'?: string;
+    'firstname'?: string | null;
     /**
      * Auth user\'s last name.
      * @type {string}
      * @memberof AuthUser
      */
-    'lastname'?: string;
+    'lastname'?: string | null;
     /**
      * Auth user\'s name in displayed format.
      * @type {string}
@@ -3575,7 +3780,7 @@ export interface AuthUser {
      * @type {string}
      * @memberof AuthUser
      */
-    'lastPasswordChangeDate'?: string;
+    'lastPasswordChangeDate'?: string | null;
     /**
      * Timestamp of the last login (long type value).
      * @type {number}
@@ -3589,11 +3794,17 @@ export interface AuthUser {
      */
     'currentLoginTimestamp'?: number;
     /**
+     * The date and time when the user was last unlocked.
+     * @type {string}
+     * @memberof AuthUser
+     */
+    'lastUnlockTimestamp'?: string | null;
+    /**
      * Array of the auth user\'s capabilities.
      * @type {Array<string>}
      * @memberof AuthUser
      */
-    'capabilities'?: Array<AuthUserCapabilitiesV3>;
+    'capabilities'?: Array<AuthUserCapabilitiesV3> | null;
 }
 
 export const AuthUserCapabilitiesV3 = {
@@ -5440,7 +5651,7 @@ export interface Certification {
      * @type {string}
      * @memberof Certification
      */
-    'due'?: string;
+    'due'?: string | null;
     /**
      * The date the reviewer signed off on the Certification.
      * @type {string}
@@ -7596,7 +7807,7 @@ export interface Entitlement {
      * @type {string}
      * @memberof Entitlement
      */
-    'description'?: string;
+    'description'?: string | null;
     /**
      * True if the entitlement is privileged
      * @type {boolean}
@@ -7609,6 +7820,30 @@ export interface Entitlement {
      * @memberof Entitlement
      */
     'cloudGoverned'?: boolean;
+    /**
+     * True if the entitlement is able to be directly requested
+     * @type {boolean}
+     * @memberof Entitlement
+     */
+    'requestable'?: boolean;
+    /**
+     * 
+     * @type {EntitlementOwner}
+     * @memberof Entitlement
+     */
+    'owner'?: EntitlementOwner | null;
+    /**
+     * A map of entitlement fields that have been manually updated. The key is the field name in UPPER_SNAKE_CASE format, and the value is true or false to indicate if the field has been updated.
+     * @type {{ [key: string]: any; }}
+     * @memberof Entitlement
+     */
+    'manuallyUpdatedFields'?: { [key: string]: any; } | null;
+    /**
+     * 
+     * @type {EntitlementAccessModelMetadata}
+     * @memberof Entitlement
+     */
+    'accessModelMetadata'?: EntitlementAccessModelMetadata;
     /**
      * Time when the entitlement was created
      * @type {string}
@@ -7645,6 +7880,19 @@ export interface Entitlement {
      * @memberof Entitlement
      */
     'directPermissions'?: Array<PermissionDto>;
+}
+/**
+ * Additional data to classify the entitlement
+ * @export
+ * @interface EntitlementAccessModelMetadata
+ */
+export interface EntitlementAccessModelMetadata {
+    /**
+     * 
+     * @type {Array<AccessModelMetadata>}
+     * @memberof EntitlementAccessModelMetadata
+     */
+    'attributes'?: Array<AccessModelMetadata>;
 }
 /**
  * Entitlement
@@ -8032,84 +8280,37 @@ export interface EntitlementDocuments {
 
 
 /**
- * 
+ * The identity that owns the entitlement
  * @export
- * @interface EntitlementDto
+ * @interface EntitlementOwner
  */
-export interface EntitlementDto {
+export interface EntitlementOwner {
     /**
-     * System-generated unique ID of the Object
+     * The identity ID
      * @type {string}
-     * @memberof EntitlementDto
+     * @memberof EntitlementOwner
      */
     'id'?: string;
     /**
-     * Name of the Object
+     * The type of object
      * @type {string}
-     * @memberof EntitlementDto
+     * @memberof EntitlementOwner
      */
-    'name': string;
+    'type'?: EntitlementOwnerTypeV3;
     /**
-     * Creation date of the Object
+     * The display name of the identity
      * @type {string}
-     * @memberof EntitlementDto
+     * @memberof EntitlementOwner
      */
-    'created'?: string;
-    /**
-     * Last modification date of the Object
-     * @type {string}
-     * @memberof EntitlementDto
-     */
-    'modified'?: string;
-    /**
-     * Name of the entitlement attribute
-     * @type {string}
-     * @memberof EntitlementDto
-     */
-    'attribute'?: string;
-    /**
-     * Raw value of the entitlement
-     * @type {string}
-     * @memberof EntitlementDto
-     */
-    'value'?: string;
-    /**
-     * Entitlment description
-     * @type {string}
-     * @memberof EntitlementDto
-     */
-    'description'?: string;
-    /**
-     * Entitlement attributes
-     * @type {{ [key: string]: any; }}
-     * @memberof EntitlementDto
-     */
-    'attributes'?: { [key: string]: any; };
-    /**
-     * Schema objectType on the given application that maps to an Account Group
-     * @type {string}
-     * @memberof EntitlementDto
-     */
-    'sourceSchemaObjectType'?: string;
-    /**
-     * Determines if this Entitlement is privileged.
-     * @type {boolean}
-     * @memberof EntitlementDto
-     */
-    'privileged'?: boolean;
-    /**
-     * Determines if this Entitlement is goverened in the cloud.
-     * @type {boolean}
-     * @memberof EntitlementDto
-     */
-    'cloudGoverned'?: boolean;
-    /**
-     * 
-     * @type {EntitlementSource}
-     * @memberof EntitlementDto
-     */
-    'source'?: EntitlementSource;
+    'name'?: string;
 }
+
+export const EntitlementOwnerTypeV3 = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type EntitlementOwnerTypeV3 = typeof EntitlementOwnerTypeV3[keyof typeof EntitlementOwnerTypeV3];
+
 /**
  * Entitlement including a specific set of access.
  * @export
@@ -10171,7 +10372,7 @@ export interface IdentityCertificationDto {
      * @type {string}
      * @memberof IdentityCertificationDto
      */
-    'due'?: string;
+    'due'?: string | null;
     /**
      * The date the reviewer signed off on the Certification.
      * @type {string}
@@ -16888,6 +17089,12 @@ export type RequestedItemDetailsTypeV3 = typeof RequestedItemDetailsTypeV3[keyof
  */
 export interface RequestedItemStatus {
     /**
+     * The ID of the access request.
+     * @type {string}
+     * @memberof RequestedItemStatus
+     */
+    'id'?: string;
+    /**
      * Human-readable display name of the item being requested.
      * @type {string}
      * @memberof RequestedItemStatus
@@ -18997,7 +19204,7 @@ export interface Schedule {
      * @type {ScheduleMonths}
      * @memberof Schedule
      */
-    'months'?: ScheduleMonths;
+    'months'?: ScheduleMonths | null;
     /**
      * 
      * @type {ScheduleDays}
@@ -19015,7 +19222,7 @@ export interface Schedule {
      * @type {string}
      * @memberof Schedule
      */
-    'expiration'?: string;
+    'expiration'?: string | null;
     /**
      * The time zone to use when running the schedule. For instance, if the schedule is scheduled to run at 1AM, and this field is set to \"CST\", the schedule will run at 1AM CST.
      * @type {string}
@@ -19182,7 +19389,7 @@ export interface ScheduleDays {
      * @type {number}
      * @memberof ScheduleDays
      */
-    'interval'?: number;
+    'interval'?: number | null;
 }
 
 export const ScheduleDaysTypeV3 = {
@@ -19215,7 +19422,7 @@ export interface ScheduleHours {
      * @type {number}
      * @memberof ScheduleHours
      */
-    'interval'?: number;
+    'interval'?: number | null;
 }
 
 export const ScheduleHoursTypeV3 = {
@@ -27818,7 +28025,7 @@ export const AccountsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccountEntitlements(id: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementDto>>> {
+        async getAccountEntitlements(id: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Entitlement>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountEntitlements(id, limit, offset, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccountsApi.getAccountEntitlements']?.[localVarOperationServerIndex]?.url;
@@ -27964,7 +28171,7 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAccountEntitlements(requestParameters: AccountsApiGetAccountEntitlementsRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<EntitlementDto>> {
+        getAccountEntitlements(requestParameters: AccountsApiGetAccountEntitlementsRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Entitlement>> {
             return localVarFp.getAccountEntitlements(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
