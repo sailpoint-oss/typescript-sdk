@@ -11435,6 +11435,7 @@ export interface ImportObject {
 }
 
 export const ImportObjectTypeV3 = {
+    ConnectorRule: 'CONNECTOR_RULE',
     IdentityObjectConfig: 'IDENTITY_OBJECT_CONFIG',
     IdentityProfile: 'IDENTITY_PROFILE',
     Rule: 'RULE',
