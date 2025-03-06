@@ -12,6 +12,7 @@ export interface ConfigurationParameters {
   clientId?: string;
   clientSecret?: string;
   accessToken?: string;
+  serverIndex?: number;
   tokenUrl?: string;
 }
 
@@ -23,6 +24,7 @@ export interface Configuration {
   debug?: boolean;
   experimental?: boolean;
   environments?: { [key: string]: Environment };
+  serverIndex?: number;
 }
 
 export interface Environment {
@@ -108,6 +110,13 @@ export class Configuration {
    * @memberof Configuration
    */
   basePath?: string;
+  /**
+   * base options for axios calls
+   *
+   * @type {any}
+   * @memberof Configuration
+   */
+  serverIndex?: number;
   /**
    * base options for axios calls
    *
