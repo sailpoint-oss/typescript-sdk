@@ -145,7 +145,7 @@ export const toPathString = function (url: URL) {
  */
 export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxios: AxiosInstance, BASE_PATH: string, configuration?: Configuration) {
     return <T = unknown, R = AxiosResponse<T>>(axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-        axiosRetry(globalAxios, configuration.retriesConfig)
+        axiosRetry(axios, configuration.retriesConfig)
         const headers = {
             ...{'User-Agent':'OpenAPI-Generator/1.4.14/ts'}, 
             ...axiosArgs.axiosOptions.headers,
