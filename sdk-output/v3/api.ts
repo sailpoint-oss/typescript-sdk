@@ -1337,10 +1337,10 @@ export interface AccessRequestTracking {
     'requestedItemsDetails'?: Array<RequestedItemDetails>;
     /**
      * a hash representation of the access requested, useful for longer term tracking client side.
-     * @type {string}
+     * @type {number}
      * @memberof AccessRequestTracking
      */
-    'attributesHash'?: string;
+    'attributesHash'?: number;
     /**
      * a list of access request identifiers, generally only one will be populated, but high volume requested may result in multiple ids.
      * @type {Array<string>}
@@ -1527,7 +1527,7 @@ export interface Account {
      * @type {string}
      * @memberof Account
      */
-    'name': string;
+    'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
@@ -4279,7 +4279,7 @@ export interface BaseCommonDto {
      * @type {string}
      * @memberof BaseCommonDto
      */
-    'name': string;
+    'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
@@ -11083,7 +11083,7 @@ export interface IdentityProfile {
      * @type {string}
      * @memberof IdentityProfile
      */
-    'name': string;
+    'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
@@ -11951,7 +11951,7 @@ export interface LifecycleState {
      * @type {string}
      * @memberof LifecycleState
      */
-    'name': string;
+    'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
@@ -15554,6 +15554,12 @@ export interface PendingApproval {
      * @memberof PendingApproval
      */
     'sodViolationContext'?: SodViolationContextCheckCompleted | null;
+    /**
+     * Arbitrary key-value pairs, if any were included in the corresponding access request item
+     * @type {{ [key: string]: string; }}
+     * @memberof PendingApproval
+     */
+    'clientMetadata'?: { [key: string]: string; } | null;
 }
 
 
@@ -20408,7 +20414,7 @@ export interface ServiceDeskIntegrationTemplateDto {
      * @type {string}
      * @memberof ServiceDeskIntegrationTemplateDto
      */
-    'name': string;
+    'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
