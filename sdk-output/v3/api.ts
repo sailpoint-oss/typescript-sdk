@@ -1337,10 +1337,10 @@ export interface AccessRequestTracking {
     'requestedItemsDetails'?: Array<RequestedItemDetails>;
     /**
      * a hash representation of the access requested, useful for longer term tracking client side.
-     * @type {string}
+     * @type {number}
      * @memberof AccessRequestTracking
      */
-    'attributesHash'?: string;
+    'attributesHash'?: number;
     /**
      * a list of access request identifiers, generally only one will be populated, but high volume requested may result in multiple ids.
      * @type {Array<string>}
@@ -1527,7 +1527,7 @@ export interface Account {
      * @type {string}
      * @memberof Account
      */
-    'name': string;
+    'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
@@ -4279,7 +4279,7 @@ export interface BaseCommonDto {
      * @type {string}
      * @memberof BaseCommonDto
      */
-    'name': string;
+    'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
@@ -11083,7 +11083,7 @@ export interface IdentityProfile {
      * @type {string}
      * @memberof IdentityProfile
      */
-    'name': string;
+    'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
@@ -11951,7 +11951,7 @@ export interface LifecycleState {
      * @type {string}
      * @memberof LifecycleState
      */
-    'name': string;
+    'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
@@ -15554,6 +15554,12 @@ export interface PendingApproval {
      * @memberof PendingApproval
      */
     'sodViolationContext'?: SodViolationContextCheckCompleted | null;
+    /**
+     * Arbitrary key-value pairs, if any were included in the corresponding access request item
+     * @type {{ [key: string]: string; }}
+     * @memberof PendingApproval
+     */
+    'clientMetadata'?: { [key: string]: string; } | null;
 }
 
 
@@ -20408,7 +20414,7 @@ export interface ServiceDeskIntegrationTemplateDto {
      * @type {string}
      * @memberof ServiceDeskIntegrationTemplateDto
      */
-    'name': string;
+    'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
@@ -61444,10 +61450,11 @@ export const WorkItemsApiAxiosParamCreator = function (configuration?: Configura
          * This API completes a work item. Either an admin, or the owning/current user must make this request.
          * @summary Complete a Work Item
          * @param {string} id The ID of the work item
+         * @param {string | null} [body] Body is the request payload to create form definition request
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        completeWorkItem: async (id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        completeWorkItem: async (id: string, body?: string | null, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('completeWorkItem', 'id', id)
             const localVarPath = `/work-items/{id}`
@@ -61473,9 +61480,12 @@ export const WorkItemsApiAxiosParamCreator = function (configuration?: Configura
 
 
     
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -61994,11 +62004,12 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * This API completes a work item. Either an admin, or the owning/current user must make this request.
          * @summary Complete a Work Item
          * @param {string} id The ID of the work item
+         * @param {string | null} [body] Body is the request payload to create form definition request
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async completeWorkItem(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.completeWorkItem(id, axiosOptions);
+        async completeWorkItem(id: string, body?: string | null, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.completeWorkItem(id, body, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkItemsApi.completeWorkItem']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -62180,7 +62191,7 @@ export const WorkItemsApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         completeWorkItem(requestParameters: WorkItemsApiCompleteWorkItemRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<WorkItems> {
-            return localVarFp.completeWorkItem(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.completeWorkItem(requestParameters.id, requestParameters.body, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a collection of completed work items belonging to either the specified user(admin required), or the current user.
@@ -62332,6 +62343,13 @@ export interface WorkItemsApiCompleteWorkItemRequest {
      * @memberof WorkItemsApiCompleteWorkItem
      */
     readonly id: string
+
+    /**
+     * Body is the request payload to create form definition request
+     * @type {string}
+     * @memberof WorkItemsApiCompleteWorkItem
+     */
+    readonly body?: string | null
 }
 
 /**
@@ -62577,7 +62595,7 @@ export class WorkItemsApi extends BaseAPI {
      * @memberof WorkItemsApi
      */
     public completeWorkItem(requestParameters: WorkItemsApiCompleteWorkItemRequest, axiosOptions?: RawAxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).completeWorkItem(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return WorkItemsApiFp(this.configuration).completeWorkItem(requestParameters.id, requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
