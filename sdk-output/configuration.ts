@@ -5,6 +5,7 @@ import * as yaml from "js-yaml";
 import * as fs from "fs";
 import FormData from "form-data";
 import { IAxiosRetryConfig } from "axios-retry";
+import { ProxyAgent } from "proxy-agent";
 
 export interface ConfigurationParameters {
   baseurl?: string;
@@ -238,7 +239,10 @@ export class Configuration {
     formData: FormData
   ): Promise<string> {
     try {
-      const { data, status } = await axios.post(url, formData);
+      const agent = new ProxyAgent();
+      const { data, status } = await axios.post(url, formData, {
+        httpsAgent: agent,
+      });
       if (status === 200) {
         return data.access_token;
       } else {
