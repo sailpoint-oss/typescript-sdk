@@ -21723,11 +21723,11 @@ export interface SourceConnectionsDto {
      */
     'mappingProfiles'?: Array<string>;
     /**
-     * 
-     * @type {Array<Transform>}
+     * A list of custom transforms associated with this source. A transform will be considered associated with a source if any attributes of the transform specify the source as the sourceName.
+     * @type {Array<TransformRead>}
      * @memberof SourceConnectionsDto
      */
-    'dependentCustomTransforms'?: Array<Transform>;
+    'dependentCustomTransforms'?: Array<TransformRead>;
     /**
      * 
      * @type {Array<DependantAppConnections>}
@@ -57139,15 +57139,15 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC).
          * @summary Get Source Connections by ID
-         * @param {string} id Source ID.
+         * @param {string} sourceId Source ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSourceConnections: async (id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getSourceConnections', 'id', id)
+        getSourceConnections: async (sourceId: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('getSourceConnections', 'sourceId', sourceId)
             const localVarPath = `/sources/{sourceId}/connections`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -58113,12 +58113,12 @@ export const SourcesApiFp = function(configuration?: Configuration) {
         /**
          * Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC).
          * @summary Get Source Connections by ID
-         * @param {string} id Source ID.
+         * @param {string} sourceId Source ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourceConnections(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceConnectionsDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceConnections(id, axiosOptions);
+        async getSourceConnections(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceConnectionsDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceConnections(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SourcesApi.getSourceConnections']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -58460,7 +58460,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         getSourceConnections(requestParameters: SourcesApiGetSourceConnectionsRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceConnectionsDto> {
-            return localVarFp.getSourceConnections(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.getSourceConnections(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint fetches source health by source\'s id
@@ -58815,7 +58815,7 @@ export interface SourcesApiGetSourceConnectionsRequest {
      * @type {string}
      * @memberof SourcesApiGetSourceConnections
      */
-    readonly id: string
+    readonly sourceId: string
 }
 
 /**
@@ -59332,7 +59332,7 @@ export class SourcesApi extends BaseAPI {
      * @memberof SourcesApi
      */
     public getSourceConnections(requestParameters: SourcesApiGetSourceConnectionsRequest, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).getSourceConnections(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SourcesApiFp(this.configuration).getSourceConnections(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
