@@ -12621,7 +12621,7 @@ export interface ManagedCluster {
      * @type {string}
      * @memberof ManagedCluster
      */
-    'status'?: string;
+    'status'?: ManagedClusterStatusV3;
     /**
      * Public key certificate
      * @type {string}
@@ -12678,6 +12678,15 @@ export interface ManagedCluster {
     'updatedAt'?: string | null;
 }
 
+export const ManagedClusterStatusV3 = {
+    Configuring: 'CONFIGURING',
+    Failed: 'FAILED',
+    NoClients: 'NO_CLIENTS',
+    Normal: 'NORMAL',
+    Warning: 'WARNING'
+} as const;
+
+export type ManagedClusterStatusV3 = typeof ManagedClusterStatusV3[keyof typeof ManagedClusterStatusV3];
 
 /**
  * Managed Cluster Attributes for Cluster Configuration. Supported Cluster Types [sqsCluster, spConnectCluster]
