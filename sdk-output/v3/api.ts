@@ -8708,6 +8708,12 @@ export interface EventAttributes {
      * @memberof EventAttributes
      */
     'attributeToFilter'?: string;
+    /**
+     * Form definition\'s unique identifier.
+     * @type {string}
+     * @memberof EventAttributes
+     */
+    'formDefinitionId'?: string;
 }
 /**
  * Event
@@ -19533,6 +19539,12 @@ export interface ScheduledAttributes {
      * @memberof ScheduledAttributes
      */
     'weeklyTimes'?: Array<string>;
+    /**
+     * Scheduled execution times
+     * @type {Array<string>}
+     * @memberof ScheduledAttributes
+     */
+    'yearlyTimes'?: Array<string>;
 }
 
 export const ScheduledAttributesFrequencyV3 = {
@@ -24610,6 +24622,12 @@ export interface WorkflowTriggerAttributes {
      */
     'attributeToFilter'?: string;
     /**
+     * Form definition\'s unique identifier.
+     * @type {string}
+     * @memberof WorkflowTriggerAttributes
+     */
+    'formDefinitionId'?: string;
+    /**
      * A unique name for the external trigger
      * @type {string}
      * @memberof WorkflowTriggerAttributes
@@ -24657,6 +24675,12 @@ export interface WorkflowTriggerAttributes {
      * @memberof WorkflowTriggerAttributes
      */
     'weeklyTimes'?: Array<string>;
+    /**
+     * Scheduled execution times
+     * @type {Array<string>}
+     * @memberof WorkflowTriggerAttributes
+     */
+    'yearlyTimes'?: Array<string>;
 }
 
 export const WorkflowTriggerAttributesFrequencyV3 = {
