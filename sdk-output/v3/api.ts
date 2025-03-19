@@ -54386,7 +54386,7 @@ export type SearchGetIndexV3 = typeof SearchGetIndexV3[keyof typeof SearchGetInd
 export const SearchAttributeConfigurationApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
+         * Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create the attribute promotion configuration in the Link ObjectConfig. >**Note: Give searchable attributes unique names.  Do not give them the same names used for account attributes or source attributes.  Also, do not give them the same names present in account schema for a current or future source, regardless of whether that source is included in the searchable attributes\' `applicationAttributes`.**
          * @summary Create Extended Search Attributes
          * @param {SearchAttributeConfig} searchAttributeConfig 
          * @param {*} [axiosOptions] Override http request option.
@@ -54472,12 +54472,14 @@ export const SearchAttributeConfigurationApiAxiosParamCreator = function (config
             };
         },
         /**
-         * Get a list of attribute/application associates currently configured in Identity Security Cloud (ISC).
+         * Get a list of attribute/application attributes currently configured in Identity Security Cloud (ISC).
          * @summary List Extended Search Attributes
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSearchAttributeConfig: async (axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSearchAttributeConfig: async (limit?: number, offset?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/accounts/search-attribute-config`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -54497,6 +54499,14 @@ export const SearchAttributeConfigurationApiAxiosParamCreator = function (config
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
 
 
     
@@ -54610,7 +54620,7 @@ export const SearchAttributeConfigurationApiFp = function(configuration?: Config
     const localVarAxiosParamCreator = SearchAttributeConfigurationApiAxiosParamCreator(configuration)
     return {
         /**
-         * Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
+         * Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create the attribute promotion configuration in the Link ObjectConfig. >**Note: Give searchable attributes unique names.  Do not give them the same names used for account attributes or source attributes.  Also, do not give them the same names present in account schema for a current or future source, regardless of whether that source is included in the searchable attributes\' `applicationAttributes`.**
          * @summary Create Extended Search Attributes
          * @param {SearchAttributeConfig} searchAttributeConfig 
          * @param {*} [axiosOptions] Override http request option.
@@ -54636,13 +54646,15 @@ export const SearchAttributeConfigurationApiFp = function(configuration?: Config
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Get a list of attribute/application associates currently configured in Identity Security Cloud (ISC).
+         * Get a list of attribute/application attributes currently configured in Identity Security Cloud (ISC).
          * @summary List Extended Search Attributes
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSearchAttributeConfig(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SearchAttributeConfig>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSearchAttributeConfig(axiosOptions);
+        async getSearchAttributeConfig(limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SearchAttributeConfig>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSearchAttributeConfig(limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SearchAttributeConfigurationApi.getSearchAttributeConfig']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -54685,7 +54697,7 @@ export const SearchAttributeConfigurationApiFactory = function (configuration?: 
     const localVarFp = SearchAttributeConfigurationApiFp(configuration)
     return {
         /**
-         * Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
+         * Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create the attribute promotion configuration in the Link ObjectConfig. >**Note: Give searchable attributes unique names.  Do not give them the same names used for account attributes or source attributes.  Also, do not give them the same names present in account schema for a current or future source, regardless of whether that source is included in the searchable attributes\' `applicationAttributes`.**
          * @summary Create Extended Search Attributes
          * @param {SearchAttributeConfigurationApiCreateSearchAttributeConfigRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -54705,13 +54717,14 @@ export const SearchAttributeConfigurationApiFactory = function (configuration?: 
             return localVarFp.deleteSearchAttributeConfig(requestParameters.name, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Get a list of attribute/application associates currently configured in Identity Security Cloud (ISC).
+         * Get a list of attribute/application attributes currently configured in Identity Security Cloud (ISC).
          * @summary List Extended Search Attributes
+         * @param {SearchAttributeConfigurationApiGetSearchAttributeConfigRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSearchAttributeConfig(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SearchAttributeConfig>> {
-            return localVarFp.getSearchAttributeConfig(axiosOptions).then((request) => request(axios, basePath));
+        getSearchAttributeConfig(requestParameters: SearchAttributeConfigurationApiGetSearchAttributeConfigRequest = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SearchAttributeConfig>> {
+            return localVarFp.getSearchAttributeConfig(requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get an extended attribute configuration by name.
@@ -54765,6 +54778,27 @@ export interface SearchAttributeConfigurationApiDeleteSearchAttributeConfigReque
 }
 
 /**
+ * Request parameters for getSearchAttributeConfig operation in SearchAttributeConfigurationApi.
+ * @export
+ * @interface SearchAttributeConfigurationApiGetSearchAttributeConfigRequest
+ */
+export interface SearchAttributeConfigurationApiGetSearchAttributeConfigRequest {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SearchAttributeConfigurationApiGetSearchAttributeConfig
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SearchAttributeConfigurationApiGetSearchAttributeConfig
+     */
+    readonly offset?: number
+}
+
+/**
  * Request parameters for getSingleSearchAttributeConfig operation in SearchAttributeConfigurationApi.
  * @export
  * @interface SearchAttributeConfigurationApiGetSingleSearchAttributeConfigRequest
@@ -54807,7 +54841,7 @@ export interface SearchAttributeConfigurationApiPatchSearchAttributeConfigReques
  */
 export class SearchAttributeConfigurationApi extends BaseAPI {
     /**
-     * Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
+     * Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create the attribute promotion configuration in the Link ObjectConfig. >**Note: Give searchable attributes unique names.  Do not give them the same names used for account attributes or source attributes.  Also, do not give them the same names present in account schema for a current or future source, regardless of whether that source is included in the searchable attributes\' `applicationAttributes`.**
      * @summary Create Extended Search Attributes
      * @param {SearchAttributeConfigurationApiCreateSearchAttributeConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -54831,14 +54865,15 @@ export class SearchAttributeConfigurationApi extends BaseAPI {
     }
 
     /**
-     * Get a list of attribute/application associates currently configured in Identity Security Cloud (ISC).
+     * Get a list of attribute/application attributes currently configured in Identity Security Cloud (ISC).
      * @summary List Extended Search Attributes
+     * @param {SearchAttributeConfigurationApiGetSearchAttributeConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SearchAttributeConfigurationApi
      */
-    public getSearchAttributeConfig(axiosOptions?: RawAxiosRequestConfig) {
-        return SearchAttributeConfigurationApiFp(this.configuration).getSearchAttributeConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSearchAttributeConfig(requestParameters: SearchAttributeConfigurationApiGetSearchAttributeConfigRequest = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return SearchAttributeConfigurationApiFp(this.configuration).getSearchAttributeConfig(requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
