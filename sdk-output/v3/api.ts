@@ -12046,7 +12046,8 @@ export interface LifecyclestateDeleted {
 }
 
 export const LifecyclestateDeletedTypeV3 = {
-    LifecycleState: 'LIFECYCLE_STATE'
+    LifecycleState: 'LIFECYCLE_STATE',
+    TaskResult: 'TASK_RESULT'
 } as const;
 
 export type LifecyclestateDeletedTypeV3 = typeof LifecyclestateDeletedTypeV3[keyof typeof LifecyclestateDeletedTypeV3];
