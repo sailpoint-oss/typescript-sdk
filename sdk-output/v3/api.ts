@@ -6242,6 +6242,12 @@ export interface CompletedApproval {
      * @memberof CompletedApproval
      */
     'clientMetadata'?: { [key: string]: string; };
+    /**
+     * The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources.
+     * @type {Array<RequestedAccountRef>}
+     * @memberof CompletedApproval
+     */
+    'requestedAccounts'?: Array<RequestedAccountRef> | null;
 }
 
 
@@ -15576,6 +15582,12 @@ export interface PendingApproval {
      * @memberof PendingApproval
      */
     'clientMetadata'?: { [key: string]: string; } | null;
+    /**
+     * The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources.
+     * @type {Array<RequestedAccountRef>}
+     * @memberof PendingApproval
+     */
+    'requestedAccounts'?: Array<RequestedAccountRef> | null;
 }
 
 
@@ -17141,6 +17153,45 @@ export type RequestableObjectType = typeof RequestableObjectType[keyof typeof Re
 /**
  * 
  * @export
+ * @interface RequestedAccountRef
+ */
+export interface RequestedAccountRef {
+    /**
+     * Display name of the account for the user
+     * @type {string}
+     * @memberof RequestedAccountRef
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {DtoType}
+     * @memberof RequestedAccountRef
+     */
+    'type'?: DtoType;
+    /**
+     * The uuid for the account
+     * @type {string}
+     * @memberof RequestedAccountRef
+     */
+    'accountUuid'?: string | null;
+    /**
+     * The native identity for the account
+     * @type {string}
+     * @memberof RequestedAccountRef
+     */
+    'accountId'?: string | null;
+    /**
+     * Display name of the source for the account
+     * @type {string}
+     * @memberof RequestedAccountRef
+     */
+    'sourceName'?: string;
+}
+
+
+/**
+ * 
+ * @export
  * @interface RequestedItemDetails
  */
 export interface RequestedItemDetails {
@@ -17322,6 +17373,12 @@ export interface RequestedItemStatus {
      * @memberof RequestedItemStatus
      */
     'clientMetadata'?: { [key: string]: string; } | null;
+    /**
+     * The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources.
+     * @type {Array<RequestedAccountRef>}
+     * @memberof RequestedItemStatus
+     */
+    'requestedAccounts'?: Array<RequestedAccountRef> | null;
 }
 
 export const RequestedItemStatusTypeV3 = {
