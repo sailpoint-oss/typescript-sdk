@@ -1,4 +1,4 @@
-import { AccountsApi, Configuration, axiosRetry, Paginator, SearchApi, TransformsApi, TransformsApiCreateTransformRequest, Search, IdentityDocument, TransformsBetaApi, GovernanceGroupsBetaApi, GovernanceGroupsV2Api} from "sailpoint-api-client"
+import { AccountsApi, Configuration, axiosRetry, Paginator, SearchApi, TransformsApi, TransformsApiCreateTransformRequest, Search, IdentityDocument, TransformsBetaApi, GovernanceGroupsBetaApi, EntitlementsV2025Api} from "sailpoint-api-client"
 
 const createTransform = async () => {
 
@@ -20,26 +20,26 @@ const createTransform = async () => {
     console.log(val.data)
 }
 
-const search = async () => {
-    let apiConfig = new Configuration()
-    let api = new SearchApi(apiConfig)
-    let search: Search = {
-        indices: [
-            "identities"
-        ],
-        query: {
-            query: "*"
-        },
-        sort: ["-name"]
-	}
-    const val = await Paginator.paginateSearchApi(api, search, 100, 1000)
+// const search = async () => {
+//     let apiConfig = new Configuration()
+//     let api = new SearchApi(apiConfig)
+//     let search: Search = {
+//         indices: [
+//             "identities"
+//         ],
+//         query: {
+//             query: "*"
+//         },
+//         sort: ["-name"]
+// 	}
+//     const val = await Paginator.paginateSearchApi(api, search, 100, 1000)
 
-    for (const result of val.data) {
-        const castedResult: IdentityDocument = result
-        console.log(castedResult.name)
-    }
+//     for (const result of val.data) {
+//         const castedResult: IdentityDocument = result
+//         console.log(castedResult.name)
+//     }
     
-}
+// }
 
 const getPaginatedAccounts = async () => {
 
@@ -90,18 +90,16 @@ const listTransforms = async () => {
     console.log(val.data)
 }
 
-const listGovernanceGroups = async () => {
+const listEntitlements = async () => {
 
     let apiConfig = new Configuration()
-    let api = new GovernanceGroupsV2Api(apiConfig)
+    apiConfig.experimental = true
+    let api = new EntitlementsV2025Api(apiConfig)
    
-    const val = await api.listWorkgroups()
+    const val = await api.listEntitlements()
     console.log(val.data)
 }
 
 
 
-
-
-
-getPaginatedAccounts()
+listEntitlements()
