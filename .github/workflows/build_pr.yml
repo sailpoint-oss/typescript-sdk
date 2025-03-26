@@ -57,7 +57,7 @@ jobs:
 
       - name: Build V2025 SDK
         id: buildV2025
-        if: steps.buildBeta.outcome == 'success'
+        if: steps.buildV2024.outcome == 'success'
         run: |
           node sdk-resources/prescript.js api-specs/idn/v2025/paths
           java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v2025.yaml -g typescript-axios -o sdk-output/v2025 --global-property skipFormModel=false --config sdk-resources/v2025-config.yaml --api-name-suffix V2025Api --model-name-suffix V2025
