@@ -5217,7 +5217,7 @@ export interface CampaignFilterDetails {
     'owner': string | null;
     /**
      * Mode/type of filter, either the INCLUSION or EXCLUSION type. The INCLUSION type includes the data in generated campaigns  as per specified in the criteria, whereas the EXCLUSION type excludes the data in generated campaigns as per specified in criteria.
-     * @type {object}
+     * @type {string}
      * @memberof CampaignFilterDetails
      */
     'mode': CampaignFilterDetailsModeV3;
@@ -5256,10 +5256,10 @@ export interface CampaignFilterDetailsCriteriaListInner {
     'type': CriteriaType;
     /**
      * 
-     * @type {Operation & object}
+     * @type {Operation}
      * @memberof CampaignFilterDetailsCriteriaListInner
      */
-    'operation': Operation & object;
+    'operation'?: Operation | null;
     /**
      * Specified key from the type of criteria.
      * @type {string}
@@ -5272,6 +5272,42 @@ export interface CampaignFilterDetailsCriteriaListInner {
      * @memberof CampaignFilterDetailsCriteriaListInner
      */
     'value': string | null;
+    /**
+     * If true, the filter will negate the result of the criteria.
+     * @type {boolean}
+     * @memberof CampaignFilterDetailsCriteriaListInner
+     */
+    'negateResult'?: boolean;
+    /**
+     * If true, the filter will short circuit the evaluation of the criteria.
+     * @type {boolean}
+     * @memberof CampaignFilterDetailsCriteriaListInner
+     */
+    'shortCircuit'?: boolean;
+    /**
+     * If true, the filter will record child matches for the criteria.
+     * @type {boolean}
+     * @memberof CampaignFilterDetailsCriteriaListInner
+     */
+    'recordChildMatches'?: boolean;
+    /**
+     * The unique ID of the criteria.
+     * @type {string}
+     * @memberof CampaignFilterDetailsCriteriaListInner
+     */
+    'id'?: string | null;
+    /**
+     * If this value is true, then matched items will not only be excluded from the campaign, they will also not have archived certification items created.  Such items will not appear in the exclusion report. 
+     * @type {boolean}
+     * @memberof CampaignFilterDetailsCriteriaListInner
+     */
+    'suppressMatchedItems'?: boolean;
+    /**
+     * List of child criteria.
+     * @type {Array<object>}
+     * @memberof CampaignFilterDetailsCriteriaListInner
+     */
+    'children'?: Array<object>;
 }
 
 
@@ -7104,7 +7140,8 @@ export const CriteriaType = {
     Source: 'SOURCE',
     Account: 'ACCOUNT',
     AggregatedEntitlement: 'AGGREGATED_ENTITLEMENT',
-    InvalidCertifiableEntity: 'INVALID_CERTIFIABLE_ENTITY'
+    InvalidCertifiableEntity: 'INVALID_CERTIFIABLE_ENTITY',
+    InvalidCertifiableBundle: 'INVALID_CERTIFIABLE_BUNDLE'
 } as const;
 
 export type CriteriaType = typeof CriteriaType[keyof typeof CriteriaType];
@@ -8695,31 +8732,31 @@ export interface EventAttributes {
      * @type {string}
      * @memberof EventAttributes
      */
-    'id': string;
+    'id': string | null;
     /**
      * JSON path expression that will limit which events the trigger will fire on
      * @type {string}
      * @memberof EventAttributes
      */
-    'filter.$'?: string;
+    'filter.$'?: string | null;
     /**
      * Description of the event trigger
      * @type {string}
      * @memberof EventAttributes
      */
-    'description'?: string;
+    'description'?: string | null;
     /**
      * The attribute to filter on
      * @type {string}
      * @memberof EventAttributes
      */
-    'attributeToFilter'?: string;
+    'attributeToFilter'?: string | null;
     /**
      * Form definition\'s unique identifier.
      * @type {string}
      * @memberof EventAttributes
      */
-    'formDefinitionId'?: string;
+    'formDefinitionId'?: string | null;
 }
 /**
  * Event
@@ -9235,25 +9272,25 @@ export interface ExternalAttributes {
      * @type {string}
      * @memberof ExternalAttributes
      */
-    'name'?: string;
+    'name'?: string | null;
     /**
-     * Additonal context about the external trigger
+     * Additional context about the external trigger
      * @type {string}
      * @memberof ExternalAttributes
      */
-    'description'?: string;
+    'description'?: string | null;
     /**
      * OAuth Client ID to authenticate with this trigger
      * @type {string}
      * @memberof ExternalAttributes
      */
-    'clientId'?: string;
+    'clientId'?: string | null;
     /**
      * URL to invoke this workflow
      * @type {string}
      * @memberof ExternalAttributes
      */
-    'url'?: string;
+    'url'?: string | null;
 }
 /**
  * 
@@ -19630,41 +19667,41 @@ export type ScheduleType = typeof ScheduleType[keyof typeof ScheduleType];
  */
 export interface ScheduledAttributes {
     /**
-     * A valid CRON expression
-     * @type {string}
-     * @memberof ScheduledAttributes
-     */
-    'cronString'?: string;
-    /**
      * Frequency of execution
      * @type {string}
      * @memberof ScheduledAttributes
      */
-    'frequency': ScheduledAttributesFrequencyV3;
+    'frequency': ScheduledAttributesFrequencyV3 | null;
     /**
      * Time zone identifier
      * @type {string}
      * @memberof ScheduledAttributes
      */
-    'timeZone'?: string;
+    'timeZone'?: string | null;
+    /**
+     * A valid CRON expression
+     * @type {string}
+     * @memberof ScheduledAttributes
+     */
+    'cronString'?: string | null;
     /**
      * Scheduled days of the week for execution
      * @type {Array<string>}
      * @memberof ScheduledAttributes
      */
-    'weeklyDays'?: Array<string>;
+    'weeklyDays'?: Array<string> | null;
     /**
      * Scheduled execution times
      * @type {Array<string>}
      * @memberof ScheduledAttributes
      */
-    'weeklyTimes'?: Array<string>;
+    'weeklyTimes'?: Array<string> | null;
     /**
      * Scheduled execution times
      * @type {Array<string>}
      * @memberof ScheduledAttributes
      */
-    'yearlyTimes'?: Array<string>;
+    'yearlyTimes'?: Array<string> | null;
 }
 
 export const ScheduledAttributesFrequencyV3 = {
@@ -19919,7 +19956,8 @@ export const SchemaFeaturesV3 = {
     ArmSecurityExtract: 'ARM_SECURITY_EXTRACT',
     ArmUtilizationExtract: 'ARM_UTILIZATION_EXTRACT',
     ArmChangelogExtract: 'ARM_CHANGELOG_EXTRACT',
-    UsesUuid: 'USES_UUID'
+    UsesUuid: 'USES_UUID',
+    ApplicationDiscovery: 'APPLICATION_DISCOVERY'
 } as const;
 
 export type SchemaFeaturesV3 = typeof SchemaFeaturesV3[keyof typeof SchemaFeaturesV3];
@@ -21644,7 +21682,8 @@ export const SourceFeaturesV3 = {
     ArmSecurityExtract: 'ARM_SECURITY_EXTRACT',
     ArmUtilizationExtract: 'ARM_UTILIZATION_EXTRACT',
     ArmChangelogExtract: 'ARM_CHANGELOG_EXTRACT',
-    UsesUuid: 'USES_UUID'
+    UsesUuid: 'USES_UUID',
+    ApplicationDiscovery: 'APPLICATION_DISCOVERY'
 } as const;
 
 export type SourceFeaturesV3 = typeof SourceFeaturesV3[keyof typeof SourceFeaturesV3];
@@ -24722,85 +24761,85 @@ export interface WorkflowTriggerAttributes {
      * @type {string}
      * @memberof WorkflowTriggerAttributes
      */
-    'id': string;
+    'id': string | null;
     /**
      * JSON path expression that will limit which events the trigger will fire on
      * @type {string}
      * @memberof WorkflowTriggerAttributes
      */
-    'filter.$'?: string;
+    'filter.$'?: string | null;
     /**
-     * Additonal context about the external trigger
+     * Additional context about the external trigger
      * @type {string}
      * @memberof WorkflowTriggerAttributes
      */
-    'description'?: string;
+    'description'?: string | null;
     /**
      * The attribute to filter on
      * @type {string}
      * @memberof WorkflowTriggerAttributes
      */
-    'attributeToFilter'?: string;
+    'attributeToFilter'?: string | null;
     /**
      * Form definition\'s unique identifier.
      * @type {string}
      * @memberof WorkflowTriggerAttributes
      */
-    'formDefinitionId'?: string;
+    'formDefinitionId'?: string | null;
     /**
      * A unique name for the external trigger
      * @type {string}
      * @memberof WorkflowTriggerAttributes
      */
-    'name'?: string;
+    'name'?: string | null;
     /**
      * OAuth Client ID to authenticate with this trigger
      * @type {string}
      * @memberof WorkflowTriggerAttributes
      */
-    'clientId'?: string;
+    'clientId'?: string | null;
     /**
      * URL to invoke this workflow
      * @type {string}
      * @memberof WorkflowTriggerAttributes
      */
-    'url'?: string;
-    /**
-     * A valid CRON expression
-     * @type {string}
-     * @memberof WorkflowTriggerAttributes
-     */
-    'cronString'?: string;
+    'url'?: string | null;
     /**
      * Frequency of execution
      * @type {string}
      * @memberof WorkflowTriggerAttributes
      */
-    'frequency': WorkflowTriggerAttributesFrequencyV3;
+    'frequency': WorkflowTriggerAttributesFrequencyV3 | null;
     /**
      * Time zone identifier
      * @type {string}
      * @memberof WorkflowTriggerAttributes
      */
-    'timeZone'?: string;
+    'timeZone'?: string | null;
+    /**
+     * A valid CRON expression
+     * @type {string}
+     * @memberof WorkflowTriggerAttributes
+     */
+    'cronString'?: string | null;
     /**
      * Scheduled days of the week for execution
      * @type {Array<string>}
      * @memberof WorkflowTriggerAttributes
      */
-    'weeklyDays'?: Array<string>;
+    'weeklyDays'?: Array<string> | null;
     /**
      * Scheduled execution times
      * @type {Array<string>}
      * @memberof WorkflowTriggerAttributes
      */
-    'weeklyTimes'?: Array<string>;
+    'weeklyTimes'?: Array<string> | null;
     /**
      * Scheduled execution times
      * @type {Array<string>}
      * @memberof WorkflowTriggerAttributes
      */
-    'yearlyTimes'?: Array<string>;
+    'yearlyTimes'?: Array<string> | null;
 }
 
 export const WorkflowTriggerAttributesFrequencyV3 = {
