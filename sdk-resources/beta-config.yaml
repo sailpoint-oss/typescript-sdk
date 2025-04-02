@@ -5,7 +5,7 @@ files:
     destinationFilename: package.json
 npmName: sailpoint-sdk
 npmRepository: sailpoint.com
-npmVersion: 1.4.16
+npmVersion: 1.5.0
 useSingleRequestParameter: true
 apiVersion: beta
 enumNameSuffix: Beta
