@@ -9836,6 +9836,188 @@ export const GetActiveCampaigns200ResponseInnerMandatoryCommentRequirementV3 = {
 export type GetActiveCampaigns200ResponseInnerMandatoryCommentRequirementV3 = typeof GetActiveCampaigns200ResponseInnerMandatoryCommentRequirementV3[keyof typeof GetActiveCampaigns200ResponseInnerMandatoryCommentRequirementV3];
 
 /**
+ * 
+ * @export
+ * @interface GetCampaign200Response
+ */
+export interface GetCampaign200Response {
+    /**
+     * Id of the campaign
+     * @type {string}
+     * @memberof GetCampaign200Response
+     */
+    'id'?: string;
+    /**
+     * The campaign name. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details. 
+     * @type {string}
+     * @memberof GetCampaign200Response
+     */
+    'name': string;
+    /**
+     * The campaign description. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details. 
+     * @type {string}
+     * @memberof GetCampaign200Response
+     */
+    'description': string | null;
+    /**
+     * The campaign\'s completion deadline.  This date must be in the future in order to activate the campaign.  If you try to activate a campaign with a deadline of today or in the past, you will receive a 400 error response.
+     * @type {string}
+     * @memberof GetCampaign200Response
+     */
+    'deadline'?: string;
+    /**
+     * The type of campaign. Could be extended in the future.
+     * @type {string}
+     * @memberof GetCampaign200Response
+     */
+    'type': GetCampaign200ResponseTypeV3;
+    /**
+     * Enables email notification for this campaign
+     * @type {boolean}
+     * @memberof GetCampaign200Response
+     */
+    'emailNotificationEnabled'?: boolean;
+    /**
+     * Allows auto revoke for this campaign
+     * @type {boolean}
+     * @memberof GetCampaign200Response
+     */
+    'autoRevokeAllowed'?: boolean;
+    /**
+     * Enables IAI for this campaign. Accepts true even if the IAI product feature is off. If IAI is turned off then campaigns generated from this template will indicate false. The real value will then be returned if IAI is ever enabled for the org in the future.
+     * @type {boolean}
+     * @memberof GetCampaign200Response
+     */
+    'recommendationsEnabled'?: boolean;
+    /**
+     * The campaign\'s current status.
+     * @type {string}
+     * @memberof GetCampaign200Response
+     */
+    'status'?: GetCampaign200ResponseStatusV3;
+    /**
+     * The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
+     * @type {string}
+     * @memberof GetCampaign200Response
+     */
+    'correlatedStatus'?: GetCampaign200ResponseCorrelatedStatusV3;
+    /**
+     * Created time of the campaign
+     * @type {string}
+     * @memberof GetCampaign200Response
+     */
+    'created'?: string;
+    /**
+     * The total number of certifications in this campaign.
+     * @type {number}
+     * @memberof GetCampaign200Response
+     */
+    'totalCertifications'?: number;
+    /**
+     * The number of completed certifications in this campaign.
+     * @type {number}
+     * @memberof GetCampaign200Response
+     */
+    'completedCertifications'?: number;
+    /**
+     * A list of errors and warnings that have accumulated.
+     * @type {Array<CampaignAlert>}
+     * @memberof GetCampaign200Response
+     */
+    'alerts'?: Array<CampaignAlert>;
+    /**
+     * Modified time of the campaign
+     * @type {string}
+     * @memberof GetCampaign200Response
+     */
+    'modified'?: string;
+    /**
+     * 
+     * @type {CampaignAllOfFilter}
+     * @memberof GetCampaign200Response
+     */
+    'filter'?: CampaignAllOfFilter;
+    /**
+     * Determines if comments on sunset date changes are required.
+     * @type {boolean}
+     * @memberof GetCampaign200Response
+     */
+    'sunsetCommentsRequired'?: boolean;
+    /**
+     * 
+     * @type {CampaignAllOfSourceOwnerCampaignInfo}
+     * @memberof GetCampaign200Response
+     */
+    'sourceOwnerCampaignInfo'?: CampaignAllOfSourceOwnerCampaignInfo;
+    /**
+     * 
+     * @type {CampaignAllOfSearchCampaignInfo}
+     * @memberof GetCampaign200Response
+     */
+    'searchCampaignInfo'?: CampaignAllOfSearchCampaignInfo;
+    /**
+     * 
+     * @type {CampaignAllOfRoleCompositionCampaignInfo}
+     * @memberof GetCampaign200Response
+     */
+    'roleCompositionCampaignInfo'?: CampaignAllOfRoleCompositionCampaignInfo;
+    /**
+     * 
+     * @type {CampaignAllOfMachineAccountCampaignInfo}
+     * @memberof GetCampaign200Response
+     */
+    'machineAccountCampaignInfo'?: CampaignAllOfMachineAccountCampaignInfo;
+    /**
+     * A list of sources in the campaign that contain \\\"orphan entitlements\\\" (entitlements without a corresponding Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may be unknown orphan entitlements in the campaign (the campaign was created before this feature was implemented).
+     * @type {Array<CampaignAllOfSourcesWithOrphanEntitlements>}
+     * @memberof GetCampaign200Response
+     */
+    'sourcesWithOrphanEntitlements'?: Array<CampaignAllOfSourcesWithOrphanEntitlements>;
+    /**
+     * Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions.
+     * @type {string}
+     * @memberof GetCampaign200Response
+     */
+    'mandatoryCommentRequirement'?: GetCampaign200ResponseMandatoryCommentRequirementV3;
+}
+
+export const GetCampaign200ResponseTypeV3 = {
+    Manager: 'MANAGER',
+    SourceOwner: 'SOURCE_OWNER',
+    Search: 'SEARCH',
+    RoleComposition: 'ROLE_COMPOSITION',
+    MachineAccount: 'MACHINE_ACCOUNT'
+} as const;
+
+export type GetCampaign200ResponseTypeV3 = typeof GetCampaign200ResponseTypeV3[keyof typeof GetCampaign200ResponseTypeV3];
+export const GetCampaign200ResponseStatusV3 = {
+    Pending: 'PENDING',
+    Staged: 'STAGED',
+    Canceling: 'CANCELING',
+    Activating: 'ACTIVATING',
+    Active: 'ACTIVE',
+    Completing: 'COMPLETING',
+    Completed: 'COMPLETED',
+    Error: 'ERROR',
+    Archived: 'ARCHIVED'
+} as const;
+
+export type GetCampaign200ResponseStatusV3 = typeof GetCampaign200ResponseStatusV3[keyof typeof GetCampaign200ResponseStatusV3];
+export const GetCampaign200ResponseCorrelatedStatusV3 = {
+    Correlated: 'CORRELATED',
+    Uncorrelated: 'UNCORRELATED'
+} as const;
+
+export type GetCampaign200ResponseCorrelatedStatusV3 = typeof GetCampaign200ResponseCorrelatedStatusV3[keyof typeof GetCampaign200ResponseCorrelatedStatusV3];
+export const GetCampaign200ResponseMandatoryCommentRequirementV3 = {
+    AllDecisions: 'ALL_DECISIONS',
+    RevokeOnlyDecisions: 'REVOKE_ONLY_DECISIONS',
+    NoDecisions: 'NO_DECISIONS'
+} as const;
+
+export type GetCampaign200ResponseMandatoryCommentRequirementV3 = typeof GetCampaign200ResponseMandatoryCommentRequirementV3[keyof typeof GetCampaign200ResponseMandatoryCommentRequirementV3];
+
+/**
  * @type GetDiscoveredApplications200ResponseInner
  * @export
  */
@@ -31793,7 +31975,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCampaign(id: string, detail?: GetCampaignDetailV3, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetActiveCampaigns200ResponseInner>> {
+        async getCampaign(id: string, detail?: GetCampaignDetailV3, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetCampaign200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaign(id, detail, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.getCampaign']?.[localVarOperationServerIndex]?.url;
@@ -32077,7 +32259,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCampaign(requestParameters: CertificationCampaignsApiGetCampaignRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetActiveCampaigns200ResponseInner> {
+        getCampaign(requestParameters: CertificationCampaignsApiGetCampaignRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetCampaign200Response> {
             return localVarFp.getCampaign(requestParameters.id, requestParameters.detail, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
