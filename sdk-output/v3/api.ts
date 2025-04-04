@@ -1228,6 +1228,18 @@ export interface AccessRequestItem {
      * @memberof AccessRequestItem
      */
     'removeDate'?: string;
+    /**
+     * The assignmentId for a specific role assignment on the identity. This id is used to revoke that specific roleAssignment on that identity. * For use with REVOKE_ACCESS requests for roles for identities with multiple accounts on a single source. 
+     * @type {string}
+     * @memberof AccessRequestItem
+     */
+    'assignmentId'?: string | null;
+    /**
+     * The \'distinguishedName\' field for an account on the identity, also called nativeIdentity. This nativeIdentity is used to revoke a specific attributeAssignment on the identity. * For use with REVOKE_ACCESS requests for entitlements for identities with multiple accounts on a single source. 
+     * @type {string}
+     * @memberof AccessRequestItem
+     */
+    'nativeIdentity'?: string | null;
 }
 
 export const AccessRequestItemTypeV3 = {
