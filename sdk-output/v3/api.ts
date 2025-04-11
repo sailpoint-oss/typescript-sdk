@@ -1146,6 +1146,12 @@ export interface AccessRequest {
      * @memberof AccessRequest
      */
     'clientMetadata'?: { [key: string]: string; };
+    /**
+     * Additional submit data structure with requestedFor containing requestedItems allowing distinction for each request item and Identity. * Can only be used when \'requestedFor\' and \'requestedItems\' are not separately provided * Adds ability to specify which account the user wants the access on, in case they have multiple accounts on a source * Allows the ability to request items with different remove dates * Also allows different combinations of request items and identities in the same request 
+     * @type {Array<RequestedForDtoRef>}
+     * @memberof AccessRequest
+     */
+    'requestedForWithRequestedItems'?: Array<RequestedForDtoRef> | null;
 }
 
 
@@ -2555,6 +2561,25 @@ export interface AccountAttributesCreateAttributes {
      * @memberof AccountAttributesCreateAttributes
      */
     'sourceId': string;
+}
+/**
+ * 
+ * @export
+ * @interface AccountItemRef
+ */
+export interface AccountItemRef {
+    /**
+     * The uuid for the account, available under the \'objectguid\' attribute
+     * @type {string}
+     * @memberof AccountItemRef
+     */
+    'accountUuid'?: string | null;
+    /**
+     * The \'distinguishedName\' attribute for the account
+     * @type {string}
+     * @memberof AccountItemRef
+     */
+    'nativeIdentity'?: string;
 }
 /**
  * 
@@ -11770,7 +11795,7 @@ export interface IdpDetails {
      * @type {string}
      * @memberof IdpDetails
      */
-    'authContext'?: string;
+    'authnContext'?: string;
     /**
      * The IDP logout URL. Used with IDP configurations.
      * @type {string}
@@ -11782,7 +11807,7 @@ export interface IdpDetails {
      * @type {boolean}
      * @memberof IdpDetails
      */
-    'includeAuthContext'?: boolean;
+    'includeAuthnContext'?: boolean;
     /**
      * The name id format to use. Used with IDP configurations.
      * @type {string}
@@ -11818,7 +11843,7 @@ export interface IdpDetails {
      * @type {string}
      * @memberof IdpDetails
      */
-    'mappingAttribute'?: string;
+    'mappingAttribute': string;
     /**
      * The expiration date extracted from the certificate.
      * @type {string}
@@ -11834,7 +11859,8 @@ export interface IdpDetails {
 }
 
 export const IdpDetailsRoleV3 = {
-    SamlIdp: 'SAML_IDP'
+    SamlIdp: 'SAML_IDP',
+    SamlSp: 'SAML_SP'
 } as const;
 
 export type IdpDetailsRoleV3 = typeof IdpDetailsRoleV3[keyof typeof IdpDetailsRoleV3];
@@ -16149,7 +16175,7 @@ export interface ProvisioningPolicy {
      * @type {string}
      * @memberof ProvisioningPolicy
      */
-    'name': string;
+    'name': string | null;
     /**
      * the description of the provisioning policy
      * @type {string}
@@ -16182,7 +16208,7 @@ export interface ProvisioningPolicyDto {
      * @type {string}
      * @memberof ProvisioningPolicyDto
      */
-    'name': string;
+    'name': string | null;
     /**
      * the description of the provisioning policy
      * @type {string}
@@ -17423,6 +17449,25 @@ export interface RequestedAccountRef {
 /**
  * 
  * @export
+ * @interface RequestedForDtoRef
+ */
+export interface RequestedForDtoRef {
+    /**
+     * The identity id for which the access is requested
+     * @type {string}
+     * @memberof RequestedForDtoRef
+     */
+    'identityId': string;
+    /**
+     * the details for the access items that are requested for the identity
+     * @type {Array<RequestedItemDtoRef>}
+     * @memberof RequestedForDtoRef
+     */
+    'requestedItems': Array<RequestedItemDtoRef>;
+}
+/**
+ * 
+ * @export
  * @interface RequestedItemDetails
  */
 export interface RequestedItemDetails {
@@ -17447,6 +17492,70 @@ export const RequestedItemDetailsTypeV3 = {
 } as const;
 
 export type RequestedItemDetailsTypeV3 = typeof RequestedItemDetailsTypeV3[keyof typeof RequestedItemDetailsTypeV3];
+
+/**
+ * 
+ * @export
+ * @interface RequestedItemDtoRef
+ */
+export interface RequestedItemDtoRef {
+    /**
+     * The type of the item being requested.
+     * @type {string}
+     * @memberof RequestedItemDtoRef
+     */
+    'type': RequestedItemDtoRefTypeV3;
+    /**
+     * ID of Role, Access Profile or Entitlement being requested.
+     * @type {string}
+     * @memberof RequestedItemDtoRef
+     */
+    'id': string;
+    /**
+     * Comment provided by requester. * Comment is required when the request is of type Revoke Access. 
+     * @type {string}
+     * @memberof RequestedItemDtoRef
+     */
+    'comment'?: string;
+    /**
+     * Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on associated APIs such as /account-activities and /access-request-status.
+     * @type {{ [key: string]: string; }}
+     * @memberof RequestedItemDtoRef
+     */
+    'clientMetadata'?: { [key: string]: string; };
+    /**
+     * The date the role or access profile or entitlement is no longer assigned to the specified identity. Also known as the expiration date. * Specify a date in the future. * The current SLA for the deprovisioning is 24 hours. * This date can be modified to either extend or decrease the duration of access item assignments for the specified identity. You can change the expiration date for requests for yourself or direct reports, but you cannot remove an expiration date on an already approved item. If the access request has not been approved, you can cancel it and submit a new one without the expiration. If it has already been approved, then you have to revoke the access and then re-request without the expiration. 
+     * @type {string}
+     * @memberof RequestedItemDtoRef
+     */
+    'removeDate'?: string;
+    /**
+     * The assignmentId for a specific role assignment on the identity. This id is used to revoke that specific roleAssignment on that identity. * For use with REVOKE_ACCESS requests for roles for identities with multiple accounts on a single source. 
+     * @type {string}
+     * @memberof RequestedItemDtoRef
+     */
+    'assignmentId'?: string | null;
+    /**
+     * The \'distinguishedName\' field for an account on the identity, also called nativeIdentity. This nativeIdentity is used to revoke a specific attributeAssignment on the identity. * For use with REVOKE_ACCESS requests for entitlements for identities with multiple accounts on a single source. 
+     * @type {string}
+     * @memberof RequestedItemDtoRef
+     */
+    'nativeIdentity'?: string | null;
+    /**
+     * The accounts where the access item will be provisioned to * Includes selections performed by the user in the event of multiple accounts existing on the same source * Also includes details for sources where user only has one account 
+     * @type {Array<SourceItemRef>}
+     * @memberof RequestedItemDtoRef
+     */
+    'accountSelection'?: Array<SourceItemRef> | null;
+}
+
+export const RequestedItemDtoRefTypeV3 = {
+    AccessProfile: 'ACCESS_PROFILE',
+    Role: 'ROLE',
+    Entitlement: 'ENTITLEMENT'
+} as const;
+
+export type RequestedItemDtoRefTypeV3 = typeof RequestedItemDtoRefTypeV3[keyof typeof RequestedItemDtoRefTypeV3];
 
 /**
  * 
@@ -20908,10 +21017,121 @@ export interface ServiceProviderConfiguration {
     'federationProtocolDetails'?: Array<ServiceProviderConfigurationFederationProtocolDetailsInner>;
 }
 /**
- * @type ServiceProviderConfigurationFederationProtocolDetailsInner
+ * 
  * @export
+ * @interface ServiceProviderConfigurationFederationProtocolDetailsInner
  */
-export type ServiceProviderConfigurationFederationProtocolDetailsInner = IdpDetails | SpDetails;
+export interface ServiceProviderConfigurationFederationProtocolDetailsInner {
+    /**
+     * Federation protocol role
+     * @type {string}
+     * @memberof ServiceProviderConfigurationFederationProtocolDetailsInner
+     */
+    'role'?: ServiceProviderConfigurationFederationProtocolDetailsInnerRoleV3;
+    /**
+     * An entity ID is a globally unique name for a SAML entity, either an Identity Provider (IDP) or a Service Provider (SP).
+     * @type {string}
+     * @memberof ServiceProviderConfigurationFederationProtocolDetailsInner
+     */
+    'entityId'?: string;
+    /**
+     * Defines the binding used for the SAML flow. Used with IDP configurations.
+     * @type {string}
+     * @memberof ServiceProviderConfigurationFederationProtocolDetailsInner
+     */
+    'binding'?: string;
+    /**
+     * Specifies the SAML authentication method to use. Used with IDP configurations.
+     * @type {string}
+     * @memberof ServiceProviderConfigurationFederationProtocolDetailsInner
+     */
+    'authnContext'?: string;
+    /**
+     * The IDP logout URL. Used with IDP configurations.
+     * @type {string}
+     * @memberof ServiceProviderConfigurationFederationProtocolDetailsInner
+     */
+    'logoutUrl'?: string;
+    /**
+     * Determines if the configured AuthnContext should be used or the default. Used with IDP configurations.
+     * @type {boolean}
+     * @memberof ServiceProviderConfigurationFederationProtocolDetailsInner
+     */
+    'includeAuthnContext'?: boolean;
+    /**
+     * The name id format to use. Used with IDP configurations.
+     * @type {string}
+     * @memberof ServiceProviderConfigurationFederationProtocolDetailsInner
+     */
+    'nameId'?: string;
+    /**
+     * 
+     * @type {JITConfiguration}
+     * @memberof ServiceProviderConfigurationFederationProtocolDetailsInner
+     */
+    'jitConfiguration'?: JITConfiguration;
+    /**
+     * The Base64-encoded certificate used by the IDP. Used with IDP configurations.
+     * @type {string}
+     * @memberof ServiceProviderConfigurationFederationProtocolDetailsInner
+     */
+    'cert'?: string;
+    /**
+     * The IDP POST URL, used with IDP HTTP-POST bindings for IDP-initiated logins. Used with IDP configurations.
+     * @type {string}
+     * @memberof ServiceProviderConfigurationFederationProtocolDetailsInner
+     */
+    'loginUrlPost'?: string;
+    /**
+     * The IDP Redirect URL. Used with IDP configurations.
+     * @type {string}
+     * @memberof ServiceProviderConfigurationFederationProtocolDetailsInner
+     */
+    'loginUrlRedirect'?: string;
+    /**
+     * Return the saml Id for the given user, based on the IDN as SP settings of the org. Used with IDP configurations.
+     * @type {string}
+     * @memberof ServiceProviderConfigurationFederationProtocolDetailsInner
+     */
+    'mappingAttribute': string;
+    /**
+     * The expiration date extracted from the certificate.
+     * @type {string}
+     * @memberof ServiceProviderConfigurationFederationProtocolDetailsInner
+     */
+    'certificateExpirationDate'?: string;
+    /**
+     * The name extracted from the certificate.
+     * @type {string}
+     * @memberof ServiceProviderConfigurationFederationProtocolDetailsInner
+     */
+    'certificateName'?: string;
+    /**
+     * Unique alias used to identify the selected local service provider based on used URL. Used with SP configurations.
+     * @type {string}
+     * @memberof ServiceProviderConfigurationFederationProtocolDetailsInner
+     */
+    'alias'?: string;
+    /**
+     * The allowed callback URL where users will be redirected to after authentication. Used with SP configurations.
+     * @type {string}
+     * @memberof ServiceProviderConfigurationFederationProtocolDetailsInner
+     */
+    'callbackUrl': string;
+    /**
+     * The legacy ACS URL used for SAML authentication. Used with SP configurations.
+     * @type {string}
+     * @memberof ServiceProviderConfigurationFederationProtocolDetailsInner
+     */
+    'legacyAcsUrl'?: string;
+}
+
+export const ServiceProviderConfigurationFederationProtocolDetailsInnerRoleV3 = {
+    SamlIdp: 'SAML_IDP',
+    SamlSp: 'SAML_SP'
+} as const;
+
+export type ServiceProviderConfigurationFederationProtocolDetailsInnerRoleV3 = typeof ServiceProviderConfigurationFederationProtocolDetailsInnerRoleV3[keyof typeof ServiceProviderConfigurationFederationProtocolDetailsInnerRoleV3];
 
 /**
  * 
@@ -22190,6 +22410,25 @@ export const SourceHealthDtoStatusV3 = {
 export type SourceHealthDtoStatusV3 = typeof SourceHealthDtoStatusV3[keyof typeof SourceHealthDtoStatusV3];
 
 /**
+ * 
+ * @export
+ * @interface SourceItemRef
+ */
+export interface SourceItemRef {
+    /**
+     * The id for the source on which account selections are made
+     * @type {string}
+     * @memberof SourceItemRef
+     */
+    'sourceId'?: string | null;
+    /**
+     * A list of account selections on the source. Currently, only one selection per source is supported.
+     * @type {Array<AccountItemRef>}
+     * @memberof SourceItemRef
+     */
+    'accounts'?: Array<AccountItemRef> | null;
+}
+/**
  * Reference to management workgroup for the source.
  * @export
  * @interface SourceManagementWorkgroup
@@ -22462,10 +22701,17 @@ export interface SpDetails {
      * @type {string}
      * @memberof SpDetails
      */
-    'callbackUrl'?: string;
+    'callbackUrl': string;
+    /**
+     * The legacy ACS URL used for SAML authentication. Used with SP configurations.
+     * @type {string}
+     * @memberof SpDetails
+     */
+    'legacyAcsUrl'?: string;
 }
 
 export const SpDetailsRoleV3 = {
+    SamlIdp: 'SAML_IDP',
     SamlSp: 'SAML_SP'
 } as const;
 
@@ -26748,7 +26994,7 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.  Access requests are processed asynchronously by ISC. A successful response from this endpoint means that the request has been submitted to ISC and is queued for processing. Because this endpoint is asynchronous, it doesn\'t return an error if you submit duplicate access requests in quick succession or submit an access request for access that is already in progress, approved, or rejected.  It\'s best practice to check for any existing access requests that reference the same access items before submitting a new access request. This can be accomplished by using the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [Pending Access Request Approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) APIs. You can also use the [Search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items an identity has before submitting an access request to ensure that you aren\'t requesting access that is already granted. If you use this API to request access that an identity already has, the API will ignore the request.  These ignored requests do not display when you use the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) API.  There are two types of access request:  __GRANT_ACCESS__ * Can be requested for multiple identities in a single request. * Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.   * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others. * Roles, access profiles and entitlements can be requested. * While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request.   __REVOKE_ACCESS__ * Can only be requested for a single identity at a time. * You cannot use an access request to revoke access from an identity if that access has been granted by role membership or by birthright provisioning.  * Does not support self request. Only manager can request to revoke access for their directly managed employees. * If a `removeDate` is specified, then the access will be removed on that date and time only for roles, access profiles and entitlements. * Roles, access profiles, and entitlements can be requested for revocation. * Revoke requests for entitlements are limited to 1 entitlement per access request currently. * You can specify a `removeDate` if the access doesn\'t already have a sunset date. The `removeDate` must be a future date, in the UTC timezone.  * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone. 
+         * Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.  Access requests are processed asynchronously by ISC. A successful response from this endpoint means that the request has been submitted to ISC and is queued for processing. Because this endpoint is asynchronous, it doesn\'t return an error if you submit duplicate access requests in quick succession or submit an access request for access that is already in progress, approved, or rejected.  It\'s best practice to check for any existing access requests that reference the same access items before submitting a new access request. This can be accomplished by using the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [Pending Access Request Approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) APIs. You can also use the [Search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items an identity has before submitting an access request to ensure that you aren\'t requesting access that is already granted. If you use this API to request access that an identity already has, the API will ignore the request.  These ignored requests do not display when you use the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) API.  There are two types of access request:  __GRANT_ACCESS__ * Can be requested for multiple identities in a single request. * Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.   * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others. * Roles, access profiles and entitlements can be requested. * While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request. * Now supports an alternate field \'requestedForWithRequestedItems\' for users to specify account selections while requesting items where they have more than one account on the source.   __REVOKE_ACCESS__ * Can only be requested for a single identity at a time. * You cannot use an access request to revoke access from an identity if that access has been granted by role membership or by birthright provisioning.  * Does not support self request. Only manager can request to revoke access for their directly managed employees. * If a `removeDate` is specified, then the access will be removed on that date and time only for roles, access profiles and entitlements. * Roles, access profiles, and entitlements can be requested for revocation. * Revoke requests for entitlements are limited to 1 entitlement per access request currently. * You can specify a `removeDate` if the access doesn\'t already have a sunset date. The `removeDate` must be a future date, in the UTC timezone.  * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone. * Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of \'assignmentId\' and \'nativeIdentity\' fields. 
          * @summary Submit Access Request
          * @param {AccessRequest} accessRequest 
          * @param {*} [axiosOptions] Override http request option.
@@ -26985,7 +27231,7 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.  Access requests are processed asynchronously by ISC. A successful response from this endpoint means that the request has been submitted to ISC and is queued for processing. Because this endpoint is asynchronous, it doesn\'t return an error if you submit duplicate access requests in quick succession or submit an access request for access that is already in progress, approved, or rejected.  It\'s best practice to check for any existing access requests that reference the same access items before submitting a new access request. This can be accomplished by using the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [Pending Access Request Approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) APIs. You can also use the [Search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items an identity has before submitting an access request to ensure that you aren\'t requesting access that is already granted. If you use this API to request access that an identity already has, the API will ignore the request.  These ignored requests do not display when you use the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) API.  There are two types of access request:  __GRANT_ACCESS__ * Can be requested for multiple identities in a single request. * Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.   * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others. * Roles, access profiles and entitlements can be requested. * While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request.   __REVOKE_ACCESS__ * Can only be requested for a single identity at a time. * You cannot use an access request to revoke access from an identity if that access has been granted by role membership or by birthright provisioning.  * Does not support self request. Only manager can request to revoke access for their directly managed employees. * If a `removeDate` is specified, then the access will be removed on that date and time only for roles, access profiles and entitlements. * Roles, access profiles, and entitlements can be requested for revocation. * Revoke requests for entitlements are limited to 1 entitlement per access request currently. * You can specify a `removeDate` if the access doesn\'t already have a sunset date. The `removeDate` must be a future date, in the UTC timezone.  * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone. 
+         * Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.  Access requests are processed asynchronously by ISC. A successful response from this endpoint means that the request has been submitted to ISC and is queued for processing. Because this endpoint is asynchronous, it doesn\'t return an error if you submit duplicate access requests in quick succession or submit an access request for access that is already in progress, approved, or rejected.  It\'s best practice to check for any existing access requests that reference the same access items before submitting a new access request. This can be accomplished by using the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [Pending Access Request Approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) APIs. You can also use the [Search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items an identity has before submitting an access request to ensure that you aren\'t requesting access that is already granted. If you use this API to request access that an identity already has, the API will ignore the request.  These ignored requests do not display when you use the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) API.  There are two types of access request:  __GRANT_ACCESS__ * Can be requested for multiple identities in a single request. * Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.   * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others. * Roles, access profiles and entitlements can be requested. * While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request. * Now supports an alternate field \'requestedForWithRequestedItems\' for users to specify account selections while requesting items where they have more than one account on the source.   __REVOKE_ACCESS__ * Can only be requested for a single identity at a time. * You cannot use an access request to revoke access from an identity if that access has been granted by role membership or by birthright provisioning.  * Does not support self request. Only manager can request to revoke access for their directly managed employees. * If a `removeDate` is specified, then the access will be removed on that date and time only for roles, access profiles and entitlements. * Roles, access profiles, and entitlements can be requested for revocation. * Revoke requests for entitlements are limited to 1 entitlement per access request currently. * You can specify a `removeDate` if the access doesn\'t already have a sunset date. The `removeDate` must be a future date, in the UTC timezone.  * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone. * Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of \'assignmentId\' and \'nativeIdentity\' fields. 
          * @summary Submit Access Request
          * @param {AccessRequest} accessRequest 
          * @param {*} [axiosOptions] Override http request option.
@@ -27065,7 +27311,7 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
             return localVarFp.cancelAccessRequest(requestParameters.cancelAccessRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.  Access requests are processed asynchronously by ISC. A successful response from this endpoint means that the request has been submitted to ISC and is queued for processing. Because this endpoint is asynchronous, it doesn\'t return an error if you submit duplicate access requests in quick succession or submit an access request for access that is already in progress, approved, or rejected.  It\'s best practice to check for any existing access requests that reference the same access items before submitting a new access request. This can be accomplished by using the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [Pending Access Request Approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) APIs. You can also use the [Search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items an identity has before submitting an access request to ensure that you aren\'t requesting access that is already granted. If you use this API to request access that an identity already has, the API will ignore the request.  These ignored requests do not display when you use the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) API.  There are two types of access request:  __GRANT_ACCESS__ * Can be requested for multiple identities in a single request. * Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.   * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others. * Roles, access profiles and entitlements can be requested. * While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request.   __REVOKE_ACCESS__ * Can only be requested for a single identity at a time. * You cannot use an access request to revoke access from an identity if that access has been granted by role membership or by birthright provisioning.  * Does not support self request. Only manager can request to revoke access for their directly managed employees. * If a `removeDate` is specified, then the access will be removed on that date and time only for roles, access profiles and entitlements. * Roles, access profiles, and entitlements can be requested for revocation. * Revoke requests for entitlements are limited to 1 entitlement per access request currently. * You can specify a `removeDate` if the access doesn\'t already have a sunset date. The `removeDate` must be a future date, in the UTC timezone.  * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone. 
+         * Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.  Access requests are processed asynchronously by ISC. A successful response from this endpoint means that the request has been submitted to ISC and is queued for processing. Because this endpoint is asynchronous, it doesn\'t return an error if you submit duplicate access requests in quick succession or submit an access request for access that is already in progress, approved, or rejected.  It\'s best practice to check for any existing access requests that reference the same access items before submitting a new access request. This can be accomplished by using the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [Pending Access Request Approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) APIs. You can also use the [Search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items an identity has before submitting an access request to ensure that you aren\'t requesting access that is already granted. If you use this API to request access that an identity already has, the API will ignore the request.  These ignored requests do not display when you use the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) API.  There are two types of access request:  __GRANT_ACCESS__ * Can be requested for multiple identities in a single request. * Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.   * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others. * Roles, access profiles and entitlements can be requested. * While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request. * Now supports an alternate field \'requestedForWithRequestedItems\' for users to specify account selections while requesting items where they have more than one account on the source.   __REVOKE_ACCESS__ * Can only be requested for a single identity at a time. * You cannot use an access request to revoke access from an identity if that access has been granted by role membership or by birthright provisioning.  * Does not support self request. Only manager can request to revoke access for their directly managed employees. * If a `removeDate` is specified, then the access will be removed on that date and time only for roles, access profiles and entitlements. * Roles, access profiles, and entitlements can be requested for revocation. * Revoke requests for entitlements are limited to 1 entitlement per access request currently. * You can specify a `removeDate` if the access doesn\'t already have a sunset date. The `removeDate` must be a future date, in the UTC timezone.  * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone. * Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of \'assignmentId\' and \'nativeIdentity\' fields. 
          * @summary Submit Access Request
          * @param {AccessRequestsApiCreateAccessRequestRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -27245,7 +27491,7 @@ export class AccessRequestsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.  Access requests are processed asynchronously by ISC. A successful response from this endpoint means that the request has been submitted to ISC and is queued for processing. Because this endpoint is asynchronous, it doesn\'t return an error if you submit duplicate access requests in quick succession or submit an access request for access that is already in progress, approved, or rejected.  It\'s best practice to check for any existing access requests that reference the same access items before submitting a new access request. This can be accomplished by using the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [Pending Access Request Approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) APIs. You can also use the [Search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items an identity has before submitting an access request to ensure that you aren\'t requesting access that is already granted. If you use this API to request access that an identity already has, the API will ignore the request.  These ignored requests do not display when you use the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) API.  There are two types of access request:  __GRANT_ACCESS__ * Can be requested for multiple identities in a single request. * Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.   * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others. * Roles, access profiles and entitlements can be requested. * While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request.   __REVOKE_ACCESS__ * Can only be requested for a single identity at a time. * You cannot use an access request to revoke access from an identity if that access has been granted by role membership or by birthright provisioning.  * Does not support self request. Only manager can request to revoke access for their directly managed employees. * If a `removeDate` is specified, then the access will be removed on that date and time only for roles, access profiles and entitlements. * Roles, access profiles, and entitlements can be requested for revocation. * Revoke requests for entitlements are limited to 1 entitlement per access request currently. * You can specify a `removeDate` if the access doesn\'t already have a sunset date. The `removeDate` must be a future date, in the UTC timezone.  * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone. 
+     * Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.  Access requests are processed asynchronously by ISC. A successful response from this endpoint means that the request has been submitted to ISC and is queued for processing. Because this endpoint is asynchronous, it doesn\'t return an error if you submit duplicate access requests in quick succession or submit an access request for access that is already in progress, approved, or rejected.  It\'s best practice to check for any existing access requests that reference the same access items before submitting a new access request. This can be accomplished by using the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [Pending Access Request Approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) APIs. You can also use the [Search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items an identity has before submitting an access request to ensure that you aren\'t requesting access that is already granted. If you use this API to request access that an identity already has, the API will ignore the request.  These ignored requests do not display when you use the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) API.  There are two types of access request:  __GRANT_ACCESS__ * Can be requested for multiple identities in a single request. * Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.   * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others. * Roles, access profiles and entitlements can be requested. * While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request. * Now supports an alternate field \'requestedForWithRequestedItems\' for users to specify account selections while requesting items where they have more than one account on the source.   __REVOKE_ACCESS__ * Can only be requested for a single identity at a time. * You cannot use an access request to revoke access from an identity if that access has been granted by role membership or by birthright provisioning.  * Does not support self request. Only manager can request to revoke access for their directly managed employees. * If a `removeDate` is specified, then the access will be removed on that date and time only for roles, access profiles and entitlements. * Roles, access profiles, and entitlements can be requested for revocation. * Revoke requests for entitlements are limited to 1 entitlement per access request currently. * You can specify a `removeDate` if the access doesn\'t already have a sunset date. The `removeDate` must be a future date, in the UTC timezone.  * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone. * Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of \'assignmentId\' and \'nativeIdentity\' fields. 
      * @summary Submit Access Request
      * @param {AccessRequestsApiCreateAccessRequestRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -63368,10 +63614,11 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
          * Get a single workflow by id.
          * @summary Get Workflow By Id
          * @param {string} id Id of the workflow
+         * @param {boolean} [workflowMetrics] disable workflow metrics
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkflow: async (id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getWorkflow: async (id: string, workflowMetrics?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getWorkflow', 'id', id)
             const localVarPath = `/workflows/{id}`
@@ -63394,6 +63641,10 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            if (workflowMetrics !== undefined) {
+                localVarQueryParameter['workflowMetrics'] = workflowMetrics;
+            }
 
 
     
@@ -63747,10 +63998,14 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
         /**
          * List all workflows in the tenant.
          * @summary List Workflows
+         * @param {string} [triggerId] Trigger ID
+         * @param {string} [connectorInstanceId] Connector Instance ID
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkflows: async (axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listWorkflows: async (triggerId?: string, connectorInstanceId?: string, limit?: number, offset?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/workflows`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -63770,6 +64025,22 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            if (triggerId !== undefined) {
+                localVarQueryParameter['triggerId'] = triggerId;
+            }
+
+            if (connectorInstanceId !== undefined) {
+                localVarQueryParameter['connectorInstanceId'] = connectorInstanceId;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
 
 
     
@@ -64052,11 +64323,12 @@ export const WorkflowsApiFp = function(configuration?: Configuration) {
          * Get a single workflow by id.
          * @summary Get Workflow By Id
          * @param {string} id Id of the workflow
+         * @param {boolean} [workflowMetrics] disable workflow metrics
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkflow(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkflow(id, axiosOptions);
+        async getWorkflow(id: string, workflowMetrics?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkflow(id, workflowMetrics, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkflowsApi.getWorkflow']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -64163,11 +64435,15 @@ export const WorkflowsApiFp = function(configuration?: Configuration) {
         /**
          * List all workflows in the tenant.
          * @summary List Workflows
+         * @param {string} [triggerId] Trigger ID
+         * @param {string} [connectorInstanceId] Connector Instance ID
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkflows(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflows(axiosOptions);
+        async listWorkflows(triggerId?: string, connectorInstanceId?: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflows(triggerId, connectorInstanceId, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkflowsApi.listWorkflows']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -64296,7 +64572,7 @@ export const WorkflowsApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         getWorkflow(requestParameters: WorkflowsApiGetWorkflowRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Workflow> {
-            return localVarFp.getWorkflow(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.getWorkflow(requestParameters.id, requestParameters.workflowMetrics, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a \"404 Not Found\" response.
@@ -64370,11 +64646,12 @@ export const WorkflowsApiFactory = function (configuration?: Configuration, base
         /**
          * List all workflows in the tenant.
          * @summary List Workflows
+         * @param {WorkflowsApiListWorkflowsRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkflows(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Workflow>> {
-            return localVarFp.listWorkflows(axiosOptions).then((request) => request(axios, basePath));
+        listWorkflows(requestParameters: WorkflowsApiListWorkflowsRequest = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Workflow>> {
+            return localVarFp.listWorkflows(requestParameters.triggerId, requestParameters.connectorInstanceId, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
@@ -64508,6 +64785,13 @@ export interface WorkflowsApiGetWorkflowRequest {
      * @memberof WorkflowsApiGetWorkflow
      */
     readonly id: string
+
+    /**
+     * disable workflow metrics
+     * @type {boolean}
+     * @memberof WorkflowsApiGetWorkflow
+     */
+    readonly workflowMetrics?: boolean
 }
 
 /**
@@ -64655,6 +64939,41 @@ export interface WorkflowsApiListWorkflowLibraryTriggersRequest {
      * @memberof WorkflowsApiListWorkflowLibraryTriggers
      */
     readonly filters?: string
+}
+
+/**
+ * Request parameters for listWorkflows operation in WorkflowsApi.
+ * @export
+ * @interface WorkflowsApiListWorkflowsRequest
+ */
+export interface WorkflowsApiListWorkflowsRequest {
+    /**
+     * Trigger ID
+     * @type {string}
+     * @memberof WorkflowsApiListWorkflows
+     */
+    readonly triggerId?: string
+
+    /**
+     * Connector Instance ID
+     * @type {string}
+     * @memberof WorkflowsApiListWorkflows
+     */
+    readonly connectorInstanceId?: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof WorkflowsApiListWorkflows
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof WorkflowsApiListWorkflows
+     */
+    readonly offset?: number
 }
 
 /**
@@ -64817,7 +65136,7 @@ export class WorkflowsApi extends BaseAPI {
      * @memberof WorkflowsApi
      */
     public getWorkflow(requestParameters: WorkflowsApiGetWorkflowRequest, axiosOptions?: RawAxiosRequestConfig) {
-        return WorkflowsApiFp(this.configuration).getWorkflow(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return WorkflowsApiFp(this.configuration).getWorkflow(requestParameters.id, requestParameters.workflowMetrics, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -64906,12 +65225,13 @@ export class WorkflowsApi extends BaseAPI {
     /**
      * List all workflows in the tenant.
      * @summary List Workflows
+     * @param {WorkflowsApiListWorkflowsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    public listWorkflows(axiosOptions?: RawAxiosRequestConfig) {
-        return WorkflowsApiFp(this.configuration).listWorkflows(axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listWorkflows(requestParameters: WorkflowsApiListWorkflowsRequest = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return WorkflowsApiFp(this.configuration).listWorkflows(requestParameters.triggerId, requestParameters.connectorInstanceId, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
