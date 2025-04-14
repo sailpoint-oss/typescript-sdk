@@ -3665,7 +3665,8 @@ export const AttributeDefinitionType = {
     String: 'STRING',
     Long: 'LONG',
     Int: 'INT',
-    Boolean: 'BOOLEAN'
+    Boolean: 'BOOLEAN',
+    Date: 'DATE'
 } as const;
 
 export type AttributeDefinitionType = typeof AttributeDefinitionType[keyof typeof AttributeDefinitionType];
