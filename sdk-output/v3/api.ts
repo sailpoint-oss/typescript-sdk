@@ -391,43 +391,43 @@ export interface AccessModelMetadataValuesInner {
     'status'?: string;
 }
 /**
- * Access Profile
+ * Access profile.
  * @export
  * @interface AccessProfile
  */
 export interface AccessProfile {
     /**
-     * The ID of the Access Profile
+     * Access profile ID.
      * @type {string}
      * @memberof AccessProfile
      */
     'id'?: string;
     /**
-     * Name of the Access Profile
+     * Access profile name.
      * @type {string}
      * @memberof AccessProfile
      */
     'name': string;
     /**
-     * Information about the Access Profile
+     * Access profile description.
      * @type {string}
      * @memberof AccessProfile
      */
     'description'?: string | null;
     /**
-     * Date the Access Profile was created
+     * Date and time when the access profile was created.
      * @type {string}
      * @memberof AccessProfile
      */
     'created'?: string;
     /**
-     * Date the Access Profile was last modified.
+     * Date and time when the access profile was last modified.
      * @type {string}
      * @memberof AccessProfile
      */
     'modified'?: string;
     /**
-     * Whether the Access Profile is enabled. If the Access Profile is enabled then you must include at least one Entitlement.
+     * Indicates whether the access profile is enabled. If it\'s enabled, you must include at least one entitlement.
      * @type {boolean}
      * @memberof AccessProfile
      */
@@ -445,13 +445,13 @@ export interface AccessProfile {
      */
     'source': AccessProfileSourceRef;
     /**
-     * A list of entitlements associated with the Access Profile. If enabled is false this is allowed to be empty otherwise it needs to contain at least one Entitlement.
+     * List of entitlements associated with the access profile. If `enabled` is false, this can be empty. Otherwise, it must contain at least one entitlement.
      * @type {Array<EntitlementRef>}
      * @memberof AccessProfile
      */
     'entitlements'?: Array<EntitlementRef> | null;
     /**
-     * Whether the Access Profile is requestable via access request. Currently, making an Access Profile non-requestable is only supported  for customers enabled with the new Request Center. Otherwise, attempting to create an Access Profile with a value  **false** in this field results in a 400 error.
+     * Indicates whether the access profile is requestable by access request. Currently, making an access profile non-requestable is only supported  for customers enabled with the new Request Center. Otherwise, attempting to create an access profile with a value  **false** in this field results in a 400 error.
      * @type {boolean}
      * @memberof AccessProfile
      */
@@ -469,7 +469,7 @@ export interface AccessProfile {
      */
     'revocationRequestConfig'?: Revocability | null;
     /**
-     * List of IDs of segments, if any, to which this Access Profile is assigned.
+     * List of segment IDs, if any, that the access profile is assigned to.
      * @type {Array<string>}
      * @memberof AccessProfile
      */
@@ -488,13 +488,13 @@ export interface AccessProfile {
  */
 export interface AccessProfileApprovalScheme {
     /**
-     * Describes the individual or group that is responsible for an approval step. Values are as follows. **APP_OWNER**: The owner of the Application  **OWNER**: Owner of the associated Access Profile or Role  **SOURCE_OWNER**: Owner of the Source associated with an Access Profile  **MANAGER**: Manager of the Identity making the request  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field
+     * Describes the individual or group that is responsible for an approval step. These are the possible values: **APP_OWNER**: The owner of the Application  **OWNER**: Owner of the associated Access Profile or Role  **SOURCE_OWNER**: Owner of the Source associated with an Access Profile  **MANAGER**: Manager of the Identity making the request  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field
      * @type {string}
      * @memberof AccessProfileApprovalScheme
      */
     'approverType'?: AccessProfileApprovalSchemeApproverTypeV3;
     /**
-     * Id of the specific approver, used only when approverType is GOVERNANCE_GROUP
+     * Specific approver ID. Only use this when the `approverType` is `GOVERNANCE_GROUP`.
      * @type {string}
      * @memberof AccessProfileApprovalScheme
      */
@@ -985,19 +985,19 @@ export interface AccessProfileRole {
  */
 export interface AccessProfileSourceRef {
     /**
-     * The ID of the Source with with which the Access Profile is associated
+     * ID of the source the access profile is associated with.
      * @type {string}
      * @memberof AccessProfileSourceRef
      */
     'id'?: string;
     /**
-     * The type of the Source, will always be SOURCE
+     * Source\'s DTO type.
      * @type {string}
      * @memberof AccessProfileSourceRef
      */
     'type'?: AccessProfileSourceRefTypeV3;
     /**
-     * The display name of the associated Source
+     * Source name.
      * @type {string}
      * @memberof AccessProfileSourceRef
      */
@@ -15098,7 +15098,7 @@ export const OwnerDtoTypeV3 = {
 export type OwnerDtoTypeV3 = typeof OwnerDtoTypeV3[keyof typeof OwnerDtoTypeV3];
 
 /**
- * The owner of this object.
+ * Owner of the object.
  * @export
  * @interface OwnerReference
  */
@@ -15110,13 +15110,13 @@ export interface OwnerReference {
      */
     'type'?: OwnerReferenceTypeV3;
     /**
-     * Identity id
+     * Owner\'s identity ID.
      * @type {string}
      * @memberof OwnerReference
      */
     'id'?: string;
     /**
-     * Human-readable display name of the owner. It may be left null or omitted in a POST or PATCH. If set, it must match the current value of the owner\'s display name, otherwise a 400 Bad Request error will result.
+     * Owner\'s name. It may be left null or omitted in a POST or PATCH. If set, it must match the current value of the owner\'s display name, otherwise a 400 Bad Request error will result.
      * @type {string}
      * @memberof OwnerReference
      */
@@ -16036,7 +16036,7 @@ export interface ProvisioningConfigPlanInitializerScript {
     'source'?: string;
 }
 /**
- * Defines matching criteria for an Account to be provisioned with a specific Access Profile
+ * Defines matching criteria for an account to be provisioned with a specific access profile.
  * @export
  * @interface ProvisioningCriteriaLevel1
  */
@@ -16048,19 +16048,19 @@ export interface ProvisioningCriteriaLevel1 {
      */
     'operation'?: ProvisioningCriteriaOperation;
     /**
-     * Name of the Account attribute to be tested. If **operation** is one of EQUALS, NOT_EQUALS, CONTAINS, or HAS, this field is required. Otherwise, specifying it is an error.
+     * Name of the account attribute to be tested. If **operation** is one of `EQUALS`, `NOT_EQUALS`, `CONTAINS`, or `HAS`, this field is required. Otherwise, specifying it results in an error.
      * @type {string}
      * @memberof ProvisioningCriteriaLevel1
      */
     'attribute'?: string | null;
     /**
-     * String value to test the Account attribute w/r/t the specified operation. If the operation is one of EQUALS, NOT_EQUALS, or CONTAINS, this field is required. Otherwise, specifying it is an error. If the Attribute is not String-typed, it will be converted to the appropriate type.
+     * String value to test the account attribute w/r/t the specified operation. If the operation is one of `EQUALS`, `NOT_EQUALS`, or `CONTAINS`, this field is required. Otherwise, specifying it results in an error. If the attribute is not string-typed, the API will convert it to the appropriate type.
      * @type {string}
      * @memberof ProvisioningCriteriaLevel1
      */
     'value'?: string | null;
     /**
-     * Array of child criteria. Required if the operation is AND or OR, otherwise it must be left null. A maximum of three levels of criteria are supported, including leaf nodes.
+     * Array of child criteria. This field is required if the operation is `AND` or `OR`. Otherwise, it must be left null. A maximum of three levels of criteria are supported, including leaf nodes.
      * @type {Array<ProvisioningCriteriaLevel2>}
      * @memberof ProvisioningCriteriaLevel1
      */
@@ -16069,7 +16069,7 @@ export interface ProvisioningCriteriaLevel1 {
 
 
 /**
- * Defines matching criteria for an Account to be provisioned with a specific Access Profile
+ * Defines matching criteria for an account to be provisioned with a specific access profile.
  * @export
  * @interface ProvisioningCriteriaLevel2
  */
@@ -16081,19 +16081,19 @@ export interface ProvisioningCriteriaLevel2 {
      */
     'operation'?: ProvisioningCriteriaOperation;
     /**
-     * Name of the Account attribute to be tested. If **operation** is one of EQUALS, NOT_EQUALS, CONTAINS, or HAS, this field is required. Otherwise, specifying it is an error.
+     * Name of the account attribute to be tested. If **operation** is one of `EQUALS`, `NOT_EQUALS`, `CONTAINS`, or `HAS`, this field is required. Otherwise, specifying it results in an error.
      * @type {string}
      * @memberof ProvisioningCriteriaLevel2
      */
     'attribute'?: string | null;
     /**
-     * String value to test the Account attribute w/r/t the specified operation. If the operation is one of EQUALS, NOT_EQUALS, or CONTAINS, this field is required. Otherwise, specifying it is an error. If the Attribute is not String-typed, it will be converted to the appropriate type.
+     * String value to test the account attribute w/r/t the specified operation. If the operation is one of `EQUALS`, `NOT_EQUALS`, or `CONTAINS`, this field is required. Otherwise, specifying it results in an error. If the attribute is not string-typed, the API will convert it to the appropriate type.
      * @type {string}
      * @memberof ProvisioningCriteriaLevel2
      */
     'value'?: string | null;
     /**
-     * Array of child criteria. Required if the operation is AND or OR, otherwise it must be left null. A maximum of three levels of criteria are supported, including leaf nodes.
+     * Array of child criteria. This field is required if the operation is `AND` or `OR`. Otherwise, it must be left null. A maximum of three levels of criteria are supported, including leaf nodes.
      * @type {Array<ProvisioningCriteriaLevel3>}
      * @memberof ProvisioningCriteriaLevel2
      */
@@ -16102,7 +16102,7 @@ export interface ProvisioningCriteriaLevel2 {
 
 
 /**
- * Defines matching criteria for an Account to be provisioned with a specific Access Profile
+ * Defines matching criteria for an account to be provisioned with a specific access profile.
  * @export
  * @interface ProvisioningCriteriaLevel3
  */
@@ -16114,19 +16114,19 @@ export interface ProvisioningCriteriaLevel3 {
      */
     'operation'?: ProvisioningCriteriaOperation;
     /**
-     * Name of the Account attribute to be tested. If **operation** is one of EQUALS, NOT_EQUALS, CONTAINS, or HAS, this field is required. Otherwise, specifying it is an error.
+     * Name of the account attribute to be tested. If **operation** is one of `EQUALS`, `NOT_EQUALS`, `CONTAINS`, or `HAS`, this field is required. Otherwise, specifying it results in an error.
      * @type {string}
      * @memberof ProvisioningCriteriaLevel3
      */
     'attribute'?: string | null;
     /**
-     * String value to test the Account attribute w/r/t the specified operation. If the operation is one of EQUALS, NOT_EQUALS, or CONTAINS, this field is required. Otherwise, specifying it is an error. If the Attribute is not String-typed, it will be converted to the appropriate type.
+     * String value to test the account attribute w/r/t the specified operation. If the operation is one of `EQUALS`, `NOT_EQUALS`, or `CONTAINS`, this field is required. Otherwise, specifying it results in an error. If the attribute is not string-typed, the API will convert it to the appropriate type.
      * @type {string}
      * @memberof ProvisioningCriteriaLevel3
      */
-    'value'?: string;
+    'value'?: string | null;
     /**
-     * Array of child criteria. Required if the operation is AND or OR, otherwise it must be left null. A maximum of three levels of criteria are supported, including leaf nodes.
+     * Array of child criteria. This field is required if the operation is `AND` or `OR`. Otherwise, it must be left null. A maximum of three levels of criteria are supported, including leaf nodes.
      * @type {string}
      * @memberof ProvisioningCriteriaLevel3
      */
@@ -16135,7 +16135,7 @@ export interface ProvisioningCriteriaLevel3 {
 
 
 /**
- * Supported operations on ProvisioningCriteria
+ * Supported operations on `ProvisioningCriteria`.
  * @export
  * @enum {string}
  */
@@ -17226,19 +17226,25 @@ export interface RequestOnBehalfOfConfig {
  */
 export interface Requestability {
     /**
-     * Whether the requester of the containing object must provide comments justifying the request
+     * Indicates whether the requester of the containing object must provide comments justifying the request.
      * @type {boolean}
      * @memberof Requestability
      */
     'commentsRequired'?: boolean | null;
     /**
-     * Whether an approver must provide comments when denying the request
+     * Indicates whether an approver must provide comments when denying the request.
      * @type {boolean}
      * @memberof Requestability
      */
     'denialCommentsRequired'?: boolean | null;
     /**
-     * List describing the steps in approving the request
+     * Indicates whether reauthorization is required for the request.
+     * @type {boolean}
+     * @memberof Requestability
+     */
+    'reauthorizationRequired'?: boolean | null;
+    /**
+     * List describing the steps involved in approving the request.
      * @type {Array<AccessProfileApprovalScheme>}
      * @memberof Requestability
      */
@@ -17262,6 +17268,12 @@ export interface RequestabilityForRole {
      * @memberof RequestabilityForRole
      */
     'denialCommentsRequired'?: boolean | null;
+    /**
+     * Indicates whether reauthorization is required for the request.
+     * @type {boolean}
+     * @memberof RequestabilityForRole
+     */
+    'reauthorizationRequired'?: boolean | null;
     /**
      * List describing the steps in approving the request
      * @type {Array<ApprovalSchemeForRole>}
@@ -18433,7 +18445,7 @@ export type ReviewerTypeV3 = typeof ReviewerTypeV3[keyof typeof ReviewerTypeV3];
  */
 export interface Revocability {
     /**
-     * List describing the steps in approving the revocation request
+     * List describing the steps involved in approving the revocation request.
      * @type {Array<AccessProfileApprovalScheme>}
      * @memberof Revocability
      */
@@ -24745,6 +24757,7 @@ export const WorkflowExecutionStatusV3 = {
     Completed: 'Completed',
     Failed: 'Failed',
     Canceled: 'Canceled',
+    Queued: 'Queued',
     Running: 'Running'
 } as const;
 
@@ -25301,7 +25314,7 @@ export type WorkflowTriggerAttributesFrequencyV3 = typeof WorkflowTriggerAttribu
 export const AccessProfilesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Create an access profile. A user with only ROLE_SUBADMIN or SOURCE_SUBADMIN authority must be associated with the access profile\'s source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles.  However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
+         * Create an access profile. A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the access profile\'s source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles.  However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
          * @summary Create Access Profile
          * @param {AccessProfile} accessProfile 
          * @param {*} [axiosOptions] Override http request option.
@@ -25566,7 +25579,7 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Supported composite operators are *and, or*  Filtering is not supported for access profiles and entitlements that have the \&#39;+\&#39; symbol in their names. 
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Supported composite operators are *and, or*  Filtering is not supported for access profiles and entitlements that have the \&#39;+\&#39; symbol in their names. 
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
          * @param {string} [forSegmentIds] Filters access profiles to only those assigned to the segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error.
          * @param {boolean} [includeUnsegmented] Indicates whether the response list should contain unsegmented access profiles. If &#x60;for-segment-ids&#x60; is absent or empty, specifying *include-unsegmented* as &#x60;false&#x60; results in an error.
@@ -25704,7 +25717,7 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = AccessProfilesApiAxiosParamCreator(configuration)
     return {
         /**
-         * Create an access profile. A user with only ROLE_SUBADMIN or SOURCE_SUBADMIN authority must be associated with the access profile\'s source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles.  However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
+         * Create an access profile. A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the access profile\'s source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles.  However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
          * @summary Create Access Profile
          * @param {AccessProfile} accessProfile 
          * @param {*} [axiosOptions] Override http request option.
@@ -25780,7 +25793,7 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Supported composite operators are *and, or*  Filtering is not supported for access profiles and entitlements that have the \&#39;+\&#39; symbol in their names. 
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Supported composite operators are *and, or*  Filtering is not supported for access profiles and entitlements that have the \&#39;+\&#39; symbol in their names. 
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
          * @param {string} [forSegmentIds] Filters access profiles to only those assigned to the segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error.
          * @param {boolean} [includeUnsegmented] Indicates whether the response list should contain unsegmented access profiles. If &#x60;for-segment-ids&#x60; is absent or empty, specifying *include-unsegmented* as &#x60;false&#x60; results in an error.
@@ -25818,7 +25831,7 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
     const localVarFp = AccessProfilesApiFp(configuration)
     return {
         /**
-         * Create an access profile. A user with only ROLE_SUBADMIN or SOURCE_SUBADMIN authority must be associated with the access profile\'s source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles.  However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
+         * Create an access profile. A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the access profile\'s source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles.  However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
          * @summary Create Access Profile
          * @param {AccessProfilesApiCreateAccessProfileRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -26030,7 +26043,7 @@ export interface AccessProfilesApiListAccessProfilesRequest {
     readonly count?: boolean
 
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Supported composite operators are *and, or*  Filtering is not supported for access profiles and entitlements that have the \&#39;+\&#39; symbol in their names. 
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Supported composite operators are *and, or*  Filtering is not supported for access profiles and entitlements that have the \&#39;+\&#39; symbol in their names. 
      * @type {string}
      * @memberof AccessProfilesApiListAccessProfiles
      */
@@ -26087,7 +26100,7 @@ export interface AccessProfilesApiPatchAccessProfileRequest {
  */
 export class AccessProfilesApi extends BaseAPI {
     /**
-     * Create an access profile. A user with only ROLE_SUBADMIN or SOURCE_SUBADMIN authority must be associated with the access profile\'s source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles.  However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
+     * Create an access profile. A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the access profile\'s source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles.  However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
      * @summary Create Access Profile
      * @param {AccessProfilesApiCreateAccessProfileRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -50478,9 +50491,9 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * This API deletes a Role by its ID.  A user with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
-         * @summary Delete a Role
-         * @param {string} id ID of the Role
+         * Delete a role by ID.  A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups the ROLE_SUBADMIN is a member of.
+         * @summary Delete Role
+         * @param {string} id Role ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -50520,9 +50533,9 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * This API returns a Role by its ID. A user with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
-         * @summary Get a Role
-         * @param {string} id ID of the Role
+         * Get a role by ID. A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups of the ROLE_SUBADMIN is a member of.
+         * @summary Get Role
+         * @param {string} id Role ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -50635,7 +50648,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
          * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, ge, le*  **modified**: *lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **dimensional**: *eq*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
          * @param {string} [forSegmentIds] If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
          * @param {boolean} [includeUnsegmented] Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
@@ -50707,9 +50720,9 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * This API updates an existing role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: * name * description * enabled * owner * accessProfiles * entitlements * membership * requestable * accessRequestConfig * revokeRequestConfig * segments * accessModelMetadata  A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.  When you use this API to modify a role\'s membership identities, you can only modify up to a limit of 500 membership identities at a time. 
-         * @summary Patch a specified Role
-         * @param {string} id ID of the Role to patch
+         * Update an existing role, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: * name * description * enabled * owner * accessProfiles * entitlements * membership * requestable * accessRequestConfig * revokeRequestConfig * segments * accessModelMetadata  A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups of the ROLE_SUBADMIN is a member of.  The maximum supported length for the description field is 2000 characters. ISC preserves longer descriptions for existing roles. However, any new roles as well as any updates to existing descriptions are limited to 2000 characters.  When you use this API to modify a role\'s membership identities, you can only modify up to a limit of 500 membership identities at a time. 
+         * @summary Patch Role
+         * @param {string} id Role ID to patch
          * @param {Array<JsonPatchOperation>} jsonPatchOperation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -50791,9 +50804,9 @@ export const RolesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This API deletes a Role by its ID.  A user with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
-         * @summary Delete a Role
-         * @param {string} id ID of the Role
+         * Delete a role by ID.  A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups the ROLE_SUBADMIN is a member of.
+         * @summary Delete Role
+         * @param {string} id Role ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -50804,9 +50817,9 @@ export const RolesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This API returns a Role by its ID. A user with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
-         * @summary Get a Role
-         * @param {string} id ID of the Role
+         * Get a role by ID. A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups of the ROLE_SUBADMIN is a member of.
+         * @summary Get Role
+         * @param {string} id Role ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -50841,7 +50854,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
          * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, ge, le*  **modified**: *lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **dimensional**: *eq*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
          * @param {string} [forSegmentIds] If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
          * @param {boolean} [includeUnsegmented] Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
@@ -50855,9 +50868,9 @@ export const RolesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This API updates an existing role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: * name * description * enabled * owner * accessProfiles * entitlements * membership * requestable * accessRequestConfig * revokeRequestConfig * segments * accessModelMetadata  A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.  When you use this API to modify a role\'s membership identities, you can only modify up to a limit of 500 membership identities at a time. 
-         * @summary Patch a specified Role
-         * @param {string} id ID of the Role to patch
+         * Update an existing role, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: * name * description * enabled * owner * accessProfiles * entitlements * membership * requestable * accessRequestConfig * revokeRequestConfig * segments * accessModelMetadata  A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups of the ROLE_SUBADMIN is a member of.  The maximum supported length for the description field is 2000 characters. ISC preserves longer descriptions for existing roles. However, any new roles as well as any updates to existing descriptions are limited to 2000 characters.  When you use this API to modify a role\'s membership identities, you can only modify up to a limit of 500 membership identities at a time. 
+         * @summary Patch Role
+         * @param {string} id Role ID to patch
          * @param {Array<JsonPatchOperation>} jsonPatchOperation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -50899,8 +50912,8 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.deleteBulkRoles(requestParameters.roleBulkDeleteRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API deletes a Role by its ID.  A user with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
-         * @summary Delete a Role
+         * Delete a role by ID.  A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups the ROLE_SUBADMIN is a member of.
+         * @summary Delete Role
          * @param {RolesApiDeleteRoleRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -50909,8 +50922,8 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.deleteRole(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API returns a Role by its ID. A user with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
-         * @summary Get a Role
+         * Get a role by ID. A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups of the ROLE_SUBADMIN is a member of.
+         * @summary Get Role
          * @param {RolesApiGetRoleRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -50939,8 +50952,8 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.listRoles(requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API updates an existing role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: * name * description * enabled * owner * accessProfiles * entitlements * membership * requestable * accessRequestConfig * revokeRequestConfig * segments * accessModelMetadata  A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.  When you use this API to modify a role\'s membership identities, you can only modify up to a limit of 500 membership identities at a time. 
-         * @summary Patch a specified Role
+         * Update an existing role, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: * name * description * enabled * owner * accessProfiles * entitlements * membership * requestable * accessRequestConfig * revokeRequestConfig * segments * accessModelMetadata  A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups of the ROLE_SUBADMIN is a member of.  The maximum supported length for the description field is 2000 characters. ISC preserves longer descriptions for existing roles. However, any new roles as well as any updates to existing descriptions are limited to 2000 characters.  When you use this API to modify a role\'s membership identities, you can only modify up to a limit of 500 membership identities at a time. 
+         * @summary Patch Role
          * @param {RolesApiPatchRoleRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -50986,7 +50999,7 @@ export interface RolesApiDeleteBulkRolesRequest {
  */
 export interface RolesApiDeleteRoleRequest {
     /**
-     * ID of the Role
+     * Role ID.
      * @type {string}
      * @memberof RolesApiDeleteRole
      */
@@ -51000,7 +51013,7 @@ export interface RolesApiDeleteRoleRequest {
  */
 export interface RolesApiGetRoleRequest {
     /**
-     * ID of the Role
+     * Role ID.
      * @type {string}
      * @memberof RolesApiGetRole
      */
@@ -51091,7 +51104,7 @@ export interface RolesApiListRolesRequest {
     readonly count?: boolean
 
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, ge, le*  **modified**: *lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **dimensional**: *eq*
      * @type {string}
      * @memberof RolesApiListRoles
      */
@@ -51126,7 +51139,7 @@ export interface RolesApiListRolesRequest {
  */
 export interface RolesApiPatchRoleRequest {
     /**
-     * ID of the Role to patch
+     * Role ID to patch
      * @type {string}
      * @memberof RolesApiPatchRole
      */
@@ -51172,8 +51185,8 @@ export class RolesApi extends BaseAPI {
     }
 
     /**
-     * This API deletes a Role by its ID.  A user with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
-     * @summary Delete a Role
+     * Delete a role by ID.  A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups the ROLE_SUBADMIN is a member of.
+     * @summary Delete Role
      * @param {RolesApiDeleteRoleRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -51184,8 +51197,8 @@ export class RolesApi extends BaseAPI {
     }
 
     /**
-     * This API returns a Role by its ID. A user with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
-     * @summary Get a Role
+     * Get a role by ID. A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups of the ROLE_SUBADMIN is a member of.
+     * @summary Get Role
      * @param {RolesApiGetRoleRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -51220,8 +51233,8 @@ export class RolesApi extends BaseAPI {
     }
 
     /**
-     * This API updates an existing role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: * name * description * enabled * owner * accessProfiles * entitlements * membership * requestable * accessRequestConfig * revokeRequestConfig * segments * accessModelMetadata  A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.  When you use this API to modify a role\'s membership identities, you can only modify up to a limit of 500 membership identities at a time. 
-     * @summary Patch a specified Role
+     * Update an existing role, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: * name * description * enabled * owner * accessProfiles * entitlements * membership * requestable * accessRequestConfig * revokeRequestConfig * segments * accessModelMetadata  A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups of the ROLE_SUBADMIN is a member of.  The maximum supported length for the description field is 2000 characters. ISC preserves longer descriptions for existing roles. However, any new roles as well as any updates to existing descriptions are limited to 2000 characters.  When you use this API to modify a role\'s membership identities, you can only modify up to a limit of 500 membership identities at a time. 
+     * @summary Patch Role
      * @param {RolesApiPatchRoleRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -63659,7 +63672,7 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         * Use this API to get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a \"404 Not Found\" response.
+         * Get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a \"404 Not Found\" response.
          * @summary Get Workflow Execution
          * @param {string} id Workflow execution ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -64335,7 +64348,7 @@ export const WorkflowsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a \"404 Not Found\" response.
+         * Get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a \"404 Not Found\" response.
          * @summary Get Workflow Execution
          * @param {string} id Workflow execution ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -64576,7 +64589,7 @@ export const WorkflowsApiFactory = function (configuration?: Configuration, base
             return localVarFp.getWorkflow(requestParameters.id, requestParameters.workflowMetrics, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a \"404 Not Found\" response.
+         * Get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a \"404 Not Found\" response.
          * @summary Get Workflow Execution
          * @param {WorkflowsApiGetWorkflowExecutionRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -65141,7 +65154,7 @@ export class WorkflowsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a \"404 Not Found\" response.
+     * Get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a \"404 Not Found\" response.
      * @summary Get Workflow Execution
      * @param {WorkflowsApiGetWorkflowExecutionRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
