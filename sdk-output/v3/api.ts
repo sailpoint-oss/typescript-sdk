@@ -25314,7 +25314,7 @@ export type WorkflowTriggerAttributesFrequencyV3 = typeof WorkflowTriggerAttribu
 export const AccessProfilesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Create an access profile. A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the access profile\'s source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles.  However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
+         * Create an access profile. A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the access profile\'s source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles.  However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters. >**Note:** To use this endpoint, you need all the listed scopes.
          * @summary Create Access Profile
          * @param {AccessProfile} accessProfile 
          * @param {*} [axiosOptions] Override http request option.
@@ -25573,7 +25573,7 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * Get a list of access profiles. >**Note:** When you filter for access profiles that have the \'+\' symbol in their names, the response is blank. 
+         * Get a list of access profiles.  >**Note:** When you filter for access profiles that have the \'+\' symbol in their names, the response is blank. 
          * @summary List Access Profiles
          * @param {string} [forSubadmin] Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID or the special value **me**, which is shorthand for the calling identity\&#39;s ID.  If you specify an identity that isn\&#39;t a subadmin, the API returns a 400 Bad Request error.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -25717,7 +25717,7 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = AccessProfilesApiAxiosParamCreator(configuration)
     return {
         /**
-         * Create an access profile. A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the access profile\'s source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles.  However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
+         * Create an access profile. A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the access profile\'s source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles.  However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters. >**Note:** To use this endpoint, you need all the listed scopes.
          * @summary Create Access Profile
          * @param {AccessProfile} accessProfile 
          * @param {*} [axiosOptions] Override http request option.
@@ -25787,7 +25787,7 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Get a list of access profiles. >**Note:** When you filter for access profiles that have the \'+\' symbol in their names, the response is blank. 
+         * Get a list of access profiles.  >**Note:** When you filter for access profiles that have the \'+\' symbol in their names, the response is blank. 
          * @summary List Access Profiles
          * @param {string} [forSubadmin] Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID or the special value **me**, which is shorthand for the calling identity\&#39;s ID.  If you specify an identity that isn\&#39;t a subadmin, the API returns a 400 Bad Request error.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -25831,7 +25831,7 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
     const localVarFp = AccessProfilesApiFp(configuration)
     return {
         /**
-         * Create an access profile. A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the access profile\'s source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles.  However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
+         * Create an access profile. A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the access profile\'s source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles.  However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters. >**Note:** To use this endpoint, you need all the listed scopes.
          * @summary Create Access Profile
          * @param {AccessProfilesApiCreateAccessProfileRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -25881,7 +25881,7 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
             return localVarFp.getAccessProfileEntitlements(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Get a list of access profiles. >**Note:** When you filter for access profiles that have the \'+\' symbol in their names, the response is blank. 
+         * Get a list of access profiles.  >**Note:** When you filter for access profiles that have the \'+\' symbol in their names, the response is blank. 
          * @summary List Access Profiles
          * @param {AccessProfilesApiListAccessProfilesRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -26100,7 +26100,7 @@ export interface AccessProfilesApiPatchAccessProfileRequest {
  */
 export class AccessProfilesApi extends BaseAPI {
     /**
-     * Create an access profile. A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the access profile\'s source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles.  However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
+     * Create an access profile. A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the access profile\'s source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles.  However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters. >**Note:** To use this endpoint, you need all the listed scopes.
      * @summary Create Access Profile
      * @param {AccessProfilesApiCreateAccessProfileRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -26160,7 +26160,7 @@ export class AccessProfilesApi extends BaseAPI {
     }
 
     /**
-     * Get a list of access profiles. >**Note:** When you filter for access profiles that have the \'+\' symbol in their names, the response is blank. 
+     * Get a list of access profiles.  >**Note:** When you filter for access profiles that have the \'+\' symbol in their names, the response is blank. 
      * @summary List Access Profiles
      * @param {AccessProfilesApiListAccessProfilesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
