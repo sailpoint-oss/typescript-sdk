@@ -15696,19 +15696,6 @@ export const PatOwnerTypeV3 = {
 export type PatOwnerTypeV3 = typeof PatOwnerTypeV3[keyof typeof PatOwnerTypeV3];
 
 /**
- * A JSONPatch document as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902).  Only `replace` operations are accepted by this endpoint.
- * @export
- * @interface PatchServiceDeskIntegrationRequest
- */
-export interface PatchServiceDeskIntegrationRequest {
-    /**
-     * Operations to be applied
-     * @type {Array<JsonPatchOperation>}
-     * @memberof PatchServiceDeskIntegrationRequest
-     */
-    'operations'?: Array<JsonPatchOperation>;
-}
-/**
  * 
  * @export
  * @interface PendingApproval
@@ -56392,15 +56379,15 @@ export const ServiceDeskIntegrationApiAxiosParamCreator = function (configuratio
          * Update an existing Service Desk integration by ID with a PATCH request.
          * @summary Patch a Service Desk Integration
          * @param {string} id ID of the Service Desk integration to update
-         * @param {PatchServiceDeskIntegrationRequest} patchServiceDeskIntegrationRequest A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchServiceDeskIntegration: async (id: string, patchServiceDeskIntegrationRequest: PatchServiceDeskIntegrationRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchServiceDeskIntegration: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchServiceDeskIntegration', 'id', id)
-            // verify required parameter 'patchServiceDeskIntegrationRequest' is not null or undefined
-            assertParamExists('patchServiceDeskIntegration', 'patchServiceDeskIntegrationRequest', patchServiceDeskIntegrationRequest)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('patchServiceDeskIntegration', 'jsonPatchOperation', jsonPatchOperation)
             const localVarPath = `/service-desk-integrations/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -56429,7 +56416,7 @@ export const ServiceDeskIntegrationApiAxiosParamCreator = function (configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(patchServiceDeskIntegrationRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -56635,12 +56622,12 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
          * Update an existing Service Desk integration by ID with a PATCH request.
          * @summary Patch a Service Desk Integration
          * @param {string} id ID of the Service Desk integration to update
-         * @param {PatchServiceDeskIntegrationRequest} patchServiceDeskIntegrationRequest A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchServiceDeskIntegration(id: string, patchServiceDeskIntegrationRequest: PatchServiceDeskIntegrationRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchServiceDeskIntegration(id, patchServiceDeskIntegrationRequest, axiosOptions);
+        async patchServiceDeskIntegration(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchServiceDeskIntegration(id, jsonPatchOperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ServiceDeskIntegrationApi.patchServiceDeskIntegration']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -56758,7 +56745,7 @@ export const ServiceDeskIntegrationApiFactory = function (configuration?: Config
          * @throws {RequiredError}
          */
         patchServiceDeskIntegration(requestParameters: ServiceDeskIntegrationApiPatchServiceDeskIntegrationRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ServiceDeskIntegrationDto> {
-            return localVarFp.patchServiceDeskIntegration(requestParameters.id, requestParameters.patchServiceDeskIntegrationRequest, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.patchServiceDeskIntegration(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Update an existing Service Desk integration by ID.
@@ -56896,10 +56883,10 @@ export interface ServiceDeskIntegrationApiPatchServiceDeskIntegrationRequest {
 
     /**
      * A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
-     * @type {PatchServiceDeskIntegrationRequest}
+     * @type {Array<JsonPatchOperation>}
      * @memberof ServiceDeskIntegrationApiPatchServiceDeskIntegration
      */
-    readonly patchServiceDeskIntegrationRequest: PatchServiceDeskIntegrationRequest
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
 }
 
 /**
@@ -57035,7 +57022,7 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
      * @memberof ServiceDeskIntegrationApi
      */
     public patchServiceDeskIntegration(requestParameters: ServiceDeskIntegrationApiPatchServiceDeskIntegrationRequest, axiosOptions?: RawAxiosRequestConfig) {
-        return ServiceDeskIntegrationApiFp(this.configuration).patchServiceDeskIntegration(requestParameters.id, requestParameters.patchServiceDeskIntegrationRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return ServiceDeskIntegrationApiFp(this.configuration).patchServiceDeskIntegration(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
