@@ -26336,11 +26336,11 @@ export const AccessRequestApprovalsApiAxiosParamCreator = function (configuratio
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             if (ownerId !== undefined) {
                 localVarQueryParameter['owner-id'] = ownerId;
