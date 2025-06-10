@@ -1,5 +1,4 @@
-import { AccountsBetaApi, ConnectorsBetaApi, IdentityProfilesBetaApi, Paginator, Search, SourcesBetaApi, TransformsApi, AccountsV2024Api, TransformsV2024Api, IdentitiesBetaApiFp, IdentitiesV2024Api } from "./index"
-import { AccountsApi, Configuration, SearchApi } from "./index"
+import { AccountsApi, AccountsBetaApi, AccountsV2024Api, Configuration, ConnectorsBetaApi, IdentitiesV2024Api, IdentityProfilesBetaApi, Paginator, Search, SearchApi, SearchV2024, SearchV2024Api, SearchV2025, SearchV2025Api, SourcesBetaApi, TransformsApi, TransformsV2024Api } from "./index"
 
 describe('Test_v3', () => {
     it('Test List Accounts', async () => {
@@ -134,6 +133,49 @@ describe('Test_v2024', () => {
         const resp = await api.listIdentities({limit: 10})
     
         expect(resp.data.length).toStrictEqual(10)
+        expect(resp.status).toStrictEqual(200)
+    }, 30000)
+
+
+    it('Test paginate search API with V2024', async () => {
+        let apiConfig = new Configuration()
+        let api = new SearchV2024Api(apiConfig)
+        
+        let search: SearchV2024 = {
+            indices: [
+                "identities"
+            ],
+            query: {
+                query: "*"
+            },
+            sort: ["-name"]
+        }
+        const resp = await Paginator.paginateSearchApi(api, search, 10, 100)
+    
+        expect(resp.data.length).toStrictEqual(100)
+        expect(resp.status).toStrictEqual(200)
+    }, 30000)
+})
+
+
+describe('Test_v2025', () => {
+
+        it('Test paginate search API with V2025', async () => {
+        let apiConfig = new Configuration()
+        let api = new SearchV2025Api(apiConfig)
+        
+        let search: SearchV2025 = {
+            indices: [
+                "identities"
+            ],
+            query: {
+                query: "*"
+            },
+            sort: ["-name"]
+        }
+        const resp = await Paginator.paginateSearchApi(api, search, 10, 100)
+    
+        expect(resp.data.length).toStrictEqual(100)
         expect(resp.status).toStrictEqual(200)
     }, 30000)
 })
