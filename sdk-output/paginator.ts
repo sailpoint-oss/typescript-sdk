@@ -6,6 +6,20 @@ import {
   SearchDocument,
 } from "./v3";
 
+import {
+  SearchDocumentV2024,
+  SearchV2024,
+  SearchV2024Api,
+  SearchV2024ApiSearchPostRequest,
+} from "./v2024/api";
+
+import {
+  SearchDocumentV2025,
+  SearchV2025,
+  SearchV2025Api,
+  SearchV2025ApiSearchPostRequest,
+} from "./v2025/api";
+
 export interface PaginationParams {
   /**
    * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -37,6 +51,34 @@ export interface PaginationParams {
 export interface ExtraParams {
   [key: string]: any;
 }
+
+interface SearchApiTypeMap {
+  SearchApi: {
+    search: Search;
+    searchParams: SearchApiSearchPostRequest;
+    document: SearchDocument;
+  };
+  SearchV2024Api: {
+    search: SearchV2024;
+    searchParams: SearchV2024ApiSearchPostRequest;
+    document: SearchDocumentV2024;
+  };
+  SearchV2025Api: {
+    search: SearchV2025;
+    searchParams: SearchV2025ApiSearchPostRequest;
+    document: SearchDocumentV2025;
+  };
+}
+
+// Create a union type for all possible API types
+type ApiType = keyof SearchApiTypeMap;
+
+// Define the actual API instances mapping
+type ApiInstanceMap = {
+  SearchApi: SearchApi;
+  SearchV2024Api: SearchV2024Api;
+  SearchV2025Api: SearchV2025Api;
+};
 
 export class Paginator {
   public static async paginate<
@@ -75,20 +117,17 @@ export class Paginator {
     }
   }
 
-  public static async paginateSearchApi(
-    searchAPI: SearchApi,
-    search: Search,
+  public static async paginateSearchApi<T extends ApiType>(
+    searchAPI: ApiInstanceMap[T],
+    search: SearchApiTypeMap[T]['search'],
     increment?: number,
     limit?: number
-  ): Promise<AxiosResponse<SearchDocument[], any>> {
+  ): Promise<AxiosResponse<SearchApiTypeMap[T]['document'][], any>> {
     increment = increment ? increment : 250;
-    const searchParams: SearchApiSearchPostRequest = {
-      search: search,
-      limit: increment,
-    };
+    
     let offset = 0;
     const maxLimit = limit ? limit : 0;
-    let modified: SearchDocument[] = [];
+    let modified: SearchApiTypeMap[T]['document'][] = [];
 
     if (!search.sort || search.sort.length != 1) {
       throw "search must include exactly one sort parameter to paginate properly";
@@ -96,8 +135,33 @@ export class Paginator {
 
     while (true) {
       console.log(`Paginating call, offset = ${offset}`);
-      let results = await searchAPI.searchPost(searchParams);
+      let results: AxiosResponse<SearchApiTypeMap[T]['document'][], any>;
+      
+      // Handle each API type separately to avoid type conflicts
+      if (searchAPI instanceof SearchApi) {
+        const searchParams: SearchApiSearchPostRequest = {
+          search: search as Search,
+          limit: increment,
+        };
+        results = await (searchAPI as SearchApi).searchPost(searchParams) as AxiosResponse<SearchApiTypeMap[T]['document'][], any>;
+      } else if (searchAPI instanceof SearchV2024Api) {
+        const searchParams: SearchV2024ApiSearchPostRequest = {
+          searchV2024: search as SearchV2024,
+          limit: increment,
+        };
+        results = await (searchAPI as SearchV2024Api).searchPost(searchParams) as AxiosResponse<SearchApiTypeMap[T]['document'][], any>;
+      } else if (searchAPI instanceof SearchV2025Api) {
+        const searchParams: SearchV2025ApiSearchPostRequest = {
+          searchV2025: search as SearchV2025,
+          limit: increment,
+        };
+        results = await (searchAPI as SearchV2025Api).searchPost(searchParams) as AxiosResponse<SearchApiTypeMap[T]['document'][], any>;
+      } else {
+        throw new Error("Unsupported API type");
+      }
+      
       modified.push.apply(modified, results.data);
+      
       if (
         results.data.length < increment ||
         (modified.length >= maxLimit && maxLimit > 0)
@@ -106,9 +170,9 @@ export class Paginator {
         return results;
       } else {
         const result = <any>results.data[results.data.length - 1];
-        if (searchParams.search.sort) {
-          searchParams.search.searchAfter = [
-            result[searchParams.search.sort[0].replace("-", "")],
+        if (search.sort) {
+          (search as any).searchAfter = [
+            result[search.sort[0].replace("-", "")],
           ];
         } else {
           throw "search unexpectedly did not return a result we can search after!";
