@@ -1,4 +1,4 @@
-import { AccountsApi, AccountsBetaApi, AccountsV2024Api, Configuration, ConnectorsBetaApi, IdentitiesV2024Api, IdentityProfilesBetaApi, Paginator, Search, SearchApi, SearchV2024, SearchV2024Api, SearchV2025, SearchV2025Api, SourcesBetaApi, TransformsApi, TransformsV2024Api } from "./index"
+import { AccountsApi, AccountsBetaApi, AccountsV2024Api, Configuration, ConnectorsBetaApi, IdentitiesV2024Api, IdentityProfilesBetaApi, Paginator, Search, SearchApi, SearchV2024, SearchV2024Api, SearchV2025, SearchV2025Api, SourcesBetaApi, TransformsApi, TransformsV2024Api, AccessModelMetadataV2024Api } from "./index"
 
 describe('Test_v3', () => {
     it('Test List Accounts', async () => {
@@ -118,9 +118,9 @@ describe('Test_v2024', () => {
 
     it('Test List Identities without experimental flag set', async () => {
         let apiConfig = new Configuration()
-        let api = new IdentitiesV2024Api(apiConfig);
+        let api = new AccessModelMetadataV2024Api(apiConfig);
         
-        await expect(api.listIdentities()).rejects.toThrow(
+        await expect(api.listAccessModelMetadataAttribute()).rejects.toThrow(
             "You are using Experimental APIs. Set configuration.experimental = True to enable these APIs in the SDK."
         );
     }, 30000)
