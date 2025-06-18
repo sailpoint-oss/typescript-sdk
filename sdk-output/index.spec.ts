@@ -1,4 +1,4 @@
-import { AccountsApi, AccountsBetaApi, AccountsV2024Api, Configuration, ConnectorsBetaApi, IdentitiesV2024Api, IdentityProfilesBetaApi, Paginator, Search, SearchApi, SearchV2024, SearchV2024Api, SearchV2025, SearchV2025Api, SourcesBetaApi, TransformsApi, TransformsV2024Api } from "./index"
+import { AccountsApi, AccountsBetaApi, AccountsV2024Api, Configuration, ConnectorsBetaApi, IdentitiesV2024Api, IdentityProfilesBetaApi, Paginator, Search, SearchApi, SearchV2024, SearchV2024Api, SearchV2025, SearchV2025Api, SourcesBetaApi, TransformsApi, TransformsV2024Api, AccessModelMetadataV2024Api } from "./index"
 
 describe('Test_v3', () => {
     it('Test List Accounts', async () => {
