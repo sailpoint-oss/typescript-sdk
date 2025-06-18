@@ -118,9 +118,9 @@ describe('Test_v2024', () => {
 
     it('Test List Identities without experimental flag set', async () => {
         let apiConfig = new Configuration()
-        let api = new IdentitiesV2024Api(apiConfig);
+        let api = new AccessModelMetadataV2024Api(apiConfig);
         
-        await expect(api.listIdentities()).rejects.toThrow(
+        await expect(api.listAccessModelMetadataAttribute()).rejects.toThrow(
             "You are using Experimental APIs. Set configuration.experimental = True to enable these APIs in the SDK."
         );
     }, 30000)
