@@ -147,9 +147,9 @@ export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxi
     return <T = unknown, R = AxiosResponse<T>>(axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
         axiosRetry(axios, configuration.retriesConfig)
         const headers = {
-            ...{'User-Agent':'OpenAPI-Generator/1.6.3/ts'}, 
+            ...{'User-Agent':'OpenAPI-Generator/1.6.4/ts'}, 
             ...axiosArgs.axiosOptions.headers,
-            ...{'X-SailPoint-SDK':'typescript-1.6.3'}
+            ...{'X-SailPoint-SDK':'typescript-1.6.4'}
         }
 
         if(!configuration.experimental && ("X-SailPoint-Experimental" in headers)) {
