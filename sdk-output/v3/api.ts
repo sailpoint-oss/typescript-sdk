@@ -5017,8 +5017,7 @@ export interface CampaignAllOfFilter {
 }
 
 export const CampaignAllOfFilterTypeV3 = {
-    CampaignFilter: 'CAMPAIGN_FILTER',
-    Rule: 'RULE'
+    CampaignFilter: 'CAMPAIGN_FILTER'
 } as const;
 
 export type CampaignAllOfFilterTypeV3 = typeof CampaignAllOfFilterTypeV3[keyof typeof CampaignAllOfFilterTypeV3];
