@@ -50477,7 +50477,7 @@ export type GetReportFileFormatV3 = typeof GetReportFileFormatV3[keyof typeof Ge
 export const RequestableObjectsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Get a list of acccess items that can be requested through the [Access Request endpoints](https://developer.sailpoint.com/docs/api/v3/access-requests). Access items are marked with `AVAILABLE`, `PENDING` or `ASSIGNED` with respect to the identity provided using `identity-id` query parameter. Any authenticated token can call this endpoint to see their requestable access items.
+         * Get a list of acccess items that can be requested through the [Access Request endpoints](https://developer.sailpoint.com/docs/api/v3/access-requests). Access items are marked with `AVAILABLE`, `PENDING` or `ASSIGNED` with respect to the identity provided using `identity-id` query parameter. This endpoint only lists roles and access profiles. For gathering requestable entitlements, the [Entitlements List API](https://developer.sailpoint.com/docs/api/v2025/list-entitlements) can be used with the segmented-for-identity parameter. Any authenticated token can call this endpoint to see their requestable access items.
          * @summary Requestable objects list
          * @param {string} [identityId] If present, the value returns only requestable objects for the specified identity.  * Admin users can call this with any identity ID value.  * Non-admin users can only specify *me* or pass their own identity ID value.  * If absent, returns a list of all requestable objects for the tenant. Only admin users can make such a call. In this case, the available, pending, assigned accesses will not be annotated in the result.
          * @param {Array<ListRequestableObjectsTypesV3>} [types] Filters the results to the specified type/types, where each type is one of &#x60;ROLE&#x60; or &#x60;ACCESS_PROFILE&#x60;. If absent, all types are returned. SailPoint may add support for additional types in the future without notice.
@@ -50570,7 +50570,7 @@ export const RequestableObjectsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = RequestableObjectsApiAxiosParamCreator(configuration)
     return {
         /**
-         * Get a list of acccess items that can be requested through the [Access Request endpoints](https://developer.sailpoint.com/docs/api/v3/access-requests). Access items are marked with `AVAILABLE`, `PENDING` or `ASSIGNED` with respect to the identity provided using `identity-id` query parameter. Any authenticated token can call this endpoint to see their requestable access items.
+         * Get a list of acccess items that can be requested through the [Access Request endpoints](https://developer.sailpoint.com/docs/api/v3/access-requests). Access items are marked with `AVAILABLE`, `PENDING` or `ASSIGNED` with respect to the identity provided using `identity-id` query parameter. This endpoint only lists roles and access profiles. For gathering requestable entitlements, the [Entitlements List API](https://developer.sailpoint.com/docs/api/v2025/list-entitlements) can be used with the segmented-for-identity parameter. Any authenticated token can call this endpoint to see their requestable access items.
          * @summary Requestable objects list
          * @param {string} [identityId] If present, the value returns only requestable objects for the specified identity.  * Admin users can call this with any identity ID value.  * Non-admin users can only specify *me* or pass their own identity ID value.  * If absent, returns a list of all requestable objects for the tenant. Only admin users can make such a call. In this case, the available, pending, assigned accesses will not be annotated in the result.
          * @param {Array<ListRequestableObjectsTypesV3>} [types] Filters the results to the specified type/types, where each type is one of &#x60;ROLE&#x60; or &#x60;ACCESS_PROFILE&#x60;. If absent, all types are returned. SailPoint may add support for additional types in the future without notice.
@@ -50601,7 +50601,7 @@ export const RequestableObjectsApiFactory = function (configuration?: Configurat
     const localVarFp = RequestableObjectsApiFp(configuration)
     return {
         /**
-         * Get a list of acccess items that can be requested through the [Access Request endpoints](https://developer.sailpoint.com/docs/api/v3/access-requests). Access items are marked with `AVAILABLE`, `PENDING` or `ASSIGNED` with respect to the identity provided using `identity-id` query parameter. Any authenticated token can call this endpoint to see their requestable access items.
+         * Get a list of acccess items that can be requested through the [Access Request endpoints](https://developer.sailpoint.com/docs/api/v3/access-requests). Access items are marked with `AVAILABLE`, `PENDING` or `ASSIGNED` with respect to the identity provided using `identity-id` query parameter. This endpoint only lists roles and access profiles. For gathering requestable entitlements, the [Entitlements List API](https://developer.sailpoint.com/docs/api/v2025/list-entitlements) can be used with the segmented-for-identity parameter. Any authenticated token can call this endpoint to see their requestable access items.
          * @summary Requestable objects list
          * @param {RequestableObjectsApiListRequestableObjectsRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -50691,7 +50691,7 @@ export interface RequestableObjectsApiListRequestableObjectsRequest {
  */
 export class RequestableObjectsApi extends BaseAPI {
     /**
-     * Get a list of acccess items that can be requested through the [Access Request endpoints](https://developer.sailpoint.com/docs/api/v3/access-requests). Access items are marked with `AVAILABLE`, `PENDING` or `ASSIGNED` with respect to the identity provided using `identity-id` query parameter. Any authenticated token can call this endpoint to see their requestable access items.
+     * Get a list of acccess items that can be requested through the [Access Request endpoints](https://developer.sailpoint.com/docs/api/v3/access-requests). Access items are marked with `AVAILABLE`, `PENDING` or `ASSIGNED` with respect to the identity provided using `identity-id` query parameter. This endpoint only lists roles and access profiles. For gathering requestable entitlements, the [Entitlements List API](https://developer.sailpoint.com/docs/api/v2025/list-entitlements) can be used with the segmented-for-identity parameter. Any authenticated token can call this endpoint to see their requestable access items.
      * @summary Requestable objects list
      * @param {RequestableObjectsApiListRequestableObjectsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
