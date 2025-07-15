@@ -6972,7 +6972,13 @@ export interface CreatePersonalAccessTokenRequest {
      * @type {number}
      * @memberof CreatePersonalAccessTokenRequest
      */
-    'accessTokenValiditySeconds'?: number;
+    'accessTokenValiditySeconds'?: number | null;
+    /**
+     * Date and time, down to the millisecond, when this personal access token will expire. If not provided, the token will expire 6 months after its creation date. The value must be a valid date-time string between the current date and 6 months from the creation date.
+     * @type {string}
+     * @memberof CreatePersonalAccessTokenRequest
+     */
+    'expirationDate'?: string | null;
 }
 /**
  * 
@@ -7022,6 +7028,12 @@ export interface CreatePersonalAccessTokenResponse {
      * @memberof CreatePersonalAccessTokenResponse
      */
     'accessTokenValiditySeconds': number;
+    /**
+     * Date and time, down to the millisecond, when this personal access token will expire. If not provided, the token will expire 6 months after its creation date. The value must be a valid date-time string between the current date and 6 months from the creation date.
+     * @type {string}
+     * @memberof CreatePersonalAccessTokenResponse
+     */
+    'expirationDate': string;
 }
 /**
  * 
@@ -10307,6 +10319,18 @@ export interface GetPersonalAccessTokenResponse {
      * @memberof GetPersonalAccessTokenResponse
      */
     'managed'?: boolean;
+    /**
+     * Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200.
+     * @type {number}
+     * @memberof GetPersonalAccessTokenResponse
+     */
+    'accessTokenValiditySeconds'?: number;
+    /**
+     * Date and time, down to the millisecond, when this personal access token will expire. If not provided, the token will expire 6 months after its creation date. The value must be a valid date-time string between the current date and 6 months from the creation date.
+     * @type {string}
+     * @memberof GetPersonalAccessTokenResponse
+     */
+    'expirationDate'?: string;
 }
 /**
  * 
