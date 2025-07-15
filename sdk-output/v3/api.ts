@@ -64078,12 +64078,11 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
          * @param {string} id Workflow ID.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, le, gt, ge*  **status**: *eq*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkflowExecutions: async (id: string, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getWorkflowExecutions: async (id: string, limit?: number, offset?: number, filters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getWorkflowExecutions', 'id', id)
             const localVarPath = `/workflows/{id}/executions`
@@ -64113,10 +64112,6 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
 
             if (offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
-            }
-
-            if (count !== undefined) {
-                localVarQueryParameter['count'] = count;
             }
 
             if (filters !== undefined) {
@@ -64696,13 +64691,12 @@ export const WorkflowsApiFp = function(configuration?: Configuration) {
          * @param {string} id Workflow ID.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, le, gt, ge*  **status**: *eq*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkflowExecutions(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowExecution>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkflowExecutions(id, limit, offset, count, filters, axiosOptions);
+        async getWorkflowExecutions(id: string, limit?: number, offset?: number, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowExecution>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkflowExecutions(id, limit, offset, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkflowsApi.getWorkflowExecutions']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -64933,7 +64927,7 @@ export const WorkflowsApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         getWorkflowExecutions(requestParameters: WorkflowsApiGetWorkflowExecutionsRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<WorkflowExecution>> {
-            return localVarFp.getWorkflowExecutions(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.getWorkflowExecutions(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This lists all triggers, actions, and operators in the library
@@ -65179,13 +65173,6 @@ export interface WorkflowsApiGetWorkflowExecutionsRequest {
      * @memberof WorkflowsApiGetWorkflowExecutions
      */
     readonly offset?: number
-
-    /**
-     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @type {boolean}
-     * @memberof WorkflowsApiGetWorkflowExecutions
-     */
-    readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, le, gt, ge*  **status**: *eq*
@@ -65503,7 +65490,7 @@ export class WorkflowsApi extends BaseAPI {
      * @memberof WorkflowsApi
      */
     public getWorkflowExecutions(requestParameters: WorkflowsApiGetWorkflowExecutionsRequest, axiosOptions?: RawAxiosRequestConfig) {
-        return WorkflowsApiFp(this.configuration).getWorkflowExecutions(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return WorkflowsApiFp(this.configuration).getWorkflowExecutions(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
