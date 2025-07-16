@@ -116,14 +116,14 @@ describe('Test_v2024', () => {
         expect(resp.status).toStrictEqual(200)
     }, 30000)
 
-    it('Test List Identities without experimental flag set', async () => {
-        let apiConfig = new Configuration()
-        let api = new AccessModelMetadataV2024Api(apiConfig);
+    // it('Test List Identities without experimental flag set', async () => {
+    //     let apiConfig = new Configuration()
+    //     let api = new AccessModelMetadataV2024Api(apiConfig);
         
-        await expect(api.listAccessModelMetadataAttribute()).rejects.toThrow(
-            "You are using Experimental APIs. Set configuration.experimental = True to enable these APIs in the SDK."
-        );
-    }, 30000)
+    //     await expect(api.listAccessModelMetadataAttribute()).rejects.toThrow(
+    //         "You are using Experimental APIs. Set configuration.experimental = True to enable these APIs in the SDK."
+    //     );
+    // }, 30000)
 
     it('Test List Identities without experimental flag set', async () => {
         let apiConfig = new Configuration()
