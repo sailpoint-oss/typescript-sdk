@@ -104,30 +104,49 @@ export class Paginator {
     let modified: TResult[] = [];
     while (true) {
       console.log(`Paginating call, offset = ${params.offset}`);
-      let results = await callbackFn.call(thisArg, params);
-      modified.push.apply(modified, results.data);
-      if (
-        results.data.length < increment ||
-        (modified.length >= maxLimit && maxLimit > 0)
-      ) {
-        results.data = modified;
-        return results;
+      try {
+        let results = await callbackFn.call(thisArg, params);
+        modified.push.apply(modified, results.data);
+        if (
+          results.data.length < increment ||
+          results.data.length === 0 ||
+          (modified.length >= maxLimit && maxLimit > 0)
+        ) {
+          results.data = modified;
+          return results;
+        }
+        params.offset += increment;
+      } catch (error: any) {
+        if (
+          error.response &&
+          error.response.status === 400 &&
+          error.response.data &&
+          error.response.data.detailMessage &&
+          error.response.data.detailMessage.includes("Specified offset is invalid")
+        ) {
+          const finalResults = await callbackFn.call(thisArg, {
+            ...params,
+            offest: 0,
+            limit: 1,
+          });
+          finalResults.data = modified;
+          return finalResults;
+        }
       }
-      params.offset += increment;
     }
   }
 
   public static async paginateSearchApi<T extends ApiType>(
     searchAPI: ApiInstanceMap[T],
-    search: SearchApiTypeMap[T]['search'],
+    search: SearchApiTypeMap[T]["search"],
     increment?: number,
     limit?: number
-  ): Promise<AxiosResponse<SearchApiTypeMap[T]['document'][], any>> {
+  ): Promise<AxiosResponse<SearchApiTypeMap[T]["document"][], any>> {
     increment = increment ? increment : 250;
-    
+
     let offset = 0;
     const maxLimit = limit ? limit : 0;
-    let modified: SearchApiTypeMap[T]['document'][] = [];
+    let modified: SearchApiTypeMap[T]["document"][] = [];
 
     if (!search.sort || search.sort.length != 1) {
       throw "search must include exactly one sort parameter to paginate properly";
@@ -135,33 +154,39 @@ export class Paginator {
 
     while (true) {
       console.log(`Paginating call, offset = ${offset}`);
-      let results: AxiosResponse<SearchApiTypeMap[T]['document'][], any>;
-      
+      let results: AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
+
       // Handle each API type separately to avoid type conflicts
       if (searchAPI instanceof SearchApi) {
         const searchParams: SearchApiSearchPostRequest = {
           search: search as Search,
           limit: increment,
         };
-        results = await (searchAPI as SearchApi).searchPost(searchParams) as AxiosResponse<SearchApiTypeMap[T]['document'][], any>;
+        results = (await (searchAPI as SearchApi).searchPost(
+          searchParams
+        )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
       } else if (searchAPI instanceof SearchV2024Api) {
         const searchParams: SearchV2024ApiSearchPostRequest = {
           searchV2024: search as SearchV2024,
           limit: increment,
         };
-        results = await (searchAPI as SearchV2024Api).searchPost(searchParams) as AxiosResponse<SearchApiTypeMap[T]['document'][], any>;
+        results = (await (searchAPI as SearchV2024Api).searchPost(
+          searchParams
+        )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
       } else if (searchAPI instanceof SearchV2025Api) {
         const searchParams: SearchV2025ApiSearchPostRequest = {
           searchV2025: search as SearchV2025,
           limit: increment,
         };
-        results = await (searchAPI as SearchV2025Api).searchPost(searchParams) as AxiosResponse<SearchApiTypeMap[T]['document'][], any>;
+        results = (await (searchAPI as SearchV2025Api).searchPost(
+          searchParams
+        )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
       } else {
         throw new Error("Unsupported API type");
       }
-      
+
       modified.push.apply(modified, results.data);
-      
+
       if (
         results.data.length < increment ||
         (modified.length >= maxLimit && maxLimit > 0)
