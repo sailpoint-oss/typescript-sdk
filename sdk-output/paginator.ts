@@ -103,7 +103,6 @@ export class Paginator {
 
     let modified: TResult[] = [];
     while (true) {
-      console.log(`Paginating call, offset = ${params.offset}`);
       let results = await callbackFn.call(thisArg, params);
       modified.push.apply(modified, results.data);
       if (
