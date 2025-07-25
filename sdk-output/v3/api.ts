@@ -21630,6 +21630,38 @@ export const SodPolicyDtoTypeV3 = {
 export type SodPolicyDtoTypeV3 = typeof SodPolicyDtoTypeV3[keyof typeof SodPolicyDtoTypeV3];
 
 /**
+ * SOD policy.
+ * @export
+ * @interface SodPolicyDto1
+ */
+export interface SodPolicyDto1 {
+    /**
+     * SOD policy DTO type.
+     * @type {string}
+     * @memberof SodPolicyDto1
+     */
+    'type'?: SodPolicyDto1TypeV3;
+    /**
+     * SOD policy ID.
+     * @type {string}
+     * @memberof SodPolicyDto1
+     */
+    'id'?: string;
+    /**
+     * SOD policy display name.
+     * @type {string}
+     * @memberof SodPolicyDto1
+     */
+    'name'?: string;
+}
+
+export const SodPolicyDto1TypeV3 = {
+    SodPolicy: 'SOD_POLICY'
+} as const;
+
+export type SodPolicyDto1TypeV3 = typeof SodPolicyDto1TypeV3[keyof typeof SodPolicyDto1TypeV3];
+
+/**
  * The owner of the SOD policy.
  * @export
  * @interface SodPolicyOwnerRef
@@ -22128,10 +22160,10 @@ export interface SodViolationCheckResult {
     'violationContexts'?: Array<SodViolationContext> | null;
     /**
      * A list of the SOD policies that were violated.
-     * @type {Array<SodPolicyDto>}
+     * @type {Array<SodPolicyDto1>}
      * @memberof SodViolationCheckResult
      */
-    'violatedPolicies'?: Array<SodPolicyDto> | null;
+    'violatedPolicies'?: Array<SodPolicyDto1> | null;
 }
 /**
  * The contextual information of the violated criteria
@@ -22141,10 +22173,10 @@ export interface SodViolationCheckResult {
 export interface SodViolationContext {
     /**
      * 
-     * @type {SodPolicyDto}
+     * @type {SodPolicyDto1}
      * @memberof SodViolationContext
      */
-    'policy'?: SodPolicyDto;
+    'policy'?: SodPolicyDto1;
     /**
      * 
      * @type {SodViolationContextConflictingAccessCriteria}
