@@ -116,20 +116,6 @@ export class Paginator {
     }
   }
 
-  /**
-   * Async generator for paginating through results.
-   * Yields individual items as they are retrieved, reducing memory consumption.
-   *
-   * @example
-   * ```typescript
-   * // Using the generator
-   * const items: Item[] = [];
-   * for await (const item of Paginator.paginateGenerator(this, api.listItems, { filters: 'active==true' })) {
-   *   items.push(item);
-   *   // Process each item as it arrives
-   * }
-   * ```
-   */
   public static async *paginateGenerator<
     T,
     TResult,
@@ -244,25 +230,6 @@ export class Paginator {
     }
   }
 
-  /**
-   * Async generator for paginating through search API results.
-   * Yields individual search documents as they are retrieved.
-   *
-   * @example
-   * ```typescript
-   * // Using the search generator
-   * const searchApi = new SearchApi(config);
-   * const search = {
-   *   query: { query: 'name:john*' },
-   *   sort: ['name']
-   * };
-   *
-   * for await (const doc of Paginator.paginateSearchApiGenerator(searchApi, search)) {
-   *   console.log(doc.name);
-   *   // Process each document as it arrives
-   * }
-   * ```
-   */
   public static async *paginateSearchApiGenerator<T extends ApiType>(
     searchAPI: ApiInstanceMap[T],
     search: SearchApiTypeMap[T]["search"],
