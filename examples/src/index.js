@@ -37,24 +37,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var sailpoint_api_client_1 = require("sailpoint-api-client");
-var createTransform = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var apiConfig, api, transform, val;
+var listIdentities = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var apiConfig, api, request, val;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 apiConfig = new sailpoint_api_client_1.Configuration();
-                api = new sailpoint_api_client_1.TransformsApi(apiConfig);
-                transform = {
-                    transform: {
-                        name: "Test Transform",
-                        type: "dateFormat",
-                        attributes: {
-                            inputFormat: "MMM dd yyyy, HH:mm:ss.SSS",
-                            outputFormat: "yyyy/dd/MM"
-                        }
-                    }
+                api = new sailpoint_api_client_1.DefaultApi(apiConfig);
+                request = {
+                    path: "v2025/identities"
                 };
-                return [4 /*yield*/, api.createTransform(transform)];
+                return [4 /*yield*/, api.genericGet(request)];
             case 1:
                 val = _a.sent();
                 console.log(val.data);
@@ -62,97 +55,4 @@ var createTransform = function () { return __awaiter(void 0, void 0, void 0, fun
         }
     });
 }); };
-// const search = async () => {
-//     let apiConfig = new Configuration()
-//     let api = new SearchApi(apiConfig)
-//     let search: Search = {
-//         indices: [
-//             "identities"
-//         ],
-//         query: {
-//             query: "*"
-//         },
-//         sort: ["-name"]
-// 	}
-//     const val = await Paginator.paginateSearchApi(api, search, 100, 1000)
-//     for (const result of val.data) {
-//         const castedResult: IdentityDocument = result
-//         console.log(castedResult.name)
-//     }
-// }
-var getPaginatedAccounts = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var apiConfig, api, val;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                apiConfig = new sailpoint_api_client_1.Configuration();
-                apiConfig.retriesConfig = {
-                    retries: 4,
-                    retryDelay: sailpoint_api_client_1.axiosRetry.exponentialDelay,
-                    onRetry: function (retryCount, error, requestConfig) {
-                        console.log("retrying due to request error, try number ".concat(retryCount));
-                    },
-                };
-                api = new sailpoint_api_client_1.AccountsApi(apiConfig);
-                return [4 /*yield*/, sailpoint_api_client_1.Paginator.paginate(api, api.listAccounts, { limit: 20, sorters: "created" }, 10)];
-            case 1:
-                val = _a.sent();
-                console.log(val.data);
-                return [2 /*return*/];
-        }
-    });
-}); };
-var getPaginatedTransforms = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var apiConfig, api, val;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                apiConfig = new sailpoint_api_client_1.Configuration();
-                apiConfig.retriesConfig = {
-                    retries: 4,
-                    retryDelay: sailpoint_api_client_1.axiosRetry.exponentialDelay,
-                    onRetry: function (retryCount, error, requestConfig) {
-                        console.log("retrying due to request error, try number ".concat(retryCount));
-                    },
-                };
-                api = new sailpoint_api_client_1.TransformsApi(apiConfig);
-                return [4 /*yield*/, sailpoint_api_client_1.Paginator.paginate(api, api.listTransforms, { limit: 250 }, 100)];
-            case 1:
-                val = _a.sent();
-                console.log(val.data.length);
-                return [2 /*return*/];
-        }
-    });
-}); };
-var listTransforms = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var apiConfig, api, val;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                apiConfig = new sailpoint_api_client_1.Configuration();
-                api = new sailpoint_api_client_1.TransformsBetaApi(apiConfig);
-                return [4 /*yield*/, api.listTransforms()];
-            case 1:
-                val = _a.sent();
-                console.log(val.data);
-                return [2 /*return*/];
-        }
-    });
-}); };
-var listEntitlements = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var apiConfig, api, val;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                apiConfig = new sailpoint_api_client_1.Configuration();
-                apiConfig.experimental = true;
-                api = new sailpoint_api_client_1.EntitlementsV2025Api(apiConfig);
-                return [4 /*yield*/, api.listEntitlements()];
-            case 1:
-                val = _a.sent();
-                console.log(val.data);
-                return [2 /*return*/];
-        }
-    });
-}); };
-listEntitlements();
+listIdentities();
