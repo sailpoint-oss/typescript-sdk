@@ -39,6 +39,43 @@ paths:
           required: true
           schema:
             type: string
+        - name: limit
+          in: query
+          description: >-
+            Max number of results to return.
+
+            See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters)
+            for more information.
+          required: false
+          example: 250
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+            maximum: 250
+            default: 250
+        - name: offset
+          in: query
+          description: >-
+            Offset into the full result set. Usually specified with *limit* to paginate through the results.
+
+            See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters)
+            for more information.
+          required: false
+          example: 0
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+            default: 0
+        - name: X-SailPoint-Experimental
+          in: header
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: false
       responses:
         '200':
           description: Successful response
@@ -55,6 +92,14 @@ paths:
           required: true
           schema:
             type: string
+        - name: X-SailPoint-Experimental
+          in: header
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: false
       requestBody:
         content:
           application/json:
@@ -76,6 +121,14 @@ paths:
           required: true
           schema:
             type: string
+        - name: X-SailPoint-Experimental
+          in: header
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: false
       requestBody:
         content:
           application/json:
@@ -97,6 +150,14 @@ paths:
           required: true
           schema:
             type: string
+        - name: X-SailPoint-Experimental
+          in: header
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: false
       requestBody:
         content:
           application/json:
@@ -118,6 +179,14 @@ paths:
           required: true
           schema:
             type: string
+        - name: X-SailPoint-Experimental
+          in: header
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: false
       responses:
         '200':
           description: Successful response

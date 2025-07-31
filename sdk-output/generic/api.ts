@@ -40,14 +40,19 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * 
          * @summary Generic DELETE request
          * @param {string} path 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        genericDelete: async (path: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        genericDelete: async (path: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'path' is not null or undefined
             assertParamExists('genericDelete', 'path', path)
-            const localVarPath = `/{path}`
-                .replace(`{${"path"}}`, encodeURIComponent(String(path)));
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const segments = path.startsWith('/') ? path.slice(1).split('/') : path.split('/');
+            const localVarPath = `/${segments.map(segment => encodeURIComponent(segment)).join('/')}`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -69,6 +74,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -82,14 +90,21 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * 
          * @summary Generic GET request
          * @param {string} path 
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        genericGet: async (path: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        genericGet: async (path: string, limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'path' is not null or undefined
             assertParamExists('genericGet', 'path', path)
-            const localVarPath = `/{path}`
-                .replace(`{${"path"}}`, String(path));
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const segments = path.startsWith('/') ? path.slice(1).split('/') : path.split('/');
+            const localVarPath = `/${segments.map(segment => encodeURIComponent(segment)).join('/')}`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -109,8 +124,19 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
 
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -124,15 +150,20 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * 
          * @summary Generic PATCH request
          * @param {string} path 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {{ [key: string]: any; }} [requestBody] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        genericPatch: async (path: string, requestBody?: { [key: string]: any; }, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        genericPatch: async (path: string, xSailPointExperimental?: string, requestBody?: { [key: string]: any; }, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'path' is not null or undefined
             assertParamExists('genericPatch', 'path', path)
-            const localVarPath = `/{path}`
-                .replace(`{${"path"}}`, encodeURIComponent(String(path)));
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const segments = path.startsWith('/') ? path.slice(1).split('/') : path.split('/');
+            const localVarPath = `/${segments.map(segment => encodeURIComponent(segment)).join('/')}`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -156,6 +187,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -170,15 +204,20 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * 
          * @summary Generic POST request
          * @param {string} path 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {{ [key: string]: any; }} [requestBody] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        genericPost: async (path: string, requestBody?: { [key: string]: any; }, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        genericPost: async (path: string, xSailPointExperimental?: string, requestBody?: { [key: string]: any; }, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'path' is not null or undefined
             assertParamExists('genericPost', 'path', path)
-            const localVarPath = `/{path}`
-                .replace(`{${"path"}}`, encodeURIComponent(String(path)));
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const segments = path.startsWith('/') ? path.slice(1).split('/') : path.split('/');
+            const localVarPath = `/${segments.map(segment => encodeURIComponent(segment)).join('/')}`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -202,6 +241,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -216,15 +258,20 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * 
          * @summary Generic PUT request
          * @param {string} path 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {{ [key: string]: any; }} [requestBody] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        genericPut: async (path: string, requestBody?: { [key: string]: any; }, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        genericPut: async (path: string, xSailPointExperimental?: string, requestBody?: { [key: string]: any; }, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'path' is not null or undefined
             assertParamExists('genericPut', 'path', path)
-            const localVarPath = `/{path}`
-                .replace(`{${"path"}}`, encodeURIComponent(String(path)));
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const segments = path.startsWith('/') ? path.slice(1).split('/') : path.split('/');
+            const localVarPath = `/${segments.map(segment => encodeURIComponent(segment)).join('/')}`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -248,6 +295,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -272,11 +322,12 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * 
          * @summary Generic DELETE request
          * @param {string} path 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async genericDelete(path: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GenericResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.genericDelete(path, axiosOptions);
+        async genericDelete(path: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GenericResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.genericDelete(path, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.genericDelete']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -285,11 +336,14 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * 
          * @summary Generic GET request
          * @param {string} path 
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async genericGet(path: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GenericResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.genericGet(path, axiosOptions);
+        async genericGet(path: string, limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GenericResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.genericGet(path, limit, offset, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.genericGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -298,12 +352,13 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * 
          * @summary Generic PATCH request
          * @param {string} path 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {{ [key: string]: any; }} [requestBody] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async genericPatch(path: string, requestBody?: { [key: string]: any; }, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GenericResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.genericPatch(path, requestBody, axiosOptions);
+        async genericPatch(path: string, xSailPointExperimental?: string, requestBody?: { [key: string]: any; }, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GenericResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.genericPatch(path, xSailPointExperimental, requestBody, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.genericPatch']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -312,12 +367,13 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * 
          * @summary Generic POST request
          * @param {string} path 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {{ [key: string]: any; }} [requestBody] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async genericPost(path: string, requestBody?: { [key: string]: any; }, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GenericResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.genericPost(path, requestBody, axiosOptions);
+        async genericPost(path: string, xSailPointExperimental?: string, requestBody?: { [key: string]: any; }, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GenericResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.genericPost(path, xSailPointExperimental, requestBody, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.genericPost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -326,12 +382,13 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * 
          * @summary Generic PUT request
          * @param {string} path 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {{ [key: string]: any; }} [requestBody] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async genericPut(path: string, requestBody?: { [key: string]: any; }, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GenericResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.genericPut(path, requestBody, axiosOptions);
+        async genericPut(path: string, xSailPointExperimental?: string, requestBody?: { [key: string]: any; }, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GenericResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.genericPut(path, xSailPointExperimental, requestBody, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.genericPut']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -354,7 +411,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         genericDelete(requestParameters: DefaultApiGenericDeleteRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GenericResponse> {
-            return localVarFp.genericDelete(requestParameters.path, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.genericDelete(requestParameters.path, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -364,7 +421,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         genericGet(requestParameters: DefaultApiGenericGetRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GenericResponse> {
-            return localVarFp.genericGet(requestParameters.path, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.genericGet(requestParameters.path, requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -374,7 +431,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         genericPatch(requestParameters: DefaultApiGenericPatchRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GenericResponse> {
-            return localVarFp.genericPatch(requestParameters.path, requestParameters.requestBody, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.genericPatch(requestParameters.path, requestParameters.xSailPointExperimental, requestParameters.requestBody, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -384,7 +441,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         genericPost(requestParameters: DefaultApiGenericPostRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GenericResponse> {
-            return localVarFp.genericPost(requestParameters.path, requestParameters.requestBody, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.genericPost(requestParameters.path, requestParameters.xSailPointExperimental, requestParameters.requestBody, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -394,7 +451,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         genericPut(requestParameters: DefaultApiGenericPutRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GenericResponse> {
-            return localVarFp.genericPut(requestParameters.path, requestParameters.requestBody, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.genericPut(requestParameters.path, requestParameters.xSailPointExperimental, requestParameters.requestBody, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -411,6 +468,13 @@ export interface DefaultApiGenericDeleteRequest {
      * @memberof DefaultApiGenericDelete
      */
     readonly path: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof DefaultApiGenericDelete
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -425,6 +489,27 @@ export interface DefaultApiGenericGetRequest {
      * @memberof DefaultApiGenericGet
      */
     readonly path: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof DefaultApiGenericGet
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof DefaultApiGenericGet
+     */
+    readonly offset?: number
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof DefaultApiGenericGet
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -439,6 +524,13 @@ export interface DefaultApiGenericPatchRequest {
      * @memberof DefaultApiGenericPatch
      */
     readonly path: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof DefaultApiGenericPatch
+     */
+    readonly xSailPointExperimental?: string
 
     /**
      * 
@@ -462,6 +554,13 @@ export interface DefaultApiGenericPostRequest {
     readonly path: string
 
     /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof DefaultApiGenericPost
+     */
+    readonly xSailPointExperimental?: string
+
+    /**
      * 
      * @type {{ [key: string]: any; }}
      * @memberof DefaultApiGenericPost
@@ -481,6 +580,13 @@ export interface DefaultApiGenericPutRequest {
      * @memberof DefaultApiGenericPut
      */
     readonly path: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof DefaultApiGenericPut
+     */
+    readonly xSailPointExperimental?: string
 
     /**
      * 
@@ -506,7 +612,7 @@ export class DefaultApi extends BaseAPI {
      * @memberof DefaultApi
      */
     public genericDelete(requestParameters: DefaultApiGenericDeleteRequest, axiosOptions?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).genericDelete(requestParameters.path, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return DefaultApiFp(this.configuration).genericDelete(requestParameters.path, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -518,7 +624,7 @@ export class DefaultApi extends BaseAPI {
      * @memberof DefaultApi
      */
     public genericGet(requestParameters: DefaultApiGenericGetRequest, axiosOptions?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).genericGet(requestParameters.path, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return DefaultApiFp(this.configuration).genericGet(requestParameters.path, requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -530,7 +636,7 @@ export class DefaultApi extends BaseAPI {
      * @memberof DefaultApi
      */
     public genericPatch(requestParameters: DefaultApiGenericPatchRequest, axiosOptions?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).genericPatch(requestParameters.path, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return DefaultApiFp(this.configuration).genericPatch(requestParameters.path, requestParameters.xSailPointExperimental, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -542,7 +648,7 @@ export class DefaultApi extends BaseAPI {
      * @memberof DefaultApi
      */
     public genericPost(requestParameters: DefaultApiGenericPostRequest, axiosOptions?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).genericPost(requestParameters.path, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return DefaultApiFp(this.configuration).genericPost(requestParameters.path, requestParameters.xSailPointExperimental, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -554,7 +660,7 @@ export class DefaultApi extends BaseAPI {
      * @memberof DefaultApi
      */
     public genericPut(requestParameters: DefaultApiGenericPutRequest, axiosOptions?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).genericPut(requestParameters.path, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return DefaultApiFp(this.configuration).genericPut(requestParameters.path, requestParameters.xSailPointExperimental, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
