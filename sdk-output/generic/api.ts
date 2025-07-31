@@ -13,15 +13,15 @@
  */
 
 
-import type { AxiosInstance, AxiosPromise, RawAxiosRequestConfig } from 'axios';
-import globalAxios from 'axios';
 import type { Configuration } from '../configuration';
+import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
+import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from './common';
 import type { RequestArgs } from './base';
-import { DUMMY_BASE_URL, assertParamExists, createRequestFunction, serializeDataIfNeeded, setOAuthToObject, setSearchParams, toPathString } from './common';
 // @ts-ignore
-import { BASE_PATH, BaseAPI, RequiredError, operationServerMap } from './base';
+import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
 
 /**
  * @type GenericResponse
@@ -51,8 +51,8 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
                 xSailPointExperimental = 'true';
             }
             
-            const segments = path.startsWith('/') ? path.slice(1).split('/') : path.split('/');
-            const localVarPath = `/${segments.map(segment => encodeURIComponent(segment)).join('/')}`;
+            const localVarPath = `/{path}`
+                .replace(`{${"path"}}`, encodeURIComponent(String(path)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -91,20 +91,21 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * @summary Generic GET request
          * @param {string} path 
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        genericGet: async (path: string, limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        genericGet: async (path: string, limit?: number, count?: boolean, offset?: number, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'path' is not null or undefined
             assertParamExists('genericGet', 'path', path)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
             
-            const segments = path.startsWith('/') ? path.slice(1).split('/') : path.split('/');
-            const localVarPath = `/${segments.map(segment => encodeURIComponent(segment)).join('/')}`;
+            const localVarPath = `/{path}`
+                .replace(`{${"path"}}`, encodeURIComponent(String(path)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -126,6 +127,10 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
             }
 
             if (offset !== undefined) {
@@ -162,8 +167,8 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
                 xSailPointExperimental = 'true';
             }
             
-            const segments = path.startsWith('/') ? path.slice(1).split('/') : path.split('/');
-            const localVarPath = `/${segments.map(segment => encodeURIComponent(segment)).join('/')}`;
+            const localVarPath = `/{path}`
+                .replace(`{${"path"}}`, encodeURIComponent(String(path)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -216,8 +221,8 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
                 xSailPointExperimental = 'true';
             }
             
-            const segments = path.startsWith('/') ? path.slice(1).split('/') : path.split('/');
-            const localVarPath = `/${segments.map(segment => encodeURIComponent(segment)).join('/')}`;
+            const localVarPath = `/{path}`
+                .replace(`{${"path"}}`, encodeURIComponent(String(path)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -270,8 +275,8 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
                 xSailPointExperimental = 'true';
             }
             
-            const segments = path.startsWith('/') ? path.slice(1).split('/') : path.split('/');
-            const localVarPath = `/${segments.map(segment => encodeURIComponent(segment)).join('/')}`;
+            const localVarPath = `/{path}`
+                .replace(`{${"path"}}`, encodeURIComponent(String(path)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -337,13 +342,14 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @summary Generic GET request
          * @param {string} path 
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async genericGet(path: string, limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GenericResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.genericGet(path, limit, offset, xSailPointExperimental, axiosOptions);
+        async genericGet(path: string, limit?: number, count?: boolean, offset?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GenericResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.genericGet(path, limit, count, offset, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.genericGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -421,7 +427,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         genericGet(requestParameters: DefaultApiGenericGetRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GenericResponse> {
-            return localVarFp.genericGet(requestParameters.path, requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.genericGet(requestParameters.path, requestParameters.limit, requestParameters.count, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -496,6 +502,13 @@ export interface DefaultApiGenericGetRequest {
      * @memberof DefaultApiGenericGet
      */
     readonly limit?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof DefaultApiGenericGet
+     */
+    readonly count?: boolean
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -624,7 +637,7 @@ export class DefaultApi extends BaseAPI {
      * @memberof DefaultApi
      */
     public genericGet(requestParameters: DefaultApiGenericGetRequest, axiosOptions?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).genericGet(requestParameters.path, requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return DefaultApiFp(this.configuration).genericGet(requestParameters.path, requestParameters.limit, requestParameters.count, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

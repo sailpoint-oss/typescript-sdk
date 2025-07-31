@@ -64,7 +64,7 @@ jobs:
 
       - name: Run npm install and build Typescript SDK
         id: buildSDK
-        if: steps.buildGeneric.outcome == 'success'
+        if: steps.buildV2025.outcome == 'success'
         run: |
           cd sdk-output
           npm install
