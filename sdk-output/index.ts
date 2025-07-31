@@ -15,20 +15,22 @@
 
 
 export * from "./beta/api";
-export {Configuration as ConfigurationBeta, ConfigurationParameters as ConfigurationParametersBeta} from "./beta/configuration";
+export { Configuration as ConfigurationBeta, ConfigurationParameters as ConfigurationParametersBeta } from "./beta/configuration";
 
 export * from "./v3/api";
-export {Configuration as ConfigurationV3, ConfigurationParameters as ConfigurationParametersV3} from "./v3/configuration";
+export { ConfigurationParameters as ConfigurationParametersV3, Configuration as ConfigurationV3 } from "./v3/configuration";
 
 export * from "./v2024/api";
-export {Configuration as ConfigurationV2024, ConfigurationParameters as ConfigurationParametersV2024} from "./v2024/configuration";
+export { ConfigurationParameters as ConfigurationParametersV2024, Configuration as ConfigurationV2024 } from "./v2024/configuration";
 
 export * from "./v2025/api";
-export {Configuration as ConfigurationV2025, ConfigurationParameters as ConfigurationParametersV2025} from "./v2025/configuration";
+export { ConfigurationParameters as ConfigurationParametersV2025, Configuration as ConfigurationV2025 } from "./v2025/configuration";
 
-export {Configuration, ConfigurationParameters} from "./configuration";
+export * from "./generic/api";
+
+export { Configuration, ConfigurationParameters } from "./configuration";
 
 export * from "./paginator";
+export { axiosRetry };
 
-import * as axiosRetry from "axios-retry"
-export {axiosRetry}
+import * as axiosRetry from "axios-retry";

@@ -1,0 +1,9 @@
+templateDir: ./sdk-resources/resources
+files:
+  package.mustache:
+    templateType: SupportingFiles
+    destinationFilename: package.json
+npmName: sailpoint-sdk
+npmRepository: sailpoint.com
+npmVersion: 1.6.7
+useSingleRequestParameter: true

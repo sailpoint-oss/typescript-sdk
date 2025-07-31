@@ -1,0 +1,255 @@
+openapi: 3.0.1
+info:
+  title: Generic Identity Security Cloud V2025 API
+  description: Generic API specification for the Identity Security Cloud platform
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v2025
+servers:
+- url: https://{tenant}.api.identitynow.com/v2025
+  description: This is the production API server.
+  variables:
+    tenant:
+      default: sailpoint
+      description: This is the name of your tenant, typically your company's name.
+- url: https://{apiUrl}/v2025
+  description: This is the V2024 API server.
+  variables:
+    apiUrl:
+      default: sailpoint.api.identitynow.com
+      description: This is the api url of your tenant
+
+security:
+- userAuth:
+  - "sp:scopes:all"
+
+paths:
+  /{path}:
+    get:
+      summary: Generic GET request
+      operationId: genericGet
+      parameters:
+        - name: path
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: >-
+            Max number of results to return.
+
+            See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters)
+            for more information.
+          required: false
+          example: 250
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+            maximum: 250
+            default: 250
+        - name: count
+          in: query
+          description: >-
+            If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned
+            if *limit* and *offset* were ignored.
+
+
+            Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if
+            that value will not be used.
+
+
+            See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters)
+            for more information.
+          required: false
+          example: true
+          schema:
+            type: boolean
+            default: false
+        - name: offset
+          in: query
+          description: >-
+            Offset into the full result set. Usually specified with *limit* to paginate through the results.
+
+            See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters)
+            for more information.
+          required: false
+          example: 0
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+            default: 0
+        - name: X-SailPoint-Experimental
+          in: header
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: false
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+    post:
+      summary: Generic POST request
+      operationId: genericPost
+      parameters:
+        - name: path
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: X-SailPoint-Experimental
+          in: header
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenericRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+    put:
+      summary: Generic PUT request
+      operationId: genericPut
+      parameters:
+        - name: path
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: X-SailPoint-Experimental
+          in: header
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenericRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+    patch:
+      summary: Generic PATCH request
+      operationId: genericPatch
+      parameters:
+        - name: path
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: X-SailPoint-Experimental
+          in: header
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenericRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+    delete:
+      summary: Generic DELETE request
+      operationId: genericDelete
+      parameters:
+        - name: path
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: X-SailPoint-Experimental
+          in: header
+          description: Use this header to enable this experimental API.
+          example: true
+          schema:
+            type: string
+            default: true
+          required: false
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+
+components:
+  schemas:
+    GenericRequest:
+      type: object
+      additionalProperties: true
+    GenericResponse:
+      oneOf:
+        - type: object
+          additionalProperties: true
+        - type: array
+          items:
+            additionalProperties: true
+            type: object
+  securitySchemes:
+    userAuth:
+      type: oauth2
+      x-displayName: Personal Access Token
+      description: OAuth2 Bearer token (JWT) generated using either a personal access token (PAT) or through the authorization code flow.
+      flows:
+        clientCredentials:
+          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          scopes:
+            "sp:scopes:default": "default scope"
+            "sp:scopes:all": "access to all scopes"
+        authorizationCode:
+          authorizationUrl: https://tenant.login.sailpoint.com/oauth/authorize
+          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          scopes:
+            "sp:scopes:default": "default scope"
+            "sp:scopes:all": "access to all scopes"
+    applicationAuth:
+      type: oauth2
+      x-displayName: Client Credentials
+      description: OAuth2 Bearer token (JWT) generated using client credentials flow.
+      flows:
+        clientCredentials:
+          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          scopes:
+            "sp:scopes:default": "default scope"
+            "sp:scopes:all": "access to all scopes"
