@@ -2,10 +2,10 @@
   "name": "sailpoint-sdk",
   "version": "1.6.7",
   "description": "OpenAPI client for sailpoint-sdk",
-  "author": "OpenAPI-Generator Contributors",
+  "author": "SailPoint Developer Relations",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
+    "url": "https://github.com/sailpoint-oss/typescript-sdk.git"
   },
   "keywords": [
     "axios",

@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Generic Identity Security Cloud V2024 API
+  title: Generic Identity Security Cloud V2025 API
   description: Generic API specification for the Identity Security Cloud platform
   termsOfService: https://developer.sailpoint.com/discuss/tos
   contact:
@@ -9,15 +9,15 @@ info:
   license:
     name: MIT
     url: https://opensource.org/licenses/MIT
-  version: v2024
+  version: v2025
 servers:
-- url: https://{tenant}.api.identitynow.com/v2024
+- url: https://{tenant}.api.identitynow.com/v2025
   description: This is the production API server.
   variables:
     tenant:
       default: sailpoint
       description: This is the name of your tenant, typically your company's name.
-- url: https://{apiUrl}/v2024
+- url: https://{apiUrl}/v2025
   description: This is the V2024 API server.
   variables:
     apiUrl:
