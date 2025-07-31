@@ -28,9 +28,9 @@ const updateYamlFiles = (directoryPath) => {
                             return;
                         }
                         
-                          const updatedData = data.replace(
-                            /(- name: X-SailPoint-Experimental[\s\S]*?required: )true/,
-                            '$1false'
+                          const updatedData = data.replaceAll(
+                            /(- name: X-SailPoint-Experimental[\s\S]*?required: )true/g,
+                            '$1false',
                           );
 
                         // Write the updated YAML back to the file only if changes were made
