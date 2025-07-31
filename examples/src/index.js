@@ -43,9 +43,10 @@ var listIdentities = function () { return __awaiter(void 0, void 0, void 0, func
         switch (_a.label) {
             case 0:
                 apiConfig = new sailpoint_api_client_1.Configuration();
+                apiConfig.experimental = true; // Enable experimental features
                 api = new sailpoint_api_client_1.DefaultApi(apiConfig);
                 request = {
-                    path: "v2025/identities"
+                    path: "/v2025/ui-metadata/tenant",
                 };
                 return [4 /*yield*/, api.genericGet(request)];
             case 1:

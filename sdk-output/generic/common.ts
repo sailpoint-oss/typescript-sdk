@@ -13,11 +13,11 @@
  */
 
 
+import type { AxiosInstance, AxiosResponse } from 'axios';
+import axiosRetry from "axios-retry";
 import type { Configuration } from "../configuration";
 import type { RequestArgs } from "./base";
-import type { AxiosInstance, AxiosResponse } from 'axios';
 import { RequiredError } from "./base";
-import axiosRetry from "axios-retry";
 
 /**
  *
@@ -152,11 +152,11 @@ export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxi
             ...{'X-SailPoint-SDK':'typescript-1.6.7'}
         }
 
-        if(!configuration.experimental && ("X-SailPoint-Experimental" in headers)) {
-            throw new Error("You are using Experimental APIs. Set configuration.experimental = True to enable these APIs in the SDK.")
-        } else if(configuration.experimental == true && ("X-SailPoint-Experimental" in headers)) {
-            console.log("Warning: You are using Experimental APIs")
-        }
+        // if(!configuration.experimental && ("X-SailPoint-Experimental" in headers)) {
+        //     throw new Error("You are using Experimental APIs. Set configuration.experimental = True to enable these APIs in the SDK.")
+        // } else if(configuration.experimental == true && ("X-SailPoint-Experimental" in headers)) {
+        //     console.log("Warning: You are using Experimental APIs")
+        // }
 
         axiosArgs.axiosOptions.headers = headers
         const axiosRequestArgs = {...axiosArgs.axiosOptions, url: (configuration?.basePath  || basePath) + axiosArgs.url};
