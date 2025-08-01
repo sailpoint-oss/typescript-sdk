@@ -103,16 +103,35 @@ export class Paginator {
 
     let modified: TResult[] = [];
     while (true) {
-      let results = await callbackFn.call(thisArg, params);
-      modified.push.apply(modified, results.data);
-      if (
-        results.data.length < increment ||
-        (modified.length >= maxLimit && maxLimit > 0)
-      ) {
-        results.data = modified;
-        return results;
+      try {
+        let results = await callbackFn.call(thisArg, params);
+        modified.push.apply(modified, results.data);
+        if (
+          results.data.length < increment ||
+          results.data.length === 0 ||
+          (modified.length >= maxLimit && maxLimit > 0)
+        ) {
+          results.data = modified;
+          return results;
+        }
+        params.offset += increment;
+      } catch (error: any) {
+        if (
+          error.response &&
+          error.response.status === 400 &&
+          error.response.data &&
+          error.response.data.detailMessage &&
+          error.response.data.detailMessage.includes("Specified offset is invalid")
+        ) {
+          const finalResults = await callbackFn.call(thisArg, {
+            ...params,
+            offest: 0,
+            limit: 1,
+          });
+          finalResults.data = modified;
+          return finalResults;
+        }
       }
-      params.offset += increment;
     }
   }
 
