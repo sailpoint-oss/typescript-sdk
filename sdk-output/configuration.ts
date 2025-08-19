@@ -141,15 +141,20 @@ export class Configuration {
   retriesConfig?: IAxiosRetryConfig;
 
   constructor(param?: ConfigurationParameters) {
-    if (!param) {
-      param = this.getParams();
-    }
+    // Get default parameters from environment/config files
+    const defaultParams = this.getParams();
+    
+    // Merge provided parameters with defaults, giving precedence to provided params
+    const mergedParams = {
+      ...defaultParams,
+      ...param
+    };
 
-    this.accessToken = param.accessToken;
-    this.basePath = param.baseurl;
-    this.tokenUrl = param.tokenUrl;
-    this.clientId = param.clientId;
-    this.clientSecret = param.clientSecret;
+    this.accessToken = mergedParams.accessToken;
+    this.basePath = mergedParams.baseurl;
+    this.tokenUrl = mergedParams.tokenUrl || (mergedParams.baseurl ? mergedParams.baseurl + "/oauth/token" : undefined);
+    this.clientId = mergedParams.clientId;
+    this.clientSecret = mergedParams.clientSecret;
 
     if (!this.accessToken) {
       const url = `${this.tokenUrl}`;

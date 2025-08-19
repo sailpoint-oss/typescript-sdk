@@ -22,6 +22,8 @@ export interface ConfigurationParameters {
     serverIndex?: number;
     baseOptions?: any;
     formDataCtor?: new () => any;
+    clientId?: string;
+    clientSecret?: string;
 }
 
 export class Configuration {
@@ -81,6 +83,20 @@ export class Configuration {
      * @type {new () => FormData}
      */
     formDataCtor?: new () => any;
+    /**
+     * parameter for OAuth2 clientId
+     *
+     * @type {string}
+     * @memberof Configuration
+     */
+    clientId?: string;
+    /**
+     * parameter for OAuth2 clientSecret
+     *
+     * @type {string}
+     * @memberof Configuration
+     */
+    clientSecret?: string;
 
     constructor(param: ConfigurationParameters = {}) {
         this.apiKey = param.apiKey;
@@ -91,6 +107,8 @@ export class Configuration {
         this.serverIndex = param.serverIndex;
         this.baseOptions = param.baseOptions;
         this.formDataCtor = param.formDataCtor;
+        this.clientId = param.clientId;
+        this.clientSecret = param.clientSecret;
     }
 
     /**
