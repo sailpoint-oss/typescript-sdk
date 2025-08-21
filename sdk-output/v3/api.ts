@@ -12957,7 +12957,7 @@ export interface ManagedCluster {
      */
     'ccgVersion': string;
     /**
-     * boolean flag indiacting whether or not the cluster configuration is pinned
+     * boolean flag indicating whether or not the cluster configuration is pinned
      * @type {boolean}
      * @memberof ManagedCluster
      */
@@ -12998,6 +12998,12 @@ export interface ManagedCluster {
      * @memberof ManagedCluster
      */
     'publicKey'?: string | null;
+    /**
+     * 
+     * @type {ManagedClusterEncryptionConfig}
+     * @memberof ManagedCluster
+     */
+    'encryptionConfiguration'?: ManagedClusterEncryptionConfig;
     /**
      * Key describing any immediate cluster alerts
      * @type {string}
@@ -13065,6 +13071,27 @@ export interface ManagedClusterAttributes {
      */
     'keystore'?: string | null;
 }
+/**
+ * Defines the encryption settings for a managed cluster, including the format used for storing and processing encrypted data.
+ * @export
+ * @interface ManagedClusterEncryptionConfig
+ */
+export interface ManagedClusterEncryptionConfig {
+    /**
+     * Specifies the format used for encrypted data, such as secrets. The format determines how the encrypted data is structured and processed.
+     * @type {string}
+     * @memberof ManagedClusterEncryptionConfig
+     */
+    'format'?: ManagedClusterEncryptionConfigFormatV3;
+}
+
+export const ManagedClusterEncryptionConfigFormatV3 = {
+    V2: 'V2',
+    V3: 'V3'
+} as const;
+
+export type ManagedClusterEncryptionConfigFormatV3 = typeof ManagedClusterEncryptionConfigFormatV3[keyof typeof ManagedClusterEncryptionConfigFormatV3];
+
 /**
  * Managed Cluster key pair for Cluster
  * @export
