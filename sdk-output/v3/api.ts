@@ -8500,38 +8500,6 @@ export const EntitlementRefTypeV3 = {
 export type EntitlementRefTypeV3 = typeof EntitlementRefTypeV3[keyof typeof EntitlementRefTypeV3];
 
 /**
- * Entitlement including a specific set of access.
- * @export
- * @interface EntitlementRef1
- */
-export interface EntitlementRef1 {
-    /**
-     * Entitlement\'s DTO type.
-     * @type {string}
-     * @memberof EntitlementRef1
-     */
-    'type'?: EntitlementRef1TypeV3;
-    /**
-     * Entitlement\'s ID.
-     * @type {string}
-     * @memberof EntitlementRef1
-     */
-    'id'?: string;
-    /**
-     * Entitlement\'s display name.
-     * @type {string}
-     * @memberof EntitlementRef1
-     */
-    'name'?: string;
-}
-
-export const EntitlementRef1TypeV3 = {
-    Entitlement: 'ENTITLEMENT'
-} as const;
-
-export type EntitlementRef1TypeV3 = typeof EntitlementRef1TypeV3[keyof typeof EntitlementRef1TypeV3];
-
-/**
  * 
  * @export
  * @interface EntitlementRequestConfig
@@ -11798,31 +11766,6 @@ export interface IdentityWithNewAccess {
     'accessRefs': Array<IdentityWithNewAccessAccessRefsInner>;
 }
 /**
- * An identity with a set of access to be added
- * @export
- * @interface IdentityWithNewAccess1
- */
-export interface IdentityWithNewAccess1 {
-    /**
-     * Set of identity IDs to be checked.
-     * @type {string}
-     * @memberof IdentityWithNewAccess1
-     */
-    'identityId': string;
-    /**
-     * The bundle of access profiles to be added to the identities specified. All references must be ENTITLEMENT type.
-     * @type {Array<EntitlementRef1>}
-     * @memberof IdentityWithNewAccess1
-     */
-    'accessRefs': Array<EntitlementRef1>;
-    /**
-     * Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on completion of the violation check.
-     * @type {{ [key: string]: string; }}
-     * @memberof IdentityWithNewAccess1
-     */
-    'clientMetadata'?: { [key: string]: string; };
-}
-/**
  * Entitlement including a specific set of access.
  * @export
  * @interface IdentityWithNewAccessAccessRefsInner
@@ -11840,12 +11783,6 @@ export interface IdentityWithNewAccessAccessRefsInner {
      * @memberof IdentityWithNewAccessAccessRefsInner
      */
     'id'?: string;
-    /**
-     * Entitlement\'s display name.
-     * @type {string}
-     * @memberof IdentityWithNewAccessAccessRefsInner
-     */
-    'name'?: string;
 }
 
 export const IdentityWithNewAccessAccessRefsInnerTypeV3 = {
@@ -53391,13 +53328,13 @@ export const SODViolationsApiAxiosParamCreator = function (configuration?: Confi
         /**
          * This API initiates a SOD policy verification asynchronously.
          * @summary Check sod violations
-         * @param {IdentityWithNewAccess1} identityWithNewAccess1 
+         * @param {IdentityWithNewAccess} identityWithNewAccess 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startViolationCheck: async (identityWithNewAccess1: IdentityWithNewAccess1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'identityWithNewAccess1' is not null or undefined
-            assertParamExists('startViolationCheck', 'identityWithNewAccess1', identityWithNewAccess1)
+        startViolationCheck: async (identityWithNewAccess: IdentityWithNewAccess, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityWithNewAccess' is not null or undefined
+            assertParamExists('startViolationCheck', 'identityWithNewAccess', identityWithNewAccess)
             const localVarPath = `/sod-violations/check`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -53425,7 +53362,7 @@ export const SODViolationsApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(identityWithNewAccess1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(identityWithNewAccess, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -53458,12 +53395,12 @@ export const SODViolationsApiFp = function(configuration?: Configuration) {
         /**
          * This API initiates a SOD policy verification asynchronously.
          * @summary Check sod violations
-         * @param {IdentityWithNewAccess1} identityWithNewAccess1 
+         * @param {IdentityWithNewAccess} identityWithNewAccess 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startViolationCheck(identityWithNewAccess1: IdentityWithNewAccess1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodViolationCheck>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startViolationCheck(identityWithNewAccess1, axiosOptions);
+        async startViolationCheck(identityWithNewAccess: IdentityWithNewAccess, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodViolationCheck>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startViolationCheck(identityWithNewAccess, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SODViolationsApi.startViolationCheck']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -53496,7 +53433,7 @@ export const SODViolationsApiFactory = function (configuration?: Configuration, 
          * @throws {RequiredError}
          */
         startViolationCheck(requestParameters: SODViolationsApiStartViolationCheckRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SodViolationCheck> {
-            return localVarFp.startViolationCheck(requestParameters.identityWithNewAccess1, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.startViolationCheck(requestParameters.identityWithNewAccess, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -53523,10 +53460,10 @@ export interface SODViolationsApiStartPredictSodViolationsRequest {
 export interface SODViolationsApiStartViolationCheckRequest {
     /**
      * 
-     * @type {IdentityWithNewAccess1}
+     * @type {IdentityWithNewAccess}
      * @memberof SODViolationsApiStartViolationCheck
      */
-    readonly identityWithNewAccess1: IdentityWithNewAccess1
+    readonly identityWithNewAccess: IdentityWithNewAccess
 }
 
 /**
@@ -53557,7 +53494,7 @@ export class SODViolationsApi extends BaseAPI {
      * @memberof SODViolationsApi
      */
     public startViolationCheck(requestParameters: SODViolationsApiStartViolationCheckRequest, axiosOptions?: RawAxiosRequestConfig) {
-        return SODViolationsApiFp(this.configuration).startViolationCheck(requestParameters.identityWithNewAccess1, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SODViolationsApiFp(this.configuration).startViolationCheck(requestParameters.identityWithNewAccess, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
