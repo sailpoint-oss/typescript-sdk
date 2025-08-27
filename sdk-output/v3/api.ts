@@ -22242,7 +22242,7 @@ export interface Source {
      * @type {SourceOwner}
      * @memberof Source
      */
-    'owner': SourceOwner;
+    'owner': SourceOwner | null;
     /**
      * 
      * @type {SourceCluster}
