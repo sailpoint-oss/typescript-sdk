@@ -64344,14 +64344,14 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
         /**
          * List all workflows in the tenant.
          * @summary List workflows
-         * @param {string} [triggerId] Trigger ID
-         * @param {string} [connectorInstanceId] Connector Instance ID
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **enabled**: *eq*        **connectorInstanceId**: *eq*  **triggerId**: *eq*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **modified, name**
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkflows: async (triggerId?: string, connectorInstanceId?: string, limit?: number, offset?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listWorkflows: async (filters?: string, sorters?: string, limit?: number, offset?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/workflows`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -64372,12 +64372,12 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
-            if (triggerId !== undefined) {
-                localVarQueryParameter['triggerId'] = triggerId;
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
             }
 
-            if (connectorInstanceId !== undefined) {
-                localVarQueryParameter['connectorInstanceId'] = connectorInstanceId;
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
             }
 
             if (limit !== undefined) {
@@ -64780,15 +64780,15 @@ export const WorkflowsApiFp = function(configuration?: Configuration) {
         /**
          * List all workflows in the tenant.
          * @summary List workflows
-         * @param {string} [triggerId] Trigger ID
-         * @param {string} [connectorInstanceId] Connector Instance ID
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **enabled**: *eq*        **connectorInstanceId**: *eq*  **triggerId**: *eq*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **modified, name**
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkflows(triggerId?: string, connectorInstanceId?: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflows(triggerId, connectorInstanceId, limit, offset, axiosOptions);
+        async listWorkflows(filters?: string, sorters?: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflows(filters, sorters, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkflowsApi.listWorkflows']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -64996,7 +64996,7 @@ export const WorkflowsApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         listWorkflows(requestParameters: WorkflowsApiListWorkflowsRequest = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Workflow>> {
-            return localVarFp.listWorkflows(requestParameters.triggerId, requestParameters.connectorInstanceId, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.listWorkflows(requestParameters.filters, requestParameters.sorters, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
@@ -65286,18 +65286,18 @@ export interface WorkflowsApiListWorkflowLibraryTriggersRequest {
  */
 export interface WorkflowsApiListWorkflowsRequest {
     /**
-     * Trigger ID
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **enabled**: *eq*        **connectorInstanceId**: *eq*  **triggerId**: *eq*
      * @type {string}
      * @memberof WorkflowsApiListWorkflows
      */
-    readonly triggerId?: string
+    readonly filters?: string
 
     /**
-     * Connector Instance ID
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **modified, name**
      * @type {string}
      * @memberof WorkflowsApiListWorkflows
      */
-    readonly connectorInstanceId?: string
+    readonly sorters?: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -65569,7 +65569,7 @@ export class WorkflowsApi extends BaseAPI {
      * @memberof WorkflowsApi
      */
     public listWorkflows(requestParameters: WorkflowsApiListWorkflowsRequest = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return WorkflowsApiFp(this.configuration).listWorkflows(requestParameters.triggerId, requestParameters.connectorInstanceId, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return WorkflowsApiFp(this.configuration).listWorkflows(requestParameters.filters, requestParameters.sorters, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
