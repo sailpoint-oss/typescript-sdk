@@ -15884,6 +15884,12 @@ export interface PendingApproval {
      * @memberof PendingApproval
      */
     'requestedAccounts'?: Array<RequestedAccountRef> | null;
+    /**
+     * The privilege level of the requested access item, if applicable.
+     * @type {string}
+     * @memberof PendingApproval
+     */
+    'privilegeLevel'?: string | null;
 }
 
 
