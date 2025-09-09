@@ -6366,6 +6366,12 @@ export interface CompletedApproval {
      * @memberof CompletedApproval
      */
     'requestedAccounts'?: Array<RequestedAccountRef> | null;
+    /**
+     * The privilege level of the requested access item, if applicable.
+     * @type {string}
+     * @memberof CompletedApproval
+     */
+    'privilegeLevel'?: string | null;
 }
 
 
@@ -17764,6 +17770,12 @@ export interface RequestedItemStatus {
      * @memberof RequestedItemStatus
      */
     'requestedAccounts'?: Array<RequestedAccountRef> | null;
+    /**
+     * The privilege level of the requested access item, if applicable.
+     * @type {string}
+     * @memberof RequestedItemStatus
+     */
+    'privilegeLevel'?: string | null;
 }
 
 export const RequestedItemStatusTypeV3 = {
