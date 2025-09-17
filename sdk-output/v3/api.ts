@@ -533,13 +533,13 @@ export interface AccessProfile {
  */
 export interface AccessProfileApprovalScheme {
     /**
-     * Describes the individual or group that is responsible for an approval step. These are the possible values: **APP_OWNER**: The owner of the Application  **OWNER**: Owner of the associated Access Profile or Role  **SOURCE_OWNER**: Owner of the Source associated with an Access Profile  **MANAGER**: Manager of the Identity making the request  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field
+     * Describes the individual or group that is responsible for an approval step. These are the possible values: **APP_OWNER**: The owner of the Application  **OWNER**: Owner of the associated Access Profile or Role  **SOURCE_OWNER**: Owner of the Source associated with an Access Profile  **MANAGER**: Manager of the Identity making the request  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field  **WORKFLOW**: A Workflow, the ID of which is specified by the **approverId** field. Workflow is exclusive to other types of approvals and License required.   
      * @type {string}
      * @memberof AccessProfileApprovalScheme
      */
     'approverType'?: AccessProfileApprovalSchemeApproverTypeV3;
     /**
-     * Specific approver ID. Only use this when the `approverType` is `GOVERNANCE_GROUP`.
+     * Id of the specific approver, used when approverType is GOVERNANCE_GROUP or WORKFLOW.
      * @type {string}
      * @memberof AccessProfileApprovalScheme
      */
@@ -551,7 +551,8 @@ export const AccessProfileApprovalSchemeApproverTypeV3 = {
     Owner: 'OWNER',
     SourceOwner: 'SOURCE_OWNER',
     Manager: 'MANAGER',
-    GovernanceGroup: 'GOVERNANCE_GROUP'
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    Workflow: 'WORKFLOW'
 } as const;
 
 export type AccessProfileApprovalSchemeApproverTypeV3 = typeof AccessProfileApprovalSchemeApproverTypeV3[keyof typeof AccessProfileApprovalSchemeApproverTypeV3];
@@ -3345,13 +3346,13 @@ export type ApprovalScheme = typeof ApprovalScheme[keyof typeof ApprovalScheme];
  */
 export interface ApprovalSchemeForRole {
     /**
-     * Describes the individual or group that is responsible for an approval step. Values are as follows.  **OWNER**: Owner of the associated Role  **MANAGER**: Manager of the Identity making the request  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field
+     * Describes the individual or group that is responsible for an approval step. Values are as follows.  **OWNER**: Owner of the associated Role  **MANAGER**: Manager of the Identity making the request  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field  **WORKFLOW**: A Workflow, the ID of which is specified by the **approverId** field. Workflow is exclusive to other types of approvals and License required. 
      * @type {string}
      * @memberof ApprovalSchemeForRole
      */
     'approverType'?: ApprovalSchemeForRoleApproverTypeV3;
     /**
-     * Id of the specific approver, used only when approverType is GOVERNANCE_GROUP
+     * Id of the specific approver, used when approverType is GOVERNANCE_GROUP or WORKFLOW.
      * @type {string}
      * @memberof ApprovalSchemeForRole
      */
@@ -3361,7 +3362,8 @@ export interface ApprovalSchemeForRole {
 export const ApprovalSchemeForRoleApproverTypeV3 = {
     Owner: 'OWNER',
     Manager: 'MANAGER',
-    GovernanceGroup: 'GOVERNANCE_GROUP'
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    Workflow: 'WORKFLOW'
 } as const;
 
 export type ApprovalSchemeForRoleApproverTypeV3 = typeof ApprovalSchemeForRoleApproverTypeV3[keyof typeof ApprovalSchemeForRoleApproverTypeV3];
