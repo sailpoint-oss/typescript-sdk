@@ -1764,7 +1764,7 @@ export type AccountOriginV3 = typeof AccountOriginV3[keyof typeof AccountOriginV
  */
 export interface AccountAction {
     /**
-     * Describes if action will be enabled or disabled
+     * Describes if action will be enable, disable or delete.
      * @type {string}
      * @memberof AccountAction
      */
@@ -1779,7 +1779,8 @@ export interface AccountAction {
 
 export const AccountActionActionV3 = {
     Enable: 'ENABLE',
-    Disable: 'DISABLE'
+    Disable: 'DISABLE',
+    Delete: 'DELETE'
 } as const;
 
 export type AccountActionActionV3 = typeof AccountActionActionV3[keyof typeof AccountActionActionV3];
