@@ -9427,11 +9427,11 @@ export interface FieldDetailsDto {
      */
     'isRequired'?: boolean;
     /**
-     * The type of the attribute.
+     * The type of the attribute.  string: For text-based data.  int: For whole numbers.  long: For larger whole numbers.  date: For date and time values.  boolean: For true/false values.  secret: For sensitive data like passwords, which will be masked and encrypted. 
      * @type {string}
      * @memberof FieldDetailsDto
      */
-    'type'?: string;
+    'type'?: FieldDetailsDtoTypeV3;
     /**
      * Flag indicating whether or not the attribute is multi-valued.
      * @type {boolean}
@@ -9439,6 +9439,18 @@ export interface FieldDetailsDto {
      */
     'isMultiValued'?: boolean;
 }
+
+export const FieldDetailsDtoTypeV3 = {
+    String: 'string',
+    Int: 'int',
+    Long: 'long',
+    Date: 'date',
+    Boolean: 'boolean',
+    Secret: 'secret'
+} as const;
+
+export type FieldDetailsDtoTypeV3 = typeof FieldDetailsDtoTypeV3[keyof typeof FieldDetailsDtoTypeV3];
+
 /**
  * 
  * @export
@@ -11735,12 +11747,6 @@ export interface IdentityWithNewAccess {
      * @memberof IdentityWithNewAccess
      */
     'accessRefs': Array<IdentityWithNewAccessAccessRefsInner>;
-    /**
-     * Mappings between sourceId and nativeId to entitlement IDs for which access is requested. This is only being used for ARM analysis in case of user having multiple accounts on the same source on which entitlement is requested. Optional parameter that helps identify which account the entitlement is requested on. For scenarios where users have a single account on the source and do not provide this field, the available account is chosen.
-     * @type {Array<SourceIdAndNativeIdToEntitlementIdsMapping>}
-     * @memberof IdentityWithNewAccess
-     */
-    'sourceIdAndNativeIdToEntitlementIdsMappings'?: Array<SourceIdAndNativeIdToEntitlementIdsMapping>;
 }
 /**
  * Entitlement including a specific set of access.
@@ -13498,25 +13504,6 @@ export const NamedConstructs = {
 export type NamedConstructs = typeof NamedConstructs[keyof typeof NamedConstructs];
 
 
-/**
- * Native ID to Entitlement IDs mapping.
- * @export
- * @interface NativeIdToEntitlementIdsMapping
- */
-export interface NativeIdToEntitlementIdsMapping {
-    /**
-     * The native ID in the source system.
-     * @type {string}
-     * @memberof NativeIdToEntitlementIdsMapping
-     */
-    'nativeId': string;
-    /**
-     * The list of entitlement IDs associated with the native ID in the source system.
-     * @type {Array<string>}
-     * @memberof NativeIdToEntitlementIdsMapping
-     */
-    'entitlementIds': Array<string>;
-}
 /**
  * The nested aggregation object.
  * @export
@@ -22759,25 +22746,6 @@ export const SourceHealthDtoStatusV3 = {
 
 export type SourceHealthDtoStatusV3 = typeof SourceHealthDtoStatusV3[keyof typeof SourceHealthDtoStatusV3];
 
-/**
- * Source ID and Native ID to Entitlement IDs mapping.
- * @export
- * @interface SourceIdAndNativeIdToEntitlementIdsMapping
- */
-export interface SourceIdAndNativeIdToEntitlementIdsMapping {
-    /**
-     * The ID of the source system.
-     * @type {string}
-     * @memberof SourceIdAndNativeIdToEntitlementIdsMapping
-     */
-    'sourceId': string;
-    /**
-     * The native ID and entitlement IDs mapping in the source system.
-     * @type {Array<NativeIdToEntitlementIdsMapping>}
-     * @memberof SourceIdAndNativeIdToEntitlementIdsMapping
-     */
-    'nativeIdToEntitlementIdsMappings': Array<NativeIdToEntitlementIdsMapping>;
-}
 /**
  * 
  * @export
