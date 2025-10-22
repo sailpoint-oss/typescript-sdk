@@ -60540,7 +60540,7 @@ export const TaggedObjectsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * This API returns a list of all tagged objects.  Any authenticated token may be used to call this API.
+         * This API returns a list of all tagged objects.
          * @summary List tagged objects
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -60598,7 +60598,7 @@ export const TaggedObjectsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * This API returns a list of all tagged objects by type.  Any authenticated token may be used to call this API.
+         * This API returns a list of all tagged objects by type.
          * @summary List tagged objects by type
          * @param {ListTaggedObjectsByTypeTypeV3} type The type of tagged object to retrieve.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -60712,7 +60712,7 @@ export const TaggedObjectsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * This adds a tag to an object.  Any authenticated token may be used to call this API.
+         * This adds a tag to an object.
          * @summary Add tag to object
          * @param {TaggedObject} taggedObject 
          * @param {*} [axiosOptions] Override http request option.
@@ -60855,7 +60855,7 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This API returns a list of all tagged objects.  Any authenticated token may be used to call this API.
+         * This API returns a list of all tagged objects.
          * @summary List tagged objects
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -60871,7 +60871,7 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This API returns a list of all tagged objects by type.  Any authenticated token may be used to call this API.
+         * This API returns a list of all tagged objects by type.
          * @summary List tagged objects by type
          * @param {ListTaggedObjectsByTypeTypeV3} type The type of tagged object to retrieve.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -60903,7 +60903,7 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This adds a tag to an object.  Any authenticated token may be used to call this API.
+         * This adds a tag to an object.
          * @summary Add tag to object
          * @param {TaggedObject} taggedObject 
          * @param {*} [axiosOptions] Override http request option.
@@ -60969,7 +60969,7 @@ export const TaggedObjectsApiFactory = function (configuration?: Configuration, 
             return localVarFp.getTaggedObject(requestParameters.type, requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API returns a list of all tagged objects.  Any authenticated token may be used to call this API.
+         * This API returns a list of all tagged objects.
          * @summary List tagged objects
          * @param {TaggedObjectsApiListTaggedObjectsRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -60979,7 +60979,7 @@ export const TaggedObjectsApiFactory = function (configuration?: Configuration, 
             return localVarFp.listTaggedObjects(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API returns a list of all tagged objects by type.  Any authenticated token may be used to call this API.
+         * This API returns a list of all tagged objects by type.
          * @summary List tagged objects by type
          * @param {TaggedObjectsApiListTaggedObjectsByTypeRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -60999,7 +60999,7 @@ export const TaggedObjectsApiFactory = function (configuration?: Configuration, 
             return localVarFp.putTaggedObject(requestParameters.type, requestParameters.id, requestParameters.taggedObject, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This adds a tag to an object.  Any authenticated token may be used to call this API.
+         * This adds a tag to an object.
          * @summary Add tag to object
          * @param {TaggedObjectsApiSetTagToObjectRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -61254,7 +61254,7 @@ export class TaggedObjectsApi extends BaseAPI {
     }
 
     /**
-     * This API returns a list of all tagged objects.  Any authenticated token may be used to call this API.
+     * This API returns a list of all tagged objects.
      * @summary List tagged objects
      * @param {TaggedObjectsApiListTaggedObjectsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -61266,7 +61266,7 @@ export class TaggedObjectsApi extends BaseAPI {
     }
 
     /**
-     * This API returns a list of all tagged objects by type.  Any authenticated token may be used to call this API.
+     * This API returns a list of all tagged objects by type.
      * @summary List tagged objects by type
      * @param {TaggedObjectsApiListTaggedObjectsByTypeRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -61290,7 +61290,7 @@ export class TaggedObjectsApi extends BaseAPI {
     }
 
     /**
-     * This adds a tag to an object.  Any authenticated token may be used to call this API.
+     * This adds a tag to an object.
      * @summary Add tag to object
      * @param {TaggedObjectsApiSetTagToObjectRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
