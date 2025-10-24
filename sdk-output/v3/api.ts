@@ -3633,6 +3633,12 @@ export interface AttributeDefinition {
      */
     'name'?: string;
     /**
+     * Attribute name in the native system.
+     * @type {string}
+     * @memberof AttributeDefinition
+     */
+    'nativeName'?: string | null;
+    /**
      * 
      * @type {AttributeDefinitionType}
      * @memberof AttributeDefinition
