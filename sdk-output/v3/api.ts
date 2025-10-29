@@ -20300,7 +20300,8 @@ export const SchemaFeaturesV3 = {
     ArmUtilizationExtract: 'ARM_UTILIZATION_EXTRACT',
     ArmChangelogExtract: 'ARM_CHANGELOG_EXTRACT',
     UsesUuid: 'USES_UUID',
-    ApplicationDiscovery: 'APPLICATION_DISCOVERY'
+    ApplicationDiscovery: 'APPLICATION_DISCOVERY',
+    Delete: 'DELETE'
 } as const;
 
 export type SchemaFeaturesV3 = typeof SchemaFeaturesV3[keyof typeof SchemaFeaturesV3];
@@ -22440,7 +22441,8 @@ export const SourceFeaturesV3 = {
     ArmUtilizationExtract: 'ARM_UTILIZATION_EXTRACT',
     ArmChangelogExtract: 'ARM_CHANGELOG_EXTRACT',
     UsesUuid: 'USES_UUID',
-    ApplicationDiscovery: 'APPLICATION_DISCOVERY'
+    ApplicationDiscovery: 'APPLICATION_DISCOVERY',
+    Delete: 'DELETE'
 } as const;
 
 export type SourceFeaturesV3 = typeof SourceFeaturesV3[keyof typeof SourceFeaturesV3];
