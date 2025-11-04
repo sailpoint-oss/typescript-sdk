@@ -63622,10 +63622,11 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         * Get a detailed history of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+         * [Deprecated] This endpoint will be removed in October 2027. Please use `/workflow-executions/{id}/history-v2` instead. Retrieves the detailed history of a single workflow execution. Workflow executions are available for up to 90 days before being archived; accessing an archived execution will return a 404 Not Found.
          * @summary Get workflow execution history
          * @param {string} id Id of the workflow execution
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getWorkflowExecutionHistory: async (id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -64264,10 +64265,11 @@ export const WorkflowsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Get a detailed history of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+         * [Deprecated] This endpoint will be removed in October 2027. Please use `/workflow-executions/{id}/history-v2` instead. Retrieves the detailed history of a single workflow execution. Workflow executions are available for up to 90 days before being archived; accessing an archived execution will return a 404 Not Found.
          * @summary Get workflow execution history
          * @param {string} id Id of the workflow execution
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async getWorkflowExecutionHistory(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowExecutionEvent>>> {
@@ -64501,10 +64503,11 @@ export const WorkflowsApiFactory = function (configuration?: Configuration, base
             return localVarFp.getWorkflowExecution(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Get a detailed history of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+         * [Deprecated] This endpoint will be removed in October 2027. Please use `/workflow-executions/{id}/history-v2` instead. Retrieves the detailed history of a single workflow execution. Workflow executions are available for up to 90 days before being archived; accessing an archived execution will return a 404 Not Found.
          * @summary Get workflow execution history
          * @param {WorkflowsApiGetWorkflowExecutionHistoryRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getWorkflowExecutionHistory(requestParameters: WorkflowsApiGetWorkflowExecutionHistoryRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<WorkflowExecutionEvent>> {
@@ -65061,10 +65064,11 @@ export class WorkflowsApi extends BaseAPI {
     }
 
     /**
-     * Get a detailed history of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+     * [Deprecated] This endpoint will be removed in October 2027. Please use `/workflow-executions/{id}/history-v2` instead. Retrieves the detailed history of a single workflow execution. Workflow executions are available for up to 90 days before being archived; accessing an archived execution will return a 404 Not Found.
      * @summary Get workflow execution history
      * @param {WorkflowsApiGetWorkflowExecutionHistoryRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
