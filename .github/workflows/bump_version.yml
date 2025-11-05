@@ -61,6 +61,7 @@ jobs:
           yq -i '.npmVersion = "${{ github.event.inputs.version }}"' sdk-resources/v3-config.yaml
           yq -i '.npmVersion = "${{ github.event.inputs.version }}"' sdk-resources/v2024-config.yaml
           yq -i '.npmVersion = "${{ github.event.inputs.version }}"' sdk-resources/v2025-config.yaml
+          yq -i '.npmVersion = "${{ github.event.inputs.version }}"' sdk-resources/v2026-config.yaml
 
       ## Update package.json file with new version
       - name: Update package.json version
@@ -105,9 +106,17 @@ jobs:
           node sdk-resources/prescript.js api-specs/idn/v2025/paths
           java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v2025.yaml -g typescript-axios -o sdk-output/v2025 --global-property skipFormModel=false --config sdk-resources/v2025-config.yaml --api-name-suffix V2025Api --model-name-suffix V2025
         
+      - name: Build V2026 SDK
+        id: buildV2026
+        if: steps.buildV2025.outcome == 'success'
+        run: |
+          rm -rf ./sdk-output/v2026
+          node sdk-resources/prescript.js api-specs/idn/v2026/paths
+          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v2026.yaml -g typescript-axios -o sdk-output/v2026 --global-property skipFormModel=false --config sdk-resources/v2026-config.yaml --api-name-suffix V2026Api --model-name-suffix V2026
+
       - name: After SDK Build
         id: buildSDK
-        if: steps.buildV2025.outcome == 'success'
+        if: steps.buildV2026.outcome == 'success'
         run: |
           cd sdk-output
           npm install
