@@ -1,4 +1,4 @@
-import { AccountsApi, AccountsBetaApi, AccountsV2024Api, Configuration, ConnectorsBetaApi, IdentitiesV2024Api, IdentityProfilesBetaApi, Paginator, Search, SearchApi, SearchV2024, SearchV2024Api, SearchV2025, SearchV2025Api, SourcesBetaApi, TransformsApi, TransformsV2024Api, AccessModelMetadataV2024Api } from "./index"
+import { AccountsApi, AccountsBetaApi, AccountsV2024Api, Configuration, ConnectorsBetaApi, IdentitiesV2024Api, IdentityProfilesBetaApi, Paginator, Search, SearchApi, SearchV2024, SearchV2024Api, SearchV2025, SearchV2025Api, SourcesBetaApi, TransformsApi, TransformsV2024Api, AccessModelMetadataV2024Api, TaskManagementV2026Api } from "./index"
 
 describe('Test_v3', () => {
     it('Test List Accounts', async () => {
@@ -176,6 +176,16 @@ describe('Test_v2025', () => {
         const resp = await Paginator.paginateSearchApi(api, search, 10, 100)
     
         expect(resp.data.length).toStrictEqual(100)
+        expect(resp.status).toStrictEqual(200)
+    }, 30000)
+})
+
+describe('Test_v2026', () => {
+    it('Test get task status list API with V2026', async () => {
+        let apiConfig = new Configuration()
+        apiConfig.experimental = true
+        let api = new TaskManagementV2026Api(apiConfig)
+        const resp = await api.getTaskStatusList();
         expect(resp.status).toStrictEqual(200)
     }, 30000)
 })

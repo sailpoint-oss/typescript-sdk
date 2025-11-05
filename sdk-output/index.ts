@@ -26,6 +26,9 @@ export { ConfigurationParameters as ConfigurationParametersV2024, Configuration 
 export * from "./v2025/api";
 export { ConfigurationParameters as ConfigurationParametersV2025, Configuration as ConfigurationV2025 } from "./v2025/configuration";
 
+export * from "./v2026/api";
+export { ConfigurationParameters as ConfigurationParametersV2026, Configuration as ConfigurationV2026 } from "./v2026/configuration";
+
 export * from "./generic/api";
 
 export { Configuration, ConfigurationParameters } from "./configuration";
