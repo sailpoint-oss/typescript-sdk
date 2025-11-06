@@ -34521,7 +34521,7 @@ export const CertificationsApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * Use this API to get a list of identity campaign certifications for the specified query parameters. Any authenticated token can call this API, but only certifications you are authorized to review will be returned. This API does not support requests for certifications assigned to governance groups.
+         * Use this API to get a list of identity campaign certifications for the specified query parameters. Any authenticated token can call this API, but only certifications you are authorized to review will be returned.
          * @summary List identity campaign certifications
          * @param {string} [reviewerIdentity] Reviewer\&#39;s identity. *me* indicates the current user.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -34885,7 +34885,7 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to get a list of identity campaign certifications for the specified query parameters. Any authenticated token can call this API, but only certifications you are authorized to review will be returned. This API does not support requests for certifications assigned to governance groups.
+         * Use this API to get a list of identity campaign certifications for the specified query parameters. Any authenticated token can call this API, but only certifications you are authorized to review will be returned.
          * @summary List identity campaign certifications
          * @param {string} [reviewerIdentity] Reviewer\&#39;s identity. *me* indicates the current user.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -35028,7 +35028,7 @@ export const CertificationsApiFactory = function (configuration?: Configuration,
             return localVarFp.listIdentityAccessReviewItems(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.entitlements, requestParameters.accessProfiles, requestParameters.roles, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to get a list of identity campaign certifications for the specified query parameters. Any authenticated token can call this API, but only certifications you are authorized to review will be returned. This API does not support requests for certifications assigned to governance groups.
+         * Use this API to get a list of identity campaign certifications for the specified query parameters. Any authenticated token can call this API, but only certifications you are authorized to review will be returned.
          * @summary List identity campaign certifications
          * @param {CertificationsApiListIdentityCertificationsRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -35524,7 +35524,7 @@ export class CertificationsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to get a list of identity campaign certifications for the specified query parameters. Any authenticated token can call this API, but only certifications you are authorized to review will be returned. This API does not support requests for certifications assigned to governance groups.
+     * Use this API to get a list of identity campaign certifications for the specified query parameters. Any authenticated token can call this API, but only certifications you are authorized to review will be returned.
      * @summary List identity campaign certifications
      * @param {CertificationsApiListIdentityCertificationsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
