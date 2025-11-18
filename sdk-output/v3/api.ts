@@ -26461,11 +26461,11 @@ export const AccessRequestApprovalsApiAxiosParamCreator = function (configuratio
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
 
     
@@ -26693,11 +26693,11 @@ export const AccessRequestApprovalsApiAxiosParamCreator = function (configuratio
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
 
     
@@ -28103,6 +28103,10 @@ export const AccountUsagesApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
@@ -28279,6 +28283,10 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -28463,6 +28471,10 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -28507,6 +28519,10 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -28563,6 +28579,10 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -28722,6 +28742,10 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -34547,11 +34571,11 @@ export const CertificationsApiAxiosParamCreator = function (configuration?: Conf
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             if (reviewerIdentity !== undefined) {
                 localVarQueryParameter['reviewer-identity'] = reviewerIdentity;
@@ -34664,11 +34688,11 @@ export const CertificationsApiAxiosParamCreator = function (configuration?: Conf
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
 
     
@@ -37958,6 +37982,10 @@ export const GlobalTenantSecuritySettingsApiAxiosParamCreator = function (config
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -38124,6 +38152,10 @@ export const GlobalTenantSecuritySettingsApiAxiosParamCreator = function (config
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -43357,11 +43389,15 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -43407,6 +43443,10 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -43451,6 +43491,10 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -43493,11 +43537,15 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -43538,11 +43586,15 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -43579,11 +43631,15 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -43624,11 +43680,15 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -43670,11 +43730,15 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -43712,11 +43776,15 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -43754,11 +43822,15 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -43796,11 +43868,15 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -43838,11 +43914,15 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -43933,6 +44013,10 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -43969,11 +44053,15 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -44011,11 +44099,15 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -44059,6 +44151,10 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -44100,6 +44196,10 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -44147,6 +44247,10 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -44189,6 +44293,10 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -44230,6 +44338,10 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -44276,6 +44388,10 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
             if (data !== undefined) { 
@@ -44327,6 +44443,10 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
             if (requestedFor !== undefined) {
                 localVarQueryParameter['requested-for'] = requestedFor;
@@ -44395,6 +44515,10 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
@@ -44460,6 +44584,10 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -44528,6 +44656,10 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -44644,11 +44776,15 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -44692,11 +44828,15 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -47204,6 +47344,10 @@ export const PasswordConfigurationApiAxiosParamCreator = function (configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -47285,6 +47429,10 @@ export const PasswordConfigurationApiAxiosParamCreator = function (configuration
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -47742,6 +47890,14 @@ export const PasswordManagementApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
             // authentication applicationAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
@@ -47781,6 +47937,14 @@ export const PasswordManagementApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication applicationAuth required
             // oauth required
@@ -48640,6 +48804,10 @@ export const PasswordSyncGroupsApiAxiosParamCreator = function (configuration?: 
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -48680,6 +48848,10 @@ export const PasswordSyncGroupsApiAxiosParamCreator = function (configuration?: 
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -49969,6 +50141,10 @@ export const ReportsDataExtractionApiAxiosParamCreator = function (configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
             if (fileFormat !== undefined) {
                 localVarQueryParameter['fileFormat'] = fileFormat;
             }
@@ -50023,6 +50199,10 @@ export const ReportsDataExtractionApiAxiosParamCreator = function (configuration
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
             if (completed !== undefined) {
                 localVarQueryParameter['completed'] = completed;
@@ -51624,6 +51804,10 @@ export const SODPoliciesApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -51666,6 +51850,10 @@ export const SODPoliciesApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -51703,6 +51891,10 @@ export const SODPoliciesApiAxiosParamCreator = function (configuration?: Configu
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -51830,6 +52022,10 @@ export const SODPoliciesApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -51871,6 +52067,10 @@ export const SODPoliciesApiAxiosParamCreator = function (configuration?: Configu
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -52121,6 +52321,10 @@ export const SODPoliciesApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -52159,6 +52363,10 @@ export const SODPoliciesApiAxiosParamCreator = function (configuration?: Configu
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -52204,6 +52412,10 @@ export const SODPoliciesApiAxiosParamCreator = function (configuration?: Configu
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -53221,6 +53433,10 @@ export const SODViolationsApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -53441,11 +53657,11 @@ export const SavedSearchApiAxiosParamCreator = function (configuration?: Configu
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
 
     
@@ -53486,11 +53702,11 @@ export const SavedSearchApiAxiosParamCreator = function (configuration?: Configu
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
 
     
@@ -53531,11 +53747,11 @@ export const SavedSearchApiAxiosParamCreator = function (configuration?: Configu
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
 
     
@@ -53634,11 +53850,11 @@ export const SavedSearchApiAxiosParamCreator = function (configuration?: Configu
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
 
     
@@ -54051,11 +54267,11 @@ export const ScheduledSearchApiAxiosParamCreator = function (configuration?: Con
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
 
     
@@ -54096,11 +54312,11 @@ export const ScheduledSearchApiAxiosParamCreator = function (configuration?: Con
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
 
     
@@ -54180,11 +54396,11 @@ export const ScheduledSearchApiAxiosParamCreator = function (configuration?: Con
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             if (offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
@@ -54289,11 +54505,11 @@ export const ScheduledSearchApiAxiosParamCreator = function (configuration?: Con
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
 
     
@@ -57305,6 +57521,10 @@ export const SourceUsagesApiAxiosParamCreator = function (configuration?: Config
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -57350,6 +57570,10 @@ export const SourceUsagesApiAxiosParamCreator = function (configuration?: Config
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -57580,6 +57804,10 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -57813,11 +58041,11 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
 
     
@@ -58000,6 +58228,10 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -58041,6 +58273,10 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -58084,6 +58320,10 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -58124,11 +58364,11 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
 
     
@@ -58610,11 +58850,11 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
 
     
@@ -58818,11 +59058,11 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
 
     
