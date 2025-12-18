@@ -260,6 +260,35 @@ export const AccessCriteriaRequestCriteriaListInnerTypeV3 = {
 export type AccessCriteriaRequestCriteriaListInnerTypeV3 = typeof AccessCriteriaRequestCriteriaListInnerTypeV3[keyof typeof AccessCriteriaRequestCriteriaListInnerTypeV3];
 
 /**
+ * 
+ * @export
+ * @interface AccessDuration
+ */
+export interface AccessDuration {
+    /**
+     * The numeric value representing the amount of time, which is defined in the **timeUnit**.
+     * @type {number}
+     * @memberof AccessDuration
+     */
+    'value'?: number;
+    /**
+     * The unit of time that corresponds to the **value**. It defines the scale of the time period.
+     * @type {string}
+     * @memberof AccessDuration
+     */
+    'timeUnit'?: AccessDurationTimeUnitV3;
+}
+
+export const AccessDurationTimeUnitV3 = {
+    Hours: 'HOURS',
+    Days: 'DAYS',
+    Weeks: 'WEEKS',
+    Months: 'MONTHS'
+} as const;
+
+export type AccessDurationTimeUnitV3 = typeof AccessDurationTimeUnitV3[keyof typeof AccessDurationTimeUnitV3];
+
+/**
  * Identity the access item is requested for.
  * @export
  * @interface AccessItemRequestedFor
@@ -521,10 +550,22 @@ export interface AccessProfile {
     'segments'?: Array<string> | null;
     /**
      * 
+     * @type {AttributeDTOList}
+     * @memberof AccessProfile
+     */
+    'accessModelMetadata'?: AttributeDTOList;
+    /**
+     * 
      * @type {ProvisioningCriteriaLevel1}
      * @memberof AccessProfile
      */
     'provisioningCriteria'?: ProvisioningCriteriaLevel1 | null;
+    /**
+     * 
+     * @type {Array<OwnerReference>}
+     * @memberof AccessProfile
+     */
+    'additionalOwners'?: Array<OwnerReference> | null;
 }
 /**
  * 
@@ -17277,6 +17318,18 @@ export interface Requestability {
      */
     'reauthorizationRequired'?: boolean | null;
     /**
+     * Indicates whether the requester of the containing object must provide access end date.
+     * @type {boolean}
+     * @memberof Requestability
+     */
+    'requireEndDate'?: boolean | null;
+    /**
+     * 
+     * @type {AccessDuration}
+     * @memberof Requestability
+     */
+    'maxPermittedAccessDuration'?: AccessDuration | null;
+    /**
      * List describing the steps involved in approving the request.
      * @type {Array<AccessProfileApprovalScheme>}
      * @memberof Requestability
@@ -25538,10 +25591,6 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
-            // authentication applicationAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
-
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -25587,10 +25636,6 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
-            // authentication applicationAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
-
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -25631,10 +25676,6 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
-
-            // authentication applicationAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -25680,10 +25721,6 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
-
-            // authentication applicationAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -25731,10 +25768,6 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
-
-            // authentication applicationAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -25801,10 +25834,6 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
-
-            // authentication applicationAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
             if (forSubadmin !== undefined) {
                 localVarQueryParameter['for-subadmin'] = forSubadmin;
@@ -25882,10 +25911,6 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
-
-            // authentication applicationAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
