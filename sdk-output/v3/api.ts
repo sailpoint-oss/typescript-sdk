@@ -13007,6 +13007,42 @@ export interface ManagedCluster {
      * @memberof ManagedCluster
      */
     'updatedAt'?: string | null;
+    /**
+     * The date/time this cluster was notified for the last release
+     * @type {string}
+     * @memberof ManagedCluster
+     */
+    'lastReleaseNotifiedAt'?: string | null;
+    /**
+     * 
+     * @type {ManagedClusterUpdatePreferences}
+     * @memberof ManagedCluster
+     */
+    'updatePreferences'?: ManagedClusterUpdatePreferences;
+    /**
+     * The current installed release on the Managed cluster
+     * @type {string}
+     * @memberof ManagedCluster
+     */
+    'currentInstalledReleaseVersion'?: string | null;
+    /**
+     * New available updates for the Managed cluster
+     * @type {string}
+     * @memberof ManagedCluster
+     */
+    'updatePackage'?: string | null;
+    /**
+     * The time at which out of date notification was sent for the Managed cluster
+     * @type {string}
+     * @memberof ManagedCluster
+     */
+    'isOutOfDateNotifiedAt'?: string | null;
+    /**
+     * The consolidated Health Status for the Managed cluster
+     * @type {string}
+     * @memberof ManagedCluster
+     */
+    'consolidatedHealthIndicatorsStatus'?: ManagedClusterConsolidatedHealthIndicatorsStatusV3 | null;
 }
 
 export const ManagedClusterStatusV3 = {
@@ -13018,6 +13054,13 @@ export const ManagedClusterStatusV3 = {
 } as const;
 
 export type ManagedClusterStatusV3 = typeof ManagedClusterStatusV3[keyof typeof ManagedClusterStatusV3];
+export const ManagedClusterConsolidatedHealthIndicatorsStatusV3 = {
+    Normal: 'NORMAL',
+    Warning: 'WARNING',
+    Error: 'ERROR'
+} as const;
+
+export type ManagedClusterConsolidatedHealthIndicatorsStatusV3 = typeof ManagedClusterConsolidatedHealthIndicatorsStatusV3[keyof typeof ManagedClusterConsolidatedHealthIndicatorsStatusV3];
 
 /**
  * Managed Cluster Attributes for Cluster Configuration. Supported Cluster Types [sqsCluster, spConnectCluster]
@@ -13156,18 +13199,59 @@ export interface ManagedClusterRequest {
 
 
 /**
- * The Type of Cluster
+ * The Type of Cluster: * `idn` - IDN VA type * `iai` - IAI harvester VA * `spConnectCluster` - Saas 2.0 connector cluster (this should be one per org) * `sqsCluster` - This should be unused * `das-rc` - Data Access Security Resources Collector * `das-pc` - Data Access Security Permissions Collector * `das-dc` - Data Access Security Data Classification Collector * `pag` - Privilege Action Gateway VA * `das-am` - Data Access Security Activity Monitor * `standard` - Standard Cluster type for running multiple products 
  * @export
  * @enum {string}
  */
 
 export const ManagedClusterTypes = {
     Idn: 'idn',
-    Iai: 'iai'
+    Iai: 'iai',
+    SpConnectCluster: 'spConnectCluster',
+    SqsCluster: 'sqsCluster',
+    DasRc: 'das-rc',
+    DasPc: 'das-pc',
+    DasDc: 'das-dc',
+    Pag: 'pag',
+    DasAm: 'das-am',
+    Standard: 'standard'
 } as const;
 
 export type ManagedClusterTypes = typeof ManagedClusterTypes[keyof typeof ManagedClusterTypes];
 
+
+/**
+ * The preference for applying updates for the cluster
+ * @export
+ * @interface ManagedClusterUpdatePreferences
+ */
+export interface ManagedClusterUpdatePreferences {
+    /**
+     * The processGroups for updatePreferences
+     * @type {string}
+     * @memberof ManagedClusterUpdatePreferences
+     */
+    'processGroups'?: string | null;
+    /**
+     * The current updateState for the cluster
+     * @type {string}
+     * @memberof ManagedClusterUpdatePreferences
+     */
+    'updateState'?: ManagedClusterUpdatePreferencesUpdateStateV3 | null;
+    /**
+     * The mail id to which new releases will be notified
+     * @type {string}
+     * @memberof ManagedClusterUpdatePreferences
+     */
+    'notificationEmail'?: string | null;
+}
+
+export const ManagedClusterUpdatePreferencesUpdateStateV3 = {
+    Auto: 'AUTO',
+    Disabled: 'DISABLED'
+} as const;
+
+export type ManagedClusterUpdatePreferencesUpdateStateV3 = typeof ManagedClusterUpdatePreferencesUpdateStateV3[keyof typeof ManagedClusterUpdatePreferencesUpdateStateV3];
 
 /**
  * 
@@ -42764,7 +42848,7 @@ export const ManagedClustersApiAxiosParamCreator = function (configuration?: Con
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -42981,7 +43065,7 @@ export const ManagedClustersApiFp = function(configuration?: Configuration) {
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -43193,7 +43277,7 @@ export interface ManagedClustersApiGetManagedClustersRequest {
     readonly count?: boolean
 
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq*
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*
      * @type {string}
      * @memberof ManagedClustersApiGetManagedClusters
      */
