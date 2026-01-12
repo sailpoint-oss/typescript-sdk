@@ -16004,6 +16004,12 @@ export interface PendingApproval {
      * @memberof PendingApproval
      */
     'privilegeLevel'?: string | null;
+    /**
+     * 
+     * @type {PendingApprovalMaxPermittedAccessDuration}
+     * @memberof PendingApproval
+     */
+    'maxPermittedAccessDuration'?: PendingApprovalMaxPermittedAccessDuration | null;
 }
 
 
@@ -16021,6 +16027,35 @@ export const PendingApprovalAction = {
 
 export type PendingApprovalAction = typeof PendingApprovalAction[keyof typeof PendingApprovalAction];
 
+
+/**
+ * The maximum duration for which the access is permitted.
+ * @export
+ * @interface PendingApprovalMaxPermittedAccessDuration
+ */
+export interface PendingApprovalMaxPermittedAccessDuration {
+    /**
+     * The numeric value of the duration.
+     * @type {number}
+     * @memberof PendingApprovalMaxPermittedAccessDuration
+     */
+    'value'?: number;
+    /**
+     * The time unit for the duration.
+     * @type {string}
+     * @memberof PendingApprovalMaxPermittedAccessDuration
+     */
+    'timeUnit'?: PendingApprovalMaxPermittedAccessDurationTimeUnitV3;
+}
+
+export const PendingApprovalMaxPermittedAccessDurationTimeUnitV3 = {
+    Hours: 'HOURS',
+    Days: 'DAYS',
+    Weeks: 'WEEKS',
+    Months: 'MONTHS'
+} as const;
+
+export type PendingApprovalMaxPermittedAccessDurationTimeUnitV3 = typeof PendingApprovalMaxPermittedAccessDurationTimeUnitV3[keyof typeof PendingApprovalMaxPermittedAccessDurationTimeUnitV3];
 
 /**
  * Access item owner\'s identity.
