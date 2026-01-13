@@ -6422,6 +6422,12 @@ export interface CompletedApproval {
      * @memberof CompletedApproval
      */
     'privilegeLevel'?: string | null;
+    /**
+     * 
+     * @type {PendingApprovalMaxPermittedAccessDuration}
+     * @memberof CompletedApproval
+     */
+    'maxPermittedAccessDuration'?: PendingApprovalMaxPermittedAccessDuration | null;
 }
 
 
