@@ -17486,6 +17486,18 @@ export interface RequestabilityForRole {
      */
     'reauthorizationRequired'?: boolean | null;
     /**
+     * Indicates whether the requester of the containing object must provide access end date.
+     * @type {boolean}
+     * @memberof RequestabilityForRole
+     */
+    'requireEndDate'?: boolean;
+    /**
+     * 
+     * @type {AccessDuration}
+     * @memberof RequestabilityForRole
+     */
+    'maxPermittedAccessDuration'?: AccessDuration | null;
+    /**
      * List describing the steps in approving the request
      * @type {Array<ApprovalSchemeForRole>}
      * @memberof RequestabilityForRole
