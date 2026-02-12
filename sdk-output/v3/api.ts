@@ -1454,14 +1454,15 @@ export interface AccessRequestTracking {
     'accessRequestIds'?: Array<string>;
 }
 /**
- * Access request type. Defaults to GRANT_ACCESS. REVOKE_ACCESS type can only have a single Identity ID in the requestedFor field.
+ * Access request type. Defaults to GRANT_ACCESS. REVOKE_ACCESS type can only have a single Identity ID in the requestedFor field. MODIFY_ACCESS type is used for updating access expiration dates or other access modifications.
  * @export
  * @enum {string}
  */
 
 export const AccessRequestType = {
     GrantAccess: 'GRANT_ACCESS',
-    RevokeAccess: 'REVOKE_ACCESS'
+    RevokeAccess: 'REVOKE_ACCESS',
+    ModifyAccess: 'MODIFY_ACCESS'
 } as const;
 
 export type AccessRequestType = typeof AccessRequestType[keyof typeof AccessRequestType];
@@ -27456,7 +27457,7 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
          * @param {boolean} [count] If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored.
          * @param {number} [limit] Max number of results to return.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *eq, in, ge, gt, le, lt, ne, sw*  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *eq, ge, gt, le, lt, ne, sw*  **accountActivityItemId**: *eq, in, ge, gt, le, ne, sw*  **created**: *eq, ge, gt, le, lt, ne*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name**
          * @param {string} [requestState] Filter the results by the state of the request. The only valid value is *EXECUTING*.
          * @param {*} [axiosOptions] Override http request option.
@@ -27636,7 +27637,7 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
          * @param {boolean} [count] If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored.
          * @param {number} [limit] Max number of results to return.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *eq, in, ge, gt, le, lt, ne, sw*  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *eq, ge, gt, le, lt, ne, sw*  **accountActivityItemId**: *eq, in, ge, gt, le, ne, sw*  **created**: *eq, ge, gt, le, lt, ne*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name**
          * @param {string} [requestState] Filter the results by the state of the request. The only valid value is *EXECUTING*.
          * @param {*} [axiosOptions] Override http request option.
@@ -27807,7 +27808,7 @@ export interface AccessRequestsApiListAccessRequestStatusRequest {
     readonly offset?: number
 
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *eq, in, ge, gt, le, lt, ne, sw*  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *eq, ge, gt, le, lt, ne, sw*  **accountActivityItemId**: *eq, in, ge, gt, le, ne, sw*  **created**: *eq, ge, gt, le, lt, ne*
      * @type {string}
      * @memberof AccessRequestsApiListAccessRequestStatus
      */
