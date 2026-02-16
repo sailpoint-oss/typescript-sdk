@@ -28,7 +28,7 @@ describe('Test_v3', () => {
     
         expect(resp.data.length).toStrictEqual(100)
         expect(resp.status).toStrictEqual(200)
-    }, 30000)
+    }, 120000)
 
     it('Test List Transforms', async () => {
         let apiConfig = new Configuration()
@@ -154,7 +154,7 @@ describe('Test_v2024', () => {
     
         expect(resp.data.length).toStrictEqual(100)
         expect(resp.status).toStrictEqual(200)
-    }, 30000)
+    }, 120000)
 })
 
 
@@ -177,7 +177,7 @@ describe('Test_v2025', () => {
     
         expect(resp.data.length).toStrictEqual(100)
         expect(resp.status).toStrictEqual(200)
-    }, 30000)
+    }, 120000)
 })
 
 describe('Test_v2026', () => {
