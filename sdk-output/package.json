@@ -50,6 +50,8 @@
     "preset": "ts-jest",
     "testEnvironment": "node",
     "clearMocks": true,
-    "collectCoverage": false
+    "collectCoverage": false,
+    "testPathIgnorePatterns": ["/dist/", "/node_modules/"],
+    "modulePathIgnorePatterns": ["<rootDir>/beta/", "<rootDir>/generic/", "<rootDir>/v3/", "<rootDir>/v2024/", "<rootDir>/v2025/", "<rootDir>/v2026/", "<rootDir>/dist/"]
   }
 }

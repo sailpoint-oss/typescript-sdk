@@ -1,4 +1,4 @@
-name: "Build Typescript SDK"
+name: "Build TypeScript SDK"
 
 env:
   SAIL_CLIENT_ID: ${{ secrets.SDK_TEST_TENANT_CLIENT_ID }}
@@ -11,70 +11,24 @@ on:
       - main
   workflow_dispatch:
 
+concurrency:
+  group: pr-build-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build_typescript_sdk:
-    name: Build typescript SDK
+    name: Build TypeScript SDK
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout PR branch
+      - name: Checkout
         uses: actions/checkout@v6
-        with:
-          ref: ${{ github.ref }}
 
-      - name: Checkout API Specs Repo
+      - name: Checkout API Specs
         uses: actions/checkout@v6
         with:
           repository: sailpoint-oss/api-specs
           path: api-specs
           ref: main
 
-      - name: Set up Node
-        uses: actions/setup-node@v6
-        with:
-          node-version: "24"
-
-      - name: Download OpenAPI Generator
-        run: |
-            wget https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/7.11.0/openapi-generator-cli-7.11.0.jar -O openapi-generator-cli.jar
-  
-      - name: Build V3 SDK
-        id: buildV3
-        run: |
-          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v3.yaml -g typescript-axios -o sdk-output/v3 --global-property skipFormModel=false --config sdk-resources/v3-config.yaml
-      
-      - name: Build Beta SDK
-        id: buildBeta
-        if: steps.buildV3.outcome == 'success'
-        run: |
-          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.beta.yaml -g typescript-axios -o sdk-output/beta --global-property skipFormModel=false --config sdk-resources/beta-config.yaml --api-name-suffix BetaApi --model-name-suffix Beta
-
-      - name: Build V2024 SDK
-        id: buildV2024
-        if: steps.buildBeta.outcome == 'success'
-        run: |
-          node sdk-resources/prescript.js api-specs/idn/v2024/paths
-          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v2024.yaml -g typescript-axios -o sdk-output/v2024 --global-property skipFormModel=false --config sdk-resources/v2024-config.yaml --api-name-suffix V2024Api --model-name-suffix V2024
-
-      - name: Build V2025 SDK
-        id: buildV2025
-        if: steps.buildV2024.outcome == 'success'
-        run: |
-          node sdk-resources/prescript.js api-specs/idn/v2025/paths
-          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v2025.yaml -g typescript-axios -o sdk-output/v2025 --global-property skipFormModel=false --config sdk-resources/v2025-config.yaml --api-name-suffix V2025Api --model-name-suffix V2025
-
-      - name: Build V2026 SDK
-        id: buildV2026
-        if: steps.buildV2025.outcome == 'success'
-        run: |
-          node sdk-resources/prescript.js api-specs/idn/v2026/paths
-          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v2026.yaml -g typescript-axios -o sdk-output/v2026 --global-property skipFormModel=false --config sdk-resources/v2026-config.yaml --api-name-suffix V2026Api --model-name-suffix V2026
-
-
-      - name: Run npm install and build Typescript SDK
-        id: buildSDK
-        if: steps.buildV2026.outcome == 'success'
-        run: |
-          cd sdk-output
-          npm install
-          npm run build
-          npm run test
+      - name: Build SDK
+        uses: ./.github/actions/build-sdk
