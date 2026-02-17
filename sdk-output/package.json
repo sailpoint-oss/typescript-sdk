@@ -1,6 +1,6 @@
 {
   "name": "sailpoint-api-client",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "description": "Official library for using the SailPoint API",
   "author": "SailPoint DevOps",
   "repository": {
@@ -51,7 +51,18 @@
     "testEnvironment": "node",
     "clearMocks": true,
     "collectCoverage": false,
-    "testPathIgnorePatterns": ["/dist/", "/node_modules/"],
-    "modulePathIgnorePatterns": ["<rootDir>/beta/", "<rootDir>/generic/", "<rootDir>/v3/", "<rootDir>/v2024/", "<rootDir>/v2025/", "<rootDir>/v2026/", "<rootDir>/dist/"]
+    "testPathIgnorePatterns": [
+      "/dist/",
+      "/node_modules/"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/beta/",
+      "<rootDir>/generic/",
+      "<rootDir>/v3/",
+      "<rootDir>/v2024/",
+      "<rootDir>/v2025/",
+      "<rootDir>/v2026/",
+      "<rootDir>/dist/"
+    ]
   }
 }
