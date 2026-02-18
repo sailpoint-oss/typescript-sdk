@@ -4,6 +4,11 @@ on:
     types: [published]
   workflow_dispatch:
   workflow_call:
+
+concurrency:
+  group: publish-${{ github.repository }}
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
