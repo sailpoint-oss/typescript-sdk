@@ -24,6 +24,86 @@ import type { RequestArgs } from './base';
 import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
 
 /**
+ * Metadata that describes an access item
+ * @export
+ * @interface AccessModelMetadataV2026
+ */
+export interface AccessModelMetadataV2026 {
+    /**
+     * Unique identifier for the metadata type
+     * @type {string}
+     * @memberof AccessModelMetadataV2026
+     */
+    'key'?: string;
+    /**
+     * Human readable name of the metadata type
+     * @type {string}
+     * @memberof AccessModelMetadataV2026
+     */
+    'name'?: string;
+    /**
+     * Allows selecting multiple values
+     * @type {boolean}
+     * @memberof AccessModelMetadataV2026
+     */
+    'multiselect'?: boolean;
+    /**
+     * The state of the metadata item
+     * @type {string}
+     * @memberof AccessModelMetadataV2026
+     */
+    'status'?: string;
+    /**
+     * The type of the metadata item
+     * @type {string}
+     * @memberof AccessModelMetadataV2026
+     */
+    'type'?: string;
+    /**
+     * The types of objects
+     * @type {Array<string>}
+     * @memberof AccessModelMetadataV2026
+     */
+    'objectTypes'?: Array<string>;
+    /**
+     * Describes the metadata item
+     * @type {string}
+     * @memberof AccessModelMetadataV2026
+     */
+    'description'?: string;
+    /**
+     * The value to assign to the metadata item
+     * @type {Array<AccessModelMetadataValuesInnerV2026>}
+     * @memberof AccessModelMetadataV2026
+     */
+    'values'?: Array<AccessModelMetadataValuesInnerV2026>;
+}
+/**
+ * An individual value to assign to the metadata item
+ * @export
+ * @interface AccessModelMetadataValuesInnerV2026
+ */
+export interface AccessModelMetadataValuesInnerV2026 {
+    /**
+     * The value to assign to the metdata item
+     * @type {string}
+     * @memberof AccessModelMetadataValuesInnerV2026
+     */
+    'value'?: string;
+    /**
+     * Display name of the value
+     * @type {string}
+     * @memberof AccessModelMetadataValuesInnerV2026
+     */
+    'name'?: string;
+    /**
+     * The status of the individual value
+     * @type {string}
+     * @memberof AccessModelMetadataValuesInnerV2026
+     */
+    'status'?: string;
+}
+/**
  * 
  * @export
  * @interface AccountActionRequestDtoAccountDetailsV2026
@@ -723,6 +803,287 @@ export type DtoTypeV2026 = typeof DtoTypeV2026[keyof typeof DtoTypeV2026];
 
 
 /**
+ * Additional data to classify the entitlement
+ * @export
+ * @interface EntitlementAccessModelMetadataV2026
+ */
+export interface EntitlementAccessModelMetadataV2026 {
+    /**
+     * 
+     * @type {Array<AccessModelMetadataV2026>}
+     * @memberof EntitlementAccessModelMetadataV2026
+     */
+    'attributes'?: Array<AccessModelMetadataV2026>;
+}
+/**
+ * Object for specifying the bulk update request
+ * @export
+ * @interface EntitlementBulkUpdateRequestV2026
+ */
+export interface EntitlementBulkUpdateRequestV2026 {
+    /**
+     * List of entitlement ids to update
+     * @type {Array<string>}
+     * @memberof EntitlementBulkUpdateRequestV2026
+     */
+    'entitlementIds': Array<string>;
+    /**
+     * 
+     * @type {Array<JsonPatchOperationV2026>}
+     * @memberof EntitlementBulkUpdateRequestV2026
+     */
+    'jsonPatch': Array<JsonPatchOperationV2026>;
+}
+/**
+ * The identity that owns the entitlement
+ * @export
+ * @interface EntitlementOwnerV2026
+ */
+export interface EntitlementOwnerV2026 {
+    /**
+     * The identity ID
+     * @type {string}
+     * @memberof EntitlementOwnerV2026
+     */
+    'id'?: string;
+    /**
+     * The type of object
+     * @type {string}
+     * @memberof EntitlementOwnerV2026
+     */
+    'type'?: EntitlementOwnerV2026TypeV2026;
+    /**
+     * The display name of the identity
+     * @type {string}
+     * @memberof EntitlementOwnerV2026
+     */
+    'name'?: string;
+}
+
+export const EntitlementOwnerV2026TypeV2026 = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type EntitlementOwnerV2026TypeV2026 = typeof EntitlementOwnerV2026TypeV2026[keyof typeof EntitlementOwnerV2026TypeV2026];
+
+/**
+ * 
+ * @export
+ * @interface EntitlementPrivilegeLevelV2026
+ */
+export interface EntitlementPrivilegeLevelV2026 {
+    /**
+     * Direct privilege level assigned to the entitlement
+     * @type {string}
+     * @memberof EntitlementPrivilegeLevelV2026
+     */
+    'direct'?: EntitlementPrivilegeLevelV2026DirectV2026;
+    /**
+     * User or process that set the privilege level
+     * @type {string}
+     * @memberof EntitlementPrivilegeLevelV2026
+     */
+    'setBy'?: string;
+    /**
+     * Method by which the privilege level was set
+     * @type {string}
+     * @memberof EntitlementPrivilegeLevelV2026
+     */
+    'setByType'?: EntitlementPrivilegeLevelV2026SetByTypeV2026 | null;
+    /**
+     * Inherited privilege level on the entitlement, if any
+     * @type {string}
+     * @memberof EntitlementPrivilegeLevelV2026
+     */
+    'inherited'?: EntitlementPrivilegeLevelV2026InheritedV2026 | null;
+    /**
+     * Effective privilege level assigned to the entitlement
+     * @type {string}
+     * @memberof EntitlementPrivilegeLevelV2026
+     */
+    'effective'?: EntitlementPrivilegeLevelV2026EffectiveV2026;
+}
+
+export const EntitlementPrivilegeLevelV2026DirectV2026 = {
+    High: 'HIGH',
+    Low: 'LOW',
+    Medium: 'MEDIUM',
+    None: 'NONE'
+} as const;
+
+export type EntitlementPrivilegeLevelV2026DirectV2026 = typeof EntitlementPrivilegeLevelV2026DirectV2026[keyof typeof EntitlementPrivilegeLevelV2026DirectV2026];
+export const EntitlementPrivilegeLevelV2026SetByTypeV2026 = {
+    Override: 'OVERRIDE',
+    CustomCriteria: 'CUSTOM_CRITERIA',
+    ConnectorCriteria: 'CONNECTOR_CRITERIA',
+    SingleLevelCriteria: 'SINGLE_LEVEL_CRITERIA'
+} as const;
+
+export type EntitlementPrivilegeLevelV2026SetByTypeV2026 = typeof EntitlementPrivilegeLevelV2026SetByTypeV2026[keyof typeof EntitlementPrivilegeLevelV2026SetByTypeV2026];
+export const EntitlementPrivilegeLevelV2026InheritedV2026 = {
+    High: 'HIGH',
+    Low: 'LOW',
+    Medium: 'MEDIUM',
+    None: 'NONE'
+} as const;
+
+export type EntitlementPrivilegeLevelV2026InheritedV2026 = typeof EntitlementPrivilegeLevelV2026InheritedV2026[keyof typeof EntitlementPrivilegeLevelV2026InheritedV2026];
+export const EntitlementPrivilegeLevelV2026EffectiveV2026 = {
+    High: 'HIGH',
+    Low: 'LOW',
+    Medium: 'MEDIUM',
+    None: 'NONE'
+} as const;
+
+export type EntitlementPrivilegeLevelV2026EffectiveV2026 = typeof EntitlementPrivilegeLevelV2026EffectiveV2026[keyof typeof EntitlementPrivilegeLevelV2026EffectiveV2026];
+
+/**
+ * 
+ * @export
+ * @interface EntitlementSourceV2026
+ */
+export interface EntitlementSourceV2026 {
+    /**
+     * The source ID
+     * @type {string}
+     * @memberof EntitlementSourceV2026
+     */
+    'id'?: string;
+    /**
+     * The source type, will always be \"SOURCE\"
+     * @type {string}
+     * @memberof EntitlementSourceV2026
+     */
+    'type'?: string;
+    /**
+     * The source name
+     * @type {string}
+     * @memberof EntitlementSourceV2026
+     */
+    'name'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface EntitlementV2026
+ */
+export interface EntitlementV2026 {
+    /**
+     * The entitlement id
+     * @type {string}
+     * @memberof EntitlementV2026
+     */
+    'id'?: string;
+    /**
+     * The entitlement name
+     * @type {string}
+     * @memberof EntitlementV2026
+     */
+    'name'?: string;
+    /**
+     * The entitlement attribute name
+     * @type {string}
+     * @memberof EntitlementV2026
+     */
+    'attribute'?: string;
+    /**
+     * The value of the entitlement
+     * @type {string}
+     * @memberof EntitlementV2026
+     */
+    'value'?: string;
+    /**
+     * The object type of the entitlement from the source schema
+     * @type {string}
+     * @memberof EntitlementV2026
+     */
+    'sourceSchemaObjectType'?: string;
+    /**
+     * The description of the entitlement
+     * @type {string}
+     * @memberof EntitlementV2026
+     */
+    'description'?: string | null;
+    /**
+     * 
+     * @type {EntitlementPrivilegeLevelV2026}
+     * @memberof EntitlementV2026
+     */
+    'privilegeLevel'?: EntitlementPrivilegeLevelV2026;
+    /**
+     * List of tags assigned to the entitlement
+     * @type {Array<string>}
+     * @memberof EntitlementV2026
+     */
+    'tags'?: Array<string> | null;
+    /**
+     * True if the entitlement is cloud governed
+     * @type {boolean}
+     * @memberof EntitlementV2026
+     */
+    'cloudGoverned'?: boolean;
+    /**
+     * True if the entitlement is able to be directly requested
+     * @type {boolean}
+     * @memberof EntitlementV2026
+     */
+    'requestable'?: boolean;
+    /**
+     * 
+     * @type {EntitlementOwnerV2026}
+     * @memberof EntitlementV2026
+     */
+    'owner'?: EntitlementOwnerV2026 | null;
+    /**
+     * A map of entitlement fields that have been manually updated. The key is the field name in UPPER_SNAKE_CASE format, and the value is true or false to indicate if the field has been updated.
+     * @type {{ [key: string]: any; }}
+     * @memberof EntitlementV2026
+     */
+    'manuallyUpdatedFields'?: { [key: string]: any; } | null;
+    /**
+     * 
+     * @type {EntitlementAccessModelMetadataV2026}
+     * @memberof EntitlementV2026
+     */
+    'accessModelMetadata'?: EntitlementAccessModelMetadataV2026;
+    /**
+     * Time when the entitlement was created
+     * @type {string}
+     * @memberof EntitlementV2026
+     */
+    'created'?: string;
+    /**
+     * Time when the entitlement was last modified
+     * @type {string}
+     * @memberof EntitlementV2026
+     */
+    'modified'?: string;
+    /**
+     * 
+     * @type {EntitlementSourceV2026}
+     * @memberof EntitlementV2026
+     */
+    'source'?: EntitlementSourceV2026;
+    /**
+     * A map of free-form key-value pairs from the source system
+     * @type {{ [key: string]: any; }}
+     * @memberof EntitlementV2026
+     */
+    'attributes'?: { [key: string]: any; };
+    /**
+     * List of IDs of segments, if any, to which this Entitlement is assigned.
+     * @type {Array<string>}
+     * @memberof EntitlementV2026
+     */
+    'segments'?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<PermissionDtoV2026>}
+     * @memberof EntitlementV2026
+     */
+    'directPermissions'?: Array<PermissionDtoV2026>;
+}
+/**
  * 
  * @export
  * @interface ErrorMessageDtoV2026
@@ -779,32 +1140,6 @@ export interface ErrorResponseDtoV2026 {
      * @memberof ErrorResponseDtoV2026
      */
     'causes'?: Array<ErrorMessageDtoV2026>;
-}
-/**
- * 
- * @export
- * @interface GetTaskStatus401ResponseV2026
- */
-export interface GetTaskStatus401ResponseV2026 {
-    /**
-     * A message describing the error
-     * @type {object}
-     * @memberof GetTaskStatus401ResponseV2026
-     */
-    'error'?: object;
-}
-/**
- * 
- * @export
- * @interface GetTaskStatus429ResponseV2026
- */
-export interface GetTaskStatus429ResponseV2026 {
-    /**
-     * A message describing the error
-     * @type {object}
-     * @memberof GetTaskStatus429ResponseV2026
-     */
-    'message'?: object;
 }
 /**
  * Contains detailed information about an identity, including unique identifier, name, email address, and registration status.
@@ -881,6 +1216,32 @@ export type JsonPatchOperationV2026OpV2026 = typeof JsonPatchOperationV2026OpV20
  */
 export type JsonPatchOperationValueV2026 = Array<ArrayInnerV2026> | boolean | number | object | string;
 
+/**
+ * 
+ * @export
+ * @interface ListEntitlements401ResponseV2026
+ */
+export interface ListEntitlements401ResponseV2026 {
+    /**
+     * A message describing the error
+     * @type {object}
+     * @memberof ListEntitlements401ResponseV2026
+     */
+    'error'?: object;
+}
+/**
+ * 
+ * @export
+ * @interface ListEntitlements429ResponseV2026
+ */
+export interface ListEntitlements429ResponseV2026 {
+    /**
+     * A message describing the error
+     * @type {object}
+     * @memberof ListEntitlements429ResponseV2026
+     */
+    'message'?: object;
+}
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
  * @export
@@ -994,6 +1355,25 @@ export interface MachineAccountSubTypeConfigDtoV2026 {
      * @memberof MachineAccountSubTypeConfigDtoV2026
      */
     'machineAccountDelete'?: MachineAccountSubTypeConfigDtoMachineAccountDeleteV2026;
+}
+/**
+ * Simplified DTO for the Permission objects stored in SailPoint\'s database. The data is aggregated from customer systems and is free-form, so its appearance can vary largely between different clients/customers.
+ * @export
+ * @interface PermissionDtoV2026
+ */
+export interface PermissionDtoV2026 {
+    /**
+     * All the rights (e.g. actions) that this permission allows on the target
+     * @type {Array<string>}
+     * @memberof PermissionDtoV2026
+     */
+    'rights'?: Array<string>;
+    /**
+     * The target the permission would grants rights on.
+     * @type {string}
+     * @memberof PermissionDtoV2026
+     */
+    'target'?: string;
 }
 /**
  * 
@@ -1614,6 +1994,957 @@ export class DeleteAccountV2026Api extends BaseAPI {
      */
     public deleteAccountRequest(requestParameters: DeleteAccountV2026ApiDeleteAccountRequestRequest, axiosOptions?: RawAxiosRequestConfig) {
         return DeleteAccountV2026ApiFp(this.configuration).deleteAccountRequest(requestParameters.xSailPointExperimental, requestParameters.accountId, requestParameters.accountDeleteRequestInputV2026, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * EntitlementsV2026Api - axios parameter creator
+ * @export
+ */
+export const EntitlementsV2026ApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This API returns a list of all entitlements associated with the given account ID. The account must exist; if not found, the API returns 404.
+         * @summary Get entitlements for an account
+         * @param {string} accountId The account ID to get entitlements for
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccountEntitlements: async (accountId: string, limit?: number, offset?: number, count?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accountId' is not null or undefined
+            assertParamExists('getAccountEntitlements', 'accountId', accountId)
+            const localVarPath = `/entitlements/account/{accountId}/entitlements`
+                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns an entitlement by its ID.
+         * @summary Get an entitlement
+         * @param {string} id The entitlement ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getEntitlement: async (id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getEntitlement', 'id', id)
+            const localVarPath = `/entitlements/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns a list of all child entitlements of a given entitlement.
+         * @summary List of entitlements children
+         * @param {string} id Entitlement Id
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **tags**: *eq*  **privilegeLevel.direct**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listEntitlementChildren: async (id: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('listEntitlementChildren', 'id', id)
+            const localVarPath = `/entitlements/{id}/children`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns a list of all parent entitlements of a given entitlement.
+         * @summary List of entitlements parents
+         * @param {string} id Entitlement Id
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **tags**: *eq*  **privilegeLevel.direct**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listEntitlementParents: async (id: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('listEntitlementParents', 'id', id)
+            const localVarPath = `/entitlements/{id}/parents`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns a list of entitlements.  This API can be used in one of the two following ways: either getting entitlements for a specific **account-id**, or getting via use of **filters** (those two options are exclusive).  Any authenticated token can call this API.
+         * @summary Gets a list of entitlements.
+         * @param {string} [segmentedForIdentity] If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user\&#39;s Identity.
+         * @param {string} [forSegmentIds] If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s).
+         * @param {boolean} [includeUnsegmented] Whether or not the response list should contain unsegmented Entitlements. If **for-segment-ids** and **segmented-for-identity** are both absent or empty, specifying **include-unsegmented&#x3D;false** results in an error.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **tags**: *eq*  **privilegeLevel.direct**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listEntitlements: async (segmentedForIdentity?: string, forSegmentIds?: string, includeUnsegmented?: boolean, offset?: number, limit?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/entitlements`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            if (segmentedForIdentity !== undefined) {
+                localVarQueryParameter['segmented-for-identity'] = segmentedForIdentity;
+            }
+
+            if (forSegmentIds !== undefined) {
+                localVarQueryParameter['for-segment-ids'] = forSegmentIds;
+            }
+
+            if (includeUnsegmented !== undefined) {
+                localVarQueryParameter['include-unsegmented'] = includeUnsegmented;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **segments**, **privilegeOverride/level**, **owner**, **name**, **description**, and **manuallyUpdatedFields**  When you\'re patching owner, only owner type and owner id must be provided. Owner name is optional, and it won\'t be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.
+         * @summary Patch an entitlement
+         * @param {string} id ID of the entitlement to patch
+         * @param {Array<JsonPatchOperationV2026>} [jsonPatchOperationV2026] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchEntitlement: async (id: string, jsonPatchOperationV2026?: Array<JsonPatchOperationV2026>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('patchEntitlement', 'id', id)
+            const localVarPath = `/entitlements/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperationV2026, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API applies an update to every entitlement of the list.   The number of entitlements to update is limited to 50 items maximum.   The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. examples of allowed operations : `**{ \"op\": \"replace\", \"path\": \"/requestable\",\"value\": boolean }**` `**{ \"op\": \"replace\", \"path\": \"/privilegeOverride/level\",\"value\": string }**`  A token with ORG_ADMIN or API authority is required to call this API. 
+         * @summary Bulk update an entitlement list
+         * @param {EntitlementBulkUpdateRequestV2026} entitlementBulkUpdateRequestV2026 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateEntitlementsInBulk: async (entitlementBulkUpdateRequestV2026: EntitlementBulkUpdateRequestV2026, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'entitlementBulkUpdateRequestV2026' is not null or undefined
+            assertParamExists('updateEntitlementsInBulk', 'entitlementBulkUpdateRequestV2026', entitlementBulkUpdateRequestV2026)
+            const localVarPath = `/entitlements/bulk-update`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(entitlementBulkUpdateRequestV2026, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * EntitlementsV2026Api - functional programming interface
+ * @export
+ */
+export const EntitlementsV2026ApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = EntitlementsV2026ApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This API returns a list of all entitlements associated with the given account ID. The account must exist; if not found, the API returns 404.
+         * @summary Get entitlements for an account
+         * @param {string} accountId The account ID to get entitlements for
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAccountEntitlements(accountId: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementV2026>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountEntitlements(accountId, limit, offset, count, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['EntitlementsV2026Api.getAccountEntitlements']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This API returns an entitlement by its ID.
+         * @summary Get an entitlement
+         * @param {string} id The entitlement ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getEntitlement(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementV2026>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlement(id, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['EntitlementsV2026Api.getEntitlement']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This API returns a list of all child entitlements of a given entitlement.
+         * @summary List of entitlements children
+         * @param {string} id Entitlement Id
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **tags**: *eq*  **privilegeLevel.direct**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listEntitlementChildren(id: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementV2026>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listEntitlementChildren(id, limit, offset, count, sorters, filters, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['EntitlementsV2026Api.listEntitlementChildren']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This API returns a list of all parent entitlements of a given entitlement.
+         * @summary List of entitlements parents
+         * @param {string} id Entitlement Id
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **tags**: *eq*  **privilegeLevel.direct**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listEntitlementParents(id: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementV2026>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listEntitlementParents(id, limit, offset, count, sorters, filters, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['EntitlementsV2026Api.listEntitlementParents']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This API returns a list of entitlements.  This API can be used in one of the two following ways: either getting entitlements for a specific **account-id**, or getting via use of **filters** (those two options are exclusive).  Any authenticated token can call this API.
+         * @summary Gets a list of entitlements.
+         * @param {string} [segmentedForIdentity] If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user\&#39;s Identity.
+         * @param {string} [forSegmentIds] If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s).
+         * @param {boolean} [includeUnsegmented] Whether or not the response list should contain unsegmented Entitlements. If **for-segment-ids** and **segmented-for-identity** are both absent or empty, specifying **include-unsegmented&#x3D;false** results in an error.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **tags**: *eq*  **privilegeLevel.direct**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listEntitlements(segmentedForIdentity?: string, forSegmentIds?: string, includeUnsegmented?: boolean, offset?: number, limit?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementV2026>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listEntitlements(segmentedForIdentity, forSegmentIds, includeUnsegmented, offset, limit, count, sorters, filters, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['EntitlementsV2026Api.listEntitlements']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **segments**, **privilegeOverride/level**, **owner**, **name**, **description**, and **manuallyUpdatedFields**  When you\'re patching owner, only owner type and owner id must be provided. Owner name is optional, and it won\'t be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.
+         * @summary Patch an entitlement
+         * @param {string} id ID of the entitlement to patch
+         * @param {Array<JsonPatchOperationV2026>} [jsonPatchOperationV2026] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchEntitlement(id: string, jsonPatchOperationV2026?: Array<JsonPatchOperationV2026>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementV2026>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchEntitlement(id, jsonPatchOperationV2026, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['EntitlementsV2026Api.patchEntitlement']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This API applies an update to every entitlement of the list.   The number of entitlements to update is limited to 50 items maximum.   The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. examples of allowed operations : `**{ \"op\": \"replace\", \"path\": \"/requestable\",\"value\": boolean }**` `**{ \"op\": \"replace\", \"path\": \"/privilegeOverride/level\",\"value\": string }**`  A token with ORG_ADMIN or API authority is required to call this API. 
+         * @summary Bulk update an entitlement list
+         * @param {EntitlementBulkUpdateRequestV2026} entitlementBulkUpdateRequestV2026 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateEntitlementsInBulk(entitlementBulkUpdateRequestV2026: EntitlementBulkUpdateRequestV2026, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateEntitlementsInBulk(entitlementBulkUpdateRequestV2026, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['EntitlementsV2026Api.updateEntitlementsInBulk']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * EntitlementsV2026Api - factory interface
+ * @export
+ */
+export const EntitlementsV2026ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = EntitlementsV2026ApiFp(configuration)
+    return {
+        /**
+         * This API returns a list of all entitlements associated with the given account ID. The account must exist; if not found, the API returns 404.
+         * @summary Get entitlements for an account
+         * @param {EntitlementsV2026ApiGetAccountEntitlementsRequest} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccountEntitlements(requestParameters: EntitlementsV2026ApiGetAccountEntitlementsRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<EntitlementV2026>> {
+            return localVarFp.getAccountEntitlements(requestParameters.accountId, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns an entitlement by its ID.
+         * @summary Get an entitlement
+         * @param {EntitlementsV2026ApiGetEntitlementRequest} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getEntitlement(requestParameters: EntitlementsV2026ApiGetEntitlementRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<EntitlementV2026> {
+            return localVarFp.getEntitlement(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns a list of all child entitlements of a given entitlement.
+         * @summary List of entitlements children
+         * @param {EntitlementsV2026ApiListEntitlementChildrenRequest} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listEntitlementChildren(requestParameters: EntitlementsV2026ApiListEntitlementChildrenRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<EntitlementV2026>> {
+            return localVarFp.listEntitlementChildren(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns a list of all parent entitlements of a given entitlement.
+         * @summary List of entitlements parents
+         * @param {EntitlementsV2026ApiListEntitlementParentsRequest} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listEntitlementParents(requestParameters: EntitlementsV2026ApiListEntitlementParentsRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<EntitlementV2026>> {
+            return localVarFp.listEntitlementParents(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns a list of entitlements.  This API can be used in one of the two following ways: either getting entitlements for a specific **account-id**, or getting via use of **filters** (those two options are exclusive).  Any authenticated token can call this API.
+         * @summary Gets a list of entitlements.
+         * @param {EntitlementsV2026ApiListEntitlementsRequest} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listEntitlements(requestParameters: EntitlementsV2026ApiListEntitlementsRequest = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<EntitlementV2026>> {
+            return localVarFp.listEntitlements(requestParameters.segmentedForIdentity, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **segments**, **privilegeOverride/level**, **owner**, **name**, **description**, and **manuallyUpdatedFields**  When you\'re patching owner, only owner type and owner id must be provided. Owner name is optional, and it won\'t be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.
+         * @summary Patch an entitlement
+         * @param {EntitlementsV2026ApiPatchEntitlementRequest} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchEntitlement(requestParameters: EntitlementsV2026ApiPatchEntitlementRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<EntitlementV2026> {
+            return localVarFp.patchEntitlement(requestParameters.id, requestParameters.jsonPatchOperationV2026, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API applies an update to every entitlement of the list.   The number of entitlements to update is limited to 50 items maximum.   The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. examples of allowed operations : `**{ \"op\": \"replace\", \"path\": \"/requestable\",\"value\": boolean }**` `**{ \"op\": \"replace\", \"path\": \"/privilegeOverride/level\",\"value\": string }**`  A token with ORG_ADMIN or API authority is required to call this API. 
+         * @summary Bulk update an entitlement list
+         * @param {EntitlementsV2026ApiUpdateEntitlementsInBulkRequest} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateEntitlementsInBulk(requestParameters: EntitlementsV2026ApiUpdateEntitlementsInBulkRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.updateEntitlementsInBulk(requestParameters.entitlementBulkUpdateRequestV2026, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getAccountEntitlements operation in EntitlementsV2026Api.
+ * @export
+ * @interface EntitlementsV2026ApiGetAccountEntitlementsRequest
+ */
+export interface EntitlementsV2026ApiGetAccountEntitlementsRequest {
+    /**
+     * The account ID to get entitlements for
+     * @type {string}
+     * @memberof EntitlementsV2026ApiGetAccountEntitlements
+     */
+    readonly accountId: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof EntitlementsV2026ApiGetAccountEntitlements
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof EntitlementsV2026ApiGetAccountEntitlements
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof EntitlementsV2026ApiGetAccountEntitlements
+     */
+    readonly count?: boolean
+}
+
+/**
+ * Request parameters for getEntitlement operation in EntitlementsV2026Api.
+ * @export
+ * @interface EntitlementsV2026ApiGetEntitlementRequest
+ */
+export interface EntitlementsV2026ApiGetEntitlementRequest {
+    /**
+     * The entitlement ID
+     * @type {string}
+     * @memberof EntitlementsV2026ApiGetEntitlement
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for listEntitlementChildren operation in EntitlementsV2026Api.
+ * @export
+ * @interface EntitlementsV2026ApiListEntitlementChildrenRequest
+ */
+export interface EntitlementsV2026ApiListEntitlementChildrenRequest {
+    /**
+     * Entitlement Id
+     * @type {string}
+     * @memberof EntitlementsV2026ApiListEntitlementChildren
+     */
+    readonly id: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof EntitlementsV2026ApiListEntitlementChildren
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof EntitlementsV2026ApiListEntitlementChildren
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof EntitlementsV2026ApiListEntitlementChildren
+     */
+    readonly count?: boolean
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id**
+     * @type {string}
+     * @memberof EntitlementsV2026ApiListEntitlementChildren
+     */
+    readonly sorters?: string
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **tags**: *eq*  **privilegeLevel.direct**: *eq*
+     * @type {string}
+     * @memberof EntitlementsV2026ApiListEntitlementChildren
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for listEntitlementParents operation in EntitlementsV2026Api.
+ * @export
+ * @interface EntitlementsV2026ApiListEntitlementParentsRequest
+ */
+export interface EntitlementsV2026ApiListEntitlementParentsRequest {
+    /**
+     * Entitlement Id
+     * @type {string}
+     * @memberof EntitlementsV2026ApiListEntitlementParents
+     */
+    readonly id: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof EntitlementsV2026ApiListEntitlementParents
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof EntitlementsV2026ApiListEntitlementParents
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof EntitlementsV2026ApiListEntitlementParents
+     */
+    readonly count?: boolean
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id**
+     * @type {string}
+     * @memberof EntitlementsV2026ApiListEntitlementParents
+     */
+    readonly sorters?: string
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **tags**: *eq*  **privilegeLevel.direct**: *eq*
+     * @type {string}
+     * @memberof EntitlementsV2026ApiListEntitlementParents
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for listEntitlements operation in EntitlementsV2026Api.
+ * @export
+ * @interface EntitlementsV2026ApiListEntitlementsRequest
+ */
+export interface EntitlementsV2026ApiListEntitlementsRequest {
+    /**
+     * If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user\&#39;s Identity.
+     * @type {string}
+     * @memberof EntitlementsV2026ApiListEntitlements
+     */
+    readonly segmentedForIdentity?: string
+
+    /**
+     * If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s).
+     * @type {string}
+     * @memberof EntitlementsV2026ApiListEntitlements
+     */
+    readonly forSegmentIds?: string
+
+    /**
+     * Whether or not the response list should contain unsegmented Entitlements. If **for-segment-ids** and **segmented-for-identity** are both absent or empty, specifying **include-unsegmented&#x3D;false** results in an error.
+     * @type {boolean}
+     * @memberof EntitlementsV2026ApiListEntitlements
+     */
+    readonly includeUnsegmented?: boolean
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof EntitlementsV2026ApiListEntitlements
+     */
+    readonly offset?: number
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof EntitlementsV2026ApiListEntitlements
+     */
+    readonly limit?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof EntitlementsV2026ApiListEntitlements
+     */
+    readonly count?: boolean
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable**
+     * @type {string}
+     * @memberof EntitlementsV2026ApiListEntitlements
+     */
+    readonly sorters?: string
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **tags**: *eq*  **privilegeLevel.direct**: *eq*
+     * @type {string}
+     * @memberof EntitlementsV2026ApiListEntitlements
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for patchEntitlement operation in EntitlementsV2026Api.
+ * @export
+ * @interface EntitlementsV2026ApiPatchEntitlementRequest
+ */
+export interface EntitlementsV2026ApiPatchEntitlementRequest {
+    /**
+     * ID of the entitlement to patch
+     * @type {string}
+     * @memberof EntitlementsV2026ApiPatchEntitlement
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {Array<JsonPatchOperationV2026>}
+     * @memberof EntitlementsV2026ApiPatchEntitlement
+     */
+    readonly jsonPatchOperationV2026?: Array<JsonPatchOperationV2026>
+}
+
+/**
+ * Request parameters for updateEntitlementsInBulk operation in EntitlementsV2026Api.
+ * @export
+ * @interface EntitlementsV2026ApiUpdateEntitlementsInBulkRequest
+ */
+export interface EntitlementsV2026ApiUpdateEntitlementsInBulkRequest {
+    /**
+     * 
+     * @type {EntitlementBulkUpdateRequestV2026}
+     * @memberof EntitlementsV2026ApiUpdateEntitlementsInBulk
+     */
+    readonly entitlementBulkUpdateRequestV2026: EntitlementBulkUpdateRequestV2026
+}
+
+/**
+ * EntitlementsV2026Api - object-oriented interface
+ * @export
+ * @class EntitlementsV2026Api
+ * @extends {BaseAPI}
+ */
+export class EntitlementsV2026Api extends BaseAPI {
+    /**
+     * This API returns a list of all entitlements associated with the given account ID. The account must exist; if not found, the API returns 404.
+     * @summary Get entitlements for an account
+     * @param {EntitlementsV2026ApiGetAccountEntitlementsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EntitlementsV2026Api
+     */
+    public getAccountEntitlements(requestParameters: EntitlementsV2026ApiGetAccountEntitlementsRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return EntitlementsV2026ApiFp(this.configuration).getAccountEntitlements(requestParameters.accountId, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns an entitlement by its ID.
+     * @summary Get an entitlement
+     * @param {EntitlementsV2026ApiGetEntitlementRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EntitlementsV2026Api
+     */
+    public getEntitlement(requestParameters: EntitlementsV2026ApiGetEntitlementRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return EntitlementsV2026ApiFp(this.configuration).getEntitlement(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns a list of all child entitlements of a given entitlement.
+     * @summary List of entitlements children
+     * @param {EntitlementsV2026ApiListEntitlementChildrenRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EntitlementsV2026Api
+     */
+    public listEntitlementChildren(requestParameters: EntitlementsV2026ApiListEntitlementChildrenRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return EntitlementsV2026ApiFp(this.configuration).listEntitlementChildren(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns a list of all parent entitlements of a given entitlement.
+     * @summary List of entitlements parents
+     * @param {EntitlementsV2026ApiListEntitlementParentsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EntitlementsV2026Api
+     */
+    public listEntitlementParents(requestParameters: EntitlementsV2026ApiListEntitlementParentsRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return EntitlementsV2026ApiFp(this.configuration).listEntitlementParents(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns a list of entitlements.  This API can be used in one of the two following ways: either getting entitlements for a specific **account-id**, or getting via use of **filters** (those two options are exclusive).  Any authenticated token can call this API.
+     * @summary Gets a list of entitlements.
+     * @param {EntitlementsV2026ApiListEntitlementsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EntitlementsV2026Api
+     */
+    public listEntitlements(requestParameters: EntitlementsV2026ApiListEntitlementsRequest = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return EntitlementsV2026ApiFp(this.configuration).listEntitlements(requestParameters.segmentedForIdentity, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **segments**, **privilegeOverride/level**, **owner**, **name**, **description**, and **manuallyUpdatedFields**  When you\'re patching owner, only owner type and owner id must be provided. Owner name is optional, and it won\'t be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.
+     * @summary Patch an entitlement
+     * @param {EntitlementsV2026ApiPatchEntitlementRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EntitlementsV2026Api
+     */
+    public patchEntitlement(requestParameters: EntitlementsV2026ApiPatchEntitlementRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return EntitlementsV2026ApiFp(this.configuration).patchEntitlement(requestParameters.id, requestParameters.jsonPatchOperationV2026, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API applies an update to every entitlement of the list.   The number of entitlements to update is limited to 50 items maximum.   The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. examples of allowed operations : `**{ \"op\": \"replace\", \"path\": \"/requestable\",\"value\": boolean }**` `**{ \"op\": \"replace\", \"path\": \"/privilegeOverride/level\",\"value\": string }**`  A token with ORG_ADMIN or API authority is required to call this API. 
+     * @summary Bulk update an entitlement list
+     * @param {EntitlementsV2026ApiUpdateEntitlementsInBulkRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EntitlementsV2026Api
+     */
+    public updateEntitlementsInBulk(requestParameters: EntitlementsV2026ApiUpdateEntitlementsInBulkRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return EntitlementsV2026ApiFp(this.configuration).updateEntitlementsInBulk(requestParameters.entitlementBulkUpdateRequestV2026, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
