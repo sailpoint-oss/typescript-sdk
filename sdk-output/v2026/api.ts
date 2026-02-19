@@ -26,10 +26,702 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
+ * @interface AccountActionRequestDtoAccountDetailsV2026
+ */
+export interface AccountActionRequestDtoAccountDetailsV2026 {
+    /**
+     * ID of account
+     * @type {string}
+     * @memberof AccountActionRequestDtoAccountDetailsV2026
+     */
+    'accountId'?: string;
+    /**
+     * Account name
+     * @type {string}
+     * @memberof AccountActionRequestDtoAccountDetailsV2026
+     */
+    'accountName'?: string;
+    /**
+     * Native identity of account
+     * @type {string}
+     * @memberof AccountActionRequestDtoAccountDetailsV2026
+     */
+    'accountNativeIdentity'?: string;
+    /**
+     * UUID associated with account
+     * @type {string}
+     * @memberof AccountActionRequestDtoAccountDetailsV2026
+     */
+    'accountUuid'?: string;
+    /**
+     * Type of account
+     * @type {string}
+     * @memberof AccountActionRequestDtoAccountDetailsV2026
+     */
+    'accountType'?: string;
+    /**
+     * Sub Type ID of account
+     * @type {string}
+     * @memberof AccountActionRequestDtoAccountDetailsV2026
+     */
+    'accountSubtypeId'?: string | null;
+    /**
+     * Subtype of account
+     * @type {string}
+     * @memberof AccountActionRequestDtoAccountDetailsV2026
+     */
+    'accountSubtype'?: string | null;
+    /**
+     * Account Description
+     * @type {string}
+     * @memberof AccountActionRequestDtoAccountDetailsV2026
+     */
+    'description'?: string | null;
+    /**
+     * ID of source
+     * @type {string}
+     * @memberof AccountActionRequestDtoAccountDetailsV2026
+     */
+    'sourceId'?: string;
+    /**
+     * Name of source
+     * @type {string}
+     * @memberof AccountActionRequestDtoAccountDetailsV2026
+     */
+    'sourceName'?: string;
+    /**
+     * Indicates entitlements assigned to identity or not
+     * @type {boolean}
+     * @memberof AccountActionRequestDtoAccountDetailsV2026
+     */
+    'hasEntitlements'?: boolean;
+    /**
+     * Indicates account is enabled/disabled
+     * @type {boolean}
+     * @memberof AccountActionRequestDtoAccountDetailsV2026
+     */
+    'disabled'?: boolean;
+    /**
+     * Indicates account locked/unlocked
+     * @type {boolean}
+     * @memberof AccountActionRequestDtoAccountDetailsV2026
+     */
+    'locked'?: boolean;
+    /**
+     * 
+     * @type {AccountDetailsOwnerIdentityV2026}
+     * @memberof AccountActionRequestDtoAccountDetailsV2026
+     */
+    'ownerIdentity'?: AccountDetailsOwnerIdentityV2026 | null;
+}
+/**
+ * 
+ * @export
+ * @interface AccountActionRequestDtoCorrelatedIdentityV2026
+ */
+export interface AccountActionRequestDtoCorrelatedIdentityV2026 {
+    /**
+     * ID of identity
+     * @type {string}
+     * @memberof AccountActionRequestDtoCorrelatedIdentityV2026
+     */
+    'id'?: string;
+    /**
+     * Name of Identity
+     * @type {string}
+     * @memberof AccountActionRequestDtoCorrelatedIdentityV2026
+     */
+    'name'?: string;
+    /**
+     * mail id of identity
+     * @type {string}
+     * @memberof AccountActionRequestDtoCorrelatedIdentityV2026
+     */
+    'email'?: string | null;
+    /**
+     * status of identity UNREGISTERED/REGISTERED
+     * @type {string}
+     * @memberof AccountActionRequestDtoCorrelatedIdentityV2026
+     */
+    'status'?: string | null;
+}
+/**
+ * 
+ * @export
+ * @interface AccountActionRequestDtoRequesterV2026
+ */
+export interface AccountActionRequestDtoRequesterV2026 {
+    /**
+     * 
+     * @type {DtoTypeV2026 & object}
+     * @memberof AccountActionRequestDtoRequesterV2026
+     */
+    'type'?: DtoTypeV2026 & object;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountActionRequestDtoRequesterV2026
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountActionRequestDtoRequesterV2026
+     */
+    'name'?: string;
+}
+/**
+ * Represents a request to perform an action on an account, such as deletion or modification.
+ * @export
+ * @interface AccountActionRequestDtoV2026
+ */
+export interface AccountActionRequestDtoV2026 {
+    /**
+     * Account requester ID.
+     * @type {string}
+     * @memberof AccountActionRequestDtoV2026
+     */
+    'accountRequestId'?: string;
+    /**
+     * Access item requester\'s identity ID.
+     * @type {string}
+     * @memberof AccountActionRequestDtoV2026
+     */
+    'requestType'?: string;
+    /**
+     * Creation date and time of account deletion request date.
+     * @type {string}
+     * @memberof AccountActionRequestDtoV2026
+     */
+    'createdAt'?: string;
+    /**
+     * Account deletion request completion date and time.
+     * @type {string}
+     * @memberof AccountActionRequestDtoV2026
+     */
+    'completedAt'?: string;
+    /**
+     * Overall status of deletion request.
+     * @type {string}
+     * @memberof AccountActionRequestDtoV2026
+     */
+    'overallStatus'?: string;
+    /**
+     * 
+     * @type {AccountActionRequestDtoRequesterV2026}
+     * @memberof AccountActionRequestDtoV2026
+     */
+    'requester'?: AccountActionRequestDtoRequesterV2026;
+    /**
+     * Comments added by the requester while creating the account deletion request.
+     * @type {string}
+     * @memberof AccountActionRequestDtoV2026
+     */
+    'requesterComments'?: string;
+    /**
+     * 
+     * @type {AccountActionRequestDtoAccountDetailsV2026}
+     * @memberof AccountActionRequestDtoV2026
+     */
+    'accountDetails'?: AccountActionRequestDtoAccountDetailsV2026;
+    /**
+     * 
+     * @type {AccountActionRequestDtoCorrelatedIdentityV2026}
+     * @memberof AccountActionRequestDtoV2026
+     */
+    'correlatedIdentity'?: AccountActionRequestDtoCorrelatedIdentityV2026;
+    /**
+     * 
+     * @type {IdentityReferenceV2026}
+     * @memberof AccountActionRequestDtoV2026
+     */
+    'managerReference'?: IdentityReferenceV2026;
+    /**
+     * ID of the approval request associated with the account deletion action.
+     * @type {string}
+     * @memberof AccountActionRequestDtoV2026
+     */
+    'approvalRequestId'?: string;
+    /**
+     * List of account request phases.
+     * @type {Array<AccountRequestPhaseV2026>}
+     * @memberof AccountActionRequestDtoV2026
+     */
+    'accountRequestPhases'?: Array<AccountRequestPhaseV2026>;
+    /**
+     * List approval details
+     * @type {Array<ApprovalDetailsV2026>}
+     * @memberof AccountActionRequestDtoV2026
+     */
+    'approvalDetails'?: Array<ApprovalDetailsV2026>;
+    /**
+     * Detailed error information.
+     * @type {string}
+     * @memberof AccountActionRequestDtoV2026
+     */
+    'errorDetails'?: string | null;
+}
+/**
+ * Asynchronous response containing a unique tracking ID for the account deletion request
+ * @export
+ * @interface AccountDeleteAsyncResultV2026
+ */
+export interface AccountDeleteAsyncResultV2026 {
+    /**
+     * Id of the deletion request
+     * @type {string}
+     * @memberof AccountDeleteAsyncResultV2026
+     */
+    'accountRequestId': string;
+}
+/**
+ * detailed information about account delete approval config
+ * @export
+ * @interface AccountDeleteConfigDtoV2026
+ */
+export interface AccountDeleteConfigDtoV2026 {
+    /**
+     * Specifies if an account deletion request requires approval.
+     * @type {boolean}
+     * @memberof AccountDeleteConfigDtoV2026
+     */
+    'approvalRequired'?: boolean;
+    /**
+     * 
+     * @type {ApprovalConfigV2026}
+     * @memberof AccountDeleteConfigDtoV2026
+     */
+    'approvalConfig'?: ApprovalConfigV2026;
+}
+/**
+ * Contains the required information for processing a user-initiated account deletion request, including the reason for deletion.
+ * @export
+ * @interface AccountDeleteRequestInputV2026
+ */
+export interface AccountDeleteRequestInputV2026 {
+    /**
+     * Reason for deleting the account.
+     * @type {string}
+     * @memberof AccountDeleteRequestInputV2026
+     */
+    'comments'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface AccountDetailsOwnerIdentityV2026
+ */
+export interface AccountDetailsOwnerIdentityV2026 {
+    /**
+     * 
+     * @type {DtoTypeV2026 & object}
+     * @memberof AccountDetailsOwnerIdentityV2026
+     */
+    'type'?: DtoTypeV2026 & object;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountDetailsOwnerIdentityV2026
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountDetailsOwnerIdentityV2026
+     */
+    'name'?: string;
+}
+/**
+ * Contains detailed information about an account, including identifiers, type, status, source, and ownership details.
+ * @export
+ * @interface AccountDetailsV2026
+ */
+export interface AccountDetailsV2026 {
+    /**
+     * ID of account
+     * @type {string}
+     * @memberof AccountDetailsV2026
+     */
+    'accountId'?: string;
+    /**
+     * Account name
+     * @type {string}
+     * @memberof AccountDetailsV2026
+     */
+    'accountName'?: string;
+    /**
+     * Native identity of account
+     * @type {string}
+     * @memberof AccountDetailsV2026
+     */
+    'accountNativeIdentity'?: string;
+    /**
+     * UUID associated with account
+     * @type {string}
+     * @memberof AccountDetailsV2026
+     */
+    'accountUuid'?: string;
+    /**
+     * Type of account
+     * @type {string}
+     * @memberof AccountDetailsV2026
+     */
+    'accountType'?: string;
+    /**
+     * Sub Type ID of account
+     * @type {string}
+     * @memberof AccountDetailsV2026
+     */
+    'accountSubtypeId'?: string | null;
+    /**
+     * Subtype of account
+     * @type {string}
+     * @memberof AccountDetailsV2026
+     */
+    'accountSubtype'?: string | null;
+    /**
+     * Account Description
+     * @type {string}
+     * @memberof AccountDetailsV2026
+     */
+    'description'?: string | null;
+    /**
+     * ID of source
+     * @type {string}
+     * @memberof AccountDetailsV2026
+     */
+    'sourceId'?: string;
+    /**
+     * Name of source
+     * @type {string}
+     * @memberof AccountDetailsV2026
+     */
+    'sourceName'?: string;
+    /**
+     * Indicates entitlements assigned to identity or not
+     * @type {boolean}
+     * @memberof AccountDetailsV2026
+     */
+    'hasEntitlements'?: boolean;
+    /**
+     * Indicates account is enabled/disabled
+     * @type {boolean}
+     * @memberof AccountDetailsV2026
+     */
+    'disabled'?: boolean;
+    /**
+     * Indicates account locked/unlocked
+     * @type {boolean}
+     * @memberof AccountDetailsV2026
+     */
+    'locked'?: boolean;
+    /**
+     * 
+     * @type {AccountDetailsOwnerIdentityV2026}
+     * @memberof AccountDetailsV2026
+     */
+    'ownerIdentity'?: AccountDetailsOwnerIdentityV2026 | null;
+}
+/**
+ * The current phase state of the account request, indicating its progress or outcome in the approval workflow.
+ * @export
+ * @enum {string}
+ */
+
+export const AccountRequestPhaseStateV2026 = {
+    Pending: 'PENDING',
+    Cancelled: 'CANCELLED',
+    Approved: 'APPROVED',
+    Rejected: 'REJECTED',
+    Passed: 'PASSED',
+    Failed: 'FAILED'
+} as const;
+
+export type AccountRequestPhaseStateV2026 = typeof AccountRequestPhaseStateV2026[keyof typeof AccountRequestPhaseStateV2026];
+
+
+/**
+ * Contains detailed information about each phase in the account request process, including its type, current state, and relevant timestamps.
+ * @export
+ * @interface AccountRequestPhaseV2026
+ */
+export interface AccountRequestPhaseV2026 {
+    /**
+     * Enum of account request phase type
+     * @type {string}
+     * @memberof AccountRequestPhaseV2026
+     */
+    'name'?: AccountRequestPhaseV2026NameV2026;
+    /**
+     * 
+     * @type {AccountRequestPhaseStateV2026}
+     * @memberof AccountRequestPhaseV2026
+     */
+    'state'?: AccountRequestPhaseStateV2026;
+    /**
+     * Start date of account request phase.
+     * @type {string}
+     * @memberof AccountRequestPhaseV2026
+     */
+    'started'?: string;
+    /**
+     * Finish date of account request phase.
+     * @type {string}
+     * @memberof AccountRequestPhaseV2026
+     */
+    'finished'?: string;
+}
+
+export const AccountRequestPhaseV2026NameV2026 = {
+    ApprovalPhase: 'APPROVAL_PHASE',
+    ProvisioningPhase: 'PROVISIONING_PHASE'
+} as const;
+
+export type AccountRequestPhaseV2026NameV2026 = typeof AccountRequestPhaseV2026NameV2026[keyof typeof AccountRequestPhaseV2026NameV2026];
+
+/**
+ * 
+ * @export
+ * @interface ApprovalConfigV2026
+ */
+export interface ApprovalConfigV2026 {
+    /**
+     * Approvers must be listed as a comma-separated string, with each entry representing an individual or group authorized to approve account creation or deletion requests.
+     * @type {string}
+     * @memberof ApprovalConfigV2026
+     */
+    'approvers'?: string;
+    /**
+     * Specifies the approval status for an account creation or deletion request. Allowed values are APPROVAL, REJECTION, ALL, and OFF.
+     * @type {string}
+     * @memberof ApprovalConfigV2026
+     */
+    'comments'?: ApprovalConfigV2026CommentsV2026;
+}
+
+export const ApprovalConfigV2026CommentsV2026 = {
+    Approval: 'APPROVAL',
+    Rejection: 'REJECTION',
+    All: 'ALL',
+    False: 'false'
+} as const;
+
+export type ApprovalConfigV2026CommentsV2026 = typeof ApprovalConfigV2026CommentsV2026[keyof typeof ApprovalConfigV2026CommentsV2026];
+
+/**
+ * Contains comprehensive details about the approval process, including the approver\'s information, comments, decision date, serial order, and the current status of the approval request.
+ * @export
+ * @interface ApprovalDetailsV2026
+ */
+export interface ApprovalDetailsV2026 {
+    /**
+     * 
+     * @type {ApproverDtoV2026}
+     * @memberof ApprovalDetailsV2026
+     */
+    'approver'?: ApproverDtoV2026;
+    /**
+     * Comments added by approver while rejecting or approving the account deletion request.
+     * @type {string}
+     * @memberof ApprovalDetailsV2026
+     */
+    'approverComments'?: string;
+    /**
+     * Decision date of approval rejected or approved.
+     * @type {string}
+     * @memberof ApprovalDetailsV2026
+     */
+    'decisionDate'?: string;
+    /**
+     * SerialOrder of approval details.
+     * @type {number}
+     * @memberof ApprovalDetailsV2026
+     */
+    'serialOrder'?: number;
+    /**
+     * 
+     * @type {AccountRequestPhaseStateV2026}
+     * @memberof ApprovalDetailsV2026
+     */
+    'status'?: AccountRequestPhaseStateV2026;
+}
+
+
+/**
+ * Contains detailed information about the approver, including their identity, contact details, type, and references to related identities such as owners, actioned identities, and members.
+ * @export
+ * @interface ApproverDtoV2026
+ */
+export interface ApproverDtoV2026 {
+    /**
+     * Identity ID and it cannot be null.
+     * @type {string}
+     * @memberof ApproverDtoV2026
+     */
+    'identityID'?: string;
+    /**
+     * Optional id
+     * @type {string}
+     * @memberof ApproverDtoV2026
+     */
+    'id'?: string | null;
+    /**
+     * Identity display name
+     * @type {string}
+     * @memberof ApproverDtoV2026
+     */
+    'name'?: string;
+    /**
+     * Email address of identity
+     * @type {string}
+     * @memberof ApproverDtoV2026
+     */
+    'email'?: string;
+    /**
+     * Used to mention type of data transfer object in this case it is used to transfer IDENTITY data.
+     * @type {string}
+     * @memberof ApproverDtoV2026
+     */
+    'type'?: string;
+    /**
+     * List of reference of identity type dto for account owner identities
+     * @type {Array<ApproverReferenceV2026>}
+     * @memberof ApproverDtoV2026
+     */
+    'ownerOf'?: Array<ApproverReferenceV2026> | null;
+    /**
+     * List of reference of identity type dto who acted on behalf of other identities.
+     * @type {Array<ApproverReferenceV2026>}
+     * @memberof ApproverDtoV2026
+     */
+    'actionedAs'?: Array<ApproverReferenceV2026> | null;
+    /**
+     * List of reference of identity type dto for member identities.
+     * @type {Array<ApproverReferenceV2026>}
+     * @memberof ApproverDtoV2026
+     */
+    'members'?: Array<ApproverReferenceV2026> | null;
+}
+/**
+ * 
+ * @export
+ * @interface ApproverReferenceV2026
+ */
+export interface ApproverReferenceV2026 {
+    /**
+     * Id of supported DtoType like IDENTITY, MACHINE_IDENTITY etc.
+     * @type {string}
+     * @memberof ApproverReferenceV2026
+     */
+    'id'?: string;
+    /**
+     * Type of Dto
+     * @type {string}
+     * @memberof ApproverReferenceV2026
+     */
+    'type'?: string;
+    /**
+     * Display name of DtoType like IDENTITY, MACHINE_IDENTITY etc
+     * @type {string}
+     * @memberof ApproverReferenceV2026
+     */
+    'name'?: string;
+}
+/**
+ * 
+ * @export
  * @interface ArrayInnerV2026
  */
 export interface ArrayInnerV2026 {
 }
+/**
+ * Base object for referencing other DTOs, containing type, id, and name fields for identification and display purposes.
+ * @export
+ * @interface BaseReferenceDtoV2026
+ */
+export interface BaseReferenceDtoV2026 {
+    /**
+     * 
+     * @type {DtoTypeV2026 & object}
+     * @memberof BaseReferenceDtoV2026
+     */
+    'type'?: DtoTypeV2026 & object;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof BaseReferenceDtoV2026
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof BaseReferenceDtoV2026
+     */
+    'name'?: string;
+}
+/**
+ * An enumeration of the types of DTOs supported within the IdentityNow infrastructure.
+ * @export
+ * @enum {string}
+ */
+
+export const DtoTypeV2026 = {
+    AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
+    AccessProfile: 'ACCESS_PROFILE',
+    AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
+    AccessRequestConfig: 'ACCESS_REQUEST_CONFIG',
+    Account: 'ACCOUNT',
+    Application: 'APPLICATION',
+    Attribute: 'ATTRIBUTE',
+    AuthOrg: 'AUTH_ORG',
+    Campaign: 'CAMPAIGN',
+    CampaignFilter: 'CAMPAIGN_FILTER',
+    Certification: 'CERTIFICATION',
+    CloudAccess: 'CLOUD_ACCESS',
+    Cluster: 'CLUSTER',
+    ConnectorSchema: 'CONNECTOR_SCHEMA',
+    Entitlement: 'ENTITLEMENT',
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    Identity: 'IDENTITY',
+    IdentityObjectConfig: 'IDENTITY_OBJECT_CONFIG',
+    IdentityProfile: 'IDENTITY_PROFILE',
+    IdentityRequest: 'IDENTITY_REQUEST',
+    MachineIdentity: 'MACHINE_IDENTITY',
+    LifecycleState: 'LIFECYCLE_STATE',
+    NotificationTemplate: 'NOTIFICATION_TEMPLATE',
+    PasswordPolicy: 'PASSWORD_POLICY',
+    PasswordPolicyConfig: 'PASSWORD_POLICY_CONFIG',
+    PasswordSyncGroup: 'PASSWORD_SYNC_GROUP',
+    PublicIdentitiesConfig: 'PUBLIC_IDENTITIES_CONFIG',
+    Role: 'ROLE',
+    Rule: 'RULE',
+    ConnectorRule: 'CONNECTOR_RULE',
+    ServiceDeskIntegration: 'SERVICE_DESK_INTEGRATION',
+    SodPolicy: 'SOD_POLICY',
+    Source: 'SOURCE',
+    System: 'SYSTEM',
+    Tag: 'TAG',
+    TagCategory: 'TAG_CATEGORY',
+    TaskResult: 'TASK_RESULT',
+    ReportResult: 'REPORT_RESULT',
+    SodViolation: 'SOD_VIOLATION',
+    AccountActivity: 'ACCOUNT_ACTIVITY',
+    TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
+    Transform: 'TRANSFORM',
+    ArmRisk: 'ARM_RISK',
+    ArmActivity: 'ARM_ACTIVITY',
+    Segment: 'SEGMENT',
+    AttrSyncSourceConfig: 'ATTR_SYNC_SOURCE_CONFIG',
+    FormDefinition: 'FORM_DEFINITION',
+    Workflow: 'WORKFLOW',
+    Workgroup: 'WORKGROUP',
+    Dimension: 'DIMENSION',
+    Unknown: 'UNKNOWN'
+} as const;
+
+export type DtoTypeV2026 = typeof DtoTypeV2026[keyof typeof DtoTypeV2026];
+
+
 /**
  * 
  * @export
@@ -115,6 +807,37 @@ export interface GetTaskStatus429ResponseV2026 {
     'message'?: object;
 }
 /**
+ * Contains detailed information about an identity, including unique identifier, name, email address, and registration status.
+ * @export
+ * @interface IdentityReferenceV2026
+ */
+export interface IdentityReferenceV2026 {
+    /**
+     * ID of identity
+     * @type {string}
+     * @memberof IdentityReferenceV2026
+     */
+    'id'?: string;
+    /**
+     * Name of Identity
+     * @type {string}
+     * @memberof IdentityReferenceV2026
+     */
+    'name'?: string;
+    /**
+     * mail id of identity
+     * @type {string}
+     * @memberof IdentityReferenceV2026
+     */
+    'email'?: string | null;
+    /**
+     * status of identity UNREGISTERED/REGISTERED
+     * @type {string}
+     * @memberof IdentityReferenceV2026
+     */
+    'status'?: string | null;
+}
+/**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
  * @interface JsonPatchOperationV2026
@@ -190,6 +913,87 @@ export interface LocalizedMessageV2026 {
      * @memberof LocalizedMessageV2026
      */
     'message': string;
+}
+/**
+ * Configuration options for machine account creation, including whether creation is enabled, if approval is required, associated form and entitlement IDs, and detailed approval settings such as approvers and allowed comment types.
+ * @export
+ * @interface MachineAccountSubTypeConfigDtoMachineAccountCreateV2026
+ */
+export interface MachineAccountSubTypeConfigDtoMachineAccountCreateV2026 {
+    /**
+     * Specifies if the creation of machine accounts is allowed for this subtype.
+     * @type {boolean}
+     * @memberof MachineAccountSubTypeConfigDtoMachineAccountCreateV2026
+     */
+    'accountCreateEnabled'?: boolean;
+    /**
+     * Specifies if approval is needed before a machine account can be created for this subtype.
+     * @type {boolean}
+     * @memberof MachineAccountSubTypeConfigDtoMachineAccountCreateV2026
+     */
+    'approvalRequired'?: boolean;
+    /**
+     * formId
+     * @type {string}
+     * @memberof MachineAccountSubTypeConfigDtoMachineAccountCreateV2026
+     */
+    'formId'?: string;
+    /**
+     * Configuration details specifying who can approve machine account creation requests and the types of comments allowed during the approval process.
+     * @type {string}
+     * @memberof MachineAccountSubTypeConfigDtoMachineAccountCreateV2026
+     */
+    'entitlementId'?: string;
+    /**
+     * 
+     * @type {ApprovalConfigV2026}
+     * @memberof MachineAccountSubTypeConfigDtoMachineAccountCreateV2026
+     */
+    'approvalConfig'?: ApprovalConfigV2026;
+}
+/**
+ * Configuration options for machine account deletion, including whether approval is required, the list of authorized approvers, and the types of comments permitted during the approval workflow.
+ * @export
+ * @interface MachineAccountSubTypeConfigDtoMachineAccountDeleteV2026
+ */
+export interface MachineAccountSubTypeConfigDtoMachineAccountDeleteV2026 {
+    /**
+     * Indicates whether approval is required for an account deletion request.
+     * @type {boolean}
+     * @memberof MachineAccountSubTypeConfigDtoMachineAccountDeleteV2026
+     */
+    'approvalRequired'?: boolean;
+    /**
+     * 
+     * @type {ApprovalConfigV2026}
+     * @memberof MachineAccountSubTypeConfigDtoMachineAccountDeleteV2026
+     */
+    'approvalConfig'?: ApprovalConfigV2026;
+}
+/**
+ * Contains comprehensive configuration details for machine account subtype approval, including creation and deletion approval requirements, approver lists, form and entitlement references, and approval status options.
+ * @export
+ * @interface MachineAccountSubTypeConfigDtoV2026
+ */
+export interface MachineAccountSubTypeConfigDtoV2026 {
+    /**
+     * Unique identifier representing the specific subtype of the machine account, used to distinguish between different machine account categories.
+     * @type {string}
+     * @memberof MachineAccountSubTypeConfigDtoV2026
+     */
+    'subtypeId'?: string;
+    /**
+     * 
+     * @type {MachineAccountSubTypeConfigDtoMachineAccountCreateV2026}
+     * @memberof MachineAccountSubTypeConfigDtoV2026
+     */
+    'machineAccountCreate'?: MachineAccountSubTypeConfigDtoMachineAccountCreateV2026;
+    /**
+     * 
+     * @type {MachineAccountSubTypeConfigDtoMachineAccountDeleteV2026}
+     * @memberof MachineAccountSubTypeConfigDtoV2026
+     */
+    'machineAccountDelete'?: MachineAccountSubTypeConfigDtoMachineAccountDeleteV2026;
 }
 /**
  * 
@@ -465,6 +1269,1167 @@ export const TaskStatusV2026CompletionStatusV2026 = {
 } as const;
 
 export type TaskStatusV2026CompletionStatusV2026 = typeof TaskStatusV2026CompletionStatusV2026[keyof typeof TaskStatusV2026CompletionStatusV2026];
+
+
+/**
+ * AccountDeletionRequestsV2026Api - axios parameter creator
+ * @export
+ */
+export const AccountDeletionRequestsV2026ApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Retrieves a paginated list of account deletion requests filtered by the provided query parameters. When the \"mine\" parameter is set to true, the response includes only those deletion requests that were initiated by the currently authenticated user. If \"mine\" is false or not specified, the endpoint returns all account deletion requests associated with the current tenant, regardless of the initiator. This allows both users and administrators to view relevant deletion requests based on their access level and intent.
+         * @summary List of Account Deletion Requests
+         * @param {string} xSailPointExperimental Use this header to enable this experimental API.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [mine] Determines whether to return only the account deletion requests initiated by the currently authenticated user. If set to true, the response includes only deletion requests created by the logged-in user. If set to false or not provided, the response includes all deletion requests for the tenant, regardless of the initiator. This parameter allows users to view their own requests, while administrators can view all requests within the tenant.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccountDeletionRequests: async (xSailPointExperimental: string, limit?: number, offset?: number, count?: boolean, mine?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            // verify required parameter 'xSailPointExperimental' is not null or undefined
+            assertParamExists('getAccountDeletionRequests', 'xSailPointExperimental', xSailPointExperimental)
+            const localVarPath = `/account-requests/deletion`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (mine !== undefined) {
+                localVarQueryParameter['mine'] = mine;
+            }
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * AccountDeletionRequestsV2026Api - functional programming interface
+ * @export
+ */
+export const AccountDeletionRequestsV2026ApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = AccountDeletionRequestsV2026ApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Retrieves a paginated list of account deletion requests filtered by the provided query parameters. When the \"mine\" parameter is set to true, the response includes only those deletion requests that were initiated by the currently authenticated user. If \"mine\" is false or not specified, the endpoint returns all account deletion requests associated with the current tenant, regardless of the initiator. This allows both users and administrators to view relevant deletion requests based on their access level and intent.
+         * @summary List of Account Deletion Requests
+         * @param {string} xSailPointExperimental Use this header to enable this experimental API.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [mine] Determines whether to return only the account deletion requests initiated by the currently authenticated user. If set to true, the response includes only deletion requests created by the logged-in user. If set to false or not provided, the response includes all deletion requests for the tenant, regardless of the initiator. This parameter allows users to view their own requests, while administrators can view all requests within the tenant.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAccountDeletionRequests(xSailPointExperimental: string, limit?: number, offset?: number, count?: boolean, mine?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccountActionRequestDtoV2026>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountDeletionRequests(xSailPointExperimental, limit, offset, count, mine, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AccountDeletionRequestsV2026Api.getAccountDeletionRequests']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * AccountDeletionRequestsV2026Api - factory interface
+ * @export
+ */
+export const AccountDeletionRequestsV2026ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = AccountDeletionRequestsV2026ApiFp(configuration)
+    return {
+        /**
+         * Retrieves a paginated list of account deletion requests filtered by the provided query parameters. When the \"mine\" parameter is set to true, the response includes only those deletion requests that were initiated by the currently authenticated user. If \"mine\" is false or not specified, the endpoint returns all account deletion requests associated with the current tenant, regardless of the initiator. This allows both users and administrators to view relevant deletion requests based on their access level and intent.
+         * @summary List of Account Deletion Requests
+         * @param {AccountDeletionRequestsV2026ApiGetAccountDeletionRequestsRequest} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccountDeletionRequests(requestParameters: AccountDeletionRequestsV2026ApiGetAccountDeletionRequestsRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccountActionRequestDtoV2026>> {
+            return localVarFp.getAccountDeletionRequests(requestParameters.xSailPointExperimental, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.mine, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getAccountDeletionRequests operation in AccountDeletionRequestsV2026Api.
+ * @export
+ * @interface AccountDeletionRequestsV2026ApiGetAccountDeletionRequestsRequest
+ */
+export interface AccountDeletionRequestsV2026ApiGetAccountDeletionRequestsRequest {
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof AccountDeletionRequestsV2026ApiGetAccountDeletionRequests
+     */
+    readonly xSailPointExperimental: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccountDeletionRequestsV2026ApiGetAccountDeletionRequests
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccountDeletionRequestsV2026ApiGetAccountDeletionRequests
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof AccountDeletionRequestsV2026ApiGetAccountDeletionRequests
+     */
+    readonly count?: boolean
+
+    /**
+     * Determines whether to return only the account deletion requests initiated by the currently authenticated user. If set to true, the response includes only deletion requests created by the logged-in user. If set to false or not provided, the response includes all deletion requests for the tenant, regardless of the initiator. This parameter allows users to view their own requests, while administrators can view all requests within the tenant.
+     * @type {boolean}
+     * @memberof AccountDeletionRequestsV2026ApiGetAccountDeletionRequests
+     */
+    readonly mine?: boolean
+}
+
+/**
+ * AccountDeletionRequestsV2026Api - object-oriented interface
+ * @export
+ * @class AccountDeletionRequestsV2026Api
+ * @extends {BaseAPI}
+ */
+export class AccountDeletionRequestsV2026Api extends BaseAPI {
+    /**
+     * Retrieves a paginated list of account deletion requests filtered by the provided query parameters. When the \"mine\" parameter is set to true, the response includes only those deletion requests that were initiated by the currently authenticated user. If \"mine\" is false or not specified, the endpoint returns all account deletion requests associated with the current tenant, regardless of the initiator. This allows both users and administrators to view relevant deletion requests based on their access level and intent.
+     * @summary List of Account Deletion Requests
+     * @param {AccountDeletionRequestsV2026ApiGetAccountDeletionRequestsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccountDeletionRequestsV2026Api
+     */
+    public getAccountDeletionRequests(requestParameters: AccountDeletionRequestsV2026ApiGetAccountDeletionRequestsRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return AccountDeletionRequestsV2026ApiFp(this.configuration).getAccountDeletionRequests(requestParameters.xSailPointExperimental, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.mine, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * DeleteAccountV2026Api - axios parameter creator
+ * @export
+ */
+export const DeleteAccountV2026ApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Initiates an account deletion request for the specified account. This method validates the input data, processes the deletion request, and generates an asynchronous result containing a tracking ID.  >**NOTE: You can only delete accounts from sources of the \"Connected\" type. which supports account deletion**
+         * @summary Delete account
+         * @param {string} xSailPointExperimental Use this header to enable this experimental API.
+         * @param {string} accountId Account ID.
+         * @param {AccountDeleteRequestInputV2026} [accountDeleteRequestInputV2026] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteAccountRequest: async (xSailPointExperimental: string, accountId: string, accountDeleteRequestInputV2026?: AccountDeleteRequestInputV2026, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            // verify required parameter 'xSailPointExperimental' is not null or undefined
+            assertParamExists('deleteAccountRequest', 'xSailPointExperimental', xSailPointExperimental)
+            // verify required parameter 'accountId' is not null or undefined
+            assertParamExists('deleteAccountRequest', 'accountId', accountId)
+            const localVarPath = `/account-requests/account/{accountId}/delete`
+                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(accountDeleteRequestInputV2026, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * DeleteAccountV2026Api - functional programming interface
+ * @export
+ */
+export const DeleteAccountV2026ApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = DeleteAccountV2026ApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Initiates an account deletion request for the specified account. This method validates the input data, processes the deletion request, and generates an asynchronous result containing a tracking ID.  >**NOTE: You can only delete accounts from sources of the \"Connected\" type. which supports account deletion**
+         * @summary Delete account
+         * @param {string} xSailPointExperimental Use this header to enable this experimental API.
+         * @param {string} accountId Account ID.
+         * @param {AccountDeleteRequestInputV2026} [accountDeleteRequestInputV2026] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteAccountRequest(xSailPointExperimental: string, accountId: string, accountDeleteRequestInputV2026?: AccountDeleteRequestInputV2026, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountDeleteAsyncResultV2026>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccountRequest(xSailPointExperimental, accountId, accountDeleteRequestInputV2026, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DeleteAccountV2026Api.deleteAccountRequest']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * DeleteAccountV2026Api - factory interface
+ * @export
+ */
+export const DeleteAccountV2026ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = DeleteAccountV2026ApiFp(configuration)
+    return {
+        /**
+         * Initiates an account deletion request for the specified account. This method validates the input data, processes the deletion request, and generates an asynchronous result containing a tracking ID.  >**NOTE: You can only delete accounts from sources of the \"Connected\" type. which supports account deletion**
+         * @summary Delete account
+         * @param {DeleteAccountV2026ApiDeleteAccountRequestRequest} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteAccountRequest(requestParameters: DeleteAccountV2026ApiDeleteAccountRequestRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountDeleteAsyncResultV2026> {
+            return localVarFp.deleteAccountRequest(requestParameters.xSailPointExperimental, requestParameters.accountId, requestParameters.accountDeleteRequestInputV2026, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for deleteAccountRequest operation in DeleteAccountV2026Api.
+ * @export
+ * @interface DeleteAccountV2026ApiDeleteAccountRequestRequest
+ */
+export interface DeleteAccountV2026ApiDeleteAccountRequestRequest {
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof DeleteAccountV2026ApiDeleteAccountRequest
+     */
+    readonly xSailPointExperimental: string
+
+    /**
+     * Account ID.
+     * @type {string}
+     * @memberof DeleteAccountV2026ApiDeleteAccountRequest
+     */
+    readonly accountId: string
+
+    /**
+     * 
+     * @type {AccountDeleteRequestInputV2026}
+     * @memberof DeleteAccountV2026ApiDeleteAccountRequest
+     */
+    readonly accountDeleteRequestInputV2026?: AccountDeleteRequestInputV2026
+}
+
+/**
+ * DeleteAccountV2026Api - object-oriented interface
+ * @export
+ * @class DeleteAccountV2026Api
+ * @extends {BaseAPI}
+ */
+export class DeleteAccountV2026Api extends BaseAPI {
+    /**
+     * Initiates an account deletion request for the specified account. This method validates the input data, processes the deletion request, and generates an asynchronous result containing a tracking ID.  >**NOTE: You can only delete accounts from sources of the \"Connected\" type. which supports account deletion**
+     * @summary Delete account
+     * @param {DeleteAccountV2026ApiDeleteAccountRequestRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DeleteAccountV2026Api
+     */
+    public deleteAccountRequest(requestParameters: DeleteAccountV2026ApiDeleteAccountRequestRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return DeleteAccountV2026ApiFp(this.configuration).deleteAccountRequest(requestParameters.xSailPointExperimental, requestParameters.accountId, requestParameters.accountDeleteRequestInputV2026, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * HumanAccountDeletionApprovalConfigV2026Api - axios parameter creator
+ * @export
+ */
+export const HumanAccountDeletionApprovalConfigV2026ApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * The endpoint retrieves the approval configuration for deleting human accounts from a specified source. It returns details such as whether approval is required, who the approvers are, and any additional approval settings. This helps administrators understand and manage the approval workflow for human account deletions in their organization. The response is provided as an AccountDeleteConfigDto object. 
+         * @summary Human Account Deletion Approval Config
+         * @param {string} xSailPointExperimental Use this header to enable this experimental API.
+         * @param {string} sourceId The Source id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccountDeleteApprovalConfig: async (xSailPointExperimental: string, sourceId: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            // verify required parameter 'xSailPointExperimental' is not null or undefined
+            assertParamExists('getAccountDeleteApprovalConfig', 'xSailPointExperimental', xSailPointExperimental)
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('getAccountDeleteApprovalConfig', 'sourceId', sourceId)
+            const localVarPath = `/sources/{sourceId}/approval-config/account-delete`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Updates the approval configuration for deleting human accounts for a specific source, identified by source ID. This endpoint allows administrators to modify settings such as whether approval is required, who the approvers are, and other approval-related options. The update is performed using a JSON Patch payload, and the response returns the updated AccountDeleteConfigDto object reflecting the new approval workflow configuration. 
+         * @summary Human Account Deletion Approval Config
+         * @param {string} xSailPointExperimental Use this header to enable this experimental API.
+         * @param {string} sourceId Human account source ID.
+         * @param {Array<JsonPatchOperationV2026>} jsonPatchOperationV2026 The JSONPatch payload used to update the object.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateAccountDeletionApprovalConfig: async (xSailPointExperimental: string, sourceId: string, jsonPatchOperationV2026: Array<JsonPatchOperationV2026>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            // verify required parameter 'xSailPointExperimental' is not null or undefined
+            assertParamExists('updateAccountDeletionApprovalConfig', 'xSailPointExperimental', xSailPointExperimental)
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('updateAccountDeletionApprovalConfig', 'sourceId', sourceId)
+            // verify required parameter 'jsonPatchOperationV2026' is not null or undefined
+            assertParamExists('updateAccountDeletionApprovalConfig', 'jsonPatchOperationV2026', jsonPatchOperationV2026)
+            const localVarPath = `/sources/{sourceId}/approval-config/account-delete`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperationV2026, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * HumanAccountDeletionApprovalConfigV2026Api - functional programming interface
+ * @export
+ */
+export const HumanAccountDeletionApprovalConfigV2026ApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = HumanAccountDeletionApprovalConfigV2026ApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * The endpoint retrieves the approval configuration for deleting human accounts from a specified source. It returns details such as whether approval is required, who the approvers are, and any additional approval settings. This helps administrators understand and manage the approval workflow for human account deletions in their organization. The response is provided as an AccountDeleteConfigDto object. 
+         * @summary Human Account Deletion Approval Config
+         * @param {string} xSailPointExperimental Use this header to enable this experimental API.
+         * @param {string} sourceId The Source id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAccountDeleteApprovalConfig(xSailPointExperimental: string, sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountDeleteConfigDtoV2026>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountDeleteApprovalConfig(xSailPointExperimental, sourceId, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['HumanAccountDeletionApprovalConfigV2026Api.getAccountDeleteApprovalConfig']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Updates the approval configuration for deleting human accounts for a specific source, identified by source ID. This endpoint allows administrators to modify settings such as whether approval is required, who the approvers are, and other approval-related options. The update is performed using a JSON Patch payload, and the response returns the updated AccountDeleteConfigDto object reflecting the new approval workflow configuration. 
+         * @summary Human Account Deletion Approval Config
+         * @param {string} xSailPointExperimental Use this header to enable this experimental API.
+         * @param {string} sourceId Human account source ID.
+         * @param {Array<JsonPatchOperationV2026>} jsonPatchOperationV2026 The JSONPatch payload used to update the object.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateAccountDeletionApprovalConfig(xSailPointExperimental: string, sourceId: string, jsonPatchOperationV2026: Array<JsonPatchOperationV2026>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountDeleteConfigDtoV2026>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccountDeletionApprovalConfig(xSailPointExperimental, sourceId, jsonPatchOperationV2026, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['HumanAccountDeletionApprovalConfigV2026Api.updateAccountDeletionApprovalConfig']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * HumanAccountDeletionApprovalConfigV2026Api - factory interface
+ * @export
+ */
+export const HumanAccountDeletionApprovalConfigV2026ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = HumanAccountDeletionApprovalConfigV2026ApiFp(configuration)
+    return {
+        /**
+         * The endpoint retrieves the approval configuration for deleting human accounts from a specified source. It returns details such as whether approval is required, who the approvers are, and any additional approval settings. This helps administrators understand and manage the approval workflow for human account deletions in their organization. The response is provided as an AccountDeleteConfigDto object. 
+         * @summary Human Account Deletion Approval Config
+         * @param {HumanAccountDeletionApprovalConfigV2026ApiGetAccountDeleteApprovalConfigRequest} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccountDeleteApprovalConfig(requestParameters: HumanAccountDeletionApprovalConfigV2026ApiGetAccountDeleteApprovalConfigRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountDeleteConfigDtoV2026> {
+            return localVarFp.getAccountDeleteApprovalConfig(requestParameters.xSailPointExperimental, requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updates the approval configuration for deleting human accounts for a specific source, identified by source ID. This endpoint allows administrators to modify settings such as whether approval is required, who the approvers are, and other approval-related options. The update is performed using a JSON Patch payload, and the response returns the updated AccountDeleteConfigDto object reflecting the new approval workflow configuration. 
+         * @summary Human Account Deletion Approval Config
+         * @param {HumanAccountDeletionApprovalConfigV2026ApiUpdateAccountDeletionApprovalConfigRequest} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateAccountDeletionApprovalConfig(requestParameters: HumanAccountDeletionApprovalConfigV2026ApiUpdateAccountDeletionApprovalConfigRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountDeleteConfigDtoV2026> {
+            return localVarFp.updateAccountDeletionApprovalConfig(requestParameters.xSailPointExperimental, requestParameters.sourceId, requestParameters.jsonPatchOperationV2026, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getAccountDeleteApprovalConfig operation in HumanAccountDeletionApprovalConfigV2026Api.
+ * @export
+ * @interface HumanAccountDeletionApprovalConfigV2026ApiGetAccountDeleteApprovalConfigRequest
+ */
+export interface HumanAccountDeletionApprovalConfigV2026ApiGetAccountDeleteApprovalConfigRequest {
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof HumanAccountDeletionApprovalConfigV2026ApiGetAccountDeleteApprovalConfig
+     */
+    readonly xSailPointExperimental: string
+
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof HumanAccountDeletionApprovalConfigV2026ApiGetAccountDeleteApprovalConfig
+     */
+    readonly sourceId: string
+}
+
+/**
+ * Request parameters for updateAccountDeletionApprovalConfig operation in HumanAccountDeletionApprovalConfigV2026Api.
+ * @export
+ * @interface HumanAccountDeletionApprovalConfigV2026ApiUpdateAccountDeletionApprovalConfigRequest
+ */
+export interface HumanAccountDeletionApprovalConfigV2026ApiUpdateAccountDeletionApprovalConfigRequest {
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof HumanAccountDeletionApprovalConfigV2026ApiUpdateAccountDeletionApprovalConfig
+     */
+    readonly xSailPointExperimental: string
+
+    /**
+     * Human account source ID.
+     * @type {string}
+     * @memberof HumanAccountDeletionApprovalConfigV2026ApiUpdateAccountDeletionApprovalConfig
+     */
+    readonly sourceId: string
+
+    /**
+     * The JSONPatch payload used to update the object.
+     * @type {Array<JsonPatchOperationV2026>}
+     * @memberof HumanAccountDeletionApprovalConfigV2026ApiUpdateAccountDeletionApprovalConfig
+     */
+    readonly jsonPatchOperationV2026: Array<JsonPatchOperationV2026>
+}
+
+/**
+ * HumanAccountDeletionApprovalConfigV2026Api - object-oriented interface
+ * @export
+ * @class HumanAccountDeletionApprovalConfigV2026Api
+ * @extends {BaseAPI}
+ */
+export class HumanAccountDeletionApprovalConfigV2026Api extends BaseAPI {
+    /**
+     * The endpoint retrieves the approval configuration for deleting human accounts from a specified source. It returns details such as whether approval is required, who the approvers are, and any additional approval settings. This helps administrators understand and manage the approval workflow for human account deletions in their organization. The response is provided as an AccountDeleteConfigDto object. 
+     * @summary Human Account Deletion Approval Config
+     * @param {HumanAccountDeletionApprovalConfigV2026ApiGetAccountDeleteApprovalConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof HumanAccountDeletionApprovalConfigV2026Api
+     */
+    public getAccountDeleteApprovalConfig(requestParameters: HumanAccountDeletionApprovalConfigV2026ApiGetAccountDeleteApprovalConfigRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return HumanAccountDeletionApprovalConfigV2026ApiFp(this.configuration).getAccountDeleteApprovalConfig(requestParameters.xSailPointExperimental, requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updates the approval configuration for deleting human accounts for a specific source, identified by source ID. This endpoint allows administrators to modify settings such as whether approval is required, who the approvers are, and other approval-related options. The update is performed using a JSON Patch payload, and the response returns the updated AccountDeleteConfigDto object reflecting the new approval workflow configuration. 
+     * @summary Human Account Deletion Approval Config
+     * @param {HumanAccountDeletionApprovalConfigV2026ApiUpdateAccountDeletionApprovalConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof HumanAccountDeletionApprovalConfigV2026Api
+     */
+    public updateAccountDeletionApprovalConfig(requestParameters: HumanAccountDeletionApprovalConfigV2026ApiUpdateAccountDeletionApprovalConfigRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return HumanAccountDeletionApprovalConfigV2026ApiFp(this.configuration).updateAccountDeletionApprovalConfig(requestParameters.xSailPointExperimental, requestParameters.sourceId, requestParameters.jsonPatchOperationV2026, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * MachineAccountDeletionApprovalConfigV2026Api - axios parameter creator
+ * @export
+ */
+export const MachineAccountDeletionApprovalConfigV2026ApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Retrieves the machine account deletion approval configuration for a specific source. This endpoint returns details about the approval requirements, approvers, and comment settings that govern the deletion of machine accounts associated with the given source ID.
+         * @summary Machine Account Deletion Approval Config
+         * @param {string} xSailPointExperimental Use this header to enable this experimental API.
+         * @param {string} sourceId source id.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMachineAccountDeletionApprovalConfigBySource: async (xSailPointExperimental: string, sourceId: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            // verify required parameter 'xSailPointExperimental' is not null or undefined
+            assertParamExists('getMachineAccountDeletionApprovalConfigBySource', 'xSailPointExperimental', xSailPointExperimental)
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('getMachineAccountDeletionApprovalConfigBySource', 'sourceId', sourceId)
+            const localVarPath = `/sources/{sourceId}/approval-config/machine-account-delete`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Use this endpoint to update the machine account deletion approval configuration for a specific source. The update is performed using a JSON Patch payload, which allows partial modifications to the approval config. This operation is typically used to change approval requirements, approvers, or comments settings for machine account deletion. The endpoint expects the source ID as a path parameter and a valid JSON Patch array in the request body. 
+         * @summary Machine Account Deletion Approval Config
+         * @param {string} xSailPointExperimental Use this header to enable this experimental API.
+         * @param {string} sourceId machine account source ID.
+         * @param {Array<JsonPatchOperationV2026>} jsonPatchOperationV2026 The JSONPatch payload used to update the object.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateMachineAccountDeletionApprovalConfig: async (xSailPointExperimental: string, sourceId: string, jsonPatchOperationV2026: Array<JsonPatchOperationV2026>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            // verify required parameter 'xSailPointExperimental' is not null or undefined
+            assertParamExists('updateMachineAccountDeletionApprovalConfig', 'xSailPointExperimental', xSailPointExperimental)
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('updateMachineAccountDeletionApprovalConfig', 'sourceId', sourceId)
+            // verify required parameter 'jsonPatchOperationV2026' is not null or undefined
+            assertParamExists('updateMachineAccountDeletionApprovalConfig', 'jsonPatchOperationV2026', jsonPatchOperationV2026)
+            const localVarPath = `/sources/{sourceId}/approval-config/machine-account-delete`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperationV2026, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * MachineAccountDeletionApprovalConfigV2026Api - functional programming interface
+ * @export
+ */
+export const MachineAccountDeletionApprovalConfigV2026ApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = MachineAccountDeletionApprovalConfigV2026ApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Retrieves the machine account deletion approval configuration for a specific source. This endpoint returns details about the approval requirements, approvers, and comment settings that govern the deletion of machine accounts associated with the given source ID.
+         * @summary Machine Account Deletion Approval Config
+         * @param {string} xSailPointExperimental Use this header to enable this experimental API.
+         * @param {string} sourceId source id.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMachineAccountDeletionApprovalConfigBySource(xSailPointExperimental: string, sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountDeleteConfigDtoV2026>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMachineAccountDeletionApprovalConfigBySource(xSailPointExperimental, sourceId, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountDeletionApprovalConfigV2026Api.getMachineAccountDeletionApprovalConfigBySource']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Use this endpoint to update the machine account deletion approval configuration for a specific source. The update is performed using a JSON Patch payload, which allows partial modifications to the approval config. This operation is typically used to change approval requirements, approvers, or comments settings for machine account deletion. The endpoint expects the source ID as a path parameter and a valid JSON Patch array in the request body. 
+         * @summary Machine Account Deletion Approval Config
+         * @param {string} xSailPointExperimental Use this header to enable this experimental API.
+         * @param {string} sourceId machine account source ID.
+         * @param {Array<JsonPatchOperationV2026>} jsonPatchOperationV2026 The JSONPatch payload used to update the object.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateMachineAccountDeletionApprovalConfig(xSailPointExperimental: string, sourceId: string, jsonPatchOperationV2026: Array<JsonPatchOperationV2026>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountDeleteConfigDtoV2026>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateMachineAccountDeletionApprovalConfig(xSailPointExperimental, sourceId, jsonPatchOperationV2026, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountDeletionApprovalConfigV2026Api.updateMachineAccountDeletionApprovalConfig']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * MachineAccountDeletionApprovalConfigV2026Api - factory interface
+ * @export
+ */
+export const MachineAccountDeletionApprovalConfigV2026ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = MachineAccountDeletionApprovalConfigV2026ApiFp(configuration)
+    return {
+        /**
+         * Retrieves the machine account deletion approval configuration for a specific source. This endpoint returns details about the approval requirements, approvers, and comment settings that govern the deletion of machine accounts associated with the given source ID.
+         * @summary Machine Account Deletion Approval Config
+         * @param {MachineAccountDeletionApprovalConfigV2026ApiGetMachineAccountDeletionApprovalConfigBySourceRequest} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMachineAccountDeletionApprovalConfigBySource(requestParameters: MachineAccountDeletionApprovalConfigV2026ApiGetMachineAccountDeletionApprovalConfigBySourceRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountDeleteConfigDtoV2026> {
+            return localVarFp.getMachineAccountDeletionApprovalConfigBySource(requestParameters.xSailPointExperimental, requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this endpoint to update the machine account deletion approval configuration for a specific source. The update is performed using a JSON Patch payload, which allows partial modifications to the approval config. This operation is typically used to change approval requirements, approvers, or comments settings for machine account deletion. The endpoint expects the source ID as a path parameter and a valid JSON Patch array in the request body. 
+         * @summary Machine Account Deletion Approval Config
+         * @param {MachineAccountDeletionApprovalConfigV2026ApiUpdateMachineAccountDeletionApprovalConfigRequest} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateMachineAccountDeletionApprovalConfig(requestParameters: MachineAccountDeletionApprovalConfigV2026ApiUpdateMachineAccountDeletionApprovalConfigRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountDeleteConfigDtoV2026> {
+            return localVarFp.updateMachineAccountDeletionApprovalConfig(requestParameters.xSailPointExperimental, requestParameters.sourceId, requestParameters.jsonPatchOperationV2026, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getMachineAccountDeletionApprovalConfigBySource operation in MachineAccountDeletionApprovalConfigV2026Api.
+ * @export
+ * @interface MachineAccountDeletionApprovalConfigV2026ApiGetMachineAccountDeletionApprovalConfigBySourceRequest
+ */
+export interface MachineAccountDeletionApprovalConfigV2026ApiGetMachineAccountDeletionApprovalConfigBySourceRequest {
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountDeletionApprovalConfigV2026ApiGetMachineAccountDeletionApprovalConfigBySource
+     */
+    readonly xSailPointExperimental: string
+
+    /**
+     * source id.
+     * @type {string}
+     * @memberof MachineAccountDeletionApprovalConfigV2026ApiGetMachineAccountDeletionApprovalConfigBySource
+     */
+    readonly sourceId: string
+}
+
+/**
+ * Request parameters for updateMachineAccountDeletionApprovalConfig operation in MachineAccountDeletionApprovalConfigV2026Api.
+ * @export
+ * @interface MachineAccountDeletionApprovalConfigV2026ApiUpdateMachineAccountDeletionApprovalConfigRequest
+ */
+export interface MachineAccountDeletionApprovalConfigV2026ApiUpdateMachineAccountDeletionApprovalConfigRequest {
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountDeletionApprovalConfigV2026ApiUpdateMachineAccountDeletionApprovalConfig
+     */
+    readonly xSailPointExperimental: string
+
+    /**
+     * machine account source ID.
+     * @type {string}
+     * @memberof MachineAccountDeletionApprovalConfigV2026ApiUpdateMachineAccountDeletionApprovalConfig
+     */
+    readonly sourceId: string
+
+    /**
+     * The JSONPatch payload used to update the object.
+     * @type {Array<JsonPatchOperationV2026>}
+     * @memberof MachineAccountDeletionApprovalConfigV2026ApiUpdateMachineAccountDeletionApprovalConfig
+     */
+    readonly jsonPatchOperationV2026: Array<JsonPatchOperationV2026>
+}
+
+/**
+ * MachineAccountDeletionApprovalConfigV2026Api - object-oriented interface
+ * @export
+ * @class MachineAccountDeletionApprovalConfigV2026Api
+ * @extends {BaseAPI}
+ */
+export class MachineAccountDeletionApprovalConfigV2026Api extends BaseAPI {
+    /**
+     * Retrieves the machine account deletion approval configuration for a specific source. This endpoint returns details about the approval requirements, approvers, and comment settings that govern the deletion of machine accounts associated with the given source ID.
+     * @summary Machine Account Deletion Approval Config
+     * @param {MachineAccountDeletionApprovalConfigV2026ApiGetMachineAccountDeletionApprovalConfigBySourceRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountDeletionApprovalConfigV2026Api
+     */
+    public getMachineAccountDeletionApprovalConfigBySource(requestParameters: MachineAccountDeletionApprovalConfigV2026ApiGetMachineAccountDeletionApprovalConfigBySourceRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountDeletionApprovalConfigV2026ApiFp(this.configuration).getMachineAccountDeletionApprovalConfigBySource(requestParameters.xSailPointExperimental, requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this endpoint to update the machine account deletion approval configuration for a specific source. The update is performed using a JSON Patch payload, which allows partial modifications to the approval config. This operation is typically used to change approval requirements, approvers, or comments settings for machine account deletion. The endpoint expects the source ID as a path parameter and a valid JSON Patch array in the request body. 
+     * @summary Machine Account Deletion Approval Config
+     * @param {MachineAccountDeletionApprovalConfigV2026ApiUpdateMachineAccountDeletionApprovalConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountDeletionApprovalConfigV2026Api
+     */
+    public updateMachineAccountDeletionApprovalConfig(requestParameters: MachineAccountDeletionApprovalConfigV2026ApiUpdateMachineAccountDeletionApprovalConfigRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountDeletionApprovalConfigV2026ApiFp(this.configuration).updateMachineAccountDeletionApprovalConfig(requestParameters.xSailPointExperimental, requestParameters.sourceId, requestParameters.jsonPatchOperationV2026, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * MachineSubtypeApprovalConfigV2026Api - axios parameter creator
+ * @export
+ */
+export const MachineSubtypeApprovalConfigV2026ApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This endpoint retrieves the approval configuration for machine account deletion at the machine subtype level. By providing a specific subtypeId in the path, clients can fetch the approval rules and settings (such as required approvers and comments policy) that govern account deletion for that particular machine subtype. The response includes a MachineAccountSubtypeConfigDto object detailing these configurations, enabling clients to understand or display the approval workflow required for deleting machine accounts of the given subtype. Use this endpoint to get machine subtype level approval config for account deletion.
+         * @summary Machine Subtype Approval Config
+         * @param {string} xSailPointExperimental Use this header to enable this experimental API.
+         * @param {string} subtypeId machine subtype id.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMachineAccountDeletionSubTypeApprovalConfig: async (xSailPointExperimental: string, subtypeId: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            // verify required parameter 'xSailPointExperimental' is not null or undefined
+            assertParamExists('getMachineAccountDeletionSubTypeApprovalConfig', 'xSailPointExperimental', xSailPointExperimental)
+            // verify required parameter 'subtypeId' is not null or undefined
+            assertParamExists('getMachineAccountDeletionSubTypeApprovalConfig', 'subtypeId', subtypeId)
+            const localVarPath = `/source-subtypes/{subtypeId}/machine-config`
+                .replace(`{${"subtypeId"}}`, encodeURIComponent(String(subtypeId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Updates the approval configuration for machine account deletion at the specified machine subtype level. This endpoint allows clients to modify approval rules and settings (such as required approvers and comments policy) for account deletion workflows associated with a given subtypeId. Use this to customize or enforce approval requirements for deleting machine accounts of a particular subtype.
+         * @summary Machine Subtype Approval Config
+         * @param {string} xSailPointExperimental Use this header to enable this experimental API.
+         * @param {string} subtypeId machine account subtype ID.
+         * @param {Array<JsonPatchOperationV2026>} jsonPatchOperationV2026 The JSONPatch payload used to update the object.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateMachineAccountDeletionBySubTypeApprovalConfig: async (xSailPointExperimental: string, subtypeId: string, jsonPatchOperationV2026: Array<JsonPatchOperationV2026>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            // verify required parameter 'xSailPointExperimental' is not null or undefined
+            assertParamExists('updateMachineAccountDeletionBySubTypeApprovalConfig', 'xSailPointExperimental', xSailPointExperimental)
+            // verify required parameter 'subtypeId' is not null or undefined
+            assertParamExists('updateMachineAccountDeletionBySubTypeApprovalConfig', 'subtypeId', subtypeId)
+            // verify required parameter 'jsonPatchOperationV2026' is not null or undefined
+            assertParamExists('updateMachineAccountDeletionBySubTypeApprovalConfig', 'jsonPatchOperationV2026', jsonPatchOperationV2026)
+            const localVarPath = `/source-subtypes/{subtypeId}/machine-config`
+                .replace(`{${"subtypeId"}}`, encodeURIComponent(String(subtypeId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperationV2026, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * MachineSubtypeApprovalConfigV2026Api - functional programming interface
+ * @export
+ */
+export const MachineSubtypeApprovalConfigV2026ApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = MachineSubtypeApprovalConfigV2026ApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This endpoint retrieves the approval configuration for machine account deletion at the machine subtype level. By providing a specific subtypeId in the path, clients can fetch the approval rules and settings (such as required approvers and comments policy) that govern account deletion for that particular machine subtype. The response includes a MachineAccountSubtypeConfigDto object detailing these configurations, enabling clients to understand or display the approval workflow required for deleting machine accounts of the given subtype. Use this endpoint to get machine subtype level approval config for account deletion.
+         * @summary Machine Subtype Approval Config
+         * @param {string} xSailPointExperimental Use this header to enable this experimental API.
+         * @param {string} subtypeId machine subtype id.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMachineAccountDeletionSubTypeApprovalConfig(xSailPointExperimental: string, subtypeId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineAccountSubTypeConfigDtoV2026>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMachineAccountDeletionSubTypeApprovalConfig(xSailPointExperimental, subtypeId, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineSubtypeApprovalConfigV2026Api.getMachineAccountDeletionSubTypeApprovalConfig']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Updates the approval configuration for machine account deletion at the specified machine subtype level. This endpoint allows clients to modify approval rules and settings (such as required approvers and comments policy) for account deletion workflows associated with a given subtypeId. Use this to customize or enforce approval requirements for deleting machine accounts of a particular subtype.
+         * @summary Machine Subtype Approval Config
+         * @param {string} xSailPointExperimental Use this header to enable this experimental API.
+         * @param {string} subtypeId machine account subtype ID.
+         * @param {Array<JsonPatchOperationV2026>} jsonPatchOperationV2026 The JSONPatch payload used to update the object.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateMachineAccountDeletionBySubTypeApprovalConfig(xSailPointExperimental: string, subtypeId: string, jsonPatchOperationV2026: Array<JsonPatchOperationV2026>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineAccountSubTypeConfigDtoV2026>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateMachineAccountDeletionBySubTypeApprovalConfig(xSailPointExperimental, subtypeId, jsonPatchOperationV2026, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineSubtypeApprovalConfigV2026Api.updateMachineAccountDeletionBySubTypeApprovalConfig']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * MachineSubtypeApprovalConfigV2026Api - factory interface
+ * @export
+ */
+export const MachineSubtypeApprovalConfigV2026ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = MachineSubtypeApprovalConfigV2026ApiFp(configuration)
+    return {
+        /**
+         * This endpoint retrieves the approval configuration for machine account deletion at the machine subtype level. By providing a specific subtypeId in the path, clients can fetch the approval rules and settings (such as required approvers and comments policy) that govern account deletion for that particular machine subtype. The response includes a MachineAccountSubtypeConfigDto object detailing these configurations, enabling clients to understand or display the approval workflow required for deleting machine accounts of the given subtype. Use this endpoint to get machine subtype level approval config for account deletion.
+         * @summary Machine Subtype Approval Config
+         * @param {MachineSubtypeApprovalConfigV2026ApiGetMachineAccountDeletionSubTypeApprovalConfigRequest} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMachineAccountDeletionSubTypeApprovalConfig(requestParameters: MachineSubtypeApprovalConfigV2026ApiGetMachineAccountDeletionSubTypeApprovalConfigRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineAccountSubTypeConfigDtoV2026> {
+            return localVarFp.getMachineAccountDeletionSubTypeApprovalConfig(requestParameters.xSailPointExperimental, requestParameters.subtypeId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updates the approval configuration for machine account deletion at the specified machine subtype level. This endpoint allows clients to modify approval rules and settings (such as required approvers and comments policy) for account deletion workflows associated with a given subtypeId. Use this to customize or enforce approval requirements for deleting machine accounts of a particular subtype.
+         * @summary Machine Subtype Approval Config
+         * @param {MachineSubtypeApprovalConfigV2026ApiUpdateMachineAccountDeletionBySubTypeApprovalConfigRequest} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateMachineAccountDeletionBySubTypeApprovalConfig(requestParameters: MachineSubtypeApprovalConfigV2026ApiUpdateMachineAccountDeletionBySubTypeApprovalConfigRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineAccountSubTypeConfigDtoV2026> {
+            return localVarFp.updateMachineAccountDeletionBySubTypeApprovalConfig(requestParameters.xSailPointExperimental, requestParameters.subtypeId, requestParameters.jsonPatchOperationV2026, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getMachineAccountDeletionSubTypeApprovalConfig operation in MachineSubtypeApprovalConfigV2026Api.
+ * @export
+ * @interface MachineSubtypeApprovalConfigV2026ApiGetMachineAccountDeletionSubTypeApprovalConfigRequest
+ */
+export interface MachineSubtypeApprovalConfigV2026ApiGetMachineAccountDeletionSubTypeApprovalConfigRequest {
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineSubtypeApprovalConfigV2026ApiGetMachineAccountDeletionSubTypeApprovalConfig
+     */
+    readonly xSailPointExperimental: string
+
+    /**
+     * machine subtype id.
+     * @type {string}
+     * @memberof MachineSubtypeApprovalConfigV2026ApiGetMachineAccountDeletionSubTypeApprovalConfig
+     */
+    readonly subtypeId: string
+}
+
+/**
+ * Request parameters for updateMachineAccountDeletionBySubTypeApprovalConfig operation in MachineSubtypeApprovalConfigV2026Api.
+ * @export
+ * @interface MachineSubtypeApprovalConfigV2026ApiUpdateMachineAccountDeletionBySubTypeApprovalConfigRequest
+ */
+export interface MachineSubtypeApprovalConfigV2026ApiUpdateMachineAccountDeletionBySubTypeApprovalConfigRequest {
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineSubtypeApprovalConfigV2026ApiUpdateMachineAccountDeletionBySubTypeApprovalConfig
+     */
+    readonly xSailPointExperimental: string
+
+    /**
+     * machine account subtype ID.
+     * @type {string}
+     * @memberof MachineSubtypeApprovalConfigV2026ApiUpdateMachineAccountDeletionBySubTypeApprovalConfig
+     */
+    readonly subtypeId: string
+
+    /**
+     * The JSONPatch payload used to update the object.
+     * @type {Array<JsonPatchOperationV2026>}
+     * @memberof MachineSubtypeApprovalConfigV2026ApiUpdateMachineAccountDeletionBySubTypeApprovalConfig
+     */
+    readonly jsonPatchOperationV2026: Array<JsonPatchOperationV2026>
+}
+
+/**
+ * MachineSubtypeApprovalConfigV2026Api - object-oriented interface
+ * @export
+ * @class MachineSubtypeApprovalConfigV2026Api
+ * @extends {BaseAPI}
+ */
+export class MachineSubtypeApprovalConfigV2026Api extends BaseAPI {
+    /**
+     * This endpoint retrieves the approval configuration for machine account deletion at the machine subtype level. By providing a specific subtypeId in the path, clients can fetch the approval rules and settings (such as required approvers and comments policy) that govern account deletion for that particular machine subtype. The response includes a MachineAccountSubtypeConfigDto object detailing these configurations, enabling clients to understand or display the approval workflow required for deleting machine accounts of the given subtype. Use this endpoint to get machine subtype level approval config for account deletion.
+     * @summary Machine Subtype Approval Config
+     * @param {MachineSubtypeApprovalConfigV2026ApiGetMachineAccountDeletionSubTypeApprovalConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineSubtypeApprovalConfigV2026Api
+     */
+    public getMachineAccountDeletionSubTypeApprovalConfig(requestParameters: MachineSubtypeApprovalConfigV2026ApiGetMachineAccountDeletionSubTypeApprovalConfigRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineSubtypeApprovalConfigV2026ApiFp(this.configuration).getMachineAccountDeletionSubTypeApprovalConfig(requestParameters.xSailPointExperimental, requestParameters.subtypeId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updates the approval configuration for machine account deletion at the specified machine subtype level. This endpoint allows clients to modify approval rules and settings (such as required approvers and comments policy) for account deletion workflows associated with a given subtypeId. Use this to customize or enforce approval requirements for deleting machine accounts of a particular subtype.
+     * @summary Machine Subtype Approval Config
+     * @param {MachineSubtypeApprovalConfigV2026ApiUpdateMachineAccountDeletionBySubTypeApprovalConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineSubtypeApprovalConfigV2026Api
+     */
+    public updateMachineAccountDeletionBySubTypeApprovalConfig(requestParameters: MachineSubtypeApprovalConfigV2026ApiUpdateMachineAccountDeletionBySubTypeApprovalConfigRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineSubtypeApprovalConfigV2026ApiFp(this.configuration).updateMachineAccountDeletionBySubTypeApprovalConfig(requestParameters.xSailPointExperimental, requestParameters.subtypeId, requestParameters.jsonPatchOperationV2026, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
 
 
 /**
