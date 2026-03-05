@@ -106,6 +106,49 @@ export interface AccessModelMetadataValuesInnerV2026 {
 /**
  * 
  * @export
+ * @interface AccessRequestConfigV2026
+ */
+export interface AccessRequestConfigV2026 {
+    /**
+     * If this is true, approvals must be processed by an external system. Also, if this is true, it blocks Request Center access requests and returns an error for any user who isn\'t an org admin.
+     * @type {boolean}
+     * @memberof AccessRequestConfigV2026
+     */
+    'approvalsMustBeExternal'?: boolean;
+    /**
+     * If this is true and the requester and reviewer are the same, the request is automatically approved.
+     * @type {boolean}
+     * @memberof AccessRequestConfigV2026
+     */
+    'autoApprovalEnabled'?: boolean;
+    /**
+     * If this is true, reauthorization will be enforced for appropriately configured access items. Enablement of this feature is currently in a limited state.
+     * @type {boolean}
+     * @memberof AccessRequestConfigV2026
+     */
+    'reauthorizationEnabled'?: boolean;
+    /**
+     * 
+     * @type {RequestOnBehalfOfConfigV2026}
+     * @memberof AccessRequestConfigV2026
+     */
+    'requestOnBehalfOfConfig'?: RequestOnBehalfOfConfigV2026;
+    /**
+     * 
+     * @type {EntitlementRequestConfigV2026}
+     * @memberof AccessRequestConfigV2026
+     */
+    'entitlementRequestConfig'?: EntitlementRequestConfigV2026;
+    /**
+     * If this is true, requesters and requested-for users will be able to see the names of governance group members when a request is awaiting the group\'s approval. Up to the first 10 members of the group will be listed.
+     * @type {boolean}
+     * @memberof AccessRequestConfigV2026
+     */
+    'govGroupVisibilityEnabled'?: boolean;
+}
+/**
+ * 
+ * @export
  * @interface AccountActionRequestDtoAccountDetailsV2026
  */
 export interface AccountActionRequestDtoAccountDetailsV2026 {
@@ -816,6 +859,108 @@ export interface EntitlementAccessModelMetadataV2026 {
     'attributes'?: Array<AccessModelMetadataV2026>;
 }
 /**
+ * The maximum duration for which the access is permitted.
+ * @export
+ * @interface EntitlementAccessRequestConfigMaxPermittedAccessDurationV2026
+ */
+export interface EntitlementAccessRequestConfigMaxPermittedAccessDurationV2026 {
+    /**
+     * The numeric value of the duration.
+     * @type {number}
+     * @memberof EntitlementAccessRequestConfigMaxPermittedAccessDurationV2026
+     */
+    'value'?: number;
+    /**
+     * The time unit for the duration.
+     * @type {string}
+     * @memberof EntitlementAccessRequestConfigMaxPermittedAccessDurationV2026
+     */
+    'timeUnit'?: EntitlementAccessRequestConfigMaxPermittedAccessDurationV2026TimeUnitV2026;
+}
+
+export const EntitlementAccessRequestConfigMaxPermittedAccessDurationV2026TimeUnitV2026 = {
+    Hours: 'HOURS',
+    Days: 'DAYS',
+    Weeks: 'WEEKS',
+    Months: 'MONTHS'
+} as const;
+
+export type EntitlementAccessRequestConfigMaxPermittedAccessDurationV2026TimeUnitV2026 = typeof EntitlementAccessRequestConfigMaxPermittedAccessDurationV2026TimeUnitV2026[keyof typeof EntitlementAccessRequestConfigMaxPermittedAccessDurationV2026TimeUnitV2026];
+
+/**
+ * 
+ * @export
+ * @interface EntitlementAccessRequestConfigV2026
+ */
+export interface EntitlementAccessRequestConfigV2026 {
+    /**
+     * Ordered list of approval steps for the access request. Empty when no approval is required.
+     * @type {Array<EntitlementApprovalSchemeV2026>}
+     * @memberof EntitlementAccessRequestConfigV2026
+     */
+    'approvalSchemes'?: Array<EntitlementApprovalSchemeV2026>;
+    /**
+     * If the requester must provide a comment during access request.
+     * @type {boolean}
+     * @memberof EntitlementAccessRequestConfigV2026
+     */
+    'requestCommentRequired'?: boolean;
+    /**
+     * If the reviewer must provide a comment when denying the access request.
+     * @type {boolean}
+     * @memberof EntitlementAccessRequestConfigV2026
+     */
+    'denialCommentRequired'?: boolean;
+    /**
+     * Is Reauthorization Required
+     * @type {boolean}
+     * @memberof EntitlementAccessRequestConfigV2026
+     */
+    'reauthorizationRequired'?: boolean;
+    /**
+     * If true, then remove date or sunset date is required in access request of the entitlement.
+     * @type {boolean}
+     * @memberof EntitlementAccessRequestConfigV2026
+     */
+    'requireEndDate'?: boolean;
+    /**
+     * 
+     * @type {EntitlementAccessRequestConfigMaxPermittedAccessDurationV2026}
+     * @memberof EntitlementAccessRequestConfigV2026
+     */
+    'maxPermittedAccessDuration'?: EntitlementAccessRequestConfigMaxPermittedAccessDurationV2026 | null;
+}
+/**
+ * 
+ * @export
+ * @interface EntitlementApprovalSchemeV2026
+ */
+export interface EntitlementApprovalSchemeV2026 {
+    /**
+     * Describes the individual or group that is responsible for an approval step. Values are as follows.  **ENTITLEMENT_OWNER**: Owner of the associated Entitlement  **SOURCE_OWNER**: Owner of the associated Source  **MANAGER**: Manager of the Identity for whom the request is being made  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field  **WORKFLOW**: A Workflow, the ID of which is specified by the **approverId** field, Workflows are exclusive to other types of approvals and License required.     
+     * @type {string}
+     * @memberof EntitlementApprovalSchemeV2026
+     */
+    'approverType'?: EntitlementApprovalSchemeV2026ApproverTypeV2026;
+    /**
+     * Id of the specific approver, used only when approverType is GOVERNANCE_GROUP or WORKFLOW
+     * @type {string}
+     * @memberof EntitlementApprovalSchemeV2026
+     */
+    'approverId'?: string | null;
+}
+
+export const EntitlementApprovalSchemeV2026ApproverTypeV2026 = {
+    EntitlementOwner: 'ENTITLEMENT_OWNER',
+    SourceOwner: 'SOURCE_OWNER',
+    Manager: 'MANAGER',
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    Workflow: 'WORKFLOW'
+} as const;
+
+export type EntitlementApprovalSchemeV2026ApproverTypeV2026 = typeof EntitlementApprovalSchemeV2026ApproverTypeV2026[keyof typeof EntitlementApprovalSchemeV2026ApproverTypeV2026];
+
+/**
  * Object for specifying the bulk update request
  * @export
  * @interface EntitlementBulkUpdateRequestV2026
@@ -937,6 +1082,38 @@ export const EntitlementPrivilegeLevelV2026EffectiveV2026 = {
 
 export type EntitlementPrivilegeLevelV2026EffectiveV2026 = typeof EntitlementPrivilegeLevelV2026EffectiveV2026[keyof typeof EntitlementPrivilegeLevelV2026EffectiveV2026];
 
+/**
+ * 
+ * @export
+ * @interface EntitlementRequestConfigV2026
+ */
+export interface EntitlementRequestConfigV2026 {
+    /**
+     * 
+     * @type {EntitlementAccessRequestConfigV2026}
+     * @memberof EntitlementRequestConfigV2026
+     */
+    'accessRequestConfig'?: EntitlementAccessRequestConfigV2026;
+    /**
+     * 
+     * @type {EntitlementRevocationRequestConfigV2026}
+     * @memberof EntitlementRequestConfigV2026
+     */
+    'revocationRequestConfig'?: EntitlementRevocationRequestConfigV2026;
+}
+/**
+ * 
+ * @export
+ * @interface EntitlementRevocationRequestConfigV2026
+ */
+export interface EntitlementRevocationRequestConfigV2026 {
+    /**
+     * Ordered list of approval steps for the access request. Empty when no approval is required.
+     * @type {Array<EntitlementApprovalSchemeV2026>}
+     * @memberof EntitlementRevocationRequestConfigV2026
+     */
+    'approvalSchemes'?: Array<EntitlementApprovalSchemeV2026>;
+}
 /**
  * 
  * @export
@@ -1142,6 +1319,32 @@ export interface ErrorResponseDtoV2026 {
     'causes'?: Array<ErrorMessageDtoV2026>;
 }
 /**
+ * 
+ * @export
+ * @interface GetAccessRequestConfig401ResponseV2026
+ */
+export interface GetAccessRequestConfig401ResponseV2026 {
+    /**
+     * A message describing the error
+     * @type {object}
+     * @memberof GetAccessRequestConfig401ResponseV2026
+     */
+    'error'?: object;
+}
+/**
+ * 
+ * @export
+ * @interface GetAccessRequestConfig429ResponseV2026
+ */
+export interface GetAccessRequestConfig429ResponseV2026 {
+    /**
+     * A message describing the error
+     * @type {object}
+     * @memberof GetAccessRequestConfig429ResponseV2026
+     */
+    'message'?: object;
+}
+/**
  * Contains detailed information about an identity, including unique identifier, name, email address, and registration status.
  * @export
  * @interface IdentityReferenceV2026
@@ -1216,32 +1419,6 @@ export type JsonPatchOperationV2026OpV2026 = typeof JsonPatchOperationV2026OpV20
  */
 export type JsonPatchOperationValueV2026 = Array<ArrayInnerV2026> | boolean | number | object | string;
 
-/**
- * 
- * @export
- * @interface ListEntitlements401ResponseV2026
- */
-export interface ListEntitlements401ResponseV2026 {
-    /**
-     * A message describing the error
-     * @type {object}
-     * @memberof ListEntitlements401ResponseV2026
-     */
-    'error'?: object;
-}
-/**
- * 
- * @export
- * @interface ListEntitlements429ResponseV2026
- */
-export interface ListEntitlements429ResponseV2026 {
-    /**
-     * A message describing the error
-     * @type {object}
-     * @memberof ListEntitlements429ResponseV2026
-     */
-    'message'?: object;
-}
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
  * @export
@@ -1374,6 +1551,25 @@ export interface PermissionDtoV2026 {
      * @memberof PermissionDtoV2026
      */
     'target'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface RequestOnBehalfOfConfigV2026
+ */
+export interface RequestOnBehalfOfConfigV2026 {
+    /**
+     * If this is true, anyone can request access for anyone.
+     * @type {boolean}
+     * @memberof RequestOnBehalfOfConfigV2026
+     */
+    'allowRequestOnBehalfOfAnyoneByAnyone'?: boolean;
+    /**
+     * If this is true, a manager can request access for his or her direct reports.
+     * @type {boolean}
+     * @memberof RequestOnBehalfOfConfigV2026
+     */
+    'allowRequestOnBehalfOfEmployeeByManager'?: boolean;
 }
 /**
  * 
@@ -1649,6 +1845,208 @@ export const TaskStatusV2026CompletionStatusV2026 = {
 } as const;
 
 export type TaskStatusV2026CompletionStatusV2026 = typeof TaskStatusV2026CompletionStatusV2026[keyof typeof TaskStatusV2026CompletionStatusV2026];
+
+
+/**
+ * AccessRequestsV2026Api - axios parameter creator
+ * @export
+ */
+export const AccessRequestsV2026ApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This endpoint returns the current access-request configuration.
+         * @summary Get access request configuration
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccessRequestConfig: async (axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/access-request-config`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This endpoint replaces the current access-request configuration.
+         * @summary Update access request configuration
+         * @param {AccessRequestConfigV2026} accessRequestConfigV2026 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setAccessRequestConfig: async (accessRequestConfigV2026: AccessRequestConfigV2026, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accessRequestConfigV2026' is not null or undefined
+            assertParamExists('setAccessRequestConfig', 'accessRequestConfigV2026', accessRequestConfigV2026)
+            const localVarPath = `/access-request-config`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(accessRequestConfigV2026, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * AccessRequestsV2026Api - functional programming interface
+ * @export
+ */
+export const AccessRequestsV2026ApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = AccessRequestsV2026ApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This endpoint returns the current access-request configuration.
+         * @summary Get access request configuration
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAccessRequestConfig(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfigV2026>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestConfig(axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AccessRequestsV2026Api.getAccessRequestConfig']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This endpoint replaces the current access-request configuration.
+         * @summary Update access request configuration
+         * @param {AccessRequestConfigV2026} accessRequestConfigV2026 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async setAccessRequestConfig(accessRequestConfigV2026: AccessRequestConfigV2026, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfigV2026>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setAccessRequestConfig(accessRequestConfigV2026, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AccessRequestsV2026Api.setAccessRequestConfig']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * AccessRequestsV2026Api - factory interface
+ * @export
+ */
+export const AccessRequestsV2026ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = AccessRequestsV2026ApiFp(configuration)
+    return {
+        /**
+         * This endpoint returns the current access-request configuration.
+         * @summary Get access request configuration
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccessRequestConfig(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessRequestConfigV2026> {
+            return localVarFp.getAccessRequestConfig(axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This endpoint replaces the current access-request configuration.
+         * @summary Update access request configuration
+         * @param {AccessRequestsV2026ApiSetAccessRequestConfigRequest} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setAccessRequestConfig(requestParameters: AccessRequestsV2026ApiSetAccessRequestConfigRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessRequestConfigV2026> {
+            return localVarFp.setAccessRequestConfig(requestParameters.accessRequestConfigV2026, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for setAccessRequestConfig operation in AccessRequestsV2026Api.
+ * @export
+ * @interface AccessRequestsV2026ApiSetAccessRequestConfigRequest
+ */
+export interface AccessRequestsV2026ApiSetAccessRequestConfigRequest {
+    /**
+     * 
+     * @type {AccessRequestConfigV2026}
+     * @memberof AccessRequestsV2026ApiSetAccessRequestConfig
+     */
+    readonly accessRequestConfigV2026: AccessRequestConfigV2026
+}
+
+/**
+ * AccessRequestsV2026Api - object-oriented interface
+ * @export
+ * @class AccessRequestsV2026Api
+ * @extends {BaseAPI}
+ */
+export class AccessRequestsV2026Api extends BaseAPI {
+    /**
+     * This endpoint returns the current access-request configuration.
+     * @summary Get access request configuration
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessRequestsV2026Api
+     */
+    public getAccessRequestConfig(axiosOptions?: RawAxiosRequestConfig) {
+        return AccessRequestsV2026ApiFp(this.configuration).getAccessRequestConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This endpoint replaces the current access-request configuration.
+     * @summary Update access request configuration
+     * @param {AccessRequestsV2026ApiSetAccessRequestConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessRequestsV2026Api
+     */
+    public setAccessRequestConfig(requestParameters: AccessRequestsV2026ApiSetAccessRequestConfigRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return AccessRequestsV2026ApiFp(this.configuration).setAccessRequestConfig(requestParameters.accessRequestConfigV2026, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
 
 
 /**

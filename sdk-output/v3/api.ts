@@ -27413,6 +27413,7 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
          * This endpoint returns the current access-request configuration.
          * @summary Get access request configuration
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getAccessRequestConfig: async (axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -27540,6 +27541,7 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
          * @summary Update access request configuration
          * @param {AccessRequestConfig} accessRequestConfig 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         setAccessRequestConfig: async (accessRequestConfig: AccessRequestConfig, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -27619,6 +27621,7 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
          * This endpoint returns the current access-request configuration.
          * @summary Get access request configuration
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async getAccessRequestConfig(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfig>> {
@@ -27654,6 +27657,7 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
          * @summary Update access request configuration
          * @param {AccessRequestConfig} accessRequestConfig 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async setAccessRequestConfig(accessRequestConfig: AccessRequestConfig, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfig>> {
@@ -27696,6 +27700,7 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
          * This endpoint returns the current access-request configuration.
          * @summary Get access request configuration
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getAccessRequestConfig(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessRequestConfig> {
@@ -27716,6 +27721,7 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
          * @summary Update access request configuration
          * @param {AccessRequestsApiSetAccessRequestConfigRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         setAccessRequestConfig(requestParameters: AccessRequestsApiSetAccessRequestConfigRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessRequestConfig> {
@@ -27878,6 +27884,7 @@ export class AccessRequestsApi extends BaseAPI {
      * This endpoint returns the current access-request configuration.
      * @summary Get access request configuration
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof AccessRequestsApi
      */
@@ -27902,6 +27909,7 @@ export class AccessRequestsApi extends BaseAPI {
      * @summary Update access request configuration
      * @param {AccessRequestsApiSetAccessRequestConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof AccessRequestsApi
      */
