@@ -138,16 +138,14 @@ export const toPathString = function (url: URL) {
 export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxios: AxiosInstance, BASE_PATH: string, configuration?: Configuration) {
     return <T = unknown, R = AxiosResponse<T>>(axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
         axiosRetry(axios, configuration.retriesConfig)
-        let userAgent = 'SailPoint-SDK/typescript/{{npmVersion}}';
+        let userAgent = `SailPoint-SDK-TypeScript/{{npmVersion}}`;
         if (configuration?.consumerIdentifier && configuration?.consumerVersion) {
             userAgent += ` (${configuration.consumerIdentifier}/${configuration.consumerVersion})`;
         }
+        userAgent += ` (${process.platform}; ${process.arch}) Node/${process.versions.node} (openapi-generator/{{generatorVersion}})`;
         const headers = {
             ...{'User-Agent': userAgent},
             ...axiosArgs.axiosOptions.headers,
-            ...{'X-SailPoint-SDK': 'typescript/{{npmVersion}}'},
-            ...{'X-SailPoint-SDK-Runtime': 'node/' + process.versions.node},
-            ...{'X-SailPoint-SDK-OS': process.platform + '/' + process.arch}
         }
 
         if(!configuration.experimental && ("X-SailPoint-Experimental" in headers)) {
