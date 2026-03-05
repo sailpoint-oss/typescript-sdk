@@ -21,6 +21,8 @@ build:
 	rm -rf ./sdk-output/v2026
 	node sdk-resources/prescript.js api-specs/idn/v2026/paths
 	java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v2026.yaml -g typescript-axios -o sdk-output/v2026 --global-property skipFormModel=false,apiDocs=true,modelDocs=true --config sdk-resources/v2026-config.yaml --api-name-suffix V2026Api --model-name-suffix V2026
+	rm -rf ./sdk-output/generic
+	java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.generic.yaml -g typescript-axios -o sdk-output/generic --global-property skipFormModel=false,apiDocs=true,modelDocs=true --config sdk-resources/generic-config.yaml
 
 .PHONY: test
 test:

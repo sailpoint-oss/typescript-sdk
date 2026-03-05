@@ -250,7 +250,7 @@ export class Configuration {
       }
     } catch (error) {
       console.error("Unable to fetch access token.  Aborting.");
-      throw new Error(error);
+      throw error;
     }
   }
 

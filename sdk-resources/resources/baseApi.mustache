@@ -42,7 +42,7 @@ export class BaseAPI {
     constructor(configuration?: Configuration, protected basePath: string = BASE_PATH, protected axios: AxiosInstance = globalAxios) {
         if (configuration) {
             this.configuration = configuration;
-            this.basePath = configuration.basePath {{#apiVersion}}+ "/{{{apiVersion}}}"{{/apiVersion}}|| this.basePath;
+            this.basePath = (configuration.basePath != null ? (configuration.basePath {{#apiVersion}}+ "/{{{apiVersion}}}"{{/apiVersion}}) : undefined) || this.basePath;
         }
     }
 };
