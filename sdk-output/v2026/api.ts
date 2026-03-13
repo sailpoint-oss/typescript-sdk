@@ -1846,6 +1846,97 @@ export const TaskStatusV2026CompletionStatusV2026 = {
 
 export type TaskStatusV2026CompletionStatusV2026 = typeof TaskStatusV2026CompletionStatusV2026[keyof typeof TaskStatusV2026CompletionStatusV2026];
 
+/**
+ * The notification delivery medium.
+ * @export
+ * @enum {string}
+ */
+
+export const TemplateMediumDtoV2026 = {
+    Email: 'EMAIL',
+    Slack: 'SLACK',
+    Teams: 'TEAMS'
+} as const;
+
+export type TemplateMediumDtoV2026 = typeof TemplateMediumDtoV2026[keyof typeof TemplateMediumDtoV2026];
+
+
+/**
+ * A variable available for use in a notification template. Variables can be template-specific (from domain events) or global (available to all templates like __recipient, __global, __util). Template variables provide self-documenting metadata about what variables are available when customizing notification templates. 
+ * @export
+ * @interface TemplateVariableV2026
+ */
+export interface TemplateVariableV2026 {
+    /**
+     * The variable name as used when rendering context in templates.
+     * @type {string}
+     * @memberof TemplateVariableV2026
+     */
+    'key'?: string;
+    /**
+     * The data type for this variable. Use JSON Schema-like names for values (string, boolean, number, object, array) or \"function\" for template utility/helper functions (e.g. __dateTool.format(), __esc.html()). 
+     * @type {string}
+     * @memberof TemplateVariableV2026
+     */
+    'type'?: TemplateVariableV2026TypeV2026;
+    /**
+     * Human-readable description explaining what this variable represents.
+     * @type {string}
+     * @memberof TemplateVariableV2026
+     */
+    'description'?: string | null;
+    /**
+     * Example value demonstrating the format and usage. For type \"function\", often a Velocity-style call (e.g. $__esc.html($value)). Can be a string, number, boolean, object, array, or null when no example is defined. 
+     * @type {object}
+     * @memberof TemplateVariableV2026
+     */
+    'example'?: object | null;
+}
+
+export const TemplateVariableV2026TypeV2026 = {
+    String: 'string',
+    Boolean: 'boolean',
+    Number: 'number',
+    Object: 'object',
+    Array: 'array',
+    Function: 'function'
+} as const;
+
+export type TemplateVariableV2026TypeV2026 = typeof TemplateVariableV2026TypeV2026[keyof typeof TemplateVariableV2026TypeV2026];
+
+/**
+ * Variables available for use in a notification template. Variables can be template-specific (from domain events) or global (available to all templates like __recipient, __global, __util). 
+ * @export
+ * @interface TemplateVariablesDtoV2026
+ */
+export interface TemplateVariablesDtoV2026 {
+    /**
+     * The notification template key.
+     * @type {string}
+     * @memberof TemplateVariablesDtoV2026
+     */
+    'key'?: string;
+    /**
+     * 
+     * @type {TemplateMediumDtoV2026}
+     * @memberof TemplateVariablesDtoV2026
+     */
+    'medium'?: TemplateMediumDtoV2026;
+    /**
+     * Global variables available to all templates for this tenant (e.g. __global.*, __recipient, __util.*, __dateTool.*, __esc.*). Includes both data variables and function-type helpers. 
+     * @type {Array<TemplateVariableV2026>}
+     * @memberof TemplateVariablesDtoV2026
+     */
+    'globalVariables'?: Array<TemplateVariableV2026> | null;
+    /**
+     * Template-specific variables for the given key and medium (e.g. approverPath, requester, attributes).
+     * @type {Array<TemplateVariableV2026>}
+     * @memberof TemplateVariablesDtoV2026
+     */
+    'templateVariables'?: Array<TemplateVariableV2026> | null;
+}
+
+
 
 /**
  * AccessRequestsV2026Api - axios parameter creator
@@ -4224,6 +4315,170 @@ export class MachineSubtypeApprovalConfigV2026Api extends BaseAPI {
     }
 }
 
+
+
+/**
+ * NotificationsV2026Api - axios parameter creator
+ * @export
+ */
+export const NotificationsV2026ApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Returns global variables and template-specific variables for a given notification template key and medium. Use these variable names in template content; they are replaced at send time with the corresponding values. Variable lists can be sorted by key, type, or description via the sorters query parameter (default ascending by key). 
+         * @summary Get notification template variables
+         * @param {string} key The notification template key. Valid keys (and key/medium pairs) are available from the list notification templates operation. 
+         * @param {GetNotificationTemplateVariablesMediumV2026} medium The notification template medium (e.g. EMAIL, SLACK, TEAMS). Valid key/medium pairs are available from the list notification templates operation. 
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, type, description**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNotificationTemplateVariables: async (key: string, medium: GetNotificationTemplateVariablesMediumV2026, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'key' is not null or undefined
+            assertParamExists('getNotificationTemplateVariables', 'key', key)
+            // verify required parameter 'medium' is not null or undefined
+            assertParamExists('getNotificationTemplateVariables', 'medium', medium)
+            const localVarPath = `/notification-template-variables/{key}/{medium}`
+                .replace(`{${"key"}}`, encodeURIComponent(String(key)))
+                .replace(`{${"medium"}}`, encodeURIComponent(String(medium)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * NotificationsV2026Api - functional programming interface
+ * @export
+ */
+export const NotificationsV2026ApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = NotificationsV2026ApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Returns global variables and template-specific variables for a given notification template key and medium. Use these variable names in template content; they are replaced at send time with the corresponding values. Variable lists can be sorted by key, type, or description via the sorters query parameter (default ascending by key). 
+         * @summary Get notification template variables
+         * @param {string} key The notification template key. Valid keys (and key/medium pairs) are available from the list notification templates operation. 
+         * @param {GetNotificationTemplateVariablesMediumV2026} medium The notification template medium (e.g. EMAIL, SLACK, TEAMS). Valid key/medium pairs are available from the list notification templates operation. 
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, type, description**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getNotificationTemplateVariables(key: string, medium: GetNotificationTemplateVariablesMediumV2026, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TemplateVariablesDtoV2026>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNotificationTemplateVariables(key, medium, sorters, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['NotificationsV2026Api.getNotificationTemplateVariables']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * NotificationsV2026Api - factory interface
+ * @export
+ */
+export const NotificationsV2026ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = NotificationsV2026ApiFp(configuration)
+    return {
+        /**
+         * Returns global variables and template-specific variables for a given notification template key and medium. Use these variable names in template content; they are replaced at send time with the corresponding values. Variable lists can be sorted by key, type, or description via the sorters query parameter (default ascending by key). 
+         * @summary Get notification template variables
+         * @param {NotificationsV2026ApiGetNotificationTemplateVariablesRequest} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNotificationTemplateVariables(requestParameters: NotificationsV2026ApiGetNotificationTemplateVariablesRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TemplateVariablesDtoV2026> {
+            return localVarFp.getNotificationTemplateVariables(requestParameters.key, requestParameters.medium, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getNotificationTemplateVariables operation in NotificationsV2026Api.
+ * @export
+ * @interface NotificationsV2026ApiGetNotificationTemplateVariablesRequest
+ */
+export interface NotificationsV2026ApiGetNotificationTemplateVariablesRequest {
+    /**
+     * The notification template key. Valid keys (and key/medium pairs) are available from the list notification templates operation. 
+     * @type {string}
+     * @memberof NotificationsV2026ApiGetNotificationTemplateVariables
+     */
+    readonly key: string
+
+    /**
+     * The notification template medium (e.g. EMAIL, SLACK, TEAMS). Valid key/medium pairs are available from the list notification templates operation. 
+     * @type {'EMAIL' | 'SLACK' | 'TEAMS'}
+     * @memberof NotificationsV2026ApiGetNotificationTemplateVariables
+     */
+    readonly medium: GetNotificationTemplateVariablesMediumV2026
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, type, description**
+     * @type {string}
+     * @memberof NotificationsV2026ApiGetNotificationTemplateVariables
+     */
+    readonly sorters?: string
+}
+
+/**
+ * NotificationsV2026Api - object-oriented interface
+ * @export
+ * @class NotificationsV2026Api
+ * @extends {BaseAPI}
+ */
+export class NotificationsV2026Api extends BaseAPI {
+    /**
+     * Returns global variables and template-specific variables for a given notification template key and medium. Use these variable names in template content; they are replaced at send time with the corresponding values. Variable lists can be sorted by key, type, or description via the sorters query parameter (default ascending by key). 
+     * @summary Get notification template variables
+     * @param {NotificationsV2026ApiGetNotificationTemplateVariablesRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NotificationsV2026Api
+     */
+    public getNotificationTemplateVariables(requestParameters: NotificationsV2026ApiGetNotificationTemplateVariablesRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return NotificationsV2026ApiFp(this.configuration).getNotificationTemplateVariables(requestParameters.key, requestParameters.medium, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+/**
+ * @export
+ */
+export const GetNotificationTemplateVariablesMediumV2026 = {
+    Email: 'EMAIL',
+    Slack: 'SLACK',
+    Teams: 'TEAMS'
+} as const;
+export type GetNotificationTemplateVariablesMediumV2026 = typeof GetNotificationTemplateVariablesMediumV2026[keyof typeof GetNotificationTemplateVariablesMediumV2026];
 
 
 /**
