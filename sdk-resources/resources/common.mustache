@@ -137,7 +137,9 @@ export const toPathString = function (url: URL) {
  */
 export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxios: AxiosInstance, BASE_PATH: string, configuration?: Configuration) {
     return <T = unknown, R = AxiosResponse<T>>(axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-        axiosRetry(axios, configuration.retriesConfig)
+        if (configuration?.retriesConfig) {
+            axiosRetry(axios, configuration.retriesConfig);
+        }
         const headers = {
             ...{'User-Agent':'OpenAPI-Generator/{{npmVersion}}/ts'}, 
             ...axiosArgs.axiosOptions.headers,
@@ -151,7 +153,7 @@ export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxi
         }
 
         axiosArgs.axiosOptions.headers = headers
-        const axiosRequestArgs = {...axiosArgs.axiosOptions, url: (configuration?.basePath {{#apiVersion}}+ "/{{{apiVersion}}}"{{/apiVersion}} || basePath) + axiosArgs.url};
+        const axiosRequestArgs = {...axiosArgs.axiosOptions, url: ((configuration?.basePath != null ? (configuration.basePath {{#apiVersion}}+ "/{{{apiVersion}}}"{{/apiVersion}}) : undefined) || basePath) + axiosArgs.url};
         return axios.request<T, R>(axiosRequestArgs);
     };
 }
