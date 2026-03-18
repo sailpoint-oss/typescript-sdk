@@ -144,7 +144,6 @@ export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxi
         }
         userAgent += ` (${process.platform}; ${process.arch}) Node/${process.versions.node} (openapi-generator/{{generatorVersion}})`;
         const headers = {
-            ...{'User-Agent':'OpenAPI-Generator/{{npmVersion}}/ts'}, 
             {{#nerm}}...{'Accept': 'application/json'},
             {{/nerm}}...axiosArgs.axiosOptions.headers,
             ...{'X-SailPoint-SDK':'typescript-{{npmVersion}}'},
