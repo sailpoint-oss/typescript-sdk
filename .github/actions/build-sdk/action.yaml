@@ -87,6 +87,25 @@ runs:
           --config sdk-resources/v2026-config.yaml \
           --api-name-suffix V2026Api --model-name-suffix V2026
 
+
+    - name: Build NERM SDK
+      shell: bash
+      run: |
+        rm -rf ./sdk-output/nerm
+        java -jar openapi-generator-cli.jar generate \
+          -i ${{ inputs.api-specs-path }}/nerm/openapi.yaml \
+          -g typescript-axios -o sdk-output/nerm \
+          --global-property skipFormModel=false --config sdk-resources/nerm-config.yaml --api-name-suffix NERMApi --model-name-suffix NERM 
+
+    - name: Build NERM V2025 SDK
+      shell: bash
+      run: |
+        rm -rf ./sdk-output/nermv2025
+        java -jar openapi-generator-cli.jar generate \
+          -i ${{ inputs.api-specs-path }}/nerm/v2025/v2025.yaml \
+          -g typescript-axios -o sdk-output/nermv2025 \
+          --global-property skipFormModel=false --config sdk-resources/nerm-v2025-config.yaml --api-name-suffix NERMV2025Api --model-name-suffix NERMV2025 
+
     - name: Build and Test
       shell: bash
       run: |

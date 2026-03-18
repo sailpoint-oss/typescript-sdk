@@ -131,6 +131,8 @@ jobs:
           yq -i ".npmVersion = \"$VERSION\"" sdk-resources/v2024-config.yaml
           yq -i ".npmVersion = \"$VERSION\"" sdk-resources/v2025-config.yaml
           yq -i ".npmVersion = \"$VERSION\"" sdk-resources/v2026-config.yaml
+          yq -i ".npmVersion = \"$VERSION\"" sdk-resources/nerm-config.yaml
+          yq -i ".npmVersion = \"$VERSION\"" sdk-resources/nerm-v2025-config.yaml
 
       - name: Update package.json version
         shell: bash

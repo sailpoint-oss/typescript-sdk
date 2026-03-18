@@ -1,14 +1,15 @@
 import axios from "axios";
+import { IAxiosRetryConfig } from "axios-retry";
+import FormData from "form-data";
+import * as fs from "fs";
+import * as yaml from "js-yaml";
 import * as os from "os";
 import * as path from "path";
-import * as yaml from "js-yaml";
-import * as fs from "fs";
-import FormData from "form-data";
-import { IAxiosRetryConfig } from "axios-retry";
 import { ProxyAgent } from "proxy-agent";
 
 export interface ConfigurationParameters {
   baseurl?: string;
+  nermBaseurl?: string;
   clientId?: string;
   clientSecret?: string;
   accessToken?: string;
@@ -29,6 +30,7 @@ export interface Configuration {
 
 export interface Environment {
   baseurl: string;
+  nermBaseurl: string;
   pat: Pat;
   tenanturl: string;
 }
@@ -110,6 +112,15 @@ export class Configuration {
    * @memberof Configuration
    */
   basePath?: string;
+
+  /**
+   * override base path for NERM
+   *
+   * @type {string}
+   * @memberof Configuration
+   */
+  nermBasePath?: string;
+
   /**
    * base options for axios calls
    *
@@ -147,6 +158,7 @@ export class Configuration {
 
     this.accessToken = param.accessToken;
     this.basePath = param.baseurl;
+    this.nermBasePath = param.nermBaseurl;
     this.tokenUrl = param.tokenUrl;
     this.clientId = param.clientId;
     this.clientSecret = param.clientSecret;
@@ -171,6 +183,7 @@ export class Configuration {
       ) as Configuration;
       if (doc.authtype && doc.authtype.toLowerCase() === "pat") {
         config.baseurl = doc.environments[doc.activeenvironment].baseurl;
+        config.nermBaseurl = doc.environments[doc.activeenvironment].nermBaseurl;
         config.clientId = doc.environments[doc.activeenvironment].pat.clientid;
         config.clientSecret =
           doc.environments[doc.activeenvironment].pat.clientsecret;
@@ -192,6 +205,7 @@ export class Configuration {
       config.clientId = jsonData.ClientId;
       config.clientSecret = jsonData.ClientSecret;
       config.tokenUrl = config.baseurl + "/oauth/token";
+      config.nermBaseurl = jsonData.NERMBaseURL;
     } catch (error) {
       console.log("unable to find config file in local directory");
     }
@@ -208,6 +222,10 @@ export class Configuration {
       : "";
     config.clientSecret = process.env["SAIL_CLIENT_SECRET"]
       ? process.env["SAIL_CLIENT_SECRET"]
+      : "";
+
+    config.nermBaseurl = process.env["SAIL_NERM_BASE_URL"]
+      ? process.env["SAIL_NERM_BASE_URL"]
       : "";
 
     config.tokenUrl = config.baseurl + "/oauth/token";
