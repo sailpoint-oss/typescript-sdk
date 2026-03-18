@@ -1888,19 +1888,6 @@ export interface CreateNotificationActionRequestNERM {
 /**
  * 
  * @export
- * @interface CreatePageContentRequest1NERM
- */
-export interface CreatePageContentRequest1NERM {
-    /**
-     * 
-     * @type {PageContentTranslation1NERM}
-     * @memberof CreatePageContentRequest1NERM
-     */
-    'page_content_translation'?: PageContentTranslation1NERM;
-}
-/**
- * 
- * @export
  * @interface CreatePageContentRequestNERM
  */
 export interface CreatePageContentRequestNERM {
@@ -1910,6 +1897,19 @@ export interface CreatePageContentRequestNERM {
      * @memberof CreatePageContentRequestNERM
      */
     'page_content'?: PageContent1NERM;
+}
+/**
+ * 
+ * @export
+ * @interface CreatePageContentTranslationRequestNERM
+ */
+export interface CreatePageContentTranslationRequestNERM {
+    /**
+     * 
+     * @type {PageContentTranslation1NERM}
+     * @memberof CreatePageContentTranslationRequestNERM
+     */
+    'page_content_translation'?: PageContentTranslation1NERM;
 }
 /**
  * 
@@ -3077,13 +3077,13 @@ export interface GetJobStatus200ResponseNERM {
 /**
  * 
  * @export
- * @interface GetPageContents200Response1NERM
+ * @interface GetPageContentTranslation200ResponseNERM
  */
-export interface GetPageContents200Response1NERM {
+export interface GetPageContentTranslation200ResponseNERM {
     /**
      * 
      * @type {PageContentTranslationNERM}
-     * @memberof GetPageContents200Response1NERM
+     * @memberof GetPageContentTranslation200ResponseNERM
      */
     'page_content_translation'?: PageContentTranslationNERM;
 }
@@ -14096,13 +14096,13 @@ export const PageContentTranslationsNERMApiAxiosParamCreator = function (configu
         /**
          * Create a page content translation record.
          * @summary Create page content translation
-         * @param {CreatePageContentRequest1NERM} createPageContentRequest1NERM 
+         * @param {CreatePageContentTranslationRequestNERM} createPageContentTranslationRequestNERM 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createPageContent: async (createPageContentRequest1NERM: CreatePageContentRequest1NERM, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'createPageContentRequest1NERM' is not null or undefined
-            assertParamExists('createPageContent', 'createPageContentRequest1NERM', createPageContentRequest1NERM)
+        createPageContentTranslation: async (createPageContentTranslationRequestNERM: CreatePageContentTranslationRequestNERM, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'createPageContentTranslationRequestNERM' is not null or undefined
+            assertParamExists('createPageContentTranslation', 'createPageContentTranslationRequestNERM', createPageContentTranslationRequestNERM)
             const localVarPath = `/page_content_translations`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -14130,7 +14130,7 @@ export const PageContentTranslationsNERMApiAxiosParamCreator = function (configu
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createPageContentRequest1NERM, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(createPageContentTranslationRequestNERM, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -14222,6 +14222,44 @@ export const PageContentTranslationsNERMApiAxiosParamCreator = function (configu
             };
         },
         /**
+         * This endpoint can retrieve page content translation data.
+         * @summary Get page contents translation
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPageContentTranslation: async (axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/page_content_translations`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Info for a specific page content translation record by Id
          * @summary Find page content translation
          * @param {string} id ID of the object to retrieve, update, or delete
@@ -14273,44 +14311,6 @@ export const PageContentTranslationsNERMApiAxiosParamCreator = function (configu
         getPageContentTranslationByUid: async (uid?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/page_content_translations/{uid}`
                 .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication userAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
-
-            // authentication userAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This endpoint can retrieve page content translation data.
-         * @summary Get page contents translation
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getPageContents: async (axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/page_content_translations`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -14448,14 +14448,14 @@ export const PageContentTranslationsNERMApiFp = function(configuration?: Configu
         /**
          * Create a page content translation record.
          * @summary Create page content translation
-         * @param {CreatePageContentRequest1NERM} createPageContentRequest1NERM 
+         * @param {CreatePageContentTranslationRequestNERM} createPageContentTranslationRequestNERM 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createPageContent(createPageContentRequest1NERM: CreatePageContentRequest1NERM, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetPageContents200Response1NERM>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createPageContent(createPageContentRequest1NERM, axiosOptions);
+        async createPageContentTranslation(createPageContentTranslationRequestNERM: CreatePageContentTranslationRequestNERM, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetPageContentTranslation200ResponseNERM>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createPageContentTranslation(createPageContentTranslationRequestNERM, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PageContentTranslationsNERMApi.createPageContent']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PageContentTranslationsNERMApi.createPageContentTranslation']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -14465,7 +14465,7 @@ export const PageContentTranslationsNERMApiFp = function(configuration?: Configu
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deletePageContentTranslationById(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetPageContents200Response1NERM>> {
+        async deletePageContentTranslationById(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetPageContentTranslation200ResponseNERM>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deletePageContentTranslationById(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PageContentTranslationsNERMApi.deletePageContentTranslationById']?.[localVarOperationServerIndex]?.url;
@@ -14478,10 +14478,22 @@ export const PageContentTranslationsNERMApiFp = function(configuration?: Configu
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deletePageContentTranslationByUid(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetPageContents200Response1NERM>> {
+        async deletePageContentTranslationByUid(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetPageContentTranslation200ResponseNERM>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deletePageContentTranslationByUid(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PageContentTranslationsNERMApi.deletePageContentTranslationByUid']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This endpoint can retrieve page content translation data.
+         * @summary Get page contents translation
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getPageContentTranslation(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetPageContentTranslation200ResponseNERM>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPageContentTranslation(axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['PageContentTranslationsNERMApi.getPageContentTranslation']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -14491,7 +14503,7 @@ export const PageContentTranslationsNERMApiFp = function(configuration?: Configu
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPageContentTranslationById(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetPageContents200Response1NERM>> {
+        async getPageContentTranslationById(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetPageContentTranslation200ResponseNERM>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPageContentTranslationById(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PageContentTranslationsNERMApi.getPageContentTranslationById']?.[localVarOperationServerIndex]?.url;
@@ -14504,22 +14516,10 @@ export const PageContentTranslationsNERMApiFp = function(configuration?: Configu
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPageContentTranslationByUid(uid?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetPageContents200Response1NERM>> {
+        async getPageContentTranslationByUid(uid?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetPageContentTranslation200ResponseNERM>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPageContentTranslationByUid(uid, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PageContentTranslationsNERMApi.getPageContentTranslationByUid']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * This endpoint can retrieve page content translation data.
-         * @summary Get page contents translation
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getPageContents(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetPageContents200Response1NERM>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPageContents(axiosOptions);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PageContentTranslationsNERMApi.getPageContents']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -14530,7 +14530,7 @@ export const PageContentTranslationsNERMApiFp = function(configuration?: Configu
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updatePageContentTranslationById(id: string, updatePageContentTranslationByIdRequestNERM: UpdatePageContentTranslationByIdRequestNERM, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetPageContents200Response1NERM>> {
+        async updatePageContentTranslationById(id: string, updatePageContentTranslationByIdRequestNERM: UpdatePageContentTranslationByIdRequestNERM, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetPageContentTranslation200ResponseNERM>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updatePageContentTranslationById(id, updatePageContentTranslationByIdRequestNERM, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PageContentTranslationsNERMApi.updatePageContentTranslationById']?.[localVarOperationServerIndex]?.url;
@@ -14544,7 +14544,7 @@ export const PageContentTranslationsNERMApiFp = function(configuration?: Configu
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updatePageContentTranslationByUid(updatePageContentTranslationByIdRequestNERM: UpdatePageContentTranslationByIdRequestNERM, uid?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetPageContents200Response1NERM>> {
+        async updatePageContentTranslationByUid(updatePageContentTranslationByIdRequestNERM: UpdatePageContentTranslationByIdRequestNERM, uid?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetPageContentTranslation200ResponseNERM>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updatePageContentTranslationByUid(updatePageContentTranslationByIdRequestNERM, uid, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PageContentTranslationsNERMApi.updatePageContentTranslationByUid']?.[localVarOperationServerIndex]?.url;
@@ -14563,12 +14563,12 @@ export const PageContentTranslationsNERMApiFactory = function (configuration?: C
         /**
          * Create a page content translation record.
          * @summary Create page content translation
-         * @param {PageContentTranslationsNERMApiCreatePageContentRequest} requestParameters Request parameters.
+         * @param {PageContentTranslationsNERMApiCreatePageContentTranslationRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createPageContent(requestParameters: PageContentTranslationsNERMApiCreatePageContentRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetPageContents200Response1NERM> {
-            return localVarFp.createPageContent(requestParameters.createPageContentRequest1NERM, axiosOptions).then((request) => request(axios, basePath));
+        createPageContentTranslation(requestParameters: PageContentTranslationsNERMApiCreatePageContentTranslationRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetPageContentTranslation200ResponseNERM> {
+            return localVarFp.createPageContentTranslation(requestParameters.createPageContentTranslationRequestNERM, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Delete page content translation by id
@@ -14577,7 +14577,7 @@ export const PageContentTranslationsNERMApiFactory = function (configuration?: C
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deletePageContentTranslationById(requestParameters: PageContentTranslationsNERMApiDeletePageContentTranslationByIdRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetPageContents200Response1NERM> {
+        deletePageContentTranslationById(requestParameters: PageContentTranslationsNERMApiDeletePageContentTranslationByIdRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetPageContentTranslation200ResponseNERM> {
             return localVarFp.deletePageContentTranslationById(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -14587,8 +14587,17 @@ export const PageContentTranslationsNERMApiFactory = function (configuration?: C
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deletePageContentTranslationByUid(requestParameters: PageContentTranslationsNERMApiDeletePageContentTranslationByUidRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetPageContents200Response1NERM> {
+        deletePageContentTranslationByUid(requestParameters: PageContentTranslationsNERMApiDeletePageContentTranslationByUidRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetPageContentTranslation200ResponseNERM> {
             return localVarFp.deletePageContentTranslationByUid(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This endpoint can retrieve page content translation data.
+         * @summary Get page contents translation
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPageContentTranslation(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetPageContentTranslation200ResponseNERM> {
+            return localVarFp.getPageContentTranslation(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Info for a specific page content translation record by Id
@@ -14597,7 +14606,7 @@ export const PageContentTranslationsNERMApiFactory = function (configuration?: C
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getPageContentTranslationById(requestParameters: PageContentTranslationsNERMApiGetPageContentTranslationByIdRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetPageContents200Response1NERM> {
+        getPageContentTranslationById(requestParameters: PageContentTranslationsNERMApiGetPageContentTranslationByIdRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetPageContentTranslation200ResponseNERM> {
             return localVarFp.getPageContentTranslationById(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -14607,17 +14616,8 @@ export const PageContentTranslationsNERMApiFactory = function (configuration?: C
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getPageContentTranslationByUid(requestParameters: PageContentTranslationsNERMApiGetPageContentTranslationByUidRequest = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetPageContents200Response1NERM> {
+        getPageContentTranslationByUid(requestParameters: PageContentTranslationsNERMApiGetPageContentTranslationByUidRequest = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetPageContentTranslation200ResponseNERM> {
             return localVarFp.getPageContentTranslationByUid(requestParameters.uid, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This endpoint can retrieve page content translation data.
-         * @summary Get page contents translation
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getPageContents(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetPageContents200Response1NERM> {
-            return localVarFp.getPageContents(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Update info for a specific page content translation record by id
@@ -14626,7 +14626,7 @@ export const PageContentTranslationsNERMApiFactory = function (configuration?: C
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updatePageContentTranslationById(requestParameters: PageContentTranslationsNERMApiUpdatePageContentTranslationByIdRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetPageContents200Response1NERM> {
+        updatePageContentTranslationById(requestParameters: PageContentTranslationsNERMApiUpdatePageContentTranslationByIdRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetPageContentTranslation200ResponseNERM> {
             return localVarFp.updatePageContentTranslationById(requestParameters.id, requestParameters.updatePageContentTranslationByIdRequestNERM, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -14636,24 +14636,24 @@ export const PageContentTranslationsNERMApiFactory = function (configuration?: C
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updatePageContentTranslationByUid(requestParameters: PageContentTranslationsNERMApiUpdatePageContentTranslationByUidRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetPageContents200Response1NERM> {
+        updatePageContentTranslationByUid(requestParameters: PageContentTranslationsNERMApiUpdatePageContentTranslationByUidRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetPageContentTranslation200ResponseNERM> {
             return localVarFp.updatePageContentTranslationByUid(requestParameters.updatePageContentTranslationByIdRequestNERM, requestParameters.uid, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createPageContent operation in PageContentTranslationsNERMApi.
+ * Request parameters for createPageContentTranslation operation in PageContentTranslationsNERMApi.
  * @export
- * @interface PageContentTranslationsNERMApiCreatePageContentRequest
+ * @interface PageContentTranslationsNERMApiCreatePageContentTranslationRequest
  */
-export interface PageContentTranslationsNERMApiCreatePageContentRequest {
+export interface PageContentTranslationsNERMApiCreatePageContentTranslationRequest {
     /**
      * 
-     * @type {CreatePageContentRequest1NERM}
-     * @memberof PageContentTranslationsNERMApiCreatePageContent
+     * @type {CreatePageContentTranslationRequestNERM}
+     * @memberof PageContentTranslationsNERMApiCreatePageContentTranslation
      */
-    readonly createPageContentRequest1NERM: CreatePageContentRequest1NERM
+    readonly createPageContentTranslationRequestNERM: CreatePageContentTranslationRequestNERM
 }
 
 /**
@@ -14764,13 +14764,13 @@ export class PageContentTranslationsNERMApi extends BaseAPI {
     /**
      * Create a page content translation record.
      * @summary Create page content translation
-     * @param {PageContentTranslationsNERMApiCreatePageContentRequest} requestParameters Request parameters.
+     * @param {PageContentTranslationsNERMApiCreatePageContentTranslationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof PageContentTranslationsNERMApi
      */
-    public createPageContent(requestParameters: PageContentTranslationsNERMApiCreatePageContentRequest, axiosOptions?: RawAxiosRequestConfig) {
-        return PageContentTranslationsNERMApiFp(this.configuration).createPageContent(requestParameters.createPageContentRequest1NERM, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createPageContentTranslation(requestParameters: PageContentTranslationsNERMApiCreatePageContentTranslationRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return PageContentTranslationsNERMApiFp(this.configuration).createPageContentTranslation(requestParameters.createPageContentTranslationRequestNERM, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -14798,6 +14798,17 @@ export class PageContentTranslationsNERMApi extends BaseAPI {
     }
 
     /**
+     * This endpoint can retrieve page content translation data.
+     * @summary Get page contents translation
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PageContentTranslationsNERMApi
+     */
+    public getPageContentTranslation(axiosOptions?: RawAxiosRequestConfig) {
+        return PageContentTranslationsNERMApiFp(this.configuration).getPageContentTranslation(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Info for a specific page content translation record by Id
      * @summary Find page content translation
      * @param {PageContentTranslationsNERMApiGetPageContentTranslationByIdRequest} requestParameters Request parameters.
@@ -14819,17 +14830,6 @@ export class PageContentTranslationsNERMApi extends BaseAPI {
      */
     public getPageContentTranslationByUid(requestParameters: PageContentTranslationsNERMApiGetPageContentTranslationByUidRequest = {}, axiosOptions?: RawAxiosRequestConfig) {
         return PageContentTranslationsNERMApiFp(this.configuration).getPageContentTranslationByUid(requestParameters.uid, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This endpoint can retrieve page content translation data.
-     * @summary Get page contents translation
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PageContentTranslationsNERMApi
-     */
-    public getPageContents(axiosOptions?: RawAxiosRequestConfig) {
-        return PageContentTranslationsNERMApiFp(this.configuration).getPageContents(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

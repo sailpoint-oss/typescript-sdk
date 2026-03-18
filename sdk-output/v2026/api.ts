@@ -116,12 +116,6 @@ export interface AccessRequestConfigV2026 {
      */
     'approvalsMustBeExternal'?: boolean;
     /**
-     * If this is true and the requester and reviewer are the same, the request is automatically approved.
-     * @type {boolean}
-     * @memberof AccessRequestConfigV2026
-     */
-    'autoApprovalEnabled'?: boolean;
-    /**
      * If this is true, reauthorization will be enforced for appropriately configured access items. Enablement of this feature is currently in a limited state.
      * @type {boolean}
      * @memberof AccessRequestConfigV2026
