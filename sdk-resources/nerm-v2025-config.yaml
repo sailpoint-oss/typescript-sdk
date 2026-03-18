@@ -1,0 +1,12 @@
+templateDir: ./sdk-resources/resources
+files:
+  package.mustache:
+    templateType: SupportingFiles
+    destinationFilename: package.json
+npmName: sailpoint-nerm-sdk
+npmRepository: sailpoint.com
+npmVersion: 1.7.1
+useSingleRequestParameter: true
+apiVersion: 2025
+enumNameSuffix: NermV2025
+nerm: true

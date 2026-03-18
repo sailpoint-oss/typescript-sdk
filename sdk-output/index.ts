@@ -31,9 +31,16 @@ export { ConfigurationParameters as ConfigurationParametersV2026, Configuration 
 
 export * from "./generic/api";
 
+export * from "./nerm/api";
+export { Configuration as ConfigurationNerm, ConfigurationParameters as ConfigurationParametersNerm } from "./nerm/configuration";
+
+export * from "./nermv2025/api";
+export { Configuration as ConfigurationNermV2025, ConfigurationParameters as ConfigurationParametersNermV2025 } from "./nermv2025/configuration";
+
 export { Configuration, ConfigurationParameters } from "./configuration";
 
 export * from "./paginator";
 export { axiosRetry };
 
-import * as axiosRetry from "axios-retry";
+    import * as axiosRetry from "axios-retry";
+

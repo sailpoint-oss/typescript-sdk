@@ -1,4 +1,4 @@
-import { AccountsApi, axiosRetry, Configuration, EntitlementsV2025Api, GovernanceGroupsBetaApi, IdentityDocument, Paginator, Search, SearchApi, TransformsApi, TransformsApiCreateTransformRequest, TransformsBetaApi } from "sailpoint-api-client"
+import { AccountsApi, axiosRetry, Configuration, EntitlementsV2025Api, GovernanceGroupsBetaApi, IdentityDocument, Paginator, ProfileTypesNERMApi, Search, SearchApi, TransformsApi, TransformsApiCreateTransformRequest, TransformsBetaApi } from "sailpoint-api-client"
 
 const createTransform = async () => {
 
@@ -19,6 +19,18 @@ const createTransform = async () => {
     const val = await api.createTransform(transform)
     console.log(val.data)
 }
+
+const getProfiles = async () => {
+    console.log("getProfiles: starting...")
+
+    let apiConfig = new Configuration()
+    let api = new ProfileTypesNERMApi(apiConfig)
+
+    const val = await api.getProfileTypes()
+    console.log("getProfiles: response data", val.data)
+    console.log("getProfiles: profiles", val.data.profile_types)
+}
+
 
 // const search = async () => {
 //     let apiConfig = new Configuration()
