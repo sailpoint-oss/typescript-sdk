@@ -15,6 +15,8 @@ export interface ConfigurationParameters {
   accessToken?: string;
   serverIndex?: number;
   tokenUrl?: string;
+  consumerIdentifier?: string;
+  consumerVersion?: string;
 }
 
 export interface Configuration {
@@ -150,6 +152,20 @@ export class Configuration {
    * @memberof Configuration
    */
   retriesConfig?: IAxiosRetryConfig;
+  /**
+   * Optional identifier for the application consuming this SDK (e.g. "sailpoint-cli").
+   *
+   * @type {string}
+   * @memberof Configuration
+   */
+  consumerIdentifier?: string;
+  /**
+   * Optional version of the consuming application (e.g. "1.2.3").
+   *
+   * @type {string}
+   * @memberof Configuration
+   */
+  consumerVersion?: string;
 
   constructor(param?: ConfigurationParameters) {
     if (!param) {
@@ -162,6 +178,8 @@ export class Configuration {
     this.tokenUrl = param.tokenUrl;
     this.clientId = param.clientId;
     this.clientSecret = param.clientSecret;
+    this.consumerIdentifier = param?.consumerIdentifier;
+    this.consumerVersion = param?.consumerVersion;
 
     if (!this.accessToken) {
       const url = `${this.tokenUrl}`;
