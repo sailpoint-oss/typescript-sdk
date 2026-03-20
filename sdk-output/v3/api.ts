@@ -561,11 +561,11 @@ export interface AccessProfile {
      */
     'provisioningCriteria'?: ProvisioningCriteriaLevel1 | null;
     /**
-     * 
-     * @type {Array<OwnerReference>}
+     * List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP).
+     * @type {Array<AdditionalOwnerRef>}
      * @memberof AccessProfile
      */
-    'additionalOwners'?: Array<OwnerReference> | null;
+    'additionalOwners'?: Array<AdditionalOwnerRef> | null;
 }
 /**
  * 
@@ -2955,6 +2955,39 @@ export const ActivityInsightsUsageDaysStateV3 = {
 } as const;
 
 export type ActivityInsightsUsageDaysStateV3 = typeof ActivityInsightsUsageDaysStateV3[keyof typeof ActivityInsightsUsageDaysStateV3];
+
+/**
+ * Reference to an additional owner (identity or governance group).
+ * @export
+ * @interface AdditionalOwnerRef
+ */
+export interface AdditionalOwnerRef {
+    /**
+     * Type of the additional owner; IDENTITY for an identity, GOVERNANCE_GROUP for a governance group.
+     * @type {string}
+     * @memberof AdditionalOwnerRef
+     */
+    'type'?: AdditionalOwnerRefTypeV3;
+    /**
+     * ID of the identity or governance group.
+     * @type {string}
+     * @memberof AdditionalOwnerRef
+     */
+    'id'?: string;
+    /**
+     * Display name. It may be left null or omitted on input. If set, it must match the current display name of the identity or governance group, otherwise a 400 Bad Request error may result.
+     * @type {string}
+     * @memberof AdditionalOwnerRef
+     */
+    'name'?: string | null;
+}
+
+export const AdditionalOwnerRefTypeV3 = {
+    Identity: 'IDENTITY',
+    GovernanceGroup: 'GOVERNANCE_GROUP'
+} as const;
+
+export type AdditionalOwnerRefTypeV3 = typeof AdditionalOwnerRefTypeV3[keyof typeof AdditionalOwnerRefTypeV3];
 
 /**
  * 
@@ -18768,6 +18801,12 @@ export interface Role {
      */
     'owner': OwnerReference;
     /**
+     * List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP).
+     * @type {Array<AdditionalOwnerRef>}
+     * @memberof Role
+     */
+    'additionalOwners'?: Array<AdditionalOwnerRef> | null;
+    /**
      * 
      * @type {Array<AccessProfileRef>}
      * @memberof Role
@@ -26017,7 +26056,7 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * This API updates an existing Access Profile. The following fields are patchable:  **name**  **description**  **enabled**  **owner**  **requestable**  **accessRequestConfig**  **revokeRequestConfig**  **segments**  **entitlements**  **provisioningCriteria**  **source** (must be updated with entitlements belonging to new source in the same API call)  If you need to change the `source` of the access profile, you can do so only if you update the `entitlements` in the same API call.  The new entitlements can only come from the target source that you want to change to.  Look for the example \"Replace Source\" in the examples dropdown.  A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to administer. >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.  > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile\'s source.
+         * This API updates an existing Access Profile. The following fields are patchable:  **name**  **description**  **enabled**  **owner**  **additionalOwners**  **requestable**  **accessRequestConfig**  **revokeRequestConfig**  **segments**  **entitlements**  **provisioningCriteria**  **source** (must be updated with entitlements belonging to new source in the same API call)  If you need to change the `source` of the access profile, you can do so only if you update the `entitlements` in the same API call.  The new entitlements can only come from the target source that you want to change to.  Look for the example \"Replace Source\" in the examples dropdown.  A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to administer. >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.  > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile\'s source.
          * @summary Patch a specified access profile
          * @param {string} id ID of the Access Profile to patch
          * @param {Array<JsonPatchOperation>} jsonPatchOperation 
@@ -26165,7 +26204,7 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This API updates an existing Access Profile. The following fields are patchable:  **name**  **description**  **enabled**  **owner**  **requestable**  **accessRequestConfig**  **revokeRequestConfig**  **segments**  **entitlements**  **provisioningCriteria**  **source** (must be updated with entitlements belonging to new source in the same API call)  If you need to change the `source` of the access profile, you can do so only if you update the `entitlements` in the same API call.  The new entitlements can only come from the target source that you want to change to.  Look for the example \"Replace Source\" in the examples dropdown.  A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to administer. >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.  > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile\'s source.
+         * This API updates an existing Access Profile. The following fields are patchable:  **name**  **description**  **enabled**  **owner**  **additionalOwners**  **requestable**  **accessRequestConfig**  **revokeRequestConfig**  **segments**  **entitlements**  **provisioningCriteria**  **source** (must be updated with entitlements belonging to new source in the same API call)  If you need to change the `source` of the access profile, you can do so only if you update the `entitlements` in the same API call.  The new entitlements can only come from the target source that you want to change to.  Look for the example \"Replace Source\" in the examples dropdown.  A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to administer. >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.  > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile\'s source.
          * @summary Patch a specified access profile
          * @param {string} id ID of the Access Profile to patch
          * @param {Array<JsonPatchOperation>} jsonPatchOperation 
@@ -26249,7 +26288,7 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
             return localVarFp.listAccessProfiles(requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API updates an existing Access Profile. The following fields are patchable:  **name**  **description**  **enabled**  **owner**  **requestable**  **accessRequestConfig**  **revokeRequestConfig**  **segments**  **entitlements**  **provisioningCriteria**  **source** (must be updated with entitlements belonging to new source in the same API call)  If you need to change the `source` of the access profile, you can do so only if you update the `entitlements` in the same API call.  The new entitlements can only come from the target source that you want to change to.  Look for the example \"Replace Source\" in the examples dropdown.  A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to administer. >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.  > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile\'s source.
+         * This API updates an existing Access Profile. The following fields are patchable:  **name**  **description**  **enabled**  **owner**  **additionalOwners**  **requestable**  **accessRequestConfig**  **revokeRequestConfig**  **segments**  **entitlements**  **provisioningCriteria**  **source** (must be updated with entitlements belonging to new source in the same API call)  If you need to change the `source` of the access profile, you can do so only if you update the `entitlements` in the same API call.  The new entitlements can only come from the target source that you want to change to.  Look for the example \"Replace Source\" in the examples dropdown.  A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to administer. >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.  > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile\'s source.
          * @summary Patch a specified access profile
          * @param {AccessProfilesApiPatchAccessProfileRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -26530,7 +26569,7 @@ export class AccessProfilesApi extends BaseAPI {
     }
 
     /**
-     * This API updates an existing Access Profile. The following fields are patchable:  **name**  **description**  **enabled**  **owner**  **requestable**  **accessRequestConfig**  **revokeRequestConfig**  **segments**  **entitlements**  **provisioningCriteria**  **source** (must be updated with entitlements belonging to new source in the same API call)  If you need to change the `source` of the access profile, you can do so only if you update the `entitlements` in the same API call.  The new entitlements can only come from the target source that you want to change to.  Look for the example \"Replace Source\" in the examples dropdown.  A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to administer. >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.  > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile\'s source.
+     * This API updates an existing Access Profile. The following fields are patchable:  **name**  **description**  **enabled**  **owner**  **additionalOwners**  **requestable**  **accessRequestConfig**  **revokeRequestConfig**  **segments**  **entitlements**  **provisioningCriteria**  **source** (must be updated with entitlements belonging to new source in the same API call)  If you need to change the `source` of the access profile, you can do so only if you update the `entitlements` in the same API call.  The new entitlements can only come from the target source that you want to change to.  Look for the example \"Replace Source\" in the examples dropdown.  A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to administer. >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.  > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile\'s source.
      * @summary Patch a specified access profile
      * @param {AccessProfilesApiPatchAccessProfileRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -51378,7 +51417,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Update an existing role, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: * name * description * enabled * owner * accessProfiles * entitlements * membership * requestable * accessRequestConfig * revokeRequestConfig * segments * accessModelMetadata  A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups of the ROLE_SUBADMIN is a member of.  The maximum supported length for the description field is 2000 characters. ISC preserves longer descriptions for existing roles. However, any new roles as well as any updates to existing descriptions are limited to 2000 characters.  When you use this API to modify a role\'s membership identities, you can only modify up to a limit of 500 membership identities at a time. 
+         * Update an existing role, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: * name * description * enabled * owner * additionalOwners * accessProfiles * entitlements * membership * requestable * accessRequestConfig * revokeRequestConfig * segments * accessModelMetadata  A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups of the ROLE_SUBADMIN is a member of.  The maximum supported length for the description field is 2000 characters. ISC preserves longer descriptions for existing roles. However, any new roles as well as any updates to existing descriptions are limited to 2000 characters.  When you use this API to modify a role\'s membership identities, you can only modify up to a limit of 500 membership identities at a time. 
          * @summary Patch role
          * @param {string} id Role ID to patch
          * @param {Array<JsonPatchOperation>} jsonPatchOperation 
@@ -51526,7 +51565,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Update an existing role, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: * name * description * enabled * owner * accessProfiles * entitlements * membership * requestable * accessRequestConfig * revokeRequestConfig * segments * accessModelMetadata  A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups of the ROLE_SUBADMIN is a member of.  The maximum supported length for the description field is 2000 characters. ISC preserves longer descriptions for existing roles. However, any new roles as well as any updates to existing descriptions are limited to 2000 characters.  When you use this API to modify a role\'s membership identities, you can only modify up to a limit of 500 membership identities at a time. 
+         * Update an existing role, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: * name * description * enabled * owner * additionalOwners * accessProfiles * entitlements * membership * requestable * accessRequestConfig * revokeRequestConfig * segments * accessModelMetadata  A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups of the ROLE_SUBADMIN is a member of.  The maximum supported length for the description field is 2000 characters. ISC preserves longer descriptions for existing roles. However, any new roles as well as any updates to existing descriptions are limited to 2000 characters.  When you use this API to modify a role\'s membership identities, you can only modify up to a limit of 500 membership identities at a time. 
          * @summary Patch role
          * @param {string} id Role ID to patch
          * @param {Array<JsonPatchOperation>} jsonPatchOperation 
@@ -51610,7 +51649,7 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.listRoles(requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Update an existing role, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: * name * description * enabled * owner * accessProfiles * entitlements * membership * requestable * accessRequestConfig * revokeRequestConfig * segments * accessModelMetadata  A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups of the ROLE_SUBADMIN is a member of.  The maximum supported length for the description field is 2000 characters. ISC preserves longer descriptions for existing roles. However, any new roles as well as any updates to existing descriptions are limited to 2000 characters.  When you use this API to modify a role\'s membership identities, you can only modify up to a limit of 500 membership identities at a time. 
+         * Update an existing role, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: * name * description * enabled * owner * additionalOwners * accessProfiles * entitlements * membership * requestable * accessRequestConfig * revokeRequestConfig * segments * accessModelMetadata  A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups of the ROLE_SUBADMIN is a member of.  The maximum supported length for the description field is 2000 characters. ISC preserves longer descriptions for existing roles. However, any new roles as well as any updates to existing descriptions are limited to 2000 characters.  When you use this API to modify a role\'s membership identities, you can only modify up to a limit of 500 membership identities at a time. 
          * @summary Patch role
          * @param {RolesApiPatchRoleRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -51891,7 +51930,7 @@ export class RolesApi extends BaseAPI {
     }
 
     /**
-     * Update an existing role, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: * name * description * enabled * owner * accessProfiles * entitlements * membership * requestable * accessRequestConfig * revokeRequestConfig * segments * accessModelMetadata  A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups of the ROLE_SUBADMIN is a member of.  The maximum supported length for the description field is 2000 characters. ISC preserves longer descriptions for existing roles. However, any new roles as well as any updates to existing descriptions are limited to 2000 characters.  When you use this API to modify a role\'s membership identities, you can only modify up to a limit of 500 membership identities at a time. 
+     * Update an existing role, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: * name * description * enabled * owner * additionalOwners * accessProfiles * entitlements * membership * requestable * accessRequestConfig * revokeRequestConfig * segments * accessModelMetadata  A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to sources with management workgroups of the ROLE_SUBADMIN is a member of.  The maximum supported length for the description field is 2000 characters. ISC preserves longer descriptions for existing roles. However, any new roles as well as any updates to existing descriptions are limited to 2000 characters.  When you use this API to modify a role\'s membership identities, you can only modify up to a limit of 500 membership identities at a time. 
      * @summary Patch role
      * @param {RolesApiPatchRoleRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.

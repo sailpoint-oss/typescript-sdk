@@ -752,6 +752,37 @@ export interface ApproverReferenceV2026 {
 export interface ArrayInnerV2026 {
 }
 /**
+ * 
+ * @export
+ * @interface BaseCommonDtoV2026
+ */
+export interface BaseCommonDtoV2026 {
+    /**
+     * System-generated unique ID of the Object
+     * @type {string}
+     * @memberof BaseCommonDtoV2026
+     */
+    'id'?: string;
+    /**
+     * Name of the Object
+     * @type {string}
+     * @memberof BaseCommonDtoV2026
+     */
+    'name': string | null;
+    /**
+     * Creation date of the Object
+     * @type {string}
+     * @memberof BaseCommonDtoV2026
+     */
+    'created'?: string;
+    /**
+     * Last modification date of the Object
+     * @type {string}
+     * @memberof BaseCommonDtoV2026
+     */
+    'modified'?: string;
+}
+/**
  * Base object for referencing other DTOs, containing type, id, and name fields for identification and display purposes.
  * @export
  * @interface BaseReferenceDtoV2026
@@ -1526,6 +1557,330 @@ export interface MachineAccountSubTypeConfigDtoV2026 {
      * @memberof MachineAccountSubTypeConfigDtoV2026
      */
     'machineAccountDelete'?: MachineAccountSubTypeConfigDtoMachineAccountDeleteV2026;
+}
+/**
+ * The owner configuration associated to the machine identity
+ * @export
+ * @interface MachineIdentityDtoOwnersV2026
+ */
+export interface MachineIdentityDtoOwnersV2026 {
+    /**
+     * Defines the identity which is selected as the primary owner
+     * @type {object}
+     * @memberof MachineIdentityDtoOwnersV2026
+     */
+    'primaryIdentity': object;
+    /**
+     * Defines the identities which are selected as secondary owners
+     * @type {Array<BaseReferenceDtoV2026>}
+     * @memberof MachineIdentityDtoOwnersV2026
+     */
+    'secondaryIdentities': Array<BaseReferenceDtoV2026>;
+}
+/**
+ * 
+ * @export
+ * @interface MachineIdentityRequestUserEntitlementsV2026
+ */
+export interface MachineIdentityRequestUserEntitlementsV2026 {
+    /**
+     * The ID of the entitlement
+     * @type {string}
+     * @memberof MachineIdentityRequestUserEntitlementsV2026
+     */
+    'entitlementId': string;
+    /**
+     * The source ID of the entitlement
+     * @type {string}
+     * @memberof MachineIdentityRequestUserEntitlementsV2026
+     */
+    'sourceId': string;
+}
+/**
+ * 
+ * @export
+ * @interface MachineIdentityRequestV2026
+ */
+export interface MachineIdentityRequestV2026 {
+    /**
+     * System-generated unique ID of the Object
+     * @type {string}
+     * @memberof MachineIdentityRequestV2026
+     */
+    'id'?: string;
+    /**
+     * Name of the Object
+     * @type {string}
+     * @memberof MachineIdentityRequestV2026
+     */
+    'name': string | null;
+    /**
+     * Creation date of the Object
+     * @type {string}
+     * @memberof MachineIdentityRequestV2026
+     */
+    'created'?: string;
+    /**
+     * Last modification date of the Object
+     * @type {string}
+     * @memberof MachineIdentityRequestV2026
+     */
+    'modified'?: string;
+    /**
+     * The native identity associated to the machine identity directly aggregated from a source
+     * @type {string}
+     * @memberof MachineIdentityRequestV2026
+     */
+    'nativeIdentity': string;
+    /**
+     * Description of machine identity
+     * @type {string}
+     * @memberof MachineIdentityRequestV2026
+     */
+    'description'?: string;
+    /**
+     * A map of custom machine identity attributes
+     * @type {object}
+     * @memberof MachineIdentityRequestV2026
+     */
+    'attributes'?: object;
+    /**
+     * The subtype value associated to the machine identity
+     * @type {string}
+     * @memberof MachineIdentityRequestV2026
+     */
+    'subtype': string;
+    /**
+     * 
+     * @type {MachineIdentityDtoOwnersV2026}
+     * @memberof MachineIdentityRequestV2026
+     */
+    'owners'?: MachineIdentityDtoOwnersV2026;
+    /**
+     * The source id associated to the machine identity
+     * @type {string}
+     * @memberof MachineIdentityRequestV2026
+     */
+    'sourceId'?: string;
+    /**
+     * The UUID associated to the machine identity directly aggregated from a source
+     * @type {string}
+     * @memberof MachineIdentityRequestV2026
+     */
+    'uuid'?: string;
+    /**
+     * The user entitlements associated to the machine identity
+     * @type {Array<MachineIdentityRequestUserEntitlementsV2026>}
+     * @memberof MachineIdentityRequestV2026
+     */
+    'userEntitlements'?: Array<MachineIdentityRequestUserEntitlementsV2026>;
+}
+/**
+ * 
+ * @export
+ * @interface MachineIdentityResponseUserEntitlementsV2026
+ */
+export interface MachineIdentityResponseUserEntitlementsV2026 {
+    /**
+     * The source ID of the entitlement
+     * @type {string}
+     * @memberof MachineIdentityResponseUserEntitlementsV2026
+     */
+    'sourceId'?: string;
+    /**
+     * The ID of the entitlement
+     * @type {string}
+     * @memberof MachineIdentityResponseUserEntitlementsV2026
+     */
+    'entitlementId'?: string;
+    /**
+     * The display name of the entitlement
+     * @type {string}
+     * @memberof MachineIdentityResponseUserEntitlementsV2026
+     */
+    'displayName'?: string;
+    /**
+     * The source of the entitlement
+     * @type {object}
+     * @memberof MachineIdentityResponseUserEntitlementsV2026
+     */
+    'source'?: object;
+}
+/**
+ * 
+ * @export
+ * @interface MachineIdentityResponseV2026
+ */
+export interface MachineIdentityResponseV2026 {
+    /**
+     * System-generated unique ID of the Object
+     * @type {string}
+     * @memberof MachineIdentityResponseV2026
+     */
+    'id'?: string;
+    /**
+     * Name of the Object
+     * @type {string}
+     * @memberof MachineIdentityResponseV2026
+     */
+    'name': string | null;
+    /**
+     * Creation date of the Object
+     * @type {string}
+     * @memberof MachineIdentityResponseV2026
+     */
+    'created'?: string;
+    /**
+     * Last modification date of the Object
+     * @type {string}
+     * @memberof MachineIdentityResponseV2026
+     */
+    'modified'?: string;
+    /**
+     * The native identity associated to the machine identity directly aggregated from a source
+     * @type {string}
+     * @memberof MachineIdentityResponseV2026
+     */
+    'nativeIdentity': string;
+    /**
+     * Description of machine identity
+     * @type {string}
+     * @memberof MachineIdentityResponseV2026
+     */
+    'description'?: string;
+    /**
+     * A map of custom machine identity attributes
+     * @type {object}
+     * @memberof MachineIdentityResponseV2026
+     */
+    'attributes'?: object;
+    /**
+     * The subtype value associated to the machine identity
+     * @type {string}
+     * @memberof MachineIdentityResponseV2026
+     */
+    'subtype': string;
+    /**
+     * 
+     * @type {MachineIdentityDtoOwnersV2026}
+     * @memberof MachineIdentityResponseV2026
+     */
+    'owners'?: MachineIdentityDtoOwnersV2026;
+    /**
+     * The source id associated to the machine identity
+     * @type {string}
+     * @memberof MachineIdentityResponseV2026
+     */
+    'sourceId'?: string;
+    /**
+     * The UUID associated to the machine identity directly aggregated from a source
+     * @type {string}
+     * @memberof MachineIdentityResponseV2026
+     */
+    'uuid'?: string;
+    /**
+     * Indicates if the machine identity has been manually edited
+     * @type {boolean}
+     * @memberof MachineIdentityResponseV2026
+     */
+    'manuallyEdited'?: boolean;
+    /**
+     * Indicates if the machine identity has been manually created
+     * @type {boolean}
+     * @memberof MachineIdentityResponseV2026
+     */
+    'manuallyCreated'?: boolean;
+    /**
+     * The source of the machine identity
+     * @type {object}
+     * @memberof MachineIdentityResponseV2026
+     */
+    'source'?: object;
+    /**
+     * The dataset id associated to the source in which the identity was retrieved from
+     * @type {string}
+     * @memberof MachineIdentityResponseV2026
+     */
+    'datasetId'?: string;
+    /**
+     * The user entitlements associated to the machine identity
+     * @type {Array<MachineIdentityResponseUserEntitlementsV2026>}
+     * @memberof MachineIdentityResponseV2026
+     */
+    'userEntitlements'?: Array<MachineIdentityResponseUserEntitlementsV2026>;
+}
+/**
+ * 
+ * @export
+ * @interface MachineIdentityV2026
+ */
+export interface MachineIdentityV2026 {
+    /**
+     * System-generated unique ID of the Object
+     * @type {string}
+     * @memberof MachineIdentityV2026
+     */
+    'id'?: string;
+    /**
+     * Name of the Object
+     * @type {string}
+     * @memberof MachineIdentityV2026
+     */
+    'name': string | null;
+    /**
+     * Creation date of the Object
+     * @type {string}
+     * @memberof MachineIdentityV2026
+     */
+    'created'?: string;
+    /**
+     * Last modification date of the Object
+     * @type {string}
+     * @memberof MachineIdentityV2026
+     */
+    'modified'?: string;
+    /**
+     * The native identity associated to the machine identity directly aggregated from a source
+     * @type {string}
+     * @memberof MachineIdentityV2026
+     */
+    'nativeIdentity': string;
+    /**
+     * Description of machine identity
+     * @type {string}
+     * @memberof MachineIdentityV2026
+     */
+    'description'?: string;
+    /**
+     * A map of custom machine identity attributes
+     * @type {object}
+     * @memberof MachineIdentityV2026
+     */
+    'attributes'?: object;
+    /**
+     * The subtype value associated to the machine identity
+     * @type {string}
+     * @memberof MachineIdentityV2026
+     */
+    'subtype': string;
+    /**
+     * 
+     * @type {MachineIdentityDtoOwnersV2026}
+     * @memberof MachineIdentityV2026
+     */
+    'owners'?: MachineIdentityDtoOwnersV2026;
+    /**
+     * The source id associated to the machine identity
+     * @type {string}
+     * @memberof MachineIdentityV2026
+     */
+    'sourceId'?: string;
+    /**
+     * The UUID associated to the machine identity directly aggregated from a source
+     * @type {string}
+     * @memberof MachineIdentityV2026
+     */
+    'uuid'?: string;
 }
 /**
  * Simplified DTO for the Permission objects stored in SailPoint\'s database. The data is aggregated from customer systems and is free-form, so its appearance can vary largely between different clients/customers.
@@ -4035,6 +4390,661 @@ export class MachineAccountDeletionApprovalConfigV2026Api extends BaseAPI {
      */
     public updateMachineAccountDeletionApprovalConfig(requestParameters: MachineAccountDeletionApprovalConfigV2026ApiUpdateMachineAccountDeletionApprovalConfigRequest, axiosOptions?: RawAxiosRequestConfig) {
         return MachineAccountDeletionApprovalConfigV2026ApiFp(this.configuration).updateMachineAccountDeletionApprovalConfig(requestParameters.xSailPointExperimental, requestParameters.sourceId, requestParameters.jsonPatchOperationV2026, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * MachineIdentitiesV2026Api - axios parameter creator
+ * @export
+ */
+export const MachineIdentitiesV2026ApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Use this API to create a machine identity. The maximum supported length for the description field is 2000 characters.
+         * @summary Create machine identities
+         * @param {MachineIdentityRequestV2026} machineIdentityRequestV2026 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMachineIdentity: async (machineIdentityRequestV2026: MachineIdentityRequestV2026, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'machineIdentityRequestV2026' is not null or undefined
+            assertParamExists('createMachineIdentity', 'machineIdentityRequestV2026', machineIdentityRequestV2026)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-identities`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(machineIdentityRequestV2026, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * The API returns successful response if the requested machine identity was deleted.
+         * @summary Delete machine identity
+         * @param {string} id Machine Identity ID
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteMachineIdentity: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteMachineIdentity', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-identities/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns a single machine identity using the Machine Identity ID.
+         * @summary Machine identity details
+         * @param {string} id Machine Identity ID
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMachineIdentity: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getMachineIdentity', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-identities/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns a list of machine identities.
+         * @summary List machine identities
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **cisIdentityId**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq*  **subtype**: *eq, in*  **owners.primaryIdentity.id**: *eq, in, sw*  **owners.primaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryIdentity.id**: *eq, in, sw*  **owners.secondaryIdentity.name**: *eq, in, isnull, pr*  **source.name**: *eq, in, sw*  **source.id**: *eq, in*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **nativeIdentity, name, owners.primaryIdentity.name, source.name, created, modified**
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMachineIdentities: async (filters?: string, sorters?: string, xSailPointExperimental?: string, count?: boolean, limit?: number, offset?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-identities`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Use this API to update machine identity details. 
+         * @summary Update a machine identity
+         * @param {string} id Machine Identity ID.
+         * @param {Array<object>} requestBody A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateMachineIdentity: async (id: string, requestBody: Array<object>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateMachineIdentity', 'id', id)
+            // verify required parameter 'requestBody' is not null or undefined
+            assertParamExists('updateMachineIdentity', 'requestBody', requestBody)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-identities/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(requestBody, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * MachineIdentitiesV2026Api - functional programming interface
+ * @export
+ */
+export const MachineIdentitiesV2026ApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = MachineIdentitiesV2026ApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Use this API to create a machine identity. The maximum supported length for the description field is 2000 characters.
+         * @summary Create machine identities
+         * @param {MachineIdentityRequestV2026} machineIdentityRequestV2026 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createMachineIdentity(machineIdentityRequestV2026: MachineIdentityRequestV2026, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineIdentityResponseV2026>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createMachineIdentity(machineIdentityRequestV2026, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesV2026Api.createMachineIdentity']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * The API returns successful response if the requested machine identity was deleted.
+         * @summary Delete machine identity
+         * @param {string} id Machine Identity ID
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteMachineIdentity(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMachineIdentity(id, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesV2026Api.deleteMachineIdentity']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This API returns a single machine identity using the Machine Identity ID.
+         * @summary Machine identity details
+         * @param {string} id Machine Identity ID
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMachineIdentity(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineIdentityResponseV2026>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMachineIdentity(id, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesV2026Api.getMachineIdentity']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This API returns a list of machine identities.
+         * @summary List machine identities
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **cisIdentityId**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq*  **subtype**: *eq, in*  **owners.primaryIdentity.id**: *eq, in, sw*  **owners.primaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryIdentity.id**: *eq, in, sw*  **owners.secondaryIdentity.name**: *eq, in, isnull, pr*  **source.name**: *eq, in, sw*  **source.id**: *eq, in*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **nativeIdentity, name, owners.primaryIdentity.name, source.name, created, modified**
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listMachineIdentities(filters?: string, sorters?: string, xSailPointExperimental?: string, count?: boolean, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MachineIdentityResponseV2026>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listMachineIdentities(filters, sorters, xSailPointExperimental, count, limit, offset, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesV2026Api.listMachineIdentities']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Use this API to update machine identity details. 
+         * @summary Update a machine identity
+         * @param {string} id Machine Identity ID.
+         * @param {Array<object>} requestBody A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateMachineIdentity(id: string, requestBody: Array<object>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineIdentityResponseV2026>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateMachineIdentity(id, requestBody, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesV2026Api.updateMachineIdentity']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * MachineIdentitiesV2026Api - factory interface
+ * @export
+ */
+export const MachineIdentitiesV2026ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = MachineIdentitiesV2026ApiFp(configuration)
+    return {
+        /**
+         * Use this API to create a machine identity. The maximum supported length for the description field is 2000 characters.
+         * @summary Create machine identities
+         * @param {MachineIdentitiesV2026ApiCreateMachineIdentityRequest} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMachineIdentity(requestParameters: MachineIdentitiesV2026ApiCreateMachineIdentityRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineIdentityResponseV2026> {
+            return localVarFp.createMachineIdentity(requestParameters.machineIdentityRequestV2026, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * The API returns successful response if the requested machine identity was deleted.
+         * @summary Delete machine identity
+         * @param {MachineIdentitiesV2026ApiDeleteMachineIdentityRequest} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteMachineIdentity(requestParameters: MachineIdentitiesV2026ApiDeleteMachineIdentityRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteMachineIdentity(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns a single machine identity using the Machine Identity ID.
+         * @summary Machine identity details
+         * @param {MachineIdentitiesV2026ApiGetMachineIdentityRequest} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMachineIdentity(requestParameters: MachineIdentitiesV2026ApiGetMachineIdentityRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineIdentityResponseV2026> {
+            return localVarFp.getMachineIdentity(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns a list of machine identities.
+         * @summary List machine identities
+         * @param {MachineIdentitiesV2026ApiListMachineIdentitiesRequest} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMachineIdentities(requestParameters: MachineIdentitiesV2026ApiListMachineIdentitiesRequest = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<MachineIdentityResponseV2026>> {
+            return localVarFp.listMachineIdentities(requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this API to update machine identity details. 
+         * @summary Update a machine identity
+         * @param {MachineIdentitiesV2026ApiUpdateMachineIdentityRequest} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateMachineIdentity(requestParameters: MachineIdentitiesV2026ApiUpdateMachineIdentityRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineIdentityResponseV2026> {
+            return localVarFp.updateMachineIdentity(requestParameters.id, requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createMachineIdentity operation in MachineIdentitiesV2026Api.
+ * @export
+ * @interface MachineIdentitiesV2026ApiCreateMachineIdentityRequest
+ */
+export interface MachineIdentitiesV2026ApiCreateMachineIdentityRequest {
+    /**
+     * 
+     * @type {MachineIdentityRequestV2026}
+     * @memberof MachineIdentitiesV2026ApiCreateMachineIdentity
+     */
+    readonly machineIdentityRequestV2026: MachineIdentityRequestV2026
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineIdentitiesV2026ApiCreateMachineIdentity
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for deleteMachineIdentity operation in MachineIdentitiesV2026Api.
+ * @export
+ * @interface MachineIdentitiesV2026ApiDeleteMachineIdentityRequest
+ */
+export interface MachineIdentitiesV2026ApiDeleteMachineIdentityRequest {
+    /**
+     * Machine Identity ID
+     * @type {string}
+     * @memberof MachineIdentitiesV2026ApiDeleteMachineIdentity
+     */
+    readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineIdentitiesV2026ApiDeleteMachineIdentity
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for getMachineIdentity operation in MachineIdentitiesV2026Api.
+ * @export
+ * @interface MachineIdentitiesV2026ApiGetMachineIdentityRequest
+ */
+export interface MachineIdentitiesV2026ApiGetMachineIdentityRequest {
+    /**
+     * Machine Identity ID
+     * @type {string}
+     * @memberof MachineIdentitiesV2026ApiGetMachineIdentity
+     */
+    readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineIdentitiesV2026ApiGetMachineIdentity
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for listMachineIdentities operation in MachineIdentitiesV2026Api.
+ * @export
+ * @interface MachineIdentitiesV2026ApiListMachineIdentitiesRequest
+ */
+export interface MachineIdentitiesV2026ApiListMachineIdentitiesRequest {
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **cisIdentityId**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq*  **subtype**: *eq, in*  **owners.primaryIdentity.id**: *eq, in, sw*  **owners.primaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryIdentity.id**: *eq, in, sw*  **owners.secondaryIdentity.name**: *eq, in, isnull, pr*  **source.name**: *eq, in, sw*  **source.id**: *eq, in*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw*
+     * @type {string}
+     * @memberof MachineIdentitiesV2026ApiListMachineIdentities
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **nativeIdentity, name, owners.primaryIdentity.name, source.name, created, modified**
+     * @type {string}
+     * @memberof MachineIdentitiesV2026ApiListMachineIdentities
+     */
+    readonly sorters?: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineIdentitiesV2026ApiListMachineIdentities
+     */
+    readonly xSailPointExperimental?: string
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof MachineIdentitiesV2026ApiListMachineIdentities
+     */
+    readonly count?: boolean
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof MachineIdentitiesV2026ApiListMachineIdentities
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof MachineIdentitiesV2026ApiListMachineIdentities
+     */
+    readonly offset?: number
+}
+
+/**
+ * Request parameters for updateMachineIdentity operation in MachineIdentitiesV2026Api.
+ * @export
+ * @interface MachineIdentitiesV2026ApiUpdateMachineIdentityRequest
+ */
+export interface MachineIdentitiesV2026ApiUpdateMachineIdentityRequest {
+    /**
+     * Machine Identity ID.
+     * @type {string}
+     * @memberof MachineIdentitiesV2026ApiUpdateMachineIdentity
+     */
+    readonly id: string
+
+    /**
+     * A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+     * @type {Array<object>}
+     * @memberof MachineIdentitiesV2026ApiUpdateMachineIdentity
+     */
+    readonly requestBody: Array<object>
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineIdentitiesV2026ApiUpdateMachineIdentity
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * MachineIdentitiesV2026Api - object-oriented interface
+ * @export
+ * @class MachineIdentitiesV2026Api
+ * @extends {BaseAPI}
+ */
+export class MachineIdentitiesV2026Api extends BaseAPI {
+    /**
+     * Use this API to create a machine identity. The maximum supported length for the description field is 2000 characters.
+     * @summary Create machine identities
+     * @param {MachineIdentitiesV2026ApiCreateMachineIdentityRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineIdentitiesV2026Api
+     */
+    public createMachineIdentity(requestParameters: MachineIdentitiesV2026ApiCreateMachineIdentityRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineIdentitiesV2026ApiFp(this.configuration).createMachineIdentity(requestParameters.machineIdentityRequestV2026, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * The API returns successful response if the requested machine identity was deleted.
+     * @summary Delete machine identity
+     * @param {MachineIdentitiesV2026ApiDeleteMachineIdentityRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineIdentitiesV2026Api
+     */
+    public deleteMachineIdentity(requestParameters: MachineIdentitiesV2026ApiDeleteMachineIdentityRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineIdentitiesV2026ApiFp(this.configuration).deleteMachineIdentity(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns a single machine identity using the Machine Identity ID.
+     * @summary Machine identity details
+     * @param {MachineIdentitiesV2026ApiGetMachineIdentityRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineIdentitiesV2026Api
+     */
+    public getMachineIdentity(requestParameters: MachineIdentitiesV2026ApiGetMachineIdentityRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineIdentitiesV2026ApiFp(this.configuration).getMachineIdentity(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns a list of machine identities.
+     * @summary List machine identities
+     * @param {MachineIdentitiesV2026ApiListMachineIdentitiesRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineIdentitiesV2026Api
+     */
+    public listMachineIdentities(requestParameters: MachineIdentitiesV2026ApiListMachineIdentitiesRequest = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineIdentitiesV2026ApiFp(this.configuration).listMachineIdentities(requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this API to update machine identity details. 
+     * @summary Update a machine identity
+     * @param {MachineIdentitiesV2026ApiUpdateMachineIdentityRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineIdentitiesV2026Api
+     */
+    public updateMachineIdentity(requestParameters: MachineIdentitiesV2026ApiUpdateMachineIdentityRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineIdentitiesV2026ApiFp(this.configuration).updateMachineIdentity(requestParameters.id, requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
