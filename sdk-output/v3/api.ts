@@ -8072,6 +8072,12 @@ export interface Entitlement {
      */
     'owner'?: EntitlementOwner | null;
     /**
+     * List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP).
+     * @type {Array<AdditionalOwnerRef>}
+     * @memberof Entitlement
+     */
+    'additionalOwners'?: Array<AdditionalOwnerRef> | null;
+    /**
      * A map of entitlement fields that have been manually updated. The key is the field name in UPPER_SNAKE_CASE format, and the value is true or false to indicate if the field has been updated.
      * @type {{ [key: string]: any; }}
      * @memberof Entitlement
@@ -9785,7 +9791,40 @@ export interface FullDiscoveredApplications {
      * @memberof FullDiscoveredApplications
      */
     'associatedSources'?: Array<string>;
+    /**
+     * The risk score of the application ranging from 0-100, 100 being highest risk.
+     * @type {number}
+     * @memberof FullDiscoveredApplications
+     */
+    'riskScore'?: number;
+    /**
+     * Indicates whether the application is used for business purposes.
+     * @type {boolean}
+     * @memberof FullDiscoveredApplications
+     */
+    'isBusiness'?: boolean;
+    /**
+     * The total number of sign-in accounts for the application.
+     * @type {number}
+     * @memberof FullDiscoveredApplications
+     */
+    'totalSigninsCount'?: number;
+    /**
+     * The risk level of the application.
+     * @type {string}
+     * @memberof FullDiscoveredApplications
+     */
+    'riskLevel'?: FullDiscoveredApplicationsRiskLevelV3;
 }
+
+export const FullDiscoveredApplicationsRiskLevelV3 = {
+    High: 'High',
+    Medium: 'Medium',
+    Low: 'Low'
+} as const;
+
+export type FullDiscoveredApplicationsRiskLevelV3 = typeof FullDiscoveredApplicationsRiskLevelV3[keyof typeof FullDiscoveredApplicationsRiskLevelV3];
+
 /**
  * 
  * @export
@@ -21636,7 +21675,40 @@ export interface SlimDiscoveredApplications {
      * @memberof SlimDiscoveredApplications
      */
     'status'?: string;
+    /**
+     * The risk score of the application ranging from 0-100, 100 being highest risk.
+     * @type {number}
+     * @memberof SlimDiscoveredApplications
+     */
+    'riskScore'?: number;
+    /**
+     * Indicates whether the application is used for business purposes.
+     * @type {boolean}
+     * @memberof SlimDiscoveredApplications
+     */
+    'isBusiness'?: boolean;
+    /**
+     * The total number of sign-in accounts for the application.
+     * @type {number}
+     * @memberof SlimDiscoveredApplications
+     */
+    'totalSigninsCount'?: number;
+    /**
+     * The risk level of the application.
+     * @type {string}
+     * @memberof SlimDiscoveredApplications
+     */
+    'riskLevel'?: SlimDiscoveredApplicationsRiskLevelV3;
 }
+
+export const SlimDiscoveredApplicationsRiskLevelV3 = {
+    High: 'High',
+    Medium: 'Medium',
+    Low: 'Low'
+} as const;
+
+export type SlimDiscoveredApplicationsRiskLevelV3 = typeof SlimDiscoveredApplicationsRiskLevelV3[keyof typeof SlimDiscoveredApplicationsRiskLevelV3];
+
 /**
  * Details of the Entitlement criteria
  * @export
