@@ -1368,6 +1368,12 @@ export interface AutomatedWorkflowNERM {
      */
     'name': string;
     /**
+     * When honored at runtime, suppresses failure email notifications for this workflow\'s sessions.
+     * @type {boolean}
+     * @memberof AutomatedWorkflowNERM
+     */
+    'disable_failure_email_notifications'?: boolean | null;
+    /**
      * The ProfileTypeRule this workflow will be working with.
      * @type {Array<AutomatedWorkflowConditionRulesAttributesInnerNERM>}
      * @memberof AutomatedWorkflowNERM
@@ -1443,6 +1449,12 @@ export interface BatchWorkflowNERM {
      * @memberof BatchWorkflowNERM
      */
     'options'?: BatchWorkflowOptionsNERM;
+    /**
+     * When honored at runtime, suppresses failure email notifications for this workflow\'s sessions.
+     * @type {boolean}
+     * @memberof BatchWorkflowNERM
+     */
+    'disable_failure_email_notifications'?: boolean | null;
 }
 
 export const BatchWorkflowNERMStatusNerm = {
@@ -2355,6 +2367,12 @@ export interface CreateWorkflowNERM {
      * @memberof CreateWorkflowNERM
      */
     'name': string;
+    /**
+     * When honored at runtime, suppresses failure email notifications for this workflow\'s sessions.
+     * @type {boolean}
+     * @memberof CreateWorkflowNERM
+     */
+    'disable_failure_email_notifications'?: boolean | null;
 }
 
 export const CreateWorkflowNERMStatusNerm = {
@@ -3917,6 +3935,12 @@ export interface LoginWorkflowNERM {
      * @memberof LoginWorkflowNERM
      */
     'options'?: LoginWorkflowOptionsNERM;
+    /**
+     * When honored at runtime, suppresses failure email notifications for this workflow\'s sessions.
+     * @type {boolean}
+     * @memberof LoginWorkflowNERM
+     */
+    'disable_failure_email_notifications'?: boolean | null;
 }
 
 export const LoginWorkflowNERMStatusNerm = {
@@ -7316,6 +7340,12 @@ export interface UpdateWorkflowNERM {
      * @memberof UpdateWorkflowNERM
      */
     'profile_status': string;
+    /**
+     * When honored at runtime, suppresses failure email notifications for this workflow\'s sessions.
+     * @type {boolean}
+     * @memberof UpdateWorkflowNERM
+     */
+    'disable_failure_email_notifications'?: boolean | null;
 }
 
 export const UpdateWorkflowNERMStatusNerm = {
