@@ -5535,7 +5535,9 @@ export type CampaignReferenceTypeV3 = typeof CampaignReferenceTypeV3[keyof typeo
 export const CampaignReferenceCampaignTypeV3 = {
     Manager: 'MANAGER',
     SourceOwner: 'SOURCE_OWNER',
-    Search: 'SEARCH'
+    Search: 'SEARCH',
+    RoleComposition: 'ROLE_COMPOSITION',
+    MachineAccount: 'MACHINE_ACCOUNT'
 } as const;
 
 export type CampaignReferenceCampaignTypeV3 = typeof CampaignReferenceCampaignTypeV3[keyof typeof CampaignReferenceCampaignTypeV3];
@@ -18697,11 +18699,11 @@ export interface Reviewer {
      */
     'name'?: string;
     /**
-     * The email of the reviewing identity.
+     * The email of the reviewing identity. This is only applicable to reviewers of the `IDENTITY` type.
      * @type {string}
      * @memberof Reviewer
      */
-    'email'?: string;
+    'email'?: string | null;
     /**
      * The type of the reviewing identity.
      * @type {string}
@@ -18723,7 +18725,8 @@ export interface Reviewer {
 }
 
 export const ReviewerTypeV3 = {
-    Identity: 'IDENTITY'
+    Identity: 'IDENTITY',
+    GovernanceGroup: 'GOVERNANCE_GROUP'
 } as const;
 
 export type ReviewerTypeV3 = typeof ReviewerTypeV3[keyof typeof ReviewerTypeV3];
@@ -25546,19 +25549,19 @@ export interface WorkflowLibraryTrigger {
      */
     'type'?: WorkflowLibraryTriggerTypeV3;
     /**
-     * 
+     * Whether the trigger is deprecated.
      * @type {boolean}
      * @memberof WorkflowLibraryTrigger
      */
     'deprecated'?: boolean;
     /**
-     * 
+     * Date the trigger was deprecated, if applicable.
      * @type {string}
      * @memberof WorkflowLibraryTrigger
      */
     'deprecatedBy'?: string;
     /**
-     * 
+     * Whether the trigger can be simulated.
      * @type {boolean}
      * @memberof WorkflowLibraryTrigger
      */
@@ -25604,7 +25607,8 @@ export interface WorkflowLibraryTrigger {
 export const WorkflowLibraryTriggerTypeV3 = {
     Event: 'EVENT',
     Scheduled: 'SCHEDULED',
-    External: 'EXTERNAL'
+    External: 'EXTERNAL',
+    AccessRequestTrigger: 'AccessRequestTrigger'
 } as const;
 
 export type WorkflowLibraryTriggerTypeV3 = typeof WorkflowLibraryTriggerTypeV3[keyof typeof WorkflowLibraryTriggerTypeV3];
@@ -64555,7 +64559,7 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
          * @summary List workflow library triggers
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **type**: *eq*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -65034,7 +65038,7 @@ export const WorkflowsApiFp = function(configuration?: Configuration) {
          * @summary List workflow library triggers
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **type**: *eq*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -65540,7 +65544,7 @@ export interface WorkflowsApiListWorkflowLibraryTriggersRequest {
     readonly offset?: number
 
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **type**: *eq*
      * @type {string}
      * @memberof WorkflowsApiListWorkflowLibraryTriggers
      */
