@@ -102,8 +102,22 @@ export class Paginator {
     params.limit = increment;
 
     let modified: TResult[] = [];
+    let lastResults: AxiosResponse<TResult[], any> | undefined;
     while (true) {
-      let results = await callbackFn.call(thisArg, params);
+      let results: AxiosResponse<TResult[], any>;
+      try {
+        results = await callbackFn.call(thisArg, params);
+      } catch (e: any) {
+        // When total results are an exact multiple of increment, some APIs return a
+        // 4xx error instead of an empty array for the out-of-bounds offset request.
+        // Return whatever we've accumulated rather than surfacing the error.
+        if (lastResults && modified.length > 0 && e?.response?.status >= 400 && e?.response?.status < 500) {
+          lastResults.data = modified;
+          return lastResults;
+        }
+        throw e;
+      }
+      lastResults = results;
       modified.push.apply(modified, results.data);
       if (
         results.data.length < increment ||
@@ -138,19 +152,27 @@ export class Paginator {
 
     let totalYielded = 0;
     while (true) {
-      const results = await callbackFn.call(thisArg, params);
+      let results: AxiosResponse<TResult[], any>;
+      try {
+        results = await callbackFn.call(thisArg, params);
+      } catch (e: any) {
+        // When total results are an exact multiple of increment, some APIs return a
+        // 4xx error instead of an empty array for the out-of-bounds offset request.
+        if (totalYielded > 0 && e?.response?.status >= 400 && e?.response?.status < 500) {
+          return;
+        }
+        throw e;
+      }
 
       for (const item of results.data) {
         yield item;
         totalYielded++;
 
-        // Stop if we've reached the max limit
         if (maxLimit > 0 && totalYielded >= maxLimit) {
           return;
         }
       }
 
-      // Stop if we got fewer results than requested
       if (results.data.length < increment) {
         return;
       }
@@ -170,6 +192,7 @@ export class Paginator {
     let offset = 0;
     const maxLimit = limit ? limit : 0;
     let modified: SearchApiTypeMap[T]["document"][] = [];
+    let lastResults: AxiosResponse<SearchApiTypeMap[T]["document"][], any> | undefined;
 
     if (!search.sort || search.sort.length != 1) {
       throw "search must include exactly one sort parameter to paginate properly";
@@ -179,35 +202,46 @@ export class Paginator {
       console.log(`Paginating call, offset = ${offset}`);
       let results: AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
 
-      // Handle each API type separately to avoid type conflicts
-      if (searchAPI instanceof SearchApi) {
-        const searchParams: SearchApiSearchPostRequest = {
-          search: search as Search,
-          limit: increment,
-        };
-        results = (await (searchAPI as SearchApi).searchPost(
-          searchParams
-        )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
-      } else if (searchAPI instanceof SearchV2024Api) {
-        const searchParams: SearchV2024ApiSearchPostRequest = {
-          searchV2024: search as SearchV2024,
-          limit: increment,
-        };
-        results = (await (searchAPI as SearchV2024Api).searchPost(
-          searchParams
-        )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
-      } else if (searchAPI instanceof SearchV2025Api) {
-        const searchParams: SearchV2025ApiSearchPostRequest = {
-          searchV2025: search as SearchV2025,
-          limit: increment,
-        };
-        results = (await (searchAPI as SearchV2025Api).searchPost(
-          searchParams
-        )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
-      } else {
-        throw new Error("Unsupported API type");
+      try {
+        // Handle each API type separately to avoid type conflicts
+        if (searchAPI instanceof SearchApi) {
+          const searchParams: SearchApiSearchPostRequest = {
+            search: search as Search,
+            limit: increment,
+          };
+          results = (await (searchAPI as SearchApi).searchPost(
+            searchParams
+          )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
+        } else if (searchAPI instanceof SearchV2024Api) {
+          const searchParams: SearchV2024ApiSearchPostRequest = {
+            searchV2024: search as SearchV2024,
+            limit: increment,
+          };
+          results = (await (searchAPI as SearchV2024Api).searchPost(
+            searchParams
+          )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
+        } else if (searchAPI instanceof SearchV2025Api) {
+          const searchParams: SearchV2025ApiSearchPostRequest = {
+            searchV2025: search as SearchV2025,
+            limit: increment,
+          };
+          results = (await (searchAPI as SearchV2025Api).searchPost(
+            searchParams
+          )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
+        } else {
+          throw new Error("Unsupported API type");
+        }
+      } catch (e: any) {
+        // When total results are an exact multiple of increment, some APIs return a
+        // 4xx error instead of an empty array for the out-of-bounds offset request.
+        if (lastResults && modified.length > 0 && e?.response?.status >= 400 && e?.response?.status < 500) {
+          lastResults.data = modified;
+          return lastResults;
+        }
+        throw e;
       }
 
+      lastResults = results;
       modified.push.apply(modified, results.data);
 
       if (
@@ -250,52 +284,57 @@ export class Paginator {
       console.log(`Paginating call, offset = ${offset}`);
       let results: AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
 
-      // Handle each API type separately to avoid type conflicts
-      if (searchAPI instanceof SearchApi) {
-        const searchParams: SearchApiSearchPostRequest = {
-          search: search as Search,
-          limit: increment,
-        };
-        results = (await (searchAPI as SearchApi).searchPost(
-          searchParams
-        )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
-      } else if (searchAPI instanceof SearchV2024Api) {
-        const searchParams: SearchV2024ApiSearchPostRequest = {
-          searchV2024: search as SearchV2024,
-          limit: increment,
-        };
-        results = (await (searchAPI as SearchV2024Api).searchPost(
-          searchParams
-        )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
-      } else if (searchAPI instanceof SearchV2025Api) {
-        const searchParams: SearchV2025ApiSearchPostRequest = {
-          searchV2025: search as SearchV2025,
-          limit: increment,
-        };
-        results = (await (searchAPI as SearchV2025Api).searchPost(
-          searchParams
-        )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
-      } else {
-        throw new Error("Unsupported API type");
+      try {
+        // Handle each API type separately to avoid type conflicts
+        if (searchAPI instanceof SearchApi) {
+          const searchParams: SearchApiSearchPostRequest = {
+            search: search as Search,
+            limit: increment,
+          };
+          results = (await (searchAPI as SearchApi).searchPost(
+            searchParams
+          )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
+        } else if (searchAPI instanceof SearchV2024Api) {
+          const searchParams: SearchV2024ApiSearchPostRequest = {
+            searchV2024: search as SearchV2024,
+            limit: increment,
+          };
+          results = (await (searchAPI as SearchV2024Api).searchPost(
+            searchParams
+          )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
+        } else if (searchAPI instanceof SearchV2025Api) {
+          const searchParams: SearchV2025ApiSearchPostRequest = {
+            searchV2025: search as SearchV2025,
+            limit: increment,
+          };
+          results = (await (searchAPI as SearchV2025Api).searchPost(
+            searchParams
+          )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
+        } else {
+          throw new Error("Unsupported API type");
+        }
+      } catch (e: any) {
+        // When total results are an exact multiple of increment, some APIs return a
+        // 4xx error instead of an empty array for the out-of-bounds offset request.
+        if (totalYielded > 0 && e?.response?.status >= 400 && e?.response?.status < 500) {
+          return;
+        }
+        throw e;
       }
 
-      // Yield each document as it arrives
       for (const doc of results.data) {
         yield doc;
         totalYielded++;
 
-        // Stop if we've reached the max limit
         if (maxLimit > 0 && totalYielded >= maxLimit) {
           return;
         }
       }
 
-      // Stop if we got fewer results than requested
       if (results.data.length < increment) {
         return;
       }
 
-      // Update search after for next iteration
       const result = <any>results.data[results.data.length - 1];
       if (search.sort) {
         (search as any).searchAfter = [result[search.sort[0].replace("-", "")]];
