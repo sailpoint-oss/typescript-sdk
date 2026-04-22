@@ -389,6 +389,14 @@ export const DelegationsNERMV2025ApiAxiosParamCreator = function (configuration?
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
             if (delegateId !== undefined) {
                 localVarQueryParameter['delegate_id'] = delegateId;
             }
@@ -447,6 +455,14 @@ export const DelegationsNERMV2025ApiAxiosParamCreator = function (configuration?
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -480,6 +496,14 @@ export const DelegationsNERMV2025ApiAxiosParamCreator = function (configuration?
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
 
     
@@ -518,6 +542,14 @@ export const DelegationsNERMV2025ApiAxiosParamCreator = function (configuration?
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -553,6 +585,14 @@ export const DelegationsNERMV2025ApiAxiosParamCreator = function (configuration?
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
 
     
