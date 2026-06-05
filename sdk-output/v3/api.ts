@@ -574,13 +574,13 @@ export interface AccessProfile {
  */
 export interface AccessProfileApprovalScheme {
     /**
-     * Describes the individual or group that is responsible for an approval step. These are the possible values: **APP_OWNER**: The owner of the Application  **OWNER**: Owner of the associated Access Profile or Role  **SOURCE_OWNER**: Owner of the Source associated with an Access Profile  **MANAGER**: Manager of the Identity making the request  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field  **WORKFLOW**: A Workflow, the ID of which is specified by the **approverId** field. Workflow is exclusive to other types of approvals and License required.   
+     * Describes the individual or group that is responsible for an approval step. These are the possible values: **APP_OWNER**: The owner of the Application  **OWNER**: Owner of the associated Access Profile or Role  **SOURCE_OWNER**: Owner of the Source associated with an Access Profile  **MANAGER**: Manager of the Identity making the request  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field  **WORKFLOW**: A Workflow, the ID of which is specified by the **approverId** field. Workflow is exclusive to other types of approvals and License required.  **ALL_OWNERS**: All owners of the Access Profile, including the primary owner and any secondary owners  **ADDITIONAL_OWNER**: An additional owner of the Access Profile, the ID of which is specified by the **approverId** field  **ADDITIONAL_GOVERNANCE_GROUP**: An additional Governance Group, the ID of which is specified by the **approverId** field
      * @type {string}
      * @memberof AccessProfileApprovalScheme
      */
     'approverType'?: AccessProfileApprovalSchemeApproverTypeV3;
     /**
-     * Id of the specific approver, used when approverType is GOVERNANCE_GROUP or WORKFLOW.
+     * Id of the specific approver, used when approverType is GOVERNANCE_GROUP, WORKFLOW, or ADDITIONAL_GOVERNANCE_GROUP.
      * @type {string}
      * @memberof AccessProfileApprovalScheme
      */
@@ -593,7 +593,10 @@ export const AccessProfileApprovalSchemeApproverTypeV3 = {
     SourceOwner: 'SOURCE_OWNER',
     Manager: 'MANAGER',
     GovernanceGroup: 'GOVERNANCE_GROUP',
-    Workflow: 'WORKFLOW'
+    Workflow: 'WORKFLOW',
+    AllOwners: 'ALL_OWNERS',
+    AdditionalOwner: 'ADDITIONAL_OWNER',
+    AdditionalGovernanceGroup: 'ADDITIONAL_GOVERNANCE_GROUP'
 } as const;
 
 export type AccessProfileApprovalSchemeApproverTypeV3 = typeof AccessProfileApprovalSchemeApproverTypeV3[keyof typeof AccessProfileApprovalSchemeApproverTypeV3];
@@ -3422,13 +3425,13 @@ export type ApprovalScheme = typeof ApprovalScheme[keyof typeof ApprovalScheme];
  */
 export interface ApprovalSchemeForRole {
     /**
-     * Describes the individual or group that is responsible for an approval step. Values are as follows.  **OWNER**: Owner of the associated Role  **MANAGER**: Manager of the Identity making the request  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field  **WORKFLOW**: A Workflow, the ID of which is specified by the **approverId** field. Workflow is exclusive to other types of approvals and License required. 
+     * Describes the individual or group that is responsible for an approval step. Values are as follows.  **OWNER**: Owner of the associated Role  **MANAGER**: Manager of the Identity making the request  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field  **WORKFLOW**: A Workflow, the ID of which is specified by the **approverId** field. Workflow is exclusive to other types of approvals and License required.  **ALL_OWNERS**: All owners of the Role, including the primary owner and any secondary owners  **ADDITIONAL_OWNER**: An additional owner of the Role, the ID of which is specified by the **approverId** field  **ADDITIONAL_GOVERNANCE_GROUP**: An additional Governance Group, the ID of which is specified by the **approverId** field
      * @type {string}
      * @memberof ApprovalSchemeForRole
      */
     'approverType'?: ApprovalSchemeForRoleApproverTypeV3;
     /**
-     * Id of the specific approver, used when approverType is GOVERNANCE_GROUP or WORKFLOW.
+     * Id of the specific approver, used when approverType is GOVERNANCE_GROUP, WORKFLOW, or ADDITIONAL_GOVERNANCE_GROUP.
      * @type {string}
      * @memberof ApprovalSchemeForRole
      */
@@ -3439,7 +3442,10 @@ export const ApprovalSchemeForRoleApproverTypeV3 = {
     Owner: 'OWNER',
     Manager: 'MANAGER',
     GovernanceGroup: 'GOVERNANCE_GROUP',
-    Workflow: 'WORKFLOW'
+    Workflow: 'WORKFLOW',
+    AllOwners: 'ALL_OWNERS',
+    AdditionalOwner: 'ADDITIONAL_OWNER',
+    AdditionalGovernanceGroup: 'ADDITIONAL_GOVERNANCE_GROUP'
 } as const;
 
 export type ApprovalSchemeForRoleApproverTypeV3 = typeof ApprovalSchemeForRoleApproverTypeV3[keyof typeof ApprovalSchemeForRoleApproverTypeV3];
@@ -17578,6 +17584,12 @@ export interface RequestabilityForRole {
      * @memberof RequestabilityForRole
      */
     'approvalSchemes'?: Array<ApprovalSchemeForRole>;
+    /**
+     * The ID of the form definition used for the access request. If specified, the form is presented to the requester during the access request process.
+     * @type {string}
+     * @memberof RequestabilityForRole
+     */
+    'formDefinitionId'?: string | null;
 }
 /**
  * 
@@ -18920,6 +18932,12 @@ export interface Role {
      * @memberof Role
      */
     'accessModelMetadata'?: AttributeDTOList;
+    /**
+     * The privilege level of the role, if applicable.
+     * @type {string}
+     * @memberof Role
+     */
+    'privilegeLevel'?: string | null;
 }
 /**
  * Type which indicates how a particular Identity obtained a particular Role
@@ -19009,7 +19027,7 @@ export interface RoleCriteriaLevel1 {
      */
     'key'?: RoleCriteriaKey | null;
     /**
-     * String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, NOT_EQUALS, CONTAINS, STARTS_WITH, or ENDS_WITH, this field is required. Otherwise, specifying it is an error.
+     * String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, NOT_EQUALS, CONTAINS, DOES_NOT_CONTAIN, STARTS_WITH, or ENDS_WITH, this field is required. Otherwise, specifying it is an error.
      * @type {string}
      * @memberof RoleCriteriaLevel1
      */
@@ -19042,7 +19060,7 @@ export interface RoleCriteriaLevel2 {
      */
     'key'?: RoleCriteriaKey | null;
     /**
-     * String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, NOT_EQUALS, CONTAINS, STARTS_WITH, or ENDS_WITH, this field is required. Otherwise, specifying it is an error.
+     * String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, NOT_EQUALS, CONTAINS, DOES_NOT_CONTAIN, STARTS_WITH, or ENDS_WITH, this field is required. Otherwise, specifying it is an error.
      * @type {string}
      * @memberof RoleCriteriaLevel2
      */
@@ -19075,11 +19093,11 @@ export interface RoleCriteriaLevel3 {
      */
     'key'?: RoleCriteriaKey | null;
     /**
-     * String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, NOT_EQUALS, CONTAINS, STARTS_WITH, or ENDS_WITH, this field is required. Otherwise, specifying it is an error.
+     * String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, NOT_EQUALS, CONTAINS, DOES_NOT_CONTAIN, STARTS_WITH, or ENDS_WITH, this field is required. Otherwise, specifying it is an error.
      * @type {string}
      * @memberof RoleCriteriaLevel3
      */
-    'stringValue'?: string;
+    'stringValue'?: string | null;
 }
 
 
@@ -19093,8 +19111,13 @@ export const RoleCriteriaOperation = {
     Equals: 'EQUALS',
     NotEquals: 'NOT_EQUALS',
     Contains: 'CONTAINS',
+    DoesNotContain: 'DOES_NOT_CONTAIN',
     StartsWith: 'STARTS_WITH',
     EndsWith: 'ENDS_WITH',
+    GreaterThan: 'GREATER_THAN',
+    LessThan: 'LESS_THAN',
+    GreaterThanEquals: 'GREATER_THAN_EQUALS',
+    LessThanEquals: 'LESS_THAN_EQUALS',
     And: 'AND',
     Or: 'OR'
 } as const;
