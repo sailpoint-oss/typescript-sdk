@@ -17,7 +17,7 @@ runs:
     - name: Set up Node
       uses: actions/setup-node@v6
       with:
-        node-version: "24"
+        node-version: "20"
 
     - name: Set up Java
       uses: actions/setup-java@v4
@@ -30,63 +30,11 @@ runs:
       run: |
         wget -q https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/7.12.0/openapi-generator-cli-7.12.0.jar -O openapi-generator-cli.jar
 
-    - name: Build V3 SDK
+    - name: Build Versioned SDK (per-partition)
       shell: bash
       run: |
-        rm -rf ./sdk-output/v3
-        java -jar openapi-generator-cli.jar generate \
-          -i ${{ inputs.api-specs-path }}/idn/sailpoint-api.v3.yaml \
-          -g typescript-axios -o sdk-output/v3 \
-          --global-property skipFormModel=false,apiDocs=true,modelDocs=true \
-          --config sdk-resources/v3-config.yaml
-
-    - name: Build Beta SDK
-      shell: bash
-      run: |
-        rm -rf ./sdk-output/beta
-        java -jar openapi-generator-cli.jar generate \
-          -i ${{ inputs.api-specs-path }}/idn/sailpoint-api.beta.yaml \
-          -g typescript-axios -o sdk-output/beta \
-          --global-property skipFormModel=false,apiDocs=true,modelDocs=true \
-          --config sdk-resources/beta-config.yaml \
-          --api-name-suffix BetaApi --model-name-suffix Beta
-
-    - name: Build V2024 SDK
-      shell: bash
-      run: |
-        rm -rf ./sdk-output/v2024
-        node sdk-resources/prescript.js ${{ inputs.api-specs-path }}/idn/v2024/paths
-        java -jar openapi-generator-cli.jar generate \
-          -i ${{ inputs.api-specs-path }}/idn/sailpoint-api.v2024.yaml \
-          -g typescript-axios -o sdk-output/v2024 \
-          --global-property skipFormModel=false,apiDocs=true,modelDocs=true \
-          --config sdk-resources/v2024-config.yaml \
-          --api-name-suffix V2024Api --model-name-suffix V2024
-
-    - name: Build V2025 SDK
-      shell: bash
-      run: |
-        rm -rf ./sdk-output/v2025
-        node sdk-resources/prescript.js ${{ inputs.api-specs-path }}/idn/v2025/paths
-        java -jar openapi-generator-cli.jar generate \
-          -i ${{ inputs.api-specs-path }}/idn/sailpoint-api.v2025.yaml \
-          -g typescript-axios -o sdk-output/v2025 \
-          --global-property skipFormModel=false,apiDocs=true,modelDocs=true \
-          --config sdk-resources/v2025-config.yaml \
-          --api-name-suffix V2025Api --model-name-suffix V2025
-
-    - name: Build V2026 SDK
-      shell: bash
-      run: |
-        rm -rf ./sdk-output/v2026
-        node sdk-resources/prescript.js ${{ inputs.api-specs-path }}/idn/v2026/paths
-        java -jar openapi-generator-cli.jar generate \
-          -i ${{ inputs.api-specs-path }}/idn/sailpoint-api.v2026.yaml \
-          -g typescript-axios -o sdk-output/v2026 \
-          --global-property skipFormModel=false,apiDocs=true,modelDocs=true \
-          --config sdk-resources/v2026-config.yaml \
-          --api-name-suffix V2026Api --model-name-suffix V2026
-
+        node sdk-resources/build-versioned-sdk.js \
+          ${{ inputs.api-specs-path }}/src/main/yaml/apis
 
     - name: Build NERM SDK
       shell: bash

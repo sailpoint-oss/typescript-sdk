@@ -1,24 +1,9 @@
 import type { AxiosResponse, RawAxiosRequestConfig } from "axios";
 import {
-  Search,
-  SearchApi,
-  SearchApiSearchPostRequest,
-  SearchDocument,
-} from "./v3";
-
-import {
-  SearchDocumentV2024,
-  SearchV2024,
-  SearchV2024Api,
-  SearchV2024ApiSearchPostRequest,
-} from "./v2024/api";
-
-import {
-  SearchDocumentV2025,
-  SearchV2025,
-  SearchV2025Api,
-  SearchV2025ApiSearchPostRequest,
-} from "./v2025/api";
+  SearchV1,
+  SearchV1Api,
+  SearchV1ApiSearchPostV1Request,
+} from "./search_v1/api";
 
 export interface PaginationParams {
   /**
@@ -53,31 +38,17 @@ export interface ExtraParams {
 }
 
 interface SearchApiTypeMap {
-  SearchApi: {
-    search: Search;
-    searchParams: SearchApiSearchPostRequest;
-    document: SearchDocument;
-  };
-  SearchV2024Api: {
-    search: SearchV2024;
-    searchParams: SearchV2024ApiSearchPostRequest;
-    document: SearchDocumentV2024;
-  };
-  SearchV2025Api: {
-    search: SearchV2025;
-    searchParams: SearchV2025ApiSearchPostRequest;
-    document: SearchDocumentV2025;
+  SearchV1Api: {
+    search: SearchV1;
+    searchParams: SearchV1ApiSearchPostV1Request;
+    document: object;
   };
 }
 
-// Create a union type for all possible API types
 type ApiType = keyof SearchApiTypeMap;
 
-// Define the actual API instances mapping
 type ApiInstanceMap = {
-  SearchApi: SearchApi;
-  SearchV2024Api: SearchV2024Api;
-  SearchV2025Api: SearchV2025Api;
+  SearchV1Api: SearchV1Api;
 };
 
 export class Paginator {
@@ -203,34 +174,13 @@ export class Paginator {
       let results: AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
 
       try {
-        // Handle each API type separately to avoid type conflicts
-        if (searchAPI instanceof SearchApi) {
-          const searchParams: SearchApiSearchPostRequest = {
-            search: search as Search,
-            limit: increment,
-          };
-          results = (await (searchAPI as SearchApi).searchPost(
-            searchParams
-          )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
-        } else if (searchAPI instanceof SearchV2024Api) {
-          const searchParams: SearchV2024ApiSearchPostRequest = {
-            searchV2024: search as SearchV2024,
-            limit: increment,
-          };
-          results = (await (searchAPI as SearchV2024Api).searchPost(
-            searchParams
-          )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
-        } else if (searchAPI instanceof SearchV2025Api) {
-          const searchParams: SearchV2025ApiSearchPostRequest = {
-            searchV2025: search as SearchV2025,
-            limit: increment,
-          };
-          results = (await (searchAPI as SearchV2025Api).searchPost(
-            searchParams
-          )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
-        } else {
-          throw new Error("Unsupported API type");
-        }
+        const searchParams: SearchV1ApiSearchPostV1Request = {
+          searchV1: search as SearchV1,
+          limit: increment,
+        };
+        results = (await (searchAPI as SearchV1Api).searchPostV1(
+          searchParams
+        )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
       } catch (e: any) {
         // When total results are an exact multiple of increment, some APIs return a
         // 4xx error instead of an empty array for the out-of-bounds offset request.
@@ -285,34 +235,13 @@ export class Paginator {
       let results: AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
 
       try {
-        // Handle each API type separately to avoid type conflicts
-        if (searchAPI instanceof SearchApi) {
-          const searchParams: SearchApiSearchPostRequest = {
-            search: search as Search,
-            limit: increment,
-          };
-          results = (await (searchAPI as SearchApi).searchPost(
-            searchParams
-          )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
-        } else if (searchAPI instanceof SearchV2024Api) {
-          const searchParams: SearchV2024ApiSearchPostRequest = {
-            searchV2024: search as SearchV2024,
-            limit: increment,
-          };
-          results = (await (searchAPI as SearchV2024Api).searchPost(
-            searchParams
-          )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
-        } else if (searchAPI instanceof SearchV2025Api) {
-          const searchParams: SearchV2025ApiSearchPostRequest = {
-            searchV2025: search as SearchV2025,
-            limit: increment,
-          };
-          results = (await (searchAPI as SearchV2025Api).searchPost(
-            searchParams
-          )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
-        } else {
-          throw new Error("Unsupported API type");
-        }
+        const searchParams: SearchV1ApiSearchPostV1Request = {
+          searchV1: search as SearchV1,
+          limit: increment,
+        };
+        results = (await (searchAPI as SearchV1Api).searchPostV1(
+          searchParams
+        )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
       } catch (e: any) {
         // When total results are an exact multiple of increment, some APIs return a
         // 4xx error instead of an empty array for the out-of-bounds offset request.
