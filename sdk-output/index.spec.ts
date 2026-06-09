@@ -4,8 +4,8 @@ import type { SearchV1 } from "./search_v1/api"
 describe('accounts', () => {
     it('list accounts', async () => {
         let apiConfig = new Configuration()
-        let api = new SailPoint.AccountsV1Api(apiConfig)
-        
+        let api = new SailPoint.AccountsApi(apiConfig)
+
         const resp = await api.listAccountsV1({limit: 10})
     
         expect(resp.data.length).toStrictEqual(10)
@@ -14,7 +14,7 @@ describe('accounts', () => {
 
     it('paginate accounts', async () => {
         let apiConfig = new Configuration()
-        let api = new SailPoint.AccountsV1Api(apiConfig)
+        let api = new SailPoint.AccountsApi(apiConfig)
         
         const resp = await Paginator.paginate(api, api.listAccountsV1, {limit: 100}, 10)
     
@@ -26,7 +26,7 @@ describe('accounts', () => {
 describe('connectors', () => {
     it('get connector list', async () => {
         let apiConfig = new Configuration()
-        let api = new SailPoint.ConnectorsV1Api(apiConfig)
+        let api = new SailPoint.ConnectorsApi(apiConfig)
         
         const resp = await api.getConnectorListV1({limit: 10})
     
@@ -38,7 +38,7 @@ describe('connectors', () => {
 describe('sources', () => {
     it('list sources', async () => {
         let apiConfig = new Configuration()
-        let api = new SailPoint.SourcesV1Api(apiConfig)
+        let api = new SailPoint.SourcesApi(apiConfig)
         
         const resp = await api.listSourcesV1({limit: 10})
     
@@ -50,7 +50,7 @@ describe('sources', () => {
 describe('transforms', () => {
     it('list transforms', async () => {
         let apiConfig = new Configuration()
-        let api = new SailPoint.TransformsV1Api(apiConfig)
+        let api = new SailPoint.TransformsApi(apiConfig)
         
         const resp = await api.listTransformsV1({limit: 10})
     
@@ -63,7 +63,7 @@ describe('identities', () => {
     it('list identities with experimental flag', async () => {
         let apiConfig = new Configuration()
         apiConfig.experimental = true
-        let api = new SailPoint.IdentitiesV1Api(apiConfig)
+        let api = new SailPoint.IdentitiesApi(apiConfig)
         
         const resp = await api.listIdentitiesV1({limit: 10})
     
@@ -75,7 +75,7 @@ describe('identities', () => {
 describe('identity-profiles', () => {
     it('paginate identity profiles', async () => {
         let apiConfig = new Configuration()
-        let api = new SailPoint.IdentityProfilesV1Api(apiConfig)
+        let api = new SailPoint.IdentityProfilesApi(apiConfig)
         
         const resp = await Paginator.paginate(api, api.listIdentityProfilesV1, {limit: 5}, 1)
     
@@ -87,7 +87,7 @@ describe('identity-profiles', () => {
 describe('search', () => {
     it('paginate search API', async () => {
         let apiConfig = new Configuration()
-        let api = new SailPoint.SearchV1Api(apiConfig)
+        let api = new SailPoint.SearchApi(apiConfig)
         
         let search: SearchV1 = {
             indices: [
@@ -109,7 +109,7 @@ describe('access-model-metadata', () => {
     it('list access model metadata attributes with experimental flag', async () => {
         let apiConfig = new Configuration()
         apiConfig.experimental = true
-        let api = new SailPoint.AccessModelMetadataV1Api(apiConfig)
+        let api = new SailPoint.AccessModelMetadataApi(apiConfig)
         
         const resp = await api.listAccessModelMetadataAttributeV1()
     
@@ -121,7 +121,7 @@ describe('task-management', () => {
     it('get task status list with experimental flag', async () => {
         let apiConfig = new Configuration()
         apiConfig.experimental = true
-        let api = new SailPoint.TaskManagementV1Api(apiConfig)
+        let api = new SailPoint.TaskManagementApi(apiConfig)
 
         const resp = await api.getTaskStatusListV1()
         expect(resp.status).toStrictEqual(200)

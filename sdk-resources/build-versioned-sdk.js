@@ -401,16 +401,35 @@ node sdk-resources/build-versioned-sdk.js <path-to-apis>
 // ---------------------------------------------------------------------------
 // Regenerate sdk-output/index.ts from discovered partition packages
 //
-// Each partition's api.ts contains one API class (e.g. AccountsV1Api) and
-// many model interfaces.  Common shared models (ErrormessagedtoV1, etc.) are
-// inlined by Redocly into every partition that references them, so a naive
-// `export * from "./{partition}/index"` across all partitions would cause
-// TS2308 "already exported" errors.
+// Naming convention in the SailPoint namespace:
+//   Generated class  AccountsV1Api  →  SailPoint.AccountsApi
+//   Generated class  AccountsV2Api  →  still SailPoint.AccountsApi  (combined)
 //
-// The fix: export only the specific API class from each partition by name.
-// Models can be imported directly from partition sub-paths when needed:
+// The version suffix is stripped from the namespace name so the import never
+// changes as new versions land.  Method names carry the version suffix
+// (listAccountsV1, listAccountsV2) so you always know which version you're
+// calling.
+//
+// Single-version resource  →  const AccountsApi = _AccountsV1Api
+// Multi-version resource   →  generated combined class that extends the
+//   latest version and copies older-version prototype methods, with
+//   TypeScript interface merging for full type safety on all methods.
+//
+// TS2308 note: export * across 100+ partitions collides on shared error model
+// names (Redocly inlines them into every partition).  Only API classes are
+// exported from the root — models are imported directly from sub-paths:
 //   import type { AccountV1 } from "sailpoint-api-client/accounts_v1/api"
 // ---------------------------------------------------------------------------
+
+/** AccountsV1Api  →  AccountsApi */
+function toResourceApiName(className) {
+  return className.replace(/V\d+Api$/, "Api");
+}
+
+/** Extract the numeric version from a class name: AccountsV1Api → 1 */
+function classVersion(className) {
+  return parseInt(className.match(/V(\d+)Api$/)?.[1] ?? "1", 10);
+}
 
 function generateIndexTs() {
   const partitionDirs = fs.readdirSync(SDK_OUTPUT)
@@ -422,46 +441,98 @@ function generateIndexTs() {
     return;
   }
 
-  // Collect { dir, className } pairs for all partitions
+  // Collect { dir, className } for every partition
   const partitions = partitionDirs.map(d => {
     const apiTsPath = path.join(SDK_OUTPUT, d, "api.ts");
     const content   = fs.existsSync(apiTsPath) ? fs.readFileSync(apiTsPath, "utf8") : "";
     const match     = content.match(/^export class (\w+) extends BaseAPI/m);
-    return { dir: d, className: match ? match[1] : null };
-  }).filter(p => p.className !== null);
+    return match ? { dir: d, className: match[1] } : null;
+  }).filter(Boolean);
 
-  // Each class is imported once with a private _ alias, then re-exported as
-  // both a named export and a namespace const.  Using a const inside the
-  // namespace avoids TS1194 ("Export declarations are not permitted in a
-  // namespace") and TS2303 (circular import alias) that occur when you write
-  // `export { X }` inside a namespace for an externally-imported binding.
-  const imports      = partitions.map(p => `import { ${p.className} as _${p.className} } from "./${p.dir}/api";`).join("\n");
-  const namedExports = partitions.map(p => `export { _${p.className} as ${p.className} };`).join("\n");
-  const nsMembers    = partitions.map(p => `  export const ${p.className} = _${p.className};`).join("\n");
+  // Group by resource name, sorted oldest→newest within each group
+  const byResource = new Map();
+  for (const p of partitions) {
+    const key = toResourceApiName(p.className);
+    if (!byResource.has(key)) byResource.set(key, []);
+    byResource.get(key).push(p);
+  }
+  for (const group of byResource.values()) {
+    group.sort((a, b) => classVersion(a.className) - classVersion(b.className));
+  }
+
+  // Build the three output sections
+  const importLines   = [];  // import { X as _X } from "..."
+  const exportLines   = [];  // export { _X as X }  (named / backward-compat)
+  const combinedBlocks = []; // combined class declarations for multi-version resources
+  const nsLines       = [];  // lines inside `export namespace SailPoint { ... }`
+
+  for (const [resourceApiName, group] of byResource.entries()) {
+    // --- import every versioned class ---
+    for (const p of group) {
+      importLines.push(`import { ${p.className} as _${p.className} } from "./${p.dir}/api";`);
+      exportLines.push(`export { _${p.className} as ${p.className} };`);
+    }
+
+    if (group.length === 1) {
+      // Single version — simple alias in namespace
+      nsLines.push(`  export const ${resourceApiName} = _${group[0].className};`);
+    } else {
+      // Multi-version — generate a combined class:
+      //   • extends the latest version (newest methods available natively)
+      //   • interface-merges older versions (TypeScript knows all method signatures)
+      //   • copies older prototype methods at runtime (runtime correctness)
+      const latest  = group[group.length - 1];
+      const older   = group.slice(0, -1);
+      const implVar = `_${resourceApiName}Impl`; // e.g. _AccountsApiImpl
+
+      const interfaceMerges = older
+        .map(p => `interface ${implVar} extends _${p.className} {}`)
+        .join("\n");
+
+      const protoCopyArgs = older.map(p => `_${p.className}`).join(", ");
+
+      combinedBlocks.push(
+        `// ${resourceApiName}: combined ${group.map(p => p.className).join(" + ")}`,
+        `class ${implVar} extends _${latest.className} {}`,
+        interfaceMerges,
+        `(function(target: any, ...sources: Function[]) {`,
+        `  for (const src of sources) {`,
+        `    for (const key of Object.getOwnPropertyNames((src as any).prototype)) {`,
+        `      if (key !== "constructor" && !(key in target.prototype)) {`,
+        `        const d = Object.getOwnPropertyDescriptor((src as any).prototype, key);`,
+        `        if (d) Object.defineProperty(target.prototype, key, d);`,
+        `      }`,
+        `    }`,
+        `  }`,
+        `})(${implVar}, ${protoCopyArgs});`,
+        "",
+      );
+
+      nsLines.push(`  export const ${resourceApiName} = ${implVar};`);
+    }
+  }
 
   const fileContent = `/* tslint:disable */
 /* eslint-disable */
 // Code generated by build-versioned-sdk.js; DO NOT EDIT.
 //
-// Only the API class for each partition is exported here to avoid TS2308
-// name-collision errors caused by shared error models being inlined into
-// every partition's api.ts by the Redocly bundler.
-//
-// Usage — named imports (existing pattern):
+// Named imports — backward-compatible, version-explicit:
 //   import { AccountsV1Api, Configuration } from "sailpoint-api-client"
 //
-// Usage — namespace (grouped access):
+// Namespace — resource-named, version-agnostic (preferred):
 //   import { SailPoint, Configuration } from "sailpoint-api-client"
-//   const api = new SailPoint.AccountsV1Api(config)
+//   const api = new SailPoint.AccountsApi(config)   // works for v1, v2, v3 …
+//   api.listAccountsV1(...)                          // method name shows version
+//   api.listAccountsV2(...)                          // when v2 partition lands
 //
-// To import models or types from a specific partition, use the sub-path:
+// Models — import directly from the partition sub-path:
 //   import type { AccountV1 } from "sailpoint-api-client/accounts_v1/api"
 
-// --- Partition imports (loaded once, referenced by named exports and namespace) ---
-${imports}
+// --- Partition imports (private _ alias avoids TS1194 / TS2303 in namespace) ---
+${importLines.join("\n")}
 
-// --- Named exports ---
-${namedExports}
+// --- Named exports (versioned class names, backward-compatible) ---
+${exportLines.join("\n")}
 
 // --- Generic / NERM / shared exports ---
 export * from "./generic/api";
@@ -479,14 +550,15 @@ export { axiosRetry };
 
     import * as axiosRetry from "axios-retry";
 
-// --- SailPoint namespace (all partition API classes grouped under one name) ---
+${combinedBlocks.length > 0 ? "// --- Combined multi-version API classes ---\n" + combinedBlocks.join("\n") : ""}
+// --- SailPoint namespace (resource-named, all versions combined) ---
 export namespace SailPoint {
-${nsMembers}
+${nsLines.join("\n")}
 }
 `;
 
   fs.writeFileSync(path.join(SDK_OUTPUT, "index.ts"), fileContent, "utf8");
-  console.log(`  Wrote index.ts with ${partitions.length} partition API class export(s) + SailPoint namespace`);
+  console.log(`  Wrote index.ts — ${partitions.length} partition(s), ${byResource.size} resource(s) in SailPoint namespace`);
 }
 
 // ---------------------------------------------------------------------------
