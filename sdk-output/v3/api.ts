@@ -6441,6 +6441,24 @@ export interface CompletedApproval {
      */
     'currentRemoveDate'?: string | null;
     /**
+     * The date the role or access profile or entitlement is/will assigned to the specified identity.
+     * @type {string}
+     * @memberof CompletedApproval
+     */
+    'startDate'?: string;
+    /**
+     * If true, then the request is to change the start date or sunrise date.
+     * @type {boolean}
+     * @memberof CompletedApproval
+     */
+    'startUpdateRequested'?: boolean;
+    /**
+     * The start date or sunrise date that was assigned at the time of the request.
+     * @type {string}
+     * @memberof CompletedApproval
+     */
+    'currentStartDate'?: string;
+    /**
      * 
      * @type {SodViolationContextCheckCompleted}
      * @memberof CompletedApproval
@@ -16073,6 +16091,24 @@ export interface PendingApproval {
      * @memberof PendingApproval
      */
     'currentRemoveDate'?: string;
+    /**
+     * The date the role or access profile or entitlement is/will assigned to the specified identity.
+     * @type {string}
+     * @memberof PendingApproval
+     */
+    'startDate'?: string;
+    /**
+     * If true, then the request is to change the start date or sunrise date.
+     * @type {boolean}
+     * @memberof PendingApproval
+     */
+    'startUpdateRequested'?: boolean;
+    /**
+     * The start date or sunrise date that was assigned at the time of the request.
+     * @type {string}
+     * @memberof PendingApproval
+     */
+    'currentStartDate'?: string;
     /**
      * 
      * @type {SodViolationContextCheckCompleted}
