@@ -39047,7 +39047,7 @@ export class GlobalTenantSecuritySettingsApi extends BaseAPI {
 export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Creates an identity profile.    
+         * Creates an identity profile.
          * @summary Create identity profile
          * @param {IdentityProfile} identityProfile 
          * @param {*} [axiosOptions] Override http request option.
@@ -39075,6 +39075,10 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -39121,6 +39125,10 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -39161,6 +39169,10 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -39273,6 +39285,10 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -39472,6 +39488,10 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -39516,6 +39536,10 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
 
     
@@ -39562,6 +39586,10 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
@@ -39587,7 +39615,7 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IdentityProfilesApiAxiosParamCreator(configuration)
     return {
         /**
-         * Creates an identity profile.    
+         * Creates an identity profile.
          * @summary Create identity profile
          * @param {IdentityProfile} identityProfile 
          * @param {*} [axiosOptions] Override http request option.
@@ -39749,7 +39777,7 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
     const localVarFp = IdentityProfilesApiFp(configuration)
     return {
         /**
-         * Creates an identity profile.    
+         * Creates an identity profile.
          * @summary Create identity profile
          * @param {IdentityProfilesApiCreateIdentityProfileRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -40086,7 +40114,7 @@ export interface IdentityProfilesApiUpdateIdentityProfileRequest {
  */
 export class IdentityProfilesApi extends BaseAPI {
     /**
-     * Creates an identity profile.    
+     * Creates an identity profile.
      * @summary Create identity profile
      * @param {IdentityProfilesApiCreateIdentityProfileRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
