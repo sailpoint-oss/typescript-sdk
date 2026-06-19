@@ -1,5 +1,5 @@
 import { SailPoint, Configuration, Paginator } from "./index"
-import type { SearchV1 } from "./search_v1/api"
+import type { SearchV1 } from "./search/api"
 
 describe('accounts', () => {
     it('list accounts', async () => {

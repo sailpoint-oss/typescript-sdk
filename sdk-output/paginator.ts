@@ -3,7 +3,7 @@ import {
   SearchV1,
   SearchV1Api,
   SearchV1ApiSearchPostV1Request,
-} from "./search_v1/api";
+} from "./search/api";
 
 export interface PaginationParams {
   /**

@@ -229,7 +229,7 @@ function writePartitionConfig(partitionName) {
 // ---------------------------------------------------------------------------
 
 function generatePartition(partitionName, bundledSpec, configPath) {
-  const packageDir = `${partitionName.replaceAll("-", "_")}_v1`;
+  const packageDir = partitionName.replaceAll("-", "_");
   const outputDir  = path.join(SDK_OUTPUT, packageDir);
 
   if (fs.existsSync(outputDir)) {
@@ -251,6 +251,12 @@ function generatePartition(partitionName, bundledSpec, configPath) {
     ],
     { encoding: "utf8" }
   );
+
+  // Write a marker so cleanup and index generation can identify generated dirs
+  // without relying on a version suffix in the folder name.
+  if (result.status === 0) {
+    fs.writeFileSync(path.join(outputDir, ".sdk-partition"), partitionName, "utf8");
+  }
 
   return {
     ok:        result.status === 0,
@@ -433,11 +439,14 @@ function classVersion(className) {
 
 function generateIndexTs() {
   const partitionDirs = fs.readdirSync(SDK_OUTPUT)
-    .filter(d => /^[a-z].+_v\d+$/.test(d) && fs.statSync(path.join(SDK_OUTPUT, d)).isDirectory())
+    .filter(d => {
+      if (!fs.statSync(path.join(SDK_OUTPUT, d)).isDirectory()) return false;
+      return fs.existsSync(path.join(SDK_OUTPUT, d, ".sdk-partition"));
+    })
     .sort();
 
   if (partitionDirs.length === 0) {
-    console.log("  No *_v1 partition packages found, skipping index.ts regeneration.");
+    console.log("  No generated partition packages found, skipping index.ts regeneration.");
     return;
   }
 
@@ -526,7 +535,7 @@ function generateIndexTs() {
 //   api.listAccountsV2(...)                          // when v2 partition lands
 //
 // Models — import directly from the partition sub-path:
-//   import type { AccountV1 } from "sailpoint-api-client/accounts_v1/api"
+//   import type { AccountV1 } from "sailpoint-api-client/accounts/api"
 
 // --- Partition imports (private _ alias avoids TS1194 / TS2303 in namespace) ---
 ${importLines.join("\n")}
@@ -604,6 +613,30 @@ async function main() {
 
   // Clear any previous error reports
   if (fs.existsSync(ERROR_DIR)) fs.rmSync(ERROR_DIR, { recursive: true, force: true });
+
+  // Remove all stale generated partition directories so renamed/removed APIs don't linger.
+  // Generated dirs are identified by the presence of a .sdk-partition marker file written
+  // during generation; shared dirs (generic, nerm, nermv2025) are never touched.
+  // Also removes legacy dirs with a _v{n} suffix (pre-marker naming convention).
+  // Skipped when --partition is used (single-partition rebuild preserves sibling packages).
+  if (!onlyPartition && fs.existsSync(SDK_OUTPUT)) {
+    console.log("[CLEAN] Removing stale generated partition directories ...");
+    const expectedDirs = new Set(partitions.map(p => p.replaceAll("-", "_")));
+    const stale = fs.readdirSync(SDK_OUTPUT)
+      .filter(d => {
+        if (!fs.statSync(path.join(SDK_OUTPUT, d)).isDirectory()) return false;
+        // New-style: identified by marker file
+        if (fs.existsSync(path.join(SDK_OUTPUT, d, ".sdk-partition"))) return !expectedDirs.has(d);
+        // Legacy migration: old _v{n} suffix dirs written before the marker was introduced
+        if (/^[a-z].+_v\d+$/.test(d)) return true;
+        return false;
+      });
+    for (const d of stale) {
+      fs.rmSync(path.join(SDK_OUTPUT, d), { recursive: true, force: true });
+      console.log(`  removed sdk-output/${d}/`);
+    }
+    console.log(`  cleaned ${stale.length} directory/directories\n`);
+  }
 
   const results = {
     total:   partitions.length,
