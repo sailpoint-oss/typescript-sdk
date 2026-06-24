@@ -7,6 +7,9 @@ import type { Configuration } from '../configuration';
 // @ts-ignore
 import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
+import axiosRetry from 'axios-retry';
+
+const RETRY_APPLIED_KEY = '__sailpoint_retry_configured';
 
 export const BASE_PATH = "{{{basePath}}}".replace(/\/+$/, "");
 
@@ -46,8 +49,12 @@ export class BaseAPI {
             this.basePath = configuration.nermBasePath{{#apiVersion}}+ "/{{{apiVersion}}}"{{/apiVersion}};
             {{/nerm}}
             {{^nerm}}
-            this.basePath = configuration.basePath {{#apiVersion}}+ "/{{{apiVersion}}}"{{/apiVersion}}|| this.basePath;
+            this.basePath = configuration.basePath || this.basePath;
             {{/nerm}}
+            if (!(this.axios as any)[RETRY_APPLIED_KEY]) {
+                axiosRetry(this.axios, configuration.retriesConfig);
+                (this.axios as any)[RETRY_APPLIED_KEY] = true;
+            }
         }
     }
 };

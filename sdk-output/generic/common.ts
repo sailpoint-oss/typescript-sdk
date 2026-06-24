@@ -14,7 +14,6 @@
 
 
 import type { AxiosInstance, AxiosResponse } from 'axios';
-import axiosRetry from "axios-retry";
 import type { Configuration } from "../configuration";
 import type { RequestArgs } from "./base";
 import { RequiredError } from "./base";
@@ -144,8 +143,7 @@ export const toPathString = function (url: URL) {
  * @export
  */
 export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxios: AxiosInstance, BASE_PATH: string, configuration?: Configuration) {
-    return <T = unknown, R = AxiosResponse<T>>(axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-        axiosRetry(axios, configuration.retriesConfig)
+    return async <T = unknown, R = AxiosResponse<T>>(axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
         const headers = {
             ...{'User-Agent':'OpenAPI-Generator/1.6.7/ts'}, 
             ...axiosArgs.axiosOptions.headers,
@@ -153,7 +151,21 @@ export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxi
         }
 
         axiosArgs.axiosOptions.headers = headers
-        const axiosRequestArgs = {...axiosArgs.axiosOptions, url: (configuration?.basePath  || basePath) + axiosArgs.url};
-        return axios.request<T, R>(axiosRequestArgs);
+        const axiosRequestArgs = {...axiosArgs.axiosOptions, url: (configuration?.basePath  || basePath) + axiosArgs.url, headers};
+        return axios.request<T, R>(axiosRequestArgs).catch((error: any) => {
+            if (error?.isAxiosError === true) {
+                const clean: any = new Error(error.message ?? "API request failed");
+                clean.name = "ApiError";
+                clean.stack = error.stack;
+                clean.code = error.code;
+                if (error.response) {
+                    clean.status = error.response.status;
+                    clean.statusText = error.response.statusText;
+                    clean.data = error.response.data;
+                }
+                throw clean;
+            }
+            throw error;
+        });
     };
 }

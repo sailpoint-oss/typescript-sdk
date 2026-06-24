@@ -18,6 +18,9 @@ import type { Configuration } from '../configuration';
 // @ts-ignore
 import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
+import axiosRetry from 'axios-retry';
+
+const RETRY_APPLIED_KEY = '__sailpoint_retry_configured';
 
 export const BASE_PATH = "https://sailpoint.api.identitynow.com".replace(/\/+$/, "");
 
@@ -53,7 +56,11 @@ export class BaseAPI {
     constructor(configuration?: Configuration, protected basePath: string = BASE_PATH, protected axios: AxiosInstance = globalAxios) {
         if (configuration) {
             this.configuration = configuration;
-            this.basePath = configuration.basePath + "/v1"|| this.basePath;
+            this.basePath = configuration.basePath || this.basePath;
+            if (!(this.axios as any)[RETRY_APPLIED_KEY]) {
+                axiosRetry(this.axios, configuration.retriesConfig);
+                (this.axios as any)[RETRY_APPLIED_KEY] = true;
+            }
         }
     }
 };

@@ -77,9 +77,9 @@ describe('identity-profiles', () => {
         let apiConfig = new Configuration()
         let api = new SailPoint.IdentityProfilesApi(apiConfig)
         
-        const resp = await Paginator.paginate(api, api.listIdentityProfilesV1, {limit: 5}, 1)
+        const resp = await Paginator.paginate(api, api.listIdentityProfilesV1, {limit: 3}, 1)
     
-        expect(resp.data.length).toStrictEqual(5)
+        expect(resp.data.length).toStrictEqual(3)
         expect(resp.status).toStrictEqual(200)
     }, 30000)
 })

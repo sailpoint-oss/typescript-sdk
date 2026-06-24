@@ -17,7 +17,6 @@ import type { Configuration } from "../configuration";
 import type { RequestArgs } from "./base";
 import type { AxiosInstance, AxiosResponse } from 'axios';
 import { RequiredError } from "./base";
-import axiosRetry from "axios-retry";
 
 /**
  *
@@ -144,8 +143,7 @@ export const toPathString = function (url: URL) {
  * @export
  */
 export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxios: AxiosInstance, BASE_PATH: string, configuration?: Configuration) {
-    return <T = unknown, R = AxiosResponse<T>>(axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-        axiosRetry(axios, configuration.retriesConfig)
+    return async <T = unknown, R = AxiosResponse<T>>(axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
         let userAgent = `SailPoint-SDK-TypeScript/1.0.0`;
         if (configuration?.consumerIdentifier && configuration?.consumerVersion) {
             userAgent += ` (${configuration.consumerIdentifier}/${configuration.consumerVersion})`;
@@ -163,8 +161,23 @@ export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxi
             console.log("Warning: You are using Experimental APIs")
         }
 
-        axiosArgs.axiosOptions.headers = headers
-        const axiosRequestArgs = {...axiosArgs.axiosOptions, url: (configuration?.basePath+ "/v1" || basePath) + axiosArgs.url};
-        return axios.request<T, R>(axiosRequestArgs);
+        await setBearerAuthToObject(headers, configuration);
+
+        const axiosRequestArgs = {...axiosArgs.axiosOptions, url: (configuration?.basePath || basePath) + axiosArgs.url, headers};
+        return axios.request<T, R>(axiosRequestArgs).catch((error: any) => {
+            if (error?.isAxiosError === true) {
+                const clean: any = new Error(error.message ?? "API request failed");
+                clean.name = "ApiError";
+                clean.stack = error.stack;
+                clean.code = error.code;
+                if (error.response) {
+                    clean.status = error.response.status;
+                    clean.statusText = error.response.statusText;
+                    clean.data = error.response.data;
+                }
+                throw clean;
+            }
+            throw error;
+        });
     };
 }
