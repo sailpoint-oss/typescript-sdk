@@ -163,7 +163,7 @@ export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxi
 
         await setBearerAuthToObject(headers, configuration);
 
-        const axiosRequestArgs = {...axiosArgs.axiosOptions, url: (configuration?.basePath || basePath) + axiosArgs.url, headers};
+        const axiosRequestArgs = {...axiosArgs.axiosOptions, url: (basePath || configuration?.basePath) + axiosArgs.url, headers};
         return axios.request<T, R>(axiosRequestArgs).catch((error: any) => {
             if (error?.isAxiosError === true) {
                 const clean: any = new Error(error.message ?? 'API request failed');

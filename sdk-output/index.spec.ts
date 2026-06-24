@@ -1,4 +1,4 @@
-import { SailPoint, Configuration, Paginator } from "./index"
+import { SailPoint, Configuration, Paginator, UsersNERMApi, DelegationsNERMV2025Api } from "./index"
 import type { SearchV1 } from "./search/api"
 
 describe('accounts', () => {
@@ -125,5 +125,30 @@ describe('task-management', () => {
 
         const resp = await api.getTaskStatusListV1()
         expect(resp.status).toStrictEqual(200)
+    }, 30000)
+})
+
+const _nermCheck = new Configuration()
+const describeIfNerm = _nermCheck.nermBasePath ? describe : describe.skip
+
+describeIfNerm('nerm', () => {
+    it('list users', async () => {
+        const apiConfig = new Configuration()
+        const api = new UsersNERMApi(apiConfig)
+
+        const resp = await api.getUsers({})
+
+        expect(resp.status).toStrictEqual(200)
+        expect(resp.data).toBeDefined()
+    }, 30000)
+
+    it('v2025 list delegations', async () => {
+        const apiConfig = new Configuration()
+        const api = new DelegationsNERMV2025Api(apiConfig)
+
+        const resp = await api.delegationsGet({})
+
+        expect(resp.status).toStrictEqual(200)
+        expect(resp.data).toBeDefined()
     }, 30000)
 })

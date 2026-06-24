@@ -53,7 +53,7 @@ export class BaseAPI {
     constructor(configuration?: Configuration, protected basePath: string = BASE_PATH, protected axios: AxiosInstance = configuration?.axiosInstance ?? globalAxios) {
         if (configuration) {
             this.configuration = configuration;
-            this.basePath = configuration.nermBasePath+ "/2025";
+            this.basePath = configuration.nermBasePath + "/v2025";
         }
     }
 };

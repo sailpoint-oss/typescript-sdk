@@ -234,7 +234,7 @@ export class Configuration {
       config.clientId = jsonData.ClientId;
       config.clientSecret = jsonData.ClientSecret;
       config.tokenUrl = config.baseurl + "/oauth/token";
-      config.nermBaseurl = jsonData.NERMBaseURL;
+      config.nermBaseurl = jsonData.NermBaseUrl ?? jsonData.NERMBaseURL;
     } catch (error) {
       console.log("unable to find config file in local directory");
     }
