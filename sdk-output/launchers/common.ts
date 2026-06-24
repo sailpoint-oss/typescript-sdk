@@ -166,8 +166,8 @@ export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxi
         const axiosRequestArgs = {...axiosArgs.axiosOptions, url: (configuration?.basePath || basePath) + axiosArgs.url, headers};
         return axios.request<T, R>(axiosRequestArgs).catch((error: any) => {
             if (error?.isAxiosError === true) {
-                const clean: any = new Error(error.message ?? "API request failed");
-                clean.name = "ApiError";
+                const clean: any = new Error(error.message ?? 'API request failed');
+                clean.name = 'ApiError';
                 clean.stack = error.stack;
                 clean.code = error.code;
                 if (error.response) {
