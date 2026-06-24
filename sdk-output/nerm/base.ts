@@ -20,7 +20,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 import axiosRetry from 'axios-retry';
 
-const RETRY_APPLIED_KEY = '__sailpoint_retry_configured';
+const retryConfiguredInstances = new WeakSet<AxiosInstance>();
 
 export const BASE_PATH = "https://acmeco.nonemployee.com/api".replace(/\/+$/, "");
 
@@ -57,9 +57,9 @@ export class BaseAPI {
         if (configuration) {
             this.configuration = configuration;
             this.basePath = configuration.nermBasePath;
-            if (!(this.axios as any)[RETRY_APPLIED_KEY]) {
+            if (!retryConfiguredInstances.has(this.axios)) {
                 axiosRetry(this.axios, configuration.retriesConfig);
-                (this.axios as any)[RETRY_APPLIED_KEY] = true;
+                retryConfiguredInstances.add(this.axios);
             }
         }
     }
