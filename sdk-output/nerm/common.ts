@@ -144,7 +144,7 @@ export const toPathString = function (url: URL) {
  */
 export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxios: AxiosInstance, BASE_PATH: string, configuration?: Configuration) {
     return async <T = unknown, R = AxiosResponse<T>>(axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-        let userAgent = `SailPoint-SDK-TypeScript/1.8.52`;
+        let userAgent = `SailPoint-SDK-TypeScript/1.8.69`;
         if (configuration?.consumerIdentifier && configuration?.consumerVersion) {
             userAgent += ` (${configuration.consumerIdentifier}/${configuration.consumerVersion})`;
         }
@@ -152,7 +152,7 @@ export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxi
         const headers = {
             ...{'Accept': 'application/json'},
             ...axiosArgs.axiosOptions.headers,
-            ...{'X-SailPoint-SDK':'typescript-1.8.52'},
+            ...{'X-SailPoint-SDK':'typescript-1.8.69'},
             ...{'User-Agent': userAgent},
         }
 
@@ -167,8 +167,8 @@ export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxi
         const axiosRequestArgs = {...axiosArgs.axiosOptions, url: (basePath || configuration?.nermBasePath) + axiosArgs.url, headers};
         return axios.request<T, R>(axiosRequestArgs).catch((error: any) => {
             if (error?.isAxiosError === true) {
-                const clean: any = new Error(error.message ?? "API request failed");
-                clean.name = "ApiError";
+                const clean: any = new Error(error.message ?? 'API request failed');
+                clean.name = 'ApiError';
                 clean.stack = error.stack;
                 clean.code = error.code;
                 if (error.response) {

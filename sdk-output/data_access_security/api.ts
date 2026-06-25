@@ -467,6 +467,44 @@ export type CrawlresourcessizesoptionsV1 = typeof CrawlresourcessizesoptionsV1[k
 /**
  * 
  * @export
+ * @interface CreateIdentityCollectorV1200ResponseV1
+ */
+export interface CreateIdentityCollectorV1200ResponseV1 {
+    /**
+     * The unique identifier of the created identity collector.
+     * @type {number}
+     * @memberof CreateIdentityCollectorV1200ResponseV1
+     */
+    'id'?: number;
+    /**
+     * The display name of the created identity collector.
+     * @type {string}
+     * @memberof CreateIdentityCollectorV1200ResponseV1
+     */
+    'name'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface CreateidentitycollectorrequestV1
+ */
+export interface CreateidentitycollectorrequestV1 {
+    /**
+     * The display name for the new identity collector. Must be unique within the tenant.
+     * @type {string}
+     * @memberof CreateidentitycollectorrequestV1
+     */
+    'name': string;
+    /**
+     * The identifier of the source to create the identity collector for, represented as a UUID. Both hyphenated and non-hyphenated formats are accepted. The identity collector type is derived from this source.
+     * @type {string}
+     * @memberof CreateidentitycollectorrequestV1
+     */
+    'sourceId': string;
+}
+/**
+ * 
+ * @export
  * @interface CreateschedulerequestV1
  */
 export interface CreateschedulerequestV1 {
@@ -662,6 +700,37 @@ export interface GetTasksV1429ResponseV1 {
 /**
  * 
  * @export
+ * @interface IdentitycollectorlistitemV1
+ */
+export interface IdentitycollectorlistitemV1 {
+    /**
+     * The unique identifier of the identity collector.
+     * @type {string}
+     * @memberof IdentitycollectorlistitemV1
+     */
+    'id'?: string;
+    /**
+     * The display name of the identity collector.
+     * @type {string}
+     * @memberof IdentitycollectorlistitemV1
+     */
+    'name'?: string;
+    /**
+     * The identity collector type, derived from its underlying source. Possible values include \"Active Directory\", \"Azure Active Directory\", \"Google Drive\", \"Dropbox\", \"Box\", \"Microsoft Entra SaaS\", \"Snowflake\", and \"Databricks\".
+     * @type {string}
+     * @memberof IdentitycollectorlistitemV1
+     */
+    'type'?: string;
+    /**
+     * The identifier of the source the identity collector is associated with, represented as a UUID. Both hyphenated and non-hyphenated formats are accepted.
+     * @type {string}
+     * @memberof IdentitycollectorlistitemV1
+     */
+    'sourceId'?: string;
+}
+/**
+ * 
+ * @export
  * @interface Int64stringkeyvaluepairV1
  */
 export interface Int64stringkeyvaluepairV1 {
@@ -734,6 +803,56 @@ export interface PermissioncollectorsettingsV1 {
      * @memberof PermissioncollectorsettingsV1
      */
     'effectivePermissionsSource'?: string | null;
+}
+/**
+ * 
+ * @export
+ * @interface PutIdentityCollectorV1409ResponseMessagesInnerV1
+ */
+export interface PutIdentityCollectorV1409ResponseMessagesInnerV1 {
+    /**
+     * The locale for the message text, a BCP 47 language tag.
+     * @type {string}
+     * @memberof PutIdentityCollectorV1409ResponseMessagesInnerV1
+     */
+    'locale'?: string;
+    /**
+     * An indicator of how the locale was selected.
+     * @type {string}
+     * @memberof PutIdentityCollectorV1409ResponseMessagesInnerV1
+     */
+    'localeOrigin'?: string;
+    /**
+     * Actual text of the error message in the indicated locale.
+     * @type {string}
+     * @memberof PutIdentityCollectorV1409ResponseMessagesInnerV1
+     */
+    'text'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface PutIdentityCollectorV1409ResponseV1
+ */
+export interface PutIdentityCollectorV1409ResponseV1 {
+    /**
+     * Fine-grained error code providing more detail of the error.
+     * @type {string}
+     * @memberof PutIdentityCollectorV1409ResponseV1
+     */
+    'detailCode'?: string;
+    /**
+     * Unique tracking id for the error.
+     * @type {string}
+     * @memberof PutIdentityCollectorV1409ResponseV1
+     */
+    'trackingId'?: string;
+    /**
+     * Generic localized reason for error.
+     * @type {Array<PutIdentityCollectorV1409ResponseMessagesInnerV1>}
+     * @memberof PutIdentityCollectorV1409ResponseV1
+     */
+    'messages'?: Array<PutIdentityCollectorV1409ResponseMessagesInnerV1>;
 }
 /**
  * 
@@ -991,6 +1110,31 @@ export interface TaskinfoV1 {
 /**
  * 
  * @export
+ * @interface UpdateidentitycollectorrequestV1
+ */
+export interface UpdateidentitycollectorrequestV1 {
+    /**
+     * The display name of the identity collector. Must be unique within the tenant.
+     * @type {string}
+     * @memberof UpdateidentitycollectorrequestV1
+     */
+    'name': string;
+    /**
+     * The identifier of the associated source, represented as a UUID. Both hyphenated and non-hyphenated formats are accepted. This value cannot be modified for an existing identity collector and must match the current value.
+     * @type {string}
+     * @memberof UpdateidentitycollectorrequestV1
+     */
+    'sourceId': string;
+    /**
+     * The identity collector type. This value cannot be modified for an existing identity collector and must match the current value.
+     * @type {string}
+     * @memberof UpdateidentitycollectorrequestV1
+     */
+    'type': string;
+}
+/**
+ * 
+ * @export
  * @interface UpdateschedulerequestV1
  */
 export interface UpdateschedulerequestV1 {
@@ -1126,6 +1270,42 @@ export const DataAccessSecurityV1ApiAxiosParamCreator = function (configuration?
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(basecreateapplicationrequestV1, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This endpoint creates a new identity collector in Data Access Security for the specified source. The identity collector type is derived from the source.
+         * @summary Create identity collector
+         * @param {CreateidentitycollectorrequestV1} createidentitycollectorrequestV1 Request body containing the details required to create a new identity collector.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createIdentityCollectorV1: async (createidentitycollectorrequestV1: CreateidentitycollectorrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'createidentitycollectorrequestV1' is not null or undefined
+            assertParamExists('createIdentityCollectorV1', 'createidentitycollectorrequestV1', createidentitycollectorrequestV1)
+            const localVarPath = `/das/identity-collectors/v1`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(createidentitycollectorrequestV1, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1377,6 +1557,40 @@ export const DataAccessSecurityV1ApiAxiosParamCreator = function (configuration?
             // verify required parameter 'id' is not null or undefined
             assertParamExists('deleteApplicationV1', 'id', id)
             const localVarPath = `/das/v1/applications/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This endpoint deletes an identity collector from Data Access Security by its unique identifier.
+         * @summary Delete identity collector by identifier
+         * @param {number} id The unique identifier of the identity collector to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteIdentityCollectorV1: async (id: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteIdentityCollectorV1', 'id', id)
+            const localVarPath = `/das/identity-collectors/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1765,6 +1979,56 @@ export const DataAccessSecurityV1ApiAxiosParamCreator = function (configuration?
             };
         },
         /**
+         * This endpoint lists the identity collectors in Data Access Security with optional filtering and pagination.  Sorting is not supported for this endpoint; supplying the `sorters` query parameter results in a validation error.
+         * @summary List identity collectors
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  **type**: *eq, in*  **id**: *eq, in*  Supported composite operators are *and, or*
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listIdentityCollectorsV1: async (filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/das/identity-collectors/v1`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This endpoint updates an existing application in Data Access Security with the specified configuration.
          * @summary Update application by identifier.
          * @param {number} id The unique identifier of the application to update.
@@ -1798,6 +2062,46 @@ export const DataAccessSecurityV1ApiAxiosParamCreator = function (configuration?
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(basecreateapplicationrequestV1, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This endpoint updates the name of an existing identity collector in Data Access Security. The `sourceId` and `type` cannot be changed and must match the current values.
+         * @summary Update identity collector by identifier
+         * @param {number} id The unique identifier of the identity collector to update.
+         * @param {UpdateidentitycollectorrequestV1} updateidentitycollectorrequestV1 Request body containing the updated details for the identity collector.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putIdentityCollectorV1: async (id: number, updateidentitycollectorrequestV1: UpdateidentitycollectorrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('putIdentityCollectorV1', 'id', id)
+            // verify required parameter 'updateidentitycollectorrequestV1' is not null or undefined
+            assertParamExists('putIdentityCollectorV1', 'updateidentitycollectorrequestV1', updateidentitycollectorrequestV1)
+            const localVarPath = `/das/identity-collectors/v1/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(updateidentitycollectorrequestV1, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1915,6 +2219,19 @@ export const DataAccessSecurityV1ApiFp = function(configuration?: Configuration)
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * This endpoint creates a new identity collector in Data Access Security for the specified source. The identity collector type is derived from the source.
+         * @summary Create identity collector
+         * @param {CreateidentitycollectorrequestV1} createidentitycollectorrequestV1 Request body containing the details required to create a new identity collector.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createIdentityCollectorV1(createidentitycollectorrequestV1: CreateidentitycollectorrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateIdentityCollectorV1200ResponseV1>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createIdentityCollectorV1(createidentitycollectorrequestV1, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.createIdentityCollectorV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * 
          * @summary Create a new schedule.
          * @param {CreateschedulerequestV1} createschedulerequestV1 
@@ -2008,6 +2325,19 @@ export const DataAccessSecurityV1ApiFp = function(configuration?: Configuration)
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteApplicationV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.deleteApplicationV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This endpoint deletes an identity collector from Data Access Security by its unique identifier.
+         * @summary Delete identity collector by identifier
+         * @param {number} id The unique identifier of the identity collector to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteIdentityCollectorV1(id: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityCollectorV1(id, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.deleteIdentityCollectorV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2139,6 +2469,22 @@ export const DataAccessSecurityV1ApiFp = function(configuration?: Configuration)
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * This endpoint lists the identity collectors in Data Access Security with optional filtering and pagination.  Sorting is not supported for this endpoint; supplying the `sorters` query parameter results in a validation error.
+         * @summary List identity collectors
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  **type**: *eq, in*  **id**: *eq, in*  Supported composite operators are *and, or*
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listIdentityCollectorsV1(filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentitycollectorlistitemV1>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityCollectorsV1(filters, limit, offset, count, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.listIdentityCollectorsV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * This endpoint updates an existing application in Data Access Security with the specified configuration.
          * @summary Update application by identifier.
          * @param {number} id The unique identifier of the application to update.
@@ -2150,6 +2496,20 @@ export const DataAccessSecurityV1ApiFp = function(configuration?: Configuration)
             const localVarAxiosArgs = await localVarAxiosParamCreator.putApplicationV1(id, basecreateapplicationrequestV1, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.putApplicationV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This endpoint updates the name of an existing identity collector in Data Access Security. The `sourceId` and `type` cannot be changed and must match the current values.
+         * @summary Update identity collector by identifier
+         * @param {number} id The unique identifier of the identity collector to update.
+         * @param {UpdateidentitycollectorrequestV1} updateidentitycollectorrequestV1 Request body containing the updated details for the identity collector.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async putIdentityCollectorV1(id: number, updateidentitycollectorrequestV1: UpdateidentitycollectorrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putIdentityCollectorV1(id, updateidentitycollectorrequestV1, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.putIdentityCollectorV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2208,6 +2568,16 @@ export const DataAccessSecurityV1ApiFactory = function (configuration?: Configur
          */
         createApplicationV1(requestParameters: DataAccessSecurityV1ApiCreateApplicationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.createApplicationV1(requestParameters.basecreateapplicationrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This endpoint creates a new identity collector in Data Access Security for the specified source. The identity collector type is derived from the source.
+         * @summary Create identity collector
+         * @param {DataAccessSecurityV1ApiCreateIdentityCollectorV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createIdentityCollectorV1(requestParameters: DataAccessSecurityV1ApiCreateIdentityCollectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CreateIdentityCollectorV1200ResponseV1> {
+            return localVarFp.createIdentityCollectorV1(requestParameters.createidentitycollectorrequestV1, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -2278,6 +2648,16 @@ export const DataAccessSecurityV1ApiFactory = function (configuration?: Configur
          */
         deleteApplicationV1(requestParameters: DataAccessSecurityV1ApiDeleteApplicationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteApplicationV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This endpoint deletes an identity collector from Data Access Security by its unique identifier.
+         * @summary Delete identity collector by identifier
+         * @param {DataAccessSecurityV1ApiDeleteIdentityCollectorV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteIdentityCollectorV1(requestParameters: DataAccessSecurityV1ApiDeleteIdentityCollectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteIdentityCollectorV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point sends a request to delete a schedule in Data Access Security.
@@ -2370,6 +2750,16 @@ export const DataAccessSecurityV1ApiFactory = function (configuration?: Configur
             return localVarFp.getTasksV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This endpoint lists the identity collectors in Data Access Security with optional filtering and pagination.  Sorting is not supported for this endpoint; supplying the `sorters` query parameter results in a validation error.
+         * @summary List identity collectors
+         * @param {DataAccessSecurityV1ApiListIdentityCollectorsV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listIdentityCollectorsV1(requestParameters: DataAccessSecurityV1ApiListIdentityCollectorsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<IdentitycollectorlistitemV1>> {
+            return localVarFp.listIdentityCollectorsV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This endpoint updates an existing application in Data Access Security with the specified configuration.
          * @summary Update application by identifier.
          * @param {DataAccessSecurityV1ApiPutApplicationV1Request} requestParameters Request parameters.
@@ -2378,6 +2768,16 @@ export const DataAccessSecurityV1ApiFactory = function (configuration?: Configur
          */
         putApplicationV1(requestParameters: DataAccessSecurityV1ApiPutApplicationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.putApplicationV1(requestParameters.id, requestParameters.basecreateapplicationrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This endpoint updates the name of an existing identity collector in Data Access Security. The `sourceId` and `type` cannot be changed and must match the current values.
+         * @summary Update identity collector by identifier
+         * @param {DataAccessSecurityV1ApiPutIdentityCollectorV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putIdentityCollectorV1(requestParameters: DataAccessSecurityV1ApiPutIdentityCollectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.putIdentityCollectorV1(requestParameters.id, requestParameters.updateidentitycollectorrequestV1, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -2428,6 +2828,20 @@ export interface DataAccessSecurityV1ApiCreateApplicationV1Request {
      * @memberof DataAccessSecurityV1ApiCreateApplicationV1
      */
     readonly basecreateapplicationrequestV1: BasecreateapplicationrequestV1
+}
+
+/**
+ * Request parameters for createIdentityCollectorV1 operation in DataAccessSecurityV1Api.
+ * @export
+ * @interface DataAccessSecurityV1ApiCreateIdentityCollectorV1Request
+ */
+export interface DataAccessSecurityV1ApiCreateIdentityCollectorV1Request {
+    /**
+     * Request body containing the details required to create a new identity collector.
+     * @type {CreateidentitycollectorrequestV1}
+     * @memberof DataAccessSecurityV1ApiCreateIdentityCollectorV1
+     */
+    readonly createidentitycollectorrequestV1: CreateidentitycollectorrequestV1
 }
 
 /**
@@ -2559,6 +2973,20 @@ export interface DataAccessSecurityV1ApiDeleteApplicationV1Request {
      * The unique identifier of the application to delete.
      * @type {number}
      * @memberof DataAccessSecurityV1ApiDeleteApplicationV1
+     */
+    readonly id: number
+}
+
+/**
+ * Request parameters for deleteIdentityCollectorV1 operation in DataAccessSecurityV1Api.
+ * @export
+ * @interface DataAccessSecurityV1ApiDeleteIdentityCollectorV1Request
+ */
+export interface DataAccessSecurityV1ApiDeleteIdentityCollectorV1Request {
+    /**
+     * The unique identifier of the identity collector to delete.
+     * @type {number}
+     * @memberof DataAccessSecurityV1ApiDeleteIdentityCollectorV1
      */
     readonly id: number
 }
@@ -2767,6 +3195,41 @@ export interface DataAccessSecurityV1ApiGetTasksV1Request {
 }
 
 /**
+ * Request parameters for listIdentityCollectorsV1 operation in DataAccessSecurityV1Api.
+ * @export
+ * @interface DataAccessSecurityV1ApiListIdentityCollectorsV1Request
+ */
+export interface DataAccessSecurityV1ApiListIdentityCollectorsV1Request {
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  **type**: *eq, in*  **id**: *eq, in*  Supported composite operators are *and, or*
+     * @type {string}
+     * @memberof DataAccessSecurityV1ApiListIdentityCollectorsV1
+     */
+    readonly filters?: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof DataAccessSecurityV1ApiListIdentityCollectorsV1
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof DataAccessSecurityV1ApiListIdentityCollectorsV1
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof DataAccessSecurityV1ApiListIdentityCollectorsV1
+     */
+    readonly count?: boolean
+}
+
+/**
  * Request parameters for putApplicationV1 operation in DataAccessSecurityV1Api.
  * @export
  * @interface DataAccessSecurityV1ApiPutApplicationV1Request
@@ -2785,6 +3248,27 @@ export interface DataAccessSecurityV1ApiPutApplicationV1Request {
      * @memberof DataAccessSecurityV1ApiPutApplicationV1
      */
     readonly basecreateapplicationrequestV1: BasecreateapplicationrequestV1
+}
+
+/**
+ * Request parameters for putIdentityCollectorV1 operation in DataAccessSecurityV1Api.
+ * @export
+ * @interface DataAccessSecurityV1ApiPutIdentityCollectorV1Request
+ */
+export interface DataAccessSecurityV1ApiPutIdentityCollectorV1Request {
+    /**
+     * The unique identifier of the identity collector to update.
+     * @type {number}
+     * @memberof DataAccessSecurityV1ApiPutIdentityCollectorV1
+     */
+    readonly id: number
+
+    /**
+     * Request body containing the updated details for the identity collector.
+     * @type {UpdateidentitycollectorrequestV1}
+     * @memberof DataAccessSecurityV1ApiPutIdentityCollectorV1
+     */
+    readonly updateidentitycollectorrequestV1: UpdateidentitycollectorrequestV1
 }
 
 /**
@@ -2851,6 +3335,18 @@ export class DataAccessSecurityV1Api extends BaseAPI {
      */
     public createApplicationV1(requestParameters: DataAccessSecurityV1ApiCreateApplicationV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return DataAccessSecurityV1ApiFp(this.configuration).createApplicationV1(requestParameters.basecreateapplicationrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This endpoint creates a new identity collector in Data Access Security for the specified source. The identity collector type is derived from the source.
+     * @summary Create identity collector
+     * @param {DataAccessSecurityV1ApiCreateIdentityCollectorV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DataAccessSecurityV1Api
+     */
+    public createIdentityCollectorV1(requestParameters: DataAccessSecurityV1ApiCreateIdentityCollectorV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityV1ApiFp(this.configuration).createIdentityCollectorV1(requestParameters.createidentitycollectorrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2935,6 +3431,18 @@ export class DataAccessSecurityV1Api extends BaseAPI {
      */
     public deleteApplicationV1(requestParameters: DataAccessSecurityV1ApiDeleteApplicationV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return DataAccessSecurityV1ApiFp(this.configuration).deleteApplicationV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This endpoint deletes an identity collector from Data Access Security by its unique identifier.
+     * @summary Delete identity collector by identifier
+     * @param {DataAccessSecurityV1ApiDeleteIdentityCollectorV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DataAccessSecurityV1Api
+     */
+    public deleteIdentityCollectorV1(requestParameters: DataAccessSecurityV1ApiDeleteIdentityCollectorV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityV1ApiFp(this.configuration).deleteIdentityCollectorV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3046,6 +3554,18 @@ export class DataAccessSecurityV1Api extends BaseAPI {
     }
 
     /**
+     * This endpoint lists the identity collectors in Data Access Security with optional filtering and pagination.  Sorting is not supported for this endpoint; supplying the `sorters` query parameter results in a validation error.
+     * @summary List identity collectors
+     * @param {DataAccessSecurityV1ApiListIdentityCollectorsV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DataAccessSecurityV1Api
+     */
+    public listIdentityCollectorsV1(requestParameters: DataAccessSecurityV1ApiListIdentityCollectorsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityV1ApiFp(this.configuration).listIdentityCollectorsV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This endpoint updates an existing application in Data Access Security with the specified configuration.
      * @summary Update application by identifier.
      * @param {DataAccessSecurityV1ApiPutApplicationV1Request} requestParameters Request parameters.
@@ -3055,6 +3575,18 @@ export class DataAccessSecurityV1Api extends BaseAPI {
      */
     public putApplicationV1(requestParameters: DataAccessSecurityV1ApiPutApplicationV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return DataAccessSecurityV1ApiFp(this.configuration).putApplicationV1(requestParameters.id, requestParameters.basecreateapplicationrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This endpoint updates the name of an existing identity collector in Data Access Security. The `sourceId` and `type` cannot be changed and must match the current values.
+     * @summary Update identity collector by identifier
+     * @param {DataAccessSecurityV1ApiPutIdentityCollectorV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DataAccessSecurityV1Api
+     */
+    public putIdentityCollectorV1(requestParameters: DataAccessSecurityV1ApiPutIdentityCollectorV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityV1ApiFp(this.configuration).putIdentityCollectorV1(requestParameters.id, requestParameters.updateidentitycollectorrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
