@@ -24,6 +24,10 @@ runs:
       with:
         distribution: "temurin"
         java-version: "17"
+        
+    - name: Install Node dependencies
+      shell: bash
+      run: npm install
 
     - name: Download OpenAPI Generator
       shell: bash
