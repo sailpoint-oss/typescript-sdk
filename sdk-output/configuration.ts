@@ -1,5 +1,5 @@
-import axios from "axios";
-import { IAxiosRetryConfig } from "axios-retry";
+import axios, { AxiosInstance } from "axios";
+import axiosRetry, { IAxiosRetryConfig } from "axios-retry";
 import FormData from "form-data";
 import * as fs from "fs";
 import * as yaml from "js-yaml";
@@ -153,6 +153,14 @@ export class Configuration {
    */
   retriesConfig?: IAxiosRetryConfig;
   /**
+   * Shared axios instance pre-configured with retry logic.
+   * All API classes use this instance by default.
+   *
+   * @type {AxiosInstance}
+   * @memberof Configuration
+   */
+  axiosInstance: AxiosInstance;
+  /**
    * Optional identifier for the application consuming this SDK (e.g. "sailpoint-cli").
    *
    * @type {string}
@@ -189,6 +197,9 @@ export class Configuration {
       formData.append("client_secret", this.clientSecret);
       this.accessToken = this.getAccessToken(url, formData);
     }
+
+    this.axiosInstance = axios.create();
+    axiosRetry(this.axiosInstance, this.retriesConfig);
   }
 
   private getHomeParams(): ConfigurationParameters {
@@ -223,7 +234,7 @@ export class Configuration {
       config.clientId = jsonData.ClientId;
       config.clientSecret = jsonData.ClientSecret;
       config.tokenUrl = config.baseurl + "/oauth/token";
-      config.nermBaseurl = jsonData.NERMBaseURL;
+      config.nermBaseurl = jsonData.NermBaseUrl ?? jsonData.NERMBaseURL;
     } catch (error) {
       console.log("unable to find config file in local directory");
     }

@@ -4,3 +4,5 @@ dist
 api-specs
 sdk-output/config.json
 examples/config.json
+.sdk-build-tmp/
+build-errors/

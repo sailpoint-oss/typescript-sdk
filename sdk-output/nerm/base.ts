@@ -50,7 +50,7 @@ export interface RequestArgs {
 export class BaseAPI {
     protected configuration: Configuration | undefined;
 
-    constructor(configuration?: Configuration, protected basePath: string = BASE_PATH, protected axios: AxiosInstance = globalAxios) {
+    constructor(configuration?: Configuration, protected basePath: string = BASE_PATH, protected axios: AxiosInstance = configuration?.axiosInstance ?? globalAxios) {
         if (configuration) {
             this.configuration = configuration;
             this.basePath = configuration.nermBasePath;
