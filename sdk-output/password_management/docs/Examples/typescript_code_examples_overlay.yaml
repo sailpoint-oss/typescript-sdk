@@ -1,0 +1,61 @@
+- path: /generate-password-reset-token/v1/digit
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/password_management/methods/password-management#create-digit-token-v1
+      source: |
+        import { PasswordManagementV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new PasswordManagementV1Api(configuration);
+        const passworddigittokenresetV1: PassworddigittokenresetV1 = {"userId":"Abby.Smith","length":8,"durationMinutes":5}; // PassworddigittokenresetV1 | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.createDigitTokenV1(passworddigittokenresetV1);
+        console.log(result);
+- path: /password-change-status/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/password_management/methods/password-management#get-password-change-status-v1
+      source: |
+        import { PasswordManagementV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new PasswordManagementV1Api(configuration);
+        const id: string = '089899f13a8f4da7824996191587bab9'; // string | Password change request ID (default to undefined)
+        const result = await apiInstance.getPasswordChangeStatusV1(id);
+        console.log(result);
+- path: /query-password-info/v1
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/password_management/methods/password-management#query-password-info-v1
+      source: |
+        import { PasswordManagementV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new PasswordManagementV1Api(configuration);
+        const passwordinfoquerydtoV1: PasswordinfoquerydtoV1 = ; // PasswordinfoquerydtoV1 | 
+        const result = await apiInstance.queryPasswordInfoV1(passwordinfoquerydtoV1);
+        console.log(result);
+- path: /set-password/v1
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/password_management/methods/password-management#set-password-v1
+      source: |
+        import { PasswordManagementV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new PasswordManagementV1Api(configuration);
+        const passwordchangerequestV1: PasswordchangerequestV1 = ; // PasswordchangerequestV1 | 
+        const result = await apiInstance.setPasswordV1(passwordchangerequestV1);
+        console.log(result);

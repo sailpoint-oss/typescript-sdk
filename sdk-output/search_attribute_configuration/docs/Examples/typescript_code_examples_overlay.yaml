@@ -1,0 +1,82 @@
+- path: /accounts/v1/search-attribute-config
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/search_attribute_configuration/methods/search-attribute-configuration#create-search-attribute-config-v1
+      source: |
+        import { SearchAttributeConfigurationV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new SearchAttributeConfigurationV1Api(configuration);
+        const searchattributeconfigV1: SearchattributeconfigV1 = {"name":"newMailAttribute","displayName":"New Mail Attribute","applicationAttributes":{"2c9180866166b5b0016167c32ef31a66":"mail","2c9180866166b5b0016167c32ef31a67":"mail"}}; // SearchattributeconfigV1 | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.createSearchAttributeConfigV1(searchattributeconfigV1);
+        console.log(result);
+- path: /accounts/v1/search-attribute-config/{name}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/search_attribute_configuration/methods/search-attribute-configuration#delete-search-attribute-config-v1
+      source: |
+        import { SearchAttributeConfigurationV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new SearchAttributeConfigurationV1Api(configuration);
+        const name: string = 'newMailAttribute'; // string | Name of the extended search attribute configuration to delete. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.deleteSearchAttributeConfigV1(name);
+        console.log(result);
+- path: /accounts/v1/search-attribute-config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/search_attribute_configuration/methods/search-attribute-configuration#get-search-attribute-config-v1
+      source: |
+        import { SearchAttributeConfigurationV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new SearchAttributeConfigurationV1Api(configuration);
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getSearchAttributeConfigV1();
+        console.log(result);
+- path: /accounts/v1/search-attribute-config/{name}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/search_attribute_configuration/methods/search-attribute-configuration#get-single-search-attribute-config-v1
+      source: |
+        import { SearchAttributeConfigurationV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new SearchAttributeConfigurationV1Api(configuration);
+        const name: string = 'newMailAttribute'; // string | Name of the extended search attribute configuration to get. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getSingleSearchAttributeConfigV1(name);
+        console.log(result);
+- path: /accounts/v1/search-attribute-config/{name}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/search_attribute_configuration/methods/search-attribute-configuration#patch-search-attribute-config-v1
+      source: |
+        import { SearchAttributeConfigurationV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new SearchAttributeConfigurationV1Api(configuration);
+        const name: string = 'promotedMailAttribute'; // string | Name of the search attribute configuration to patch. (default to undefined)
+        const jsonpatchoperationV1: Array&lt;JsonpatchoperationV1&gt; = [{"op":"replace","path":"/name","value":"newAttributeName"},{"op":"replace","path":"/displayName","value":"new attribute display name"},{"op":"add","path":"/applicationAttributes","value":{"2c91808b79fd2422017a0b35d30f3968":"employeeNumber"}}]; // Array<JsonpatchoperationV1> | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.patchSearchAttributeConfigV1(name, jsonpatchoperationV1);
+        console.log(result);

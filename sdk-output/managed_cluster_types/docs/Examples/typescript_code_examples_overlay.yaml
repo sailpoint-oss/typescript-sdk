@@ -1,0 +1,80 @@
+- path: /managed-cluster-types/v1
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/managed_cluster_types/methods/managed-cluster-types#create-managed-cluster-type-v1
+      source: |
+        import { ManagedClusterTypesV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ManagedClusterTypesV1Api(configuration);
+        const managedclustertypeV1: ManagedclustertypeV1 = ; // ManagedclustertypeV1 | 
+        const result = await apiInstance.createManagedClusterTypeV1(managedclustertypeV1);
+        console.log(result);
+- path: /managed-cluster-types/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/managed_cluster_types/methods/managed-cluster-types#delete-managed-cluster-type-v1
+      source: |
+        import { ManagedClusterTypesV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ManagedClusterTypesV1Api(configuration);
+        const id: string = 'aClusterTypeId'; // string | The Managed Cluster Type ID (default to undefined)
+        const result = await apiInstance.deleteManagedClusterTypeV1(id);
+        console.log(result);
+- path: /managed-cluster-types/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/managed_cluster_types/methods/managed-cluster-types#get-managed-cluster-type-v1
+      source: |
+        import { ManagedClusterTypesV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ManagedClusterTypesV1Api(configuration);
+        const id: string = 'aClusterTypeId'; // string | The Managed Cluster Type ID (default to undefined)
+        const result = await apiInstance.getManagedClusterTypeV1(id);
+        console.log(result);
+- path: /managed-cluster-types/v1
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/managed_cluster_types/methods/managed-cluster-types#get-managed-cluster-types-v1
+      source: |
+        import { ManagedClusterTypesV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ManagedClusterTypesV1Api(configuration);
+        const type: string = 'IDN'; // string | Type descriptor (optional) (default to undefined)
+        const pod: string = 'megapod-useast1'; // string | Pinned pod (or default) (optional) (default to undefined)
+        const org: string = 'denali-xyz'; // string | Pinned org (or default) (optional) (default to undefined)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const result = await apiInstance.getManagedClusterTypesV1();
+        console.log(result);
+- path: /managed-cluster-types/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/managed_cluster_types/methods/managed-cluster-types#update-managed-cluster-type-v1
+      source: |
+        import { ManagedClusterTypesV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ManagedClusterTypesV1Api(configuration);
+        const id: string = 'aClusterTypeId'; // string | The Managed Cluster Type ID (default to undefined)
+        const jsonpatchV1: JsonpatchV1 = ; // JsonpatchV1 | The JSONPatch payload used to update the schema.
+        const result = await apiInstance.updateManagedClusterTypeV1(id, jsonpatchV1);
+        console.log(result);

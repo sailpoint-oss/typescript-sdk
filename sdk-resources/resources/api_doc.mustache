@@ -1,0 +1,72 @@
+---
+id: {{#lambda.kebabcase}}{{#lambda.titlecase}}{{apiVersion}}-{{baseName}}{{/lambda.titlecase}}{{/lambda.kebabcase}}
+title: {{#lambda.titlecase}}{{baseName}}{{/lambda.titlecase}}
+pagination_label: {{baseName}}
+sidebar_label: {{baseName}}
+sidebar_class_name: typescriptsdk
+keywords: ['typescript', 'TypeScript', 'sdk', '{{baseName}}', '{{apiVersion}}{{baseName}}']
+slug: /tools/sdk/typescript/{{#lambda.lowercase}}{{packageName}}{{/lambda.lowercase}}/methods/{{#lambda.kebabcase}}{{#lambda.titlecase}}{{baseName}}{{/lambda.titlecase}}{{/lambda.kebabcase}}
+tags: ['SDK', 'Software Development Kit', '{{baseName}}', '{{apiVersion}}{{baseName}}']
+---
+
+# {{classname}}
+  {{#operations}}{{#operation}}{{#-first}}{{#tags}}{{description}} {{/tags}}{{/-first}}{{/operation}}{{/operations}}
+All URIs are relative to *{{basePath}}*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+{{#operations}}{{#operation}}[**{{#lambda.kebabcase}}{{operationId}}{{/lambda.kebabcase}}**](#{{#lambda.kebabcase}}{{#lambda.titlecase}}{{operationId}}{{/lambda.titlecase}}{{/lambda.kebabcase}}) | **{{httpMethod}}** `{{{path}}}` | {{summary}}
+{{/operation}}{{/operations}}
+
+{{#operations}}
+{{#operation}}
+## {{#lambda.kebabcase}}{{#lambda.titlecase}}{{operationId}}{{/lambda.titlecase}}{{/lambda.kebabcase}}
+{{#isDeprecated}}:::caution deprecated
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+{{/isDeprecated}}
+{{#headerParams}}:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+{{/headerParams}}
+{{{summary}}}
+{{#notes}}{{{unescapedNotes}}}{{/notes}}
+{{{description}}}
+[API Spec](https://developer.sailpoint.com/docs/api/{{apiVersion}}/{{#lambda.kebabcase}}{{#lambda.titlecase}}{{operationId}}{{/lambda.titlecase}}{{/lambda.kebabcase}})
+
+### Parameters
+
+{{^allParams}}This endpoint does not need any parameter.{{/allParams}}{{#allParams}}{{#-last}}
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------{{/-last}}{{/allParams}}{{#allParams}}
+**{{paramName}}** | {{#isContainer}}{{#isArray}}**Array&lt;{{#items}}{{dataType}}{{/items}}&gt;**{{/isArray}}{{/isContainer}}{{^isContainer}}**{{dataType}}**{{/isContainer}} | {{description}} | {{^required}}[optional]{{/required}}{{#defaultValue}} [default to {{.}}]{{/defaultValue}}{{/allParams}}
+
+### Return type
+
+{{#returnType}}**{{{returnType}}}**{{/returnType}}{{^returnType}}(empty response body){{/returnType}}
+
+### HTTP request headers
+
+- **Content-Type**: {{#consumes}}{{{mediaType}}}{{^-last}}, {{/-last}}{{/consumes}}{{^consumes}}Not defined{{/consumes}}
+- **Accept**: {{#produces}}{{{mediaType}}}{{^-last}}, {{/-last}}{{/produces}}{{^produces}}Not defined{{/produces}}
+
+### Example
+
+```typescript
+import { {{classname}} } from 'sailpoint-api-client';
+import { Configuration } from 'sailpoint-api-client';
+import { createConfiguration } from 'sailpoint-api-client';
+
+const configuration = createConfiguration();
+const apiInstance = new {{classname}}(configuration);
+{{#allParams}}
+{{^isBodyParam}}const {{paramName}}: {{#isString}}string{{/isString}}{{^isString}}{{dataType}}{{/isString}} = {{{example}}}; // {{description}}{{^required}} (optional){{/required}}{{/isBodyParam}}{{#isBodyParam}}const {{paramName}}: {{dataType}} = {{#requestBodyExamples}}{{{example}}}{{/requestBodyExamples}}{{^requestBodyExamples}}{}{{/requestBodyExamples}}; // {{description}}{{^required}} (optional){{/required}}{{/isBodyParam}}
+{{/allParams}}
+const result = await apiInstance.{{nickname}}({{#requiredParams}}{{paramName}}{{^-last}}, {{/-last}}{{/requiredParams}});
+console.log(result);
+```
+
+[[Back to top]](#)
+
+{{/operation}}
+{{/operations}}

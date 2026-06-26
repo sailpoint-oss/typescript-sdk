@@ -1,0 +1,34 @@
+- path: /api-usage/v1/count
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/api_usage/methods/api-usage#get-total-count-v1
+      source: |
+        import { ApiUsageV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ApiUsageV1Api(configuration);
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const filters: string = 'method eq "GET", startDate gt "2025-08-01"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **method**: *eq*  **startDate**: *gt, eq*  **endDate**: *lt, eq* (optional) (default to undefined)
+        const result = await apiInstance.getTotalCountV1();
+        console.log(result);
+- path: /api-usage/v1/summary
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/api_usage/methods/api-usage#list-api-summary-v1
+      source: |
+        import { ApiUsageV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ApiUsageV1Api(configuration);
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const filters: string = 'method eq "GET", startDate gt "2025-08-01"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **method**: *eq*  **startDate**: *gt, eq*  **endDate**: *lt, eq* (optional) (default to undefined)
+        const limit: number = 100; // number | Max number of results to return. (optional) (default to 250)
+        const offset: number = 10; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional) (default to undefined)
+        const result = await apiInstance.listApiSummaryV1();
+        console.log(result);

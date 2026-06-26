@@ -1,0 +1,15 @@
+- path: /account-aggregations/v1/{id}/status
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/account_aggregations/methods/account-aggregations#get-account-aggregation-status-v1
+      source: |
+        import { AccountAggregationsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new AccountAggregationsV1Api(configuration);
+        const id: string = '2c91808477a6b0c60177a81146b8110b'; // string | The account aggregation id (default to undefined)
+        const result = await apiInstance.getAccountAggregationStatusV1(id);
+        console.log(result);

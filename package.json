@@ -4,7 +4,8 @@
   "private": true,
   "description": "Build tooling for the SailPoint Typescript SDK",
   "scripts": {
-    "build": "node sdk-resources/build-versioned-sdk.js"
+    "build": "node sdk-resources/build-versioned-sdk.js api-specs/idn/apis",
+    "build:partition": "node sdk-resources/build-versioned-sdk.js api-specs/idn/apis --partition"
   },
   "dependencies": {
     "@redocly/cli": "^2.32.2"

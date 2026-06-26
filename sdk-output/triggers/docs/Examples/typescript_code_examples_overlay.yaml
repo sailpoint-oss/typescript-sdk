@@ -1,0 +1,165 @@
+- path: /trigger-invocations/v1/{id}/complete
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/triggers/methods/triggers#complete-trigger-invocation-v1
+      source: |
+        import { TriggersV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new TriggersV1Api(configuration);
+        const id: string = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde'; // string | The ID of the invocation to complete. (default to undefined)
+        const completeinvocationV1: CompleteinvocationV1 = {"secret":"0f11f2a4-7c94-4bf3-a2bd-742580fe3bde","output":{"approved":false}}; // CompleteinvocationV1 | 
+        const result = await apiInstance.completeTriggerInvocationV1(id, completeinvocationV1);
+        console.log(result);
+- path: /trigger-subscriptions/v1
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/triggers/methods/triggers#create-subscription-v1
+      source: |
+        import { TriggersV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new TriggersV1Api(configuration);
+        const subscriptionpostrequestV1: SubscriptionpostrequestV1 = {"name":"Access request subscription","description":"Access requested to site xyz","triggerId":"idn:access-requested","type":"HTTP","httpConfig":{"url":"https://www.example.com","httpDispatchMode":"SYNC","httpAuthenticationType":"BASIC_AUTH","basicAuthConfig":{"userName":"user@example.com","password":"eRtg4%6yuI!"}},"enabled":true,"filter":"$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]"}; // SubscriptionpostrequestV1 | 
+        const result = await apiInstance.createSubscriptionV1(subscriptionpostrequestV1);
+        console.log(result);
+- path: /trigger-subscriptions/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/triggers/methods/triggers#delete-subscription-v1
+      source: |
+        import { TriggersV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new TriggersV1Api(configuration);
+        const id: string = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde'; // string | Subscription ID (default to undefined)
+        const result = await apiInstance.deleteSubscriptionV1(id);
+        console.log(result);
+- path: /trigger-subscriptions/v1
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/triggers/methods/triggers#list-subscriptions-v1
+      source: |
+        import { TriggersV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new TriggersV1Api(configuration);
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'id eq "12cff757-c0c0-413b-8ad7-2a47956d1e89"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **triggerId**: *eq*  **type**: *eq, le* (optional) (default to undefined)
+        const sorters: string = 'triggerName'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **triggerId, triggerName** (optional) (default to undefined)
+        const result = await apiInstance.listSubscriptionsV1();
+        console.log(result);
+- path: /trigger-invocations/v1/status
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/triggers/methods/triggers#list-trigger-invocation-status-v1
+      source: |
+        import { TriggersV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new TriggersV1Api(configuration);
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'triggerId eq "idn:access-request-dynamic-approver"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **triggerId**: *eq*  **subscriptionId**: *eq* (optional) (default to undefined)
+        const sorters: string = 'created'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **triggerId, subscriptionName, created, completed** (optional) (default to undefined)
+        const result = await apiInstance.listTriggerInvocationStatusV1();
+        console.log(result);
+- path: /triggers/v1
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/triggers/methods/triggers#list-triggers-v1
+      source: |
+        import { TriggersV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new TriggersV1Api(configuration);
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'id eq "idn:access-request-post-approval"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ge, le* (optional) (default to undefined)
+        const sorters: string = 'name'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name** (optional) (default to undefined)
+        const result = await apiInstance.listTriggersV1();
+        console.log(result);
+- path: /trigger-subscriptions/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/triggers/methods/triggers#patch-subscription-v1
+      source: |
+        import { TriggersV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new TriggersV1Api(configuration);
+        const id: string = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde'; // string | ID of the Subscription to patch (default to undefined)
+        const subscriptionpatchrequestInnerV1: Array&lt;SubscriptionpatchrequestInnerV1&gt; = ; // Array<SubscriptionpatchrequestInnerV1> | 
+        const result = await apiInstance.patchSubscriptionV1(id, subscriptionpatchrequestInnerV1);
+        console.log(result);
+- path: /trigger-invocations/v1/test
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/triggers/methods/triggers#start-test-trigger-invocation-v1
+      source: |
+        import { TriggersV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new TriggersV1Api(configuration);
+        const testinvocationV1: TestinvocationV1 = {"triggerId":"idn:access-requested","input":{"identityId":"201327fda1c44704ac01181e963d463c"},"contentJson":{"workflowId":1234}}; // TestinvocationV1 | 
+        const result = await apiInstance.startTestTriggerInvocationV1(testinvocationV1);
+        console.log(result);
+- path: /trigger-subscriptions/v1/validate-filter
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/triggers/methods/triggers#test-subscription-filter-v1
+      source: |
+        import { TriggersV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new TriggersV1Api(configuration);
+        const validatefilterinputdtoV1: ValidatefilterinputdtoV1 = {"input":{"identityId":"201327fda1c44704ac01181e963d463c"},"filter":"$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]"}; // ValidatefilterinputdtoV1 | 
+        const result = await apiInstance.testSubscriptionFilterV1(validatefilterinputdtoV1);
+        console.log(result);
+- path: /trigger-subscriptions/v1/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/triggers/methods/triggers#update-subscription-v1
+      source: |
+        import { TriggersV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new TriggersV1Api(configuration);
+        const id: string = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde'; // string | Subscription ID (default to undefined)
+        const subscriptionputrequestV1: SubscriptionputrequestV1 = {"name":"Access request subscription","description":"Access requested to site xyz","type":"HTTP","httpConfig":{"url":"https://www.example.com","httpDispatchMode":"SYNC","httpAuthenticationType":"BASIC_AUTH","basicAuthConfig":{"userName":"user@example.com","password":"eRtg4%6yuI!"}},"enabled":true,"filter":"$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]"}; // SubscriptionputrequestV1 | 
+        const result = await apiInstance.updateSubscriptionV1(id, subscriptionputrequestV1);
+        console.log(result);

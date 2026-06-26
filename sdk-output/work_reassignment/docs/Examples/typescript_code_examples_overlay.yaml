@@ -1,0 +1,145 @@
+- path: /reassignment-configurations/v1
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/work_reassignment/methods/work-reassignment#create-reassignment-configuration-v1
+      source: |
+        import { WorkReassignmentV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkReassignmentV1Api(configuration);
+        const configurationitemrequestV1: ConfigurationitemrequestV1 = ; // ConfigurationitemrequestV1 | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.createReassignmentConfigurationV1(configurationitemrequestV1);
+        console.log(result);
+- path: /reassignment-configurations/v1/{identityId}/{configType}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/work_reassignment/methods/work-reassignment#delete-reassignment-configuration-v1
+      source: |
+        import { WorkReassignmentV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkReassignmentV1Api(configuration);
+        const identityId: string = '2c91808781a71ddb0181b9090b5c504e'; // string | unique identity id (default to undefined)
+        const configType: ConfigtypeenumV1 = ; // ConfigtypeenumV1 |  (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.deleteReassignmentConfigurationV1(identityId, configType);
+        console.log(result);
+- path: /reassignment-configurations/v1/{identityId}/evaluate/{configType}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/work_reassignment/methods/work-reassignment#get-evaluate-reassignment-configuration-v1
+      source: |
+        import { WorkReassignmentV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkReassignmentV1Api(configuration);
+        const identityId: string = '2c91808781a71ddb0181b9090b5c504e'; // string | unique identity id (default to undefined)
+        const configType: ConfigtypeenumV1 = accessRequests; // ConfigtypeenumV1 | Reassignment work type (default to undefined)
+        const exclusionFilters: Array&lt;string&gt; = SELF_REVIEW_DELEGATION; // Array<string> | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional) (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getEvaluateReassignmentConfigurationV1(identityId, configType);
+        console.log(result);
+- path: /reassignment-configurations/v1/types
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/work_reassignment/methods/work-reassignment#get-reassignment-config-types-v1
+      source: |
+        import { WorkReassignmentV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkReassignmentV1Api(configuration);
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getReassignmentConfigTypesV1();
+        console.log(result);
+- path: /reassignment-configurations/v1/{identityId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/work_reassignment/methods/work-reassignment#get-reassignment-configuration-v1
+      source: |
+        import { WorkReassignmentV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkReassignmentV1Api(configuration);
+        const identityId: string = '2c91808781a71ddb0181b9090b5c504f'; // string | unique identity id (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getReassignmentConfigurationV1(identityId);
+        console.log(result);
+- path: /reassignment-configurations/v1/tenant-config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/work_reassignment/methods/work-reassignment#get-tenant-config-configuration-v1
+      source: |
+        import { WorkReassignmentV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkReassignmentV1Api(configuration);
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getTenantConfigConfigurationV1();
+        console.log(result);
+- path: /reassignment-configurations/v1
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/work_reassignment/methods/work-reassignment#list-reassignment-configurations-v1
+      source: |
+        import { WorkReassignmentV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkReassignmentV1Api(configuration);
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.listReassignmentConfigurationsV1();
+        console.log(result);
+- path: /reassignment-configurations/v1/{identityId}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/work_reassignment/methods/work-reassignment#put-reassignment-config-v1
+      source: |
+        import { WorkReassignmentV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkReassignmentV1Api(configuration);
+        const identityId: string = '2c91808781a71ddb0181b9090b5c504e'; // string | unique identity id (default to undefined)
+        const configurationitemrequestV1: ConfigurationitemrequestV1 = ; // ConfigurationitemrequestV1 | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.putReassignmentConfigV1(identityId, configurationitemrequestV1);
+        console.log(result);
+- path: /reassignment-configurations/v1/tenant-config
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/work_reassignment/methods/work-reassignment#put-tenant-configuration-v1
+      source: |
+        import { WorkReassignmentV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkReassignmentV1Api(configuration);
+        const tenantconfigurationrequestV1: TenantconfigurationrequestV1 = ; // TenantconfigurationrequestV1 | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.putTenantConfigurationV1(tenantconfigurationrequestV1);
+        console.log(result);

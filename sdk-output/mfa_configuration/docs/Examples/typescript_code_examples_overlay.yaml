@@ -1,0 +1,103 @@
+- path: /mfa/v1/duo-web/config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/mfa_configuration/methods/mfa-configuration#get-mfa-duo-config-v1
+      source: |
+        import { MFAConfigurationV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new MFAConfigurationV1Api(configuration);
+        const result = await apiInstance.getMFADuoConfigV1();
+        console.log(result);
+- path: /mfa/v1/kba/config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/mfa_configuration/methods/mfa-configuration#get-mfa-kba-config-v1
+      source: |
+        import { MFAConfigurationV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new MFAConfigurationV1Api(configuration);
+        const allLanguages: boolean = allLanguages=true; // boolean | Indicator whether the question text should be returned in all configured languages    * If true, the question text is returned in all languages that it is configured in.    * If false, the question text is returned in the user locale if available, else for the default locale.     * If not passed, it behaves the same way as passing this parameter as false (optional) (default to undefined)
+        const result = await apiInstance.getMFAKbaConfigV1();
+        console.log(result);
+- path: /mfa/v1/okta-verify/config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/mfa_configuration/methods/mfa-configuration#get-mfa-okta-config-v1
+      source: |
+        import { MFAConfigurationV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new MFAConfigurationV1Api(configuration);
+        const result = await apiInstance.getMFAOktaConfigV1();
+        console.log(result);
+- path: /mfa/v1/duo-web/config
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/mfa_configuration/methods/mfa-configuration#set-mfa-duo-config-v1
+      source: |
+        import { MFAConfigurationV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new MFAConfigurationV1Api(configuration);
+        const mfaduoconfigV1: MfaduoconfigV1 = {"mfaMethod":"duo-web","enabled":true,"host":"www.example.com","accessKey":"qw123Y3QlA5UqocYpdU3rEkzrK2D497y","identityAttribute":"email","configProperties":{"skey":"12q3WERlcUHWJmiMqyCXI3uOF7EaDJTbdeOp6E2B","ikey":"Q123WE45R6TY7890ZXCV"}}; // MfaduoconfigV1 | 
+        const result = await apiInstance.setMFADuoConfigV1(mfaduoconfigV1);
+        console.log(result);
+- path: /mfa/v1/kba/config/answers
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/mfa_configuration/methods/mfa-configuration#set-mfakba-config-v1
+      source: |
+        import { MFAConfigurationV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new MFAConfigurationV1Api(configuration);
+        const kbaanswerrequestitemV1: Array&lt;KbaanswerrequestitemV1&gt; = [{"id":"173423","answer":"822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34"},{"id":"c54fee53-2d63-4fc5-9259-3e93b9994135","answer":"9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08"}]; // Array<KbaanswerrequestitemV1> | 
+        const result = await apiInstance.setMFAKBAConfigV1(kbaanswerrequestitemV1);
+        console.log(result);
+- path: /mfa/v1/okta-verify/config
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/mfa_configuration/methods/mfa-configuration#set-mfa-okta-config-v1
+      source: |
+        import { MFAConfigurationV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new MFAConfigurationV1Api(configuration);
+        const mfaoktaconfigV1: MfaoktaconfigV1 = {"mfaMethod":"okta-verify","enabled":true,"host":"www.example.com","accessKey":"dk778Y3QlA5UqocYpdU3rEkzrK2D497y","identityAttribute":"email"}; // MfaoktaconfigV1 | 
+        const result = await apiInstance.setMFAOktaConfigV1(mfaoktaconfigV1);
+        console.log(result);
+- path: /mfa/v1/{method}/test
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/mfa_configuration/methods/mfa-configuration#test-mfa-config-v1
+      source: |
+        import { MFAConfigurationV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new MFAConfigurationV1Api(configuration);
+        const method: string = 'okta-verify'; // 'okta-verify' | 'duo-web' | The name of the MFA method. The currently supported method names are \'okta-verify\' and \'duo-web\'. (default to undefined)
+        const result = await apiInstance.testMFAConfigV1(method);
+        console.log(result);

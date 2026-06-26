@@ -1,0 +1,76 @@
+- path: /criteria/v1/privilege
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/privilege_criteria/methods/privilege-criteria#create-custom-privilege-criteria-v1
+      source: |
+        import { PrivilegeCriteriaV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new PrivilegeCriteriaV1Api(configuration);
+        const createprivilegecriteriarequestV1: CreateprivilegecriteriarequestV1 = ; // CreateprivilegecriteriarequestV1 | Create custom privilege criteria request body.
+        const result = await apiInstance.createCustomPrivilegeCriteriaV1(createprivilegecriteriarequestV1);
+        console.log(result);
+- path: /criteria/v1/privilege/{criteriaId}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/privilege_criteria/methods/privilege-criteria#delete-custom-privilege-criteria-v1
+      source: |
+        import { PrivilegeCriteriaV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new PrivilegeCriteriaV1Api(configuration);
+        const criteriaId: string = '6d123044-5834-4e8d-a49f-9c70089b0de1'; // string | The Id of the custom privilege criteria to delete. (default to undefined)
+        const result = await apiInstance.deleteCustomPrivilegeCriteriaV1(criteriaId);
+        console.log(result);
+- path: /criteria/v1/privilege/{criteriaId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/privilege_criteria/methods/privilege-criteria#get-privilege-criteria-v1
+      source: |
+        import { PrivilegeCriteriaV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new PrivilegeCriteriaV1Api(configuration);
+        const criteriaId: string = '6d123044-5834-4e8d-a49f-9c70089b0de1'; // string | The Id of the privilege criteria record to return. (default to undefined)
+        const result = await apiInstance.getPrivilegeCriteriaV1(criteriaId);
+        console.log(result);
+- path: /criteria/v1/privilege
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/privilege_criteria/methods/privilege-criteria#list-privilege-criteria-v1
+      source: |
+        import { PrivilegeCriteriaV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new PrivilegeCriteriaV1Api(configuration);
+        const filters: string = 'type eq "CUSTOM" and sourceId eq "c42c45d8d7c04d2da64d215cd8c32f21"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **type**: *eq*  **sourceId**: *eq*  **privilegeLevel**: *eq*  **Supported composite operators**: *and*  All filter values are case-sensitive for this API.  For example, the following is valid: `?filters=type eq \"CUSTOM\" and sourceId eq \"2c91809175e6c63f0175fb5570220569\"` (default to undefined)
+        const result = await apiInstance.listPrivilegeCriteriaV1(filters);
+        console.log(result);
+- path: /criteria/v1/privilege/{criteriaId}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/privilege_criteria/methods/privilege-criteria#put-custom-privilege-criteria-value-v1
+      source: |
+        import { PrivilegeCriteriaV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new PrivilegeCriteriaV1Api(configuration);
+        const criteriaId: string = '6d123044-5834-4e8d-a49f-9c70089b0de1'; // string | The Id of the privilege criteria record to return. (default to undefined)
+        const privilegecriteriadtoV1: PrivilegecriteriadtoV1 = ; // PrivilegecriteriadtoV1 | The new version of the custom privilege criteria. This overwrites the existing privilege criteria.
+        const result = await apiInstance.putCustomPrivilegeCriteriaValueV1(criteriaId, privilegecriteriadtoV1);
+        console.log(result);

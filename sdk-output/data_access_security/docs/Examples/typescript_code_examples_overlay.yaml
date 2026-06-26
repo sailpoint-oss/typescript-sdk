@@ -1,0 +1,397 @@
+- path: /das/v1/tasks/cancel/{id}
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#cancel-task-v1
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const id: number = 1001; // number | The unique identifier of the task to cancel. (default to undefined)
+        const result = await apiInstance.cancelTaskV1(id);
+        console.log(result);
+- path: /das/v1/applications
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#create-application-v1
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const basecreateapplicationrequestV1: BasecreateapplicationrequestV1 = ; // BasecreateapplicationrequestV1 | Request body containing the details required to create a new application.
+        const result = await apiInstance.createApplicationV1(basecreateapplicationrequestV1);
+        console.log(result);
+- path: /das/identity-collectors/v1
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#create-identity-collector-v1
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const createidentitycollectorrequestV1: CreateidentitycollectorrequestV1 = ; // CreateidentitycollectorrequestV1 | Request body containing the details required to create a new identity collector.
+        const result = await apiInstance.createIdentityCollectorV1(createidentitycollectorrequestV1);
+        console.log(result);
+- path: /das/v1/tasks/schedules
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#create-schedule-v1
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const createschedulerequestV1: CreateschedulerequestV1 = ; // CreateschedulerequestV1 | 
+        const result = await apiInstance.createScheduleV1(createschedulerequestV1);
+        console.log(result);
+- path: /das/v1/owners/assign
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#das-v1-owners-assign-post
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const assignresourceownerrequestV1: AssignresourceownerrequestV1 = ; // AssignresourceownerrequestV1 | The request body must contain the application ID, resource path, and identity ID to be assigned as the resource owner.
+        const result = await apiInstance.dasV1OwnersAssignPost(assignresourceownerrequestV1);
+        console.log(result);
+- path: /das/v1/owners/{ownerIdentityId}/resources
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#das-v1-owners-owner-identity-id-resources-get
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const ownerIdentityId: string = 'a3f1c2d4-5678-4e9b-8c2d-123456789abc'; // string | Unique identifier for the owner. This should be a UUID representing the owner\'s identity. (default to undefined)
+        const limit: number = 250; // number | Not applicable for this endpoint. Do not use. (optional) (default to 250)
+        const offset: number = 0; // number | Not applicable for this endpoint. Do not use. (optional) (default to 0)
+        const result = await apiInstance.dasV1OwnersOwnerIdentityIdResourcesGet(ownerIdentityId);
+        console.log(result);
+- path: /das/v1/owners/reelect
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#das-v1-owners-reelect-post
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const reelectrequestV1: ReelectrequestV1 = ; // ReelectrequestV1 | The request body must contain details for re-electing a resource owner. Date/time fields should use epoch format in seconds.
+        const result = await apiInstance.dasV1OwnersReelectPost(reelectrequestV1);
+        console.log(result);
+- path: /das/v1/owners/resources/{resourceId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#das-v1-owners-resources-resource-id-get
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const resourceId: number = 101; // number | Unique identifier for the resource. (default to undefined)
+        const limit: number = 250; // number | Not applicable for this endpoint. Do not use. (optional) (default to 250)
+        const offset: number = 0; // number | Not applicable for this endpoint. Do not use. (optional) (default to 0)
+        const result = await apiInstance.dasV1OwnersResourcesResourceIdGet(resourceId);
+        console.log(result);
+- path: /das/v1/owners/{sourceIdentityId}/reassign/{destinationIdentityId}
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#das-v1-owners-source-identity-id-reassign-destination-identity-id-post
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const sourceIdentityId: string = 'a3f1c2d4-5678-4e9b-8c2d-123456789abc'; // string | Unique identifier for the source owner. This should be a UUID representing the identity to reassign from. (default to undefined)
+        const destinationIdentityId: string = 'b4e2d3c5-6789-4f0a-9d3e-234567890bcd'; // string | Unique identifier for the destination owner. This should be a UUID representing the identity to reassign to. (default to undefined)
+        const result = await apiInstance.dasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPost(sourceIdentityId, destinationIdentityId);
+        console.log(result);
+- path: /das/v1/applications/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#delete-application-v1
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const id: number = 12345; // number | The unique identifier of the application to delete. (default to undefined)
+        const result = await apiInstance.deleteApplicationV1(id);
+        console.log(result);
+- path: /das/identity-collectors/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#delete-identity-collector-v1
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const id: number = 12345; // number | The unique identifier of the identity collector to delete. (default to undefined)
+        const result = await apiInstance.deleteIdentityCollectorV1(id);
+        console.log(result);
+- path: /das/v1/tasks/schedules/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#delete-schedule-v1
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const id: number = 1001; // number | The unique identifier of the schedule to delete. (default to undefined)
+        const result = await apiInstance.deleteScheduleV1(id);
+        console.log(result);
+- path: /das/v1/tasks/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#delete-task-v1
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const id: number = 1001; // number | The unique identifier of the task to delete. (default to undefined)
+        const result = await apiInstance.deleteTaskV1(id);
+        console.log(result);
+- path: /das/v1/applications/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#get-application-v1
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const id: number = 12345; // number | The unique identifier of the application to retrieve. (default to undefined)
+        const result = await apiInstance.getApplicationV1(id);
+        console.log(result);
+- path: /das/v1/applications
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#get-applications-v1
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const filters: string = 'AppType eq 'ActiveDirectory' and Statuses eq 'Passed''; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **appIds**: *eq, in*  **tagIds**: *eq, in*  **statuses**: *eq, in*  **groupCodes**: *eq, in*  **virtualAppId**: *eq*  **appName**: *eq*  **supportsValidation**: *eq*  Supported composite operators are *and, or* (optional) (default to undefined)
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const result = await apiInstance.getApplicationsV1();
+        console.log(result);
+- path: /das/v1/owners/applications/{appId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#get-owners-v1
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const appId: number = 2001; // number | The unique identifier of the application for which to retrieve owners. (default to undefined)
+        const limit: number = 250; // number | Not applicable for this endpoint. Do not use. (optional) (default to 250)
+        const offset: number = 0; // number | Not applicable for this endpoint. Do not use. (optional) (default to 0)
+        const result = await apiInstance.getOwnersV1(appId);
+        console.log(result);
+- path: /das/v1/tasks/schedules/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#get-schedule-v1
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const id: number = 1001; // number | The unique identifier of the schedule to retrieve. (default to undefined)
+        const result = await apiInstance.getScheduleV1(id);
+        console.log(result);
+- path: /das/v1/tasks/schedules
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#get-schedules-v1
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const filters: string = 'ScheduleType eq "Daily" and startTime eq 1762237200'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **scheduleTaskIds**: *eq, in*  **taskTypeName**: *eq, in*  **status**: *eq*  **applicationId**: *eq*  **fullName**: *eq*  **nameSubString**: *eq*  **scheduleType**: *eq*  Supported composite operators are *and, or* (optional) (default to undefined)
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const result = await apiInstance.getSchedulesV1();
+        console.log(result);
+- path: /das/v1/tasks/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#get-task-v1
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const id: number = 1001; // number | The unique identifier of the task to retrieve. (default to undefined)
+        const result = await apiInstance.getTaskV1(id);
+        console.log(result);
+- path: /das/v1/tasks
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#get-tasks-v1
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const filters: string = 'TaskTypeName eq "DataClassification and EndBeforeTime eq 1762240800'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **taskIds**: *eq, in*  **statuses**: *eq, in*  **taskTypeName**: *eq, in*  **taskName**: *eq*  **endBeforeTime**: *eq*  Supported composite operators are *and, or*  Example: taskTypeName eq \"DataSync\" and endBeforeTime eq 1762240800 (optional) (default to undefined)
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const result = await apiInstance.getTasksV1();
+        console.log(result);
+- path: /das/identity-collectors/v1
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#list-identity-collectors-v1
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const filters: string = 'sourceId eq "2c9180835d2e5168015d32f890ca1581"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  **type**: *eq, in*  **id**: *eq, in*  Supported composite operators are *and, or* (optional) (default to undefined)
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const result = await apiInstance.listIdentityCollectorsV1();
+        console.log(result);
+- path: /das/v1/applications/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#put-application-v1
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const id: number = 12345; // number | The unique identifier of the application to update. (default to undefined)
+        const basecreateapplicationrequestV1: BasecreateapplicationrequestV1 = ; // BasecreateapplicationrequestV1 | Request body containing the updated details for the application.
+        const result = await apiInstance.putApplicationV1(id, basecreateapplicationrequestV1);
+        console.log(result);
+- path: /das/identity-collectors/v1/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#put-identity-collector-v1
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const id: number = 12345; // number | The unique identifier of the identity collector to update. (default to undefined)
+        const updateidentitycollectorrequestV1: UpdateidentitycollectorrequestV1 = ; // UpdateidentitycollectorrequestV1 | Request body containing the updated details for the identity collector.
+        const result = await apiInstance.putIdentityCollectorV1(id, updateidentitycollectorrequestV1);
+        console.log(result);
+- path: /das/v1/tasks/schedules/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#put-schedule-v1
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const id: number = 1001; // number | The unique identifier of the schedule to update. (default to undefined)
+        const updateschedulerequestV1: UpdateschedulerequestV1 = ; // UpdateschedulerequestV1 | 
+        const result = await apiInstance.putScheduleV1(id, updateschedulerequestV1);
+        console.log(result);
+- path: /das/v1/tasks/rerun/{id}
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#start-task-rerun-v1
+      source: |
+        import { DataAccessSecurityV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataAccessSecurityV1Api(configuration);
+        const id: number = 1001; // number | The unique identifier of the task to rerun. (default to undefined)
+        const result = await apiInstance.startTaskRerunV1(id);
+        console.log(result);

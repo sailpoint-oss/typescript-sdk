@@ -1,0 +1,296 @@
+- path: /workflow-executions/v1/{id}/cancel
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/workflows/methods/workflows#cancel-workflow-execution-v1
+      source: |
+        import { WorkflowsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkflowsV1Api(configuration);
+        const id: string = 'c17bea3a-574d-453c-9e04-4365fbf5af0b'; // string | The workflow execution ID (default to undefined)
+        const result = await apiInstance.cancelWorkflowExecutionV1(id);
+        console.log(result);
+- path: /workflows/v1/execute/external/{id}
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/workflows/methods/workflows#create-external-execute-workflow-v1
+      source: |
+        import { WorkflowsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkflowsV1Api(configuration);
+        const id: string = 'c17bea3a-574d-453c-9e04-4365fbf5af0b'; // string | Id of the workflow (default to undefined)
+        const createExternalExecuteWorkflowV1RequestV1: CreateExternalExecuteWorkflowV1RequestV1 = ; // CreateExternalExecuteWorkflowV1RequestV1 |  (optional)
+        const result = await apiInstance.createExternalExecuteWorkflowV1(id);
+        console.log(result);
+- path: /workflows/v1/{id}/external/oauth-clients
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/workflows/methods/workflows#create-workflow-external-trigger-v1
+      source: |
+        import { WorkflowsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkflowsV1Api(configuration);
+        const id: string = 'c17bea3a-574d-453c-9e04-4365fbf5af0b'; // string | Id of the workflow (default to undefined)
+        const result = await apiInstance.createWorkflowExternalTriggerV1(id);
+        console.log(result);
+- path: /workflows/v1
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/workflows/methods/workflows#create-workflow-v1
+      source: |
+        import { WorkflowsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkflowsV1Api(configuration);
+        const createWorkflowV1RequestV1: CreateWorkflowV1RequestV1 = {"name":"Send Email","owner":{"type":"IDENTITY","id":"2c91808568c529c60168cca6f90c1313","name":"William Wilson"},"description":"Send an email to the identity who's attributes changed.","definition":{"start":"Send Email Test","steps":{"Send Email":{"actionId":"sp:send-email","attributes":{"body":"This is a test","from":"sailpoint@sailpoint.com","recipientId.$":"$.identity.id","subject":"test"},"nextStep":"success","selectResult":null,"type":"action"},"success":{"type":"success"}}},"enabled":false,"trigger":{"type":"EVENT","attributes":{"id":"idn:identity-attributes-changed","filter":"$.changes[?(@.attribute == 'manager')]"}}}; // CreateWorkflowV1RequestV1 | 
+        const result = await apiInstance.createWorkflowV1(createWorkflowV1RequestV1);
+        console.log(result);
+- path: /workflows/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/workflows/methods/workflows#delete-workflow-v1
+      source: |
+        import { WorkflowsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkflowsV1Api(configuration);
+        const id: string = 'c17bea3a-574d-453c-9e04-4365fbf5af0b'; // string | Id of the Workflow (default to undefined)
+        const result = await apiInstance.deleteWorkflowV1(id);
+        console.log(result);
+- path: /workflow-executions/v1/{id}/history
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/workflows/methods/workflows#get-workflow-execution-history-v1
+      source: |
+        import { WorkflowsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkflowsV1Api(configuration);
+        const id: string = 'c17bea3a-574d-453c-9e04-4365fbf5af0b'; // string | Id of the workflow execution (default to undefined)
+        const result = await apiInstance.getWorkflowExecutionHistoryV1(id);
+        console.log(result);
+- path: /workflow-executions/v1/{id}/history-v2
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/workflows/methods/workflows#get-workflow-execution-history-v2
+      source: |
+        import { WorkflowsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkflowsV1Api(configuration);
+        const id: string = 'c17bea3a-574d-453c-9e04-4365fbf5af0b'; // string | Id of the workflow execution (default to undefined)
+        const result = await apiInstance.getWorkflowExecutionHistoryV2(id);
+        console.log(result);
+- path: /workflow-executions/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/workflows/methods/workflows#get-workflow-execution-v1
+      source: |
+        import { WorkflowsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkflowsV1Api(configuration);
+        const id: string = 'c17bea3a-574d-453c-9e04-4365fbf5af0b'; // string | Workflow execution ID. (default to undefined)
+        const result = await apiInstance.getWorkflowExecutionV1(id);
+        console.log(result);
+- path: /workflows/v1/{id}/executions
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/workflows/methods/workflows#get-workflow-executions-v1
+      source: |
+        import { WorkflowsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkflowsV1Api(configuration);
+        const id: string = 'c17bea3a-574d-453c-9e04-4365fbf5af0b'; // string | Workflow ID. (default to undefined)
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const filters: string = 'status eq "Failed"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, le, gt, ge*  **status**: *eq* (optional) (default to undefined)
+        const result = await apiInstance.getWorkflowExecutionsV1(id);
+        console.log(result);
+- path: /workflows/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/workflows/methods/workflows#get-workflow-v1
+      source: |
+        import { WorkflowsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkflowsV1Api(configuration);
+        const id: string = 'c17bea3a-574d-453c-9e04-4365fbf5af0b'; // string | Id of the workflow (default to undefined)
+        const result = await apiInstance.getWorkflowV1(id);
+        console.log(result);
+- path: /workflow-library/v1
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/workflows/methods/workflows#list-complete-workflow-library-v1
+      source: |
+        import { WorkflowsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkflowsV1Api(configuration);
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const result = await apiInstance.listCompleteWorkflowLibraryV1();
+        console.log(result);
+- path: /workflow-library/v1/actions
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/workflows/methods/workflows#list-workflow-library-actions-v1
+      source: |
+        import { WorkflowsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkflowsV1Api(configuration);
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const filters: string = 'id eq "sp:create-campaign"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional) (default to undefined)
+        const result = await apiInstance.listWorkflowLibraryActionsV1();
+        console.log(result);
+- path: /workflow-library/v1/operators
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/workflows/methods/workflows#list-workflow-library-operators-v1
+      source: |
+        import { WorkflowsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkflowsV1Api(configuration);
+        const result = await apiInstance.listWorkflowLibraryOperatorsV1();
+        console.log(result);
+- path: /workflow-library/v1/triggers
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/workflows/methods/workflows#list-workflow-library-triggers-v1
+      source: |
+        import { WorkflowsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkflowsV1Api(configuration);
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const filters: string = 'id eq "idn:identity-attributes-changed"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **type**: *eq* (optional) (default to undefined)
+        const result = await apiInstance.listWorkflowLibraryTriggersV1();
+        console.log(result);
+- path: /workflows/v1
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/workflows/methods/workflows#list-workflows-v1
+      source: |
+        import { WorkflowsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkflowsV1Api(configuration);
+        const result = await apiInstance.listWorkflowsV1();
+        console.log(result);
+- path: /workflows/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/workflows/methods/workflows#patch-workflow-v1
+      source: |
+        import { WorkflowsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkflowsV1Api(configuration);
+        const id: string = 'c17bea3a-574d-453c-9e04-4365fbf5af0b'; // string | Id of the Workflow (default to undefined)
+        const jsonpatchoperationV1: Array&lt;JsonpatchoperationV1&gt; = [{"op":"replace","path":"/name","value":"Send Email"},{"op":"replace","path":"/owner","value":{"type":"IDENTITY","id":"2c91808568c529c60168cca6f90c1313","name":"William Wilson"}},{"op":"replace","path":"/description","value":"Send an email to the identity who's attributes changed."},{"op":"replace","path":"/enabled","value":false},{"op":"replace","path":"/definition","value":{"start":"Send Email Test","steps":{"Send Email":{"actionId":"sp:send-email","attributes":{"body":"This is a test","from":"sailpoint@sailpoint.com","recipientId.$":"$.identity.id","subject":"test"},"nextStep":"success","selectResult":null,"type":"action"},"success":{"type":"success"}}}},{"op":"replace","path":"/trigger","value":{"type":"EVENT","attributes":{"id":"idn:identity-attributes-changed"}}}]; // Array<JsonpatchoperationV1> | 
+        const result = await apiInstance.patchWorkflowV1(id, jsonpatchoperationV1);
+        console.log(result);
+- path: /workflows/v1/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/workflows/methods/workflows#put-workflow-v1
+      source: |
+        import { WorkflowsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkflowsV1Api(configuration);
+        const id: string = 'c17bea3a-574d-453c-9e04-4365fbf5af0b'; // string | Id of the Workflow (default to undefined)
+        const workflowbodyV1: WorkflowbodyV1 = ; // WorkflowbodyV1 | 
+        const result = await apiInstance.putWorkflowV1(id, workflowbodyV1);
+        console.log(result);
+- path: /workflows/v1/execute/external/{id}/test
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/workflows/methods/workflows#test-external-execute-workflow-v1
+      source: |
+        import { WorkflowsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkflowsV1Api(configuration);
+        const id: string = 'c17bea3a-574d-453c-9e04-4365fbf5af0b'; // string | Id of the workflow (default to undefined)
+        const testExternalExecuteWorkflowV1RequestV1: TestExternalExecuteWorkflowV1RequestV1 = ; // TestExternalExecuteWorkflowV1RequestV1 |  (optional)
+        const result = await apiInstance.testExternalExecuteWorkflowV1(id);
+        console.log(result);
+- path: /workflows/v1/{id}/test
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/workflows/methods/workflows#test-workflow-v1
+      source: |
+        import { WorkflowsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new WorkflowsV1Api(configuration);
+        const id: string = 'c17bea3a-574d-453c-9e04-4365fbf5af0b'; // string | Id of the workflow (default to undefined)
+        const testWorkflowV1RequestV1: TestWorkflowV1RequestV1 = {"input":{"identity":{"id":"ee769173319b41d19ccec6cea52f237b","name":"john.doe","type":"IDENTITY"},"changes":[{"attribute":"department","oldValue":"sales","newValue":"marketing"},{"attribute":"manager","oldValue":{"id":"ee769173319b41d19ccec6c235423237b","name":"nice.guy","type":"IDENTITY"},"newValue":{"id":"ee769173319b41d19ccec6c235423236c","name":"mean.guy","type":"IDENTITY"}},{"attribute":"email","oldValue":"john.doe@hotmail.com","newValue":"john.doe@gmail.com"}]}}; // TestWorkflowV1RequestV1 | 
+        const result = await apiInstance.testWorkflowV1(id, testWorkflowV1RequestV1);
+        console.log(result);

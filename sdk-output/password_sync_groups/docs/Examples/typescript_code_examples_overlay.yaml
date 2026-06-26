@@ -1,0 +1,78 @@
+- path: /password-sync-groups/v1
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/password_sync_groups/methods/password-sync-groups#create-password-sync-group-v1
+      source: |
+        import { PasswordSyncGroupsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new PasswordSyncGroupsV1Api(configuration);
+        const passwordsyncgroupV1: PasswordsyncgroupV1 = {"name":"Password Sync Group 2","passwordPolicyId":"2c91808d744ba0ce01746f93b6204501","sourceIds":["2c918084660f45d6016617daa9210584","2c918084660f45d6016617daa9210500"]}; // PasswordsyncgroupV1 | 
+        const result = await apiInstance.createPasswordSyncGroupV1(passwordsyncgroupV1);
+        console.log(result);
+- path: /password-sync-groups/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/password_sync_groups/methods/password-sync-groups#delete-password-sync-group-v1
+      source: |
+        import { PasswordSyncGroupsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new PasswordSyncGroupsV1Api(configuration);
+        const id: string = '6881f631-3bd5-4213-9c75-8e05cc3e35dd'; // string | The ID of password sync group to delete. (default to undefined)
+        const result = await apiInstance.deletePasswordSyncGroupV1(id);
+        console.log(result);
+- path: /password-sync-groups/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/password_sync_groups/methods/password-sync-groups#get-password-sync-group-v1
+      source: |
+        import { PasswordSyncGroupsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new PasswordSyncGroupsV1Api(configuration);
+        const id: string = '6881f631-3bd5-4213-9c75-8e05cc3e35dd'; // string | The ID of password sync group to retrieve. (default to undefined)
+        const result = await apiInstance.getPasswordSyncGroupV1(id);
+        console.log(result);
+- path: /password-sync-groups/v1
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/password_sync_groups/methods/password-sync-groups#get-password-sync-groups-v1
+      source: |
+        import { PasswordSyncGroupsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new PasswordSyncGroupsV1Api(configuration);
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const result = await apiInstance.getPasswordSyncGroupsV1();
+        console.log(result);
+- path: /password-sync-groups/v1/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/password_sync_groups/methods/password-sync-groups#update-password-sync-group-v1
+      source: |
+        import { PasswordSyncGroupsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new PasswordSyncGroupsV1Api(configuration);
+        const id: string = '6881f631-3bd5-4213-9c75-8e05cc3e35dd'; // string | The ID of password sync group to update. (default to undefined)
+        const passwordsyncgroupV1: PasswordsyncgroupV1 = {"id":"6881f631-3bd5-4213-9c75-8e05cc3e35dd","name":"Password Sync Group 2","passwordPolicyId":"2c91808d744ba0ce01746f93b6204501","sourceIds":["2c918084660f45d6016617daa9210584","2c918084660f45d6016617daa9210500"]}; // PasswordsyncgroupV1 | 
+        const result = await apiInstance.updatePasswordSyncGroupV1(id, passwordsyncgroupV1);
+        console.log(result);

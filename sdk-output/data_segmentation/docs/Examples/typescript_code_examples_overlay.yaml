@@ -1,0 +1,137 @@
+- path: /data-segments/v1
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_segmentation/methods/data-segmentation#create-data-segment-v1
+      source: |
+        import { DataSegmentationV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataSegmentationV1Api(configuration);
+        const dataSegmentV1: DataSegmentV1 = ; // DataSegmentV1 | 
+        const result = await apiInstance.createDataSegmentV1(dataSegmentV1);
+        console.log(result);
+- path: /data-segments/v1/{segmentId}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_segmentation/methods/data-segmentation#delete-data-segment-v1
+      source: |
+        import { DataSegmentationV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataSegmentationV1Api(configuration);
+        const segmentId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The segment ID to delete. (default to undefined)
+        const published: boolean = false; // boolean | This determines which version of the segment to delete (optional) (default to false)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.deleteDataSegmentV1(segmentId);
+        console.log(result);
+- path: /data-segments/v1/membership/{identityId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_segmentation/methods/data-segmentation#get-data-segment-identity-membership-v1
+      source: |
+        import { DataSegmentationV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataSegmentationV1Api(configuration);
+        const identityId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The identity ID to retrieve the segments they are in. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getDataSegmentIdentityMembershipV1(identityId);
+        console.log(result);
+- path: /data-segments/v1/{segmentId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_segmentation/methods/data-segmentation#get-data-segment-v1
+      source: |
+        import { DataSegmentationV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataSegmentationV1Api(configuration);
+        const segmentId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The segment ID to retrieve. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getDataSegmentV1(segmentId);
+        console.log(result);
+- path: /data-segments/v1/user-enabled/{identityId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_segmentation/methods/data-segmentation#get-data-segmentation-enabled-for-user-v1
+      source: |
+        import { DataSegmentationV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataSegmentationV1Api(configuration);
+        const identityId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The identity ID to retrieve if segmentation is enabled for the identity. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getDataSegmentationEnabledForUserV1(identityId);
+        console.log(result);
+- path: /data-segments/v1
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_segmentation/methods/data-segmentation#list-data-segments-v1
+      source: |
+        import { DataSegmentationV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataSegmentationV1Api(configuration);
+        const enabled: boolean = true; // boolean | This boolean indicates whether the segment is currently active. Inactive segments have no effect. (optional) (default to true)
+        const unique: boolean = false; // boolean | This returns only one record if set to true and that would be the published record if exists. (optional) (default to false)
+        const published: boolean = true; // boolean | This boolean indicates whether the segment is being applied to the accounts. If unpublished its being actively modified until published (optional) (default to true)
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'name eq ""'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw* (optional) (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.listDataSegmentsV1();
+        console.log(result);
+- path: /data-segments/v1/{segmentId}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_segmentation/methods/data-segmentation#patch-data-segment-v1
+      source: |
+        import { DataSegmentationV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataSegmentationV1Api(configuration);
+        const segmentId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The segment ID to modify. (default to undefined)
+        const requestBody: Array&lt;object&gt; = [{"op":"replace","path":"/memberFilter","value":{"expression":{"operator":"AND","children":[{"operator":"EQUALS","attribute":"location","value":{"type":"STRING","value":"Philadelphia"}},{"operator":"EQUALS","attribute":"department","value":{"type":"STRING","value":"HR"}}]}}}]; // Array<object> | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * membership * memberFilter * memberSelection * scopes * enabled 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.patchDataSegmentV1(segmentId, requestBody);
+        console.log(result);
+- path: /data-segments/v1/{segmentId}
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_segmentation/methods/data-segmentation#publish-data-segment-v1
+      source: |
+        import { DataSegmentationV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new DataSegmentationV1Api(configuration);
+        const segmentId: string = 'segmentId_example'; // string | The segmentId. (default to undefined)
+        const requestBody: Array&lt;string&gt; = ; // Array<string> | A list of segment ids that you wish to publish
+        const publishAll: boolean = true; // boolean | This flag decides whether you want to publish all unpublished or a list of specific segment ids (optional) (default to true)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.publishDataSegmentV1(segmentId, requestBody);
+        console.log(result);

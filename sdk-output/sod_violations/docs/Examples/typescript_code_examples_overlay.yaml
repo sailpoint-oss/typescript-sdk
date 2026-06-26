@@ -1,0 +1,30 @@
+- path: /sod-violations/v1/predict
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sod_violations/methods/sod-violations#start-predict-sod-violations-v1
+      source: |
+        import { SODViolationsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new SODViolationsV1Api(configuration);
+        const identitywithnewaccessV1: IdentitywithnewaccessV1 = {"identityId":"2c91808568c529c60168cca6f90c1313","accessRefs":[{"type":"ENTITLEMENT","id":"2c918087682f9a86016839c050861ab1"},{"type":"ENTITLEMENT","id":"2c918087682f9a86016839c0509c1ab2"}]}; // IdentitywithnewaccessV1 | 
+        const result = await apiInstance.startPredictSodViolationsV1(identitywithnewaccessV1);
+        console.log(result);
+- path: /sod-violations/v1/check
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sod_violations/methods/sod-violations#start-violation-check-v1
+      source: |
+        import { SODViolationsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new SODViolationsV1Api(configuration);
+        const identitywithnewaccessV1: IdentitywithnewaccessV1 = {"identityId":"2c91808568c529c60168cca6f90c1313","accessRefs":[{"type":"ENTITLEMENT","id":"2c918087682f9a86016839c050861ab1"},{"type":"ENTITLEMENT","id":"2c918087682f9a86016839c0509c1ab2"}],"clientMetadata":{"additionalProp1":"string","additionalProp2":"string","additionalProp3":"string"}}; // IdentitywithnewaccessV1 | 
+        const result = await apiInstance.startViolationCheckV1(identitywithnewaccessV1);
+        console.log(result);

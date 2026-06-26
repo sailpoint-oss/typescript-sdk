@@ -1,0 +1,29 @@
+- path: /password-dictionary/v1
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/password_dictionary/methods/password-dictionary#get-password-dictionary-v1
+      source: |
+        import { PasswordDictionaryV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new PasswordDictionaryV1Api(configuration);
+        const result = await apiInstance.getPasswordDictionaryV1();
+        console.log(result);
+- path: /password-dictionary/v1
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/password_dictionary/methods/password-dictionary#put-password-dictionary-v1
+      source: |
+        import { PasswordDictionaryV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new PasswordDictionaryV1Api(configuration);
+        const file: File = BINARY_DATA_HERE; // File |  (optional) (default to undefined)
+        const result = await apiInstance.putPasswordDictionaryV1();
+        console.log(result);
