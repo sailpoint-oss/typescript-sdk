@@ -6,7 +6,7 @@ specs:
 clean-specs:
 	rm -rf ./api-specs
 
-APIS_DIR ?= api-specs/src/main/yaml/apis
+APIS_DIR ?= api-specs/idn/apis
 
 .PHONY: build
 build:

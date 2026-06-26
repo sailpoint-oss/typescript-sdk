@@ -205,18 +205,35 @@ function bundlePartition(partitionName, tempApisDir) {
 // ---------------------------------------------------------------------------
 
 function writePartitionConfig(partitionName) {
+  const packageDir = partitionName.replaceAll("-", "_");
   const config = [
     `templateDir: ${TEMPLATE_DIR}`,
     `files:`,
     `  package.mustache:`,
     `    templateType: SupportingFiles`,
     `    destinationFilename: package.json`,
+    `  developerSite_code_examples.mustache:`,
+    `    templateType: APIDocs`,
+    `    destinationFilename: developerSite_code_examples.yaml`,
+    `  api_doc.mustache:`,
+    `    templateType: APIDocs`,
+    `    destinationFilename: .md`,
+    `  model_doc.mustache:`,
+    `    templateType: ModelDocs`,
+    `    destinationFilename: .md`,
+    `  docs_methods_index.mustache:`,
+    `    templateType: SupportingFiles`,
+    `    destinationFilename: docs/Methods/Index.md`,
+    `  docs_models_index.mustache:`,
+    `    templateType: SupportingFiles`,
+    `    destinationFilename: Index.md`,
     `npmName: ${NPM_NAME}`,
     `npmRepository: sailpoint.com`,
     `npmVersion: ${NPM_VERSION}`,
     `useSingleRequestParameter: true`,
     `apiVersion: ${API_VERSION}`,
     `enumNameSuffix: V1`,
+    `packageName: ${packageDir}`,
   ].join("\n");
 
   const configPath = path.join(TEMP_DIR, `${partitionName}-config.yaml`);
@@ -244,7 +261,7 @@ function generatePartition(partitionName, bundledSpec, configPath) {
       "-i", bundledSpec,
       "-g", "typescript-axios",
       "-o", outputDir,
-      "--global-property", "skipFormModel=false",
+      "--global-property", "skipFormModel=false,apiDocs=true,modelDocs=true",
       "--config", configPath,
       "--api-name-suffix", "V1Api",
       "--model-name-suffix", "V1",
