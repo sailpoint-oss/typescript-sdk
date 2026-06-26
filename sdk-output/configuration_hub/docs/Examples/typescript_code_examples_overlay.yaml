@@ -1,0 +1,304 @@
+- path: /configuration-hub/v1/deploys
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#create-deploy-v1
+      source: |
+        import { ConfigurationHubV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConfigurationHubV1Api(configuration);
+        const deployrequestV1: DeployrequestV1 = {"draftId":"c9a38d8c-5edf-4182-9d39-f6581d3ebd05"}; // DeployrequestV1 | The deploy request body.
+        const result = await apiInstance.createDeployV1(deployrequestV1);
+        console.log(result);
+- path: /configuration-hub/v1/object-mappings/{sourceOrg}
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#create-object-mapping-v1
+      source: |
+        import { ConfigurationHubV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConfigurationHubV1Api(configuration);
+        const sourceOrg: string = 'source-org'; // string | The name of the source org. (default to undefined)
+        const objectmappingrequestV1: ObjectmappingrequestV1 = {"objectType":"GOVERNANCE_GROUP","jsonPath":"$.description","sourceValue":"Sample Governance Group","targetValue":"Sample Governance Group - Updated","enabled":true}; // ObjectmappingrequestV1 | The object mapping request body.
+        const result = await apiInstance.createObjectMappingV1(sourceOrg, objectmappingrequestV1);
+        console.log(result);
+- path: /configuration-hub/v1/object-mappings/{sourceOrg}/bulk-create
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#create-object-mappings-v1
+      source: |
+        import { ConfigurationHubV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConfigurationHubV1Api(configuration);
+        const sourceOrg: string = 'source-org'; // string | The name of the source org. (default to undefined)
+        const objectmappingbulkcreaterequestV1: ObjectmappingbulkcreaterequestV1 = {"newObjectsMappings":[{"objectType":"SOURCE","jsonPath":"$.name","sourceValue":"Original SOURCE Name","targetValue":"New SOURCE Name","enabled":true},{"objectType":"IDENTITY","jsonPath":"$.name","sourceValue":"Original IDENTITY Name","targetValue":"New IDENTITY Name ","enabled":true}]}; // ObjectmappingbulkcreaterequestV1 | The bulk create object mapping request body.
+        const result = await apiInstance.createObjectMappingsV1(sourceOrg, objectmappingbulkcreaterequestV1);
+        console.log(result);
+- path: /configuration-hub/v1/scheduled-actions
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#create-scheduled-action-v1
+      source: |
+        import { ConfigurationHubV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConfigurationHubV1Api(configuration);
+        const scheduledactionpayloadV1: ScheduledactionpayloadV1 = {"jobType":"BACKUP","startTime":"2024-08-16T14:16:58.389Z","cronString":"0 0 * * * *","timeZoneId":"America/Chicago","content":{"name":"Daily Backup","backupOptions":{"includeTypes":["SOURCE","IDENTITY"],"objectOptions":{"SOURCE":{"includedNames":["Source1","Source2"]}}}}}; // ScheduledactionpayloadV1 | The scheduled action creation request body.
+        const result = await apiInstance.createScheduledActionV1(scheduledactionpayloadV1);
+        console.log(result);
+- path: /configuration-hub/v1/backups/uploads
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#create-uploaded-configuration-v1
+      source: |
+        import { ConfigurationHubV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConfigurationHubV1Api(configuration);
+        const data: File = BINARY_DATA_HERE; // File | JSON file containing the objects to be imported. (default to undefined)
+        const name: string = 'name_example'; // string | Name that will be assigned to the uploaded configuration file. (default to undefined)
+        const result = await apiInstance.createUploadedConfigurationV1(data, name);
+        console.log(result);
+- path: /configuration-hub/v1/backups/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#delete-backup-v1
+      source: |
+        import { ConfigurationHubV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConfigurationHubV1Api(configuration);
+        const id: string = '07659d7d-2cce-47c0-9e49-185787ee565a'; // string | The id of the backup to delete. (default to undefined)
+        const result = await apiInstance.deleteBackupV1(id);
+        console.log(result);
+- path: /configuration-hub/v1/drafts/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#delete-draft-v1
+      source: |
+        import { ConfigurationHubV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConfigurationHubV1Api(configuration);
+        const id: string = '07659d7d-2cce-47c0-9e49-185787ee565a'; // string | The id of the draft to delete. (default to undefined)
+        const result = await apiInstance.deleteDraftV1(id);
+        console.log(result);
+- path: /configuration-hub/v1/object-mappings/{sourceOrg}/{objectMappingId}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#delete-object-mapping-v1
+      source: |
+        import { ConfigurationHubV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConfigurationHubV1Api(configuration);
+        const sourceOrg: string = 'source-org'; // string | The name of the source org. (default to undefined)
+        const objectMappingId: string = '3d6e0144-963f-4bd6-8d8d-d77b4e507ce4'; // string | The id of the object mapping to be deleted. (default to undefined)
+        const result = await apiInstance.deleteObjectMappingV1(sourceOrg, objectMappingId);
+        console.log(result);
+- path: /configuration-hub/v1/scheduled-actions/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#delete-scheduled-action-v1
+      source: |
+        import { ConfigurationHubV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConfigurationHubV1Api(configuration);
+        const id: string = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde'; // string | The ID of the scheduled action. (default to undefined)
+        const result = await apiInstance.deleteScheduledActionV1(id);
+        console.log(result);
+- path: /configuration-hub/v1/backups/uploads/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#delete-uploaded-configuration-v1
+      source: |
+        import { ConfigurationHubV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConfigurationHubV1Api(configuration);
+        const id: string = '3d0fe04b-57df-4a46-a83b-8f04b0f9d10b'; // string | The id of the uploaded configuration. (default to undefined)
+        const result = await apiInstance.deleteUploadedConfigurationV1(id);
+        console.log(result);
+- path: /configuration-hub/v1/deploys/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#get-deploy-v1
+      source: |
+        import { ConfigurationHubV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConfigurationHubV1Api(configuration);
+        const id: string = '3d0fe04b-57df-4a46-a83b-8f04b0f9d10b'; // string | The id of the deploy. (default to undefined)
+        const result = await apiInstance.getDeployV1(id);
+        console.log(result);
+- path: /configuration-hub/v1/object-mappings/{sourceOrg}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#get-object-mappings-v1
+      source: |
+        import { ConfigurationHubV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConfigurationHubV1Api(configuration);
+        const sourceOrg: string = 'source-org'; // string | The name of the source org. (default to undefined)
+        const result = await apiInstance.getObjectMappingsV1(sourceOrg);
+        console.log(result);
+- path: /configuration-hub/v1/backups/uploads/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#get-uploaded-configuration-v1
+      source: |
+        import { ConfigurationHubV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConfigurationHubV1Api(configuration);
+        const id: string = '3d0fe04b-57df-4a46-a83b-8f04b0f9d10b'; // string | The id of the uploaded configuration. (default to undefined)
+        const result = await apiInstance.getUploadedConfigurationV1(id);
+        console.log(result);
+- path: /configuration-hub/v1/backups
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#list-backups-v1
+      source: |
+        import { ConfigurationHubV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConfigurationHubV1Api(configuration);
+        const filters: string = 'status eq "COMPLETE"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional) (default to undefined)
+        const result = await apiInstance.listBackupsV1();
+        console.log(result);
+- path: /configuration-hub/v1/deploys
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#list-deploys-v1
+      source: |
+        import { ConfigurationHubV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConfigurationHubV1Api(configuration);
+        const result = await apiInstance.listDeploysV1();
+        console.log(result);
+- path: /configuration-hub/v1/drafts
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#list-drafts-v1
+      source: |
+        import { ConfigurationHubV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConfigurationHubV1Api(configuration);
+        const filters: string = 'status eq "COMPLETE"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **approvalStatus**: *eq* (optional) (default to undefined)
+        const result = await apiInstance.listDraftsV1();
+        console.log(result);
+- path: /configuration-hub/v1/scheduled-actions
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#list-scheduled-actions-v1
+      source: |
+        import { ConfigurationHubV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConfigurationHubV1Api(configuration);
+        const result = await apiInstance.listScheduledActionsV1();
+        console.log(result);
+- path: /configuration-hub/v1/backups/uploads
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#list-uploaded-configurations-v1
+      source: |
+        import { ConfigurationHubV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConfigurationHubV1Api(configuration);
+        const filters: string = 'status eq "COMPLETE"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional) (default to undefined)
+        const result = await apiInstance.listUploadedConfigurationsV1();
+        console.log(result);
+- path: /configuration-hub/v1/object-mappings/{sourceOrg}/bulk-patch
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#update-object-mappings-v1
+      source: |
+        import { ConfigurationHubV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConfigurationHubV1Api(configuration);
+        const sourceOrg: string = 'source-org'; // string | The name of the source org. (default to undefined)
+        const objectmappingbulkpatchrequestV1: ObjectmappingbulkpatchrequestV1 = {"patches":{"603b1a61-d03d-4ed1-864f-a508fbd1995d":[{"op":"replace","path":"/enabled","value":true}],"00bece34-f50d-4227-8878-76f620b5a971":[{"op":"replace","path":"/targetValue","value":"New Target Value"}]}}; // ObjectmappingbulkpatchrequestV1 | The object mapping request body.
+        const result = await apiInstance.updateObjectMappingsV1(sourceOrg, objectmappingbulkpatchrequestV1);
+        console.log(result);
+- path: /configuration-hub/v1/scheduled-actions/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#update-scheduled-action-v1
+      source: |
+        import { ConfigurationHubV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConfigurationHubV1Api(configuration);
+        const id: string = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde'; // string | The ID of the scheduled action. (default to undefined)
+        const jsonpatchV1: JsonpatchV1 = [{"op":"replace","path":"/content/name","value":"Updated Backup Name"},{"op":"replace","path":"/cronString","value":"0 0 9 * * ?"}]; // JsonpatchV1 | The JSON Patch document containing the changes to apply to the scheduled action.
+        const result = await apiInstance.updateScheduledActionV1(id, jsonpatchV1);
+        console.log(result);

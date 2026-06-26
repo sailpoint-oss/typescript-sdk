@@ -1,0 +1,35 @@
+- path: /icons/v1/{objectType}/{objectId}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/icons/methods/icons#delete-icon-v1
+      source: |
+        import { IconsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new IconsV1Api(configuration);
+        const objectType: string = 'application'; // 'application' | Object type. Available options [\'application\'] (default to undefined)
+        const objectId: string = 'a291e870-48c3-4953-b656-fb5ce2a93169'; // string | Object id. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.deleteIconV1(objectType, objectId);
+        console.log(result);
+- path: /icons/v1/{objectType}/{objectId}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/icons/methods/icons#set-icon-v1
+      source: |
+        import { IconsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new IconsV1Api(configuration);
+        const objectType: string = 'application'; // 'application' | Object type. Available options [\'application\'] (default to undefined)
+        const objectId: string = 'a291e870-48c3-4953-b656-fb5ce2a93169'; // string | Object id. (default to undefined)
+        const image: File = BINARY_DATA_HERE; // File | file with icon. Allowed mime-types [\\\'image/png\\\', \\\'image/jpeg\\\'] (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.setIconV1(objectType, objectId, image);
+        console.log(result);

@@ -1,0 +1,16 @@
+- path: /accounts/v1/{id}/classify
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_account_classify/methods/machine-account-classify#send-classify-machine-account-v1
+      source: |
+        import { MachineAccountClassifyV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new MachineAccountClassifyV1Api(configuration);
+        const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Account ID. (default to undefined)
+        const classificationMode: string = 'forceMachine'; // 'default' | 'ignoreManual' | 'forceMachine' | 'forceHuman' | Specifies how the accounts should be classified.        default - uses criteria to classify account as machine or human, excludes accounts that were manually classified.       ignoreManual - like default, but includes accounts that were manually classified.       forceMachine - forces account to be classified as machine.       forceHuman - forces account to be classified as human. (optional) (default to 'default')
+        const result = await apiInstance.sendClassifyMachineAccountV1(id);
+        console.log(result);

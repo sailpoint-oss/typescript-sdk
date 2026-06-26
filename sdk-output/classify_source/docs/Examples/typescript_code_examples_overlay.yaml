@@ -1,0 +1,45 @@
+- path: /sources/v1/{sourceId}/classify
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/classify_source/methods/classify-source#delete-classify-machine-account-from-source-v1
+      source: |
+        import { ClassifySourceV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ClassifySourceV1Api(configuration);
+        const sourceId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Source ID. (default to undefined)
+        const result = await apiInstance.deleteClassifyMachineAccountFromSourceV1(sourceId);
+        console.log(result);
+- path: /sources/v1/{sourceId}/classify
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/classify_source/methods/classify-source#get-classify-machine-account-from-source-status-v1
+      source: |
+        import { ClassifySourceV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ClassifySourceV1Api(configuration);
+        const sourceId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Source ID. (default to undefined)
+        const result = await apiInstance.getClassifyMachineAccountFromSourceStatusV1(sourceId);
+        console.log(result);
+- path: /sources/v1/{sourceId}/classify
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/classify_source/methods/classify-source#send-classify-machine-account-from-source-v1
+      source: |
+        import { ClassifySourceV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ClassifySourceV1Api(configuration);
+        const sourceId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Source ID. (default to undefined)
+        const result = await apiInstance.sendClassifyMachineAccountFromSourceV1(sourceId);
+        console.log(result);

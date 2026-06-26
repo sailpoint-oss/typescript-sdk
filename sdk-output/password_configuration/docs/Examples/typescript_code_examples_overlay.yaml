@@ -1,0 +1,44 @@
+- path: /password-org-config/v1
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/password_configuration/methods/password-configuration#create-password-org-config-v1
+      source: |
+        import { PasswordConfigurationV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new PasswordConfigurationV1Api(configuration);
+        const passwordorgconfigV1: PasswordorgconfigV1 = {"customInstructionsEnabled":true,"digitTokenEnabled":true,"digitTokenDurationMinutes":12,"digitTokenLength":9}; // PasswordorgconfigV1 | 
+        const result = await apiInstance.createPasswordOrgConfigV1(passwordorgconfigV1);
+        console.log(result);
+- path: /password-org-config/v1
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/password_configuration/methods/password-configuration#get-password-org-config-v1
+      source: |
+        import { PasswordConfigurationV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new PasswordConfigurationV1Api(configuration);
+        const result = await apiInstance.getPasswordOrgConfigV1();
+        console.log(result);
+- path: /password-org-config/v1
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/password_configuration/methods/password-configuration#put-password-org-config-v1
+      source: |
+        import { PasswordConfigurationV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new PasswordConfigurationV1Api(configuration);
+        const passwordorgconfigV1: PasswordorgconfigV1 = {"digitTokenEnabled":true,"digitTokenDurationMinutes":12}; // PasswordorgconfigV1 | 
+        const result = await apiInstance.putPasswordOrgConfigV1(passwordorgconfigV1);
+        console.log(result);

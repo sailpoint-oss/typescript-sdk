@@ -1,0 +1,175 @@
+- path: /access-model-metadata/v1/attributes
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/access_model_metadata/methods/access-model-metadata#create-access-model-metadata-attribute-v1
+      source: |
+        import { AccessModelMetadataV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new AccessModelMetadataV1Api(configuration);
+        const attributedtoV1: AttributedtoV1 = ; // AttributedtoV1 | Attribute to create
+        const result = await apiInstance.createAccessModelMetadataAttributeV1(attributedtoV1);
+        console.log(result);
+- path: /access-model-metadata/v1/attributes/{key}/values
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/access_model_metadata/methods/access-model-metadata#create-access-model-metadata-attribute-value-v1
+      source: |
+        import { AccessModelMetadataV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new AccessModelMetadataV1Api(configuration);
+        const key: string = 'iscPrivacy'; // string | Technical name of the Attribute. (default to undefined)
+        const attributevaluedtoV1: AttributevaluedtoV1 = ; // AttributevaluedtoV1 | Attribute value to create
+        const result = await apiInstance.createAccessModelMetadataAttributeValueV1(key, attributevaluedtoV1);
+        console.log(result);
+- path: /access-model-metadata/v1/attributes/{key}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/access_model_metadata/methods/access-model-metadata#get-access-model-metadata-attribute-v1
+      source: |
+        import { AccessModelMetadataV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new AccessModelMetadataV1Api(configuration);
+        const key: string = 'iscPrivacy'; // string | Technical name of the Attribute. (default to undefined)
+        const result = await apiInstance.getAccessModelMetadataAttributeV1(key);
+        console.log(result);
+- path: /access-model-metadata/v1/attributes/{key}/values/{value}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/access_model_metadata/methods/access-model-metadata#get-access-model-metadata-attribute-value-v1
+      source: |
+        import { AccessModelMetadataV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new AccessModelMetadataV1Api(configuration);
+        const key: string = 'iscPrivacy'; // string | Technical name of the Attribute. (default to undefined)
+        const value: string = 'public'; // string | Technical name of the Attribute value. (default to undefined)
+        const result = await apiInstance.getAccessModelMetadataAttributeValueV1(key, value);
+        console.log(result);
+- path: /access-model-metadata/v1/attributes
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/access_model_metadata/methods/access-model-metadata#list-access-model-metadata-attribute-v1
+      source: |
+        import { AccessModelMetadataV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new AccessModelMetadataV1Api(configuration);
+        const filters: string = 'name eq "Privacy"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or* (optional) (default to undefined)
+        const sorters: string = 'name,-key'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key** (optional) (default to undefined)
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const result = await apiInstance.listAccessModelMetadataAttributeV1();
+        console.log(result);
+- path: /access-model-metadata/v1/attributes/{key}/values
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/access_model_metadata/methods/access-model-metadata#list-access-model-metadata-attribute-value-v1
+      source: |
+        import { AccessModelMetadataV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new AccessModelMetadataV1Api(configuration);
+        const key: string = 'iscPrivacy'; // string | Technical name of the Attribute. (default to undefined)
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const result = await apiInstance.listAccessModelMetadataAttributeValueV1(key);
+        console.log(result);
+- path: /access-model-metadata/v1/attributes/{key}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/access_model_metadata/methods/access-model-metadata#update-access-model-metadata-attribute-v1
+      source: |
+        import { AccessModelMetadataV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new AccessModelMetadataV1Api(configuration);
+        const key: string = 'iscPrivacy'; // string | Technical name of the Attribute. (default to undefined)
+        const jsonpatchoperationV1: Array&lt;JsonpatchoperationV1&gt; = ; // Array<JsonpatchoperationV1> | JSON Patch array to apply
+        const result = await apiInstance.updateAccessModelMetadataAttributeV1(key, jsonpatchoperationV1);
+        console.log(result);
+- path: /access-model-metadata/v1/attributes/{key}/values/{value}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/access_model_metadata/methods/access-model-metadata#update-access-model-metadata-attribute-value-v1
+      source: |
+        import { AccessModelMetadataV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new AccessModelMetadataV1Api(configuration);
+        const key: string = 'iscPrivacy'; // string | Technical name of the Attribute. (default to undefined)
+        const value: string = 'public'; // string | Technical name of the Attribute value. (default to undefined)
+        const jsonpatchoperationV1: Array&lt;JsonpatchoperationV1&gt; = ; // Array<JsonpatchoperationV1> | JSON Patch array to apply
+        const result = await apiInstance.updateAccessModelMetadataAttributeValueV1(key, value, jsonpatchoperationV1);
+        console.log(result);
+- path: /access-model-metadata/v1/bulk-update/filter
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/access_model_metadata/methods/access-model-metadata#update-access-model-metadata-by-filter-v1
+      source: |
+        import { AccessModelMetadataV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new AccessModelMetadataV1Api(configuration);
+        const entitlementattributebulkupdatefilterrequestV1: EntitlementattributebulkupdatefilterrequestV1 = ; // EntitlementattributebulkupdatefilterrequestV1 | Attribute metadata bulk update request body.
+        const result = await apiInstance.updateAccessModelMetadataByFilterV1(entitlementattributebulkupdatefilterrequestV1);
+        console.log(result);
+- path: /access-model-metadata/v1/bulk-update/ids
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/access_model_metadata/methods/access-model-metadata#update-access-model-metadata-by-ids-v1
+      source: |
+        import { AccessModelMetadataV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new AccessModelMetadataV1Api(configuration);
+        const entitlementattributebulkupdateidsrequestV1: EntitlementattributebulkupdateidsrequestV1 = ; // EntitlementattributebulkupdateidsrequestV1 | Attribute metadata bulk update request body.
+        const result = await apiInstance.updateAccessModelMetadataByIdsV1(entitlementattributebulkupdateidsrequestV1);
+        console.log(result);
+- path: /access-model-metadata/v1/bulk-update/query
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/access_model_metadata/methods/access-model-metadata#update-access-model-metadata-by-query-v1
+      source: |
+        import { AccessModelMetadataV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new AccessModelMetadataV1Api(configuration);
+        const entitlementattributebulkupdatequeryrequestV1: EntitlementattributebulkupdatequeryrequestV1 = ; // EntitlementattributebulkupdatequeryrequestV1 | Attribute metadata bulk update request body.
+        const result = await apiInstance.updateAccessModelMetadataByQueryV1(entitlementattributebulkupdatequeryrequestV1);
+        console.log(result);

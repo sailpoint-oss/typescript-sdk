@@ -1,0 +1,29 @@
+---
+id: {{#lambda.kebabcase}}{{#lambda.titlecase}}{{apiVersion}}-{{classname}}{{/lambda.titlecase}}{{/lambda.kebabcase}}
+title: {{#lambda.titlecase}}{{classname}}{{/lambda.titlecase}}
+pagination_label: {{classname}}
+sidebar_label: {{classname}}
+sidebar_class_name: typescriptsdk
+keywords: ['typescript', 'TypeScript', 'sdk', '{{classname}}', '{{apiVersion}}{{classname}}']
+slug: /tools/sdk/typescript/{{#lambda.lowercase}}{{packageName}}{{/lambda.lowercase}}/models/{{#lambda.kebabcase}}{{#lambda.titlecase}}{{classname}}{{/lambda.titlecase}}{{/lambda.kebabcase}}
+tags: ['SDK', 'Software Development Kit', '{{classname}}', '{{apiVersion}}{{classname}}']
+---
+
+{{#models}}{{#model}}# {{classname}}
+
+{{^isEnum}}
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+{{#vars}}**{{name}}** | {{^required}}**(optional)** {{/required}}{{#isContainer}}{{#isArray}}**Array&lt;{{#items}}{{dataType}}{{/items}}&gt;**{{/isArray}}{{/isContainer}}{{^isContainer}}**{{dataType}}**{{/isContainer}} | {{{description}}} | {{#isReadOnly}}[readonly] {{/isReadOnly}}{{#defaultValue}}[default to {{{.}}}]{{/defaultValue}}
+{{/vars}}
+{{/isEnum}}
+{{#isEnum}}
+## Enum
+
+{{#allowableValues}}{{#enumVars}}
+* `{{name}}` (value: `{{{value}}}`)
+{{/enumVars}}{{/allowableValues}}
+{{/isEnum}}
+{{/model}}{{/models}}

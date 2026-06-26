@@ -1,0 +1,177 @@
+- path: /ai-access-request-recommendations/v1/ignored-items
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/iai_access_request_recommendations/methods/iai-access-request-recommendations#add-access-request-recommendations-ignored-item-v1
+      source: |
+        import { IAIAccessRequestRecommendationsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new IAIAccessRequestRecommendationsV1Api(configuration);
+        const accessrequestrecommendationactionitemdtoV1: AccessrequestrecommendationactionitemdtoV1 = ; // AccessrequestrecommendationactionitemdtoV1 | The recommended access item to ignore for an identity.
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.addAccessRequestRecommendationsIgnoredItemV1(accessrequestrecommendationactionitemdtoV1);
+        console.log(result);
+- path: /ai-access-request-recommendations/v1/requested-items
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/iai_access_request_recommendations/methods/iai-access-request-recommendations#add-access-request-recommendations-requested-item-v1
+      source: |
+        import { IAIAccessRequestRecommendationsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new IAIAccessRequestRecommendationsV1Api(configuration);
+        const accessrequestrecommendationactionitemdtoV1: AccessrequestrecommendationactionitemdtoV1 = ; // AccessrequestrecommendationactionitemdtoV1 | The recommended access item that was requested for an identity.
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.addAccessRequestRecommendationsRequestedItemV1(accessrequestrecommendationactionitemdtoV1);
+        console.log(result);
+- path: /ai-access-request-recommendations/v1/viewed-items
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/iai_access_request_recommendations/methods/iai-access-request-recommendations#add-access-request-recommendations-viewed-item-v1
+      source: |
+        import { IAIAccessRequestRecommendationsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new IAIAccessRequestRecommendationsV1Api(configuration);
+        const accessrequestrecommendationactionitemdtoV1: AccessrequestrecommendationactionitemdtoV1 = ; // AccessrequestrecommendationactionitemdtoV1 | The recommended access that was viewed for an identity.
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.addAccessRequestRecommendationsViewedItemV1(accessrequestrecommendationactionitemdtoV1);
+        console.log(result);
+- path: /ai-access-request-recommendations/v1/viewed-items/bulk-create
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/iai_access_request_recommendations/methods/iai-access-request-recommendations#add-access-request-recommendations-viewed-items-v1
+      source: |
+        import { IAIAccessRequestRecommendationsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new IAIAccessRequestRecommendationsV1Api(configuration);
+        const accessrequestrecommendationactionitemdtoV1: Array&lt;AccessrequestrecommendationactionitemdtoV1&gt; = ; // Array<AccessrequestrecommendationactionitemdtoV1> | The recommended access items that were viewed for an identity.
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.addAccessRequestRecommendationsViewedItemsV1(accessrequestrecommendationactionitemdtoV1);
+        console.log(result);
+- path: /ai-access-request-recommendations/v1/config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/iai_access_request_recommendations/methods/iai-access-request-recommendations#get-access-request-recommendations-config-v1
+      source: |
+        import { IAIAccessRequestRecommendationsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new IAIAccessRequestRecommendationsV1Api(configuration);
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getAccessRequestRecommendationsConfigV1();
+        console.log(result);
+- path: /ai-access-request-recommendations/v1/ignored-items
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/iai_access_request_recommendations/methods/iai-access-request-recommendations#get-access-request-recommendations-ignored-items-v1
+      source: |
+        import { IAIAccessRequestRecommendationsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new IAIAccessRequestRecommendationsV1Api(configuration);
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'identityId eq "2c9180846b0a0583016b299f210c1314"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.id**: *eq, in*  **access.type**: *eq, in*  **identityId**: *eq, in* (optional) (default to undefined)
+        const sorters: string = 'access.id'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional) (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getAccessRequestRecommendationsIgnoredItemsV1();
+        console.log(result);
+- path: /ai-access-request-recommendations/v1/requested-items
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/iai_access_request_recommendations/methods/iai-access-request-recommendations#get-access-request-recommendations-requested-items-v1
+      source: |
+        import { IAIAccessRequestRecommendationsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new IAIAccessRequestRecommendationsV1Api(configuration);
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'access.id eq "2c9180846b0a0583016b299f210c1314"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.id**: *eq, in*  **access.type**: *eq, in*  **identityId**: *eq, in* (optional) (default to undefined)
+        const sorters: string = 'access.id'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional) (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getAccessRequestRecommendationsRequestedItemsV1();
+        console.log(result);
+- path: /ai-access-request-recommendations/v1
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/iai_access_request_recommendations/methods/iai-access-request-recommendations#get-access-request-recommendations-v1
+      source: |
+        import { IAIAccessRequestRecommendationsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new IAIAccessRequestRecommendationsV1Api(configuration);
+        const identityId: string = '2c91808570313110017040b06f344ec9'; // string | Get access request recommendations for an identityId. *me* indicates the current user. (optional) (default to 'me')
+        const limit: number = 15; // number | Max number of results to return. (optional) (default to 15)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const includeTranslationMessages: boolean = false; // boolean | If *true* it will populate a list of translation messages in the response. (optional) (default to false)
+        const filters: string = 'access.name co "admin"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.name**: *co*  **access.type**: *eq, in*  **access.description**: *co, eq, in* (optional) (default to undefined)
+        const sorters: string = 'access.name'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, access.type**  By default the recommendations are sorted by highest confidence first. (optional) (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getAccessRequestRecommendationsV1();
+        console.log(result);
+- path: /ai-access-request-recommendations/v1/viewed-items
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/iai_access_request_recommendations/methods/iai-access-request-recommendations#get-access-request-recommendations-viewed-items-v1
+      source: |
+        import { IAIAccessRequestRecommendationsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new IAIAccessRequestRecommendationsV1Api(configuration);
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'access.id eq "2c9180846b0a0583016b299f210c1314"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.id**: *eq, in*  **access.type**: *eq, in*  **identityId**: *eq, in* (optional) (default to undefined)
+        const sorters: string = 'access.id'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional) (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getAccessRequestRecommendationsViewedItemsV1();
+        console.log(result);
+- path: /ai-access-request-recommendations/v1/config
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/iai_access_request_recommendations/methods/iai-access-request-recommendations#set-access-request-recommendations-config-v1
+      source: |
+        import { IAIAccessRequestRecommendationsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new IAIAccessRequestRecommendationsV1Api(configuration);
+        const accessrequestrecommendationconfigdtoV1: AccessrequestrecommendationconfigdtoV1 = ; // AccessrequestrecommendationconfigdtoV1 | The desired configurations for Access Request Recommender for the tenant.
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.setAccessRequestRecommendationsConfigV1(accessrequestrecommendationconfigdtoV1);
+        console.log(result);

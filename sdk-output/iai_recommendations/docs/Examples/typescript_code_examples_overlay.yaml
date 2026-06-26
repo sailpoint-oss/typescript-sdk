@@ -1,0 +1,47 @@
+- path: /recommendations/v1/config
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/iai_recommendations/methods/iai-recommendations#get-recommendations-config-v1
+      source: |
+        import { IAIRecommendationsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new IAIRecommendationsV1Api(configuration);
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getRecommendationsConfigV1();
+        console.log(result);
+- path: /recommendations/v1/request
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/iai_recommendations/methods/iai-recommendations#get-recommendations-v1
+      source: |
+        import { IAIRecommendationsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new IAIRecommendationsV1Api(configuration);
+        const recommendationrequestdtoV1: RecommendationrequestdtoV1 = ; // RecommendationrequestdtoV1 | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getRecommendationsV1(recommendationrequestdtoV1);
+        console.log(result);
+- path: /recommendations/v1/config
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/iai_recommendations/methods/iai-recommendations#update-recommendations-config-v1
+      source: |
+        import { IAIRecommendationsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new IAIRecommendationsV1Api(configuration);
+        const recommendationconfigdtoV1: RecommendationconfigdtoV1 = ; // RecommendationconfigdtoV1 | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.updateRecommendationsConfigV1(recommendationconfigdtoV1);
+        console.log(result);

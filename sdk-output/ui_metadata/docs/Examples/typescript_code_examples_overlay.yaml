@@ -1,0 +1,31 @@
+- path: /ui-metadata/v1/tenant
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/ui_metadata/methods/ui-metadata#get-tenant-ui-metadata-v1
+      source: |
+        import { UIMetadataV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new UIMetadataV1Api(configuration);
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getTenantUiMetadataV1();
+        console.log(result);
+- path: /ui-metadata/v1/tenant
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/ui_metadata/methods/ui-metadata#set-tenant-ui-metadata-v1
+      source: |
+        import { UIMetadataV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new UIMetadataV1Api(configuration);
+        const tenantuimetadataitemupdaterequestV1: TenantuimetadataitemupdaterequestV1 = ; // TenantuimetadataitemupdaterequestV1 | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.setTenantUiMetadataV1(tenantuimetadataitemupdaterequestV1);
+        console.log(result);

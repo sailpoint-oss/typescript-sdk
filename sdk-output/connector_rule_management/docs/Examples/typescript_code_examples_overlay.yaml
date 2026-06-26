@@ -1,0 +1,93 @@
+- path: /connector-rules/v1
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/connector_rule_management/methods/connector-rule-management#create-connector-rule-v1
+      source: |
+        import { ConnectorRuleManagementV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConnectorRuleManagementV1Api(configuration);
+        const connectorrulecreaterequestV1: ConnectorrulecreaterequestV1 = ; // ConnectorrulecreaterequestV1 | Connector rule to create.
+        const result = await apiInstance.createConnectorRuleV1(connectorrulecreaterequestV1);
+        console.log(result);
+- path: /connector-rules/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/connector_rule_management/methods/connector-rule-management#delete-connector-rule-v1
+      source: |
+        import { ConnectorRuleManagementV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConnectorRuleManagementV1Api(configuration);
+        const id: string = '8c190e6787aa4ed9a90bd9d5344523fb'; // string | ID of the connector rule to delete. (default to undefined)
+        const result = await apiInstance.deleteConnectorRuleV1(id);
+        console.log(result);
+- path: /connector-rules/v1
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/connector_rule_management/methods/connector-rule-management#get-connector-rule-list-v1
+      source: |
+        import { ConnectorRuleManagementV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConnectorRuleManagementV1Api(configuration);
+        const limit: number = 50; // number | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const result = await apiInstance.getConnectorRuleListV1();
+        console.log(result);
+- path: /connector-rules/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/connector_rule_management/methods/connector-rule-management#get-connector-rule-v1
+      source: |
+        import { ConnectorRuleManagementV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConnectorRuleManagementV1Api(configuration);
+        const id: string = '8c190e6787aa4ed9a90bd9d5344523fb'; // string | ID of the connector rule to get. (default to undefined)
+        const result = await apiInstance.getConnectorRuleV1(id);
+        console.log(result);
+- path: /connector-rules/v1/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/connector_rule_management/methods/connector-rule-management#put-connector-rule-v1
+      source: |
+        import { ConnectorRuleManagementV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConnectorRuleManagementV1Api(configuration);
+        const id: string = '8c190e6787aa4ed9a90bd9d5344523fb'; // string | ID of the connector rule to update. (default to undefined)
+        const connectorruleupdaterequestV1: ConnectorruleupdaterequestV1 = ; // ConnectorruleupdaterequestV1 | Connector rule with updated data. (optional)
+        const result = await apiInstance.putConnectorRuleV1(id);
+        console.log(result);
+- path: /connector-rules/v1/validate
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/connector_rule_management/methods/connector-rule-management#test-connector-rule-v1
+      source: |
+        import { ConnectorRuleManagementV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConnectorRuleManagementV1Api(configuration);
+        const sourcecodeV1: SourcecodeV1 = ; // SourcecodeV1 | Code to validate.
+        const result = await apiInstance.testConnectorRuleV1(sourcecodeV1);
+        console.log(result);

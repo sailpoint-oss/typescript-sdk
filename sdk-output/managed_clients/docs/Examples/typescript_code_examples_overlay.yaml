@@ -1,0 +1,110 @@
+- path: /managed-clients/v1
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/managed_clients/methods/managed-clients#create-managed-client-v1
+      source: |
+        import { ManagedClientsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ManagedClientsV1Api(configuration);
+        const managedclientrequestV1: ManagedclientrequestV1 = ; // ManagedclientrequestV1 | 
+        const result = await apiInstance.createManagedClientV1(managedclientrequestV1);
+        console.log(result);
+- path: /managed-clients/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/managed_clients/methods/managed-clients#delete-managed-client-v1
+      source: |
+        import { ManagedClientsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ManagedClientsV1Api(configuration);
+        const id: string = '4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7'; // string | Managed client ID. (default to undefined)
+        const result = await apiInstance.deleteManagedClientV1(id);
+        console.log(result);
+- path: /managed-clients/v1/{id}/health-indicators
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/managed_clients/methods/managed-clients#get-managed-client-health-indicators-v1
+      source: |
+        import { ManagedClientsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ManagedClientsV1Api(configuration);
+        const id: string = '4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7'; // string | Managed client ID to get health indicators for. (default to undefined)
+        const result = await apiInstance.getManagedClientHealthIndicatorsV1(id);
+        console.log(result);
+- path: /managed-clients/v1/{id}/status
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/managed_clients/methods/managed-clients#get-managed-client-status-v1
+      source: |
+        import { ManagedClientsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ManagedClientsV1Api(configuration);
+        const id: string = 'aClientId'; // string | Managed client ID to get status for. (default to undefined)
+        const type: ManagedclienttypeV1 = ; // ManagedclienttypeV1 | Managed client type to get status for. (default to undefined)
+        const result = await apiInstance.getManagedClientStatusV1(id, type);
+        console.log(result);
+- path: /managed-clients/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/managed_clients/methods/managed-clients#get-managed-client-v1
+      source: |
+        import { ManagedClientsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ManagedClientsV1Api(configuration);
+        const id: string = '4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7'; // string | Managed client ID. (default to undefined)
+        const result = await apiInstance.getManagedClientV1(id);
+        console.log(result);
+- path: /managed-clients/v1
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/managed_clients/methods/managed-clients#get-managed-clients-v1
+      source: |
+        import { ManagedClientsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ManagedClientsV1Api(configuration);
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'name eq "client name"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **clientId**: *eq*  **clusterId**: *eq* (optional) (default to undefined)
+        const result = await apiInstance.getManagedClientsV1();
+        console.log(result);
+- path: /managed-clients/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/managed_clients/methods/managed-clients#update-managed-client-v1
+      source: |
+        import { ManagedClientsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ManagedClientsV1Api(configuration);
+        const id: string = '4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7'; // string | Managed client ID. (default to undefined)
+        const jsonpatchoperationV1: Array&lt;JsonpatchoperationV1&gt; = ; // Array<JsonpatchoperationV1> | JSONPatch payload used to update the object.
+        const result = await apiInstance.updateManagedClientV1(id, jsonpatchoperationV1);
+        console.log(result);

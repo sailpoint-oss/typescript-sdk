@@ -1,0 +1,50 @@
+- path: /custom-password-instructions/v1
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/custom_password_instructions/methods/custom-password-instructions#create-custom-password-instructions-v1
+      source: |
+        import { CustomPasswordInstructionsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new CustomPasswordInstructionsV1Api(configuration);
+        const custompasswordinstructionV1: CustompasswordinstructionV1 = {"pageId":"reset-password:enter-password","pageContent":"See company password policies for details by clicking <a href=\"url\">here</a>"}; // CustompasswordinstructionV1 | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.createCustomPasswordInstructionsV1(custompasswordinstructionV1);
+        console.log(result);
+- path: /custom-password-instructions/v1/{pageId}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/custom_password_instructions/methods/custom-password-instructions#delete-custom-password-instructions-v1
+      source: |
+        import { CustomPasswordInstructionsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new CustomPasswordInstructionsV1Api(configuration);
+        const pageId: string = 'mfa:select'; // 'change-password:enter-password' | 'change-password:finish' | 'flow-selection:select' | 'forget-username:user-email' | 'mfa:enter-code' | 'mfa:enter-kba' | 'mfa:select' | 'reset-password:enter-password' | 'reset-password:enter-username' | 'reset-password:finish' | 'unlock-account:enter-username' | 'unlock-account:finish' | The page ID of custom password instructions to delete. (default to undefined)
+        const locale: string = 'locale_example'; // string | The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\". (optional) (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.deleteCustomPasswordInstructionsV1(pageId);
+        console.log(result);
+- path: /custom-password-instructions/v1/{pageId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/custom_password_instructions/methods/custom-password-instructions#get-custom-password-instructions-v1
+      source: |
+        import { CustomPasswordInstructionsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new CustomPasswordInstructionsV1Api(configuration);
+        const pageId: string = 'mfa:select'; // 'change-password:enter-password' | 'change-password:finish' | 'flow-selection:select' | 'forget-username:user-email' | 'mfa:enter-code' | 'mfa:enter-kba' | 'mfa:select' | 'reset-password:enter-password' | 'reset-password:enter-username' | 'reset-password:finish' | 'unlock-account:enter-username' | 'unlock-account:finish' | The page ID of custom password instructions to query. (default to undefined)
+        const locale: string = 'locale_example'; // string | The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\". (optional) (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getCustomPasswordInstructionsV1(pageId);
+        console.log(result);

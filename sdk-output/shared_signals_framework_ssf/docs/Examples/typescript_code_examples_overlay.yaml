@@ -1,0 +1,148 @@
+- path: /ssf/v1/streams
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/shared_signals_framework_ssf/methods/shared-signals-framework-ssf#create-stream-v1
+      source: |
+        import { SharedSignalsFrameworkSSFV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new SharedSignalsFrameworkSSFV1Api(configuration);
+        const createstreamrequestV1: CreatestreamrequestV1 = {"delivery":{"method":"urn:ietf:rfc:8935","endpoint_url":"https://receiver.example.com/ssf/events"},"events_requested":["https://schemas.openid.net/secevent/caep/event-type/session-revoked"],"description":"Production event stream for session revocation notifications"}; // CreatestreamrequestV1 | 
+        const result = await apiInstance.createStreamV1(createstreamrequestV1);
+        console.log(result);
+- path: /ssf/v1/streams
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/shared_signals_framework_ssf/methods/shared-signals-framework-ssf#delete-stream-v1
+      source: |
+        import { SharedSignalsFrameworkSSFV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new SharedSignalsFrameworkSSFV1Api(configuration);
+        const streamId: string = '550e8400-e29b-41d4-a716-446655440000'; // string | ID of the stream to delete. Required; omitted or empty returns 400. (default to undefined)
+        const result = await apiInstance.deleteStreamV1(streamId);
+        console.log(result);
+- path: /ssf/v1/jwks
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/shared_signals_framework_ssf/methods/shared-signals-framework-ssf#get-jwks-data-v1
+      source: |
+        import { SharedSignalsFrameworkSSFV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new SharedSignalsFrameworkSSFV1Api(configuration);
+        const result = await apiInstance.getJWKSDataV1();
+        console.log(result);
+- path: /.well-known/v1/ssf-configuration
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/shared_signals_framework_ssf/methods/shared-signals-framework-ssf#get-ssf-configuration-v1
+      source: |
+        import { SharedSignalsFrameworkSSFV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new SharedSignalsFrameworkSSFV1Api(configuration);
+        const result = await apiInstance.getSSFConfigurationV1();
+        console.log(result);
+- path: /ssf/v1/streams/status
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/shared_signals_framework_ssf/methods/shared-signals-framework-ssf#get-stream-status-v1
+      source: |
+        import { SharedSignalsFrameworkSSFV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new SharedSignalsFrameworkSSFV1Api(configuration);
+        const streamId: string = '550e8400-e29b-41d4-a716-446655440000'; // string | ID of the stream whose status to retrieve. (default to undefined)
+        const result = await apiInstance.getStreamStatusV1(streamId);
+        console.log(result);
+- path: /ssf/v1/streams
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/shared_signals_framework_ssf/methods/shared-signals-framework-ssf#get-stream-v1
+      source: |
+        import { SharedSignalsFrameworkSSFV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new SharedSignalsFrameworkSSFV1Api(configuration);
+        const streamId: string = '550e8400-e29b-41d4-a716-446655440000'; // string | If provided, returns that stream; otherwise returns list of all streams. (optional) (default to undefined)
+        const result = await apiInstance.getStreamV1();
+        console.log(result);
+- path: /ssf/v1/streams/verify
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/shared_signals_framework_ssf/methods/shared-signals-framework-ssf#send-stream-verification-v1
+      source: |
+        import { SharedSignalsFrameworkSSFV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new SharedSignalsFrameworkSSFV1Api(configuration);
+        const verificationrequestV1: VerificationrequestV1 = {"stream_id":"550e8400-e29b-41d4-a716-446655440000","state":"verification-challenge-state-123"}; // VerificationrequestV1 | 
+        const result = await apiInstance.sendStreamVerificationV1(verificationrequestV1);
+        console.log(result);
+- path: /ssf/v1/streams
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/shared_signals_framework_ssf/methods/shared-signals-framework-ssf#set-stream-configuration-v1
+      source: |
+        import { SharedSignalsFrameworkSSFV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new SharedSignalsFrameworkSSFV1Api(configuration);
+        const replacestreamconfigurationrequestV1: ReplacestreamconfigurationrequestV1 = {"stream_id":"550e8400-e29b-41d4-a716-446655440000","delivery":{"method":"urn:ietf:rfc:8935","endpoint_url":"https://receiver.example.com/ssf/events"},"events_requested":["https://schemas.openid.net/secevent/caep/event-type/session-revoked"],"description":"Replaced stream configuration for production event delivery"}; // ReplacestreamconfigurationrequestV1 | 
+        const result = await apiInstance.setStreamConfigurationV1(replacestreamconfigurationrequestV1);
+        console.log(result);
+- path: /ssf/v1/streams
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/shared_signals_framework_ssf/methods/shared-signals-framework-ssf#update-stream-configuration-v1
+      source: |
+        import { SharedSignalsFrameworkSSFV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new SharedSignalsFrameworkSSFV1Api(configuration);
+        const updatestreamconfigurationrequestV1: UpdatestreamconfigurationrequestV1 = {"stream_id":"550e8400-e29b-41d4-a716-446655440000","description":"Updated production event stream configuration"}; // UpdatestreamconfigurationrequestV1 | 
+        const result = await apiInstance.updateStreamConfigurationV1(updatestreamconfigurationrequestV1);
+        console.log(result);
+- path: /ssf/v1/streams/status
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/shared_signals_framework_ssf/methods/shared-signals-framework-ssf#update-stream-status-v1
+      source: |
+        import { SharedSignalsFrameworkSSFV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new SharedSignalsFrameworkSSFV1Api(configuration);
+        const updatestreamstatusrequestV1: UpdatestreamstatusrequestV1 = {"stream_id":"550e8400-e29b-41d4-a716-446655440000","status":"paused","reason":"manually paused"}; // UpdatestreamstatusrequestV1 | 
+        const result = await apiInstance.updateStreamStatusV1(updatestreamstatusrequestV1);
+        console.log(result);

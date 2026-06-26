@@ -1,0 +1,92 @@
+- path: /connector-customizers/v1
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/connector_customizers/methods/connector-customizers#create-connector-customizer-v1
+      source: |
+        import { ConnectorCustomizersV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConnectorCustomizersV1Api(configuration);
+        const connectorcustomizercreaterequestV1: ConnectorcustomizercreaterequestV1 = ; // ConnectorcustomizercreaterequestV1 | Connector customizer to create.
+        const result = await apiInstance.createConnectorCustomizerV1(connectorcustomizercreaterequestV1);
+        console.log(result);
+- path: /connector-customizers/v1/{id}/versions
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/connector_customizers/methods/connector-customizers#create-connector-customizer-version-v1
+      source: |
+        import { ConnectorCustomizersV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConnectorCustomizersV1Api(configuration);
+        const id: string = 'b07dc46a-1498-4de8-bfbb-259a68e70c8a'; // string | The id of the connector customizer. (default to undefined)
+        const result = await apiInstance.createConnectorCustomizerVersionV1(id);
+        console.log(result);
+- path: /connector-customizers/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/connector_customizers/methods/connector-customizers#delete-connector-customizer-v1
+      source: |
+        import { ConnectorCustomizersV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConnectorCustomizersV1Api(configuration);
+        const id: string = 'b07dc46a-1498-4de8-bfbb-259a68e70c8a'; // string | ID of the connector customizer to delete. (default to undefined)
+        const result = await apiInstance.deleteConnectorCustomizerV1(id);
+        console.log(result);
+- path: /connector-customizers/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/connector_customizers/methods/connector-customizers#get-connector-customizer-v1
+      source: |
+        import { ConnectorCustomizersV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConnectorCustomizersV1Api(configuration);
+        const id: string = 'b07dc46a-1498-4de8-bfbb-259a68e70c8a'; // string | ID of the connector customizer to get. (default to undefined)
+        const result = await apiInstance.getConnectorCustomizerV1(id);
+        console.log(result);
+- path: /connector-customizers/v1
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/connector_customizers/methods/connector-customizers#list-connector-customizers-v1
+      source: |
+        import { ConnectorCustomizersV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConnectorCustomizersV1Api(configuration);
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const result = await apiInstance.listConnectorCustomizersV1();
+        console.log(result);
+- path: /connector-customizers/v1/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/connector_customizers/methods/connector-customizers#put-connector-customizer-v1
+      source: |
+        import { ConnectorCustomizersV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new ConnectorCustomizersV1Api(configuration);
+        const id: string = 'b07dc46a-1498-4de8-bfbb-259a68e70c8a'; // string | ID of the connector customizer to update. (default to undefined)
+        const connectorcustomizerupdaterequestV1: ConnectorcustomizerupdaterequestV1 = ; // ConnectorcustomizerupdaterequestV1 | Connector rule with updated data. (optional)
+        const result = await apiInstance.putConnectorCustomizerV1(id);
+        console.log(result);

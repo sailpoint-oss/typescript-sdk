@@ -1,0 +1,17 @@
+- path: /access-request-identity-metrics/v1/{identityId}/requested-objects/{requestedObjectId}/type/{type}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/access_request_identity_metrics/methods/access-request-identity-metrics#get-access-request-identity-metrics-v1
+      source: |
+        import { AccessRequestIdentityMetricsV1Api } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { createConfiguration } from 'sailpoint-api-client';
+
+        const configuration = createConfiguration();
+        const apiInstance = new AccessRequestIdentityMetricsV1Api(configuration);
+        const identityId: string = '7025c863-c270-4ba6-beea-edf3cb091573'; // string | Manager\'s identity ID. (default to undefined)
+        const requestedObjectId: string = '2db501be-f0fb-4cc5-a695-334133c52891'; // string | Requested access item\'s ID. (default to undefined)
+        const type: string = 'ENTITLEMENT'; // 'ENTITLEMENT' | 'ROLE' | 'ACCESS_PROFILE' | Requested access item\'s type. (default to undefined)
+        const result = await apiInstance.getAccessRequestIdentityMetricsV1(identityId, requestedObjectId, type);
+        console.log(result);
