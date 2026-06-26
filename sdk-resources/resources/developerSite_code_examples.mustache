@@ -8,14 +8,13 @@
       source: |
         import { {{classname}} } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
+        const configuration = new Configuration();
         const apiInstance = new {{classname}}(configuration);
         {{#allParams}}
         {{^isBodyParam}}const {{paramName}}: {{#isString}}string{{/isString}}{{^isString}}{{dataType}}{{/isString}} = {{#isString}}'{{/isString}}{{{example}}}{{#isString}}'{{/isString}}; // {{{dataType}}} | {{{description}}}{{^required}} (optional){{/required}}{{#defaultValue}} (default to {{{.}}}){{/defaultValue}}{{/isBodyParam}}{{#isBodyParam}}const {{paramName}}: {{dataType}} = {{#requestBodyExamples}}{{{example}}}{{/requestBodyExamples}}{{^requestBodyExamples}}{}{{/requestBodyExamples}}; // {{{dataType}}} | {{{description}}}{{^required}} (optional){{/required}}{{/isBodyParam}}
         {{/allParams}}
-        const result = await apiInstance.{{nickname}}({{#requiredParams}}{{paramName}}{{^-last}}, {{/-last}}{{/requiredParams}});
+        const result = await apiInstance.{{nickname}}({ {{#requiredParams}}{{paramName}}: {{paramName}}{{^-last}}, {{/-last}}{{/requiredParams}} });
         console.log(result);
   {{/operation}}
 {{/operations}}
