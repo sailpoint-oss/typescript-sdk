@@ -39,11 +39,11 @@ This API is currently in an experimental state. The API is subject to change bas
 {{^allParams}}This endpoint does not need any parameter.{{/allParams}}{{#allParams}}{{#-last}}
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------{{/-last}}{{/allParams}}{{#allParams}}
-**{{paramName}}** | {{#isContainer}}{{#isArray}}**Array&lt;{{#items}}{{dataType}}{{/items}}&gt;**{{/isArray}}{{/isContainer}}{{^isContainer}}**{{dataType}}**{{/isContainer}} | {{description}} | {{^required}}[optional]{{/required}}{{#defaultValue}} [default to {{.}}]{{/defaultValue}}{{/allParams}}
+**{{paramName}}** | {{#isContainer}}{{#isArray}}`Array<{{#items}}{{{dataType}}}{{/items}}>`{{/isArray}}{{/isContainer}}{{^isContainer}}`{{{dataType}}}`{{/isContainer}} | {{description}} | {{^required}}[optional]{{/required}}{{#defaultValue}} [default to {{.}}]{{/defaultValue}}{{/allParams}}
 
 ### Return type
 
-{{#returnType}}**{{{returnType}}}**{{/returnType}}{{^returnType}}(empty response body){{/returnType}}
+{{#returnType}}`{{{returnType}}}`{{/returnType}}{{^returnType}}(empty response body){{/returnType}}
 
 ### HTTP request headers
 
