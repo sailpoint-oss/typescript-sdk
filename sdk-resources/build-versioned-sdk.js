@@ -745,4 +745,4 @@ function main() {
   }
 }
 
-main()
+main();
