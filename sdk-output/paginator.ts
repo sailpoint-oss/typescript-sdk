@@ -175,7 +175,7 @@ export class Paginator {
 
       try {
         const searchParams: SearchApiSearchPostV1Request = {
-          searchV1: search as Search,
+          search: search as Search,
           limit: increment,
         };
         results = (await (searchAPI as SearchApi).searchPostV1(
@@ -236,7 +236,7 @@ export class Paginator {
 
       try {
         const searchParams: SearchApiSearchPostV1Request = {
-          searchV1: search as Search,
+          search: search as Search,
           limit: increment,
         };
         results = (await (searchAPI as SearchApi).searchPostV1(

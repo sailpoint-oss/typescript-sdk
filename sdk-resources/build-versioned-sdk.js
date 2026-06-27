@@ -35,7 +35,8 @@
 
 const fs   = require("fs");
 const path = require("path");
-const { spawnSync } = require("child_process");
+const os   = require("os");
+const { spawnSync, spawn } = require("child_process");
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -60,14 +61,40 @@ const API_VERSION  = "v1";
 
 const args = process.argv.slice(2);
 if (args.length === 0 || args[0].startsWith("--")) {
-  console.error("Usage: node sdk-resources/build-versioned-sdk.js <path-to-apis-dir> [--partition <name>] [--keep-tmp]");
+  console.error("Usage: node sdk-resources/build-versioned-sdk.js <path-to-apis-dir> [--partition <name>] [--concurrency <n>] [--keep-tmp]");
   process.exit(1);
 }
 
-const apisDir       = path.resolve(args[0]);
-const keepTmp       = args.includes("--keep-tmp");
-const partitionIdx  = args.indexOf("--partition");
-const onlyPartition = partitionIdx !== -1 ? args[partitionIdx + 1] : null;
+const apisDir          = path.resolve(args[0]);
+const keepTmp          = args.includes("--keep-tmp");
+const partitionIdx     = args.indexOf("--partition");
+const onlyPartition    = partitionIdx !== -1 ? args[partitionIdx + 1] : null;
+const concurrencyIdx   = args.indexOf("--concurrency");
+const concurrency      = concurrencyIdx !== -1 ? parseInt(args[concurrencyIdx + 1], 10) : os.cpus().length;
+
+// ---------------------------------------------------------------------------
+// Async process runner + concurrency pool
+// ---------------------------------------------------------------------------
+
+function spawnAsync(cmd, args, options = {}) {
+  return new Promise((resolve) => {
+    const proc = spawn(cmd, args, options);
+    let stdout = "", stderr = "";
+    proc.stdout?.setEncoding("utf8");
+    proc.stderr?.setEncoding("utf8");
+    proc.stdout?.on("data", d => { stdout += d; });
+    proc.stderr?.on("data", d => { stderr += d; });
+    proc.on("close", status => resolve({ status, stdout, stderr }));
+  });
+}
+
+async function runWithConcurrency(items, limit, fn) {
+  const queue = [...items];
+  async function worker() {
+    while (queue.length > 0) await fn(queue.shift());
+  }
+  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, worker));
+}
 
 // ---------------------------------------------------------------------------
 // Utility: copy directory recursively
@@ -180,16 +207,15 @@ function applyPrescriptFixes(tempApisDir) {
 // Bundle a single partition's openapi.yaml with redocly
 // ---------------------------------------------------------------------------
 
-function bundlePartition(partitionName, tempApisDir) {
+async function bundlePartition(partitionName, tempApisDir) {
   const inputSpec  = path.join(tempApisDir, partitionName, "openapi.yaml");
   const outputSpec = path.join(BUNDLED_DIR, `${partitionName}.yaml`);
 
   fs.mkdirSync(BUNDLED_DIR, { recursive: true });
 
-  const result = spawnSync(
+  const result = await spawnAsync(
     "npx",
     ["redocly", "bundle", inputSpec, "-o", outputSpec, "--force"],
-    { encoding: "utf8" }
   );
 
   return {
@@ -244,7 +270,7 @@ function writePartitionConfig(partitionName) {
 // Run openapi-generator for a single partition
 // ---------------------------------------------------------------------------
 
-function generatePartition(partitionName, bundledSpec, configPath) {
+async function generatePartition(partitionName, bundledSpec, configPath) {
   const packageDir = partitionName.replaceAll("-", "_");
   const outputDir  = path.join(SDK_OUTPUT, packageDir);
 
@@ -252,7 +278,7 @@ function generatePartition(partitionName, bundledSpec, configPath) {
     fs.rmSync(outputDir, { recursive: true, force: true });
   }
 
-  const result = spawnSync(
+  const result = await spawnAsync(
     "java",
     [
       "-jar", JAR,
@@ -264,7 +290,6 @@ function generatePartition(partitionName, bundledSpec, configPath) {
       "--config", configPath,
       "--api-name-suffix", "Api",
     ],
-    { encoding: "utf8" }
   );
 
   // Write a marker so cleanup and index generation can identify generated dirs
@@ -286,12 +311,8 @@ function generatePartition(partitionName, bundledSpec, configPath) {
 // Run postscript.js on the generated output
 // ---------------------------------------------------------------------------
 
-function runPostscript(outputDir) {
-  const result = spawnSync(
-    "node",
-    [POSTSCRIPT, outputDir],
-    { encoding: "utf8" }
-  );
+async function runPostscript(outputDir) {
+  const result = await spawnAsync("node", [POSTSCRIPT, outputDir]);
 
   return {
     ok:     result.status === 0,
@@ -665,51 +686,62 @@ async function main() {
     failed:  [],
   };
 
-  for (const partition of partitions) {
-    console.log(`\n${"=".repeat(60)}`);
-    console.log(`  Building: ${partition}`);
-    console.log(`${"=".repeat(60)}`);
+  console.log(`Running with concurrency: ${Math.min(concurrency, partitions.length)}\n`);
+
+  async function buildOnePartition(partition) {
+    const log = [];
+    const p = (msg) => log.push(msg);
+
+    p(`\n${"=".repeat(60)}`);
+    p(`  Building: ${partition}`);
+    p(`${"=".repeat(60)}`);
 
     // --- Step 1: Bundle ---
-    console.log("  [1/4] Bundling spec ...");
-    const bundle = bundlePartition(partition, path.join(TEMP_DIR, "apis"));
+    p("  [1/4] Bundling spec ...");
+    const bundle = await bundlePartition(partition, path.join(TEMP_DIR, "apis"));
     if (!bundle.ok) {
       const errorOutput = [bundle.stdout, bundle.stderr].filter(Boolean).join("\n");
-      console.error(`  ✗ bundling failed`);
+      p(`  ✗ bundling failed`);
+      console.log(log.join("\n"));
       const reportPath = writeErrorReport(partition, "bundling", errorOutput, TEMP_DIR, apisDir);
       results.failed.push({ partition, step: "bundling", reportPath });
-      continue;
+      return;
     }
 
     // --- Step 2: Config ---
-    console.log("  [2/4] Writing generator config ...");
+    p("  [2/4] Writing generator config ...");
     const configPath = writePartitionConfig(partition);
 
     // --- Step 3: Generate ---
-    console.log("  [3/4] Generating TypeScript SDK ...");
-    const gen = generatePartition(partition, bundle.outputSpec, configPath);
+    p("  [3/4] Generating TypeScript SDK ...");
+    const gen = await generatePartition(partition, bundle.outputSpec, configPath);
     if (!gen.ok) {
       const errorOutput = [gen.stdout, gen.stderr].filter(Boolean).join("\n");
-      console.error(`  ✗ generation failed`);
+      p(`  ✗ generation failed`);
+      console.log(log.join("\n"));
       const reportPath = writeErrorReport(partition, "generation", errorOutput, TEMP_DIR, apisDir);
       results.failed.push({ partition, step: "generation", reportPath });
-      continue;
+      return;
     }
 
     // --- Step 4: Postscript ---
-    console.log("  [4/4] Running postscript ...");
-    const post = runPostscript(gen.outputDir);
+    p("  [4/4] Running postscript ...");
+    const post = await runPostscript(gen.outputDir);
     if (!post.ok) {
       const errorOutput = [post.stdout, post.stderr].filter(Boolean).join("\n");
-      console.error(`  ✗ postscript failed`);
+      p(`  ✗ postscript failed`);
+      console.log(log.join("\n"));
       const reportPath = writeErrorReport(partition, "postscript", errorOutput, TEMP_DIR, apisDir);
       results.failed.push({ partition, step: "postscript", reportPath });
-      continue;
+      return;
     }
 
     results.success.push(partition);
-    console.log(`  ✓ ${partition} → sdk-output/${gen.packageDir}/`);
+    p(`  ✓ ${partition} → sdk-output/${gen.packageDir}/`);
+    console.log(log.join("\n"));
   }
+
+  await runWithConcurrency(partitions, concurrency, buildOnePartition);
 
   // Cleanup
   if (!keepTmp) {
