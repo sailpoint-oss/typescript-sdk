@@ -1,5 +1,5 @@
 import { SailPoint, Configuration, Paginator, UsersNERMApi, DelegationsNERMV2025Api } from "./index"
-import type { SearchV1 } from "./search/api"
+import type { Search } from "./search/api"
 
 describe('accounts', () => {
     it('list accounts', async () => {
@@ -89,7 +89,7 @@ describe('search', () => {
         let apiConfig = new Configuration()
         let api = new SailPoint.SearchApi(apiConfig)
         
-        let search: SearchV1 = {
+        let search: Search = {
             indices: [
                 "identities"
             ],

@@ -1,8 +1,8 @@
 import type { AxiosResponse, RawAxiosRequestConfig } from "axios";
 import {
-  SearchV1,
-  SearchV1Api,
-  SearchV1ApiSearchPostV1Request,
+  Search,
+  SearchApi,
+  SearchApiSearchPostV1Request,
 } from "./search/api";
 
 export interface PaginationParams {
@@ -38,9 +38,9 @@ export interface ExtraParams {
 }
 
 interface SearchApiTypeMap {
-  SearchV1Api: {
-    search: SearchV1;
-    searchParams: SearchV1ApiSearchPostV1Request;
+  SearchApi: {
+    search: Search;
+    searchParams: SearchApiSearchPostV1Request;
     document: object;
   };
 }
@@ -48,7 +48,7 @@ interface SearchApiTypeMap {
 type ApiType = keyof SearchApiTypeMap;
 
 type ApiInstanceMap = {
-  SearchV1Api: SearchV1Api;
+  SearchApi: SearchApi;
 };
 
 export class Paginator {
@@ -174,11 +174,11 @@ export class Paginator {
       let results: AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
 
       try {
-        const searchParams: SearchV1ApiSearchPostV1Request = {
-          searchV1: search as SearchV1,
+        const searchParams: SearchApiSearchPostV1Request = {
+          searchV1: search as Search,
           limit: increment,
         };
-        results = (await (searchAPI as SearchV1Api).searchPostV1(
+        results = (await (searchAPI as SearchApi).searchPostV1(
           searchParams
         )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
       } catch (e: any) {
@@ -235,11 +235,11 @@ export class Paginator {
       let results: AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
 
       try {
-        const searchParams: SearchV1ApiSearchPostV1Request = {
-          searchV1: search as SearchV1,
+        const searchParams: SearchApiSearchPostV1Request = {
+          searchV1: search as Search,
           limit: increment,
         };
-        results = (await (searchAPI as SearchV1Api).searchPostV1(
+        results = (await (searchAPI as SearchApi).searchPostV1(
           searchParams
         )) as AxiosResponse<SearchApiTypeMap[T]["document"][], any>;
       } catch (e: any) {
