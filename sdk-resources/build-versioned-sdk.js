@@ -35,8 +35,7 @@
 
 const fs   = require("fs");
 const path = require("path");
-const os   = require("os");
-const { spawnSync, spawn } = require("child_process");
+const { spawnSync } = require("child_process");
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -61,40 +60,14 @@ const API_VERSION  = "v1";
 
 const args = process.argv.slice(2);
 if (args.length === 0 || args[0].startsWith("--")) {
-  console.error("Usage: node sdk-resources/build-versioned-sdk.js <path-to-apis-dir> [--partition <name>] [--concurrency <n>] [--keep-tmp]");
+  console.error("Usage: node sdk-resources/build-versioned-sdk.js <path-to-apis-dir> [--partition <name>] [--keep-tmp]");
   process.exit(1);
 }
 
-const apisDir          = path.resolve(args[0]);
-const keepTmp          = args.includes("--keep-tmp");
-const partitionIdx     = args.indexOf("--partition");
-const onlyPartition    = partitionIdx !== -1 ? args[partitionIdx + 1] : null;
-const concurrencyIdx   = args.indexOf("--concurrency");
-const concurrency      = concurrencyIdx !== -1 ? parseInt(args[concurrencyIdx + 1], 10) : os.cpus().length;
-
-// ---------------------------------------------------------------------------
-// Async process runner + concurrency pool
-// ---------------------------------------------------------------------------
-
-function spawnAsync(cmd, args, options = {}) {
-  return new Promise((resolve) => {
-    const proc = spawn(cmd, args, options);
-    let stdout = "", stderr = "";
-    proc.stdout?.setEncoding("utf8");
-    proc.stderr?.setEncoding("utf8");
-    proc.stdout?.on("data", d => { stdout += d; });
-    proc.stderr?.on("data", d => { stderr += d; });
-    proc.on("close", status => resolve({ status, stdout, stderr }));
-  });
-}
-
-async function runWithConcurrency(items, limit, fn) {
-  const queue = [...items];
-  async function worker() {
-    while (queue.length > 0) await fn(queue.shift());
-  }
-  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, worker));
-}
+const apisDir       = path.resolve(args[0]);
+const keepTmp       = args.includes("--keep-tmp");
+const partitionIdx  = args.indexOf("--partition");
+const onlyPartition = partitionIdx !== -1 ? args[partitionIdx + 1] : null;
 
 // ---------------------------------------------------------------------------
 // Utility: copy directory recursively
@@ -207,15 +180,16 @@ function applyPrescriptFixes(tempApisDir) {
 // Bundle a single partition's openapi.yaml with redocly
 // ---------------------------------------------------------------------------
 
-async function bundlePartition(partitionName, tempApisDir) {
+function bundlePartition(partitionName, tempApisDir) {
   const inputSpec  = path.join(tempApisDir, partitionName, "openapi.yaml");
   const outputSpec = path.join(BUNDLED_DIR, `${partitionName}.yaml`);
 
   fs.mkdirSync(BUNDLED_DIR, { recursive: true });
 
-  const result = await spawnAsync(
+  const result = spawnSync(
     "npx",
     ["redocly", "bundle", inputSpec, "-o", outputSpec, "--force"],
+    { encoding: "utf8" }
   );
 
   return {
@@ -270,7 +244,7 @@ function writePartitionConfig(partitionName) {
 // Run openapi-generator for a single partition
 // ---------------------------------------------------------------------------
 
-async function generatePartition(partitionName, bundledSpec, configPath) {
+function generatePartition(partitionName, bundledSpec, configPath) {
   const packageDir = partitionName.replaceAll("-", "_");
   const outputDir  = path.join(SDK_OUTPUT, packageDir);
 
@@ -278,7 +252,7 @@ async function generatePartition(partitionName, bundledSpec, configPath) {
     fs.rmSync(outputDir, { recursive: true, force: true });
   }
 
-  const result = await spawnAsync(
+  const result = spawnSync(
     "java",
     [
       "-jar", JAR,
@@ -290,6 +264,7 @@ async function generatePartition(partitionName, bundledSpec, configPath) {
       "--config", configPath,
       "--api-name-suffix", "Api",
     ],
+    { encoding: "utf8" }
   );
 
   // Write a marker so cleanup and index generation can identify generated dirs
@@ -311,8 +286,12 @@ async function generatePartition(partitionName, bundledSpec, configPath) {
 // Run postscript.js on the generated output
 // ---------------------------------------------------------------------------
 
-async function runPostscript(outputDir) {
-  const result = await spawnAsync("node", [POSTSCRIPT, outputDir]);
+function runPostscript(outputDir) {
+  const result = spawnSync(
+    "node",
+    [POSTSCRIPT, outputDir],
+    { encoding: "utf8" }
+  );
 
   return {
     ok:     result.status === 0,
@@ -616,7 +595,7 @@ ${nsLines.join("\n")}
 // Main
 // ---------------------------------------------------------------------------
 
-async function main() {
+function main() {
   if (!fs.existsSync(apisDir)) {
     console.error(`Error: apis directory not found: ${apisDir}`);
     process.exit(1);
@@ -686,62 +665,51 @@ async function main() {
     failed:  [],
   };
 
-  console.log(`Running with concurrency: ${Math.min(concurrency, partitions.length)}\n`);
-
-  async function buildOnePartition(partition) {
-    const log = [];
-    const p = (msg) => log.push(msg);
-
-    p(`\n${"=".repeat(60)}`);
-    p(`  Building: ${partition}`);
-    p(`${"=".repeat(60)}`);
+  for (const partition of partitions) {
+    console.log(`\n${"=".repeat(60)}`);
+    console.log(`  Building: ${partition}`);
+    console.log(`${"=".repeat(60)}`);
 
     // --- Step 1: Bundle ---
-    p("  [1/4] Bundling spec ...");
-    const bundle = await bundlePartition(partition, path.join(TEMP_DIR, "apis"));
+    console.log("  [1/4] Bundling spec ...");
+    const bundle = bundlePartition(partition, path.join(TEMP_DIR, "apis"));
     if (!bundle.ok) {
       const errorOutput = [bundle.stdout, bundle.stderr].filter(Boolean).join("\n");
-      p(`  ✗ bundling failed`);
-      console.log(log.join("\n"));
+      console.error(`  ✗ bundling failed`);
       const reportPath = writeErrorReport(partition, "bundling", errorOutput, TEMP_DIR, apisDir);
       results.failed.push({ partition, step: "bundling", reportPath });
-      return;
+      continue;
     }
 
     // --- Step 2: Config ---
-    p("  [2/4] Writing generator config ...");
+    console.log("  [2/4] Writing generator config ...");
     const configPath = writePartitionConfig(partition);
 
     // --- Step 3: Generate ---
-    p("  [3/4] Generating TypeScript SDK ...");
-    const gen = await generatePartition(partition, bundle.outputSpec, configPath);
+    console.log("  [3/4] Generating TypeScript SDK ...");
+    const gen = generatePartition(partition, bundle.outputSpec, configPath);
     if (!gen.ok) {
       const errorOutput = [gen.stdout, gen.stderr].filter(Boolean).join("\n");
-      p(`  ✗ generation failed`);
-      console.log(log.join("\n"));
+      console.error(`  ✗ generation failed`);
       const reportPath = writeErrorReport(partition, "generation", errorOutput, TEMP_DIR, apisDir);
       results.failed.push({ partition, step: "generation", reportPath });
-      return;
+      continue;
     }
 
     // --- Step 4: Postscript ---
-    p("  [4/4] Running postscript ...");
-    const post = await runPostscript(gen.outputDir);
+    console.log("  [4/4] Running postscript ...");
+    const post = runPostscript(gen.outputDir);
     if (!post.ok) {
       const errorOutput = [post.stdout, post.stderr].filter(Boolean).join("\n");
-      p(`  ✗ postscript failed`);
-      console.log(log.join("\n"));
+      console.error(`  ✗ postscript failed`);
       const reportPath = writeErrorReport(partition, "postscript", errorOutput, TEMP_DIR, apisDir);
       results.failed.push({ partition, step: "postscript", reportPath });
-      return;
+      continue;
     }
 
     results.success.push(partition);
-    p(`  ✓ ${partition} → sdk-output/${gen.packageDir}/`);
-    console.log(log.join("\n"));
+    console.log(`  ✓ ${partition} → sdk-output/${gen.packageDir}/`);
   }
-
-  await runWithConcurrency(partitions, concurrency, buildOnePartition);
 
   // Cleanup
   if (!keepTmp) {
@@ -777,7 +745,4 @@ async function main() {
   }
 }
 
-main().catch(err => {
-  console.error(`Unexpected error: ${err.message}`);
-  process.exit(1);
-});
+main();
