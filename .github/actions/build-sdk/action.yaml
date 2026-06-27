@@ -38,7 +38,8 @@ runs:
       shell: bash
       run: |
         node sdk-resources/build-versioned-sdk.js \
-          ${{ inputs.api-specs-path }}/idn/apis
+          ${{ inputs.api-specs-path }}/idn/apis \
+          --concurrency 16
 
     - name: Build NERM SDK
       shell: bash
