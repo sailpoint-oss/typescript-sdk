@@ -745,4 +745,7 @@ function main() {
   }
 }
 
-main();
+main().catch(err => {
+  console.error(`Unexpected error: ${err.message}`);
+  process.exit(1);
+});
