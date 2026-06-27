@@ -1,20 +1,20 @@
 ---
-id: v1-identitysyncpayload-v1
-title: IdentitysyncpayloadV1
-pagination_label: IdentitysyncpayloadV1
-sidebar_label: IdentitysyncpayloadV1
+id: v1-identitysyncpayload
+title: Identitysyncpayload
+pagination_label: Identitysyncpayload
+sidebar_label: Identitysyncpayload
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'IdentitysyncpayloadV1', 'v1IdentitysyncpayloadV1']
-slug: /tools/sdk/typescript/identities/models/identitysyncpayload-v1
-tags: ['SDK', 'Software Development Kit', 'IdentitysyncpayloadV1', 'v1IdentitysyncpayloadV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Identitysyncpayload', 'v1Identitysyncpayload']
+slug: /tools/sdk/typescript/identities/models/identitysyncpayload
+tags: ['SDK', 'Software Development Kit', 'Identitysyncpayload', 'v1Identitysyncpayload']
 ---
 
-# IdentitysyncpayloadV1
+# Identitysyncpayload
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **string** | Payload type. | [default to undefined]
-**dataJson** | **string** | Payload type. | [default to undefined]
+**type** | `string` | Payload type. | [default to undefined]
+**dataJson** | `string` | Payload type. | [default to undefined]
 

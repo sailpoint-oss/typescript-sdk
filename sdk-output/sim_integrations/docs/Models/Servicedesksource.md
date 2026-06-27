@@ -1,21 +1,21 @@
 ---
-id: v1-servicedesksource-v1
-title: ServicedesksourceV1
-pagination_label: ServicedesksourceV1
-sidebar_label: ServicedesksourceV1
+id: v1-servicedesksource
+title: Servicedesksource
+pagination_label: Servicedesksource
+sidebar_label: Servicedesksource
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ServicedesksourceV1', 'v1ServicedesksourceV1']
-slug: /tools/sdk/typescript/sim_integrations/models/servicedesksource-v1
-tags: ['SDK', 'Software Development Kit', 'ServicedesksourceV1', 'v1ServicedesksourceV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Servicedesksource', 'v1Servicedesksource']
+slug: /tools/sdk/typescript/sim_integrations/models/servicedesksource
+tags: ['SDK', 'Software Development Kit', 'Servicedesksource', 'v1Servicedesksource']
 ---
 
-# ServicedesksourceV1
+# Servicedesksource
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | DTO type of source for service desk integration template. | [default to undefined]
-**id** | **(optional)** **string** | ID of source for service desk integration template. | [default to undefined]
-**name** | **(optional)** **string** | Human-readable name of source for service desk integration template. | [default to undefined]
+**type** | **(optional)** `string` | DTO type of source for service desk integration template. | [default to undefined]
+**id** | **(optional)** `string` | ID of source for service desk integration template. | [default to undefined]
+**name** | **(optional)** `string` | Human-readable name of source for service desk integration template. | [default to undefined]
 

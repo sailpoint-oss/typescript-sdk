@@ -1,19 +1,19 @@
 ---
-id: v1-identityentities-v1
-title: IdentityentitiesV1
-pagination_label: IdentityentitiesV1
-sidebar_label: IdentityentitiesV1
+id: v1-identityentities
+title: Identityentities
+pagination_label: Identityentities
+sidebar_label: Identityentities
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'IdentityentitiesV1', 'v1IdentityentitiesV1']
-slug: /tools/sdk/typescript/identities/models/identityentities-v1
-tags: ['SDK', 'Software Development Kit', 'IdentityentitiesV1', 'v1IdentityentitiesV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Identityentities', 'v1Identityentities']
+slug: /tools/sdk/typescript/identities/models/identityentities
+tags: ['SDK', 'Software Development Kit', 'Identityentities', 'v1Identityentities']
 ---
 
-# IdentityentitiesV1
+# Identityentities
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identityEntity** | **(optional)** **IdentityentitiesIdentityEntityV1** |  | [default to undefined]
+**identityEntity** | **(optional)** `IdentityentitiesIdentityEntity` |  | [default to undefined]
 

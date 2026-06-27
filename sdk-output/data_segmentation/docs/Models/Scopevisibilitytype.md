@@ -1,15 +1,15 @@
 ---
-id: v1-scopevisibilitytype-v1
-title: ScopevisibilitytypeV1
-pagination_label: ScopevisibilitytypeV1
-sidebar_label: ScopevisibilitytypeV1
+id: v1-scopevisibilitytype
+title: Scopevisibilitytype
+pagination_label: Scopevisibilitytype
+sidebar_label: Scopevisibilitytype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ScopevisibilitytypeV1', 'v1ScopevisibilitytypeV1']
-slug: /tools/sdk/typescript/data_segmentation/models/scopevisibilitytype-v1
-tags: ['SDK', 'Software Development Kit', 'ScopevisibilitytypeV1', 'v1ScopevisibilitytypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Scopevisibilitytype', 'v1Scopevisibilitytype']
+slug: /tools/sdk/typescript/data_segmentation/models/scopevisibilitytype
+tags: ['SDK', 'Software Development Kit', 'Scopevisibilitytype', 'v1Scopevisibilitytype']
 ---
 
-# ScopevisibilitytypeV1
+# Scopevisibilitytype
 
 ## Enum
 

@@ -4,15 +4,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_user_levels/methods/custom-user-levels#create-custom-user-level-v1
       source: |
-        import { CustomUserLevelsV1Api } from 'sailpoint-api-client';
+        import { CustomUserLevelsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomUserLevelsV1Api(configuration);
-        const userlevelrequestV1: UserlevelrequestV1 = {"name":"Identity And Access Management","description":"This is a description of the custom user level.","owner":{"id":"29b9da8273b441239238bc041c386817","name":"John Doe"},"rightSets":["idn:ui-identity-manage-example","idn:ui-identity-manage-child-one-example"]}; // UserlevelrequestV1 | Payload containing the details of the user level to be created.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
+        const configuration = new Configuration();
+        const apiInstance = new CustomUserLevelsApi(configuration);
+        const userlevelrequest: Userlevelrequest = {"name":"Identity And Access Management","description":"This is a description of the custom user level.","owner":{"id":"29b9da8273b441239238bc041c386817","name":"John Doe"},"rightSets":["idn:ui-identity-manage-example","idn:ui-identity-manage-child-one-example"]}; // Userlevelrequest | Payload containing the details of the user level to be created.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.createCustomUserLevelV1(userlevelrequestV1);
+        const result = await apiInstance.createCustomUserLevelV1({ userlevelrequest: userlevelrequest });
         console.log(result);
 - path: /authorization/v1/custom-user-levels/{id}
   method: DELETE
@@ -20,15 +19,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_user_levels/methods/custom-user-levels#delete-user-level-v1
       source: |
-        import { CustomUserLevelsV1Api } from 'sailpoint-api-client';
+        import { CustomUserLevelsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomUserLevelsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CustomUserLevelsApi(configuration);
         const id: string = '6e110911-5984-491b-be74-2707980a46a7'; // string | The unique identifier of the user level. (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.deleteUserLevelV1(id);
+        const result = await apiInstance.deleteUserLevelV1({ id: id });
         console.log(result);
 - path: /authorization/v1/custom-user-levels/{id}
   method: GET
@@ -36,15 +34,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_user_levels/methods/custom-user-levels#get-user-level-v1
       source: |
-        import { CustomUserLevelsV1Api } from 'sailpoint-api-client';
+        import { CustomUserLevelsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomUserLevelsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CustomUserLevelsApi(configuration);
         const id: string = '6e110911-5984-491b-be74-2707980a46a7'; // string | The unique identifier of the user level. (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.getUserLevelV1(id);
+        const result = await apiInstance.getUserLevelV1({ id: id });
         console.log(result);
 - path: /authorization/v1/authorization-assignable-right-sets
   method: GET
@@ -52,18 +49,17 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_user_levels/methods/custom-user-levels#list-all-authorization-right-sets-v1
       source: |
-        import { CustomUserLevelsV1Api } from 'sailpoint-api-client';
+        import { CustomUserLevelsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomUserLevelsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CustomUserLevelsApi(configuration);
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const filters: string = 'category eq "identity"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **category**: *eq* (optional) (default to undefined)
         const sorters: string = 'name, -id, -category'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, category** (optional) (default to undefined)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        const result = await apiInstance.listAllAuthorizationRightSetsV1();
+        const result = await apiInstance.listAllAuthorizationRightSetsV1({  });
         console.log(result);
 - path: /authorization/v1/user-levels/{id}/identities
   method: GET
@@ -71,19 +67,18 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_user_levels/methods/custom-user-levels#list-user-level-identities-v1
       source: |
-        import { CustomUserLevelsV1Api } from 'sailpoint-api-client';
+        import { CustomUserLevelsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomUserLevelsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CustomUserLevelsApi(configuration);
         const id: string = 'idn:access-request-administrator'; // string | The unique identifier of the user level. (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const count: boolean = true; // boolean | If true, X-Total-Count header with the the total number of identities for this user level will be included in the response. (optional) (default to false)
         const sorters: string = 'displayName'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName** (optional) (default to undefined)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        const result = await apiInstance.listUserLevelIdentitiesV1(id);
+        const result = await apiInstance.listUserLevelIdentitiesV1({ id: id });
         console.log(result);
 - path: /authorization/v1/custom-user-levels
   method: GET
@@ -91,19 +86,18 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_user_levels/methods/custom-user-levels#list-user-levels-v1
       source: |
-        import { CustomUserLevelsV1Api } from 'sailpoint-api-client';
+        import { CustomUserLevelsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomUserLevelsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CustomUserLevelsApi(configuration);
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const detailLevel: string = 'FULL'; // 'FULL' | 'SLIM' | Specifies the level of detail for the user levels. (optional) (default to 'basic')
         const filters: string = 'name co "identity", owner co "john", status eq "active", description co "some description"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *co*    **owner**: *co*    **status**: *eq*  **description**: *co* (optional) (default to undefined)
         const sorters: string = 'name, -created, description, status, owner'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, description, status, owner** (optional) (default to undefined)
         const limit: number = 50; // number | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        const result = await apiInstance.listUserLevelsV1();
+        const result = await apiInstance.listUserLevelsV1({  });
         console.log(result);
 - path: /authorization/v1/custom-user-levels/{id}/publish
   method: POST
@@ -111,15 +105,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_user_levels/methods/custom-user-levels#publish-custom-user-level-v1
       source: |
-        import { CustomUserLevelsV1Api } from 'sailpoint-api-client';
+        import { CustomUserLevelsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomUserLevelsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CustomUserLevelsApi(configuration);
         const id: string = '6e110911-5984-491b-be74-2707980a46a7'; // string | The unique identifier of the user level to publish. (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.publishCustomUserLevelV1(id);
+        const result = await apiInstance.publishCustomUserLevelV1({ id: id });
         console.log(result);
 - path: /authorization/v1/user-levels/get-identity-count
   method: POST
@@ -127,15 +120,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_user_levels/methods/custom-user-levels#show-user-level-counts-v1
       source: |
-        import { CustomUserLevelsV1Api } from 'sailpoint-api-client';
+        import { CustomUserLevelsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomUserLevelsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CustomUserLevelsApi(configuration);
         const requestBody: Array&lt;string&gt; = ; // Array<string> | List of user level ids. Max 50 identifiers can be passed in a single request.
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.showUserLevelCountsV1(requestBody);
+        const result = await apiInstance.showUserLevelCountsV1({ requestBody: requestBody });
         console.log(result);
 - path: /authorization/v1/custom-user-levels/{id}
   method: PATCH
@@ -143,14 +135,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_user_levels/methods/custom-user-levels#update-user-level-v1
       source: |
-        import { CustomUserLevelsV1Api } from 'sailpoint-api-client';
+        import { CustomUserLevelsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomUserLevelsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CustomUserLevelsApi(configuration);
         const id: string = '6e110911-5984-491b-be74-2707980a46a7'; // string | The unique identifier of the user level. (default to undefined)
-        const jsonpatchV1: JsonpatchV1 = [{"op":"replace","path":"/rightSets","value":["idn:ui-identity-manage-example"]}]; // JsonpatchV1 | JSON Patch payload for updating the user level.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
+        const jsonpatch: Jsonpatch = [{"op":"replace","path":"/rightSets","value":["idn:ui-identity-manage-example"]}]; // Jsonpatch | JSON Patch payload for updating the user level.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.updateUserLevelV1(id, jsonpatchV1);
+        const result = await apiInstance.updateUserLevelV1({ id: id, jsonpatch: jsonpatch });
         console.log(result);

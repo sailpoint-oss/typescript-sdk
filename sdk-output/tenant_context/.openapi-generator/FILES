@@ -12,8 +12,8 @@ Jsonpatchoperation.md
 JsonpatchoperationValue.md
 Localeorigin.md
 README.md
-TenantContextV1Api.md
-TenantContextV1ApideveloperSite_code_examples.yaml
+TenantContextApi.md
+TenantContextApideveloperSite_code_examples.yaml
 api.ts
 base.ts
 common.ts

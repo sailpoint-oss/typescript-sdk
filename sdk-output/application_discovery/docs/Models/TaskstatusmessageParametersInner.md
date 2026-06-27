@@ -1,15 +1,15 @@
 ---
-id: v1-taskstatusmessage-parameters-inner-v1
-title: TaskstatusmessageParametersInnerV1
-pagination_label: TaskstatusmessageParametersInnerV1
-sidebar_label: TaskstatusmessageParametersInnerV1
+id: v1-taskstatusmessage-parameters-inner
+title: TaskstatusmessageParametersInner
+pagination_label: TaskstatusmessageParametersInner
+sidebar_label: TaskstatusmessageParametersInner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'TaskstatusmessageParametersInnerV1', 'v1TaskstatusmessageParametersInnerV1']
-slug: /tools/sdk/typescript/application_discovery/models/taskstatusmessage-parameters-inner-v1
-tags: ['SDK', 'Software Development Kit', 'TaskstatusmessageParametersInnerV1', 'v1TaskstatusmessageParametersInnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'TaskstatusmessageParametersInner', 'v1TaskstatusmessageParametersInner']
+slug: /tools/sdk/typescript/application_discovery/models/taskstatusmessage-parameters-inner
+tags: ['SDK', 'Software Development Kit', 'TaskstatusmessageParametersInner', 'v1TaskstatusmessageParametersInner']
 ---
 
-# TaskstatusmessageParametersInnerV1
+# TaskstatusmessageParametersInner
 
 ## Properties
 

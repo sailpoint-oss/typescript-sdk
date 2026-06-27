@@ -1,19 +1,19 @@
 ---
-id: v1-previewdatasourceresponse-v1
-title: PreviewdatasourceresponseV1
-pagination_label: PreviewdatasourceresponseV1
-sidebar_label: PreviewdatasourceresponseV1
+id: v1-previewdatasourceresponse
+title: Previewdatasourceresponse
+pagination_label: Previewdatasourceresponse
+sidebar_label: Previewdatasourceresponse
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'PreviewdatasourceresponseV1', 'v1PreviewdatasourceresponseV1']
-slug: /tools/sdk/typescript/custom_forms/models/previewdatasourceresponse-v1
-tags: ['SDK', 'Software Development Kit', 'PreviewdatasourceresponseV1', 'v1PreviewdatasourceresponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Previewdatasourceresponse', 'v1Previewdatasourceresponse']
+slug: /tools/sdk/typescript/custom_forms/models/previewdatasourceresponse
+tags: ['SDK', 'Software Development Kit', 'Previewdatasourceresponse', 'v1Previewdatasourceresponse']
 ---
 
-# PreviewdatasourceresponseV1
+# Previewdatasourceresponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**results** | **(optional)** **Array&lt;FormelementdatasourceconfigoptionsV1&gt;** | Results holds a list of FormElementDataSourceConfigOptions items | [default to undefined]
+**results** | **(optional)** `Array<Formelementdatasourceconfigoptions>` | Results holds a list of FormElementDataSourceConfigOptions items | [default to undefined]
 

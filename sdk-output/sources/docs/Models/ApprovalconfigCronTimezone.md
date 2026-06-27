@@ -1,20 +1,20 @@
 ---
-id: v1-approvalconfig-cron-timezone-v1
-title: ApprovalconfigCronTimezoneV1
-pagination_label: ApprovalconfigCronTimezoneV1
-sidebar_label: ApprovalconfigCronTimezoneV1
+id: v1-approvalconfig-cron-timezone
+title: ApprovalconfigCronTimezone
+pagination_label: ApprovalconfigCronTimezone
+sidebar_label: ApprovalconfigCronTimezone
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ApprovalconfigCronTimezoneV1', 'v1ApprovalconfigCronTimezoneV1']
-slug: /tools/sdk/typescript/sources/models/approvalconfig-cron-timezone-v1
-tags: ['SDK', 'Software Development Kit', 'ApprovalconfigCronTimezoneV1', 'v1ApprovalconfigCronTimezoneV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ApprovalconfigCronTimezone', 'v1ApprovalconfigCronTimezone']
+slug: /tools/sdk/typescript/sources/models/approvalconfig-cron-timezone
+tags: ['SDK', 'Software Development Kit', 'ApprovalconfigCronTimezone', 'v1ApprovalconfigCronTimezone']
 ---
 
-# ApprovalconfigCronTimezoneV1
+# ApprovalconfigCronTimezone
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**location** | **(optional)** **string** | Timezone location for cron schedules. | [default to undefined]
-**offset** | **(optional)** **string** | Timezone offset for cron schedules. | [default to undefined]
+**location** | **(optional)** `string` | Timezone location for cron schedules. | [default to undefined]
+**offset** | **(optional)** `string` | Timezone offset for cron schedules. | [default to undefined]
 

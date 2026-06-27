@@ -1,21 +1,21 @@
 ---
-id: v1-sourcesubtypewithsource-source-v1
-title: SourcesubtypewithsourceSourceV1
-pagination_label: SourcesubtypewithsourceSourceV1
-sidebar_label: SourcesubtypewithsourceSourceV1
+id: v1-sourcesubtypewithsource-source
+title: SourcesubtypewithsourceSource
+pagination_label: SourcesubtypewithsourceSource
+sidebar_label: SourcesubtypewithsourceSource
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SourcesubtypewithsourceSourceV1', 'v1SourcesubtypewithsourceSourceV1']
-slug: /tools/sdk/typescript/machine_account_subtypes/models/sourcesubtypewithsource-source-v1
-tags: ['SDK', 'Software Development Kit', 'SourcesubtypewithsourceSourceV1', 'v1SourcesubtypewithsourceSourceV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'SourcesubtypewithsourceSource', 'v1SourcesubtypewithsourceSource']
+slug: /tools/sdk/typescript/machine_account_subtypes/models/sourcesubtypewithsource-source
+tags: ['SDK', 'Software Development Kit', 'SourcesubtypewithsourceSource', 'v1SourcesubtypewithsourceSource']
 ---
 
-# SourcesubtypewithsourceSourceV1
+# SourcesubtypewithsourceSource
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | Type of the reference object. | [default to undefined]
-**id** | **(optional)** **string** | Unique identifier for the source. | [default to undefined]
-**name** | **(optional)** **string** | Name of the source. | [default to undefined]
+**type** | **(optional)** `string` | Type of the reference object. | [default to undefined]
+**id** | **(optional)** `string` | Unique identifier for the source. | [default to undefined]
+**name** | **(optional)** `string` | Name of the source. | [default to undefined]
 

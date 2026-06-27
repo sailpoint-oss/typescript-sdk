@@ -26,73 +26,73 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface DataSegmentV1
+ * @interface DataSegment
  */
-export interface DataSegmentV1 {
+export interface DataSegment {
     /**
      * The segment\'s ID.
      * @type {string}
-     * @memberof DataSegmentV1
+     * @memberof DataSegment
      */
     'id'?: string;
     /**
      * The segment\'s business name.
      * @type {string}
-     * @memberof DataSegmentV1
+     * @memberof DataSegment
      */
     'name'?: string;
     /**
      * The time when the segment is created.
      * @type {string}
-     * @memberof DataSegmentV1
+     * @memberof DataSegment
      */
     'created'?: string;
     /**
      * The time when the segment is modified.
      * @type {string}
-     * @memberof DataSegmentV1
+     * @memberof DataSegment
      */
     'modified'?: string;
     /**
      * The segment\'s optional description.
      * @type {string}
-     * @memberof DataSegmentV1
+     * @memberof DataSegment
      */
     'description'?: string;
     /**
      * List of Scopes that are assigned to the segment
-     * @type {Array<ScopeV1>}
-     * @memberof DataSegmentV1
+     * @type {Array<Scope>}
+     * @memberof DataSegment
      */
-    'scopes'?: Array<ScopeV1>;
+    'scopes'?: Array<Scope>;
     /**
      * List of Identities that are assigned to the segment
-     * @type {Array<RefV1>}
-     * @memberof DataSegmentV1
+     * @type {Array<Ref>}
+     * @memberof DataSegment
      */
-    'memberSelection'?: Array<RefV1>;
+    'memberSelection'?: Array<Ref>;
     /**
      * 
-     * @type {VisibilitycriteriaV1}
-     * @memberof DataSegmentV1
+     * @type {Visibilitycriteria}
+     * @memberof DataSegment
      */
-    'memberFilter'?: VisibilitycriteriaV1;
+    'memberFilter'?: Visibilitycriteria;
     /**
      * 
-     * @type {MembershiptypeV1}
-     * @memberof DataSegmentV1
+     * @type {Membershiptype}
+     * @memberof DataSegment
      */
-    'membership'?: MembershiptypeV1;
+    'membership'?: Membershiptype;
     /**
      * This boolean indicates whether the segment is currently active. Inactive segments have no effect.
      * @type {boolean}
-     * @memberof DataSegmentV1
+     * @memberof DataSegment
      */
     'enabled'?: boolean;
     /**
      * This boolean indicates whether the segment is being applied to the accounts. If unpublished its being actively modified to until published
      * @type {boolean}
-     * @memberof DataSegmentV1
+     * @memberof DataSegment
      */
     'published'?: boolean;
 }
@@ -104,7 +104,7 @@ export interface DataSegmentV1 {
  * @enum {string}
  */
 
-export const DtotypeV1 = {
+export const Dtotype = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
@@ -136,31 +136,31 @@ export const DtotypeV1 = {
     Workgroup: 'WORKGROUP'
 } as const;
 
-export type DtotypeV1 = typeof DtotypeV1[keyof typeof DtotypeV1];
+export type Dtotype = typeof Dtotype[keyof typeof Dtotype];
 
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -169,135 +169,135 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface ExpressionChildrenInnerV1
+ * @interface Expression
  */
-export interface ExpressionChildrenInnerV1 {
+export interface Expression {
     /**
      * Operator for the expression
      * @type {string}
-     * @memberof ExpressionChildrenInnerV1
+     * @memberof Expression
      */
-    'operator'?: ExpressionChildrenInnerV1OperatorV1;
+    'operator'?: ExpressionOperatorEnum;
     /**
      * Name for the attribute
      * @type {string}
-     * @memberof ExpressionChildrenInnerV1
+     * @memberof Expression
      */
     'attribute'?: string | null;
     /**
      * 
-     * @type {ValueV1}
-     * @memberof ExpressionChildrenInnerV1
+     * @type {Value}
+     * @memberof Expression
      */
-    'value'?: ValueV1 | null;
+    'value'?: Value | null;
+    /**
+     * List of expressions
+     * @type {Array<ExpressionChildrenInner>}
+     * @memberof Expression
+     */
+    'children'?: Array<ExpressionChildrenInner> | null;
+}
+
+export const ExpressionOperatorEnum = {
+    And: 'AND',
+    Equals: 'EQUALS'
+} as const;
+
+export type ExpressionOperatorEnum = typeof ExpressionOperatorEnum[keyof typeof ExpressionOperatorEnum];
+
+/**
+ * 
+ * @export
+ * @interface ExpressionChildrenInner
+ */
+export interface ExpressionChildrenInner {
+    /**
+     * Operator for the expression
+     * @type {string}
+     * @memberof ExpressionChildrenInner
+     */
+    'operator'?: ExpressionChildrenInnerOperatorEnum;
+    /**
+     * Name for the attribute
+     * @type {string}
+     * @memberof ExpressionChildrenInner
+     */
+    'attribute'?: string | null;
+    /**
+     * 
+     * @type {Value}
+     * @memberof ExpressionChildrenInner
+     */
+    'value'?: Value | null;
     /**
      * There cannot be anymore nested children. This will always be null.
      * @type {string}
-     * @memberof ExpressionChildrenInnerV1
+     * @memberof ExpressionChildrenInner
      */
     'children'?: string | null;
 }
 
-export const ExpressionChildrenInnerV1OperatorV1 = {
+export const ExpressionChildrenInnerOperatorEnum = {
     And: 'AND',
     Equals: 'EQUALS'
 } as const;
 
-export type ExpressionChildrenInnerV1OperatorV1 = typeof ExpressionChildrenInnerV1OperatorV1[keyof typeof ExpressionChildrenInnerV1OperatorV1];
+export type ExpressionChildrenInnerOperatorEnum = typeof ExpressionChildrenInnerOperatorEnum[keyof typeof ExpressionChildrenInnerOperatorEnum];
 
 /**
  * 
  * @export
- * @interface ExpressionV1
+ * @interface GetDataSegmentIdentityMembershipV1401Response
  */
-export interface ExpressionV1 {
-    /**
-     * Operator for the expression
-     * @type {string}
-     * @memberof ExpressionV1
-     */
-    'operator'?: ExpressionV1OperatorV1;
-    /**
-     * Name for the attribute
-     * @type {string}
-     * @memberof ExpressionV1
-     */
-    'attribute'?: string | null;
-    /**
-     * 
-     * @type {ValueV1}
-     * @memberof ExpressionV1
-     */
-    'value'?: ValueV1 | null;
-    /**
-     * List of expressions
-     * @type {Array<ExpressionChildrenInnerV1>}
-     * @memberof ExpressionV1
-     */
-    'children'?: Array<ExpressionChildrenInnerV1> | null;
-}
-
-export const ExpressionV1OperatorV1 = {
-    And: 'AND',
-    Equals: 'EQUALS'
-} as const;
-
-export type ExpressionV1OperatorV1 = typeof ExpressionV1OperatorV1[keyof typeof ExpressionV1OperatorV1];
-
-/**
- * 
- * @export
- * @interface GetDataSegmentIdentityMembershipV1401ResponseV1
- */
-export interface GetDataSegmentIdentityMembershipV1401ResponseV1 {
+export interface GetDataSegmentIdentityMembershipV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetDataSegmentIdentityMembershipV1401ResponseV1
+     * @memberof GetDataSegmentIdentityMembershipV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetDataSegmentIdentityMembershipV1429ResponseV1
+ * @interface GetDataSegmentIdentityMembershipV1429Response
  */
-export interface GetDataSegmentIdentityMembershipV1429ResponseV1 {
+export interface GetDataSegmentIdentityMembershipV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetDataSegmentIdentityMembershipV1429ResponseV1
+     * @memberof GetDataSegmentIdentityMembershipV1429Response
      */
     'message'?: any;
 }
@@ -307,12 +307,12 @@ export interface GetDataSegmentIdentityMembershipV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
@@ -321,31 +321,31 @@ export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
  * @enum {string}
  */
 
-export const MembershiptypeV1 = {
+export const Membershiptype = {
     All: 'ALL',
     Filter: 'FILTER',
     Selection: 'SELECTION'
 } as const;
 
-export type MembershiptypeV1 = typeof MembershiptypeV1[keyof typeof MembershiptypeV1];
+export type Membershiptype = typeof Membershiptype[keyof typeof Membershiptype];
 
 
 /**
  * 
  * @export
- * @interface RefV1
+ * @interface Ref
  */
-export interface RefV1 {
+export interface Ref {
     /**
      * 
-     * @type {DtotypeV1}
-     * @memberof RefV1
+     * @type {Dtotype}
+     * @memberof Ref
      */
-    'type'?: DtotypeV1;
+    'type'?: Dtotype;
     /**
      * ID of the object to which this reference applies
      * @type {string}
-     * @memberof RefV1
+     * @memberof Ref
      */
     'id'?: string;
 }
@@ -354,33 +354,33 @@ export interface RefV1 {
 /**
  * This defines what access the segment is giving
  * @export
- * @interface ScopeV1
+ * @interface Scope
  */
-export interface ScopeV1 {
+export interface Scope {
     /**
      * 
-     * @type {ScopetypeV1}
-     * @memberof ScopeV1
+     * @type {Scopetype}
+     * @memberof Scope
      */
-    'scope'?: ScopetypeV1;
+    'scope'?: Scopetype;
     /**
      * 
-     * @type {ScopevisibilitytypeV1}
-     * @memberof ScopeV1
+     * @type {Scopevisibilitytype}
+     * @memberof Scope
      */
-    'visibility'?: ScopevisibilitytypeV1;
+    'visibility'?: Scopevisibilitytype;
     /**
      * 
-     * @type {VisibilitycriteriaV1}
-     * @memberof ScopeV1
+     * @type {Visibilitycriteria}
+     * @memberof Scope
      */
-    'scopeFilter'?: VisibilitycriteriaV1;
+    'scopeFilter'?: Visibilitycriteria;
     /**
      * List of Identities that are assigned to the segment
-     * @type {Array<RefV1>}
-     * @memberof ScopeV1
+     * @type {Array<Ref>}
+     * @memberof Scope
      */
-    'scopeSelection'?: Array<RefV1>;
+    'scopeSelection'?: Array<Ref>;
 }
 
 
@@ -390,14 +390,14 @@ export interface ScopeV1 {
  * @enum {string}
  */
 
-export const ScopetypeV1 = {
+export const Scopetype = {
     Entitlement: 'ENTITLEMENT',
     Certification: 'CERTIFICATION',
     Identity: 'IDENTITY',
     Entitlementrequest: 'ENTITLEMENTREQUEST'
 } as const;
 
-export type ScopetypeV1 = typeof ScopetypeV1[keyof typeof ScopetypeV1];
+export type Scopetype = typeof Scopetype[keyof typeof Scopetype];
 
 
 /**
@@ -406,90 +406,90 @@ export type ScopetypeV1 = typeof ScopetypeV1[keyof typeof ScopetypeV1];
  * @enum {string}
  */
 
-export const ScopevisibilitytypeV1 = {
+export const Scopevisibilitytype = {
     All: 'ALL',
     Filter: 'FILTER',
     Selection: 'SELECTION',
     Unsegmented: 'UNSEGMENTED'
 } as const;
 
-export type ScopevisibilitytypeV1 = typeof ScopevisibilitytypeV1[keyof typeof ScopevisibilitytypeV1];
+export type Scopevisibilitytype = typeof Scopevisibilitytype[keyof typeof Scopevisibilitytype];
 
 
 /**
  * Contains the segments and types that an identity is associated with
  * @export
- * @interface SegmentmembershipV1
+ * @interface Segmentmembership
  */
-export interface SegmentmembershipV1 {
+export interface Segmentmembership {
     /**
      * List of segment ids that the identity is associated with.
      * @type {Array<string>}
-     * @memberof SegmentmembershipV1
+     * @memberof Segmentmembership
      */
     'segments'?: Array<string>;
     /**
      * They type of scopes that are assigned to the identity.
-     * @type {Array<ScopetypeV1>}
-     * @memberof SegmentmembershipV1
+     * @type {Array<Scopetype>}
+     * @memberof Segmentmembership
      */
-    'allAccessScopes'?: Array<ScopetypeV1>;
+    'allAccessScopes'?: Array<Scopetype>;
     /**
      * Date time string that lets you know when the membership data is going to be refreshed.
      * @type {string}
-     * @memberof SegmentmembershipV1
+     * @memberof Segmentmembership
      */
     'refreshBy'?: string;
 }
 /**
  * 
  * @export
- * @interface ValueV1
+ * @interface Value
  */
-export interface ValueV1 {
+export interface Value {
     /**
      * The type of attribute value
      * @type {string}
-     * @memberof ValueV1
+     * @memberof Value
      */
     'type'?: string;
     /**
      * The attribute value
      * @type {string}
-     * @memberof ValueV1
+     * @memberof Value
      */
     'value'?: string;
 }
 /**
  * 
  * @export
- * @interface VisibilitycriteriaV1
+ * @interface Visibilitycriteria
  */
-export interface VisibilitycriteriaV1 {
+export interface Visibilitycriteria {
     /**
      * 
-     * @type {ExpressionV1}
-     * @memberof VisibilitycriteriaV1
+     * @type {Expression}
+     * @memberof Visibilitycriteria
      */
-    'expression'?: ExpressionV1;
+    'expression'?: Expression;
 }
 
 /**
- * DataSegmentationV1Api - axios parameter creator
+ * DataSegmentationApi - axios parameter creator
  * @export
  */
-export const DataSegmentationV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const DataSegmentationApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This API creates a segment.  >**Note:** Segment definitions may take time to propagate to all identities.
          * @summary Create segment
-         * @param {DataSegmentV1} dataSegmentV1 
+         * @param {DataSegment} dataSegment 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createDataSegmentV1: async (dataSegmentV1: DataSegmentV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'dataSegmentV1' is not null or undefined
-            assertParamExists('createDataSegmentV1', 'dataSegmentV1', dataSegmentV1)
+        createDataSegmentV1: async (dataSegment: DataSegment, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'dataSegment' is not null or undefined
+            assertParamExists('createDataSegmentV1', 'dataSegment', dataSegment)
             const localVarPath = `/data-segments/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -509,7 +509,7 @@ export const DataSegmentationV1ApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(dataSegmentV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(dataSegment, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -867,23 +867,23 @@ export const DataSegmentationV1ApiAxiosParamCreator = function (configuration?: 
 };
 
 /**
- * DataSegmentationV1Api - functional programming interface
+ * DataSegmentationApi - functional programming interface
  * @export
  */
-export const DataSegmentationV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = DataSegmentationV1ApiAxiosParamCreator(configuration)
+export const DataSegmentationApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = DataSegmentationApiAxiosParamCreator(configuration)
     return {
         /**
          * This API creates a segment.  >**Note:** Segment definitions may take time to propagate to all identities.
          * @summary Create segment
-         * @param {DataSegmentV1} dataSegmentV1 
+         * @param {DataSegment} dataSegment 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createDataSegmentV1(dataSegmentV1: DataSegmentV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DataSegmentV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createDataSegmentV1(dataSegmentV1, axiosOptions);
+        async createDataSegmentV1(dataSegment: DataSegment, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DataSegment>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createDataSegmentV1(dataSegment, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataSegmentationV1Api.createDataSegmentV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataSegmentationApi.createDataSegmentV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -898,7 +898,7 @@ export const DataSegmentationV1ApiFp = function(configuration?: Configuration) {
         async deleteDataSegmentV1(segmentId: string, published?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDataSegmentV1(segmentId, published, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataSegmentationV1Api.deleteDataSegmentV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataSegmentationApi.deleteDataSegmentV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -909,10 +909,10 @@ export const DataSegmentationV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getDataSegmentIdentityMembershipV1(identityId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SegmentmembershipV1>>> {
+        async getDataSegmentIdentityMembershipV1(identityId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Segmentmembership>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDataSegmentIdentityMembershipV1(identityId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataSegmentationV1Api.getDataSegmentIdentityMembershipV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataSegmentationApi.getDataSegmentIdentityMembershipV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -923,10 +923,10 @@ export const DataSegmentationV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getDataSegmentV1(segmentId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DataSegmentV1>> {
+        async getDataSegmentV1(segmentId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DataSegment>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDataSegmentV1(segmentId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataSegmentationV1Api.getDataSegmentV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataSegmentationApi.getDataSegmentV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -940,7 +940,7 @@ export const DataSegmentationV1ApiFp = function(configuration?: Configuration) {
         async getDataSegmentationEnabledForUserV1(identityId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDataSegmentationEnabledForUserV1(identityId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataSegmentationV1Api.getDataSegmentationEnabledForUserV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataSegmentationApi.getDataSegmentationEnabledForUserV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -957,10 +957,10 @@ export const DataSegmentationV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listDataSegmentsV1(enabled?: boolean, unique?: boolean, published?: boolean, limit?: number, offset?: number, count?: boolean, filters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DataSegmentV1>>> {
+        async listDataSegmentsV1(enabled?: boolean, unique?: boolean, published?: boolean, limit?: number, offset?: number, count?: boolean, filters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DataSegment>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listDataSegmentsV1(enabled, unique, published, limit, offset, count, filters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataSegmentationV1Api.listDataSegmentsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataSegmentationApi.listDataSegmentsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -972,10 +972,10 @@ export const DataSegmentationV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchDataSegmentV1(segmentId: string, requestBody: Array<object>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DataSegmentV1>> {
+        async patchDataSegmentV1(segmentId: string, requestBody: Array<object>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DataSegment>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchDataSegmentV1(segmentId, requestBody, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataSegmentationV1Api.patchDataSegmentV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataSegmentationApi.patchDataSegmentV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -991,434 +991,434 @@ export const DataSegmentationV1ApiFp = function(configuration?: Configuration) {
         async publishDataSegmentV1(segmentId: string, requestBody: Array<string>, publishAll?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.publishDataSegmentV1(segmentId, requestBody, publishAll, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataSegmentationV1Api.publishDataSegmentV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataSegmentationApi.publishDataSegmentV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * DataSegmentationV1Api - factory interface
+ * DataSegmentationApi - factory interface
  * @export
  */
-export const DataSegmentationV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = DataSegmentationV1ApiFp(configuration)
+export const DataSegmentationApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = DataSegmentationApiFp(configuration)
     return {
         /**
          * This API creates a segment.  >**Note:** Segment definitions may take time to propagate to all identities.
          * @summary Create segment
-         * @param {DataSegmentationV1ApiCreateDataSegmentV1Request} requestParameters Request parameters.
+         * @param {DataSegmentationApiCreateDataSegmentV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createDataSegmentV1(requestParameters: DataSegmentationV1ApiCreateDataSegmentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<DataSegmentV1> {
-            return localVarFp.createDataSegmentV1(requestParameters.dataSegmentV1, axiosOptions).then((request) => request(axios, basePath));
+        createDataSegmentV1(requestParameters: DataSegmentationApiCreateDataSegmentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<DataSegment> {
+            return localVarFp.createDataSegmentV1(requestParameters.dataSegment, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API deletes the segment specified by the given ID.
          * @summary Delete segment by id
-         * @param {DataSegmentationV1ApiDeleteDataSegmentV1Request} requestParameters Request parameters.
+         * @param {DataSegmentationApiDeleteDataSegmentV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteDataSegmentV1(requestParameters: DataSegmentationV1ApiDeleteDataSegmentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteDataSegmentV1(requestParameters: DataSegmentationApiDeleteDataSegmentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteDataSegmentV1(requestParameters.segmentId, requestParameters.published, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the segment membership specified by the given identity ID.
          * @summary Get segmentmembership by identity id
-         * @param {DataSegmentationV1ApiGetDataSegmentIdentityMembershipV1Request} requestParameters Request parameters.
+         * @param {DataSegmentationApiGetDataSegmentIdentityMembershipV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getDataSegmentIdentityMembershipV1(requestParameters: DataSegmentationV1ApiGetDataSegmentIdentityMembershipV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SegmentmembershipV1>> {
+        getDataSegmentIdentityMembershipV1(requestParameters: DataSegmentationApiGetDataSegmentIdentityMembershipV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Segmentmembership>> {
             return localVarFp.getDataSegmentIdentityMembershipV1(requestParameters.identityId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the segment specified by the given ID.
          * @summary Get segment by id
-         * @param {DataSegmentationV1ApiGetDataSegmentV1Request} requestParameters Request parameters.
+         * @param {DataSegmentationApiGetDataSegmentV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getDataSegmentV1(requestParameters: DataSegmentationV1ApiGetDataSegmentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<DataSegmentV1> {
+        getDataSegmentV1(requestParameters: DataSegmentationApiGetDataSegmentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<DataSegment> {
             return localVarFp.getDataSegmentV1(requestParameters.segmentId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns whether or not segmentation is enabled for the identity.
          * @summary Is segmentation enabled by identity
-         * @param {DataSegmentationV1ApiGetDataSegmentationEnabledForUserV1Request} requestParameters Request parameters.
+         * @param {DataSegmentationApiGetDataSegmentationEnabledForUserV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getDataSegmentationEnabledForUserV1(requestParameters: DataSegmentationV1ApiGetDataSegmentationEnabledForUserV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<boolean> {
+        getDataSegmentationEnabledForUserV1(requestParameters: DataSegmentationApiGetDataSegmentationEnabledForUserV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<boolean> {
             return localVarFp.getDataSegmentationEnabledForUserV1(requestParameters.identityId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the segment specified by the given ID.
          * @summary Get segments
-         * @param {DataSegmentationV1ApiListDataSegmentsV1Request} requestParameters Request parameters.
+         * @param {DataSegmentationApiListDataSegmentsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listDataSegmentsV1(requestParameters: DataSegmentationV1ApiListDataSegmentsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<DataSegmentV1>> {
+        listDataSegmentsV1(requestParameters: DataSegmentationApiListDataSegmentsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<DataSegment>> {
             return localVarFp.listDataSegmentsV1(requestParameters.enabled, requestParameters.unique, requestParameters.published, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @summary Update segment
-         * @param {DataSegmentationV1ApiPatchDataSegmentV1Request} requestParameters Request parameters.
+         * @param {DataSegmentationApiPatchDataSegmentV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchDataSegmentV1(requestParameters: DataSegmentationV1ApiPatchDataSegmentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<DataSegmentV1> {
+        patchDataSegmentV1(requestParameters: DataSegmentationApiPatchDataSegmentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<DataSegment> {
             return localVarFp.patchDataSegmentV1(requestParameters.segmentId, requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This will publish the segment so that it starts applying the segmentation to the desired users if enabled
          * @summary Publish segment by id
-         * @param {DataSegmentationV1ApiPublishDataSegmentV1Request} requestParameters Request parameters.
+         * @param {DataSegmentationApiPublishDataSegmentV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        publishDataSegmentV1(requestParameters: DataSegmentationV1ApiPublishDataSegmentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        publishDataSegmentV1(requestParameters: DataSegmentationApiPublishDataSegmentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.publishDataSegmentV1(requestParameters.segmentId, requestParameters.requestBody, requestParameters.publishAll, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createDataSegmentV1 operation in DataSegmentationV1Api.
+ * Request parameters for createDataSegmentV1 operation in DataSegmentationApi.
  * @export
- * @interface DataSegmentationV1ApiCreateDataSegmentV1Request
+ * @interface DataSegmentationApiCreateDataSegmentV1Request
  */
-export interface DataSegmentationV1ApiCreateDataSegmentV1Request {
+export interface DataSegmentationApiCreateDataSegmentV1Request {
     /**
      * 
-     * @type {DataSegmentV1}
-     * @memberof DataSegmentationV1ApiCreateDataSegmentV1
+     * @type {DataSegment}
+     * @memberof DataSegmentationApiCreateDataSegmentV1
      */
-    readonly dataSegmentV1: DataSegmentV1
+    readonly dataSegment: DataSegment
 }
 
 /**
- * Request parameters for deleteDataSegmentV1 operation in DataSegmentationV1Api.
+ * Request parameters for deleteDataSegmentV1 operation in DataSegmentationApi.
  * @export
- * @interface DataSegmentationV1ApiDeleteDataSegmentV1Request
+ * @interface DataSegmentationApiDeleteDataSegmentV1Request
  */
-export interface DataSegmentationV1ApiDeleteDataSegmentV1Request {
+export interface DataSegmentationApiDeleteDataSegmentV1Request {
     /**
      * The segment ID to delete.
      * @type {string}
-     * @memberof DataSegmentationV1ApiDeleteDataSegmentV1
+     * @memberof DataSegmentationApiDeleteDataSegmentV1
      */
     readonly segmentId: string
 
     /**
      * This determines which version of the segment to delete
      * @type {boolean}
-     * @memberof DataSegmentationV1ApiDeleteDataSegmentV1
+     * @memberof DataSegmentationApiDeleteDataSegmentV1
      */
     readonly published?: boolean
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof DataSegmentationV1ApiDeleteDataSegmentV1
+     * @memberof DataSegmentationApiDeleteDataSegmentV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getDataSegmentIdentityMembershipV1 operation in DataSegmentationV1Api.
+ * Request parameters for getDataSegmentIdentityMembershipV1 operation in DataSegmentationApi.
  * @export
- * @interface DataSegmentationV1ApiGetDataSegmentIdentityMembershipV1Request
+ * @interface DataSegmentationApiGetDataSegmentIdentityMembershipV1Request
  */
-export interface DataSegmentationV1ApiGetDataSegmentIdentityMembershipV1Request {
+export interface DataSegmentationApiGetDataSegmentIdentityMembershipV1Request {
     /**
      * The identity ID to retrieve the segments they are in.
      * @type {string}
-     * @memberof DataSegmentationV1ApiGetDataSegmentIdentityMembershipV1
+     * @memberof DataSegmentationApiGetDataSegmentIdentityMembershipV1
      */
     readonly identityId: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof DataSegmentationV1ApiGetDataSegmentIdentityMembershipV1
+     * @memberof DataSegmentationApiGetDataSegmentIdentityMembershipV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getDataSegmentV1 operation in DataSegmentationV1Api.
+ * Request parameters for getDataSegmentV1 operation in DataSegmentationApi.
  * @export
- * @interface DataSegmentationV1ApiGetDataSegmentV1Request
+ * @interface DataSegmentationApiGetDataSegmentV1Request
  */
-export interface DataSegmentationV1ApiGetDataSegmentV1Request {
+export interface DataSegmentationApiGetDataSegmentV1Request {
     /**
      * The segment ID to retrieve.
      * @type {string}
-     * @memberof DataSegmentationV1ApiGetDataSegmentV1
+     * @memberof DataSegmentationApiGetDataSegmentV1
      */
     readonly segmentId: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof DataSegmentationV1ApiGetDataSegmentV1
+     * @memberof DataSegmentationApiGetDataSegmentV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getDataSegmentationEnabledForUserV1 operation in DataSegmentationV1Api.
+ * Request parameters for getDataSegmentationEnabledForUserV1 operation in DataSegmentationApi.
  * @export
- * @interface DataSegmentationV1ApiGetDataSegmentationEnabledForUserV1Request
+ * @interface DataSegmentationApiGetDataSegmentationEnabledForUserV1Request
  */
-export interface DataSegmentationV1ApiGetDataSegmentationEnabledForUserV1Request {
+export interface DataSegmentationApiGetDataSegmentationEnabledForUserV1Request {
     /**
      * The identity ID to retrieve if segmentation is enabled for the identity.
      * @type {string}
-     * @memberof DataSegmentationV1ApiGetDataSegmentationEnabledForUserV1
+     * @memberof DataSegmentationApiGetDataSegmentationEnabledForUserV1
      */
     readonly identityId: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof DataSegmentationV1ApiGetDataSegmentationEnabledForUserV1
+     * @memberof DataSegmentationApiGetDataSegmentationEnabledForUserV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for listDataSegmentsV1 operation in DataSegmentationV1Api.
+ * Request parameters for listDataSegmentsV1 operation in DataSegmentationApi.
  * @export
- * @interface DataSegmentationV1ApiListDataSegmentsV1Request
+ * @interface DataSegmentationApiListDataSegmentsV1Request
  */
-export interface DataSegmentationV1ApiListDataSegmentsV1Request {
+export interface DataSegmentationApiListDataSegmentsV1Request {
     /**
      * This boolean indicates whether the segment is currently active. Inactive segments have no effect.
      * @type {boolean}
-     * @memberof DataSegmentationV1ApiListDataSegmentsV1
+     * @memberof DataSegmentationApiListDataSegmentsV1
      */
     readonly enabled?: boolean
 
     /**
      * This returns only one record if set to true and that would be the published record if exists.
      * @type {boolean}
-     * @memberof DataSegmentationV1ApiListDataSegmentsV1
+     * @memberof DataSegmentationApiListDataSegmentsV1
      */
     readonly unique?: boolean
 
     /**
      * This boolean indicates whether the segment is being applied to the accounts. If unpublished its being actively modified until published
      * @type {boolean}
-     * @memberof DataSegmentationV1ApiListDataSegmentsV1
+     * @memberof DataSegmentationApiListDataSegmentsV1
      */
     readonly published?: boolean
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof DataSegmentationV1ApiListDataSegmentsV1
+     * @memberof DataSegmentationApiListDataSegmentsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof DataSegmentationV1ApiListDataSegmentsV1
+     * @memberof DataSegmentationApiListDataSegmentsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof DataSegmentationV1ApiListDataSegmentsV1
+     * @memberof DataSegmentationApiListDataSegmentsV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw*
      * @type {string}
-     * @memberof DataSegmentationV1ApiListDataSegmentsV1
+     * @memberof DataSegmentationApiListDataSegmentsV1
      */
     readonly filters?: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof DataSegmentationV1ApiListDataSegmentsV1
+     * @memberof DataSegmentationApiListDataSegmentsV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for patchDataSegmentV1 operation in DataSegmentationV1Api.
+ * Request parameters for patchDataSegmentV1 operation in DataSegmentationApi.
  * @export
- * @interface DataSegmentationV1ApiPatchDataSegmentV1Request
+ * @interface DataSegmentationApiPatchDataSegmentV1Request
  */
-export interface DataSegmentationV1ApiPatchDataSegmentV1Request {
+export interface DataSegmentationApiPatchDataSegmentV1Request {
     /**
      * The segment ID to modify.
      * @type {string}
-     * @memberof DataSegmentationV1ApiPatchDataSegmentV1
+     * @memberof DataSegmentationApiPatchDataSegmentV1
      */
     readonly segmentId: string
 
     /**
      * A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * membership * memberFilter * memberSelection * scopes * enabled 
      * @type {Array<object>}
-     * @memberof DataSegmentationV1ApiPatchDataSegmentV1
+     * @memberof DataSegmentationApiPatchDataSegmentV1
      */
     readonly requestBody: Array<object>
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof DataSegmentationV1ApiPatchDataSegmentV1
+     * @memberof DataSegmentationApiPatchDataSegmentV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for publishDataSegmentV1 operation in DataSegmentationV1Api.
+ * Request parameters for publishDataSegmentV1 operation in DataSegmentationApi.
  * @export
- * @interface DataSegmentationV1ApiPublishDataSegmentV1Request
+ * @interface DataSegmentationApiPublishDataSegmentV1Request
  */
-export interface DataSegmentationV1ApiPublishDataSegmentV1Request {
+export interface DataSegmentationApiPublishDataSegmentV1Request {
     /**
      * The segmentId.
      * @type {string}
-     * @memberof DataSegmentationV1ApiPublishDataSegmentV1
+     * @memberof DataSegmentationApiPublishDataSegmentV1
      */
     readonly segmentId: string
 
     /**
      * A list of segment ids that you wish to publish
      * @type {Array<string>}
-     * @memberof DataSegmentationV1ApiPublishDataSegmentV1
+     * @memberof DataSegmentationApiPublishDataSegmentV1
      */
     readonly requestBody: Array<string>
 
     /**
      * This flag decides whether you want to publish all unpublished or a list of specific segment ids
      * @type {boolean}
-     * @memberof DataSegmentationV1ApiPublishDataSegmentV1
+     * @memberof DataSegmentationApiPublishDataSegmentV1
      */
     readonly publishAll?: boolean
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof DataSegmentationV1ApiPublishDataSegmentV1
+     * @memberof DataSegmentationApiPublishDataSegmentV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * DataSegmentationV1Api - object-oriented interface
+ * DataSegmentationApi - object-oriented interface
  * @export
- * @class DataSegmentationV1Api
+ * @class DataSegmentationApi
  * @extends {BaseAPI}
  */
-export class DataSegmentationV1Api extends BaseAPI {
+export class DataSegmentationApi extends BaseAPI {
     /**
      * This API creates a segment.  >**Note:** Segment definitions may take time to propagate to all identities.
      * @summary Create segment
-     * @param {DataSegmentationV1ApiCreateDataSegmentV1Request} requestParameters Request parameters.
+     * @param {DataSegmentationApiCreateDataSegmentV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataSegmentationV1Api
+     * @memberof DataSegmentationApi
      */
-    public createDataSegmentV1(requestParameters: DataSegmentationV1ApiCreateDataSegmentV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataSegmentationV1ApiFp(this.configuration).createDataSegmentV1(requestParameters.dataSegmentV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createDataSegmentV1(requestParameters: DataSegmentationApiCreateDataSegmentV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataSegmentationApiFp(this.configuration).createDataSegmentV1(requestParameters.dataSegment, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API deletes the segment specified by the given ID.
      * @summary Delete segment by id
-     * @param {DataSegmentationV1ApiDeleteDataSegmentV1Request} requestParameters Request parameters.
+     * @param {DataSegmentationApiDeleteDataSegmentV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataSegmentationV1Api
+     * @memberof DataSegmentationApi
      */
-    public deleteDataSegmentV1(requestParameters: DataSegmentationV1ApiDeleteDataSegmentV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataSegmentationV1ApiFp(this.configuration).deleteDataSegmentV1(requestParameters.segmentId, requestParameters.published, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteDataSegmentV1(requestParameters: DataSegmentationApiDeleteDataSegmentV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataSegmentationApiFp(this.configuration).deleteDataSegmentV1(requestParameters.segmentId, requestParameters.published, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the segment membership specified by the given identity ID.
      * @summary Get segmentmembership by identity id
-     * @param {DataSegmentationV1ApiGetDataSegmentIdentityMembershipV1Request} requestParameters Request parameters.
+     * @param {DataSegmentationApiGetDataSegmentIdentityMembershipV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataSegmentationV1Api
+     * @memberof DataSegmentationApi
      */
-    public getDataSegmentIdentityMembershipV1(requestParameters: DataSegmentationV1ApiGetDataSegmentIdentityMembershipV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataSegmentationV1ApiFp(this.configuration).getDataSegmentIdentityMembershipV1(requestParameters.identityId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getDataSegmentIdentityMembershipV1(requestParameters: DataSegmentationApiGetDataSegmentIdentityMembershipV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataSegmentationApiFp(this.configuration).getDataSegmentIdentityMembershipV1(requestParameters.identityId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the segment specified by the given ID.
      * @summary Get segment by id
-     * @param {DataSegmentationV1ApiGetDataSegmentV1Request} requestParameters Request parameters.
+     * @param {DataSegmentationApiGetDataSegmentV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataSegmentationV1Api
+     * @memberof DataSegmentationApi
      */
-    public getDataSegmentV1(requestParameters: DataSegmentationV1ApiGetDataSegmentV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataSegmentationV1ApiFp(this.configuration).getDataSegmentV1(requestParameters.segmentId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getDataSegmentV1(requestParameters: DataSegmentationApiGetDataSegmentV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataSegmentationApiFp(this.configuration).getDataSegmentV1(requestParameters.segmentId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns whether or not segmentation is enabled for the identity.
      * @summary Is segmentation enabled by identity
-     * @param {DataSegmentationV1ApiGetDataSegmentationEnabledForUserV1Request} requestParameters Request parameters.
+     * @param {DataSegmentationApiGetDataSegmentationEnabledForUserV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataSegmentationV1Api
+     * @memberof DataSegmentationApi
      */
-    public getDataSegmentationEnabledForUserV1(requestParameters: DataSegmentationV1ApiGetDataSegmentationEnabledForUserV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataSegmentationV1ApiFp(this.configuration).getDataSegmentationEnabledForUserV1(requestParameters.identityId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getDataSegmentationEnabledForUserV1(requestParameters: DataSegmentationApiGetDataSegmentationEnabledForUserV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataSegmentationApiFp(this.configuration).getDataSegmentationEnabledForUserV1(requestParameters.identityId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the segment specified by the given ID.
      * @summary Get segments
-     * @param {DataSegmentationV1ApiListDataSegmentsV1Request} requestParameters Request parameters.
+     * @param {DataSegmentationApiListDataSegmentsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataSegmentationV1Api
+     * @memberof DataSegmentationApi
      */
-    public listDataSegmentsV1(requestParameters: DataSegmentationV1ApiListDataSegmentsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return DataSegmentationV1ApiFp(this.configuration).listDataSegmentsV1(requestParameters.enabled, requestParameters.unique, requestParameters.published, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listDataSegmentsV1(requestParameters: DataSegmentationApiListDataSegmentsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return DataSegmentationApiFp(this.configuration).listDataSegmentsV1(requestParameters.enabled, requestParameters.unique, requestParameters.published, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
      * @summary Update segment
-     * @param {DataSegmentationV1ApiPatchDataSegmentV1Request} requestParameters Request parameters.
+     * @param {DataSegmentationApiPatchDataSegmentV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataSegmentationV1Api
+     * @memberof DataSegmentationApi
      */
-    public patchDataSegmentV1(requestParameters: DataSegmentationV1ApiPatchDataSegmentV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataSegmentationV1ApiFp(this.configuration).patchDataSegmentV1(requestParameters.segmentId, requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchDataSegmentV1(requestParameters: DataSegmentationApiPatchDataSegmentV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataSegmentationApiFp(this.configuration).patchDataSegmentV1(requestParameters.segmentId, requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This will publish the segment so that it starts applying the segmentation to the desired users if enabled
      * @summary Publish segment by id
-     * @param {DataSegmentationV1ApiPublishDataSegmentV1Request} requestParameters Request parameters.
+     * @param {DataSegmentationApiPublishDataSegmentV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataSegmentationV1Api
+     * @memberof DataSegmentationApi
      */
-    public publishDataSegmentV1(requestParameters: DataSegmentationV1ApiPublishDataSegmentV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataSegmentationV1ApiFp(this.configuration).publishDataSegmentV1(requestParameters.segmentId, requestParameters.requestBody, requestParameters.publishAll, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public publishDataSegmentV1(requestParameters: DataSegmentationApiPublishDataSegmentV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataSegmentationApiFp(this.configuration).publishDataSegmentV1(requestParameters.segmentId, requestParameters.requestBody, requestParameters.publishAll, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

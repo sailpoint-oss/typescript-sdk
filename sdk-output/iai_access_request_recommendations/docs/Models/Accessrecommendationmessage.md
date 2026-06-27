@@ -1,19 +1,19 @@
 ---
-id: v1-accessrecommendationmessage-v1
-title: AccessrecommendationmessageV1
-pagination_label: AccessrecommendationmessageV1
-sidebar_label: AccessrecommendationmessageV1
+id: v1-accessrecommendationmessage
+title: Accessrecommendationmessage
+pagination_label: Accessrecommendationmessage
+sidebar_label: Accessrecommendationmessage
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccessrecommendationmessageV1', 'v1AccessrecommendationmessageV1']
-slug: /tools/sdk/typescript/iai_access_request_recommendations/models/accessrecommendationmessage-v1
-tags: ['SDK', 'Software Development Kit', 'AccessrecommendationmessageV1', 'v1AccessrecommendationmessageV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accessrecommendationmessage', 'v1Accessrecommendationmessage']
+slug: /tools/sdk/typescript/iai_access_request_recommendations/models/accessrecommendationmessage
+tags: ['SDK', 'Software Development Kit', 'Accessrecommendationmessage', 'v1Accessrecommendationmessage']
 ---
 
-# AccessrecommendationmessageV1
+# Accessrecommendationmessage
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**interpretation** | **(optional)** **string** | Information about why the access item was recommended. | [default to undefined]
+**interpretation** | **(optional)** `string` | Information about why the access item was recommended. | [default to undefined]
 

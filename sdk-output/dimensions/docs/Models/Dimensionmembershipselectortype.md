@@ -1,15 +1,15 @@
 ---
-id: v1-dimensionmembershipselectortype-v1
-title: DimensionmembershipselectortypeV1
-pagination_label: DimensionmembershipselectortypeV1
-sidebar_label: DimensionmembershipselectortypeV1
+id: v1-dimensionmembershipselectortype
+title: Dimensionmembershipselectortype
+pagination_label: Dimensionmembershipselectortype
+sidebar_label: Dimensionmembershipselectortype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'DimensionmembershipselectortypeV1', 'v1DimensionmembershipselectortypeV1']
-slug: /tools/sdk/typescript/dimensions/models/dimensionmembershipselectortype-v1
-tags: ['SDK', 'Software Development Kit', 'DimensionmembershipselectortypeV1', 'v1DimensionmembershipselectortypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Dimensionmembershipselectortype', 'v1Dimensionmembershipselectortype']
+slug: /tools/sdk/typescript/dimensions/models/dimensionmembershipselectortype
+tags: ['SDK', 'Software Development Kit', 'Dimensionmembershipselectortype', 'v1Dimensionmembershipselectortype']
 ---
 
-# DimensionmembershipselectortypeV1
+# Dimensionmembershipselectortype
 
 ## Enum
 

@@ -1,25 +1,25 @@
 ---
-id: v1-approvalidentityrecord-v1
-title: ApprovalidentityrecordV1
-pagination_label: ApprovalidentityrecordV1
-sidebar_label: ApprovalidentityrecordV1
+id: v1-approvalidentityrecord
+title: Approvalidentityrecord
+pagination_label: Approvalidentityrecord
+sidebar_label: Approvalidentityrecord
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ApprovalidentityrecordV1', 'v1ApprovalidentityrecordV1']
-slug: /tools/sdk/typescript/approvals/models/approvalidentityrecord-v1
-tags: ['SDK', 'Software Development Kit', 'ApprovalidentityrecordV1', 'v1ApprovalidentityrecordV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Approvalidentityrecord', 'v1Approvalidentityrecord']
+slug: /tools/sdk/typescript/approvals/models/approvalidentityrecord
+tags: ['SDK', 'Software Development Kit', 'Approvalidentityrecord', 'v1Approvalidentityrecord']
 ---
 
-# ApprovalidentityrecordV1
+# Approvalidentityrecord
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identityID** | **(optional)** **string** | Identity ID. | [default to undefined]
-**type** | **(optional)** **string** | Type of identity. | [default to undefined]
-**name** | **(optional)** **string** | Name of the identity. | [default to undefined]
-**actionedAs** | **(optional)** **Array&lt;ApprovalreferenceV1&gt;** | List of references representing actions taken by the identity. | [default to undefined]
-**members** | **(optional)** **Array&lt;ApprovalreferenceV1&gt;** | List of references representing members of the identity. | [default to undefined]
-**decisionDate** | **(optional)** **string** | Date when the decision was made. | [default to undefined]
-**email** | **(optional)** **string** | Email associated with the identity. | [default to undefined]
+**identityID** | **(optional)** `string` | Identity ID. | [default to undefined]
+**type** | **(optional)** `string` | Type of identity. | [default to undefined]
+**name** | **(optional)** `string` | Name of the identity. | [default to undefined]
+**actionedAs** | **(optional)** `Array<Approvalreference>` | List of references representing actions taken by the identity. | [default to undefined]
+**members** | **(optional)** `Array<Approvalreference>` | List of references representing members of the identity. | [default to undefined]
+**decisionDate** | **(optional)** `string` | Date when the decision was made. | [default to undefined]
+**email** | **(optional)** `string` | Email associated with the identity. | [default to undefined]
 

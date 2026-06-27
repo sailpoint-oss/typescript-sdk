@@ -1,19 +1,19 @@
 ---
-id: v1-accessprofiledetails-account-selector-v1
-title: AccessprofiledetailsAccountSelectorV1
-pagination_label: AccessprofiledetailsAccountSelectorV1
-sidebar_label: AccessprofiledetailsAccountSelectorV1
+id: v1-accessprofiledetails-account-selector
+title: AccessprofiledetailsAccountSelector
+pagination_label: AccessprofiledetailsAccountSelector
+sidebar_label: AccessprofiledetailsAccountSelector
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccessprofiledetailsAccountSelectorV1', 'v1AccessprofiledetailsAccountSelectorV1']
-slug: /tools/sdk/typescript/apps/models/accessprofiledetails-account-selector-v1
-tags: ['SDK', 'Software Development Kit', 'AccessprofiledetailsAccountSelectorV1', 'v1AccessprofiledetailsAccountSelectorV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'AccessprofiledetailsAccountSelector', 'v1AccessprofiledetailsAccountSelector']
+slug: /tools/sdk/typescript/apps/models/accessprofiledetails-account-selector
+tags: ['SDK', 'Software Development Kit', 'AccessprofiledetailsAccountSelector', 'v1AccessprofiledetailsAccountSelector']
 ---
 
-# AccessprofiledetailsAccountSelectorV1
+# AccessprofiledetailsAccountSelector
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**selectors** | **(optional)** **Array&lt;AppaccessprofileselectorV1&gt;** |  | [default to undefined]
+**selectors** | **(optional)** `Array<Appaccessprofileselector>` |  | [default to undefined]
 

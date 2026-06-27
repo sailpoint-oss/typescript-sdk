@@ -1,20 +1,20 @@
 ---
-id: v1-column-v1
-title: ColumnV1
-pagination_label: ColumnV1
-sidebar_label: ColumnV1
+id: v1-column
+title: Column
+pagination_label: Column
+sidebar_label: Column
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ColumnV1', 'v1ColumnV1']
-slug: /tools/sdk/typescript/saved_search/models/column-v1
-tags: ['SDK', 'Software Development Kit', 'ColumnV1', 'v1ColumnV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Column', 'v1Column']
+slug: /tools/sdk/typescript/saved_search/models/column
+tags: ['SDK', 'Software Development Kit', 'Column', 'v1Column']
 ---
 
-# ColumnV1
+# Column
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**field** | **string** | The name of the field.  | [default to undefined]
-**header** | **(optional)** **string** | The value of the header.  | [default to undefined]
+**field** | `string` | The name of the field.  | [default to undefined]
+**header** | **(optional)** `string` | The value of the header.  | [default to undefined]
 

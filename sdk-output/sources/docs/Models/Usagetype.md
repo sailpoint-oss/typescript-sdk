@@ -1,15 +1,15 @@
 ---
-id: v1-usagetype-v1
-title: UsagetypeV1
-pagination_label: UsagetypeV1
-sidebar_label: UsagetypeV1
+id: v1-usagetype
+title: Usagetype
+pagination_label: Usagetype
+sidebar_label: Usagetype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'UsagetypeV1', 'v1UsagetypeV1']
-slug: /tools/sdk/typescript/sources/models/usagetype-v1
-tags: ['SDK', 'Software Development Kit', 'UsagetypeV1', 'v1UsagetypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Usagetype', 'v1Usagetype']
+slug: /tools/sdk/typescript/sources/models/usagetype
+tags: ['SDK', 'Software Development Kit', 'Usagetype', 'v1Usagetype']
 ---
 
-# UsagetypeV1
+# Usagetype
 
 ## Enum
 

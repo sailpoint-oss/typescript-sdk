@@ -1,24 +1,24 @@
 ---
-id: v1-taskdefinitionsummary-v1
-title: TaskdefinitionsummaryV1
-pagination_label: TaskdefinitionsummaryV1
-sidebar_label: TaskdefinitionsummaryV1
+id: v1-taskdefinitionsummary
+title: Taskdefinitionsummary
+pagination_label: Taskdefinitionsummary
+sidebar_label: Taskdefinitionsummary
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'TaskdefinitionsummaryV1', 'v1TaskdefinitionsummaryV1']
-slug: /tools/sdk/typescript/machine_identities/models/taskdefinitionsummary-v1
-tags: ['SDK', 'Software Development Kit', 'TaskdefinitionsummaryV1', 'v1TaskdefinitionsummaryV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Taskdefinitionsummary', 'v1Taskdefinitionsummary']
+slug: /tools/sdk/typescript/machine_identities/models/taskdefinitionsummary
+tags: ['SDK', 'Software Development Kit', 'Taskdefinitionsummary', 'v1Taskdefinitionsummary']
 ---
 
-# TaskdefinitionsummaryV1
+# Taskdefinitionsummary
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | System-generated unique ID of the TaskDefinition | [default to undefined]
-**uniqueName** | **string** | Name of the TaskDefinition | [default to undefined]
-**description** | **string** | Description of the TaskDefinition | [default to undefined]
-**parentName** | **string** | Name of the parent of the TaskDefinition | [default to undefined]
-**executor** | **string** | Executor of the TaskDefinition | [default to undefined]
+**id** | `string` | System-generated unique ID of the TaskDefinition | [default to undefined]
+**uniqueName** | `string` | Name of the TaskDefinition | [default to undefined]
+**description** | `string` | Description of the TaskDefinition | [default to undefined]
+**parentName** | `string` | Name of the parent of the TaskDefinition | [default to undefined]
+**executor** | `string` | Executor of the TaskDefinition | [default to undefined]
 **arguments** |  | Formal parameters of the TaskDefinition, without values | [default to undefined]
 

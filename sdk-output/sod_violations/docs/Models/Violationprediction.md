@@ -1,19 +1,19 @@
 ---
-id: v1-violationprediction-v1
-title: ViolationpredictionV1
-pagination_label: ViolationpredictionV1
-sidebar_label: ViolationpredictionV1
+id: v1-violationprediction
+title: Violationprediction
+pagination_label: Violationprediction
+sidebar_label: Violationprediction
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ViolationpredictionV1', 'v1ViolationpredictionV1']
-slug: /tools/sdk/typescript/sod_violations/models/violationprediction-v1
-tags: ['SDK', 'Software Development Kit', 'ViolationpredictionV1', 'v1ViolationpredictionV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Violationprediction', 'v1Violationprediction']
+slug: /tools/sdk/typescript/sod_violations/models/violationprediction
+tags: ['SDK', 'Software Development Kit', 'Violationprediction', 'v1Violationprediction']
 ---
 
-# ViolationpredictionV1
+# Violationprediction
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**violationContexts** | **(optional)** **Array&lt;ViolationcontextV1&gt;** | List of Violation Contexts | [default to undefined]
+**violationContexts** | **(optional)** `Array<Violationcontext>` | List of Violation Contexts | [default to undefined]
 

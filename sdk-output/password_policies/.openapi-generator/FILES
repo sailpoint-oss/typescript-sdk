@@ -7,8 +7,8 @@ GetPasswordPolicyByIdV1401Response.md
 GetPasswordPolicyByIdV1429Response.md
 Index.md
 Localeorigin.md
-PasswordPoliciesV1Api.md
-PasswordPoliciesV1ApideveloperSite_code_examples.yaml
+PasswordPoliciesApi.md
+PasswordPoliciesApideveloperSite_code_examples.yaml
 Passwordpolicyv3dto.md
 README.md
 api.ts

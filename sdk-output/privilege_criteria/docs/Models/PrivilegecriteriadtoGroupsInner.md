@@ -1,20 +1,20 @@
 ---
-id: v1-privilegecriteriadto-groups-inner-v1
-title: PrivilegecriteriadtoGroupsInnerV1
-pagination_label: PrivilegecriteriadtoGroupsInnerV1
-sidebar_label: PrivilegecriteriadtoGroupsInnerV1
+id: v1-privilegecriteriadto-groups-inner
+title: PrivilegecriteriadtoGroupsInner
+pagination_label: PrivilegecriteriadtoGroupsInner
+sidebar_label: PrivilegecriteriadtoGroupsInner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'PrivilegecriteriadtoGroupsInnerV1', 'v1PrivilegecriteriadtoGroupsInnerV1']
-slug: /tools/sdk/typescript/privilege_criteria/models/privilegecriteriadto-groups-inner-v1
-tags: ['SDK', 'Software Development Kit', 'PrivilegecriteriadtoGroupsInnerV1', 'v1PrivilegecriteriadtoGroupsInnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'PrivilegecriteriadtoGroupsInner', 'v1PrivilegecriteriadtoGroupsInner']
+slug: /tools/sdk/typescript/privilege_criteria/models/privilegecriteriadto-groups-inner
+tags: ['SDK', 'Software Development Kit', 'PrivilegecriteriadtoGroupsInner', 'v1PrivilegecriteriadtoGroupsInner']
 ---
 
-# PrivilegecriteriadtoGroupsInnerV1
+# PrivilegecriteriadtoGroupsInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**operator** | **(optional)** **string** | The logical operator to apply between criteria items in the group. | [default to undefined]
-**criteriaItems** | **(optional)** **Array&lt;PrivilegecriteriadtoGroupsInnerCriteriaItemsInnerV1&gt;** |  | [default to undefined]
+**operator** | **(optional)** `string` | The logical operator to apply between criteria items in the group. | [default to undefined]
+**criteriaItems** | **(optional)** `Array<PrivilegecriteriadtoGroupsInnerCriteriaItemsInner>` |  | [default to undefined]
 

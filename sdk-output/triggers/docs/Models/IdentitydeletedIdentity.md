@@ -1,21 +1,21 @@
 ---
-id: v1-identitydeleted-identity-v1
-title: IdentitydeletedIdentityV1
-pagination_label: IdentitydeletedIdentityV1
-sidebar_label: IdentitydeletedIdentityV1
+id: v1-identitydeleted-identity
+title: IdentitydeletedIdentity
+pagination_label: IdentitydeletedIdentity
+sidebar_label: IdentitydeletedIdentity
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'IdentitydeletedIdentityV1', 'v1IdentitydeletedIdentityV1']
-slug: /tools/sdk/typescript/triggers/models/identitydeleted-identity-v1
-tags: ['SDK', 'Software Development Kit', 'IdentitydeletedIdentityV1', 'v1IdentitydeletedIdentityV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'IdentitydeletedIdentity', 'v1IdentitydeletedIdentity']
+slug: /tools/sdk/typescript/triggers/models/identitydeleted-identity
+tags: ['SDK', 'Software Development Kit', 'IdentitydeletedIdentity', 'v1IdentitydeletedIdentity']
 ---
 
-# IdentitydeletedIdentityV1
+# IdentitydeletedIdentity
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **string** | Deleted identity\'s DTO type. | [default to undefined]
-**id** | **string** | Deleted identity ID. | [default to undefined]
-**name** | **string** | Deleted identity\'s display name. | [default to undefined]
+**type** | `string` | Deleted identity\'s DTO type. | [default to undefined]
+**id** | `string` | Deleted identity ID. | [default to undefined]
+**name** | `string` | Deleted identity\'s display name. | [default to undefined]
 

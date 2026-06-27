@@ -26,525 +26,525 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface AccessitemaccessprofileresponseAppRefsInnerV1
+ * @interface Accessitemaccessprofileresponse
  */
-export interface AccessitemaccessprofileresponseAppRefsInnerV1 {
-    /**
-     * the cloud app id associated with the access profile
-     * @type {string}
-     * @memberof AccessitemaccessprofileresponseAppRefsInnerV1
-     */
-    'cloudAppId'?: string;
-    /**
-     * the cloud app name associated with the access profile
-     * @type {string}
-     * @memberof AccessitemaccessprofileresponseAppRefsInnerV1
-     */
-    'cloudAppName'?: string;
-}
-/**
- * 
- * @export
- * @interface AccessitemaccessprofileresponseV1
- */
-export interface AccessitemaccessprofileresponseV1 {
+export interface Accessitemaccessprofileresponse {
     /**
      * the access item id
      * @type {string}
-     * @memberof AccessitemaccessprofileresponseV1
+     * @memberof Accessitemaccessprofileresponse
      */
     'id'?: string;
     /**
      * the access item type. accessProfile in this case
      * @type {string}
-     * @memberof AccessitemaccessprofileresponseV1
+     * @memberof Accessitemaccessprofileresponse
      */
     'accessType'?: string;
     /**
      * the display name of the identity
      * @type {string}
-     * @memberof AccessitemaccessprofileresponseV1
+     * @memberof Accessitemaccessprofileresponse
      */
     'displayName'?: string;
     /**
      * the name of the source
      * @type {string}
-     * @memberof AccessitemaccessprofileresponseV1
+     * @memberof Accessitemaccessprofileresponse
      */
     'sourceName'?: string;
     /**
      * the number of entitlements the access profile will create
      * @type {number}
-     * @memberof AccessitemaccessprofileresponseV1
+     * @memberof Accessitemaccessprofileresponse
      */
     'entitlementCount': number;
     /**
      * the description for the access profile
      * @type {string}
-     * @memberof AccessitemaccessprofileresponseV1
+     * @memberof Accessitemaccessprofileresponse
      */
     'description'?: string | null;
     /**
      * the id of the source
      * @type {string}
-     * @memberof AccessitemaccessprofileresponseV1
+     * @memberof Accessitemaccessprofileresponse
      */
     'sourceId'?: string;
     /**
      * the list of app ids associated with the access profile
-     * @type {Array<AccessitemaccessprofileresponseAppRefsInnerV1>}
-     * @memberof AccessitemaccessprofileresponseV1
+     * @type {Array<AccessitemaccessprofileresponseAppRefsInner>}
+     * @memberof Accessitemaccessprofileresponse
      */
-    'appRefs': Array<AccessitemaccessprofileresponseAppRefsInnerV1>;
+    'appRefs': Array<AccessitemaccessprofileresponseAppRefsInner>;
     /**
      * the date the access profile will be assigned to the specified identity, in case requested with a future start date
      * @type {string}
-     * @memberof AccessitemaccessprofileresponseV1
+     * @memberof Accessitemaccessprofileresponse
      */
     'startDate'?: string | null;
     /**
      * the date the access profile is no longer assigned to the specified identity
      * @type {string}
-     * @memberof AccessitemaccessprofileresponseV1
+     * @memberof Accessitemaccessprofileresponse
      */
     'removeDate'?: string | null;
     /**
      * indicates whether the access profile is standalone
      * @type {boolean}
-     * @memberof AccessitemaccessprofileresponseV1
+     * @memberof Accessitemaccessprofileresponse
      */
     'standalone': boolean | null;
     /**
      * indicates whether the access profile is revocable
      * @type {boolean}
-     * @memberof AccessitemaccessprofileresponseV1
+     * @memberof Accessitemaccessprofileresponse
      */
     'revocable': boolean | null;
 }
 /**
  * 
  * @export
- * @interface AccessitemaccountresponseV1
+ * @interface AccessitemaccessprofileresponseAppRefsInner
  */
-export interface AccessitemaccountresponseV1 {
+export interface AccessitemaccessprofileresponseAppRefsInner {
+    /**
+     * the cloud app id associated with the access profile
+     * @type {string}
+     * @memberof AccessitemaccessprofileresponseAppRefsInner
+     */
+    'cloudAppId'?: string;
+    /**
+     * the cloud app name associated with the access profile
+     * @type {string}
+     * @memberof AccessitemaccessprofileresponseAppRefsInner
+     */
+    'cloudAppName'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface Accessitemaccountresponse
+ */
+export interface Accessitemaccountresponse {
     /**
      * the access item id
      * @type {string}
-     * @memberof AccessitemaccountresponseV1
+     * @memberof Accessitemaccountresponse
      */
     'id'?: string;
     /**
      * the access item type. account in this case
      * @type {string}
-     * @memberof AccessitemaccountresponseV1
+     * @memberof Accessitemaccountresponse
      */
     'accessType'?: string;
     /**
      * the display name of the identity
      * @type {string}
-     * @memberof AccessitemaccountresponseV1
+     * @memberof Accessitemaccountresponse
      */
     'displayName'?: string;
     /**
      * the name of the source
      * @type {string}
-     * @memberof AccessitemaccountresponseV1
+     * @memberof Accessitemaccountresponse
      */
     'sourceName'?: string;
     /**
      * the native identifier used to uniquely identify an acccount
      * @type {string}
-     * @memberof AccessitemaccountresponseV1
+     * @memberof Accessitemaccountresponse
      */
     'nativeIdentity': string;
     /**
      * the id of the source
      * @type {string}
-     * @memberof AccessitemaccountresponseV1
+     * @memberof Accessitemaccountresponse
      */
     'sourceId'?: string;
     /**
      * the number of entitlements the account will create
      * @type {number}
-     * @memberof AccessitemaccountresponseV1
+     * @memberof Accessitemaccountresponse
      */
     'entitlementCount'?: number;
 }
 /**
  * 
  * @export
- * @interface AccessitemappresponseV1
+ * @interface Accessitemappresponse
  */
-export interface AccessitemappresponseV1 {
+export interface Accessitemappresponse {
     /**
      * the access item id
      * @type {string}
-     * @memberof AccessitemappresponseV1
+     * @memberof Accessitemappresponse
      */
     'id'?: string;
     /**
      * the access item type. entitlement in this case
      * @type {string}
-     * @memberof AccessitemappresponseV1
+     * @memberof Accessitemappresponse
      */
     'accessType'?: string;
     /**
      * the access item display name
      * @type {string}
-     * @memberof AccessitemappresponseV1
+     * @memberof Accessitemappresponse
      */
     'displayName'?: string;
     /**
      * the associated source name if it exists
      * @type {string}
-     * @memberof AccessitemappresponseV1
+     * @memberof Accessitemappresponse
      */
     'sourceName'?: string | null;
     /**
      * the app role id
      * @type {string}
-     * @memberof AccessitemappresponseV1
+     * @memberof Accessitemappresponse
      */
     'appRoleId': string | null;
 }
 /**
  * 
  * @export
- * @interface AccessitemassociatedAccessItemV1
+ * @interface Accessitemassociated
  */
-export interface AccessitemassociatedAccessItemV1 {
+export interface Accessitemassociated {
+    /**
+     * the event type
+     * @type {string}
+     * @memberof Accessitemassociated
+     */
+    'eventType'?: string;
+    /**
+     * the date of event
+     * @type {string}
+     * @memberof Accessitemassociated
+     */
+    'dateTime'?: string;
+    /**
+     * the identity id
+     * @type {string}
+     * @memberof Accessitemassociated
+     */
+    'identityId'?: string;
+    /**
+     * 
+     * @type {AccessitemassociatedAccessItem}
+     * @memberof Accessitemassociated
+     */
+    'accessItem': AccessitemassociatedAccessItem;
+    /**
+     * 
+     * @type {Correlatedgovernanceevent}
+     * @memberof Accessitemassociated
+     */
+    'governanceEvent': Correlatedgovernanceevent | null;
+    /**
+     * the access item type
+     * @type {string}
+     * @memberof Accessitemassociated
+     */
+    'accessItemType'?: AccessitemassociatedAccessItemTypeEnum;
+}
+
+export const AccessitemassociatedAccessItemTypeEnum = {
+    Account: 'account',
+    App: 'app',
+    Entitlement: 'entitlement',
+    Role: 'role',
+    AccessProfile: 'accessProfile'
+} as const;
+
+export type AccessitemassociatedAccessItemTypeEnum = typeof AccessitemassociatedAccessItemTypeEnum[keyof typeof AccessitemassociatedAccessItemTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface AccessitemassociatedAccessItem
+ */
+export interface AccessitemassociatedAccessItem {
     /**
      * the access item id
      * @type {string}
-     * @memberof AccessitemassociatedAccessItemV1
+     * @memberof AccessitemassociatedAccessItem
      */
     'id'?: string;
     /**
      * the access item type. entitlement in this case
      * @type {string}
-     * @memberof AccessitemassociatedAccessItemV1
+     * @memberof AccessitemassociatedAccessItem
      */
     'accessType'?: string;
     /**
      * the access item display name
      * @type {string}
-     * @memberof AccessitemassociatedAccessItemV1
+     * @memberof AccessitemassociatedAccessItem
      */
     'displayName'?: string;
     /**
      * the associated source name if it exists
      * @type {string}
-     * @memberof AccessitemassociatedAccessItemV1
+     * @memberof AccessitemassociatedAccessItem
      */
     'sourceName'?: string | null;
     /**
      * the entitlement attribute
      * @type {string}
-     * @memberof AccessitemassociatedAccessItemV1
+     * @memberof AccessitemassociatedAccessItem
      */
     'attribute': string;
     /**
      * the associated value
      * @type {string}
-     * @memberof AccessitemassociatedAccessItemV1
+     * @memberof AccessitemassociatedAccessItem
      */
     'value': string;
     /**
      * the type of entitlement
      * @type {string}
-     * @memberof AccessitemassociatedAccessItemV1
+     * @memberof AccessitemassociatedAccessItem
      */
     'type': string;
     /**
      * the description for the role
      * @type {string}
-     * @memberof AccessitemassociatedAccessItemV1
+     * @memberof AccessitemassociatedAccessItem
      */
     'description'?: string;
     /**
      * the id of the source
      * @type {string}
-     * @memberof AccessitemassociatedAccessItemV1
+     * @memberof AccessitemassociatedAccessItem
      */
     'sourceId'?: string;
     /**
      * indicates whether the access profile is standalone
      * @type {boolean}
-     * @memberof AccessitemassociatedAccessItemV1
+     * @memberof AccessitemassociatedAccessItem
      */
     'standalone': boolean | null;
     /**
      * indicates whether the entitlement is privileged
      * @type {boolean}
-     * @memberof AccessitemassociatedAccessItemV1
+     * @memberof AccessitemassociatedAccessItem
      */
     'privileged': boolean | null;
     /**
      * indicates whether the entitlement is cloud governed
      * @type {boolean}
-     * @memberof AccessitemassociatedAccessItemV1
+     * @memberof AccessitemassociatedAccessItem
      */
     'cloudGoverned': boolean | null;
     /**
      * the number of entitlements the account will create
      * @type {number}
-     * @memberof AccessitemassociatedAccessItemV1
+     * @memberof AccessitemassociatedAccessItem
      */
     'entitlementCount': number;
     /**
      * the list of app ids associated with the access profile
-     * @type {Array<AccessitemaccessprofileresponseAppRefsInnerV1>}
-     * @memberof AccessitemassociatedAccessItemV1
+     * @type {Array<AccessitemaccessprofileresponseAppRefsInner>}
+     * @memberof AccessitemassociatedAccessItem
      */
-    'appRefs': Array<AccessitemaccessprofileresponseAppRefsInnerV1>;
+    'appRefs': Array<AccessitemaccessprofileresponseAppRefsInner>;
     /**
      * the date the access profile will be assigned to the specified identity, in case requested with a future start date
      * @type {string}
-     * @memberof AccessitemassociatedAccessItemV1
+     * @memberof AccessitemassociatedAccessItem
      */
     'startDate'?: string | null;
     /**
      * the date the role is no longer assigned to the specified identity
      * @type {string}
-     * @memberof AccessitemassociatedAccessItemV1
+     * @memberof AccessitemassociatedAccessItem
      */
     'removeDate'?: string;
     /**
      * indicates whether the role is revocable
      * @type {boolean}
-     * @memberof AccessitemassociatedAccessItemV1
+     * @memberof AccessitemassociatedAccessItem
      */
     'revocable': boolean;
     /**
      * the native identifier used to uniquely identify an acccount
      * @type {string}
-     * @memberof AccessitemassociatedAccessItemV1
+     * @memberof AccessitemassociatedAccessItem
      */
     'nativeIdentity': string;
     /**
      * the app role id
      * @type {string}
-     * @memberof AccessitemassociatedAccessItemV1
+     * @memberof AccessitemassociatedAccessItem
      */
     'appRoleId': string | null;
 }
 /**
  * 
  * @export
- * @interface AccessitemassociatedV1
+ * @interface Accessitemdiff
  */
-export interface AccessitemassociatedV1 {
-    /**
-     * the event type
-     * @type {string}
-     * @memberof AccessitemassociatedV1
-     */
-    'eventType'?: string;
-    /**
-     * the date of event
-     * @type {string}
-     * @memberof AccessitemassociatedV1
-     */
-    'dateTime'?: string;
-    /**
-     * the identity id
-     * @type {string}
-     * @memberof AccessitemassociatedV1
-     */
-    'identityId'?: string;
-    /**
-     * 
-     * @type {AccessitemassociatedAccessItemV1}
-     * @memberof AccessitemassociatedV1
-     */
-    'accessItem': AccessitemassociatedAccessItemV1;
-    /**
-     * 
-     * @type {CorrelatedgovernanceeventV1}
-     * @memberof AccessitemassociatedV1
-     */
-    'governanceEvent': CorrelatedgovernanceeventV1 | null;
-    /**
-     * the access item type
-     * @type {string}
-     * @memberof AccessitemassociatedV1
-     */
-    'accessItemType'?: AccessitemassociatedV1AccessItemTypeV1;
-}
-
-export const AccessitemassociatedV1AccessItemTypeV1 = {
-    Account: 'account',
-    App: 'app',
-    Entitlement: 'entitlement',
-    Role: 'role',
-    AccessProfile: 'accessProfile'
-} as const;
-
-export type AccessitemassociatedV1AccessItemTypeV1 = typeof AccessitemassociatedV1AccessItemTypeV1[keyof typeof AccessitemassociatedV1AccessItemTypeV1];
-
-/**
- * 
- * @export
- * @interface AccessitemdiffV1
- */
-export interface AccessitemdiffV1 {
+export interface Accessitemdiff {
     /**
      * the id of the access item
      * @type {string}
-     * @memberof AccessitemdiffV1
+     * @memberof Accessitemdiff
      */
     'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof AccessitemdiffV1
+     * @memberof Accessitemdiff
      */
-    'eventType'?: AccessitemdiffV1EventTypeV1;
+    'eventType'?: AccessitemdiffEventTypeEnum;
     /**
      * the display name of the access item
      * @type {string}
-     * @memberof AccessitemdiffV1
+     * @memberof Accessitemdiff
      */
     'displayName'?: string;
     /**
      * the source name of the access item
      * @type {string}
-     * @memberof AccessitemdiffV1
+     * @memberof Accessitemdiff
      */
     'sourceName'?: string;
 }
 
-export const AccessitemdiffV1EventTypeV1 = {
+export const AccessitemdiffEventTypeEnum = {
     Add: 'ADD',
     Remove: 'REMOVE'
 } as const;
 
-export type AccessitemdiffV1EventTypeV1 = typeof AccessitemdiffV1EventTypeV1[keyof typeof AccessitemdiffV1EventTypeV1];
+export type AccessitemdiffEventTypeEnum = typeof AccessitemdiffEventTypeEnum[keyof typeof AccessitemdiffEventTypeEnum];
 
 /**
  * 
  * @export
- * @interface AccessitementitlementresponseV1
+ * @interface Accessitementitlementresponse
  */
-export interface AccessitementitlementresponseV1 {
+export interface Accessitementitlementresponse {
     /**
      * the access item id
      * @type {string}
-     * @memberof AccessitementitlementresponseV1
+     * @memberof Accessitementitlementresponse
      */
     'id'?: string;
     /**
      * the access item type. entitlement in this case
      * @type {string}
-     * @memberof AccessitementitlementresponseV1
+     * @memberof Accessitementitlementresponse
      */
     'accessType'?: string;
     /**
      * the display name of the identity
      * @type {string}
-     * @memberof AccessitementitlementresponseV1
+     * @memberof Accessitementitlementresponse
      */
     'displayName'?: string;
     /**
      * the name of the source
      * @type {string}
-     * @memberof AccessitementitlementresponseV1
+     * @memberof Accessitementitlementresponse
      */
     'sourceName'?: string;
     /**
      * the entitlement attribute
      * @type {string}
-     * @memberof AccessitementitlementresponseV1
+     * @memberof Accessitementitlementresponse
      */
     'attribute': string;
     /**
      * the associated value
      * @type {string}
-     * @memberof AccessitementitlementresponseV1
+     * @memberof Accessitementitlementresponse
      */
     'value': string;
     /**
      * the type of entitlement
      * @type {string}
-     * @memberof AccessitementitlementresponseV1
+     * @memberof Accessitementitlementresponse
      */
     'type': string;
     /**
      * the description for the entitlment
      * @type {string}
-     * @memberof AccessitementitlementresponseV1
+     * @memberof Accessitementitlementresponse
      */
     'description'?: string | null;
     /**
      * the id of the source
      * @type {string}
-     * @memberof AccessitementitlementresponseV1
+     * @memberof Accessitementitlementresponse
      */
     'sourceId'?: string;
     /**
      * indicates whether the entitlement is standalone
      * @type {boolean}
-     * @memberof AccessitementitlementresponseV1
+     * @memberof Accessitementitlementresponse
      */
     'standalone': boolean | null;
     /**
      * indicates whether the entitlement is privileged
      * @type {boolean}
-     * @memberof AccessitementitlementresponseV1
+     * @memberof Accessitementitlementresponse
      */
     'privileged': boolean | null;
     /**
      * indicates whether the entitlement is cloud governed
      * @type {boolean}
-     * @memberof AccessitementitlementresponseV1
+     * @memberof Accessitementitlementresponse
      */
     'cloudGoverned': boolean | null;
 }
 /**
  * 
  * @export
- * @interface AccessitemremovedV1
+ * @interface Accessitemremoved
  */
-export interface AccessitemremovedV1 {
+export interface Accessitemremoved {
     /**
      * 
-     * @type {AccessitemassociatedAccessItemV1}
-     * @memberof AccessitemremovedV1
+     * @type {AccessitemassociatedAccessItem}
+     * @memberof Accessitemremoved
      */
-    'accessItem': AccessitemassociatedAccessItemV1;
+    'accessItem': AccessitemassociatedAccessItem;
     /**
      * the identity id
      * @type {string}
-     * @memberof AccessitemremovedV1
+     * @memberof Accessitemremoved
      */
     'identityId'?: string;
     /**
      * the event type
      * @type {string}
-     * @memberof AccessitemremovedV1
+     * @memberof Accessitemremoved
      */
     'eventType'?: string;
     /**
      * the date of event
      * @type {string}
-     * @memberof AccessitemremovedV1
+     * @memberof Accessitemremoved
      */
     'dateTime'?: string;
     /**
      * the access item type
      * @type {string}
-     * @memberof AccessitemremovedV1
+     * @memberof Accessitemremoved
      */
-    'accessItemType'?: AccessitemremovedV1AccessItemTypeV1;
+    'accessItemType'?: AccessitemremovedAccessItemTypeEnum;
     /**
      * 
-     * @type {CorrelatedgovernanceeventV1}
-     * @memberof AccessitemremovedV1
+     * @type {Correlatedgovernanceevent}
+     * @memberof Accessitemremoved
      */
-    'governanceEvent'?: CorrelatedgovernanceeventV1 | null;
+    'governanceEvent'?: Correlatedgovernanceevent | null;
 }
 
-export const AccessitemremovedV1AccessItemTypeV1 = {
+export const AccessitemremovedAccessItemTypeEnum = {
     Account: 'account',
     App: 'app',
     Entitlement: 'entitlement',
@@ -552,482 +552,482 @@ export const AccessitemremovedV1AccessItemTypeV1 = {
     AccessProfile: 'accessProfile'
 } as const;
 
-export type AccessitemremovedV1AccessItemTypeV1 = typeof AccessitemremovedV1AccessItemTypeV1[keyof typeof AccessitemremovedV1AccessItemTypeV1];
+export type AccessitemremovedAccessItemTypeEnum = typeof AccessitemremovedAccessItemTypeEnum[keyof typeof AccessitemremovedAccessItemTypeEnum];
 
 /**
  * 
  * @export
- * @interface AccessitemroleresponseV1
+ * @interface Accessitemroleresponse
  */
-export interface AccessitemroleresponseV1 {
+export interface Accessitemroleresponse {
     /**
      * the access item id
      * @type {string}
-     * @memberof AccessitemroleresponseV1
+     * @memberof Accessitemroleresponse
      */
     'id'?: string;
     /**
      * the access item type. role in this case
      * @type {string}
-     * @memberof AccessitemroleresponseV1
+     * @memberof Accessitemroleresponse
      */
     'accessType'?: string;
     /**
      * the role display name
      * @type {string}
-     * @memberof AccessitemroleresponseV1
+     * @memberof Accessitemroleresponse
      */
     'displayName'?: string;
     /**
      * the associated source name if it exists
      * @type {string}
-     * @memberof AccessitemroleresponseV1
+     * @memberof Accessitemroleresponse
      */
     'sourceName'?: string | null;
     /**
      * the description for the role
      * @type {string}
-     * @memberof AccessitemroleresponseV1
+     * @memberof Accessitemroleresponse
      */
     'description'?: string;
     /**
      * the date the access profile will be assigned to the specified identity, in case requested with a future start date
      * @type {string}
-     * @memberof AccessitemroleresponseV1
+     * @memberof Accessitemroleresponse
      */
     'startDate'?: string | null;
     /**
      * the date the role is no longer assigned to the specified identity
      * @type {string}
-     * @memberof AccessitemroleresponseV1
+     * @memberof Accessitemroleresponse
      */
     'removeDate'?: string;
     /**
      * indicates whether the role is revocable
      * @type {boolean}
-     * @memberof AccessitemroleresponseV1
+     * @memberof Accessitemroleresponse
      */
     'revocable': boolean;
 }
 /**
  * 
  * @export
- * @interface AccessrequestedV1
+ * @interface Accessrequested
  */
-export interface AccessrequestedV1 {
+export interface Accessrequested {
     /**
      * 
-     * @type {Accessrequestresponse2V1}
-     * @memberof AccessrequestedV1
+     * @type {Accessrequestresponse2}
+     * @memberof Accessrequested
      */
-    'accessRequest': Accessrequestresponse2V1;
+    'accessRequest': Accessrequestresponse2;
     /**
      * the identity id
      * @type {string}
-     * @memberof AccessrequestedV1
+     * @memberof Accessrequested
      */
     'identityId'?: string;
     /**
      * the event type
      * @type {string}
-     * @memberof AccessrequestedV1
+     * @memberof Accessrequested
      */
     'eventType'?: string;
     /**
      * the date of event
      * @type {string}
-     * @memberof AccessrequestedV1
+     * @memberof Accessrequested
      */
     'dateTime'?: string;
 }
 /**
  * 
  * @export
- * @interface AccessrequestitemresponseV1
+ * @interface Accessrequestitemresponse
  */
-export interface AccessrequestitemresponseV1 {
+export interface Accessrequestitemresponse {
     /**
      * the access request item operation
      * @type {string}
-     * @memberof AccessrequestitemresponseV1
+     * @memberof Accessrequestitemresponse
      */
     'operation'?: string;
     /**
      * the access item type
      * @type {string}
-     * @memberof AccessrequestitemresponseV1
+     * @memberof Accessrequestitemresponse
      */
     'accessItemType'?: string;
     /**
      * the name of access request item
      * @type {string}
-     * @memberof AccessrequestitemresponseV1
+     * @memberof Accessrequestitemresponse
      */
     'name'?: string;
     /**
      * the final decision for the access request
      * @type {string}
-     * @memberof AccessrequestitemresponseV1
+     * @memberof Accessrequestitemresponse
      */
-    'decision'?: AccessrequestitemresponseV1DecisionV1;
+    'decision'?: AccessrequestitemresponseDecisionEnum;
     /**
      * the description of access request item
      * @type {string}
-     * @memberof AccessrequestitemresponseV1
+     * @memberof Accessrequestitemresponse
      */
     'description'?: string;
     /**
      * the source id
      * @type {string}
-     * @memberof AccessrequestitemresponseV1
+     * @memberof Accessrequestitemresponse
      */
     'sourceId'?: string;
     /**
      * the source Name
      * @type {string}
-     * @memberof AccessrequestitemresponseV1
+     * @memberof Accessrequestitemresponse
      */
     'sourceName'?: string;
     /**
      * 
-     * @type {Array<ApprovalinforesponseV1>}
-     * @memberof AccessrequestitemresponseV1
+     * @type {Array<Approvalinforesponse>}
+     * @memberof Accessrequestitemresponse
      */
-    'approvalInfos'?: Array<ApprovalinforesponseV1>;
+    'approvalInfos'?: Array<Approvalinforesponse>;
 }
 
-export const AccessrequestitemresponseV1DecisionV1 = {
+export const AccessrequestitemresponseDecisionEnum = {
     Approved: 'APPROVED',
     Rejected: 'REJECTED'
 } as const;
 
-export type AccessrequestitemresponseV1DecisionV1 = typeof AccessrequestitemresponseV1DecisionV1[keyof typeof AccessrequestitemresponseV1DecisionV1];
+export type AccessrequestitemresponseDecisionEnum = typeof AccessrequestitemresponseDecisionEnum[keyof typeof AccessrequestitemresponseDecisionEnum];
 
 /**
  * 
  * @export
- * @interface Accessrequestresponse2V1
+ * @interface Accessrequestresponse2
  */
-export interface Accessrequestresponse2V1 {
+export interface Accessrequestresponse2 {
     /**
      * the requester Id
      * @type {string}
-     * @memberof Accessrequestresponse2V1
+     * @memberof Accessrequestresponse2
      */
     'requesterId'?: string;
     /**
      * the requesterName
      * @type {string}
-     * @memberof Accessrequestresponse2V1
+     * @memberof Accessrequestresponse2
      */
     'requesterName'?: string;
     /**
      * 
-     * @type {Array<AccessrequestitemresponseV1>}
-     * @memberof Accessrequestresponse2V1
+     * @type {Array<Accessrequestitemresponse>}
+     * @memberof Accessrequestresponse2
      */
-    'items'?: Array<AccessrequestitemresponseV1>;
+    'items'?: Array<Accessrequestitemresponse>;
 }
 /**
  * 
  * @export
- * @interface AccountstatuschangedAccountV1
+ * @interface Accountstatuschanged
  */
-export interface AccountstatuschangedAccountV1 {
+export interface Accountstatuschanged {
+    /**
+     * the event type
+     * @type {string}
+     * @memberof Accountstatuschanged
+     */
+    'eventType'?: string;
+    /**
+     * the identity id
+     * @type {string}
+     * @memberof Accountstatuschanged
+     */
+    'identityId'?: string;
+    /**
+     * the date of event
+     * @type {string}
+     * @memberof Accountstatuschanged
+     */
+    'dateTime'?: string;
+    /**
+     * 
+     * @type {AccountstatuschangedAccount}
+     * @memberof Accountstatuschanged
+     */
+    'account': AccountstatuschangedAccount;
+    /**
+     * 
+     * @type {AccountstatuschangedStatusChange}
+     * @memberof Accountstatuschanged
+     */
+    'statusChange': AccountstatuschangedStatusChange;
+}
+/**
+ * 
+ * @export
+ * @interface AccountstatuschangedAccount
+ */
+export interface AccountstatuschangedAccount {
     /**
      * the ID of the account in the database
      * @type {string}
-     * @memberof AccountstatuschangedAccountV1
+     * @memberof AccountstatuschangedAccount
      */
     'id'?: string;
     /**
      * the native identifier of the account
      * @type {string}
-     * @memberof AccountstatuschangedAccountV1
+     * @memberof AccountstatuschangedAccount
      */
     'nativeIdentity'?: string;
     /**
      * the display name of the account
      * @type {string}
-     * @memberof AccountstatuschangedAccountV1
+     * @memberof AccountstatuschangedAccount
      */
     'displayName'?: string;
     /**
      * the ID of the source for this account
      * @type {string}
-     * @memberof AccountstatuschangedAccountV1
+     * @memberof AccountstatuschangedAccount
      */
     'sourceId'?: string;
     /**
      * the name of the source for this account
      * @type {string}
-     * @memberof AccountstatuschangedAccountV1
+     * @memberof AccountstatuschangedAccount
      */
     'sourceName'?: string;
     /**
      * the number of entitlements on this account
      * @type {number}
-     * @memberof AccountstatuschangedAccountV1
+     * @memberof AccountstatuschangedAccount
      */
     'entitlementCount'?: number;
     /**
      * this value is always \"account\"
      * @type {string}
-     * @memberof AccountstatuschangedAccountV1
+     * @memberof AccountstatuschangedAccount
      */
     'accessType'?: string;
 }
 /**
  * 
  * @export
- * @interface AccountstatuschangedStatusChangeV1
+ * @interface AccountstatuschangedStatusChange
  */
-export interface AccountstatuschangedStatusChangeV1 {
+export interface AccountstatuschangedStatusChange {
     /**
      * the previous status of the account
      * @type {string}
-     * @memberof AccountstatuschangedStatusChangeV1
+     * @memberof AccountstatuschangedStatusChange
      */
-    'previousStatus'?: AccountstatuschangedStatusChangeV1PreviousStatusV1;
+    'previousStatus'?: AccountstatuschangedStatusChangePreviousStatusEnum;
     /**
      * the new status of the account
      * @type {string}
-     * @memberof AccountstatuschangedStatusChangeV1
+     * @memberof AccountstatuschangedStatusChange
      */
-    'newStatus'?: AccountstatuschangedStatusChangeV1NewStatusV1;
+    'newStatus'?: AccountstatuschangedStatusChangeNewStatusEnum;
 }
 
-export const AccountstatuschangedStatusChangeV1PreviousStatusV1 = {
+export const AccountstatuschangedStatusChangePreviousStatusEnum = {
     Enabled: 'enabled',
     Disabled: 'disabled',
     Locked: 'locked'
 } as const;
 
-export type AccountstatuschangedStatusChangeV1PreviousStatusV1 = typeof AccountstatuschangedStatusChangeV1PreviousStatusV1[keyof typeof AccountstatuschangedStatusChangeV1PreviousStatusV1];
-export const AccountstatuschangedStatusChangeV1NewStatusV1 = {
+export type AccountstatuschangedStatusChangePreviousStatusEnum = typeof AccountstatuschangedStatusChangePreviousStatusEnum[keyof typeof AccountstatuschangedStatusChangePreviousStatusEnum];
+export const AccountstatuschangedStatusChangeNewStatusEnum = {
     Enabled: 'enabled',
     Disabled: 'disabled',
     Locked: 'locked'
 } as const;
 
-export type AccountstatuschangedStatusChangeV1NewStatusV1 = typeof AccountstatuschangedStatusChangeV1NewStatusV1[keyof typeof AccountstatuschangedStatusChangeV1NewStatusV1];
+export type AccountstatuschangedStatusChangeNewStatusEnum = typeof AccountstatuschangedStatusChangeNewStatusEnum[keyof typeof AccountstatuschangedStatusChangeNewStatusEnum];
 
 /**
  * 
  * @export
- * @interface AccountstatuschangedV1
+ * @interface Approvalinforesponse
  */
-export interface AccountstatuschangedV1 {
-    /**
-     * the event type
-     * @type {string}
-     * @memberof AccountstatuschangedV1
-     */
-    'eventType'?: string;
-    /**
-     * the identity id
-     * @type {string}
-     * @memberof AccountstatuschangedV1
-     */
-    'identityId'?: string;
-    /**
-     * the date of event
-     * @type {string}
-     * @memberof AccountstatuschangedV1
-     */
-    'dateTime'?: string;
-    /**
-     * 
-     * @type {AccountstatuschangedAccountV1}
-     * @memberof AccountstatuschangedV1
-     */
-    'account': AccountstatuschangedAccountV1;
-    /**
-     * 
-     * @type {AccountstatuschangedStatusChangeV1}
-     * @memberof AccountstatuschangedV1
-     */
-    'statusChange': AccountstatuschangedStatusChangeV1;
-}
-/**
- * 
- * @export
- * @interface ApprovalinforesponseV1
- */
-export interface ApprovalinforesponseV1 {
+export interface Approvalinforesponse {
     /**
      * the id of approver
      * @type {string}
-     * @memberof ApprovalinforesponseV1
+     * @memberof Approvalinforesponse
      */
     'id'?: string;
     /**
      * the name of approver
      * @type {string}
-     * @memberof ApprovalinforesponseV1
+     * @memberof Approvalinforesponse
      */
     'name'?: string;
     /**
      * the status of the approval request
      * @type {string}
-     * @memberof ApprovalinforesponseV1
+     * @memberof Approvalinforesponse
      */
     'status'?: string;
 }
 /**
  * 
  * @export
- * @interface AttributechangeV1
+ * @interface Attributechange
  */
-export interface AttributechangeV1 {
+export interface Attributechange {
     /**
      * the attribute name
      * @type {string}
-     * @memberof AttributechangeV1
+     * @memberof Attributechange
      */
     'name'?: string;
     /**
      * the old value of attribute
      * @type {string}
-     * @memberof AttributechangeV1
+     * @memberof Attributechange
      */
     'previousValue'?: string;
     /**
      * the new value of attribute
      * @type {string}
-     * @memberof AttributechangeV1
+     * @memberof Attributechange
      */
     'newValue'?: string;
 }
 /**
  * 
  * @export
- * @interface AttributeschangedV1
+ * @interface Attributeschanged
  */
-export interface AttributeschangedV1 {
+export interface Attributeschanged {
     /**
      * 
-     * @type {Array<AttributechangeV1>}
-     * @memberof AttributeschangedV1
+     * @type {Array<Attributechange>}
+     * @memberof Attributeschanged
      */
-    'attributeChanges': Array<AttributechangeV1>;
+    'attributeChanges': Array<Attributechange>;
     /**
      * the event type
      * @type {string}
-     * @memberof AttributeschangedV1
+     * @memberof Attributeschanged
      */
     'eventType'?: string;
     /**
      * the identity id
      * @type {string}
-     * @memberof AttributeschangedV1
+     * @memberof Attributeschanged
      */
     'identityId'?: string;
     /**
      * the date of event
      * @type {string}
-     * @memberof AttributeschangedV1
+     * @memberof Attributeschanged
      */
     'dateTime'?: string;
 }
 /**
  * 
  * @export
- * @interface CertifierresponseV1
+ * @interface Certifierresponse
  */
-export interface CertifierresponseV1 {
+export interface Certifierresponse {
     /**
      * the id of the certifier
      * @type {string}
-     * @memberof CertifierresponseV1
+     * @memberof Certifierresponse
      */
     'id'?: string;
     /**
      * the name of the certifier
      * @type {string}
-     * @memberof CertifierresponseV1
+     * @memberof Certifierresponse
      */
     'displayName'?: string;
 }
 /**
  * 
  * @export
- * @interface CorrelatedgovernanceeventV1
+ * @interface Correlatedgovernanceevent
  */
-export interface CorrelatedgovernanceeventV1 {
+export interface Correlatedgovernanceevent {
     /**
      * The name of the governance event, such as the certification name or access request ID.
      * @type {string}
-     * @memberof CorrelatedgovernanceeventV1
+     * @memberof Correlatedgovernanceevent
      */
     'name'?: string;
     /**
      * The date that the certification or access request was completed.
      * @type {string}
-     * @memberof CorrelatedgovernanceeventV1
+     * @memberof Correlatedgovernanceevent
      */
     'dateTime'?: string;
     /**
      * The type of governance event.
      * @type {string}
-     * @memberof CorrelatedgovernanceeventV1
+     * @memberof Correlatedgovernanceevent
      */
-    'type'?: CorrelatedgovernanceeventV1TypeV1;
+    'type'?: CorrelatedgovernanceeventTypeEnum;
     /**
      * The ID of the instance that caused the event - either the certification ID or access request ID.
      * @type {string}
-     * @memberof CorrelatedgovernanceeventV1
+     * @memberof Correlatedgovernanceevent
      */
     'governanceId'?: string;
     /**
      * The owners of the governance event (the certifiers or approvers)
-     * @type {Array<CertifierresponseV1>}
-     * @memberof CorrelatedgovernanceeventV1
+     * @type {Array<Certifierresponse>}
+     * @memberof Correlatedgovernanceevent
      */
-    'owners'?: Array<CertifierresponseV1>;
+    'owners'?: Array<Certifierresponse>;
     /**
      * The owners of the governance event (the certifiers or approvers), this field should be preferred over owners
-     * @type {Array<CertifierresponseV1>}
-     * @memberof CorrelatedgovernanceeventV1
+     * @type {Array<Certifierresponse>}
+     * @memberof Correlatedgovernanceevent
      */
-    'reviewers'?: Array<CertifierresponseV1>;
+    'reviewers'?: Array<Certifierresponse>;
     /**
      * 
-     * @type {CertifierresponseV1}
-     * @memberof CorrelatedgovernanceeventV1
+     * @type {Certifierresponse}
+     * @memberof Correlatedgovernanceevent
      */
-    'decisionMaker'?: CertifierresponseV1;
+    'decisionMaker'?: Certifierresponse;
 }
 
-export const CorrelatedgovernanceeventV1TypeV1 = {
+export const CorrelatedgovernanceeventTypeEnum = {
     Certification: 'certification',
     AccessRequest: 'accessRequest'
 } as const;
 
-export type CorrelatedgovernanceeventV1TypeV1 = typeof CorrelatedgovernanceeventV1TypeV1[keyof typeof CorrelatedgovernanceeventV1TypeV1];
+export type CorrelatedgovernanceeventTypeEnum = typeof CorrelatedgovernanceeventTypeEnum[keyof typeof CorrelatedgovernanceeventTypeEnum];
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -1036,139 +1036,139 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetHistoricalIdentityEventsV1200ResponseInnerV1
+ * @interface GetHistoricalIdentityEventsV1200ResponseInner
  */
-export interface GetHistoricalIdentityEventsV1200ResponseInnerV1 {
+export interface GetHistoricalIdentityEventsV1200ResponseInner {
     /**
      * the id of the certification item
      * @type {string}
-     * @memberof GetHistoricalIdentityEventsV1200ResponseInnerV1
+     * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
     'certificationId': string;
     /**
      * the certification item name
      * @type {string}
-     * @memberof GetHistoricalIdentityEventsV1200ResponseInnerV1
+     * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
     'certificationName': string;
     /**
      * the date ceritification was signed
      * @type {string}
-     * @memberof GetHistoricalIdentityEventsV1200ResponseInnerV1
+     * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
     'signedDate'?: string;
     /**
      * this field is deprecated and may go away
-     * @type {Array<CertifierresponseV1>}
-     * @memberof GetHistoricalIdentityEventsV1200ResponseInnerV1
+     * @type {Array<Certifierresponse>}
+     * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
-    'certifiers'?: Array<CertifierresponseV1>;
+    'certifiers'?: Array<Certifierresponse>;
     /**
      * The list of identities who review this certification
-     * @type {Array<CertifierresponseV1>}
-     * @memberof GetHistoricalIdentityEventsV1200ResponseInnerV1
+     * @type {Array<Certifierresponse>}
+     * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
-    'reviewers'?: Array<CertifierresponseV1>;
+    'reviewers'?: Array<Certifierresponse>;
     /**
      * 
-     * @type {CertifierresponseV1}
-     * @memberof GetHistoricalIdentityEventsV1200ResponseInnerV1
+     * @type {Certifierresponse}
+     * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
-    'signer'?: CertifierresponseV1;
+    'signer'?: Certifierresponse;
     /**
      * the event type
      * @type {string}
-     * @memberof GetHistoricalIdentityEventsV1200ResponseInnerV1
+     * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
     'eventType'?: string;
     /**
      * the date of event
      * @type {string}
-     * @memberof GetHistoricalIdentityEventsV1200ResponseInnerV1
+     * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
     'dateTime'?: string;
     /**
      * the identity id
      * @type {string}
-     * @memberof GetHistoricalIdentityEventsV1200ResponseInnerV1
+     * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
     'identityId'?: string;
     /**
      * 
-     * @type {AccessitemassociatedAccessItemV1}
-     * @memberof GetHistoricalIdentityEventsV1200ResponseInnerV1
+     * @type {AccessitemassociatedAccessItem}
+     * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
-    'accessItem': AccessitemassociatedAccessItemV1;
+    'accessItem': AccessitemassociatedAccessItem;
     /**
      * 
-     * @type {CorrelatedgovernanceeventV1}
-     * @memberof GetHistoricalIdentityEventsV1200ResponseInnerV1
+     * @type {Correlatedgovernanceevent}
+     * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
-    'governanceEvent': CorrelatedgovernanceeventV1 | null;
+    'governanceEvent': Correlatedgovernanceevent | null;
     /**
      * the access item type
      * @type {string}
-     * @memberof GetHistoricalIdentityEventsV1200ResponseInnerV1
+     * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
-    'accessItemType'?: GetHistoricalIdentityEventsV1200ResponseInnerV1AccessItemTypeV1;
+    'accessItemType'?: GetHistoricalIdentityEventsV1200ResponseInnerAccessItemTypeEnum;
     /**
      * 
-     * @type {Array<AttributechangeV1>}
-     * @memberof GetHistoricalIdentityEventsV1200ResponseInnerV1
+     * @type {Array<Attributechange>}
+     * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
-    'attributeChanges': Array<AttributechangeV1>;
+    'attributeChanges': Array<Attributechange>;
     /**
      * 
-     * @type {Accessrequestresponse2V1}
-     * @memberof GetHistoricalIdentityEventsV1200ResponseInnerV1
+     * @type {Accessrequestresponse2}
+     * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
-    'accessRequest': Accessrequestresponse2V1;
+    'accessRequest': Accessrequestresponse2;
     /**
      * 
-     * @type {AccountstatuschangedAccountV1}
-     * @memberof GetHistoricalIdentityEventsV1200ResponseInnerV1
+     * @type {AccountstatuschangedAccount}
+     * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
-    'account': AccountstatuschangedAccountV1;
+    'account': AccountstatuschangedAccount;
     /**
      * 
-     * @type {AccountstatuschangedStatusChangeV1}
-     * @memberof GetHistoricalIdentityEventsV1200ResponseInnerV1
+     * @type {AccountstatuschangedStatusChange}
+     * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
-    'statusChange': AccountstatuschangedStatusChangeV1;
+    'statusChange': AccountstatuschangedStatusChange;
 }
 
-export const GetHistoricalIdentityEventsV1200ResponseInnerV1AccessItemTypeV1 = {
+export const GetHistoricalIdentityEventsV1200ResponseInnerAccessItemTypeEnum = {
     Account: 'account',
     App: 'app',
     Entitlement: 'entitlement',
@@ -1176,327 +1176,327 @@ export const GetHistoricalIdentityEventsV1200ResponseInnerV1AccessItemTypeV1 = {
     AccessProfile: 'accessProfile'
 } as const;
 
-export type GetHistoricalIdentityEventsV1200ResponseInnerV1AccessItemTypeV1 = typeof GetHistoricalIdentityEventsV1200ResponseInnerV1AccessItemTypeV1[keyof typeof GetHistoricalIdentityEventsV1200ResponseInnerV1AccessItemTypeV1];
+export type GetHistoricalIdentityEventsV1200ResponseInnerAccessItemTypeEnum = typeof GetHistoricalIdentityEventsV1200ResponseInnerAccessItemTypeEnum[keyof typeof GetHistoricalIdentityEventsV1200ResponseInnerAccessItemTypeEnum];
 
 /**
  * 
  * @export
- * @interface IdentitycertifiedV1
+ * @interface Identitycertified
  */
-export interface IdentitycertifiedV1 {
+export interface Identitycertified {
     /**
      * the id of the certification item
      * @type {string}
-     * @memberof IdentitycertifiedV1
+     * @memberof Identitycertified
      */
     'certificationId': string;
     /**
      * the certification item name
      * @type {string}
-     * @memberof IdentitycertifiedV1
+     * @memberof Identitycertified
      */
     'certificationName': string;
     /**
      * the date ceritification was signed
      * @type {string}
-     * @memberof IdentitycertifiedV1
+     * @memberof Identitycertified
      */
     'signedDate'?: string;
     /**
      * this field is deprecated and may go away
-     * @type {Array<CertifierresponseV1>}
-     * @memberof IdentitycertifiedV1
+     * @type {Array<Certifierresponse>}
+     * @memberof Identitycertified
      */
-    'certifiers'?: Array<CertifierresponseV1>;
+    'certifiers'?: Array<Certifierresponse>;
     /**
      * The list of identities who review this certification
-     * @type {Array<CertifierresponseV1>}
-     * @memberof IdentitycertifiedV1
+     * @type {Array<Certifierresponse>}
+     * @memberof Identitycertified
      */
-    'reviewers'?: Array<CertifierresponseV1>;
+    'reviewers'?: Array<Certifierresponse>;
     /**
      * 
-     * @type {CertifierresponseV1}
-     * @memberof IdentitycertifiedV1
+     * @type {Certifierresponse}
+     * @memberof Identitycertified
      */
-    'signer'?: CertifierresponseV1;
+    'signer'?: Certifierresponse;
     /**
      * the event type
      * @type {string}
-     * @memberof IdentitycertifiedV1
+     * @memberof Identitycertified
      */
     'eventType'?: string;
     /**
      * the date of event
      * @type {string}
-     * @memberof IdentitycertifiedV1
+     * @memberof Identitycertified
      */
     'dateTime'?: string;
 }
 /**
  * 
  * @export
- * @interface IdentitycompareresponseV1
+ * @interface Identitycompareresponse
  */
-export interface IdentitycompareresponseV1 {
+export interface Identitycompareresponse {
     /**
      * Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on completion of the violation check.
      * @type {{ [key: string]: object; }}
-     * @memberof IdentitycompareresponseV1
+     * @memberof Identitycompareresponse
      */
     'accessItemDiff'?: { [key: string]: object; };
 }
 /**
  * 
  * @export
- * @interface IdentityhistoryresponseV1
+ * @interface Identityhistoryresponse
  */
-export interface IdentityhistoryresponseV1 {
+export interface Identityhistoryresponse {
     /**
      * the identity ID
      * @type {string}
-     * @memberof IdentityhistoryresponseV1
+     * @memberof Identityhistoryresponse
      */
     'id'?: string;
     /**
      * the display name of the identity
      * @type {string}
-     * @memberof IdentityhistoryresponseV1
+     * @memberof Identityhistoryresponse
      */
     'displayName'?: string;
     /**
      * the date when the identity record was created
      * @type {string}
-     * @memberof IdentityhistoryresponseV1
+     * @memberof Identityhistoryresponse
      */
     'snapshot'?: string;
     /**
      * the date when the identity was deleted
      * @type {string}
-     * @memberof IdentityhistoryresponseV1
+     * @memberof Identityhistoryresponse
      */
     'deletedDate'?: string;
     /**
      * A map containing the count of each access item
      * @type {{ [key: string]: number; }}
-     * @memberof IdentityhistoryresponseV1
+     * @memberof Identityhistoryresponse
      */
     'accessItemCount'?: { [key: string]: number; };
     /**
      * A map containing the identity attributes
      * @type {{ [key: string]: any; }}
-     * @memberof IdentityhistoryresponseV1
+     * @memberof Identityhistoryresponse
      */
     'attributes'?: { [key: string]: any; };
 }
 /**
  * 
  * @export
- * @interface IdentitylistitemV1
+ * @interface Identitylistitem
  */
-export interface IdentitylistitemV1 {
+export interface Identitylistitem {
     /**
      * the identity ID
      * @type {string}
-     * @memberof IdentitylistitemV1
+     * @memberof Identitylistitem
      */
     'id'?: string;
     /**
      * the display name of the identity
      * @type {string}
-     * @memberof IdentitylistitemV1
+     * @memberof Identitylistitem
      */
     'displayName'?: string;
     /**
      * the first name of the identity
      * @type {string}
-     * @memberof IdentitylistitemV1
+     * @memberof Identitylistitem
      */
     'firstName'?: string | null;
     /**
      * the last name of the identity
      * @type {string}
-     * @memberof IdentitylistitemV1
+     * @memberof Identitylistitem
      */
     'lastName'?: string | null;
     /**
      * indicates if an identity is active or not
      * @type {boolean}
-     * @memberof IdentitylistitemV1
+     * @memberof Identitylistitem
      */
     'active'?: boolean;
     /**
      * the date when the identity was deleted
      * @type {string}
-     * @memberof IdentitylistitemV1
+     * @memberof Identitylistitem
      */
     'deletedDate'?: string | null;
 }
 /**
  * 
  * @export
- * @interface IdentitysnapshotsummaryresponseV1
+ * @interface Identitysnapshotsummaryresponse
  */
-export interface IdentitysnapshotsummaryresponseV1 {
+export interface Identitysnapshotsummaryresponse {
     /**
      * the date when the identity record was created
      * @type {string}
-     * @memberof IdentitysnapshotsummaryresponseV1
+     * @memberof Identitysnapshotsummaryresponse
      */
     'snapshot'?: string;
 }
 /**
  * 
  * @export
- * @interface ListHistoricalIdentitiesV1401ResponseV1
+ * @interface ListHistoricalIdentitiesV1401Response
  */
-export interface ListHistoricalIdentitiesV1401ResponseV1 {
+export interface ListHistoricalIdentitiesV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListHistoricalIdentitiesV1401ResponseV1
+     * @memberof ListHistoricalIdentitiesV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ListHistoricalIdentitiesV1429ResponseV1
+ * @interface ListHistoricalIdentitiesV1429Response
  */
-export interface ListHistoricalIdentitiesV1429ResponseV1 {
+export interface ListHistoricalIdentitiesV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListHistoricalIdentitiesV1429ResponseV1
+     * @memberof ListHistoricalIdentitiesV1429Response
      */
     'message'?: any;
 }
 /**
  * 
  * @export
- * @interface ListIdentityAccessItemsV1200ResponseInnerV1
+ * @interface ListIdentityAccessItemsV1200ResponseInner
  */
-export interface ListIdentityAccessItemsV1200ResponseInnerV1 {
+export interface ListIdentityAccessItemsV1200ResponseInner {
     /**
      * the access item id
      * @type {string}
-     * @memberof ListIdentityAccessItemsV1200ResponseInnerV1
+     * @memberof ListIdentityAccessItemsV1200ResponseInner
      */
     'id'?: string;
     /**
      * the access item type. entitlement in this case
      * @type {string}
-     * @memberof ListIdentityAccessItemsV1200ResponseInnerV1
+     * @memberof ListIdentityAccessItemsV1200ResponseInner
      */
     'accessType'?: string;
     /**
      * the access item display name
      * @type {string}
-     * @memberof ListIdentityAccessItemsV1200ResponseInnerV1
+     * @memberof ListIdentityAccessItemsV1200ResponseInner
      */
     'displayName'?: string;
     /**
      * the associated source name if it exists
      * @type {string}
-     * @memberof ListIdentityAccessItemsV1200ResponseInnerV1
+     * @memberof ListIdentityAccessItemsV1200ResponseInner
      */
     'sourceName'?: string | null;
     /**
      * the entitlement attribute
      * @type {string}
-     * @memberof ListIdentityAccessItemsV1200ResponseInnerV1
+     * @memberof ListIdentityAccessItemsV1200ResponseInner
      */
     'attribute': string;
     /**
      * the associated value
      * @type {string}
-     * @memberof ListIdentityAccessItemsV1200ResponseInnerV1
+     * @memberof ListIdentityAccessItemsV1200ResponseInner
      */
     'value': string;
     /**
      * the type of entitlement
      * @type {string}
-     * @memberof ListIdentityAccessItemsV1200ResponseInnerV1
+     * @memberof ListIdentityAccessItemsV1200ResponseInner
      */
     'type': string;
     /**
      * the description for the role
      * @type {string}
-     * @memberof ListIdentityAccessItemsV1200ResponseInnerV1
+     * @memberof ListIdentityAccessItemsV1200ResponseInner
      */
     'description'?: string;
     /**
      * the id of the source
      * @type {string}
-     * @memberof ListIdentityAccessItemsV1200ResponseInnerV1
+     * @memberof ListIdentityAccessItemsV1200ResponseInner
      */
     'sourceId'?: string;
     /**
      * indicates whether the access profile is standalone
      * @type {boolean}
-     * @memberof ListIdentityAccessItemsV1200ResponseInnerV1
+     * @memberof ListIdentityAccessItemsV1200ResponseInner
      */
     'standalone': boolean | null;
     /**
      * indicates whether the entitlement is privileged
      * @type {boolean}
-     * @memberof ListIdentityAccessItemsV1200ResponseInnerV1
+     * @memberof ListIdentityAccessItemsV1200ResponseInner
      */
     'privileged': boolean | null;
     /**
      * indicates whether the entitlement is cloud governed
      * @type {boolean}
-     * @memberof ListIdentityAccessItemsV1200ResponseInnerV1
+     * @memberof ListIdentityAccessItemsV1200ResponseInner
      */
     'cloudGoverned': boolean | null;
     /**
      * the number of entitlements the account will create
      * @type {number}
-     * @memberof ListIdentityAccessItemsV1200ResponseInnerV1
+     * @memberof ListIdentityAccessItemsV1200ResponseInner
      */
     'entitlementCount': number;
     /**
      * the list of app ids associated with the access profile
-     * @type {Array<AccessitemaccessprofileresponseAppRefsInnerV1>}
-     * @memberof ListIdentityAccessItemsV1200ResponseInnerV1
+     * @type {Array<AccessitemaccessprofileresponseAppRefsInner>}
+     * @memberof ListIdentityAccessItemsV1200ResponseInner
      */
-    'appRefs': Array<AccessitemaccessprofileresponseAppRefsInnerV1>;
+    'appRefs': Array<AccessitemaccessprofileresponseAppRefsInner>;
     /**
      * the date the access profile will be assigned to the specified identity, in case requested with a future start date
      * @type {string}
-     * @memberof ListIdentityAccessItemsV1200ResponseInnerV1
+     * @memberof ListIdentityAccessItemsV1200ResponseInner
      */
     'startDate'?: string | null;
     /**
      * the date the role is no longer assigned to the specified identity
      * @type {string}
-     * @memberof ListIdentityAccessItemsV1200ResponseInnerV1
+     * @memberof ListIdentityAccessItemsV1200ResponseInner
      */
     'removeDate'?: string;
     /**
      * indicates whether the role is revocable
      * @type {boolean}
-     * @memberof ListIdentityAccessItemsV1200ResponseInnerV1
+     * @memberof ListIdentityAccessItemsV1200ResponseInner
      */
     'revocable': boolean;
     /**
      * the native identifier used to uniquely identify an acccount
      * @type {string}
-     * @memberof ListIdentityAccessItemsV1200ResponseInnerV1
+     * @memberof ListIdentityAccessItemsV1200ResponseInner
      */
     'nativeIdentity': string;
     /**
      * the app role id
      * @type {string}
-     * @memberof ListIdentityAccessItemsV1200ResponseInnerV1
+     * @memberof ListIdentityAccessItemsV1200ResponseInner
      */
     'appRoleId': string | null;
 }
 /**
- * @type ListIdentitySnapshotAccessItemsV1200ResponseInnerV1
+ * @type ListIdentitySnapshotAccessItemsV1200ResponseInner
  * @export
  */
-export type ListIdentitySnapshotAccessItemsV1200ResponseInnerV1 = AccessitemaccessprofileresponseV1 | AccessitemaccountresponseV1 | AccessitemappresponseV1 | AccessitementitlementresponseV1 | AccessitemroleresponseV1;
+export type ListIdentitySnapshotAccessItemsV1200ResponseInner = Accessitemaccessprofileresponse | Accessitemaccountresponse | Accessitemappresponse | Accessitementitlementresponse | Accessitemroleresponse;
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -1504,45 +1504,45 @@ export type ListIdentitySnapshotAccessItemsV1200ResponseInnerV1 = Accessitemacce
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface MetricresponseV1
+ * @interface Metricresponse
  */
-export interface MetricresponseV1 {
+export interface Metricresponse {
     /**
      * the name of metric
      * @type {string}
-     * @memberof MetricresponseV1
+     * @memberof Metricresponse
      */
     'name'?: string;
     /**
      * the value associated to the metric
      * @type {number}
-     * @memberof MetricresponseV1
+     * @memberof Metricresponse
      */
     'value'?: number;
 }
 
 /**
- * IdentityHistoryV1Api - axios parameter creator
+ * IdentityHistoryApi - axios parameter creator
  * @export
  */
-export const IdentityHistoryV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const IdentityHistoryApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This method gets a list of differences of specific accessType for the given identity between 2 snapshots Requires authorization scope of \'idn:identity-history:read\' 
          * @summary Gets a list of differences of specific accesstype for the given identity between 2 snapshots
          * @param {string} id The identity id
-         * @param {CompareIdentitySnapshotsAccessTypeV1AccessTypeV1} accessType The specific type which needs to be compared
+         * @param {CompareIdentitySnapshotsAccessTypeV1AccessTypeEnum} accessType The specific type which needs to be compared
          * @param {boolean} [accessAssociated] Indicates if added or removed access needs to be returned. true - added, false - removed, null - both added &amp; removed
          * @param {string} [snapshot1] The snapshot 1 of identity
          * @param {string} [snapshot2] The snapshot 2 of identity
@@ -1553,7 +1553,7 @@ export const IdentityHistoryV1ApiAxiosParamCreator = function (configuration?: C
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        compareIdentitySnapshotsAccessTypeV1: async (id: string, accessType: CompareIdentitySnapshotsAccessTypeV1AccessTypeV1, accessAssociated?: boolean, snapshot1?: string, snapshot2?: string, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        compareIdentitySnapshotsAccessTypeV1: async (id: string, accessType: CompareIdentitySnapshotsAccessTypeV1AccessTypeEnum, accessAssociated?: boolean, snapshot1?: string, snapshot2?: string, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('compareIdentitySnapshotsAccessTypeV1', 'id', id)
             // verify required parameter 'accessType' is not null or undefined
@@ -1805,7 +1805,7 @@ export const IdentityHistoryV1ApiAxiosParamCreator = function (configuration?: C
          * @summary Gets the summary for the event count for a specific identity
          * @param {string} id The identity id
          * @param {string} [before] The date before which snapshot summary is required
-         * @param {GetIdentitySnapshotSummaryV1IntervalV1} [interval] The interval indicating day or month. Defaults to month if not specified
+         * @param {GetIdentitySnapshotSummaryV1IntervalEnum} [interval] The interval indicating day or month. Defaults to month if not specified
          * @param {string} [timeZone] The time zone. Defaults to UTC if not provided
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -1814,7 +1814,7 @@ export const IdentityHistoryV1ApiAxiosParamCreator = function (configuration?: C
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentitySnapshotSummaryV1: async (id: string, before?: string, interval?: GetIdentitySnapshotSummaryV1IntervalV1, timeZone?: string, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getIdentitySnapshotSummaryV1: async (id: string, before?: string, interval?: GetIdentitySnapshotSummaryV1IntervalEnum, timeZone?: string, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getIdentitySnapshotSummaryV1', 'id', id)
             if (xSailPointExperimental === undefined) {
@@ -2027,7 +2027,7 @@ export const IdentityHistoryV1ApiAxiosParamCreator = function (configuration?: C
          * This method retrieves a list of access item for the identity filtered by the access item type 
          * @summary List access items by identity
          * @param {string} id The identity id
-         * @param {ListIdentityAccessItemsV1TypeV1} [type] The type of access item for the identity. If not provided, it defaults to account
+         * @param {ListIdentityAccessItemsV1TypeEnum} [type] The type of access item for the identity. If not provided, it defaults to account
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -2035,7 +2035,7 @@ export const IdentityHistoryV1ApiAxiosParamCreator = function (configuration?: C
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listIdentityAccessItemsV1: async (id: string, type?: ListIdentityAccessItemsV1TypeV1, xSailPointExperimental?: string, limit?: number, count?: boolean, offset?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listIdentityAccessItemsV1: async (id: string, type?: ListIdentityAccessItemsV1TypeEnum, xSailPointExperimental?: string, limit?: number, count?: boolean, offset?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('listIdentityAccessItemsV1', 'id', id)
             if (xSailPointExperimental === undefined) {
@@ -2141,7 +2141,7 @@ export const IdentityHistoryV1ApiAxiosParamCreator = function (configuration?: C
          * @summary Lists all the snapshots for the identity
          * @param {string} id The identity id
          * @param {string} [start] The specified start date
-         * @param {ListIdentitySnapshotsV1IntervalV1} [interval] The interval indicating the range in day or month for the specified interval-name
+         * @param {ListIdentitySnapshotsV1IntervalEnum} [interval] The interval indicating the range in day or month for the specified interval-name
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -2149,7 +2149,7 @@ export const IdentityHistoryV1ApiAxiosParamCreator = function (configuration?: C
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listIdentitySnapshotsV1: async (id: string, start?: string, interval?: ListIdentitySnapshotsV1IntervalV1, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listIdentitySnapshotsV1: async (id: string, start?: string, interval?: ListIdentitySnapshotsV1IntervalEnum, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('listIdentitySnapshotsV1', 'id', id)
             if (xSailPointExperimental === undefined) {
@@ -2207,17 +2207,17 @@ export const IdentityHistoryV1ApiAxiosParamCreator = function (configuration?: C
 };
 
 /**
- * IdentityHistoryV1Api - functional programming interface
+ * IdentityHistoryApi - functional programming interface
  * @export
  */
-export const IdentityHistoryV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = IdentityHistoryV1ApiAxiosParamCreator(configuration)
+export const IdentityHistoryApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = IdentityHistoryApiAxiosParamCreator(configuration)
     return {
         /**
          * This method gets a list of differences of specific accessType for the given identity between 2 snapshots Requires authorization scope of \'idn:identity-history:read\' 
          * @summary Gets a list of differences of specific accesstype for the given identity between 2 snapshots
          * @param {string} id The identity id
-         * @param {CompareIdentitySnapshotsAccessTypeV1AccessTypeV1} accessType The specific type which needs to be compared
+         * @param {CompareIdentitySnapshotsAccessTypeV1AccessTypeEnum} accessType The specific type which needs to be compared
          * @param {boolean} [accessAssociated] Indicates if added or removed access needs to be returned. true - added, false - removed, null - both added &amp; removed
          * @param {string} [snapshot1] The snapshot 1 of identity
          * @param {string} [snapshot2] The snapshot 2 of identity
@@ -2228,10 +2228,10 @@ export const IdentityHistoryV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async compareIdentitySnapshotsAccessTypeV1(id: string, accessType: CompareIdentitySnapshotsAccessTypeV1AccessTypeV1, accessAssociated?: boolean, snapshot1?: string, snapshot2?: string, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessitemdiffV1>>> {
+        async compareIdentitySnapshotsAccessTypeV1(id: string, accessType: CompareIdentitySnapshotsAccessTypeV1AccessTypeEnum, accessAssociated?: boolean, snapshot1?: string, snapshot2?: string, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Accessitemdiff>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.compareIdentitySnapshotsAccessTypeV1(id, accessType, accessAssociated, snapshot1, snapshot2, limit, offset, count, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityHistoryV1Api.compareIdentitySnapshotsAccessTypeV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IdentityHistoryApi.compareIdentitySnapshotsAccessTypeV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2248,10 +2248,10 @@ export const IdentityHistoryV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async compareIdentitySnapshotsV1(id: string, snapshot1?: string, snapshot2?: string, accessItemTypes?: Array<string>, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentitycompareresponseV1>>> {
+        async compareIdentitySnapshotsV1(id: string, snapshot1?: string, snapshot2?: string, accessItemTypes?: Array<string>, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Identitycompareresponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.compareIdentitySnapshotsV1(id, snapshot1, snapshot2, accessItemTypes, limit, offset, count, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityHistoryV1Api.compareIdentitySnapshotsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IdentityHistoryApi.compareIdentitySnapshotsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2268,10 +2268,10 @@ export const IdentityHistoryV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getHistoricalIdentityEventsV1(id: string, from?: string, eventTypes?: Array<string>, accessItemTypes?: Array<string>, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetHistoricalIdentityEventsV1200ResponseInnerV1>>> {
+        async getHistoricalIdentityEventsV1(id: string, from?: string, eventTypes?: Array<string>, accessItemTypes?: Array<string>, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetHistoricalIdentityEventsV1200ResponseInner>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getHistoricalIdentityEventsV1(id, from, eventTypes, accessItemTypes, limit, offset, count, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityHistoryV1Api.getHistoricalIdentityEventsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IdentityHistoryApi.getHistoricalIdentityEventsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2282,10 +2282,10 @@ export const IdentityHistoryV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getHistoricalIdentityV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityhistoryresponseV1>> {
+        async getHistoricalIdentityV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Identityhistoryresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getHistoricalIdentityV1(id, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityHistoryV1Api.getHistoricalIdentityV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IdentityHistoryApi.getHistoricalIdentityV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2293,7 +2293,7 @@ export const IdentityHistoryV1ApiFp = function(configuration?: Configuration) {
          * @summary Gets the summary for the event count for a specific identity
          * @param {string} id The identity id
          * @param {string} [before] The date before which snapshot summary is required
-         * @param {GetIdentitySnapshotSummaryV1IntervalV1} [interval] The interval indicating day or month. Defaults to month if not specified
+         * @param {GetIdentitySnapshotSummaryV1IntervalEnum} [interval] The interval indicating day or month. Defaults to month if not specified
          * @param {string} [timeZone] The time zone. Defaults to UTC if not provided
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -2302,10 +2302,10 @@ export const IdentityHistoryV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentitySnapshotSummaryV1(id: string, before?: string, interval?: GetIdentitySnapshotSummaryV1IntervalV1, timeZone?: string, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MetricresponseV1>>> {
+        async getIdentitySnapshotSummaryV1(id: string, before?: string, interval?: GetIdentitySnapshotSummaryV1IntervalEnum, timeZone?: string, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Metricresponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentitySnapshotSummaryV1(id, before, interval, timeZone, limit, offset, count, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityHistoryV1Api.getIdentitySnapshotSummaryV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IdentityHistoryApi.getIdentitySnapshotSummaryV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2317,10 +2317,10 @@ export const IdentityHistoryV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentitySnapshotV1(id: string, date: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityhistoryresponseV1>> {
+        async getIdentitySnapshotV1(id: string, date: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Identityhistoryresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentitySnapshotV1(id, date, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityHistoryV1Api.getIdentitySnapshotV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IdentityHistoryApi.getIdentitySnapshotV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2334,7 +2334,7 @@ export const IdentityHistoryV1ApiFp = function(configuration?: Configuration) {
         async getIdentityStartDateV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityStartDateV1(id, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityHistoryV1Api.getIdentityStartDateV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IdentityHistoryApi.getIdentityStartDateV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2349,17 +2349,17 @@ export const IdentityHistoryV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listHistoricalIdentitiesV1(startsWithQuery?: string, isDeleted?: boolean, isActive?: boolean, limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentitylistitemV1>>> {
+        async listHistoricalIdentitiesV1(startsWithQuery?: string, isDeleted?: boolean, isActive?: boolean, limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Identitylistitem>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listHistoricalIdentitiesV1(startsWithQuery, isDeleted, isActive, limit, offset, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityHistoryV1Api.listHistoricalIdentitiesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IdentityHistoryApi.listHistoricalIdentitiesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This method retrieves a list of access item for the identity filtered by the access item type 
          * @summary List access items by identity
          * @param {string} id The identity id
-         * @param {ListIdentityAccessItemsV1TypeV1} [type] The type of access item for the identity. If not provided, it defaults to account
+         * @param {ListIdentityAccessItemsV1TypeEnum} [type] The type of access item for the identity. If not provided, it defaults to account
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -2367,10 +2367,10 @@ export const IdentityHistoryV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listIdentityAccessItemsV1(id: string, type?: ListIdentityAccessItemsV1TypeV1, xSailPointExperimental?: string, limit?: number, count?: boolean, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListIdentityAccessItemsV1200ResponseInnerV1>>> {
+        async listIdentityAccessItemsV1(id: string, type?: ListIdentityAccessItemsV1TypeEnum, xSailPointExperimental?: string, limit?: number, count?: boolean, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListIdentityAccessItemsV1200ResponseInner>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityAccessItemsV1(id, type, xSailPointExperimental, limit, count, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityHistoryV1Api.listIdentityAccessItemsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IdentityHistoryApi.listIdentityAccessItemsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2383,10 +2383,10 @@ export const IdentityHistoryV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listIdentitySnapshotAccessItemsV1(id: string, date: string, type?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListIdentitySnapshotAccessItemsV1200ResponseInnerV1>>> {
+        async listIdentitySnapshotAccessItemsV1(id: string, date: string, type?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListIdentitySnapshotAccessItemsV1200ResponseInner>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentitySnapshotAccessItemsV1(id, date, type, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityHistoryV1Api.listIdentitySnapshotAccessItemsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IdentityHistoryApi.listIdentitySnapshotAccessItemsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2394,7 +2394,7 @@ export const IdentityHistoryV1ApiFp = function(configuration?: Configuration) {
          * @summary Lists all the snapshots for the identity
          * @param {string} id The identity id
          * @param {string} [start] The specified start date
-         * @param {ListIdentitySnapshotsV1IntervalV1} [interval] The interval indicating the range in day or month for the specified interval-name
+         * @param {ListIdentitySnapshotsV1IntervalEnum} [interval] The interval indicating the range in day or month for the specified interval-name
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -2402,830 +2402,830 @@ export const IdentityHistoryV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listIdentitySnapshotsV1(id: string, start?: string, interval?: ListIdentitySnapshotsV1IntervalV1, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentitysnapshotsummaryresponseV1>>> {
+        async listIdentitySnapshotsV1(id: string, start?: string, interval?: ListIdentitySnapshotsV1IntervalEnum, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Identitysnapshotsummaryresponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentitySnapshotsV1(id, start, interval, limit, offset, count, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityHistoryV1Api.listIdentitySnapshotsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IdentityHistoryApi.listIdentitySnapshotsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * IdentityHistoryV1Api - factory interface
+ * IdentityHistoryApi - factory interface
  * @export
  */
-export const IdentityHistoryV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = IdentityHistoryV1ApiFp(configuration)
+export const IdentityHistoryApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = IdentityHistoryApiFp(configuration)
     return {
         /**
          * This method gets a list of differences of specific accessType for the given identity between 2 snapshots Requires authorization scope of \'idn:identity-history:read\' 
          * @summary Gets a list of differences of specific accesstype for the given identity between 2 snapshots
-         * @param {IdentityHistoryV1ApiCompareIdentitySnapshotsAccessTypeV1Request} requestParameters Request parameters.
+         * @param {IdentityHistoryApiCompareIdentitySnapshotsAccessTypeV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        compareIdentitySnapshotsAccessTypeV1(requestParameters: IdentityHistoryV1ApiCompareIdentitySnapshotsAccessTypeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccessitemdiffV1>> {
+        compareIdentitySnapshotsAccessTypeV1(requestParameters: IdentityHistoryApiCompareIdentitySnapshotsAccessTypeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Accessitemdiff>> {
             return localVarFp.compareIdentitySnapshotsAccessTypeV1(requestParameters.id, requestParameters.accessType, requestParameters.accessAssociated, requestParameters.snapshot1, requestParameters.snapshot2, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This method gets a difference of count for each access item types for the given identity between 2 snapshots Requires authorization scope of \'idn:identity-history:read\' 
          * @summary Gets a difference of count for each access item types for the given identity between 2 snapshots
-         * @param {IdentityHistoryV1ApiCompareIdentitySnapshotsV1Request} requestParameters Request parameters.
+         * @param {IdentityHistoryApiCompareIdentitySnapshotsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        compareIdentitySnapshotsV1(requestParameters: IdentityHistoryV1ApiCompareIdentitySnapshotsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<IdentitycompareresponseV1>> {
+        compareIdentitySnapshotsV1(requestParameters: IdentityHistoryApiCompareIdentitySnapshotsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Identitycompareresponse>> {
             return localVarFp.compareIdentitySnapshotsV1(requestParameters.id, requestParameters.snapshot1, requestParameters.snapshot2, requestParameters.accessItemTypes, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This method retrieves all access events for the identity Requires authorization scope of \'idn:identity-history:read\' 
          * @summary List identity event history
-         * @param {IdentityHistoryV1ApiGetHistoricalIdentityEventsV1Request} requestParameters Request parameters.
+         * @param {IdentityHistoryApiGetHistoricalIdentityEventsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getHistoricalIdentityEventsV1(requestParameters: IdentityHistoryV1ApiGetHistoricalIdentityEventsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<GetHistoricalIdentityEventsV1200ResponseInnerV1>> {
+        getHistoricalIdentityEventsV1(requestParameters: IdentityHistoryApiGetHistoricalIdentityEventsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<GetHistoricalIdentityEventsV1200ResponseInner>> {
             return localVarFp.getHistoricalIdentityEventsV1(requestParameters.id, requestParameters.from, requestParameters.eventTypes, requestParameters.accessItemTypes, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This method retrieves a specified identity Requires authorization scope of \'idn:identity-history:read\'
          * @summary Get latest snapshot of identity
-         * @param {IdentityHistoryV1ApiGetHistoricalIdentityV1Request} requestParameters Request parameters.
+         * @param {IdentityHistoryApiGetHistoricalIdentityV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getHistoricalIdentityV1(requestParameters: IdentityHistoryV1ApiGetHistoricalIdentityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<IdentityhistoryresponseV1> {
+        getHistoricalIdentityV1(requestParameters: IdentityHistoryApiGetHistoricalIdentityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Identityhistoryresponse> {
             return localVarFp.getHistoricalIdentityV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This method gets the summary for the event count for a specific identity by month/day Requires authorization scope of \'idn:identity-history:read\' 
          * @summary Gets the summary for the event count for a specific identity
-         * @param {IdentityHistoryV1ApiGetIdentitySnapshotSummaryV1Request} requestParameters Request parameters.
+         * @param {IdentityHistoryApiGetIdentitySnapshotSummaryV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentitySnapshotSummaryV1(requestParameters: IdentityHistoryV1ApiGetIdentitySnapshotSummaryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<MetricresponseV1>> {
+        getIdentitySnapshotSummaryV1(requestParameters: IdentityHistoryApiGetIdentitySnapshotSummaryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Metricresponse>> {
             return localVarFp.getIdentitySnapshotSummaryV1(requestParameters.id, requestParameters.before, requestParameters.interval, requestParameters.timeZone, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This method retrieves a specified identity snapshot at a given date Requires authorization scope of \'idn:identity-history:read\' 
          * @summary Gets an identity snapshot at a given date
-         * @param {IdentityHistoryV1ApiGetIdentitySnapshotV1Request} requestParameters Request parameters.
+         * @param {IdentityHistoryApiGetIdentitySnapshotV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentitySnapshotV1(requestParameters: IdentityHistoryV1ApiGetIdentitySnapshotV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<IdentityhistoryresponseV1> {
+        getIdentitySnapshotV1(requestParameters: IdentityHistoryApiGetIdentitySnapshotV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Identityhistoryresponse> {
             return localVarFp.getIdentitySnapshotV1(requestParameters.id, requestParameters.date, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This method retrieves start date of the identity Requires authorization scope of \'idn:identity-history:read\' 
          * @summary Gets the start date of the identity
-         * @param {IdentityHistoryV1ApiGetIdentityStartDateV1Request} requestParameters Request parameters.
+         * @param {IdentityHistoryApiGetIdentityStartDateV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentityStartDateV1(requestParameters: IdentityHistoryV1ApiGetIdentityStartDateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<string> {
+        getIdentityStartDateV1(requestParameters: IdentityHistoryApiGetIdentityStartDateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.getIdentityStartDateV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets the list of identities for the customer. This list end point does not support count=true request param. The total  count of identities would never be returned even if the count param is specified in the request Requires authorization scope of \'idn:identity-history:read\'
          * @summary Lists all the identities
-         * @param {IdentityHistoryV1ApiListHistoricalIdentitiesV1Request} requestParameters Request parameters.
+         * @param {IdentityHistoryApiListHistoricalIdentitiesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listHistoricalIdentitiesV1(requestParameters: IdentityHistoryV1ApiListHistoricalIdentitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<IdentitylistitemV1>> {
+        listHistoricalIdentitiesV1(requestParameters: IdentityHistoryApiListHistoricalIdentitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Identitylistitem>> {
             return localVarFp.listHistoricalIdentitiesV1(requestParameters.startsWithQuery, requestParameters.isDeleted, requestParameters.isActive, requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This method retrieves a list of access item for the identity filtered by the access item type 
          * @summary List access items by identity
-         * @param {IdentityHistoryV1ApiListIdentityAccessItemsV1Request} requestParameters Request parameters.
+         * @param {IdentityHistoryApiListIdentityAccessItemsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listIdentityAccessItemsV1(requestParameters: IdentityHistoryV1ApiListIdentityAccessItemsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ListIdentityAccessItemsV1200ResponseInnerV1>> {
+        listIdentityAccessItemsV1(requestParameters: IdentityHistoryApiListIdentityAccessItemsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ListIdentityAccessItemsV1200ResponseInner>> {
             return localVarFp.listIdentityAccessItemsV1(requestParameters.id, requestParameters.type, requestParameters.xSailPointExperimental, requestParameters.limit, requestParameters.count, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This method retrieves the list of identity access items at a given date filterd by item type Requires authorization scope of \'idn:identity-history:read\' 
          * @summary Gets the list of identity access items at a given date filterd by item type
-         * @param {IdentityHistoryV1ApiListIdentitySnapshotAccessItemsV1Request} requestParameters Request parameters.
+         * @param {IdentityHistoryApiListIdentitySnapshotAccessItemsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listIdentitySnapshotAccessItemsV1(requestParameters: IdentityHistoryV1ApiListIdentitySnapshotAccessItemsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ListIdentitySnapshotAccessItemsV1200ResponseInnerV1>> {
+        listIdentitySnapshotAccessItemsV1(requestParameters: IdentityHistoryApiListIdentitySnapshotAccessItemsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ListIdentitySnapshotAccessItemsV1200ResponseInner>> {
             return localVarFp.listIdentitySnapshotAccessItemsV1(requestParameters.id, requestParameters.date, requestParameters.type, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This method retrieves all the snapshots for the identity Requires authorization scope of \'idn:identity-history:read\' 
          * @summary Lists all the snapshots for the identity
-         * @param {IdentityHistoryV1ApiListIdentitySnapshotsV1Request} requestParameters Request parameters.
+         * @param {IdentityHistoryApiListIdentitySnapshotsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listIdentitySnapshotsV1(requestParameters: IdentityHistoryV1ApiListIdentitySnapshotsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<IdentitysnapshotsummaryresponseV1>> {
+        listIdentitySnapshotsV1(requestParameters: IdentityHistoryApiListIdentitySnapshotsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Identitysnapshotsummaryresponse>> {
             return localVarFp.listIdentitySnapshotsV1(requestParameters.id, requestParameters.start, requestParameters.interval, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for compareIdentitySnapshotsAccessTypeV1 operation in IdentityHistoryV1Api.
+ * Request parameters for compareIdentitySnapshotsAccessTypeV1 operation in IdentityHistoryApi.
  * @export
- * @interface IdentityHistoryV1ApiCompareIdentitySnapshotsAccessTypeV1Request
+ * @interface IdentityHistoryApiCompareIdentitySnapshotsAccessTypeV1Request
  */
-export interface IdentityHistoryV1ApiCompareIdentitySnapshotsAccessTypeV1Request {
+export interface IdentityHistoryApiCompareIdentitySnapshotsAccessTypeV1Request {
     /**
      * The identity id
      * @type {string}
-     * @memberof IdentityHistoryV1ApiCompareIdentitySnapshotsAccessTypeV1
+     * @memberof IdentityHistoryApiCompareIdentitySnapshotsAccessTypeV1
      */
     readonly id: string
 
     /**
      * The specific type which needs to be compared
      * @type {'accessProfile' | 'account' | 'app' | 'entitlement' | 'role'}
-     * @memberof IdentityHistoryV1ApiCompareIdentitySnapshotsAccessTypeV1
+     * @memberof IdentityHistoryApiCompareIdentitySnapshotsAccessTypeV1
      */
-    readonly accessType: CompareIdentitySnapshotsAccessTypeV1AccessTypeV1
+    readonly accessType: CompareIdentitySnapshotsAccessTypeV1AccessTypeEnum
 
     /**
      * Indicates if added or removed access needs to be returned. true - added, false - removed, null - both added &amp; removed
      * @type {boolean}
-     * @memberof IdentityHistoryV1ApiCompareIdentitySnapshotsAccessTypeV1
+     * @memberof IdentityHistoryApiCompareIdentitySnapshotsAccessTypeV1
      */
     readonly accessAssociated?: boolean
 
     /**
      * The snapshot 1 of identity
      * @type {string}
-     * @memberof IdentityHistoryV1ApiCompareIdentitySnapshotsAccessTypeV1
+     * @memberof IdentityHistoryApiCompareIdentitySnapshotsAccessTypeV1
      */
     readonly snapshot1?: string
 
     /**
      * The snapshot 2 of identity
      * @type {string}
-     * @memberof IdentityHistoryV1ApiCompareIdentitySnapshotsAccessTypeV1
+     * @memberof IdentityHistoryApiCompareIdentitySnapshotsAccessTypeV1
      */
     readonly snapshot2?: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IdentityHistoryV1ApiCompareIdentitySnapshotsAccessTypeV1
+     * @memberof IdentityHistoryApiCompareIdentitySnapshotsAccessTypeV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IdentityHistoryV1ApiCompareIdentitySnapshotsAccessTypeV1
+     * @memberof IdentityHistoryApiCompareIdentitySnapshotsAccessTypeV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof IdentityHistoryV1ApiCompareIdentitySnapshotsAccessTypeV1
+     * @memberof IdentityHistoryApiCompareIdentitySnapshotsAccessTypeV1
      */
     readonly count?: boolean
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IdentityHistoryV1ApiCompareIdentitySnapshotsAccessTypeV1
+     * @memberof IdentityHistoryApiCompareIdentitySnapshotsAccessTypeV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for compareIdentitySnapshotsV1 operation in IdentityHistoryV1Api.
+ * Request parameters for compareIdentitySnapshotsV1 operation in IdentityHistoryApi.
  * @export
- * @interface IdentityHistoryV1ApiCompareIdentitySnapshotsV1Request
+ * @interface IdentityHistoryApiCompareIdentitySnapshotsV1Request
  */
-export interface IdentityHistoryV1ApiCompareIdentitySnapshotsV1Request {
+export interface IdentityHistoryApiCompareIdentitySnapshotsV1Request {
     /**
      * The identity id
      * @type {string}
-     * @memberof IdentityHistoryV1ApiCompareIdentitySnapshotsV1
+     * @memberof IdentityHistoryApiCompareIdentitySnapshotsV1
      */
     readonly id: string
 
     /**
      * The snapshot 1 of identity
      * @type {string}
-     * @memberof IdentityHistoryV1ApiCompareIdentitySnapshotsV1
+     * @memberof IdentityHistoryApiCompareIdentitySnapshotsV1
      */
     readonly snapshot1?: string
 
     /**
      * The snapshot 2 of identity
      * @type {string}
-     * @memberof IdentityHistoryV1ApiCompareIdentitySnapshotsV1
+     * @memberof IdentityHistoryApiCompareIdentitySnapshotsV1
      */
     readonly snapshot2?: string
 
     /**
      * An optional list of access item types (app, account, entitlement, etc...) to return.   If null or empty, all access items types are returned 
      * @type {Array<string>}
-     * @memberof IdentityHistoryV1ApiCompareIdentitySnapshotsV1
+     * @memberof IdentityHistoryApiCompareIdentitySnapshotsV1
      */
     readonly accessItemTypes?: Array<string>
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IdentityHistoryV1ApiCompareIdentitySnapshotsV1
+     * @memberof IdentityHistoryApiCompareIdentitySnapshotsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IdentityHistoryV1ApiCompareIdentitySnapshotsV1
+     * @memberof IdentityHistoryApiCompareIdentitySnapshotsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof IdentityHistoryV1ApiCompareIdentitySnapshotsV1
+     * @memberof IdentityHistoryApiCompareIdentitySnapshotsV1
      */
     readonly count?: boolean
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IdentityHistoryV1ApiCompareIdentitySnapshotsV1
+     * @memberof IdentityHistoryApiCompareIdentitySnapshotsV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getHistoricalIdentityEventsV1 operation in IdentityHistoryV1Api.
+ * Request parameters for getHistoricalIdentityEventsV1 operation in IdentityHistoryApi.
  * @export
- * @interface IdentityHistoryV1ApiGetHistoricalIdentityEventsV1Request
+ * @interface IdentityHistoryApiGetHistoricalIdentityEventsV1Request
  */
-export interface IdentityHistoryV1ApiGetHistoricalIdentityEventsV1Request {
+export interface IdentityHistoryApiGetHistoricalIdentityEventsV1Request {
     /**
      * The identity id
      * @type {string}
-     * @memberof IdentityHistoryV1ApiGetHistoricalIdentityEventsV1
+     * @memberof IdentityHistoryApiGetHistoricalIdentityEventsV1
      */
     readonly id: string
 
     /**
      * The optional instant until which access events are returned
      * @type {string}
-     * @memberof IdentityHistoryV1ApiGetHistoricalIdentityEventsV1
+     * @memberof IdentityHistoryApiGetHistoricalIdentityEventsV1
      */
     readonly from?: string
 
     /**
      * An optional list of event types to return.  If null or empty, all events are returned
      * @type {Array<string>}
-     * @memberof IdentityHistoryV1ApiGetHistoricalIdentityEventsV1
+     * @memberof IdentityHistoryApiGetHistoricalIdentityEventsV1
      */
     readonly eventTypes?: Array<string>
 
     /**
      * An optional list of access item types (app, account, entitlement, etc...) to return.   If null or empty, all access items types are returned
      * @type {Array<string>}
-     * @memberof IdentityHistoryV1ApiGetHistoricalIdentityEventsV1
+     * @memberof IdentityHistoryApiGetHistoricalIdentityEventsV1
      */
     readonly accessItemTypes?: Array<string>
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IdentityHistoryV1ApiGetHistoricalIdentityEventsV1
+     * @memberof IdentityHistoryApiGetHistoricalIdentityEventsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IdentityHistoryV1ApiGetHistoricalIdentityEventsV1
+     * @memberof IdentityHistoryApiGetHistoricalIdentityEventsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof IdentityHistoryV1ApiGetHistoricalIdentityEventsV1
+     * @memberof IdentityHistoryApiGetHistoricalIdentityEventsV1
      */
     readonly count?: boolean
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IdentityHistoryV1ApiGetHistoricalIdentityEventsV1
+     * @memberof IdentityHistoryApiGetHistoricalIdentityEventsV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getHistoricalIdentityV1 operation in IdentityHistoryV1Api.
+ * Request parameters for getHistoricalIdentityV1 operation in IdentityHistoryApi.
  * @export
- * @interface IdentityHistoryV1ApiGetHistoricalIdentityV1Request
+ * @interface IdentityHistoryApiGetHistoricalIdentityV1Request
  */
-export interface IdentityHistoryV1ApiGetHistoricalIdentityV1Request {
+export interface IdentityHistoryApiGetHistoricalIdentityV1Request {
     /**
      * The identity id
      * @type {string}
-     * @memberof IdentityHistoryV1ApiGetHistoricalIdentityV1
+     * @memberof IdentityHistoryApiGetHistoricalIdentityV1
      */
     readonly id: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IdentityHistoryV1ApiGetHistoricalIdentityV1
+     * @memberof IdentityHistoryApiGetHistoricalIdentityV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getIdentitySnapshotSummaryV1 operation in IdentityHistoryV1Api.
+ * Request parameters for getIdentitySnapshotSummaryV1 operation in IdentityHistoryApi.
  * @export
- * @interface IdentityHistoryV1ApiGetIdentitySnapshotSummaryV1Request
+ * @interface IdentityHistoryApiGetIdentitySnapshotSummaryV1Request
  */
-export interface IdentityHistoryV1ApiGetIdentitySnapshotSummaryV1Request {
+export interface IdentityHistoryApiGetIdentitySnapshotSummaryV1Request {
     /**
      * The identity id
      * @type {string}
-     * @memberof IdentityHistoryV1ApiGetIdentitySnapshotSummaryV1
+     * @memberof IdentityHistoryApiGetIdentitySnapshotSummaryV1
      */
     readonly id: string
 
     /**
      * The date before which snapshot summary is required
      * @type {string}
-     * @memberof IdentityHistoryV1ApiGetIdentitySnapshotSummaryV1
+     * @memberof IdentityHistoryApiGetIdentitySnapshotSummaryV1
      */
     readonly before?: string
 
     /**
      * The interval indicating day or month. Defaults to month if not specified
      * @type {'day' | 'month'}
-     * @memberof IdentityHistoryV1ApiGetIdentitySnapshotSummaryV1
+     * @memberof IdentityHistoryApiGetIdentitySnapshotSummaryV1
      */
-    readonly interval?: GetIdentitySnapshotSummaryV1IntervalV1
+    readonly interval?: GetIdentitySnapshotSummaryV1IntervalEnum
 
     /**
      * The time zone. Defaults to UTC if not provided
      * @type {string}
-     * @memberof IdentityHistoryV1ApiGetIdentitySnapshotSummaryV1
+     * @memberof IdentityHistoryApiGetIdentitySnapshotSummaryV1
      */
     readonly timeZone?: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IdentityHistoryV1ApiGetIdentitySnapshotSummaryV1
+     * @memberof IdentityHistoryApiGetIdentitySnapshotSummaryV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IdentityHistoryV1ApiGetIdentitySnapshotSummaryV1
+     * @memberof IdentityHistoryApiGetIdentitySnapshotSummaryV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof IdentityHistoryV1ApiGetIdentitySnapshotSummaryV1
+     * @memberof IdentityHistoryApiGetIdentitySnapshotSummaryV1
      */
     readonly count?: boolean
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IdentityHistoryV1ApiGetIdentitySnapshotSummaryV1
+     * @memberof IdentityHistoryApiGetIdentitySnapshotSummaryV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getIdentitySnapshotV1 operation in IdentityHistoryV1Api.
+ * Request parameters for getIdentitySnapshotV1 operation in IdentityHistoryApi.
  * @export
- * @interface IdentityHistoryV1ApiGetIdentitySnapshotV1Request
+ * @interface IdentityHistoryApiGetIdentitySnapshotV1Request
  */
-export interface IdentityHistoryV1ApiGetIdentitySnapshotV1Request {
+export interface IdentityHistoryApiGetIdentitySnapshotV1Request {
     /**
      * The identity id
      * @type {string}
-     * @memberof IdentityHistoryV1ApiGetIdentitySnapshotV1
+     * @memberof IdentityHistoryApiGetIdentitySnapshotV1
      */
     readonly id: string
 
     /**
      * The specified date
      * @type {string}
-     * @memberof IdentityHistoryV1ApiGetIdentitySnapshotV1
+     * @memberof IdentityHistoryApiGetIdentitySnapshotV1
      */
     readonly date: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IdentityHistoryV1ApiGetIdentitySnapshotV1
+     * @memberof IdentityHistoryApiGetIdentitySnapshotV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getIdentityStartDateV1 operation in IdentityHistoryV1Api.
+ * Request parameters for getIdentityStartDateV1 operation in IdentityHistoryApi.
  * @export
- * @interface IdentityHistoryV1ApiGetIdentityStartDateV1Request
+ * @interface IdentityHistoryApiGetIdentityStartDateV1Request
  */
-export interface IdentityHistoryV1ApiGetIdentityStartDateV1Request {
+export interface IdentityHistoryApiGetIdentityStartDateV1Request {
     /**
      * The identity id
      * @type {string}
-     * @memberof IdentityHistoryV1ApiGetIdentityStartDateV1
+     * @memberof IdentityHistoryApiGetIdentityStartDateV1
      */
     readonly id: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IdentityHistoryV1ApiGetIdentityStartDateV1
+     * @memberof IdentityHistoryApiGetIdentityStartDateV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for listHistoricalIdentitiesV1 operation in IdentityHistoryV1Api.
+ * Request parameters for listHistoricalIdentitiesV1 operation in IdentityHistoryApi.
  * @export
- * @interface IdentityHistoryV1ApiListHistoricalIdentitiesV1Request
+ * @interface IdentityHistoryApiListHistoricalIdentitiesV1Request
  */
-export interface IdentityHistoryV1ApiListHistoricalIdentitiesV1Request {
+export interface IdentityHistoryApiListHistoricalIdentitiesV1Request {
     /**
      * This param is used for starts-with search for first, last and display name of the identity
      * @type {string}
-     * @memberof IdentityHistoryV1ApiListHistoricalIdentitiesV1
+     * @memberof IdentityHistoryApiListHistoricalIdentitiesV1
      */
     readonly startsWithQuery?: string
 
     /**
      * Indicates if we want to only list down deleted identities or not.
      * @type {boolean}
-     * @memberof IdentityHistoryV1ApiListHistoricalIdentitiesV1
+     * @memberof IdentityHistoryApiListHistoricalIdentitiesV1
      */
     readonly isDeleted?: boolean
 
     /**
      * Indicates if we want to only list active or inactive identities.
      * @type {boolean}
-     * @memberof IdentityHistoryV1ApiListHistoricalIdentitiesV1
+     * @memberof IdentityHistoryApiListHistoricalIdentitiesV1
      */
     readonly isActive?: boolean
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IdentityHistoryV1ApiListHistoricalIdentitiesV1
+     * @memberof IdentityHistoryApiListHistoricalIdentitiesV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IdentityHistoryV1ApiListHistoricalIdentitiesV1
+     * @memberof IdentityHistoryApiListHistoricalIdentitiesV1
      */
     readonly offset?: number
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IdentityHistoryV1ApiListHistoricalIdentitiesV1
+     * @memberof IdentityHistoryApiListHistoricalIdentitiesV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for listIdentityAccessItemsV1 operation in IdentityHistoryV1Api.
+ * Request parameters for listIdentityAccessItemsV1 operation in IdentityHistoryApi.
  * @export
- * @interface IdentityHistoryV1ApiListIdentityAccessItemsV1Request
+ * @interface IdentityHistoryApiListIdentityAccessItemsV1Request
  */
-export interface IdentityHistoryV1ApiListIdentityAccessItemsV1Request {
+export interface IdentityHistoryApiListIdentityAccessItemsV1Request {
     /**
      * The identity id
      * @type {string}
-     * @memberof IdentityHistoryV1ApiListIdentityAccessItemsV1
+     * @memberof IdentityHistoryApiListIdentityAccessItemsV1
      */
     readonly id: string
 
     /**
      * The type of access item for the identity. If not provided, it defaults to account
      * @type {'account' | 'entitlement' | 'app' | 'accessProfile' | 'role'}
-     * @memberof IdentityHistoryV1ApiListIdentityAccessItemsV1
+     * @memberof IdentityHistoryApiListIdentityAccessItemsV1
      */
-    readonly type?: ListIdentityAccessItemsV1TypeV1
+    readonly type?: ListIdentityAccessItemsV1TypeEnum
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IdentityHistoryV1ApiListIdentityAccessItemsV1
+     * @memberof IdentityHistoryApiListIdentityAccessItemsV1
      */
     readonly xSailPointExperimental?: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IdentityHistoryV1ApiListIdentityAccessItemsV1
+     * @memberof IdentityHistoryApiListIdentityAccessItemsV1
      */
     readonly limit?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof IdentityHistoryV1ApiListIdentityAccessItemsV1
+     * @memberof IdentityHistoryApiListIdentityAccessItemsV1
      */
     readonly count?: boolean
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IdentityHistoryV1ApiListIdentityAccessItemsV1
+     * @memberof IdentityHistoryApiListIdentityAccessItemsV1
      */
     readonly offset?: number
 }
 
 /**
- * Request parameters for listIdentitySnapshotAccessItemsV1 operation in IdentityHistoryV1Api.
+ * Request parameters for listIdentitySnapshotAccessItemsV1 operation in IdentityHistoryApi.
  * @export
- * @interface IdentityHistoryV1ApiListIdentitySnapshotAccessItemsV1Request
+ * @interface IdentityHistoryApiListIdentitySnapshotAccessItemsV1Request
  */
-export interface IdentityHistoryV1ApiListIdentitySnapshotAccessItemsV1Request {
+export interface IdentityHistoryApiListIdentitySnapshotAccessItemsV1Request {
     /**
      * The identity id
      * @type {string}
-     * @memberof IdentityHistoryV1ApiListIdentitySnapshotAccessItemsV1
+     * @memberof IdentityHistoryApiListIdentitySnapshotAccessItemsV1
      */
     readonly id: string
 
     /**
      * The specified date
      * @type {string}
-     * @memberof IdentityHistoryV1ApiListIdentitySnapshotAccessItemsV1
+     * @memberof IdentityHistoryApiListIdentitySnapshotAccessItemsV1
      */
     readonly date: string
 
     /**
      * The access item type
      * @type {string}
-     * @memberof IdentityHistoryV1ApiListIdentitySnapshotAccessItemsV1
+     * @memberof IdentityHistoryApiListIdentitySnapshotAccessItemsV1
      */
     readonly type?: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IdentityHistoryV1ApiListIdentitySnapshotAccessItemsV1
+     * @memberof IdentityHistoryApiListIdentitySnapshotAccessItemsV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for listIdentitySnapshotsV1 operation in IdentityHistoryV1Api.
+ * Request parameters for listIdentitySnapshotsV1 operation in IdentityHistoryApi.
  * @export
- * @interface IdentityHistoryV1ApiListIdentitySnapshotsV1Request
+ * @interface IdentityHistoryApiListIdentitySnapshotsV1Request
  */
-export interface IdentityHistoryV1ApiListIdentitySnapshotsV1Request {
+export interface IdentityHistoryApiListIdentitySnapshotsV1Request {
     /**
      * The identity id
      * @type {string}
-     * @memberof IdentityHistoryV1ApiListIdentitySnapshotsV1
+     * @memberof IdentityHistoryApiListIdentitySnapshotsV1
      */
     readonly id: string
 
     /**
      * The specified start date
      * @type {string}
-     * @memberof IdentityHistoryV1ApiListIdentitySnapshotsV1
+     * @memberof IdentityHistoryApiListIdentitySnapshotsV1
      */
     readonly start?: string
 
     /**
      * The interval indicating the range in day or month for the specified interval-name
      * @type {'day' | 'month'}
-     * @memberof IdentityHistoryV1ApiListIdentitySnapshotsV1
+     * @memberof IdentityHistoryApiListIdentitySnapshotsV1
      */
-    readonly interval?: ListIdentitySnapshotsV1IntervalV1
+    readonly interval?: ListIdentitySnapshotsV1IntervalEnum
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IdentityHistoryV1ApiListIdentitySnapshotsV1
+     * @memberof IdentityHistoryApiListIdentitySnapshotsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IdentityHistoryV1ApiListIdentitySnapshotsV1
+     * @memberof IdentityHistoryApiListIdentitySnapshotsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof IdentityHistoryV1ApiListIdentitySnapshotsV1
+     * @memberof IdentityHistoryApiListIdentitySnapshotsV1
      */
     readonly count?: boolean
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IdentityHistoryV1ApiListIdentitySnapshotsV1
+     * @memberof IdentityHistoryApiListIdentitySnapshotsV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * IdentityHistoryV1Api - object-oriented interface
+ * IdentityHistoryApi - object-oriented interface
  * @export
- * @class IdentityHistoryV1Api
+ * @class IdentityHistoryApi
  * @extends {BaseAPI}
  */
-export class IdentityHistoryV1Api extends BaseAPI {
+export class IdentityHistoryApi extends BaseAPI {
     /**
      * This method gets a list of differences of specific accessType for the given identity between 2 snapshots Requires authorization scope of \'idn:identity-history:read\' 
      * @summary Gets a list of differences of specific accesstype for the given identity between 2 snapshots
-     * @param {IdentityHistoryV1ApiCompareIdentitySnapshotsAccessTypeV1Request} requestParameters Request parameters.
+     * @param {IdentityHistoryApiCompareIdentitySnapshotsAccessTypeV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdentityHistoryV1Api
+     * @memberof IdentityHistoryApi
      */
-    public compareIdentitySnapshotsAccessTypeV1(requestParameters: IdentityHistoryV1ApiCompareIdentitySnapshotsAccessTypeV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IdentityHistoryV1ApiFp(this.configuration).compareIdentitySnapshotsAccessTypeV1(requestParameters.id, requestParameters.accessType, requestParameters.accessAssociated, requestParameters.snapshot1, requestParameters.snapshot2, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public compareIdentitySnapshotsAccessTypeV1(requestParameters: IdentityHistoryApiCompareIdentitySnapshotsAccessTypeV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IdentityHistoryApiFp(this.configuration).compareIdentitySnapshotsAccessTypeV1(requestParameters.id, requestParameters.accessType, requestParameters.accessAssociated, requestParameters.snapshot1, requestParameters.snapshot2, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This method gets a difference of count for each access item types for the given identity between 2 snapshots Requires authorization scope of \'idn:identity-history:read\' 
      * @summary Gets a difference of count for each access item types for the given identity between 2 snapshots
-     * @param {IdentityHistoryV1ApiCompareIdentitySnapshotsV1Request} requestParameters Request parameters.
+     * @param {IdentityHistoryApiCompareIdentitySnapshotsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdentityHistoryV1Api
+     * @memberof IdentityHistoryApi
      */
-    public compareIdentitySnapshotsV1(requestParameters: IdentityHistoryV1ApiCompareIdentitySnapshotsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IdentityHistoryV1ApiFp(this.configuration).compareIdentitySnapshotsV1(requestParameters.id, requestParameters.snapshot1, requestParameters.snapshot2, requestParameters.accessItemTypes, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public compareIdentitySnapshotsV1(requestParameters: IdentityHistoryApiCompareIdentitySnapshotsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IdentityHistoryApiFp(this.configuration).compareIdentitySnapshotsV1(requestParameters.id, requestParameters.snapshot1, requestParameters.snapshot2, requestParameters.accessItemTypes, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This method retrieves all access events for the identity Requires authorization scope of \'idn:identity-history:read\' 
      * @summary List identity event history
-     * @param {IdentityHistoryV1ApiGetHistoricalIdentityEventsV1Request} requestParameters Request parameters.
+     * @param {IdentityHistoryApiGetHistoricalIdentityEventsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdentityHistoryV1Api
+     * @memberof IdentityHistoryApi
      */
-    public getHistoricalIdentityEventsV1(requestParameters: IdentityHistoryV1ApiGetHistoricalIdentityEventsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IdentityHistoryV1ApiFp(this.configuration).getHistoricalIdentityEventsV1(requestParameters.id, requestParameters.from, requestParameters.eventTypes, requestParameters.accessItemTypes, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getHistoricalIdentityEventsV1(requestParameters: IdentityHistoryApiGetHistoricalIdentityEventsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IdentityHistoryApiFp(this.configuration).getHistoricalIdentityEventsV1(requestParameters.id, requestParameters.from, requestParameters.eventTypes, requestParameters.accessItemTypes, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This method retrieves a specified identity Requires authorization scope of \'idn:identity-history:read\'
      * @summary Get latest snapshot of identity
-     * @param {IdentityHistoryV1ApiGetHistoricalIdentityV1Request} requestParameters Request parameters.
+     * @param {IdentityHistoryApiGetHistoricalIdentityV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdentityHistoryV1Api
+     * @memberof IdentityHistoryApi
      */
-    public getHistoricalIdentityV1(requestParameters: IdentityHistoryV1ApiGetHistoricalIdentityV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IdentityHistoryV1ApiFp(this.configuration).getHistoricalIdentityV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getHistoricalIdentityV1(requestParameters: IdentityHistoryApiGetHistoricalIdentityV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IdentityHistoryApiFp(this.configuration).getHistoricalIdentityV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This method gets the summary for the event count for a specific identity by month/day Requires authorization scope of \'idn:identity-history:read\' 
      * @summary Gets the summary for the event count for a specific identity
-     * @param {IdentityHistoryV1ApiGetIdentitySnapshotSummaryV1Request} requestParameters Request parameters.
+     * @param {IdentityHistoryApiGetIdentitySnapshotSummaryV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdentityHistoryV1Api
+     * @memberof IdentityHistoryApi
      */
-    public getIdentitySnapshotSummaryV1(requestParameters: IdentityHistoryV1ApiGetIdentitySnapshotSummaryV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IdentityHistoryV1ApiFp(this.configuration).getIdentitySnapshotSummaryV1(requestParameters.id, requestParameters.before, requestParameters.interval, requestParameters.timeZone, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getIdentitySnapshotSummaryV1(requestParameters: IdentityHistoryApiGetIdentitySnapshotSummaryV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IdentityHistoryApiFp(this.configuration).getIdentitySnapshotSummaryV1(requestParameters.id, requestParameters.before, requestParameters.interval, requestParameters.timeZone, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This method retrieves a specified identity snapshot at a given date Requires authorization scope of \'idn:identity-history:read\' 
      * @summary Gets an identity snapshot at a given date
-     * @param {IdentityHistoryV1ApiGetIdentitySnapshotV1Request} requestParameters Request parameters.
+     * @param {IdentityHistoryApiGetIdentitySnapshotV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdentityHistoryV1Api
+     * @memberof IdentityHistoryApi
      */
-    public getIdentitySnapshotV1(requestParameters: IdentityHistoryV1ApiGetIdentitySnapshotV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IdentityHistoryV1ApiFp(this.configuration).getIdentitySnapshotV1(requestParameters.id, requestParameters.date, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getIdentitySnapshotV1(requestParameters: IdentityHistoryApiGetIdentitySnapshotV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IdentityHistoryApiFp(this.configuration).getIdentitySnapshotV1(requestParameters.id, requestParameters.date, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This method retrieves start date of the identity Requires authorization scope of \'idn:identity-history:read\' 
      * @summary Gets the start date of the identity
-     * @param {IdentityHistoryV1ApiGetIdentityStartDateV1Request} requestParameters Request parameters.
+     * @param {IdentityHistoryApiGetIdentityStartDateV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdentityHistoryV1Api
+     * @memberof IdentityHistoryApi
      */
-    public getIdentityStartDateV1(requestParameters: IdentityHistoryV1ApiGetIdentityStartDateV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IdentityHistoryV1ApiFp(this.configuration).getIdentityStartDateV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getIdentityStartDateV1(requestParameters: IdentityHistoryApiGetIdentityStartDateV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IdentityHistoryApiFp(this.configuration).getIdentityStartDateV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets the list of identities for the customer. This list end point does not support count=true request param. The total  count of identities would never be returned even if the count param is specified in the request Requires authorization scope of \'idn:identity-history:read\'
      * @summary Lists all the identities
-     * @param {IdentityHistoryV1ApiListHistoricalIdentitiesV1Request} requestParameters Request parameters.
+     * @param {IdentityHistoryApiListHistoricalIdentitiesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdentityHistoryV1Api
+     * @memberof IdentityHistoryApi
      */
-    public listHistoricalIdentitiesV1(requestParameters: IdentityHistoryV1ApiListHistoricalIdentitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return IdentityHistoryV1ApiFp(this.configuration).listHistoricalIdentitiesV1(requestParameters.startsWithQuery, requestParameters.isDeleted, requestParameters.isActive, requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listHistoricalIdentitiesV1(requestParameters: IdentityHistoryApiListHistoricalIdentitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return IdentityHistoryApiFp(this.configuration).listHistoricalIdentitiesV1(requestParameters.startsWithQuery, requestParameters.isDeleted, requestParameters.isActive, requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This method retrieves a list of access item for the identity filtered by the access item type 
      * @summary List access items by identity
-     * @param {IdentityHistoryV1ApiListIdentityAccessItemsV1Request} requestParameters Request parameters.
+     * @param {IdentityHistoryApiListIdentityAccessItemsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdentityHistoryV1Api
+     * @memberof IdentityHistoryApi
      */
-    public listIdentityAccessItemsV1(requestParameters: IdentityHistoryV1ApiListIdentityAccessItemsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IdentityHistoryV1ApiFp(this.configuration).listIdentityAccessItemsV1(requestParameters.id, requestParameters.type, requestParameters.xSailPointExperimental, requestParameters.limit, requestParameters.count, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listIdentityAccessItemsV1(requestParameters: IdentityHistoryApiListIdentityAccessItemsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IdentityHistoryApiFp(this.configuration).listIdentityAccessItemsV1(requestParameters.id, requestParameters.type, requestParameters.xSailPointExperimental, requestParameters.limit, requestParameters.count, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This method retrieves the list of identity access items at a given date filterd by item type Requires authorization scope of \'idn:identity-history:read\' 
      * @summary Gets the list of identity access items at a given date filterd by item type
-     * @param {IdentityHistoryV1ApiListIdentitySnapshotAccessItemsV1Request} requestParameters Request parameters.
+     * @param {IdentityHistoryApiListIdentitySnapshotAccessItemsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdentityHistoryV1Api
+     * @memberof IdentityHistoryApi
      */
-    public listIdentitySnapshotAccessItemsV1(requestParameters: IdentityHistoryV1ApiListIdentitySnapshotAccessItemsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IdentityHistoryV1ApiFp(this.configuration).listIdentitySnapshotAccessItemsV1(requestParameters.id, requestParameters.date, requestParameters.type, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listIdentitySnapshotAccessItemsV1(requestParameters: IdentityHistoryApiListIdentitySnapshotAccessItemsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IdentityHistoryApiFp(this.configuration).listIdentitySnapshotAccessItemsV1(requestParameters.id, requestParameters.date, requestParameters.type, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This method retrieves all the snapshots for the identity Requires authorization scope of \'idn:identity-history:read\' 
      * @summary Lists all the snapshots for the identity
-     * @param {IdentityHistoryV1ApiListIdentitySnapshotsV1Request} requestParameters Request parameters.
+     * @param {IdentityHistoryApiListIdentitySnapshotsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdentityHistoryV1Api
+     * @memberof IdentityHistoryApi
      */
-    public listIdentitySnapshotsV1(requestParameters: IdentityHistoryV1ApiListIdentitySnapshotsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IdentityHistoryV1ApiFp(this.configuration).listIdentitySnapshotsV1(requestParameters.id, requestParameters.start, requestParameters.interval, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listIdentitySnapshotsV1(requestParameters: IdentityHistoryApiListIdentitySnapshotsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IdentityHistoryApiFp(this.configuration).listIdentitySnapshotsV1(requestParameters.id, requestParameters.start, requestParameters.interval, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
 /**
  * @export
  */
-export const CompareIdentitySnapshotsAccessTypeV1AccessTypeV1 = {
+export const CompareIdentitySnapshotsAccessTypeV1AccessTypeEnum = {
     AccessProfile: 'accessProfile',
     Account: 'account',
     App: 'app',
     Entitlement: 'entitlement',
     Role: 'role'
 } as const;
-export type CompareIdentitySnapshotsAccessTypeV1AccessTypeV1 = typeof CompareIdentitySnapshotsAccessTypeV1AccessTypeV1[keyof typeof CompareIdentitySnapshotsAccessTypeV1AccessTypeV1];
+export type CompareIdentitySnapshotsAccessTypeV1AccessTypeEnum = typeof CompareIdentitySnapshotsAccessTypeV1AccessTypeEnum[keyof typeof CompareIdentitySnapshotsAccessTypeV1AccessTypeEnum];
 /**
  * @export
  */
-export const GetIdentitySnapshotSummaryV1IntervalV1 = {
+export const GetIdentitySnapshotSummaryV1IntervalEnum = {
     Day: 'day',
     Month: 'month'
 } as const;
-export type GetIdentitySnapshotSummaryV1IntervalV1 = typeof GetIdentitySnapshotSummaryV1IntervalV1[keyof typeof GetIdentitySnapshotSummaryV1IntervalV1];
+export type GetIdentitySnapshotSummaryV1IntervalEnum = typeof GetIdentitySnapshotSummaryV1IntervalEnum[keyof typeof GetIdentitySnapshotSummaryV1IntervalEnum];
 /**
  * @export
  */
-export const ListIdentityAccessItemsV1TypeV1 = {
+export const ListIdentityAccessItemsV1TypeEnum = {
     Account: 'account',
     Entitlement: 'entitlement',
     App: 'app',
     AccessProfile: 'accessProfile',
     Role: 'role'
 } as const;
-export type ListIdentityAccessItemsV1TypeV1 = typeof ListIdentityAccessItemsV1TypeV1[keyof typeof ListIdentityAccessItemsV1TypeV1];
+export type ListIdentityAccessItemsV1TypeEnum = typeof ListIdentityAccessItemsV1TypeEnum[keyof typeof ListIdentityAccessItemsV1TypeEnum];
 /**
  * @export
  */
-export const ListIdentitySnapshotsV1IntervalV1 = {
+export const ListIdentitySnapshotsV1IntervalEnum = {
     Day: 'day',
     Month: 'month'
 } as const;
-export type ListIdentitySnapshotsV1IntervalV1 = typeof ListIdentitySnapshotsV1IntervalV1[keyof typeof ListIdentitySnapshotsV1IntervalV1];
+export type ListIdentitySnapshotsV1IntervalEnum = typeof ListIdentitySnapshotsV1IntervalEnum[keyof typeof ListIdentitySnapshotsV1IntervalEnum];
 
 

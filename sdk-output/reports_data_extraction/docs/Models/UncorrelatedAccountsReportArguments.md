@@ -1,19 +1,19 @@
 ---
-id: v1-uncorrelated-accounts-report-arguments-v1
-title: UncorrelatedAccountsReportArgumentsV1
-pagination_label: UncorrelatedAccountsReportArgumentsV1
-sidebar_label: UncorrelatedAccountsReportArgumentsV1
+id: v1-uncorrelated-accounts-report-arguments
+title: UncorrelatedAccountsReportArguments
+pagination_label: UncorrelatedAccountsReportArguments
+sidebar_label: UncorrelatedAccountsReportArguments
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'UncorrelatedAccountsReportArgumentsV1', 'v1UncorrelatedAccountsReportArgumentsV1']
-slug: /tools/sdk/typescript/reports_data_extraction/models/uncorrelated-accounts-report-arguments-v1
-tags: ['SDK', 'Software Development Kit', 'UncorrelatedAccountsReportArgumentsV1', 'v1UncorrelatedAccountsReportArgumentsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'UncorrelatedAccountsReportArguments', 'v1UncorrelatedAccountsReportArguments']
+slug: /tools/sdk/typescript/reports_data_extraction/models/uncorrelated-accounts-report-arguments
+tags: ['SDK', 'Software Development Kit', 'UncorrelatedAccountsReportArguments', 'v1UncorrelatedAccountsReportArguments']
 ---
 
-# UncorrelatedAccountsReportArgumentsV1
+# UncorrelatedAccountsReportArguments
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**selectedFormats** | **(optional)** **Array&lt;string&gt;** | Output report file formats. These are formats for calling GET endpoint as query parameter \'fileFormat\'.  In case report won\'t have this argument there will be [\'CSV\', \'PDF\'] as default. | [default to undefined]
+**selectedFormats** | **(optional)** `Array<string>` | Output report file formats. These are formats for calling GET endpoint as query parameter \'fileFormat\'.  In case report won\'t have this argument there will be [\'CSV\', \'PDF\'] as default. | [default to undefined]
 

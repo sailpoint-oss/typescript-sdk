@@ -1,19 +1,19 @@
 ---
-id: v1-get-mfa-okta-config-v1401-response-v1
-title: GetMFAOktaConfigV1401ResponseV1
-pagination_label: GetMFAOktaConfigV1401ResponseV1
-sidebar_label: GetMFAOktaConfigV1401ResponseV1
+id: v1-get-mfa-okta-config-v1401-response
+title: GetMFAOktaConfigV1401Response
+pagination_label: GetMFAOktaConfigV1401Response
+sidebar_label: GetMFAOktaConfigV1401Response
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'GetMFAOktaConfigV1401ResponseV1', 'v1GetMFAOktaConfigV1401ResponseV1']
-slug: /tools/sdk/typescript/mfa_configuration/models/get-mfa-okta-config-v1401-response-v1
-tags: ['SDK', 'Software Development Kit', 'GetMFAOktaConfigV1401ResponseV1', 'v1GetMFAOktaConfigV1401ResponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'GetMFAOktaConfigV1401Response', 'v1GetMFAOktaConfigV1401Response']
+slug: /tools/sdk/typescript/mfa_configuration/models/get-mfa-okta-config-v1401-response
+tags: ['SDK', 'Software Development Kit', 'GetMFAOktaConfigV1401Response', 'v1GetMFAOktaConfigV1401Response']
 ---
 
-# GetMFAOktaConfigV1401ResponseV1
+# GetMFAOktaConfigV1401Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**error** | **(optional)** **any** | A message describing the error | [default to undefined]
+**error** | **(optional)** `any` | A message describing the error | [default to undefined]
 

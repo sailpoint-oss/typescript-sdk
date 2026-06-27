@@ -1,34 +1,34 @@
 ---
-id: v1-get-historical-identity-events-v1200-response-inner-v1
-title: GetHistoricalIdentityEventsV1200ResponseInnerV1
-pagination_label: GetHistoricalIdentityEventsV1200ResponseInnerV1
-sidebar_label: GetHistoricalIdentityEventsV1200ResponseInnerV1
+id: v1-get-historical-identity-events-v1200-response-inner
+title: GetHistoricalIdentityEventsV1200ResponseInner
+pagination_label: GetHistoricalIdentityEventsV1200ResponseInner
+sidebar_label: GetHistoricalIdentityEventsV1200ResponseInner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'GetHistoricalIdentityEventsV1200ResponseInnerV1', 'v1GetHistoricalIdentityEventsV1200ResponseInnerV1']
-slug: /tools/sdk/typescript/identity_history/models/get-historical-identity-events-v1200-response-inner-v1
-tags: ['SDK', 'Software Development Kit', 'GetHistoricalIdentityEventsV1200ResponseInnerV1', 'v1GetHistoricalIdentityEventsV1200ResponseInnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'GetHistoricalIdentityEventsV1200ResponseInner', 'v1GetHistoricalIdentityEventsV1200ResponseInner']
+slug: /tools/sdk/typescript/identity_history/models/get-historical-identity-events-v1200-response-inner
+tags: ['SDK', 'Software Development Kit', 'GetHistoricalIdentityEventsV1200ResponseInner', 'v1GetHistoricalIdentityEventsV1200ResponseInner']
 ---
 
-# GetHistoricalIdentityEventsV1200ResponseInnerV1
+# GetHistoricalIdentityEventsV1200ResponseInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**certificationId** | **string** | the id of the certification item | [default to undefined]
-**certificationName** | **string** | the certification item name | [default to undefined]
-**signedDate** | **(optional)** **string** | the date ceritification was signed | [default to undefined]
-**certifiers** | **(optional)** **Array&lt;CertifierresponseV1&gt;** | this field is deprecated and may go away | [default to undefined]
-**reviewers** | **(optional)** **Array&lt;CertifierresponseV1&gt;** | The list of identities who review this certification | [default to undefined]
-**signer** | **(optional)** **CertifierresponseV1** |  | [default to undefined]
-**eventType** | **(optional)** **string** | the event type | [default to undefined]
-**dateTime** | **(optional)** **string** | the date of event | [default to undefined]
-**identityId** | **(optional)** **string** | the identity id | [default to undefined]
-**accessItem** | **AccessitemassociatedAccessItemV1** |  | [default to undefined]
-**governanceEvent** | **CorrelatedgovernanceeventV1** |  | [default to undefined]
-**accessItemType** | **(optional)** **string** | the access item type | [default to undefined]
-**attributeChanges** | **Array&lt;AttributechangeV1&gt;** |  | [default to undefined]
-**accessRequest** | **Accessrequestresponse2V1** |  | [default to undefined]
-**account** | **AccountstatuschangedAccountV1** |  | [default to undefined]
-**statusChange** | **AccountstatuschangedStatusChangeV1** |  | [default to undefined]
+**certificationId** | `string` | the id of the certification item | [default to undefined]
+**certificationName** | `string` | the certification item name | [default to undefined]
+**signedDate** | **(optional)** `string` | the date ceritification was signed | [default to undefined]
+**certifiers** | **(optional)** `Array<Certifierresponse>` | this field is deprecated and may go away | [default to undefined]
+**reviewers** | **(optional)** `Array<Certifierresponse>` | The list of identities who review this certification | [default to undefined]
+**signer** | **(optional)** `Certifierresponse` |  | [default to undefined]
+**eventType** | **(optional)** `string` | the event type | [default to undefined]
+**dateTime** | **(optional)** `string` | the date of event | [default to undefined]
+**identityId** | **(optional)** `string` | the identity id | [default to undefined]
+**accessItem** | `AccessitemassociatedAccessItem` |  | [default to undefined]
+**governanceEvent** | `Correlatedgovernanceevent` |  | [default to undefined]
+**accessItemType** | **(optional)** `string` | the access item type | [default to undefined]
+**attributeChanges** | `Array<Attributechange>` |  | [default to undefined]
+**accessRequest** | `Accessrequestresponse2` |  | [default to undefined]
+**account** | `AccountstatuschangedAccount` |  | [default to undefined]
+**statusChange** | `AccountstatuschangedStatusChange` |  | [default to undefined]
 

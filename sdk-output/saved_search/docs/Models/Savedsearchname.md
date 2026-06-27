@@ -1,20 +1,20 @@
 ---
-id: v1-savedsearchname-v1
-title: SavedsearchnameV1
-pagination_label: SavedsearchnameV1
-sidebar_label: SavedsearchnameV1
+id: v1-savedsearchname
+title: Savedsearchname
+pagination_label: Savedsearchname
+sidebar_label: Savedsearchname
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SavedsearchnameV1', 'v1SavedsearchnameV1']
-slug: /tools/sdk/typescript/saved_search/models/savedsearchname-v1
-tags: ['SDK', 'Software Development Kit', 'SavedsearchnameV1', 'v1SavedsearchnameV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Savedsearchname', 'v1Savedsearchname']
+slug: /tools/sdk/typescript/saved_search/models/savedsearchname
+tags: ['SDK', 'Software Development Kit', 'Savedsearchname', 'v1Savedsearchname']
 ---
 
-# SavedsearchnameV1
+# Savedsearchname
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **(optional)** **string** | The name of the saved search.  | [default to undefined]
-**description** | **(optional)** **string** | The description of the saved search.  | [default to undefined]
+**name** | **(optional)** `string` | The name of the saved search.  | [default to undefined]
+**description** | **(optional)** `string` | The description of the saved search.  | [default to undefined]
 

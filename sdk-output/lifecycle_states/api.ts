@@ -26,147 +26,147 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * This is used for access configuration for a lifecycle state
  * @export
- * @interface AccessactionconfigurationV1
+ * @interface Accessactionconfiguration
  */
-export interface AccessactionconfigurationV1 {
+export interface Accessactionconfiguration {
     /**
      * If true, then all accesses are marked for removal.
      * @type {boolean}
-     * @memberof AccessactionconfigurationV1
+     * @memberof Accessactionconfiguration
      */
     'removeAllAccessEnabled'?: boolean;
 }
 /**
  * Object for specifying Actions to be performed on a specified list of sources\' account.
  * @export
- * @interface AccountactionV1
+ * @interface Accountaction
  */
-export interface AccountactionV1 {
+export interface Accountaction {
     /**
      * Describes if action will be enable, disable or delete.
      * @type {string}
-     * @memberof AccountactionV1
+     * @memberof Accountaction
      */
-    'action'?: AccountactionV1ActionV1;
+    'action'?: AccountactionActionEnum;
     /**
      * A unique list of specific source IDs to apply the action to. The sources must have the ENABLE feature or flat file source. Required if allSources is not true. Must not be provided if allSources is true. Cannot be used together with excludeSourceIds See \"/sources\" endpoint for source features.
      * @type {Set<string>}
-     * @memberof AccountactionV1
+     * @memberof Accountaction
      */
     'sourceIds'?: Set<string> | null;
     /**
      * A list of source IDs to exclude from the action. Cannot be used together with sourceIds.
      * @type {Set<string>}
-     * @memberof AccountactionV1
+     * @memberof Accountaction
      */
     'excludeSourceIds'?: Set<string> | null;
     /**
      * If true, the action applies to all available sources. If true, sourceIds must not be provided. If false or not set, sourceIds is required.
      * @type {boolean}
-     * @memberof AccountactionV1
+     * @memberof Accountaction
      */
     'allSources'?: boolean;
 }
 
-export const AccountactionV1ActionV1 = {
+export const AccountactionActionEnum = {
     Enable: 'ENABLE',
     Disable: 'DISABLE',
     Delete: 'DELETE'
 } as const;
 
-export type AccountactionV1ActionV1 = typeof AccountactionV1ActionV1[keyof typeof AccountactionV1ActionV1];
+export type AccountactionActionEnum = typeof AccountactionActionEnum[keyof typeof AccountactionActionEnum];
 
 /**
  * 
  * @export
- * @interface ArrayInnerV1
+ * @interface ArrayInner
  */
-export interface ArrayInnerV1 {
+export interface ArrayInner {
 }
 /**
  * 
  * @export
- * @interface BasecommondtoV1
+ * @interface Basecommondto
  */
-export interface BasecommondtoV1 {
+export interface Basecommondto {
     /**
      * System-generated unique ID of the Object
      * @type {string}
-     * @memberof BasecommondtoV1
+     * @memberof Basecommondto
      */
     'id'?: string;
     /**
      * Name of the Object
      * @type {string}
-     * @memberof BasecommondtoV1
+     * @memberof Basecommondto
      */
     'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
-     * @memberof BasecommondtoV1
+     * @memberof Basecommondto
      */
     'created'?: string;
     /**
      * Last modification date of the Object
      * @type {string}
-     * @memberof BasecommondtoV1
+     * @memberof Basecommondto
      */
     'modified'?: string;
 }
 /**
  * This is used for representing email configuration for a lifecycle state
  * @export
- * @interface EmailnotificationoptionV1
+ * @interface Emailnotificationoption
  */
-export interface EmailnotificationoptionV1 {
+export interface Emailnotificationoption {
     /**
      * If true, then the manager is notified of the lifecycle state change.
      * @type {boolean}
-     * @memberof EmailnotificationoptionV1
+     * @memberof Emailnotificationoption
      */
     'notifyManagers'?: boolean;
     /**
      * If true, then all the admins are notified of the lifecycle state change.
      * @type {boolean}
-     * @memberof EmailnotificationoptionV1
+     * @memberof Emailnotificationoption
      */
     'notifyAllAdmins'?: boolean;
     /**
      * If true, then the users specified in \"emailAddressList\" below are notified of lifecycle state change.
      * @type {boolean}
-     * @memberof EmailnotificationoptionV1
+     * @memberof Emailnotificationoption
      */
     'notifySpecificUsers'?: boolean;
     /**
      * List of user email addresses. If \"notifySpecificUsers\" option is true, then these users are notified of lifecycle state change.
      * @type {Array<string>}
-     * @memberof EmailnotificationoptionV1
+     * @memberof Emailnotificationoption
      */
     'emailAddressList'?: Array<string>;
 }
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -175,61 +175,61 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface JsonpatchoperationV1
+ * @interface Jsonpatchoperation
  */
-export interface JsonpatchoperationV1 {
+export interface Jsonpatchoperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
-    'op': JsonpatchoperationV1OpV1;
+    'op': JsonpatchoperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValueV1}
-     * @memberof JsonpatchoperationV1
+     * @type {JsonpatchoperationValue}
+     * @memberof Jsonpatchoperation
      */
-    'value'?: JsonpatchoperationValueV1;
+    'value'?: JsonpatchoperationValue;
 }
 
-export const JsonpatchoperationV1OpV1 = {
+export const JsonpatchoperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -238,147 +238,147 @@ export const JsonpatchoperationV1OpV1 = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationV1OpV1 = typeof JsonpatchoperationV1OpV1[keyof typeof JsonpatchoperationV1OpV1];
+export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
 
 /**
- * @type JsonpatchoperationValueV1
+ * @type JsonpatchoperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number | object | string;
+export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * 
  * @export
- * @interface LifecyclestateV1
+ * @interface Lifecyclestate
  */
-export interface LifecyclestateV1 {
+export interface Lifecyclestate {
     /**
      * System-generated unique ID of the Object
      * @type {string}
-     * @memberof LifecyclestateV1
+     * @memberof Lifecyclestate
      */
     'id'?: string;
     /**
      * Name of the Object
      * @type {string}
-     * @memberof LifecyclestateV1
+     * @memberof Lifecyclestate
      */
     'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
-     * @memberof LifecyclestateV1
+     * @memberof Lifecyclestate
      */
     'created'?: string;
     /**
      * Last modification date of the Object
      * @type {string}
-     * @memberof LifecyclestateV1
+     * @memberof Lifecyclestate
      */
     'modified'?: string;
     /**
      * Indicates whether the lifecycle state is enabled or disabled.
      * @type {boolean}
-     * @memberof LifecyclestateV1
+     * @memberof Lifecyclestate
      */
     'enabled'?: boolean;
     /**
      * The lifecycle state\'s technical name. This is for internal use.
      * @type {string}
-     * @memberof LifecyclestateV1
+     * @memberof Lifecyclestate
      */
     'technicalName': string;
     /**
      * Lifecycle state\'s description.
      * @type {string}
-     * @memberof LifecyclestateV1
+     * @memberof Lifecyclestate
      */
     'description'?: string | null;
     /**
      * Number of identities that have the lifecycle state.
      * @type {number}
-     * @memberof LifecyclestateV1
+     * @memberof Lifecyclestate
      */
     'identityCount'?: number;
     /**
      * 
-     * @type {EmailnotificationoptionV1}
-     * @memberof LifecyclestateV1
+     * @type {Emailnotificationoption}
+     * @memberof Lifecyclestate
      */
-    'emailNotificationOption'?: EmailnotificationoptionV1;
+    'emailNotificationOption'?: Emailnotificationoption;
     /**
      * 
-     * @type {Array<AccountactionV1>}
-     * @memberof LifecyclestateV1
+     * @type {Array<Accountaction>}
+     * @memberof Lifecyclestate
      */
-    'accountActions'?: Array<AccountactionV1>;
+    'accountActions'?: Array<Accountaction>;
     /**
      * List of unique access-profile IDs that are associated with the lifecycle state.
      * @type {Set<string>}
-     * @memberof LifecyclestateV1
+     * @memberof Lifecyclestate
      */
     'accessProfileIds'?: Set<string>;
     /**
      * The lifecycle state\'s associated identity state. This field is generally \'null\'.
      * @type {string}
-     * @memberof LifecyclestateV1
+     * @memberof Lifecyclestate
      */
-    'identityState'?: LifecyclestateV1IdentityStateV1 | null;
+    'identityState'?: LifecyclestateIdentityStateEnum | null;
     /**
      * 
-     * @type {AccessactionconfigurationV1}
-     * @memberof LifecyclestateV1
+     * @type {Accessactionconfiguration}
+     * @memberof Lifecyclestate
      */
-    'accessActionConfiguration'?: AccessactionconfigurationV1;
+    'accessActionConfiguration'?: Accessactionconfiguration;
     /**
      * Used to control the order of lifecycle states when listing with `?sorters=priority`. Lower numbers appear first (ascending order). Out-of-the-box lifecycle states are assigned priorities in increments of 10.
      * @type {number}
-     * @memberof LifecyclestateV1
+     * @memberof Lifecyclestate
      */
     'priority'?: number | null;
 }
 
-export const LifecyclestateV1IdentityStateV1 = {
+export const LifecyclestateIdentityStateEnum = {
     Active: 'ACTIVE',
     InactiveShortTerm: 'INACTIVE_SHORT_TERM',
     InactiveLongTerm: 'INACTIVE_LONG_TERM'
 } as const;
 
-export type LifecyclestateV1IdentityStateV1 = typeof LifecyclestateV1IdentityStateV1[keyof typeof LifecyclestateV1IdentityStateV1];
+export type LifecyclestateIdentityStateEnum = typeof LifecyclestateIdentityStateEnum[keyof typeof LifecyclestateIdentityStateEnum];
 
 /**
  * Deleted lifecycle state.
  * @export
- * @interface LifecyclestatedeletedV1
+ * @interface Lifecyclestatedeleted
  */
-export interface LifecyclestatedeletedV1 {
+export interface Lifecyclestatedeleted {
     /**
      * Deleted lifecycle state\'s DTO type.
      * @type {string}
-     * @memberof LifecyclestatedeletedV1
+     * @memberof Lifecyclestatedeleted
      */
-    'type'?: LifecyclestatedeletedV1TypeV1;
+    'type'?: LifecyclestatedeletedTypeEnum;
     /**
      * Deleted lifecycle state ID.
      * @type {string}
-     * @memberof LifecyclestatedeletedV1
+     * @memberof Lifecyclestatedeleted
      */
     'id'?: string;
     /**
      * Deleted lifecycle state\'s display name.
      * @type {string}
-     * @memberof LifecyclestatedeletedV1
+     * @memberof Lifecyclestatedeleted
      */
     'name'?: string;
 }
 
-export const LifecyclestatedeletedV1TypeV1 = {
+export const LifecyclestatedeletedTypeEnum = {
     LifecycleState: 'LIFECYCLE_STATE',
     TaskResult: 'TASK_RESULT'
 } as const;
 
-export type LifecyclestatedeletedV1TypeV1 = typeof LifecyclestatedeletedV1TypeV1[keyof typeof LifecyclestatedeletedV1TypeV1];
+export type LifecyclestatedeletedTypeEnum = typeof LifecyclestatedeletedTypeEnum[keyof typeof LifecyclestatedeletedTypeEnum];
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -386,86 +386,86 @@ export type LifecyclestatedeletedV1TypeV1 = typeof LifecyclestatedeletedV1TypeV1
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface SetLifecycleStateV1200ResponseV1
+ * @interface SetLifecycleStateV1200Response
  */
-export interface SetLifecycleStateV1200ResponseV1 {
+export interface SetLifecycleStateV1200Response {
     /**
      * ID of the IdentityRequest object that is generated when the workflow launches. To follow the IdentityRequest, you can provide this ID with a [Get Account Activity request](https://developer.sailpoint.com/docs/api/v3/get-account-activity/). The response will contain relevant information about the IdentityRequest, such as its status.
      * @type {string}
-     * @memberof SetLifecycleStateV1200ResponseV1
+     * @memberof SetLifecycleStateV1200Response
      */
     'accountActivityId'?: string;
 }
 /**
  * 
  * @export
- * @interface SetLifecycleStateV1401ResponseV1
+ * @interface SetLifecycleStateV1401Response
  */
-export interface SetLifecycleStateV1401ResponseV1 {
+export interface SetLifecycleStateV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof SetLifecycleStateV1401ResponseV1
+     * @memberof SetLifecycleStateV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface SetLifecycleStateV1429ResponseV1
+ * @interface SetLifecycleStateV1429Response
  */
-export interface SetLifecycleStateV1429ResponseV1 {
+export interface SetLifecycleStateV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof SetLifecycleStateV1429ResponseV1
+     * @memberof SetLifecycleStateV1429Response
      */
     'message'?: any;
 }
 /**
  * 
  * @export
- * @interface SetLifecycleStateV1RequestV1
+ * @interface SetLifecycleStateV1Request
  */
-export interface SetLifecycleStateV1RequestV1 {
+export interface SetLifecycleStateV1Request {
     /**
      * ID of the lifecycle state to set.
      * @type {string}
-     * @memberof SetLifecycleStateV1RequestV1
+     * @memberof SetLifecycleStateV1Request
      */
     'lifecycleStateId'?: string;
 }
 
 /**
- * LifecycleStatesV1Api - axios parameter creator
+ * LifecycleStatesApi - axios parameter creator
  * @export
  */
-export const LifecycleStatesV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const LifecycleStatesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Use this endpoint to create a lifecycle state.
          * @summary Create lifecycle state
          * @param {string} identityProfileId Identity profile ID.
-         * @param {LifecyclestateV1} lifecyclestateV1 Lifecycle state to be created.
+         * @param {Lifecyclestate} lifecyclestate Lifecycle state to be created.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createLifecycleStateV1: async (identityProfileId: string, lifecyclestateV1: LifecyclestateV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createLifecycleStateV1: async (identityProfileId: string, lifecyclestate: Lifecyclestate, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'identityProfileId' is not null or undefined
             assertParamExists('createLifecycleStateV1', 'identityProfileId', identityProfileId)
-            // verify required parameter 'lifecyclestateV1' is not null or undefined
-            assertParamExists('createLifecycleStateV1', 'lifecyclestateV1', lifecyclestateV1)
+            // verify required parameter 'lifecyclestate' is not null or undefined
+            assertParamExists('createLifecycleStateV1', 'lifecyclestate', lifecyclestate)
             const localVarPath = `/identity-profiles/v1/{identity-profile-id}/lifecycle-states`
                 .replace(`{${"identity-profile-id"}}`, encodeURIComponent(String(identityProfileId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -486,7 +486,7 @@ export const LifecycleStatesV1ApiAxiosParamCreator = function (configuration?: C
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(lifecyclestateV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(lifecyclestate, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -627,15 +627,15 @@ export const LifecycleStatesV1ApiAxiosParamCreator = function (configuration?: C
          * Use this API to set/update an identity\'s lifecycle state to the one provided and update the corresponding identity profile.
          * @summary Set lifecycle state
          * @param {string} identityId ID of the identity to update.
-         * @param {SetLifecycleStateV1RequestV1} setLifecycleStateV1RequestV1 
+         * @param {SetLifecycleStateV1Request} setLifecycleStateV1Request 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setLifecycleStateV1: async (identityId: string, setLifecycleStateV1RequestV1: SetLifecycleStateV1RequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        setLifecycleStateV1: async (identityId: string, setLifecycleStateV1Request: SetLifecycleStateV1Request, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'identityId' is not null or undefined
             assertParamExists('setLifecycleStateV1', 'identityId', identityId)
-            // verify required parameter 'setLifecycleStateV1RequestV1' is not null or undefined
-            assertParamExists('setLifecycleStateV1', 'setLifecycleStateV1RequestV1', setLifecycleStateV1RequestV1)
+            // verify required parameter 'setLifecycleStateV1Request' is not null or undefined
+            assertParamExists('setLifecycleStateV1', 'setLifecycleStateV1Request', setLifecycleStateV1Request)
             const localVarPath = `/identities/v1/{identity-id}/set-lifecycle-state`
                 .replace(`{${"identity-id"}}`, encodeURIComponent(String(identityId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -656,7 +656,7 @@ export const LifecycleStatesV1ApiAxiosParamCreator = function (configuration?: C
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(setLifecycleStateV1RequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(setLifecycleStateV1Request, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -668,17 +668,17 @@ export const LifecycleStatesV1ApiAxiosParamCreator = function (configuration?: C
          * @summary Update lifecycle state
          * @param {string} identityProfileId Identity profile ID.
          * @param {string} lifecycleStateId Lifecycle state ID.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption * accessActionConfiguration * priority 
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption * accessActionConfiguration * priority 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateLifecycleStatesV1: async (identityProfileId: string, lifecycleStateId: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateLifecycleStatesV1: async (identityProfileId: string, lifecycleStateId: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'identityProfileId' is not null or undefined
             assertParamExists('updateLifecycleStatesV1', 'identityProfileId', identityProfileId)
             // verify required parameter 'lifecycleStateId' is not null or undefined
             assertParamExists('updateLifecycleStatesV1', 'lifecycleStateId', lifecycleStateId)
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('updateLifecycleStatesV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('updateLifecycleStatesV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/identity-profiles/v1/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}`
                 .replace(`{${"identity-profile-id"}}`, encodeURIComponent(String(identityProfileId)))
                 .replace(`{${"lifecycle-state-id"}}`, encodeURIComponent(String(lifecycleStateId)));
@@ -700,7 +700,7 @@ export const LifecycleStatesV1ApiAxiosParamCreator = function (configuration?: C
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -711,24 +711,24 @@ export const LifecycleStatesV1ApiAxiosParamCreator = function (configuration?: C
 };
 
 /**
- * LifecycleStatesV1Api - functional programming interface
+ * LifecycleStatesApi - functional programming interface
  * @export
  */
-export const LifecycleStatesV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = LifecycleStatesV1ApiAxiosParamCreator(configuration)
+export const LifecycleStatesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = LifecycleStatesApiAxiosParamCreator(configuration)
     return {
         /**
          * Use this endpoint to create a lifecycle state.
          * @summary Create lifecycle state
          * @param {string} identityProfileId Identity profile ID.
-         * @param {LifecyclestateV1} lifecyclestateV1 Lifecycle state to be created.
+         * @param {Lifecyclestate} lifecyclestate Lifecycle state to be created.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createLifecycleStateV1(identityProfileId: string, lifecyclestateV1: LifecyclestateV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LifecyclestateV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createLifecycleStateV1(identityProfileId, lifecyclestateV1, axiosOptions);
+        async createLifecycleStateV1(identityProfileId: string, lifecyclestate: Lifecyclestate, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Lifecyclestate>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createLifecycleStateV1(identityProfileId, lifecyclestate, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['LifecycleStatesV1Api.createLifecycleStateV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['LifecycleStatesApi.createLifecycleStateV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -739,10 +739,10 @@ export const LifecycleStatesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteLifecycleStateV1(identityProfileId: string, lifecycleStateId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LifecyclestatedeletedV1>> {
+        async deleteLifecycleStateV1(identityProfileId: string, lifecycleStateId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Lifecyclestatedeleted>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteLifecycleStateV1(identityProfileId, lifecycleStateId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['LifecycleStatesV1Api.deleteLifecycleStateV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['LifecycleStatesApi.deleteLifecycleStateV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -753,10 +753,10 @@ export const LifecycleStatesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getLifecycleStateV1(identityProfileId: string, lifecycleStateId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LifecyclestateV1>> {
+        async getLifecycleStateV1(identityProfileId: string, lifecycleStateId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Lifecyclestate>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getLifecycleStateV1(identityProfileId, lifecycleStateId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['LifecycleStatesV1Api.getLifecycleStateV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['LifecycleStatesApi.getLifecycleStateV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -770,24 +770,24 @@ export const LifecycleStatesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getLifecycleStatesV1(identityProfileId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<LifecyclestateV1>>> {
+        async getLifecycleStatesV1(identityProfileId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Lifecyclestate>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getLifecycleStatesV1(identityProfileId, limit, offset, count, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['LifecycleStatesV1Api.getLifecycleStatesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['LifecycleStatesApi.getLifecycleStatesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Use this API to set/update an identity\'s lifecycle state to the one provided and update the corresponding identity profile.
          * @summary Set lifecycle state
          * @param {string} identityId ID of the identity to update.
-         * @param {SetLifecycleStateV1RequestV1} setLifecycleStateV1RequestV1 
+         * @param {SetLifecycleStateV1Request} setLifecycleStateV1Request 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setLifecycleStateV1(identityId: string, setLifecycleStateV1RequestV1: SetLifecycleStateV1RequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SetLifecycleStateV1200ResponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setLifecycleStateV1(identityId, setLifecycleStateV1RequestV1, axiosOptions);
+        async setLifecycleStateV1(identityId: string, setLifecycleStateV1Request: SetLifecycleStateV1Request, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SetLifecycleStateV1200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setLifecycleStateV1(identityId, setLifecycleStateV1Request, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['LifecycleStatesV1Api.setLifecycleStateV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['LifecycleStatesApi.setLifecycleStateV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -795,320 +795,320 @@ export const LifecycleStatesV1ApiFp = function(configuration?: Configuration) {
          * @summary Update lifecycle state
          * @param {string} identityProfileId Identity profile ID.
          * @param {string} lifecycleStateId Lifecycle state ID.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption * accessActionConfiguration * priority 
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption * accessActionConfiguration * priority 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateLifecycleStatesV1(identityProfileId: string, lifecycleStateId: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LifecyclestateV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateLifecycleStatesV1(identityProfileId, lifecycleStateId, jsonpatchoperationV1, axiosOptions);
+        async updateLifecycleStatesV1(identityProfileId: string, lifecycleStateId: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Lifecyclestate>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateLifecycleStatesV1(identityProfileId, lifecycleStateId, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['LifecycleStatesV1Api.updateLifecycleStatesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['LifecycleStatesApi.updateLifecycleStatesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * LifecycleStatesV1Api - factory interface
+ * LifecycleStatesApi - factory interface
  * @export
  */
-export const LifecycleStatesV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = LifecycleStatesV1ApiFp(configuration)
+export const LifecycleStatesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = LifecycleStatesApiFp(configuration)
     return {
         /**
          * Use this endpoint to create a lifecycle state.
          * @summary Create lifecycle state
-         * @param {LifecycleStatesV1ApiCreateLifecycleStateV1Request} requestParameters Request parameters.
+         * @param {LifecycleStatesApiCreateLifecycleStateV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createLifecycleStateV1(requestParameters: LifecycleStatesV1ApiCreateLifecycleStateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<LifecyclestateV1> {
-            return localVarFp.createLifecycleStateV1(requestParameters.identityProfileId, requestParameters.lifecyclestateV1, axiosOptions).then((request) => request(axios, basePath));
+        createLifecycleStateV1(requestParameters: LifecycleStatesApiCreateLifecycleStateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Lifecyclestate> {
+            return localVarFp.createLifecycleStateV1(requestParameters.identityProfileId, requestParameters.lifecyclestate, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this endpoint to delete the lifecycle state by its ID.
          * @summary Delete lifecycle state
-         * @param {LifecycleStatesV1ApiDeleteLifecycleStateV1Request} requestParameters Request parameters.
+         * @param {LifecycleStatesApiDeleteLifecycleStateV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteLifecycleStateV1(requestParameters: LifecycleStatesV1ApiDeleteLifecycleStateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<LifecyclestatedeletedV1> {
+        deleteLifecycleStateV1(requestParameters: LifecycleStatesApiDeleteLifecycleStateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Lifecyclestatedeleted> {
             return localVarFp.deleteLifecycleStateV1(requestParameters.identityProfileId, requestParameters.lifecycleStateId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID.
          * @summary Get lifecycle state
-         * @param {LifecycleStatesV1ApiGetLifecycleStateV1Request} requestParameters Request parameters.
+         * @param {LifecycleStatesApiGetLifecycleStateV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getLifecycleStateV1(requestParameters: LifecycleStatesV1ApiGetLifecycleStateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<LifecyclestateV1> {
+        getLifecycleStateV1(requestParameters: LifecycleStatesApiGetLifecycleStateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Lifecyclestate> {
             return localVarFp.getLifecycleStateV1(requestParameters.identityProfileId, requestParameters.lifecycleStateId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this endpoint to list all lifecycle states by their associated identity profiles. 
          * @summary Lists lifecyclestates
-         * @param {LifecycleStatesV1ApiGetLifecycleStatesV1Request} requestParameters Request parameters.
+         * @param {LifecycleStatesApiGetLifecycleStatesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getLifecycleStatesV1(requestParameters: LifecycleStatesV1ApiGetLifecycleStatesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<LifecyclestateV1>> {
+        getLifecycleStatesV1(requestParameters: LifecycleStatesApiGetLifecycleStatesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Lifecyclestate>> {
             return localVarFp.getLifecycleStatesV1(requestParameters.identityProfileId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to set/update an identity\'s lifecycle state to the one provided and update the corresponding identity profile.
          * @summary Set lifecycle state
-         * @param {LifecycleStatesV1ApiSetLifecycleStateV1Request} requestParameters Request parameters.
+         * @param {LifecycleStatesApiSetLifecycleStateV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setLifecycleStateV1(requestParameters: LifecycleStatesV1ApiSetLifecycleStateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SetLifecycleStateV1200ResponseV1> {
-            return localVarFp.setLifecycleStateV1(requestParameters.identityId, requestParameters.setLifecycleStateV1RequestV1, axiosOptions).then((request) => request(axios, basePath));
+        setLifecycleStateV1(requestParameters: LifecycleStatesApiSetLifecycleStateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SetLifecycleStateV1200Response> {
+            return localVarFp.setLifecycleStateV1(requestParameters.identityId, requestParameters.setLifecycleStateV1Request, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @summary Update lifecycle state
-         * @param {LifecycleStatesV1ApiUpdateLifecycleStatesV1Request} requestParameters Request parameters.
+         * @param {LifecycleStatesApiUpdateLifecycleStatesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateLifecycleStatesV1(requestParameters: LifecycleStatesV1ApiUpdateLifecycleStatesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<LifecyclestateV1> {
-            return localVarFp.updateLifecycleStatesV1(requestParameters.identityProfileId, requestParameters.lifecycleStateId, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        updateLifecycleStatesV1(requestParameters: LifecycleStatesApiUpdateLifecycleStatesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Lifecyclestate> {
+            return localVarFp.updateLifecycleStatesV1(requestParameters.identityProfileId, requestParameters.lifecycleStateId, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createLifecycleStateV1 operation in LifecycleStatesV1Api.
+ * Request parameters for createLifecycleStateV1 operation in LifecycleStatesApi.
  * @export
- * @interface LifecycleStatesV1ApiCreateLifecycleStateV1Request
+ * @interface LifecycleStatesApiCreateLifecycleStateV1Request
  */
-export interface LifecycleStatesV1ApiCreateLifecycleStateV1Request {
+export interface LifecycleStatesApiCreateLifecycleStateV1Request {
     /**
      * Identity profile ID.
      * @type {string}
-     * @memberof LifecycleStatesV1ApiCreateLifecycleStateV1
+     * @memberof LifecycleStatesApiCreateLifecycleStateV1
      */
     readonly identityProfileId: string
 
     /**
      * Lifecycle state to be created.
-     * @type {LifecyclestateV1}
-     * @memberof LifecycleStatesV1ApiCreateLifecycleStateV1
+     * @type {Lifecyclestate}
+     * @memberof LifecycleStatesApiCreateLifecycleStateV1
      */
-    readonly lifecyclestateV1: LifecyclestateV1
+    readonly lifecyclestate: Lifecyclestate
 }
 
 /**
- * Request parameters for deleteLifecycleStateV1 operation in LifecycleStatesV1Api.
+ * Request parameters for deleteLifecycleStateV1 operation in LifecycleStatesApi.
  * @export
- * @interface LifecycleStatesV1ApiDeleteLifecycleStateV1Request
+ * @interface LifecycleStatesApiDeleteLifecycleStateV1Request
  */
-export interface LifecycleStatesV1ApiDeleteLifecycleStateV1Request {
+export interface LifecycleStatesApiDeleteLifecycleStateV1Request {
     /**
      * Identity profile ID.
      * @type {string}
-     * @memberof LifecycleStatesV1ApiDeleteLifecycleStateV1
+     * @memberof LifecycleStatesApiDeleteLifecycleStateV1
      */
     readonly identityProfileId: string
 
     /**
      * Lifecycle state ID.
      * @type {string}
-     * @memberof LifecycleStatesV1ApiDeleteLifecycleStateV1
+     * @memberof LifecycleStatesApiDeleteLifecycleStateV1
      */
     readonly lifecycleStateId: string
 }
 
 /**
- * Request parameters for getLifecycleStateV1 operation in LifecycleStatesV1Api.
+ * Request parameters for getLifecycleStateV1 operation in LifecycleStatesApi.
  * @export
- * @interface LifecycleStatesV1ApiGetLifecycleStateV1Request
+ * @interface LifecycleStatesApiGetLifecycleStateV1Request
  */
-export interface LifecycleStatesV1ApiGetLifecycleStateV1Request {
+export interface LifecycleStatesApiGetLifecycleStateV1Request {
     /**
      * Identity profile ID.
      * @type {string}
-     * @memberof LifecycleStatesV1ApiGetLifecycleStateV1
+     * @memberof LifecycleStatesApiGetLifecycleStateV1
      */
     readonly identityProfileId: string
 
     /**
      * Lifecycle state ID.
      * @type {string}
-     * @memberof LifecycleStatesV1ApiGetLifecycleStateV1
+     * @memberof LifecycleStatesApiGetLifecycleStateV1
      */
     readonly lifecycleStateId: string
 }
 
 /**
- * Request parameters for getLifecycleStatesV1 operation in LifecycleStatesV1Api.
+ * Request parameters for getLifecycleStatesV1 operation in LifecycleStatesApi.
  * @export
- * @interface LifecycleStatesV1ApiGetLifecycleStatesV1Request
+ * @interface LifecycleStatesApiGetLifecycleStatesV1Request
  */
-export interface LifecycleStatesV1ApiGetLifecycleStatesV1Request {
+export interface LifecycleStatesApiGetLifecycleStatesV1Request {
     /**
      * Identity profile ID.
      * @type {string}
-     * @memberof LifecycleStatesV1ApiGetLifecycleStatesV1
+     * @memberof LifecycleStatesApiGetLifecycleStatesV1
      */
     readonly identityProfileId: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof LifecycleStatesV1ApiGetLifecycleStatesV1
+     * @memberof LifecycleStatesApiGetLifecycleStatesV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof LifecycleStatesV1ApiGetLifecycleStatesV1
+     * @memberof LifecycleStatesApiGetLifecycleStatesV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof LifecycleStatesV1ApiGetLifecycleStatesV1
+     * @memberof LifecycleStatesApiGetLifecycleStatesV1
      */
     readonly count?: boolean
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, priority, created, modified**
      * @type {string}
-     * @memberof LifecycleStatesV1ApiGetLifecycleStatesV1
+     * @memberof LifecycleStatesApiGetLifecycleStatesV1
      */
     readonly sorters?: string
 }
 
 /**
- * Request parameters for setLifecycleStateV1 operation in LifecycleStatesV1Api.
+ * Request parameters for setLifecycleStateV1 operation in LifecycleStatesApi.
  * @export
- * @interface LifecycleStatesV1ApiSetLifecycleStateV1Request
+ * @interface LifecycleStatesApiSetLifecycleStateV1Request
  */
-export interface LifecycleStatesV1ApiSetLifecycleStateV1Request {
+export interface LifecycleStatesApiSetLifecycleStateV1Request {
     /**
      * ID of the identity to update.
      * @type {string}
-     * @memberof LifecycleStatesV1ApiSetLifecycleStateV1
+     * @memberof LifecycleStatesApiSetLifecycleStateV1
      */
     readonly identityId: string
 
     /**
      * 
-     * @type {SetLifecycleStateV1RequestV1}
-     * @memberof LifecycleStatesV1ApiSetLifecycleStateV1
+     * @type {SetLifecycleStateV1Request}
+     * @memberof LifecycleStatesApiSetLifecycleStateV1
      */
-    readonly setLifecycleStateV1RequestV1: SetLifecycleStateV1RequestV1
+    readonly setLifecycleStateV1Request: SetLifecycleStateV1Request
 }
 
 /**
- * Request parameters for updateLifecycleStatesV1 operation in LifecycleStatesV1Api.
+ * Request parameters for updateLifecycleStatesV1 operation in LifecycleStatesApi.
  * @export
- * @interface LifecycleStatesV1ApiUpdateLifecycleStatesV1Request
+ * @interface LifecycleStatesApiUpdateLifecycleStatesV1Request
  */
-export interface LifecycleStatesV1ApiUpdateLifecycleStatesV1Request {
+export interface LifecycleStatesApiUpdateLifecycleStatesV1Request {
     /**
      * Identity profile ID.
      * @type {string}
-     * @memberof LifecycleStatesV1ApiUpdateLifecycleStatesV1
+     * @memberof LifecycleStatesApiUpdateLifecycleStatesV1
      */
     readonly identityProfileId: string
 
     /**
      * Lifecycle state ID.
      * @type {string}
-     * @memberof LifecycleStatesV1ApiUpdateLifecycleStatesV1
+     * @memberof LifecycleStatesApiUpdateLifecycleStatesV1
      */
     readonly lifecycleStateId: string
 
     /**
      * A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption * accessActionConfiguration * priority 
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof LifecycleStatesV1ApiUpdateLifecycleStatesV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof LifecycleStatesApiUpdateLifecycleStatesV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * LifecycleStatesV1Api - object-oriented interface
+ * LifecycleStatesApi - object-oriented interface
  * @export
- * @class LifecycleStatesV1Api
+ * @class LifecycleStatesApi
  * @extends {BaseAPI}
  */
-export class LifecycleStatesV1Api extends BaseAPI {
+export class LifecycleStatesApi extends BaseAPI {
     /**
      * Use this endpoint to create a lifecycle state.
      * @summary Create lifecycle state
-     * @param {LifecycleStatesV1ApiCreateLifecycleStateV1Request} requestParameters Request parameters.
+     * @param {LifecycleStatesApiCreateLifecycleStateV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof LifecycleStatesV1Api
+     * @memberof LifecycleStatesApi
      */
-    public createLifecycleStateV1(requestParameters: LifecycleStatesV1ApiCreateLifecycleStateV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return LifecycleStatesV1ApiFp(this.configuration).createLifecycleStateV1(requestParameters.identityProfileId, requestParameters.lifecyclestateV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createLifecycleStateV1(requestParameters: LifecycleStatesApiCreateLifecycleStateV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return LifecycleStatesApiFp(this.configuration).createLifecycleStateV1(requestParameters.identityProfileId, requestParameters.lifecyclestate, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this endpoint to delete the lifecycle state by its ID.
      * @summary Delete lifecycle state
-     * @param {LifecycleStatesV1ApiDeleteLifecycleStateV1Request} requestParameters Request parameters.
+     * @param {LifecycleStatesApiDeleteLifecycleStateV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof LifecycleStatesV1Api
+     * @memberof LifecycleStatesApi
      */
-    public deleteLifecycleStateV1(requestParameters: LifecycleStatesV1ApiDeleteLifecycleStateV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return LifecycleStatesV1ApiFp(this.configuration).deleteLifecycleStateV1(requestParameters.identityProfileId, requestParameters.lifecycleStateId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteLifecycleStateV1(requestParameters: LifecycleStatesApiDeleteLifecycleStateV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return LifecycleStatesApiFp(this.configuration).deleteLifecycleStateV1(requestParameters.identityProfileId, requestParameters.lifecycleStateId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID.
      * @summary Get lifecycle state
-     * @param {LifecycleStatesV1ApiGetLifecycleStateV1Request} requestParameters Request parameters.
+     * @param {LifecycleStatesApiGetLifecycleStateV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof LifecycleStatesV1Api
+     * @memberof LifecycleStatesApi
      */
-    public getLifecycleStateV1(requestParameters: LifecycleStatesV1ApiGetLifecycleStateV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return LifecycleStatesV1ApiFp(this.configuration).getLifecycleStateV1(requestParameters.identityProfileId, requestParameters.lifecycleStateId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getLifecycleStateV1(requestParameters: LifecycleStatesApiGetLifecycleStateV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return LifecycleStatesApiFp(this.configuration).getLifecycleStateV1(requestParameters.identityProfileId, requestParameters.lifecycleStateId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this endpoint to list all lifecycle states by their associated identity profiles. 
      * @summary Lists lifecyclestates
-     * @param {LifecycleStatesV1ApiGetLifecycleStatesV1Request} requestParameters Request parameters.
+     * @param {LifecycleStatesApiGetLifecycleStatesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof LifecycleStatesV1Api
+     * @memberof LifecycleStatesApi
      */
-    public getLifecycleStatesV1(requestParameters: LifecycleStatesV1ApiGetLifecycleStatesV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return LifecycleStatesV1ApiFp(this.configuration).getLifecycleStatesV1(requestParameters.identityProfileId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getLifecycleStatesV1(requestParameters: LifecycleStatesApiGetLifecycleStatesV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return LifecycleStatesApiFp(this.configuration).getLifecycleStatesV1(requestParameters.identityProfileId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to set/update an identity\'s lifecycle state to the one provided and update the corresponding identity profile.
      * @summary Set lifecycle state
-     * @param {LifecycleStatesV1ApiSetLifecycleStateV1Request} requestParameters Request parameters.
+     * @param {LifecycleStatesApiSetLifecycleStateV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof LifecycleStatesV1Api
+     * @memberof LifecycleStatesApi
      */
-    public setLifecycleStateV1(requestParameters: LifecycleStatesV1ApiSetLifecycleStateV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return LifecycleStatesV1ApiFp(this.configuration).setLifecycleStateV1(requestParameters.identityId, requestParameters.setLifecycleStateV1RequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public setLifecycleStateV1(requestParameters: LifecycleStatesApiSetLifecycleStateV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return LifecycleStatesApiFp(this.configuration).setLifecycleStateV1(requestParameters.identityId, requestParameters.setLifecycleStateV1Request, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
      * @summary Update lifecycle state
-     * @param {LifecycleStatesV1ApiUpdateLifecycleStatesV1Request} requestParameters Request parameters.
+     * @param {LifecycleStatesApiUpdateLifecycleStatesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof LifecycleStatesV1Api
+     * @memberof LifecycleStatesApi
      */
-    public updateLifecycleStatesV1(requestParameters: LifecycleStatesV1ApiUpdateLifecycleStatesV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return LifecycleStatesV1ApiFp(this.configuration).updateLifecycleStatesV1(requestParameters.identityProfileId, requestParameters.lifecycleStateId, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateLifecycleStatesV1(requestParameters: LifecycleStatesApiUpdateLifecycleStatesV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return LifecycleStatesApiFp(this.configuration).updateLifecycleStatesV1(requestParameters.identityProfileId, requestParameters.lifecycleStateId, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

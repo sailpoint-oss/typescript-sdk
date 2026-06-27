@@ -1,15 +1,15 @@
 ---
-id: v1-dtotype-v1
-title: DtotypeV1
-pagination_label: DtotypeV1
-sidebar_label: DtotypeV1
+id: v1-dtotype
+title: Dtotype
+pagination_label: Dtotype
+sidebar_label: Dtotype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'DtotypeV1', 'v1DtotypeV1']
-slug: /tools/sdk/typescript/access_requests/models/dtotype-v1
-tags: ['SDK', 'Software Development Kit', 'DtotypeV1', 'v1DtotypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Dtotype', 'v1Dtotype']
+slug: /tools/sdk/typescript/access_requests/models/dtotype
+tags: ['SDK', 'Software Development Kit', 'Dtotype', 'v1Dtotype']
 ---
 
-# DtotypeV1
+# Dtotype
 
 ## Enum
 

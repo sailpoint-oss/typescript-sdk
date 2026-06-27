@@ -1,21 +1,21 @@
 ---
-id: v1-userapp-source-app-v1
-title: UserappSourceAppV1
-pagination_label: UserappSourceAppV1
-sidebar_label: UserappSourceAppV1
+id: v1-userapp-source-app
+title: UserappSourceApp
+pagination_label: UserappSourceApp
+sidebar_label: UserappSourceApp
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'UserappSourceAppV1', 'v1UserappSourceAppV1']
-slug: /tools/sdk/typescript/apps/models/userapp-source-app-v1
-tags: ['SDK', 'Software Development Kit', 'UserappSourceAppV1', 'v1UserappSourceAppV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'UserappSourceApp', 'v1UserappSourceApp']
+slug: /tools/sdk/typescript/apps/models/userapp-source-app
+tags: ['SDK', 'Software Development Kit', 'UserappSourceApp', 'v1UserappSourceApp']
 ---
 
-# UserappSourceAppV1
+# UserappSourceApp
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **(optional)** **string** | the source app ID | [default to undefined]
-**type** | **(optional)** **string** | It will always be \"APPLICATION\" | [default to undefined]
-**name** | **(optional)** **string** | the source app name | [default to undefined]
+**id** | **(optional)** `string` | the source app ID | [default to undefined]
+**type** | **(optional)** `string` | It will always be \"APPLICATION\" | [default to undefined]
+**name** | **(optional)** `string` | the source app name | [default to undefined]
 

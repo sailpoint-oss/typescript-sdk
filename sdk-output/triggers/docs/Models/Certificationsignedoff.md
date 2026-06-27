@@ -1,19 +1,19 @@
 ---
-id: v1-certificationsignedoff-v1
-title: CertificationsignedoffV1
-pagination_label: CertificationsignedoffV1
-sidebar_label: CertificationsignedoffV1
+id: v1-certificationsignedoff
+title: Certificationsignedoff
+pagination_label: Certificationsignedoff
+sidebar_label: Certificationsignedoff
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'CertificationsignedoffV1', 'v1CertificationsignedoffV1']
-slug: /tools/sdk/typescript/triggers/models/certificationsignedoff-v1
-tags: ['SDK', 'Software Development Kit', 'CertificationsignedoffV1', 'v1CertificationsignedoffV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Certificationsignedoff', 'v1Certificationsignedoff']
+slug: /tools/sdk/typescript/triggers/models/certificationsignedoff
+tags: ['SDK', 'Software Development Kit', 'Certificationsignedoff', 'v1Certificationsignedoff']
 ---
 
-# CertificationsignedoffV1
+# Certificationsignedoff
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**certification** | **CertificationsignedoffCertificationV1** |  | [default to undefined]
+**certification** | `CertificationsignedoffCertification` |  | [default to undefined]
 

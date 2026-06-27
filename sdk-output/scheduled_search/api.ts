@@ -26,67 +26,67 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface CreateScheduledSearchV1RequestV1
+ * @interface CreateScheduledSearchV1Request
  */
-export interface CreateScheduledSearchV1RequestV1 {
+export interface CreateScheduledSearchV1Request {
     /**
      * The name of the scheduled search. 
      * @type {string}
-     * @memberof CreateScheduledSearchV1RequestV1
+     * @memberof CreateScheduledSearchV1Request
      */
     'name'?: string | null;
     /**
      * The description of the scheduled search. 
      * @type {string}
-     * @memberof CreateScheduledSearchV1RequestV1
+     * @memberof CreateScheduledSearchV1Request
      */
     'description'?: string | null;
     /**
      * The ID of the saved search that will be executed.
      * @type {string}
-     * @memberof CreateScheduledSearchV1RequestV1
+     * @memberof CreateScheduledSearchV1Request
      */
     'savedSearchId': string;
     /**
      * The date the scheduled search was initially created.
      * @type {string}
-     * @memberof CreateScheduledSearchV1RequestV1
+     * @memberof CreateScheduledSearchV1Request
      */
     'created'?: string | null;
     /**
      * The last date the scheduled search was modified.
      * @type {string}
-     * @memberof CreateScheduledSearchV1RequestV1
+     * @memberof CreateScheduledSearchV1Request
      */
     'modified'?: string | null;
     /**
      * 
-     * @type {ScheduleV1}
-     * @memberof CreateScheduledSearchV1RequestV1
+     * @type {Schedule}
+     * @memberof CreateScheduledSearchV1Request
      */
-    'schedule': ScheduleV1;
+    'schedule': Schedule;
     /**
      * A list of identities that should receive the scheduled search report via email.
-     * @type {Array<SearchscheduleRecipientsInnerV1>}
-     * @memberof CreateScheduledSearchV1RequestV1
+     * @type {Array<SearchscheduleRecipientsInner>}
+     * @memberof CreateScheduledSearchV1Request
      */
-    'recipients': Array<SearchscheduleRecipientsInnerV1>;
+    'recipients': Array<SearchscheduleRecipientsInner>;
     /**
      * Indicates if the scheduled search is enabled. 
      * @type {boolean}
-     * @memberof CreateScheduledSearchV1RequestV1
+     * @memberof CreateScheduledSearchV1Request
      */
     'enabled'?: boolean;
     /**
      * Indicates if email generation should occur when search returns no results. 
      * @type {boolean}
-     * @memberof CreateScheduledSearchV1RequestV1
+     * @memberof CreateScheduledSearchV1Request
      */
     'emailEmptyResults'?: boolean;
     /**
      * Indicates if the generated email should include the query and search results preview (which could include PII). 
      * @type {boolean}
-     * @memberof CreateScheduledSearchV1RequestV1
+     * @memberof CreateScheduledSearchV1Request
      */
     'displayQueryDetails'?: boolean;
 }
@@ -96,7 +96,7 @@ export interface CreateScheduledSearchV1RequestV1 {
  * @enum {string}
  */
 
-export const DtotypeV1 = {
+export const Dtotype = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
@@ -128,31 +128,31 @@ export const DtotypeV1 = {
     Workgroup: 'WORKGROUP'
 } as const;
 
-export type DtotypeV1 = typeof DtotypeV1[keyof typeof DtotypeV1];
+export type Dtotype = typeof Dtotype[keyof typeof Dtotype];
 
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -161,57 +161,57 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface ListScheduledSearchV1401ResponseV1
+ * @interface ListScheduledSearchV1401Response
  */
-export interface ListScheduledSearchV1401ResponseV1 {
+export interface ListScheduledSearchV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListScheduledSearchV1401ResponseV1
+     * @memberof ListScheduledSearchV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ListScheduledSearchV1429ResponseV1
+ * @interface ListScheduledSearchV1429Response
  */
-export interface ListScheduledSearchV1429ResponseV1 {
+export interface ListScheduledSearchV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListScheduledSearchV1429ResponseV1
+     * @memberof ListScheduledSearchV1429Response
      */
     'message'?: any;
 }
@@ -221,268 +221,268 @@ export interface ListScheduledSearchV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
-
-
-/**
- * 
- * @export
- * @interface ScheduleDaysV1
- */
-export interface ScheduleDaysV1 {
-    /**
-     * 
-     * @type {SelectortypeV1}
-     * @memberof ScheduleDaysV1
-     */
-    'type': SelectortypeV1;
-    /**
-     * The selected values. 
-     * @type {Array<string>}
-     * @memberof ScheduleDaysV1
-     */
-    'values': Array<string>;
-    /**
-     * The selected interval for RANGE selectors. 
-     * @type {number}
-     * @memberof ScheduleDaysV1
-     */
-    'interval'?: number | null;
-}
-
-
-/**
- * 
- * @export
- * @interface ScheduleHoursV1
- */
-export interface ScheduleHoursV1 {
-    /**
-     * 
-     * @type {SelectortypeV1}
-     * @memberof ScheduleHoursV1
-     */
-    'type': SelectortypeV1;
-    /**
-     * The selected values. 
-     * @type {Array<string>}
-     * @memberof ScheduleHoursV1
-     */
-    'values': Array<string>;
-    /**
-     * The selected interval for RANGE selectors. 
-     * @type {number}
-     * @memberof ScheduleHoursV1
-     */
-    'interval'?: number | null;
-}
-
-
-/**
- * 
- * @export
- * @interface ScheduleMonthsV1
- */
-export interface ScheduleMonthsV1 {
-    /**
-     * 
-     * @type {SelectortypeV1}
-     * @memberof ScheduleMonthsV1
-     */
-    'type': SelectortypeV1;
-    /**
-     * The selected values. 
-     * @type {Array<string>}
-     * @memberof ScheduleMonthsV1
-     */
-    'values': Array<string>;
-    /**
-     * The selected interval for RANGE selectors. 
-     * @type {number}
-     * @memberof ScheduleMonthsV1
-     */
-    'interval'?: number | null;
-}
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * The schedule information.
  * @export
- * @interface ScheduleV1
+ * @interface Schedule
  */
-export interface ScheduleV1 {
+export interface Schedule {
     /**
      * 
-     * @type {ScheduletypeV1}
-     * @memberof ScheduleV1
+     * @type {Scheduletype}
+     * @memberof Schedule
      */
-    'type': ScheduletypeV1;
+    'type': Scheduletype;
     /**
      * 
-     * @type {ScheduleMonthsV1}
-     * @memberof ScheduleV1
+     * @type {ScheduleMonths}
+     * @memberof Schedule
      */
-    'months'?: ScheduleMonthsV1;
+    'months'?: ScheduleMonths;
     /**
      * 
-     * @type {ScheduleDaysV1}
-     * @memberof ScheduleV1
+     * @type {ScheduleDays}
+     * @memberof Schedule
      */
-    'days'?: ScheduleDaysV1;
+    'days'?: ScheduleDays;
     /**
      * 
-     * @type {ScheduleHoursV1}
-     * @memberof ScheduleV1
+     * @type {ScheduleHours}
+     * @memberof Schedule
      */
-    'hours': ScheduleHoursV1;
+    'hours': ScheduleHours;
     /**
      * A date-time in ISO-8601 format
      * @type {string}
-     * @memberof ScheduleV1
+     * @memberof Schedule
      */
     'expiration'?: string | null;
     /**
      * The canonical TZ identifier the schedule will run in (ex. America/New_York).  If no timezone is specified, the org\'s default timezone is used.
      * @type {string}
-     * @memberof ScheduleV1
+     * @memberof Schedule
      */
     'timeZoneId'?: string | null;
 }
 
 
 /**
- * The owner of the scheduled search
+ * 
  * @export
- * @interface ScheduledsearchAllOfOwnerV1
+ * @interface ScheduleDays
  */
-export interface ScheduledsearchAllOfOwnerV1 {
+export interface ScheduleDays {
     /**
-     * The type of object being referenced
-     * @type {string}
-     * @memberof ScheduledsearchAllOfOwnerV1
+     * 
+     * @type {Selectortype}
+     * @memberof ScheduleDays
      */
-    'type': ScheduledsearchAllOfOwnerV1TypeV1;
+    'type': Selectortype;
     /**
-     * The ID of the referenced object
-     * @type {string}
-     * @memberof ScheduledsearchAllOfOwnerV1
+     * The selected values. 
+     * @type {Array<string>}
+     * @memberof ScheduleDays
      */
-    'id': string;
+    'values': Array<string>;
+    /**
+     * The selected interval for RANGE selectors. 
+     * @type {number}
+     * @memberof ScheduleDays
+     */
+    'interval'?: number | null;
 }
 
-export const ScheduledsearchAllOfOwnerV1TypeV1 = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type ScheduledsearchAllOfOwnerV1TypeV1 = typeof ScheduledsearchAllOfOwnerV1TypeV1[keyof typeof ScheduledsearchAllOfOwnerV1TypeV1];
 
 /**
  * 
  * @export
- * @interface ScheduledsearchV1
+ * @interface ScheduleHours
  */
-export interface ScheduledsearchV1 {
+export interface ScheduleHours {
+    /**
+     * 
+     * @type {Selectortype}
+     * @memberof ScheduleHours
+     */
+    'type': Selectortype;
+    /**
+     * The selected values. 
+     * @type {Array<string>}
+     * @memberof ScheduleHours
+     */
+    'values': Array<string>;
+    /**
+     * The selected interval for RANGE selectors. 
+     * @type {number}
+     * @memberof ScheduleHours
+     */
+    'interval'?: number | null;
+}
+
+
+/**
+ * 
+ * @export
+ * @interface ScheduleMonths
+ */
+export interface ScheduleMonths {
+    /**
+     * 
+     * @type {Selectortype}
+     * @memberof ScheduleMonths
+     */
+    'type': Selectortype;
+    /**
+     * The selected values. 
+     * @type {Array<string>}
+     * @memberof ScheduleMonths
+     */
+    'values': Array<string>;
+    /**
+     * The selected interval for RANGE selectors. 
+     * @type {number}
+     * @memberof ScheduleMonths
+     */
+    'interval'?: number | null;
+}
+
+
+/**
+ * 
+ * @export
+ * @interface Scheduledsearch
+ */
+export interface Scheduledsearch {
     /**
      * The name of the scheduled search. 
      * @type {string}
-     * @memberof ScheduledsearchV1
+     * @memberof Scheduledsearch
      */
     'name'?: string | null;
     /**
      * The description of the scheduled search. 
      * @type {string}
-     * @memberof ScheduledsearchV1
+     * @memberof Scheduledsearch
      */
     'description'?: string | null;
     /**
      * The ID of the saved search that will be executed.
      * @type {string}
-     * @memberof ScheduledsearchV1
+     * @memberof Scheduledsearch
      */
     'savedSearchId': string;
     /**
      * The date the scheduled search was initially created.
      * @type {string}
-     * @memberof ScheduledsearchV1
+     * @memberof Scheduledsearch
      */
     'created'?: string | null;
     /**
      * The last date the scheduled search was modified.
      * @type {string}
-     * @memberof ScheduledsearchV1
+     * @memberof Scheduledsearch
      */
     'modified'?: string | null;
     /**
      * 
-     * @type {ScheduleV1}
-     * @memberof ScheduledsearchV1
+     * @type {Schedule}
+     * @memberof Scheduledsearch
      */
-    'schedule': ScheduleV1;
+    'schedule': Schedule;
     /**
      * A list of identities that should receive the scheduled search report via email.
-     * @type {Array<SearchscheduleRecipientsInnerV1>}
-     * @memberof ScheduledsearchV1
+     * @type {Array<SearchscheduleRecipientsInner>}
+     * @memberof Scheduledsearch
      */
-    'recipients': Array<SearchscheduleRecipientsInnerV1>;
+    'recipients': Array<SearchscheduleRecipientsInner>;
     /**
      * Indicates if the scheduled search is enabled. 
      * @type {boolean}
-     * @memberof ScheduledsearchV1
+     * @memberof Scheduledsearch
      */
     'enabled'?: boolean;
     /**
      * Indicates if email generation should occur when search returns no results. 
      * @type {boolean}
-     * @memberof ScheduledsearchV1
+     * @memberof Scheduledsearch
      */
     'emailEmptyResults'?: boolean;
     /**
      * Indicates if the generated email should include the query and search results preview (which could include PII). 
      * @type {boolean}
-     * @memberof ScheduledsearchV1
+     * @memberof Scheduledsearch
      */
     'displayQueryDetails'?: boolean;
     /**
      * The scheduled search ID.
      * @type {string}
-     * @memberof ScheduledsearchV1
+     * @memberof Scheduledsearch
      */
     'id': string;
     /**
      * 
-     * @type {ScheduledsearchAllOfOwnerV1}
-     * @memberof ScheduledsearchV1
+     * @type {ScheduledsearchAllOfOwner}
+     * @memberof Scheduledsearch
      */
-    'owner': ScheduledsearchAllOfOwnerV1;
+    'owner': ScheduledsearchAllOfOwner;
     /**
      * The ID of the scheduled search owner.  Please use the `id` in the `owner` object instead. 
      * @type {string}
-     * @memberof ScheduledsearchV1
+     * @memberof Scheduledsearch
      * @deprecated
      */
     'ownerId': string;
 }
 /**
+ * The owner of the scheduled search
+ * @export
+ * @interface ScheduledsearchAllOfOwner
+ */
+export interface ScheduledsearchAllOfOwner {
+    /**
+     * The type of object being referenced
+     * @type {string}
+     * @memberof ScheduledsearchAllOfOwner
+     */
+    'type': ScheduledsearchAllOfOwnerTypeEnum;
+    /**
+     * The ID of the referenced object
+     * @type {string}
+     * @memberof ScheduledsearchAllOfOwner
+     */
+    'id': string;
+}
+
+export const ScheduledsearchAllOfOwnerTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type ScheduledsearchAllOfOwnerTypeEnum = typeof ScheduledsearchAllOfOwnerTypeEnum[keyof typeof ScheduledsearchAllOfOwnerTypeEnum];
+
+/**
  * 
  * @export
- * @interface ScheduledsearchnameV1
+ * @interface Scheduledsearchname
  */
-export interface ScheduledsearchnameV1 {
+export interface Scheduledsearchname {
     /**
      * The name of the scheduled search. 
      * @type {string}
-     * @memberof ScheduledsearchnameV1
+     * @memberof Scheduledsearchname
      */
     'name'?: string | null;
     /**
      * The description of the scheduled search. 
      * @type {string}
-     * @memberof ScheduledsearchnameV1
+     * @memberof Scheduledsearchname
      */
     'description'?: string | null;
 }
@@ -492,7 +492,7 @@ export interface ScheduledsearchnameV1 {
  * @enum {string}
  */
 
-export const ScheduletypeV1 = {
+export const Scheduletype = {
     Daily: 'DAILY',
     Weekly: 'WEEKLY',
     Monthly: 'MONTHLY',
@@ -500,112 +500,112 @@ export const ScheduletypeV1 = {
     Annually: 'ANNUALLY'
 } as const;
 
-export type ScheduletypeV1 = typeof ScheduletypeV1[keyof typeof ScheduletypeV1];
+export type Scheduletype = typeof Scheduletype[keyof typeof Scheduletype];
 
 
 /**
  * 
  * @export
- * @interface SearchscheduleRecipientsInnerV1
+ * @interface Searchschedule
  */
-export interface SearchscheduleRecipientsInnerV1 {
-    /**
-     * The type of object being referenced
-     * @type {string}
-     * @memberof SearchscheduleRecipientsInnerV1
-     */
-    'type': SearchscheduleRecipientsInnerV1TypeV1;
-    /**
-     * The ID of the referenced object
-     * @type {string}
-     * @memberof SearchscheduleRecipientsInnerV1
-     */
-    'id': string;
-}
-
-export const SearchscheduleRecipientsInnerV1TypeV1 = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type SearchscheduleRecipientsInnerV1TypeV1 = typeof SearchscheduleRecipientsInnerV1TypeV1[keyof typeof SearchscheduleRecipientsInnerV1TypeV1];
-
-/**
- * 
- * @export
- * @interface SearchscheduleV1
- */
-export interface SearchscheduleV1 {
+export interface Searchschedule {
     /**
      * The ID of the saved search that will be executed.
      * @type {string}
-     * @memberof SearchscheduleV1
+     * @memberof Searchschedule
      */
     'savedSearchId': string;
     /**
      * The date the scheduled search was initially created.
      * @type {string}
-     * @memberof SearchscheduleV1
+     * @memberof Searchschedule
      */
     'created'?: string | null;
     /**
      * The last date the scheduled search was modified.
      * @type {string}
-     * @memberof SearchscheduleV1
+     * @memberof Searchschedule
      */
     'modified'?: string | null;
     /**
      * 
-     * @type {ScheduleV1}
-     * @memberof SearchscheduleV1
+     * @type {Schedule}
+     * @memberof Searchschedule
      */
-    'schedule': ScheduleV1;
+    'schedule': Schedule;
     /**
      * A list of identities that should receive the scheduled search report via email.
-     * @type {Array<SearchscheduleRecipientsInnerV1>}
-     * @memberof SearchscheduleV1
+     * @type {Array<SearchscheduleRecipientsInner>}
+     * @memberof Searchschedule
      */
-    'recipients': Array<SearchscheduleRecipientsInnerV1>;
+    'recipients': Array<SearchscheduleRecipientsInner>;
     /**
      * Indicates if the scheduled search is enabled. 
      * @type {boolean}
-     * @memberof SearchscheduleV1
+     * @memberof Searchschedule
      */
     'enabled'?: boolean;
     /**
      * Indicates if email generation should occur when search returns no results. 
      * @type {boolean}
-     * @memberof SearchscheduleV1
+     * @memberof Searchschedule
      */
     'emailEmptyResults'?: boolean;
     /**
      * Indicates if the generated email should include the query and search results preview (which could include PII). 
      * @type {boolean}
-     * @memberof SearchscheduleV1
+     * @memberof Searchschedule
      */
     'displayQueryDetails'?: boolean;
 }
 /**
  * 
  * @export
- * @interface SelectorV1
+ * @interface SearchscheduleRecipientsInner
  */
-export interface SelectorV1 {
+export interface SearchscheduleRecipientsInner {
+    /**
+     * The type of object being referenced
+     * @type {string}
+     * @memberof SearchscheduleRecipientsInner
+     */
+    'type': SearchscheduleRecipientsInnerTypeEnum;
+    /**
+     * The ID of the referenced object
+     * @type {string}
+     * @memberof SearchscheduleRecipientsInner
+     */
+    'id': string;
+}
+
+export const SearchscheduleRecipientsInnerTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type SearchscheduleRecipientsInnerTypeEnum = typeof SearchscheduleRecipientsInnerTypeEnum[keyof typeof SearchscheduleRecipientsInnerTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface Selector
+ */
+export interface Selector {
     /**
      * 
-     * @type {SelectortypeV1}
-     * @memberof SelectorV1
+     * @type {Selectortype}
+     * @memberof Selector
      */
-    'type': SelectortypeV1;
+    'type': Selectortype;
     /**
      * The selected values. 
      * @type {Array<string>}
-     * @memberof SelectorV1
+     * @memberof Selector
      */
     'values': Array<string>;
     /**
      * The selected interval for RANGE selectors. 
      * @type {number}
-     * @memberof SelectorV1
+     * @memberof Selector
      */
     'interval'?: number | null;
 }
@@ -617,30 +617,30 @@ export interface SelectorV1 {
  * @enum {string}
  */
 
-export const SelectortypeV1 = {
+export const Selectortype = {
     List: 'LIST',
     Range: 'RANGE'
 } as const;
 
-export type SelectortypeV1 = typeof SelectortypeV1[keyof typeof SelectortypeV1];
+export type Selectortype = typeof Selectortype[keyof typeof Selectortype];
 
 
 /**
  * A typed reference to the object. 
  * @export
- * @interface TypedreferenceV1
+ * @interface Typedreference
  */
-export interface TypedreferenceV1 {
+export interface Typedreference {
     /**
      * 
-     * @type {DtotypeV1}
-     * @memberof TypedreferenceV1
+     * @type {Dtotype}
+     * @memberof Typedreference
      */
-    'type': DtotypeV1;
+    'type': Dtotype;
     /**
      * The id of the object. 
      * @type {string}
-     * @memberof TypedreferenceV1
+     * @memberof Typedreference
      */
     'id': string;
 }
@@ -648,21 +648,21 @@ export interface TypedreferenceV1 {
 
 
 /**
- * ScheduledSearchV1Api - axios parameter creator
+ * ScheduledSearchApi - axios parameter creator
  * @export
  */
-export const ScheduledSearchV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const ScheduledSearchApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Creates a new scheduled search. 
          * @summary Create a new scheduled search
-         * @param {CreateScheduledSearchV1RequestV1} createScheduledSearchV1RequestV1 The scheduled search to persist.
+         * @param {CreateScheduledSearchV1Request} createScheduledSearchV1Request The scheduled search to persist.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createScheduledSearchV1: async (createScheduledSearchV1RequestV1: CreateScheduledSearchV1RequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'createScheduledSearchV1RequestV1' is not null or undefined
-            assertParamExists('createScheduledSearchV1', 'createScheduledSearchV1RequestV1', createScheduledSearchV1RequestV1)
+        createScheduledSearchV1: async (createScheduledSearchV1Request: CreateScheduledSearchV1Request, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'createScheduledSearchV1Request' is not null or undefined
+            assertParamExists('createScheduledSearchV1', 'createScheduledSearchV1Request', createScheduledSearchV1Request)
             const localVarPath = `/scheduled-searches/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -682,7 +682,7 @@ export const ScheduledSearchV1ApiAxiosParamCreator = function (configuration?: C
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createScheduledSearchV1RequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(createScheduledSearchV1Request, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -811,15 +811,15 @@ export const ScheduledSearchV1ApiAxiosParamCreator = function (configuration?: C
          * Unsubscribes a recipient from the specified scheduled search. 
          * @summary Unsubscribe a recipient from scheduled search
          * @param {string} id ID of the requested document.
-         * @param {TypedreferenceV1} typedreferenceV1 The recipient to be removed from the scheduled search. 
+         * @param {Typedreference} typedreference The recipient to be removed from the scheduled search. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        unsubscribeScheduledSearchV1: async (id: string, typedreferenceV1: TypedreferenceV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        unsubscribeScheduledSearchV1: async (id: string, typedreference: Typedreference, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('unsubscribeScheduledSearchV1', 'id', id)
-            // verify required parameter 'typedreferenceV1' is not null or undefined
-            assertParamExists('unsubscribeScheduledSearchV1', 'typedreferenceV1', typedreferenceV1)
+            // verify required parameter 'typedreference' is not null or undefined
+            assertParamExists('unsubscribeScheduledSearchV1', 'typedreference', typedreference)
             const localVarPath = `/scheduled-searches/v1/{id}/unsubscribe`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -840,7 +840,7 @@ export const ScheduledSearchV1ApiAxiosParamCreator = function (configuration?: C
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(typedreferenceV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(typedreference, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -851,15 +851,15 @@ export const ScheduledSearchV1ApiAxiosParamCreator = function (configuration?: C
          * Updates an existing scheduled search. 
          * @summary Update an existing scheduled search
          * @param {string} id ID of the requested document.
-         * @param {ScheduledsearchV1} scheduledsearchV1 The scheduled search to persist.
+         * @param {Scheduledsearch} scheduledsearch The scheduled search to persist.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateScheduledSearchV1: async (id: string, scheduledsearchV1: ScheduledsearchV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateScheduledSearchV1: async (id: string, scheduledsearch: Scheduledsearch, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateScheduledSearchV1', 'id', id)
-            // verify required parameter 'scheduledsearchV1' is not null or undefined
-            assertParamExists('updateScheduledSearchV1', 'scheduledsearchV1', scheduledsearchV1)
+            // verify required parameter 'scheduledsearch' is not null or undefined
+            assertParamExists('updateScheduledSearchV1', 'scheduledsearch', scheduledsearch)
             const localVarPath = `/scheduled-searches/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -880,7 +880,7 @@ export const ScheduledSearchV1ApiAxiosParamCreator = function (configuration?: C
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(scheduledsearchV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(scheduledsearch, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -891,23 +891,23 @@ export const ScheduledSearchV1ApiAxiosParamCreator = function (configuration?: C
 };
 
 /**
- * ScheduledSearchV1Api - functional programming interface
+ * ScheduledSearchApi - functional programming interface
  * @export
  */
-export const ScheduledSearchV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = ScheduledSearchV1ApiAxiosParamCreator(configuration)
+export const ScheduledSearchApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = ScheduledSearchApiAxiosParamCreator(configuration)
     return {
         /**
          * Creates a new scheduled search. 
          * @summary Create a new scheduled search
-         * @param {CreateScheduledSearchV1RequestV1} createScheduledSearchV1RequestV1 The scheduled search to persist.
+         * @param {CreateScheduledSearchV1Request} createScheduledSearchV1Request The scheduled search to persist.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createScheduledSearchV1(createScheduledSearchV1RequestV1: CreateScheduledSearchV1RequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScheduledsearchV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createScheduledSearchV1(createScheduledSearchV1RequestV1, axiosOptions);
+        async createScheduledSearchV1(createScheduledSearchV1Request: CreateScheduledSearchV1Request, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scheduledsearch>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createScheduledSearchV1(createScheduledSearchV1Request, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ScheduledSearchV1Api.createScheduledSearchV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ScheduledSearchApi.createScheduledSearchV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -920,7 +920,7 @@ export const ScheduledSearchV1ApiFp = function(configuration?: Configuration) {
         async deleteScheduledSearchV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteScheduledSearchV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ScheduledSearchV1Api.deleteScheduledSearchV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ScheduledSearchApi.deleteScheduledSearchV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -930,10 +930,10 @@ export const ScheduledSearchV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getScheduledSearchV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScheduledsearchV1>> {
+        async getScheduledSearchV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scheduledsearch>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getScheduledSearchV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ScheduledSearchV1Api.getScheduledSearchV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ScheduledSearchApi.getScheduledSearchV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -946,309 +946,309 @@ export const ScheduledSearchV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listScheduledSearchV1(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ScheduledsearchV1>>> {
+        async listScheduledSearchV1(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Scheduledsearch>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listScheduledSearchV1(offset, limit, count, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ScheduledSearchV1Api.listScheduledSearchV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ScheduledSearchApi.listScheduledSearchV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Unsubscribes a recipient from the specified scheduled search. 
          * @summary Unsubscribe a recipient from scheduled search
          * @param {string} id ID of the requested document.
-         * @param {TypedreferenceV1} typedreferenceV1 The recipient to be removed from the scheduled search. 
+         * @param {Typedreference} typedreference The recipient to be removed from the scheduled search. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async unsubscribeScheduledSearchV1(id: string, typedreferenceV1: TypedreferenceV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.unsubscribeScheduledSearchV1(id, typedreferenceV1, axiosOptions);
+        async unsubscribeScheduledSearchV1(id: string, typedreference: Typedreference, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.unsubscribeScheduledSearchV1(id, typedreference, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ScheduledSearchV1Api.unsubscribeScheduledSearchV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ScheduledSearchApi.unsubscribeScheduledSearchV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Updates an existing scheduled search. 
          * @summary Update an existing scheduled search
          * @param {string} id ID of the requested document.
-         * @param {ScheduledsearchV1} scheduledsearchV1 The scheduled search to persist.
+         * @param {Scheduledsearch} scheduledsearch The scheduled search to persist.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateScheduledSearchV1(id: string, scheduledsearchV1: ScheduledsearchV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScheduledsearchV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateScheduledSearchV1(id, scheduledsearchV1, axiosOptions);
+        async updateScheduledSearchV1(id: string, scheduledsearch: Scheduledsearch, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scheduledsearch>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateScheduledSearchV1(id, scheduledsearch, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ScheduledSearchV1Api.updateScheduledSearchV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ScheduledSearchApi.updateScheduledSearchV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * ScheduledSearchV1Api - factory interface
+ * ScheduledSearchApi - factory interface
  * @export
  */
-export const ScheduledSearchV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = ScheduledSearchV1ApiFp(configuration)
+export const ScheduledSearchApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = ScheduledSearchApiFp(configuration)
     return {
         /**
          * Creates a new scheduled search. 
          * @summary Create a new scheduled search
-         * @param {ScheduledSearchV1ApiCreateScheduledSearchV1Request} requestParameters Request parameters.
+         * @param {ScheduledSearchApiCreateScheduledSearchV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createScheduledSearchV1(requestParameters: ScheduledSearchV1ApiCreateScheduledSearchV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ScheduledsearchV1> {
-            return localVarFp.createScheduledSearchV1(requestParameters.createScheduledSearchV1RequestV1, axiosOptions).then((request) => request(axios, basePath));
+        createScheduledSearchV1(requestParameters: ScheduledSearchApiCreateScheduledSearchV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Scheduledsearch> {
+            return localVarFp.createScheduledSearchV1(requestParameters.createScheduledSearchV1Request, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Deletes the specified scheduled search. 
          * @summary Delete a scheduled search
-         * @param {ScheduledSearchV1ApiDeleteScheduledSearchV1Request} requestParameters Request parameters.
+         * @param {ScheduledSearchApiDeleteScheduledSearchV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteScheduledSearchV1(requestParameters: ScheduledSearchV1ApiDeleteScheduledSearchV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteScheduledSearchV1(requestParameters: ScheduledSearchApiDeleteScheduledSearchV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteScheduledSearchV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Returns the specified scheduled search.
          * @summary Get a scheduled search
-         * @param {ScheduledSearchV1ApiGetScheduledSearchV1Request} requestParameters Request parameters.
+         * @param {ScheduledSearchApiGetScheduledSearchV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getScheduledSearchV1(requestParameters: ScheduledSearchV1ApiGetScheduledSearchV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ScheduledsearchV1> {
+        getScheduledSearchV1(requestParameters: ScheduledSearchApiGetScheduledSearchV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Scheduledsearch> {
             return localVarFp.getScheduledSearchV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Returns a list of scheduled searches. 
          * @summary List scheduled searches
-         * @param {ScheduledSearchV1ApiListScheduledSearchV1Request} requestParameters Request parameters.
+         * @param {ScheduledSearchApiListScheduledSearchV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listScheduledSearchV1(requestParameters: ScheduledSearchV1ApiListScheduledSearchV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ScheduledsearchV1>> {
+        listScheduledSearchV1(requestParameters: ScheduledSearchApiListScheduledSearchV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Scheduledsearch>> {
             return localVarFp.listScheduledSearchV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Unsubscribes a recipient from the specified scheduled search. 
          * @summary Unsubscribe a recipient from scheduled search
-         * @param {ScheduledSearchV1ApiUnsubscribeScheduledSearchV1Request} requestParameters Request parameters.
+         * @param {ScheduledSearchApiUnsubscribeScheduledSearchV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        unsubscribeScheduledSearchV1(requestParameters: ScheduledSearchV1ApiUnsubscribeScheduledSearchV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.unsubscribeScheduledSearchV1(requestParameters.id, requestParameters.typedreferenceV1, axiosOptions).then((request) => request(axios, basePath));
+        unsubscribeScheduledSearchV1(requestParameters: ScheduledSearchApiUnsubscribeScheduledSearchV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.unsubscribeScheduledSearchV1(requestParameters.id, requestParameters.typedreference, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Updates an existing scheduled search. 
          * @summary Update an existing scheduled search
-         * @param {ScheduledSearchV1ApiUpdateScheduledSearchV1Request} requestParameters Request parameters.
+         * @param {ScheduledSearchApiUpdateScheduledSearchV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateScheduledSearchV1(requestParameters: ScheduledSearchV1ApiUpdateScheduledSearchV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ScheduledsearchV1> {
-            return localVarFp.updateScheduledSearchV1(requestParameters.id, requestParameters.scheduledsearchV1, axiosOptions).then((request) => request(axios, basePath));
+        updateScheduledSearchV1(requestParameters: ScheduledSearchApiUpdateScheduledSearchV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Scheduledsearch> {
+            return localVarFp.updateScheduledSearchV1(requestParameters.id, requestParameters.scheduledsearch, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createScheduledSearchV1 operation in ScheduledSearchV1Api.
+ * Request parameters for createScheduledSearchV1 operation in ScheduledSearchApi.
  * @export
- * @interface ScheduledSearchV1ApiCreateScheduledSearchV1Request
+ * @interface ScheduledSearchApiCreateScheduledSearchV1Request
  */
-export interface ScheduledSearchV1ApiCreateScheduledSearchV1Request {
+export interface ScheduledSearchApiCreateScheduledSearchV1Request {
     /**
      * The scheduled search to persist.
-     * @type {CreateScheduledSearchV1RequestV1}
-     * @memberof ScheduledSearchV1ApiCreateScheduledSearchV1
+     * @type {CreateScheduledSearchV1Request}
+     * @memberof ScheduledSearchApiCreateScheduledSearchV1
      */
-    readonly createScheduledSearchV1RequestV1: CreateScheduledSearchV1RequestV1
+    readonly createScheduledSearchV1Request: CreateScheduledSearchV1Request
 }
 
 /**
- * Request parameters for deleteScheduledSearchV1 operation in ScheduledSearchV1Api.
+ * Request parameters for deleteScheduledSearchV1 operation in ScheduledSearchApi.
  * @export
- * @interface ScheduledSearchV1ApiDeleteScheduledSearchV1Request
+ * @interface ScheduledSearchApiDeleteScheduledSearchV1Request
  */
-export interface ScheduledSearchV1ApiDeleteScheduledSearchV1Request {
+export interface ScheduledSearchApiDeleteScheduledSearchV1Request {
     /**
      * ID of the requested document.
      * @type {string}
-     * @memberof ScheduledSearchV1ApiDeleteScheduledSearchV1
+     * @memberof ScheduledSearchApiDeleteScheduledSearchV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getScheduledSearchV1 operation in ScheduledSearchV1Api.
+ * Request parameters for getScheduledSearchV1 operation in ScheduledSearchApi.
  * @export
- * @interface ScheduledSearchV1ApiGetScheduledSearchV1Request
+ * @interface ScheduledSearchApiGetScheduledSearchV1Request
  */
-export interface ScheduledSearchV1ApiGetScheduledSearchV1Request {
+export interface ScheduledSearchApiGetScheduledSearchV1Request {
     /**
      * ID of the requested document.
      * @type {string}
-     * @memberof ScheduledSearchV1ApiGetScheduledSearchV1
+     * @memberof ScheduledSearchApiGetScheduledSearchV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for listScheduledSearchV1 operation in ScheduledSearchV1Api.
+ * Request parameters for listScheduledSearchV1 operation in ScheduledSearchApi.
  * @export
- * @interface ScheduledSearchV1ApiListScheduledSearchV1Request
+ * @interface ScheduledSearchApiListScheduledSearchV1Request
  */
-export interface ScheduledSearchV1ApiListScheduledSearchV1Request {
+export interface ScheduledSearchApiListScheduledSearchV1Request {
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof ScheduledSearchV1ApiListScheduledSearchV1
+     * @memberof ScheduledSearchApiListScheduledSearchV1
      */
     readonly offset?: number
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof ScheduledSearchV1ApiListScheduledSearchV1
+     * @memberof ScheduledSearchApiListScheduledSearchV1
      */
     readonly limit?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof ScheduledSearchV1ApiListScheduledSearchV1
+     * @memberof ScheduledSearchApiListScheduledSearchV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq*  **savedSearchId**: *eq*
      * @type {string}
-     * @memberof ScheduledSearchV1ApiListScheduledSearchV1
+     * @memberof ScheduledSearchApiListScheduledSearchV1
      */
     readonly filters?: string
 }
 
 /**
- * Request parameters for unsubscribeScheduledSearchV1 operation in ScheduledSearchV1Api.
+ * Request parameters for unsubscribeScheduledSearchV1 operation in ScheduledSearchApi.
  * @export
- * @interface ScheduledSearchV1ApiUnsubscribeScheduledSearchV1Request
+ * @interface ScheduledSearchApiUnsubscribeScheduledSearchV1Request
  */
-export interface ScheduledSearchV1ApiUnsubscribeScheduledSearchV1Request {
+export interface ScheduledSearchApiUnsubscribeScheduledSearchV1Request {
     /**
      * ID of the requested document.
      * @type {string}
-     * @memberof ScheduledSearchV1ApiUnsubscribeScheduledSearchV1
+     * @memberof ScheduledSearchApiUnsubscribeScheduledSearchV1
      */
     readonly id: string
 
     /**
      * The recipient to be removed from the scheduled search. 
-     * @type {TypedreferenceV1}
-     * @memberof ScheduledSearchV1ApiUnsubscribeScheduledSearchV1
+     * @type {Typedreference}
+     * @memberof ScheduledSearchApiUnsubscribeScheduledSearchV1
      */
-    readonly typedreferenceV1: TypedreferenceV1
+    readonly typedreference: Typedreference
 }
 
 /**
- * Request parameters for updateScheduledSearchV1 operation in ScheduledSearchV1Api.
+ * Request parameters for updateScheduledSearchV1 operation in ScheduledSearchApi.
  * @export
- * @interface ScheduledSearchV1ApiUpdateScheduledSearchV1Request
+ * @interface ScheduledSearchApiUpdateScheduledSearchV1Request
  */
-export interface ScheduledSearchV1ApiUpdateScheduledSearchV1Request {
+export interface ScheduledSearchApiUpdateScheduledSearchV1Request {
     /**
      * ID of the requested document.
      * @type {string}
-     * @memberof ScheduledSearchV1ApiUpdateScheduledSearchV1
+     * @memberof ScheduledSearchApiUpdateScheduledSearchV1
      */
     readonly id: string
 
     /**
      * The scheduled search to persist.
-     * @type {ScheduledsearchV1}
-     * @memberof ScheduledSearchV1ApiUpdateScheduledSearchV1
+     * @type {Scheduledsearch}
+     * @memberof ScheduledSearchApiUpdateScheduledSearchV1
      */
-    readonly scheduledsearchV1: ScheduledsearchV1
+    readonly scheduledsearch: Scheduledsearch
 }
 
 /**
- * ScheduledSearchV1Api - object-oriented interface
+ * ScheduledSearchApi - object-oriented interface
  * @export
- * @class ScheduledSearchV1Api
+ * @class ScheduledSearchApi
  * @extends {BaseAPI}
  */
-export class ScheduledSearchV1Api extends BaseAPI {
+export class ScheduledSearchApi extends BaseAPI {
     /**
      * Creates a new scheduled search. 
      * @summary Create a new scheduled search
-     * @param {ScheduledSearchV1ApiCreateScheduledSearchV1Request} requestParameters Request parameters.
+     * @param {ScheduledSearchApiCreateScheduledSearchV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ScheduledSearchV1Api
+     * @memberof ScheduledSearchApi
      */
-    public createScheduledSearchV1(requestParameters: ScheduledSearchV1ApiCreateScheduledSearchV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ScheduledSearchV1ApiFp(this.configuration).createScheduledSearchV1(requestParameters.createScheduledSearchV1RequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createScheduledSearchV1(requestParameters: ScheduledSearchApiCreateScheduledSearchV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ScheduledSearchApiFp(this.configuration).createScheduledSearchV1(requestParameters.createScheduledSearchV1Request, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Deletes the specified scheduled search. 
      * @summary Delete a scheduled search
-     * @param {ScheduledSearchV1ApiDeleteScheduledSearchV1Request} requestParameters Request parameters.
+     * @param {ScheduledSearchApiDeleteScheduledSearchV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ScheduledSearchV1Api
+     * @memberof ScheduledSearchApi
      */
-    public deleteScheduledSearchV1(requestParameters: ScheduledSearchV1ApiDeleteScheduledSearchV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ScheduledSearchV1ApiFp(this.configuration).deleteScheduledSearchV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteScheduledSearchV1(requestParameters: ScheduledSearchApiDeleteScheduledSearchV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ScheduledSearchApiFp(this.configuration).deleteScheduledSearchV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Returns the specified scheduled search.
      * @summary Get a scheduled search
-     * @param {ScheduledSearchV1ApiGetScheduledSearchV1Request} requestParameters Request parameters.
+     * @param {ScheduledSearchApiGetScheduledSearchV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ScheduledSearchV1Api
+     * @memberof ScheduledSearchApi
      */
-    public getScheduledSearchV1(requestParameters: ScheduledSearchV1ApiGetScheduledSearchV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ScheduledSearchV1ApiFp(this.configuration).getScheduledSearchV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getScheduledSearchV1(requestParameters: ScheduledSearchApiGetScheduledSearchV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ScheduledSearchApiFp(this.configuration).getScheduledSearchV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Returns a list of scheduled searches. 
      * @summary List scheduled searches
-     * @param {ScheduledSearchV1ApiListScheduledSearchV1Request} requestParameters Request parameters.
+     * @param {ScheduledSearchApiListScheduledSearchV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ScheduledSearchV1Api
+     * @memberof ScheduledSearchApi
      */
-    public listScheduledSearchV1(requestParameters: ScheduledSearchV1ApiListScheduledSearchV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return ScheduledSearchV1ApiFp(this.configuration).listScheduledSearchV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listScheduledSearchV1(requestParameters: ScheduledSearchApiListScheduledSearchV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return ScheduledSearchApiFp(this.configuration).listScheduledSearchV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Unsubscribes a recipient from the specified scheduled search. 
      * @summary Unsubscribe a recipient from scheduled search
-     * @param {ScheduledSearchV1ApiUnsubscribeScheduledSearchV1Request} requestParameters Request parameters.
+     * @param {ScheduledSearchApiUnsubscribeScheduledSearchV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ScheduledSearchV1Api
+     * @memberof ScheduledSearchApi
      */
-    public unsubscribeScheduledSearchV1(requestParameters: ScheduledSearchV1ApiUnsubscribeScheduledSearchV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ScheduledSearchV1ApiFp(this.configuration).unsubscribeScheduledSearchV1(requestParameters.id, requestParameters.typedreferenceV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public unsubscribeScheduledSearchV1(requestParameters: ScheduledSearchApiUnsubscribeScheduledSearchV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ScheduledSearchApiFp(this.configuration).unsubscribeScheduledSearchV1(requestParameters.id, requestParameters.typedreference, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Updates an existing scheduled search. 
      * @summary Update an existing scheduled search
-     * @param {ScheduledSearchV1ApiUpdateScheduledSearchV1Request} requestParameters Request parameters.
+     * @param {ScheduledSearchApiUpdateScheduledSearchV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ScheduledSearchV1Api
+     * @memberof ScheduledSearchApi
      */
-    public updateScheduledSearchV1(requestParameters: ScheduledSearchV1ApiUpdateScheduledSearchV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ScheduledSearchV1ApiFp(this.configuration).updateScheduledSearchV1(requestParameters.id, requestParameters.scheduledsearchV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateScheduledSearchV1(requestParameters: ScheduledSearchApiUpdateScheduledSearchV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ScheduledSearchApiFp(this.configuration).updateScheduledSearchV1(requestParameters.id, requestParameters.scheduledsearch, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

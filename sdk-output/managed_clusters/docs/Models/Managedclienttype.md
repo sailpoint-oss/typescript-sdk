@@ -1,15 +1,15 @@
 ---
-id: v1-managedclienttype-v1
-title: ManagedclienttypeV1
-pagination_label: ManagedclienttypeV1
-sidebar_label: ManagedclienttypeV1
+id: v1-managedclienttype
+title: Managedclienttype
+pagination_label: Managedclienttype
+sidebar_label: Managedclienttype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ManagedclienttypeV1', 'v1ManagedclienttypeV1']
-slug: /tools/sdk/typescript/managed_clusters/models/managedclienttype-v1
-tags: ['SDK', 'Software Development Kit', 'ManagedclienttypeV1', 'v1ManagedclienttypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Managedclienttype', 'v1Managedclienttype']
+slug: /tools/sdk/typescript/managed_clusters/models/managedclienttype
+tags: ['SDK', 'Software Development Kit', 'Managedclienttype', 'v1Managedclienttype']
 ---
 
-# ManagedclienttypeV1
+# Managedclienttype
 
 ## Enum
 

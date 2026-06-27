@@ -13,8 +13,8 @@ Index.md
 ListMachineAccountMappingsV1401Response.md
 ListMachineAccountMappingsV1429Response.md
 Localeorigin.md
-MachineAccountMappingsV1Api.md
-MachineAccountMappingsV1ApideveloperSite_code_examples.yaml
+MachineAccountMappingsApi.md
+MachineAccountMappingsApideveloperSite_code_examples.yaml
 README.md
 api.ts
 base.ts

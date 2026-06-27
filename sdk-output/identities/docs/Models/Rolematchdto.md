@@ -1,20 +1,20 @@
 ---
-id: v1-rolematchdto-v1
-title: RolematchdtoV1
-pagination_label: RolematchdtoV1
-sidebar_label: RolematchdtoV1
+id: v1-rolematchdto
+title: Rolematchdto
+pagination_label: Rolematchdto
+sidebar_label: Rolematchdto
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RolematchdtoV1', 'v1RolematchdtoV1']
-slug: /tools/sdk/typescript/identities/models/rolematchdto-v1
-tags: ['SDK', 'Software Development Kit', 'RolematchdtoV1', 'v1RolematchdtoV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Rolematchdto', 'v1Rolematchdto']
+slug: /tools/sdk/typescript/identities/models/rolematchdto
+tags: ['SDK', 'Software Development Kit', 'Rolematchdto', 'v1Rolematchdto']
 ---
 
-# RolematchdtoV1
+# Rolematchdto
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**roleRef** | **(optional)** **BasereferencedtoV1** |  | [default to undefined]
-**matchedAttributes** | **(optional)** **Array&lt;ContextattributedtoV1&gt;** |  | [default to undefined]
+**roleRef** | **(optional)** `Basereferencedto` |  | [default to undefined]
+**matchedAttributes** | **(optional)** `Array<Contextattributedto>` |  | [default to undefined]
 

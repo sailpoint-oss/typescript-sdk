@@ -1,20 +1,20 @@
 ---
-id: v1-managedclusterredis-v1
-title: ManagedclusterredisV1
-pagination_label: ManagedclusterredisV1
-sidebar_label: ManagedclusterredisV1
+id: v1-managedclusterredis
+title: Managedclusterredis
+pagination_label: Managedclusterredis
+sidebar_label: Managedclusterredis
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ManagedclusterredisV1', 'v1ManagedclusterredisV1']
-slug: /tools/sdk/typescript/managed_clusters/models/managedclusterredis-v1
-tags: ['SDK', 'Software Development Kit', 'ManagedclusterredisV1', 'v1ManagedclusterredisV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Managedclusterredis', 'v1Managedclusterredis']
+slug: /tools/sdk/typescript/managed_clusters/models/managedclusterredis
+tags: ['SDK', 'Software Development Kit', 'Managedclusterredis', 'v1Managedclusterredis']
 ---
 
-# ManagedclusterredisV1
+# Managedclusterredis
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**redisHost** | **(optional)** **string** | ManagedCluster redisHost | [default to undefined]
-**redisPort** | **(optional)** **number** | ManagedCluster redisPort | [default to undefined]
+**redisHost** | **(optional)** `string` | ManagedCluster redisHost | [default to undefined]
+**redisPort** | **(optional)** `number` | ManagedCluster redisPort | [default to undefined]
 

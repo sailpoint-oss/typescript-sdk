@@ -1,20 +1,20 @@
 ---
-id: v1-machineaccountsubtypeconfigdto-machine-account-delete-v1
-title: MachineaccountsubtypeconfigdtoMachineAccountDeleteV1
-pagination_label: MachineaccountsubtypeconfigdtoMachineAccountDeleteV1
-sidebar_label: MachineaccountsubtypeconfigdtoMachineAccountDeleteV1
+id: v1-machineaccountsubtypeconfigdto-machine-account-delete
+title: MachineaccountsubtypeconfigdtoMachineAccountDelete
+pagination_label: MachineaccountsubtypeconfigdtoMachineAccountDelete
+sidebar_label: MachineaccountsubtypeconfigdtoMachineAccountDelete
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'MachineaccountsubtypeconfigdtoMachineAccountDeleteV1', 'v1MachineaccountsubtypeconfigdtoMachineAccountDeleteV1']
-slug: /tools/sdk/typescript/machine_account_subtypes/models/machineaccountsubtypeconfigdto-machine-account-delete-v1
-tags: ['SDK', 'Software Development Kit', 'MachineaccountsubtypeconfigdtoMachineAccountDeleteV1', 'v1MachineaccountsubtypeconfigdtoMachineAccountDeleteV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'MachineaccountsubtypeconfigdtoMachineAccountDelete', 'v1MachineaccountsubtypeconfigdtoMachineAccountDelete']
+slug: /tools/sdk/typescript/machine_account_subtypes/models/machineaccountsubtypeconfigdto-machine-account-delete
+tags: ['SDK', 'Software Development Kit', 'MachineaccountsubtypeconfigdtoMachineAccountDelete', 'v1MachineaccountsubtypeconfigdtoMachineAccountDelete']
 ---
 
-# MachineaccountsubtypeconfigdtoMachineAccountDeleteV1
+# MachineaccountsubtypeconfigdtoMachineAccountDelete
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**approvalRequired** | **(optional)** **boolean** | Indicates whether approval is required for an account deletion request. | [default to false]
-**approvalConfig** | **(optional)** **MachinesubtypeapprovalconfigV1** |  | [default to undefined]
+**approvalRequired** | **(optional)** `boolean` | Indicates whether approval is required for an account deletion request. | [default to false]
+**approvalConfig** | **(optional)** `Machinesubtypeapprovalconfig` |  | [default to undefined]
 

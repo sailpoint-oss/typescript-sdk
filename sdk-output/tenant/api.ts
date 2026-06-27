@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -53,76 +53,76 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetTenantV1401ResponseV1
+ * @interface GetTenantV1401Response
  */
-export interface GetTenantV1401ResponseV1 {
+export interface GetTenantV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetTenantV1401ResponseV1
+     * @memberof GetTenantV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetTenantV1429ResponseV1
+ * @interface GetTenantV1429Response
  */
-export interface GetTenantV1429ResponseV1 {
+export interface GetTenantV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetTenantV1429ResponseV1
+     * @memberof GetTenantV1429Response
      */
     'message'?: any;
 }
 /**
  * 
  * @export
- * @interface LicenseV1
+ * @interface License
  */
-export interface LicenseV1 {
+export interface License {
     /**
      * Name of the license
      * @type {string}
-     * @memberof LicenseV1
+     * @memberof License
      */
     'licenseId'?: string;
     /**
      * Legacy name of the license
      * @type {string}
-     * @memberof LicenseV1
+     * @memberof License
      */
     'legacyFeatureName'?: string;
 }
@@ -132,119 +132,119 @@ export interface LicenseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface ProductV1
+ * @interface Product
  */
-export interface ProductV1 {
+export interface Product {
     /**
      * Name of the Product
      * @type {string}
-     * @memberof ProductV1
+     * @memberof Product
      */
     'productName'?: string;
     /**
      * URL of the Product
      * @type {string}
-     * @memberof ProductV1
+     * @memberof Product
      */
     'url'?: string;
     /**
      * An identifier for a specific product-tenant combination
      * @type {string}
-     * @memberof ProductV1
+     * @memberof Product
      */
     'productTenantId'?: string;
     /**
      * Product region
      * @type {string}
-     * @memberof ProductV1
+     * @memberof Product
      */
     'productRegion'?: string;
     /**
      * Right needed for the Product
      * @type {string}
-     * @memberof ProductV1
+     * @memberof Product
      */
     'productRight'?: string;
     /**
      * API URL of the Product
      * @type {string}
-     * @memberof ProductV1
+     * @memberof Product
      */
     'apiUrl'?: string | null;
     /**
      * 
-     * @type {Array<LicenseV1>}
-     * @memberof ProductV1
+     * @type {Array<License>}
+     * @memberof Product
      */
-    'licenses'?: Array<LicenseV1>;
+    'licenses'?: Array<License>;
     /**
      * Additional attributes for a product
      * @type {{ [key: string]: any; }}
-     * @memberof ProductV1
+     * @memberof Product
      */
     'attributes'?: { [key: string]: any; };
     /**
      * Zone
      * @type {string}
-     * @memberof ProductV1
+     * @memberof Product
      */
     'zone'?: string;
     /**
      * Status of the product
      * @type {string}
-     * @memberof ProductV1
+     * @memberof Product
      */
     'status'?: string;
     /**
      * Status datetime
      * @type {string}
-     * @memberof ProductV1
+     * @memberof Product
      */
     'statusDateTime'?: string;
     /**
      * If there\'s a tenant provisioning failure then reason will have the description of error
      * @type {string}
-     * @memberof ProductV1
+     * @memberof Product
      */
     'reason'?: string;
     /**
      * Product could have additional notes added during tenant provisioning.
      * @type {string}
-     * @memberof ProductV1
+     * @memberof Product
      */
     'notes'?: string;
     /**
      * Date when the product was created
      * @type {string}
-     * @memberof ProductV1
+     * @memberof Product
      */
     'dateCreated'?: string | null;
     /**
      * Date when the product was last updated
      * @type {string}
-     * @memberof ProductV1
+     * @memberof Product
      */
     'lastUpdated'?: string | null;
     /**
      * Type of org
      * @type {string}
-     * @memberof ProductV1
+     * @memberof Product
      */
-    'orgType'?: ProductV1OrgTypeV1 | null;
+    'orgType'?: ProductOrgTypeEnum | null;
 }
 
-export const ProductV1OrgTypeV1 = {
+export const ProductOrgTypeEnum = {
     Development: 'development',
     Staging: 'staging',
     Production: 'production',
@@ -255,63 +255,63 @@ export const ProductV1OrgTypeV1 = {
     Sandbox: 'sandbox'
 } as const;
 
-export type ProductV1OrgTypeV1 = typeof ProductV1OrgTypeV1[keyof typeof ProductV1OrgTypeV1];
+export type ProductOrgTypeEnum = typeof ProductOrgTypeEnum[keyof typeof ProductOrgTypeEnum];
 
 /**
  * 
  * @export
- * @interface TenantV1
+ * @interface Tenant
  */
-export interface TenantV1 {
+export interface Tenant {
     /**
      * The unique identifier for the Tenant
      * @type {string}
-     * @memberof TenantV1
+     * @memberof Tenant
      */
     'id'?: string;
     /**
      * Abbreviated name of the Tenant
      * @type {string}
-     * @memberof TenantV1
+     * @memberof Tenant
      */
     'name'?: string;
     /**
      * Human-readable name of the Tenant
      * @type {string}
-     * @memberof TenantV1
+     * @memberof Tenant
      */
     'fullName'?: string;
     /**
      * Deployment pod for the Tenant
      * @type {string}
-     * @memberof TenantV1
+     * @memberof Tenant
      */
     'pod'?: string;
     /**
      * Deployment region for the Tenant
      * @type {string}
-     * @memberof TenantV1
+     * @memberof Tenant
      */
     'region'?: string;
     /**
      * Description of the Tenant
      * @type {string}
-     * @memberof TenantV1
+     * @memberof Tenant
      */
     'description'?: string;
     /**
      * 
-     * @type {Array<ProductV1>}
-     * @memberof TenantV1
+     * @type {Array<Product>}
+     * @memberof Tenant
      */
-    'products'?: Array<ProductV1>;
+    'products'?: Array<Product>;
 }
 
 /**
- * TenantV1Api - axios parameter creator
+ * TenantApi - axios parameter creator
  * @export
  */
-export const TenantV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const TenantApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This rest endpoint can be used to retrieve tenant details.
@@ -347,11 +347,11 @@ export const TenantV1ApiAxiosParamCreator = function (configuration?: Configurat
 };
 
 /**
- * TenantV1Api - functional programming interface
+ * TenantApi - functional programming interface
  * @export
  */
-export const TenantV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = TenantV1ApiAxiosParamCreator(configuration)
+export const TenantApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = TenantApiAxiosParamCreator(configuration)
     return {
         /**
          * This rest endpoint can be used to retrieve tenant details.
@@ -359,21 +359,21 @@ export const TenantV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getTenantV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantV1>> {
+        async getTenantV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tenant>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTenantV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TenantV1Api.getTenantV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TenantApi.getTenantV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * TenantV1Api - factory interface
+ * TenantApi - factory interface
  * @export
  */
-export const TenantV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = TenantV1ApiFp(configuration)
+export const TenantApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = TenantApiFp(configuration)
     return {
         /**
          * This rest endpoint can be used to retrieve tenant details.
@@ -381,28 +381,28 @@ export const TenantV1ApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getTenantV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TenantV1> {
+        getTenantV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Tenant> {
             return localVarFp.getTenantV1(axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * TenantV1Api - object-oriented interface
+ * TenantApi - object-oriented interface
  * @export
- * @class TenantV1Api
+ * @class TenantApi
  * @extends {BaseAPI}
  */
-export class TenantV1Api extends BaseAPI {
+export class TenantApi extends BaseAPI {
     /**
      * This rest endpoint can be used to retrieve tenant details.
      * @summary Get tenant information.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TenantV1Api
+     * @memberof TenantApi
      */
     public getTenantV1(axiosOptions?: RawAxiosRequestConfig) {
-        return TenantV1ApiFp(this.configuration).getTenantV1(axiosOptions).then((request) => request(this.axios, this.basePath));
+        return TenantApiFp(this.configuration).getTenantV1(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

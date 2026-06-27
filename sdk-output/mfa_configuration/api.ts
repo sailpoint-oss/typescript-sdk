@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -53,132 +53,132 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetMFAOktaConfigV1401ResponseV1
+ * @interface GetMFAOktaConfigV1401Response
  */
-export interface GetMFAOktaConfigV1401ResponseV1 {
+export interface GetMFAOktaConfigV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetMFAOktaConfigV1401ResponseV1
+     * @memberof GetMFAOktaConfigV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetMFAOktaConfigV1429ResponseV1
+ * @interface GetMFAOktaConfigV1429Response
  */
-export interface GetMFAOktaConfigV1429ResponseV1 {
+export interface GetMFAOktaConfigV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetMFAOktaConfigV1429ResponseV1
+     * @memberof GetMFAOktaConfigV1429Response
      */
     'message'?: any;
 }
 /**
  * 
  * @export
- * @interface KbaanswerrequestitemV1
+ * @interface Kbaanswerrequestitem
  */
-export interface KbaanswerrequestitemV1 {
+export interface Kbaanswerrequestitem {
     /**
      * Question Id
      * @type {string}
-     * @memberof KbaanswerrequestitemV1
+     * @memberof Kbaanswerrequestitem
      */
     'id': string;
     /**
      * An answer for the KBA question
      * @type {string}
-     * @memberof KbaanswerrequestitemV1
+     * @memberof Kbaanswerrequestitem
      */
     'answer': string;
 }
 /**
  * 
  * @export
- * @interface KbaanswerresponseitemV1
+ * @interface Kbaanswerresponseitem
  */
-export interface KbaanswerresponseitemV1 {
+export interface Kbaanswerresponseitem {
     /**
      * Question Id
      * @type {string}
-     * @memberof KbaanswerresponseitemV1
+     * @memberof Kbaanswerresponseitem
      */
     'id': string;
     /**
      * Question description
      * @type {string}
-     * @memberof KbaanswerresponseitemV1
+     * @memberof Kbaanswerresponseitem
      */
     'question': string;
     /**
      * Denotes whether the KBA question has an answer configured for the current user
      * @type {boolean}
-     * @memberof KbaanswerresponseitemV1
+     * @memberof Kbaanswerresponseitem
      */
     'hasAnswer': boolean;
 }
 /**
  * KBA Configuration
  * @export
- * @interface KbaquestionV1
+ * @interface Kbaquestion
  */
-export interface KbaquestionV1 {
+export interface Kbaquestion {
     /**
      * KBA Question Id
      * @type {string}
-     * @memberof KbaquestionV1
+     * @memberof Kbaquestion
      */
     'id': string;
     /**
      * KBA Question description
      * @type {string}
-     * @memberof KbaquestionV1
+     * @memberof Kbaquestion
      */
     'text': string;
     /**
      * Denotes whether the KBA question has an answer configured for any user in the tenant
      * @type {boolean}
-     * @memberof KbaquestionV1
+     * @memberof Kbaquestion
      */
     'hasAnswer': boolean;
     /**
      * Denotes the number of KBA configurations for this question
      * @type {number}
-     * @memberof KbaquestionV1
+     * @memberof Kbaquestion
      */
     'numAnswers': number;
 }
@@ -188,127 +188,127 @@ export interface KbaquestionV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * Response model for configuration test of a given MFA method
  * @export
- * @interface MfaconfigtestresponseV1
+ * @interface Mfaconfigtestresponse
  */
-export interface MfaconfigtestresponseV1 {
+export interface Mfaconfigtestresponse {
     /**
      * The configuration test result.
      * @type {string}
-     * @memberof MfaconfigtestresponseV1
+     * @memberof Mfaconfigtestresponse
      */
-    'state'?: MfaconfigtestresponseV1StateV1;
+    'state'?: MfaconfigtestresponseStateEnum;
     /**
      * The error message to indicate the failure of configuration test.
      * @type {string}
-     * @memberof MfaconfigtestresponseV1
+     * @memberof Mfaconfigtestresponse
      */
     'error'?: string;
 }
 
-export const MfaconfigtestresponseV1StateV1 = {
+export const MfaconfigtestresponseStateEnum = {
     Success: 'SUCCESS',
     Failed: 'FAILED'
 } as const;
 
-export type MfaconfigtestresponseV1StateV1 = typeof MfaconfigtestresponseV1StateV1[keyof typeof MfaconfigtestresponseV1StateV1];
+export type MfaconfigtestresponseStateEnum = typeof MfaconfigtestresponseStateEnum[keyof typeof MfaconfigtestresponseStateEnum];
 
 /**
  * 
  * @export
- * @interface MfaduoconfigV1
+ * @interface Mfaduoconfig
  */
-export interface MfaduoconfigV1 {
+export interface Mfaduoconfig {
     /**
      * Mfa method name
      * @type {string}
-     * @memberof MfaduoconfigV1
+     * @memberof Mfaduoconfig
      */
     'mfaMethod'?: string | null;
     /**
      * If MFA method is enabled.
      * @type {boolean}
-     * @memberof MfaduoconfigV1
+     * @memberof Mfaduoconfig
      */
     'enabled'?: boolean;
     /**
      * The server host name or IP address of the MFA provider.
      * @type {string}
-     * @memberof MfaduoconfigV1
+     * @memberof Mfaduoconfig
      */
     'host'?: string | null;
     /**
      * The secret key for authenticating requests to the MFA provider.
      * @type {string}
-     * @memberof MfaduoconfigV1
+     * @memberof Mfaduoconfig
      */
     'accessKey'?: string | null;
     /**
      * Optional. The name of the attribute for mapping IdentityNow identity to the MFA provider.
      * @type {string}
-     * @memberof MfaduoconfigV1
+     * @memberof Mfaduoconfig
      */
     'identityAttribute'?: string | null;
     /**
      * A map with additional config properties for the given MFA method - duo-web.
      * @type {{ [key: string]: any; }}
-     * @memberof MfaduoconfigV1
+     * @memberof Mfaduoconfig
      */
     'configProperties'?: { [key: string]: any; } | null;
 }
 /**
  * 
  * @export
- * @interface MfaoktaconfigV1
+ * @interface Mfaoktaconfig
  */
-export interface MfaoktaconfigV1 {
+export interface Mfaoktaconfig {
     /**
      * Mfa method name
      * @type {string}
-     * @memberof MfaoktaconfigV1
+     * @memberof Mfaoktaconfig
      */
     'mfaMethod'?: string | null;
     /**
      * If MFA method is enabled.
      * @type {boolean}
-     * @memberof MfaoktaconfigV1
+     * @memberof Mfaoktaconfig
      */
     'enabled'?: boolean;
     /**
      * The server host name or IP address of the MFA provider.
      * @type {string}
-     * @memberof MfaoktaconfigV1
+     * @memberof Mfaoktaconfig
      */
     'host'?: string | null;
     /**
      * The secret key for authenticating requests to the MFA provider.
      * @type {string}
-     * @memberof MfaoktaconfigV1
+     * @memberof Mfaoktaconfig
      */
     'accessKey'?: string | null;
     /**
      * Optional. The name of the attribute for mapping IdentityNow identity to the MFA provider.
      * @type {string}
-     * @memberof MfaoktaconfigV1
+     * @memberof Mfaoktaconfig
      */
     'identityAttribute'?: string | null;
 }
 
 /**
- * MFAConfigurationV1Api - axios parameter creator
+ * MFAConfigurationApi - axios parameter creator
  * @export
  */
-export const MFAConfigurationV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const MFAConfigurationApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This API returns the configuration of an Duo MFA method.
@@ -408,13 +408,13 @@ export const MFAConfigurationV1ApiAxiosParamCreator = function (configuration?: 
         /**
          * This API sets the configuration of an Duo MFA method.
          * @summary Set duo mfa configuration
-         * @param {MfaduoconfigV1} mfaduoconfigV1 
+         * @param {Mfaduoconfig} mfaduoconfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setMFADuoConfigV1: async (mfaduoconfigV1: MfaduoconfigV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'mfaduoconfigV1' is not null or undefined
-            assertParamExists('setMFADuoConfigV1', 'mfaduoconfigV1', mfaduoconfigV1)
+        setMFADuoConfigV1: async (mfaduoconfig: Mfaduoconfig, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'mfaduoconfig' is not null or undefined
+            assertParamExists('setMFADuoConfigV1', 'mfaduoconfig', mfaduoconfig)
             const localVarPath = `/mfa/v1/duo-web/config`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -434,7 +434,7 @@ export const MFAConfigurationV1ApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(mfaduoconfigV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(mfaduoconfig, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -444,13 +444,13 @@ export const MFAConfigurationV1ApiAxiosParamCreator = function (configuration?: 
         /**
          * This API sets answers to challenge questions.  Any configured questions omitted from the request are removed from user KBA configuration.    
          * @summary Set mfa kba configuration
-         * @param {Array<KbaanswerrequestitemV1>} kbaanswerrequestitemV1 
+         * @param {Array<Kbaanswerrequestitem>} kbaanswerrequestitem 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setMFAKBAConfigV1: async (kbaanswerrequestitemV1: Array<KbaanswerrequestitemV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'kbaanswerrequestitemV1' is not null or undefined
-            assertParamExists('setMFAKBAConfigV1', 'kbaanswerrequestitemV1', kbaanswerrequestitemV1)
+        setMFAKBAConfigV1: async (kbaanswerrequestitem: Array<Kbaanswerrequestitem>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'kbaanswerrequestitem' is not null or undefined
+            assertParamExists('setMFAKBAConfigV1', 'kbaanswerrequestitem', kbaanswerrequestitem)
             const localVarPath = `/mfa/v1/kba/config/answers`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -470,7 +470,7 @@ export const MFAConfigurationV1ApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(kbaanswerrequestitemV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(kbaanswerrequestitem, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -480,13 +480,13 @@ export const MFAConfigurationV1ApiAxiosParamCreator = function (configuration?: 
         /**
          * This API sets the configuration of an Okta MFA method.
          * @summary Set okta mfa configuration
-         * @param {MfaoktaconfigV1} mfaoktaconfigV1 
+         * @param {Mfaoktaconfig} mfaoktaconfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setMFAOktaConfigV1: async (mfaoktaconfigV1: MfaoktaconfigV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'mfaoktaconfigV1' is not null or undefined
-            assertParamExists('setMFAOktaConfigV1', 'mfaoktaconfigV1', mfaoktaconfigV1)
+        setMFAOktaConfigV1: async (mfaoktaconfig: Mfaoktaconfig, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'mfaoktaconfig' is not null or undefined
+            assertParamExists('setMFAOktaConfigV1', 'mfaoktaconfig', mfaoktaconfig)
             const localVarPath = `/mfa/v1/okta-verify/config`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -506,7 +506,7 @@ export const MFAConfigurationV1ApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(mfaoktaconfigV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(mfaoktaconfig, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -516,11 +516,11 @@ export const MFAConfigurationV1ApiAxiosParamCreator = function (configuration?: 
         /**
          * This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter.
          * @summary Mfa method\'s test configuration
-         * @param {TestMFAConfigV1MethodV1} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
+         * @param {TestMFAConfigV1MethodEnum} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        testMFAConfigV1: async (method: TestMFAConfigV1MethodV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        testMFAConfigV1: async (method: TestMFAConfigV1MethodEnum, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'method' is not null or undefined
             assertParamExists('testMFAConfigV1', 'method', method)
             const localVarPath = `/mfa/v1/{method}/test`
@@ -551,11 +551,11 @@ export const MFAConfigurationV1ApiAxiosParamCreator = function (configuration?: 
 };
 
 /**
- * MFAConfigurationV1Api - functional programming interface
+ * MFAConfigurationApi - functional programming interface
  * @export
  */
-export const MFAConfigurationV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = MFAConfigurationV1ApiAxiosParamCreator(configuration)
+export const MFAConfigurationApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = MFAConfigurationApiAxiosParamCreator(configuration)
     return {
         /**
          * This API returns the configuration of an Duo MFA method.
@@ -563,10 +563,10 @@ export const MFAConfigurationV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getMFADuoConfigV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaduoconfigV1>> {
+        async getMFADuoConfigV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Mfaduoconfig>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMFADuoConfigV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MFAConfigurationV1Api.getMFADuoConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MFAConfigurationApi.getMFADuoConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -576,10 +576,10 @@ export const MFAConfigurationV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getMFAKbaConfigV1(allLanguages?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<KbaquestionV1>>> {
+        async getMFAKbaConfigV1(allLanguages?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Kbaquestion>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMFAKbaConfigV1(allLanguages, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MFAConfigurationV1Api.getMFAKbaConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MFAConfigurationApi.getMFAKbaConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -588,73 +588,73 @@ export const MFAConfigurationV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getMFAOktaConfigV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaoktaconfigV1>> {
+        async getMFAOktaConfigV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Mfaoktaconfig>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMFAOktaConfigV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MFAConfigurationV1Api.getMFAOktaConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MFAConfigurationApi.getMFAOktaConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API sets the configuration of an Duo MFA method.
          * @summary Set duo mfa configuration
-         * @param {MfaduoconfigV1} mfaduoconfigV1 
+         * @param {Mfaduoconfig} mfaduoconfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setMFADuoConfigV1(mfaduoconfigV1: MfaduoconfigV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaduoconfigV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setMFADuoConfigV1(mfaduoconfigV1, axiosOptions);
+        async setMFADuoConfigV1(mfaduoconfig: Mfaduoconfig, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Mfaduoconfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setMFADuoConfigV1(mfaduoconfig, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MFAConfigurationV1Api.setMFADuoConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MFAConfigurationApi.setMFADuoConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API sets answers to challenge questions.  Any configured questions omitted from the request are removed from user KBA configuration.    
          * @summary Set mfa kba configuration
-         * @param {Array<KbaanswerrequestitemV1>} kbaanswerrequestitemV1 
+         * @param {Array<Kbaanswerrequestitem>} kbaanswerrequestitem 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setMFAKBAConfigV1(kbaanswerrequestitemV1: Array<KbaanswerrequestitemV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<KbaanswerresponseitemV1>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setMFAKBAConfigV1(kbaanswerrequestitemV1, axiosOptions);
+        async setMFAKBAConfigV1(kbaanswerrequestitem: Array<Kbaanswerrequestitem>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Kbaanswerresponseitem>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setMFAKBAConfigV1(kbaanswerrequestitem, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MFAConfigurationV1Api.setMFAKBAConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MFAConfigurationApi.setMFAKBAConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API sets the configuration of an Okta MFA method.
          * @summary Set okta mfa configuration
-         * @param {MfaoktaconfigV1} mfaoktaconfigV1 
+         * @param {Mfaoktaconfig} mfaoktaconfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setMFAOktaConfigV1(mfaoktaconfigV1: MfaoktaconfigV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaoktaconfigV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setMFAOktaConfigV1(mfaoktaconfigV1, axiosOptions);
+        async setMFAOktaConfigV1(mfaoktaconfig: Mfaoktaconfig, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Mfaoktaconfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setMFAOktaConfigV1(mfaoktaconfig, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MFAConfigurationV1Api.setMFAOktaConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MFAConfigurationApi.setMFAOktaConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter.
          * @summary Mfa method\'s test configuration
-         * @param {TestMFAConfigV1MethodV1} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
+         * @param {TestMFAConfigV1MethodEnum} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async testMFAConfigV1(method: TestMFAConfigV1MethodV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaconfigtestresponseV1>> {
+        async testMFAConfigV1(method: TestMFAConfigV1MethodEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Mfaconfigtestresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.testMFAConfigV1(method, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MFAConfigurationV1Api.testMFAConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MFAConfigurationApi.testMFAConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * MFAConfigurationV1Api - factory interface
+ * MFAConfigurationApi - factory interface
  * @export
  */
-export const MFAConfigurationV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = MFAConfigurationV1ApiFp(configuration)
+export const MFAConfigurationApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = MFAConfigurationApiFp(configuration)
     return {
         /**
          * This API returns the configuration of an Duo MFA method.
@@ -662,17 +662,17 @@ export const MFAConfigurationV1ApiFactory = function (configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getMFADuoConfigV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MfaduoconfigV1> {
+        getMFADuoConfigV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Mfaduoconfig> {
             return localVarFp.getMFADuoConfigV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the KBA configuration for MFA.
          * @summary Configuration of kba mfa method
-         * @param {MFAConfigurationV1ApiGetMFAKbaConfigV1Request} requestParameters Request parameters.
+         * @param {MFAConfigurationApiGetMFAKbaConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getMFAKbaConfigV1(requestParameters: MFAConfigurationV1ApiGetMFAKbaConfigV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<KbaquestionV1>> {
+        getMFAKbaConfigV1(requestParameters: MFAConfigurationApiGetMFAKbaConfigV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Kbaquestion>> {
             return localVarFp.getMFAKbaConfigV1(requestParameters.allLanguages, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -681,150 +681,150 @@ export const MFAConfigurationV1ApiFactory = function (configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getMFAOktaConfigV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MfaoktaconfigV1> {
+        getMFAOktaConfigV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Mfaoktaconfig> {
             return localVarFp.getMFAOktaConfigV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API sets the configuration of an Duo MFA method.
          * @summary Set duo mfa configuration
-         * @param {MFAConfigurationV1ApiSetMFADuoConfigV1Request} requestParameters Request parameters.
+         * @param {MFAConfigurationApiSetMFADuoConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setMFADuoConfigV1(requestParameters: MFAConfigurationV1ApiSetMFADuoConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MfaduoconfigV1> {
-            return localVarFp.setMFADuoConfigV1(requestParameters.mfaduoconfigV1, axiosOptions).then((request) => request(axios, basePath));
+        setMFADuoConfigV1(requestParameters: MFAConfigurationApiSetMFADuoConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Mfaduoconfig> {
+            return localVarFp.setMFADuoConfigV1(requestParameters.mfaduoconfig, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API sets answers to challenge questions.  Any configured questions omitted from the request are removed from user KBA configuration.    
          * @summary Set mfa kba configuration
-         * @param {MFAConfigurationV1ApiSetMFAKBAConfigV1Request} requestParameters Request parameters.
+         * @param {MFAConfigurationApiSetMFAKBAConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setMFAKBAConfigV1(requestParameters: MFAConfigurationV1ApiSetMFAKBAConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<KbaanswerresponseitemV1>> {
-            return localVarFp.setMFAKBAConfigV1(requestParameters.kbaanswerrequestitemV1, axiosOptions).then((request) => request(axios, basePath));
+        setMFAKBAConfigV1(requestParameters: MFAConfigurationApiSetMFAKBAConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Kbaanswerresponseitem>> {
+            return localVarFp.setMFAKBAConfigV1(requestParameters.kbaanswerrequestitem, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API sets the configuration of an Okta MFA method.
          * @summary Set okta mfa configuration
-         * @param {MFAConfigurationV1ApiSetMFAOktaConfigV1Request} requestParameters Request parameters.
+         * @param {MFAConfigurationApiSetMFAOktaConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setMFAOktaConfigV1(requestParameters: MFAConfigurationV1ApiSetMFAOktaConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MfaoktaconfigV1> {
-            return localVarFp.setMFAOktaConfigV1(requestParameters.mfaoktaconfigV1, axiosOptions).then((request) => request(axios, basePath));
+        setMFAOktaConfigV1(requestParameters: MFAConfigurationApiSetMFAOktaConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Mfaoktaconfig> {
+            return localVarFp.setMFAOktaConfigV1(requestParameters.mfaoktaconfig, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter.
          * @summary Mfa method\'s test configuration
-         * @param {MFAConfigurationV1ApiTestMFAConfigV1Request} requestParameters Request parameters.
+         * @param {MFAConfigurationApiTestMFAConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        testMFAConfigV1(requestParameters: MFAConfigurationV1ApiTestMFAConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MfaconfigtestresponseV1> {
+        testMFAConfigV1(requestParameters: MFAConfigurationApiTestMFAConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Mfaconfigtestresponse> {
             return localVarFp.testMFAConfigV1(requestParameters.method, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for getMFAKbaConfigV1 operation in MFAConfigurationV1Api.
+ * Request parameters for getMFAKbaConfigV1 operation in MFAConfigurationApi.
  * @export
- * @interface MFAConfigurationV1ApiGetMFAKbaConfigV1Request
+ * @interface MFAConfigurationApiGetMFAKbaConfigV1Request
  */
-export interface MFAConfigurationV1ApiGetMFAKbaConfigV1Request {
+export interface MFAConfigurationApiGetMFAKbaConfigV1Request {
     /**
      * Indicator whether the question text should be returned in all configured languages    * If true, the question text is returned in all languages that it is configured in.    * If false, the question text is returned in the user locale if available, else for the default locale.     * If not passed, it behaves the same way as passing this parameter as false
      * @type {boolean}
-     * @memberof MFAConfigurationV1ApiGetMFAKbaConfigV1
+     * @memberof MFAConfigurationApiGetMFAKbaConfigV1
      */
     readonly allLanguages?: boolean
 }
 
 /**
- * Request parameters for setMFADuoConfigV1 operation in MFAConfigurationV1Api.
+ * Request parameters for setMFADuoConfigV1 operation in MFAConfigurationApi.
  * @export
- * @interface MFAConfigurationV1ApiSetMFADuoConfigV1Request
+ * @interface MFAConfigurationApiSetMFADuoConfigV1Request
  */
-export interface MFAConfigurationV1ApiSetMFADuoConfigV1Request {
+export interface MFAConfigurationApiSetMFADuoConfigV1Request {
     /**
      * 
-     * @type {MfaduoconfigV1}
-     * @memberof MFAConfigurationV1ApiSetMFADuoConfigV1
+     * @type {Mfaduoconfig}
+     * @memberof MFAConfigurationApiSetMFADuoConfigV1
      */
-    readonly mfaduoconfigV1: MfaduoconfigV1
+    readonly mfaduoconfig: Mfaduoconfig
 }
 
 /**
- * Request parameters for setMFAKBAConfigV1 operation in MFAConfigurationV1Api.
+ * Request parameters for setMFAKBAConfigV1 operation in MFAConfigurationApi.
  * @export
- * @interface MFAConfigurationV1ApiSetMFAKBAConfigV1Request
+ * @interface MFAConfigurationApiSetMFAKBAConfigV1Request
  */
-export interface MFAConfigurationV1ApiSetMFAKBAConfigV1Request {
+export interface MFAConfigurationApiSetMFAKBAConfigV1Request {
     /**
      * 
-     * @type {Array<KbaanswerrequestitemV1>}
-     * @memberof MFAConfigurationV1ApiSetMFAKBAConfigV1
+     * @type {Array<Kbaanswerrequestitem>}
+     * @memberof MFAConfigurationApiSetMFAKBAConfigV1
      */
-    readonly kbaanswerrequestitemV1: Array<KbaanswerrequestitemV1>
+    readonly kbaanswerrequestitem: Array<Kbaanswerrequestitem>
 }
 
 /**
- * Request parameters for setMFAOktaConfigV1 operation in MFAConfigurationV1Api.
+ * Request parameters for setMFAOktaConfigV1 operation in MFAConfigurationApi.
  * @export
- * @interface MFAConfigurationV1ApiSetMFAOktaConfigV1Request
+ * @interface MFAConfigurationApiSetMFAOktaConfigV1Request
  */
-export interface MFAConfigurationV1ApiSetMFAOktaConfigV1Request {
+export interface MFAConfigurationApiSetMFAOktaConfigV1Request {
     /**
      * 
-     * @type {MfaoktaconfigV1}
-     * @memberof MFAConfigurationV1ApiSetMFAOktaConfigV1
+     * @type {Mfaoktaconfig}
+     * @memberof MFAConfigurationApiSetMFAOktaConfigV1
      */
-    readonly mfaoktaconfigV1: MfaoktaconfigV1
+    readonly mfaoktaconfig: Mfaoktaconfig
 }
 
 /**
- * Request parameters for testMFAConfigV1 operation in MFAConfigurationV1Api.
+ * Request parameters for testMFAConfigV1 operation in MFAConfigurationApi.
  * @export
- * @interface MFAConfigurationV1ApiTestMFAConfigV1Request
+ * @interface MFAConfigurationApiTestMFAConfigV1Request
  */
-export interface MFAConfigurationV1ApiTestMFAConfigV1Request {
+export interface MFAConfigurationApiTestMFAConfigV1Request {
     /**
      * The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
      * @type {'okta-verify' | 'duo-web'}
-     * @memberof MFAConfigurationV1ApiTestMFAConfigV1
+     * @memberof MFAConfigurationApiTestMFAConfigV1
      */
-    readonly method: TestMFAConfigV1MethodV1
+    readonly method: TestMFAConfigV1MethodEnum
 }
 
 /**
- * MFAConfigurationV1Api - object-oriented interface
+ * MFAConfigurationApi - object-oriented interface
  * @export
- * @class MFAConfigurationV1Api
+ * @class MFAConfigurationApi
  * @extends {BaseAPI}
  */
-export class MFAConfigurationV1Api extends BaseAPI {
+export class MFAConfigurationApi extends BaseAPI {
     /**
      * This API returns the configuration of an Duo MFA method.
      * @summary Configuration of duo mfa method
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MFAConfigurationV1Api
+     * @memberof MFAConfigurationApi
      */
     public getMFADuoConfigV1(axiosOptions?: RawAxiosRequestConfig) {
-        return MFAConfigurationV1ApiFp(this.configuration).getMFADuoConfigV1(axiosOptions).then((request) => request(this.axios, this.basePath));
+        return MFAConfigurationApiFp(this.configuration).getMFADuoConfigV1(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the KBA configuration for MFA.
      * @summary Configuration of kba mfa method
-     * @param {MFAConfigurationV1ApiGetMFAKbaConfigV1Request} requestParameters Request parameters.
+     * @param {MFAConfigurationApiGetMFAKbaConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MFAConfigurationV1Api
+     * @memberof MFAConfigurationApi
      */
-    public getMFAKbaConfigV1(requestParameters: MFAConfigurationV1ApiGetMFAKbaConfigV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return MFAConfigurationV1ApiFp(this.configuration).getMFAKbaConfigV1(requestParameters.allLanguages, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getMFAKbaConfigV1(requestParameters: MFAConfigurationApiGetMFAKbaConfigV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return MFAConfigurationApiFp(this.configuration).getMFAKbaConfigV1(requestParameters.allLanguages, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -832,68 +832,68 @@ export class MFAConfigurationV1Api extends BaseAPI {
      * @summary Configuration of okta mfa method
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MFAConfigurationV1Api
+     * @memberof MFAConfigurationApi
      */
     public getMFAOktaConfigV1(axiosOptions?: RawAxiosRequestConfig) {
-        return MFAConfigurationV1ApiFp(this.configuration).getMFAOktaConfigV1(axiosOptions).then((request) => request(this.axios, this.basePath));
+        return MFAConfigurationApiFp(this.configuration).getMFAOktaConfigV1(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API sets the configuration of an Duo MFA method.
      * @summary Set duo mfa configuration
-     * @param {MFAConfigurationV1ApiSetMFADuoConfigV1Request} requestParameters Request parameters.
+     * @param {MFAConfigurationApiSetMFADuoConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MFAConfigurationV1Api
+     * @memberof MFAConfigurationApi
      */
-    public setMFADuoConfigV1(requestParameters: MFAConfigurationV1ApiSetMFADuoConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MFAConfigurationV1ApiFp(this.configuration).setMFADuoConfigV1(requestParameters.mfaduoconfigV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public setMFADuoConfigV1(requestParameters: MFAConfigurationApiSetMFADuoConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MFAConfigurationApiFp(this.configuration).setMFADuoConfigV1(requestParameters.mfaduoconfig, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API sets answers to challenge questions.  Any configured questions omitted from the request are removed from user KBA configuration.    
      * @summary Set mfa kba configuration
-     * @param {MFAConfigurationV1ApiSetMFAKBAConfigV1Request} requestParameters Request parameters.
+     * @param {MFAConfigurationApiSetMFAKBAConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MFAConfigurationV1Api
+     * @memberof MFAConfigurationApi
      */
-    public setMFAKBAConfigV1(requestParameters: MFAConfigurationV1ApiSetMFAKBAConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MFAConfigurationV1ApiFp(this.configuration).setMFAKBAConfigV1(requestParameters.kbaanswerrequestitemV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public setMFAKBAConfigV1(requestParameters: MFAConfigurationApiSetMFAKBAConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MFAConfigurationApiFp(this.configuration).setMFAKBAConfigV1(requestParameters.kbaanswerrequestitem, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API sets the configuration of an Okta MFA method.
      * @summary Set okta mfa configuration
-     * @param {MFAConfigurationV1ApiSetMFAOktaConfigV1Request} requestParameters Request parameters.
+     * @param {MFAConfigurationApiSetMFAOktaConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MFAConfigurationV1Api
+     * @memberof MFAConfigurationApi
      */
-    public setMFAOktaConfigV1(requestParameters: MFAConfigurationV1ApiSetMFAOktaConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MFAConfigurationV1ApiFp(this.configuration).setMFAOktaConfigV1(requestParameters.mfaoktaconfigV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public setMFAOktaConfigV1(requestParameters: MFAConfigurationApiSetMFAOktaConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MFAConfigurationApiFp(this.configuration).setMFAOktaConfigV1(requestParameters.mfaoktaconfig, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter.
      * @summary Mfa method\'s test configuration
-     * @param {MFAConfigurationV1ApiTestMFAConfigV1Request} requestParameters Request parameters.
+     * @param {MFAConfigurationApiTestMFAConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MFAConfigurationV1Api
+     * @memberof MFAConfigurationApi
      */
-    public testMFAConfigV1(requestParameters: MFAConfigurationV1ApiTestMFAConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MFAConfigurationV1ApiFp(this.configuration).testMFAConfigV1(requestParameters.method, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public testMFAConfigV1(requestParameters: MFAConfigurationApiTestMFAConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MFAConfigurationApiFp(this.configuration).testMFAConfigV1(requestParameters.method, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
 /**
  * @export
  */
-export const TestMFAConfigV1MethodV1 = {
+export const TestMFAConfigV1MethodEnum = {
     OktaVerify: 'okta-verify',
     DuoWeb: 'duo-web'
 } as const;
-export type TestMFAConfigV1MethodV1 = typeof TestMFAConfigV1MethodV1[keyof typeof TestMFAConfigV1MethodV1];
+export type TestMFAConfigV1MethodEnum = typeof TestMFAConfigV1MethodEnum[keyof typeof TestMFAConfigV1MethodEnum];
 
 

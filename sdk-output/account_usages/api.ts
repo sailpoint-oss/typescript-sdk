@@ -26,44 +26,44 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface AccountusageV1
+ * @interface Accountusage
  */
-export interface AccountusageV1 {
+export interface Accountusage {
     /**
      * The first day of the month for which activity is aggregated.
      * @type {string}
-     * @memberof AccountusageV1
+     * @memberof Accountusage
      */
     'date'?: string;
     /**
      * The number of days within the month that the account was active in a source.
      * @type {number}
-     * @memberof AccountusageV1
+     * @memberof Accountusage
      */
     'count'?: number;
 }
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -72,57 +72,57 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetUsagesByAccountIdV1401ResponseV1
+ * @interface GetUsagesByAccountIdV1401Response
  */
-export interface GetUsagesByAccountIdV1401ResponseV1 {
+export interface GetUsagesByAccountIdV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetUsagesByAccountIdV1401ResponseV1
+     * @memberof GetUsagesByAccountIdV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetUsagesByAccountIdV1429ResponseV1
+ * @interface GetUsagesByAccountIdV1429Response
  */
-export interface GetUsagesByAccountIdV1429ResponseV1 {
+export interface GetUsagesByAccountIdV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetUsagesByAccountIdV1429ResponseV1
+     * @memberof GetUsagesByAccountIdV1429Response
      */
     'message'?: any;
 }
@@ -132,20 +132,20 @@ export interface GetUsagesByAccountIdV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 
 /**
- * AccountUsagesV1Api - axios parameter creator
+ * AccountUsagesApi - axios parameter creator
  * @export
  */
-export const AccountUsagesV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const AccountUsagesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This API returns a summary of account usage insights for past 12 months.
@@ -205,11 +205,11 @@ export const AccountUsagesV1ApiAxiosParamCreator = function (configuration?: Con
 };
 
 /**
- * AccountUsagesV1Api - functional programming interface
+ * AccountUsagesApi - functional programming interface
  * @export
  */
-export const AccountUsagesV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = AccountUsagesV1ApiAxiosParamCreator(configuration)
+export const AccountUsagesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = AccountUsagesApiAxiosParamCreator(configuration)
     return {
         /**
          * This API returns a summary of account usage insights for past 12 months.
@@ -222,94 +222,94 @@ export const AccountUsagesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getUsagesByAccountIdV1(accountId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccountusageV1>>> {
+        async getUsagesByAccountIdV1(accountId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Accountusage>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUsagesByAccountIdV1(accountId, limit, offset, count, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AccountUsagesV1Api.getUsagesByAccountIdV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AccountUsagesApi.getUsagesByAccountIdV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * AccountUsagesV1Api - factory interface
+ * AccountUsagesApi - factory interface
  * @export
  */
-export const AccountUsagesV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = AccountUsagesV1ApiFp(configuration)
+export const AccountUsagesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = AccountUsagesApiFp(configuration)
     return {
         /**
          * This API returns a summary of account usage insights for past 12 months.
          * @summary Returns account usage insights
-         * @param {AccountUsagesV1ApiGetUsagesByAccountIdV1Request} requestParameters Request parameters.
+         * @param {AccountUsagesApiGetUsagesByAccountIdV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getUsagesByAccountIdV1(requestParameters: AccountUsagesV1ApiGetUsagesByAccountIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccountusageV1>> {
+        getUsagesByAccountIdV1(requestParameters: AccountUsagesApiGetUsagesByAccountIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Accountusage>> {
             return localVarFp.getUsagesByAccountIdV1(requestParameters.accountId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for getUsagesByAccountIdV1 operation in AccountUsagesV1Api.
+ * Request parameters for getUsagesByAccountIdV1 operation in AccountUsagesApi.
  * @export
- * @interface AccountUsagesV1ApiGetUsagesByAccountIdV1Request
+ * @interface AccountUsagesApiGetUsagesByAccountIdV1Request
  */
-export interface AccountUsagesV1ApiGetUsagesByAccountIdV1Request {
+export interface AccountUsagesApiGetUsagesByAccountIdV1Request {
     /**
      * ID of IDN account
      * @type {string}
-     * @memberof AccountUsagesV1ApiGetUsagesByAccountIdV1
+     * @memberof AccountUsagesApiGetUsagesByAccountIdV1
      */
     readonly accountId: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof AccountUsagesV1ApiGetUsagesByAccountIdV1
+     * @memberof AccountUsagesApiGetUsagesByAccountIdV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof AccountUsagesV1ApiGetUsagesByAccountIdV1
+     * @memberof AccountUsagesApiGetUsagesByAccountIdV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof AccountUsagesV1ApiGetUsagesByAccountIdV1
+     * @memberof AccountUsagesApiGetUsagesByAccountIdV1
      */
     readonly count?: boolean
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date**
      * @type {string}
-     * @memberof AccountUsagesV1ApiGetUsagesByAccountIdV1
+     * @memberof AccountUsagesApiGetUsagesByAccountIdV1
      */
     readonly sorters?: string
 }
 
 /**
- * AccountUsagesV1Api - object-oriented interface
+ * AccountUsagesApi - object-oriented interface
  * @export
- * @class AccountUsagesV1Api
+ * @class AccountUsagesApi
  * @extends {BaseAPI}
  */
-export class AccountUsagesV1Api extends BaseAPI {
+export class AccountUsagesApi extends BaseAPI {
     /**
      * This API returns a summary of account usage insights for past 12 months.
      * @summary Returns account usage insights
-     * @param {AccountUsagesV1ApiGetUsagesByAccountIdV1Request} requestParameters Request parameters.
+     * @param {AccountUsagesApiGetUsagesByAccountIdV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AccountUsagesV1Api
+     * @memberof AccountUsagesApi
      */
-    public getUsagesByAccountIdV1(requestParameters: AccountUsagesV1ApiGetUsagesByAccountIdV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccountUsagesV1ApiFp(this.configuration).getUsagesByAccountIdV1(requestParameters.accountId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getUsagesByAccountIdV1(requestParameters: AccountUsagesApiGetUsagesByAccountIdV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccountUsagesApiFp(this.configuration).getUsagesByAccountIdV1(requestParameters.accountId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

@@ -1,8 +1,8 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
-ApplicationDiscoveryV1Api.md
-ApplicationDiscoveryV1ApideveloperSite_code_examples.yaml
+ApplicationDiscoveryApi.md
+ApplicationDiscoveryApideveloperSite_code_examples.yaml
 Applicationdiscoveryrequest.md
 Applicationdiscoveryresponse.md
 ApplicationdiscoveryresponseTarget.md

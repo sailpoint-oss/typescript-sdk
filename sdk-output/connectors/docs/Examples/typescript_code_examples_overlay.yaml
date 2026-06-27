@@ -4,14 +4,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/connectors/methods/connectors#create-custom-connector-v1
       source: |
-        import { ConnectorsV1Api } from 'sailpoint-api-client';
+        import { ConnectorsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new ConnectorsV1Api(configuration);
-        const v3createconnectordtoV1: V3createconnectordtoV1 = ; // V3createconnectordtoV1 | 
-        const result = await apiInstance.createCustomConnectorV1(v3createconnectordtoV1);
+        const configuration = new Configuration();
+        const apiInstance = new ConnectorsApi(configuration);
+        const v3createconnectordto: V3createconnectordto = ; // V3createconnectordto | 
+        const result = await apiInstance.createCustomConnectorV1({ v3createconnectordto: v3createconnectordto });
         console.log(result);
 - path: /connectors/v1/{scriptName}
   method: DELETE
@@ -19,14 +18,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/connectors/methods/connectors#delete-custom-connector-v1
       source: |
-        import { ConnectorsV1Api } from 'sailpoint-api-client';
+        import { ConnectorsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new ConnectorsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new ConnectorsApi(configuration);
         const scriptName: string = 'aScriptName'; // string | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. (default to undefined)
-        const result = await apiInstance.deleteCustomConnectorV1(scriptName);
+        const result = await apiInstance.deleteCustomConnectorV1({ scriptName: scriptName });
         console.log(result);
 - path: /connectors/v1/{scriptName}/correlation-config
   method: GET
@@ -34,14 +32,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/connectors/methods/connectors#get-connector-correlation-config-v1
       source: |
-        import { ConnectorsV1Api } from 'sailpoint-api-client';
+        import { ConnectorsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new ConnectorsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new ConnectorsApi(configuration);
         const scriptName: string = 'aScriptName'; // string | The scriptName value of the connector. Scriptname is the unique id generated at connector creation. (default to undefined)
-        const result = await apiInstance.getConnectorCorrelationConfigV1(scriptName);
+        const result = await apiInstance.getConnectorCorrelationConfigV1({ scriptName: scriptName });
         console.log(result);
 - path: /connectors/v1
   method: GET
@@ -49,18 +46,17 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/connectors/methods/connectors#get-connector-list-v1
       source: |
-        import { ConnectorsV1Api } from 'sailpoint-api-client';
+        import { ConnectorsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new ConnectorsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new ConnectorsApi(configuration);
         const filters: string = 'directConnect eq "true"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw, co*  **type**: *sw, co, eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca*  **labels**: *ca* (optional) (default to undefined)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const locale: string = 'de'; // 'de' | 'no' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl' | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (optional) (default to undefined)
-        const result = await apiInstance.getConnectorListV1();
+        const result = await apiInstance.getConnectorListV1({  });
         console.log(result);
 - path: /connectors/v1/{scriptName}/source-config
   method: GET
@@ -68,14 +64,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/connectors/methods/connectors#get-connector-source-config-v1
       source: |
-        import { ConnectorsV1Api } from 'sailpoint-api-client';
+        import { ConnectorsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new ConnectorsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new ConnectorsApi(configuration);
         const scriptName: string = 'aScriptName'; // string | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. (default to undefined)
-        const result = await apiInstance.getConnectorSourceConfigV1(scriptName);
+        const result = await apiInstance.getConnectorSourceConfigV1({ scriptName: scriptName });
         console.log(result);
 - path: /connectors/v1/{scriptName}/source-template
   method: GET
@@ -83,14 +78,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/connectors/methods/connectors#get-connector-source-template-v1
       source: |
-        import { ConnectorsV1Api } from 'sailpoint-api-client';
+        import { ConnectorsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new ConnectorsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new ConnectorsApi(configuration);
         const scriptName: string = 'aScriptName'; // string | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. (default to undefined)
-        const result = await apiInstance.getConnectorSourceTemplateV1(scriptName);
+        const result = await apiInstance.getConnectorSourceTemplateV1({ scriptName: scriptName });
         console.log(result);
 - path: /connectors/v1/{scriptName}/translations/{locale}
   method: GET
@@ -98,15 +92,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/connectors/methods/connectors#get-connector-translations-v1
       source: |
-        import { ConnectorsV1Api } from 'sailpoint-api-client';
+        import { ConnectorsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new ConnectorsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new ConnectorsApi(configuration);
         const scriptName: string = 'aScriptName'; // string | The scriptName value of the connector. Scriptname is the unique id generated at connector creation. (default to undefined)
         const locale: string = 'de'; // 'de' | 'no' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl' | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (default to undefined)
-        const result = await apiInstance.getConnectorTranslationsV1(scriptName, locale);
+        const result = await apiInstance.getConnectorTranslationsV1({ scriptName: scriptName, locale: locale });
         console.log(result);
 - path: /connectors/v1/{scriptName}
   method: GET
@@ -114,15 +107,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/connectors/methods/connectors#get-connector-v1
       source: |
-        import { ConnectorsV1Api } from 'sailpoint-api-client';
+        import { ConnectorsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new ConnectorsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new ConnectorsApi(configuration);
         const scriptName: string = 'aScriptName'; // string | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. (default to undefined)
         const locale: string = 'de'; // 'de' | 'no' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl' | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (optional) (default to undefined)
-        const result = await apiInstance.getConnectorV1(scriptName);
+        const result = await apiInstance.getConnectorV1({ scriptName: scriptName });
         console.log(result);
 - path: /connectors/v1/{scriptName}/correlation-config
   method: PUT
@@ -130,15 +122,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/connectors/methods/connectors#put-connector-correlation-config-v1
       source: |
-        import { ConnectorsV1Api } from 'sailpoint-api-client';
+        import { ConnectorsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new ConnectorsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new ConnectorsApi(configuration);
         const scriptName: string = 'aScriptName'; // string | The scriptName value of the connector. Scriptname is the unique id generated at connector creation. (default to undefined)
         const file: File = BINARY_DATA_HERE; // File | connector correlation config xml file (default to undefined)
-        const result = await apiInstance.putConnectorCorrelationConfigV1(scriptName, file);
+        const result = await apiInstance.putConnectorCorrelationConfigV1({ scriptName: scriptName, file: file });
         console.log(result);
 - path: /connectors/v1/{scriptName}/source-config
   method: PUT
@@ -146,15 +137,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/connectors/methods/connectors#put-connector-source-config-v1
       source: |
-        import { ConnectorsV1Api } from 'sailpoint-api-client';
+        import { ConnectorsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new ConnectorsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new ConnectorsApi(configuration);
         const scriptName: string = 'aScriptName'; // string | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. (default to undefined)
         const file: File = BINARY_DATA_HERE; // File | connector source config xml file (default to undefined)
-        const result = await apiInstance.putConnectorSourceConfigV1(scriptName, file);
+        const result = await apiInstance.putConnectorSourceConfigV1({ scriptName: scriptName, file: file });
         console.log(result);
 - path: /connectors/v1/{scriptName}/source-template
   method: PUT
@@ -162,15 +152,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/connectors/methods/connectors#put-connector-source-template-v1
       source: |
-        import { ConnectorsV1Api } from 'sailpoint-api-client';
+        import { ConnectorsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new ConnectorsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new ConnectorsApi(configuration);
         const scriptName: string = 'aScriptName'; // string | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. (default to undefined)
         const file: File = BINARY_DATA_HERE; // File | connector source template xml file (default to undefined)
-        const result = await apiInstance.putConnectorSourceTemplateV1(scriptName, file);
+        const result = await apiInstance.putConnectorSourceTemplateV1({ scriptName: scriptName, file: file });
         console.log(result);
 - path: /connectors/v1/{scriptName}/translations/{locale}
   method: PUT
@@ -178,15 +167,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/connectors/methods/connectors#put-connector-translations-v1
       source: |
-        import { ConnectorsV1Api } from 'sailpoint-api-client';
+        import { ConnectorsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new ConnectorsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new ConnectorsApi(configuration);
         const scriptName: string = 'aScriptName'; // string | The scriptName value of the connector. Scriptname is the unique id generated at connector creation. (default to undefined)
         const locale: string = 'de'; // 'de' | 'no' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl' | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (default to undefined)
-        const result = await apiInstance.putConnectorTranslationsV1(scriptName, locale);
+        const result = await apiInstance.putConnectorTranslationsV1({ scriptName: scriptName, locale: locale });
         console.log(result);
 - path: /connectors/v1/{scriptName}
   method: PATCH
@@ -194,13 +182,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/connectors/methods/connectors#update-connector-v1
       source: |
-        import { ConnectorsV1Api } from 'sailpoint-api-client';
+        import { ConnectorsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new ConnectorsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new ConnectorsApi(configuration);
         const scriptName: string = 'aScriptName'; // string | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. (default to undefined)
-        const jsonpatchoperationV1: Array&lt;JsonpatchoperationV1&gt; = ; // Array<JsonpatchoperationV1> | A list of connector detail update operations 
-        const result = await apiInstance.updateConnectorV1(scriptName, jsonpatchoperationV1);
+        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = ; // Array<Jsonpatchoperation> | A list of connector detail update operations 
+        const result = await apiInstance.updateConnectorV1({ scriptName: scriptName, jsonpatchoperation: jsonpatchoperation });
         console.log(result);

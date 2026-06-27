@@ -45,8 +45,8 @@ Sedbatchrequest.md
 Sedbatchresponse.md
 Sedbatchstats.md
 Sedpatch.md
-SuggestedEntitlementDescriptionV1Api.md
-SuggestedEntitlementDescriptionV1ApideveloperSite_code_examples.yaml
+SuggestedEntitlementDescriptionApi.md
+SuggestedEntitlementDescriptionApideveloperSite_code_examples.yaml
 api.ts
 base.ts
 common.ts

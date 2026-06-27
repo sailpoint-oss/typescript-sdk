@@ -1,20 +1,20 @@
 ---
-id: v1-pendingapproval-max-permitted-access-duration-v1
-title: PendingapprovalMaxPermittedAccessDurationV1
-pagination_label: PendingapprovalMaxPermittedAccessDurationV1
-sidebar_label: PendingapprovalMaxPermittedAccessDurationV1
+id: v1-pendingapproval-max-permitted-access-duration
+title: PendingapprovalMaxPermittedAccessDuration
+pagination_label: PendingapprovalMaxPermittedAccessDuration
+sidebar_label: PendingapprovalMaxPermittedAccessDuration
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'PendingapprovalMaxPermittedAccessDurationV1', 'v1PendingapprovalMaxPermittedAccessDurationV1']
-slug: /tools/sdk/typescript/access_request_approvals/models/pendingapproval-max-permitted-access-duration-v1
-tags: ['SDK', 'Software Development Kit', 'PendingapprovalMaxPermittedAccessDurationV1', 'v1PendingapprovalMaxPermittedAccessDurationV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'PendingapprovalMaxPermittedAccessDuration', 'v1PendingapprovalMaxPermittedAccessDuration']
+slug: /tools/sdk/typescript/access_request_approvals/models/pendingapproval-max-permitted-access-duration
+tags: ['SDK', 'Software Development Kit', 'PendingapprovalMaxPermittedAccessDuration', 'v1PendingapprovalMaxPermittedAccessDuration']
 ---
 
-# PendingapprovalMaxPermittedAccessDurationV1
+# PendingapprovalMaxPermittedAccessDuration
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **(optional)** **number** | The numeric value of the duration. | [default to undefined]
-**timeUnit** | **(optional)** **string** | The time unit for the duration. | [default to undefined]
+**value** | **(optional)** `number` | The numeric value of the duration. | [default to undefined]
+**timeUnit** | **(optional)** `string` | The time unit for the duration. | [default to undefined]
 

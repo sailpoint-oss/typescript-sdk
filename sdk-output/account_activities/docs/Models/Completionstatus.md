@@ -1,15 +1,15 @@
 ---
-id: v1-completionstatus-v1
-title: CompletionstatusV1
-pagination_label: CompletionstatusV1
-sidebar_label: CompletionstatusV1
+id: v1-completionstatus
+title: Completionstatus
+pagination_label: Completionstatus
+sidebar_label: Completionstatus
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'CompletionstatusV1', 'v1CompletionstatusV1']
-slug: /tools/sdk/typescript/account_activities/models/completionstatus-v1
-tags: ['SDK', 'Software Development Kit', 'CompletionstatusV1', 'v1CompletionstatusV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Completionstatus', 'v1Completionstatus']
+slug: /tools/sdk/typescript/account_activities/models/completionstatus
+tags: ['SDK', 'Software Development Kit', 'Completionstatus', 'v1Completionstatus']
 ---
 
-# CompletionstatusV1
+# Completionstatus
 
 ## Enum
 

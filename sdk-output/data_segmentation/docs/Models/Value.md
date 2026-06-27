@@ -1,20 +1,20 @@
 ---
-id: v1-value-v1
-title: ValueV1
-pagination_label: ValueV1
-sidebar_label: ValueV1
+id: v1-value
+title: Value
+pagination_label: Value
+sidebar_label: Value
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ValueV1', 'v1ValueV1']
-slug: /tools/sdk/typescript/data_segmentation/models/value-v1
-tags: ['SDK', 'Software Development Kit', 'ValueV1', 'v1ValueV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Value', 'v1Value']
+slug: /tools/sdk/typescript/data_segmentation/models/value
+tags: ['SDK', 'Software Development Kit', 'Value', 'v1Value']
 ---
 
-# ValueV1
+# Value
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | The type of attribute value | [default to undefined]
-**value** | **(optional)** **string** | The attribute value | [default to undefined]
+**type** | **(optional)** `string` | The type of attribute value | [default to undefined]
+**value** | **(optional)** `string` | The attribute value | [default to undefined]
 

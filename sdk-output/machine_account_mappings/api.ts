@@ -24,163 +24,163 @@ import type { RequestArgs } from './base';
 import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
 
 /**
+ * 
+ * @export
+ * @interface Attributemappings
+ */
+export interface Attributemappings {
+    /**
+     * 
+     * @type {AttributemappingsAllOfTarget}
+     * @memberof Attributemappings
+     */
+    'target'?: AttributemappingsAllOfTarget;
+    /**
+     * 
+     * @type {AttributemappingsAllOfTransformDefinition}
+     * @memberof Attributemappings
+     */
+    'transformDefinition'?: AttributemappingsAllOfTransformDefinition;
+}
+/**
  * Targeted Entity
  * @export
- * @interface AttributemappingsAllOfTargetV1
+ * @interface AttributemappingsAllOfTarget
  */
-export interface AttributemappingsAllOfTargetV1 {
+export interface AttributemappingsAllOfTarget {
     /**
      * The type of target entity
      * @type {string}
-     * @memberof AttributemappingsAllOfTargetV1
+     * @memberof AttributemappingsAllOfTarget
      */
-    'type'?: AttributemappingsAllOfTargetV1TypeV1;
+    'type'?: AttributemappingsAllOfTargetTypeEnum;
     /**
      * Name of the targeted attribute
      * @type {string}
-     * @memberof AttributemappingsAllOfTargetV1
+     * @memberof AttributemappingsAllOfTarget
      */
     'attributeName'?: string;
     /**
      * The ID of Source
      * @type {string}
-     * @memberof AttributemappingsAllOfTargetV1
+     * @memberof AttributemappingsAllOfTarget
      */
     'sourceId'?: string;
 }
 
-export const AttributemappingsAllOfTargetV1TypeV1 = {
+export const AttributemappingsAllOfTargetTypeEnum = {
     Account: 'ACCOUNT',
     Identity: 'IDENTITY',
     OwnerAccount: 'OWNER_ACCOUNT',
     OwnerIdentity: 'OWNER_IDENTITY'
 } as const;
 
-export type AttributemappingsAllOfTargetV1TypeV1 = typeof AttributemappingsAllOfTargetV1TypeV1[keyof typeof AttributemappingsAllOfTargetV1TypeV1];
+export type AttributemappingsAllOfTargetTypeEnum = typeof AttributemappingsAllOfTargetTypeEnum[keyof typeof AttributemappingsAllOfTargetTypeEnum];
 
+/**
+ * 
+ * @export
+ * @interface AttributemappingsAllOfTransformDefinition
+ */
+export interface AttributemappingsAllOfTransformDefinition {
+    /**
+     * The type of transform
+     * @type {string}
+     * @memberof AttributemappingsAllOfTransformDefinition
+     */
+    'type'?: string;
+    /**
+     * 
+     * @type {AttributemappingsAllOfTransformDefinitionAttributes}
+     * @memberof AttributemappingsAllOfTransformDefinition
+     */
+    'attributes'?: AttributemappingsAllOfTransformDefinitionAttributes;
+    /**
+     * Transform Operation
+     * @type {string}
+     * @memberof AttributemappingsAllOfTransformDefinition
+     */
+    'id'?: string;
+}
+/**
+ * attributes object
+ * @export
+ * @interface AttributemappingsAllOfTransformDefinitionAttributes
+ */
+export interface AttributemappingsAllOfTransformDefinitionAttributes {
+    /**
+     * 
+     * @type {AttributemappingsAllOfTransformDefinitionAttributesInput}
+     * @memberof AttributemappingsAllOfTransformDefinitionAttributes
+     */
+    'input'?: AttributemappingsAllOfTransformDefinitionAttributesInput;
+}
+/**
+ * Input Object
+ * @export
+ * @interface AttributemappingsAllOfTransformDefinitionAttributesInput
+ */
+export interface AttributemappingsAllOfTransformDefinitionAttributesInput {
+    /**
+     * The Type of Attribute
+     * @type {string}
+     * @memberof AttributemappingsAllOfTransformDefinitionAttributesInput
+     */
+    'type'?: string;
+    /**
+     * 
+     * @type {AttributemappingsAllOfTransformDefinitionAttributesInputAttributes}
+     * @memberof AttributemappingsAllOfTransformDefinitionAttributesInput
+     */
+    'attributes'?: AttributemappingsAllOfTransformDefinitionAttributesInputAttributes;
+}
 /**
  * Attibute Mapping Object
  * @export
- * @interface AttributemappingsAllOfTransformDefinitionAttributesInputAttributesV1
+ * @interface AttributemappingsAllOfTransformDefinitionAttributesInputAttributes
  */
-export interface AttributemappingsAllOfTransformDefinitionAttributesInputAttributesV1 {
+export interface AttributemappingsAllOfTransformDefinitionAttributesInputAttributes {
     /**
      * The name of attribute
      * @type {string}
-     * @memberof AttributemappingsAllOfTransformDefinitionAttributesInputAttributesV1
+     * @memberof AttributemappingsAllOfTransformDefinitionAttributesInputAttributes
      */
     'attributeName'?: string;
     /**
      * Name of the Source
      * @type {string}
-     * @memberof AttributemappingsAllOfTransformDefinitionAttributesInputAttributesV1
+     * @memberof AttributemappingsAllOfTransformDefinitionAttributesInputAttributes
      */
     'sourceName'?: string;
     /**
      * ID of the Source
      * @type {string}
-     * @memberof AttributemappingsAllOfTransformDefinitionAttributesInputAttributesV1
+     * @memberof AttributemappingsAllOfTransformDefinitionAttributesInputAttributes
      */
     'name'?: string;
 }
 /**
- * Input Object
- * @export
- * @interface AttributemappingsAllOfTransformDefinitionAttributesInputV1
- */
-export interface AttributemappingsAllOfTransformDefinitionAttributesInputV1 {
-    /**
-     * The Type of Attribute
-     * @type {string}
-     * @memberof AttributemappingsAllOfTransformDefinitionAttributesInputV1
-     */
-    'type'?: string;
-    /**
-     * 
-     * @type {AttributemappingsAllOfTransformDefinitionAttributesInputAttributesV1}
-     * @memberof AttributemappingsAllOfTransformDefinitionAttributesInputV1
-     */
-    'attributes'?: AttributemappingsAllOfTransformDefinitionAttributesInputAttributesV1;
-}
-/**
- * attributes object
- * @export
- * @interface AttributemappingsAllOfTransformDefinitionAttributesV1
- */
-export interface AttributemappingsAllOfTransformDefinitionAttributesV1 {
-    /**
-     * 
-     * @type {AttributemappingsAllOfTransformDefinitionAttributesInputV1}
-     * @memberof AttributemappingsAllOfTransformDefinitionAttributesV1
-     */
-    'input'?: AttributemappingsAllOfTransformDefinitionAttributesInputV1;
-}
-/**
  * 
  * @export
- * @interface AttributemappingsAllOfTransformDefinitionV1
+ * @interface Errormessagedto
  */
-export interface AttributemappingsAllOfTransformDefinitionV1 {
-    /**
-     * The type of transform
-     * @type {string}
-     * @memberof AttributemappingsAllOfTransformDefinitionV1
-     */
-    'type'?: string;
-    /**
-     * 
-     * @type {AttributemappingsAllOfTransformDefinitionAttributesV1}
-     * @memberof AttributemappingsAllOfTransformDefinitionV1
-     */
-    'attributes'?: AttributemappingsAllOfTransformDefinitionAttributesV1;
-    /**
-     * Transform Operation
-     * @type {string}
-     * @memberof AttributemappingsAllOfTransformDefinitionV1
-     */
-    'id'?: string;
-}
-/**
- * 
- * @export
- * @interface AttributemappingsV1
- */
-export interface AttributemappingsV1 {
-    /**
-     * 
-     * @type {AttributemappingsAllOfTargetV1}
-     * @memberof AttributemappingsV1
-     */
-    'target'?: AttributemappingsAllOfTargetV1;
-    /**
-     * 
-     * @type {AttributemappingsAllOfTransformDefinitionV1}
-     * @memberof AttributemappingsV1
-     */
-    'transformDefinition'?: AttributemappingsAllOfTransformDefinitionV1;
-}
-/**
- * 
- * @export
- * @interface ErrormessagedtoV1
- */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -189,57 +189,57 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface ListMachineAccountMappingsV1401ResponseV1
+ * @interface ListMachineAccountMappingsV1401Response
  */
-export interface ListMachineAccountMappingsV1401ResponseV1 {
+export interface ListMachineAccountMappingsV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListMachineAccountMappingsV1401ResponseV1
+     * @memberof ListMachineAccountMappingsV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ListMachineAccountMappingsV1429ResponseV1
+ * @interface ListMachineAccountMappingsV1429Response
  */
-export interface ListMachineAccountMappingsV1429ResponseV1 {
+export interface ListMachineAccountMappingsV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListMachineAccountMappingsV1429ResponseV1
+     * @memberof ListMachineAccountMappingsV1429Response
      */
     'message'?: any;
 }
@@ -249,34 +249,34 @@ export interface ListMachineAccountMappingsV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 
 /**
- * MachineAccountMappingsV1Api - axios parameter creator
+ * MachineAccountMappingsApi - axios parameter creator
  * @export
  */
-export const MachineAccountMappingsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const MachineAccountMappingsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Creates Machine Account Mappings for both identities and accounts for a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Create machine account mappings
          * @param {string} sourceId Source ID.
-         * @param {AttributemappingsV1} attributemappingsV1 
+         * @param {Attributemappings} attributemappings 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createMachineAccountMappingsV1: async (sourceId: string, attributemappingsV1: AttributemappingsV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createMachineAccountMappingsV1: async (sourceId: string, attributemappings: Attributemappings, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('createMachineAccountMappingsV1', 'sourceId', sourceId)
-            // verify required parameter 'attributemappingsV1' is not null or undefined
-            assertParamExists('createMachineAccountMappingsV1', 'attributemappingsV1', attributemappingsV1)
+            // verify required parameter 'attributemappings' is not null or undefined
+            assertParamExists('createMachineAccountMappingsV1', 'attributemappings', attributemappings)
             const localVarPath = `/sources/v1/{sourceId}/machine-account-mappings`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -297,7 +297,7 @@ export const MachineAccountMappingsV1ApiAxiosParamCreator = function (configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(attributemappingsV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(attributemappings, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -386,15 +386,15 @@ export const MachineAccountMappingsV1ApiAxiosParamCreator = function (configurat
          * Use this API to update Machine Account Attribute Mapping for a Source. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Update source\'s machine account mappings
          * @param {string} sourceId Source ID.
-         * @param {AttributemappingsV1} attributemappingsV1 
+         * @param {Attributemappings} attributemappings 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setMachineAccountMappingsV1: async (sourceId: string, attributemappingsV1: AttributemappingsV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        setMachineAccountMappingsV1: async (sourceId: string, attributemappings: Attributemappings, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('setMachineAccountMappingsV1', 'sourceId', sourceId)
-            // verify required parameter 'attributemappingsV1' is not null or undefined
-            assertParamExists('setMachineAccountMappingsV1', 'attributemappingsV1', attributemappingsV1)
+            // verify required parameter 'attributemappings' is not null or undefined
+            assertParamExists('setMachineAccountMappingsV1', 'attributemappings', attributemappings)
             const localVarPath = `/sources/v1/{sourceId}/machine-mappings`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -415,7 +415,7 @@ export const MachineAccountMappingsV1ApiAxiosParamCreator = function (configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(attributemappingsV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(attributemappings, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -426,24 +426,24 @@ export const MachineAccountMappingsV1ApiAxiosParamCreator = function (configurat
 };
 
 /**
- * MachineAccountMappingsV1Api - functional programming interface
+ * MachineAccountMappingsApi - functional programming interface
  * @export
  */
-export const MachineAccountMappingsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = MachineAccountMappingsV1ApiAxiosParamCreator(configuration)
+export const MachineAccountMappingsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = MachineAccountMappingsApiAxiosParamCreator(configuration)
     return {
         /**
          * Creates Machine Account Mappings for both identities and accounts for a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Create machine account mappings
          * @param {string} sourceId Source ID.
-         * @param {AttributemappingsV1} attributemappingsV1 
+         * @param {Attributemappings} attributemappings 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createMachineAccountMappingsV1(sourceId: string, attributemappingsV1: AttributemappingsV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AttributemappingsV1>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createMachineAccountMappingsV1(sourceId, attributemappingsV1, axiosOptions);
+        async createMachineAccountMappingsV1(sourceId: string, attributemappings: Attributemappings, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Attributemappings>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createMachineAccountMappingsV1(sourceId, attributemappings, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MachineAccountMappingsV1Api.createMachineAccountMappingsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountMappingsApi.createMachineAccountMappingsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -456,7 +456,7 @@ export const MachineAccountMappingsV1ApiFp = function(configuration?: Configurat
         async deleteMachineAccountMappingsV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMachineAccountMappingsV1(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MachineAccountMappingsV1Api.deleteMachineAccountMappingsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountMappingsApi.deleteMachineAccountMappingsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -468,216 +468,216 @@ export const MachineAccountMappingsV1ApiFp = function(configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listMachineAccountMappingsV1(sourceId: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AttributemappingsV1>>> {
+        async listMachineAccountMappingsV1(sourceId: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Attributemappings>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listMachineAccountMappingsV1(sourceId, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MachineAccountMappingsV1Api.listMachineAccountMappingsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountMappingsApi.listMachineAccountMappingsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Use this API to update Machine Account Attribute Mapping for a Source. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Update source\'s machine account mappings
          * @param {string} sourceId Source ID.
-         * @param {AttributemappingsV1} attributemappingsV1 
+         * @param {Attributemappings} attributemappings 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setMachineAccountMappingsV1(sourceId: string, attributemappingsV1: AttributemappingsV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AttributemappingsV1>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setMachineAccountMappingsV1(sourceId, attributemappingsV1, axiosOptions);
+        async setMachineAccountMappingsV1(sourceId: string, attributemappings: Attributemappings, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Attributemappings>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setMachineAccountMappingsV1(sourceId, attributemappings, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MachineAccountMappingsV1Api.setMachineAccountMappingsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountMappingsApi.setMachineAccountMappingsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * MachineAccountMappingsV1Api - factory interface
+ * MachineAccountMappingsApi - factory interface
  * @export
  */
-export const MachineAccountMappingsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = MachineAccountMappingsV1ApiFp(configuration)
+export const MachineAccountMappingsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = MachineAccountMappingsApiFp(configuration)
     return {
         /**
          * Creates Machine Account Mappings for both identities and accounts for a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Create machine account mappings
-         * @param {MachineAccountMappingsV1ApiCreateMachineAccountMappingsV1Request} requestParameters Request parameters.
+         * @param {MachineAccountMappingsApiCreateMachineAccountMappingsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createMachineAccountMappingsV1(requestParameters: MachineAccountMappingsV1ApiCreateMachineAccountMappingsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AttributemappingsV1>> {
-            return localVarFp.createMachineAccountMappingsV1(requestParameters.sourceId, requestParameters.attributemappingsV1, axiosOptions).then((request) => request(axios, basePath));
+        createMachineAccountMappingsV1(requestParameters: MachineAccountMappingsApiCreateMachineAccountMappingsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Attributemappings>> {
+            return localVarFp.createMachineAccountMappingsV1(requestParameters.sourceId, requestParameters.attributemappings, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to remove machine account attribute mappings for a Source.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Delete source\'s machine account mappings
-         * @param {MachineAccountMappingsV1ApiDeleteMachineAccountMappingsV1Request} requestParameters Request parameters.
+         * @param {MachineAccountMappingsApiDeleteMachineAccountMappingsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteMachineAccountMappingsV1(requestParameters: MachineAccountMappingsV1ApiDeleteMachineAccountMappingsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteMachineAccountMappingsV1(requestParameters: MachineAccountMappingsApiDeleteMachineAccountMappingsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteMachineAccountMappingsV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Retrieves Machine account mappings for a specified source using Source ID.
          * @summary Machine account mapping for source
-         * @param {MachineAccountMappingsV1ApiListMachineAccountMappingsV1Request} requestParameters Request parameters.
+         * @param {MachineAccountMappingsApiListMachineAccountMappingsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listMachineAccountMappingsV1(requestParameters: MachineAccountMappingsV1ApiListMachineAccountMappingsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AttributemappingsV1>> {
+        listMachineAccountMappingsV1(requestParameters: MachineAccountMappingsApiListMachineAccountMappingsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Attributemappings>> {
             return localVarFp.listMachineAccountMappingsV1(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to update Machine Account Attribute Mapping for a Source. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Update source\'s machine account mappings
-         * @param {MachineAccountMappingsV1ApiSetMachineAccountMappingsV1Request} requestParameters Request parameters.
+         * @param {MachineAccountMappingsApiSetMachineAccountMappingsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setMachineAccountMappingsV1(requestParameters: MachineAccountMappingsV1ApiSetMachineAccountMappingsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AttributemappingsV1>> {
-            return localVarFp.setMachineAccountMappingsV1(requestParameters.sourceId, requestParameters.attributemappingsV1, axiosOptions).then((request) => request(axios, basePath));
+        setMachineAccountMappingsV1(requestParameters: MachineAccountMappingsApiSetMachineAccountMappingsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Attributemappings>> {
+            return localVarFp.setMachineAccountMappingsV1(requestParameters.sourceId, requestParameters.attributemappings, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createMachineAccountMappingsV1 operation in MachineAccountMappingsV1Api.
+ * Request parameters for createMachineAccountMappingsV1 operation in MachineAccountMappingsApi.
  * @export
- * @interface MachineAccountMappingsV1ApiCreateMachineAccountMappingsV1Request
+ * @interface MachineAccountMappingsApiCreateMachineAccountMappingsV1Request
  */
-export interface MachineAccountMappingsV1ApiCreateMachineAccountMappingsV1Request {
+export interface MachineAccountMappingsApiCreateMachineAccountMappingsV1Request {
     /**
      * Source ID.
      * @type {string}
-     * @memberof MachineAccountMappingsV1ApiCreateMachineAccountMappingsV1
+     * @memberof MachineAccountMappingsApiCreateMachineAccountMappingsV1
      */
     readonly sourceId: string
 
     /**
      * 
-     * @type {AttributemappingsV1}
-     * @memberof MachineAccountMappingsV1ApiCreateMachineAccountMappingsV1
+     * @type {Attributemappings}
+     * @memberof MachineAccountMappingsApiCreateMachineAccountMappingsV1
      */
-    readonly attributemappingsV1: AttributemappingsV1
+    readonly attributemappings: Attributemappings
 }
 
 /**
- * Request parameters for deleteMachineAccountMappingsV1 operation in MachineAccountMappingsV1Api.
+ * Request parameters for deleteMachineAccountMappingsV1 operation in MachineAccountMappingsApi.
  * @export
- * @interface MachineAccountMappingsV1ApiDeleteMachineAccountMappingsV1Request
+ * @interface MachineAccountMappingsApiDeleteMachineAccountMappingsV1Request
  */
-export interface MachineAccountMappingsV1ApiDeleteMachineAccountMappingsV1Request {
+export interface MachineAccountMappingsApiDeleteMachineAccountMappingsV1Request {
     /**
      * source ID.
      * @type {string}
-     * @memberof MachineAccountMappingsV1ApiDeleteMachineAccountMappingsV1
+     * @memberof MachineAccountMappingsApiDeleteMachineAccountMappingsV1
      */
     readonly sourceId: string
 }
 
 /**
- * Request parameters for listMachineAccountMappingsV1 operation in MachineAccountMappingsV1Api.
+ * Request parameters for listMachineAccountMappingsV1 operation in MachineAccountMappingsApi.
  * @export
- * @interface MachineAccountMappingsV1ApiListMachineAccountMappingsV1Request
+ * @interface MachineAccountMappingsApiListMachineAccountMappingsV1Request
  */
-export interface MachineAccountMappingsV1ApiListMachineAccountMappingsV1Request {
+export interface MachineAccountMappingsApiListMachineAccountMappingsV1Request {
     /**
      * Source ID
      * @type {string}
-     * @memberof MachineAccountMappingsV1ApiListMachineAccountMappingsV1
+     * @memberof MachineAccountMappingsApiListMachineAccountMappingsV1
      */
     readonly sourceId: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof MachineAccountMappingsV1ApiListMachineAccountMappingsV1
+     * @memberof MachineAccountMappingsApiListMachineAccountMappingsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof MachineAccountMappingsV1ApiListMachineAccountMappingsV1
+     * @memberof MachineAccountMappingsApiListMachineAccountMappingsV1
      */
     readonly offset?: number
 }
 
 /**
- * Request parameters for setMachineAccountMappingsV1 operation in MachineAccountMappingsV1Api.
+ * Request parameters for setMachineAccountMappingsV1 operation in MachineAccountMappingsApi.
  * @export
- * @interface MachineAccountMappingsV1ApiSetMachineAccountMappingsV1Request
+ * @interface MachineAccountMappingsApiSetMachineAccountMappingsV1Request
  */
-export interface MachineAccountMappingsV1ApiSetMachineAccountMappingsV1Request {
+export interface MachineAccountMappingsApiSetMachineAccountMappingsV1Request {
     /**
      * Source ID.
      * @type {string}
-     * @memberof MachineAccountMappingsV1ApiSetMachineAccountMappingsV1
+     * @memberof MachineAccountMappingsApiSetMachineAccountMappingsV1
      */
     readonly sourceId: string
 
     /**
      * 
-     * @type {AttributemappingsV1}
-     * @memberof MachineAccountMappingsV1ApiSetMachineAccountMappingsV1
+     * @type {Attributemappings}
+     * @memberof MachineAccountMappingsApiSetMachineAccountMappingsV1
      */
-    readonly attributemappingsV1: AttributemappingsV1
+    readonly attributemappings: Attributemappings
 }
 
 /**
- * MachineAccountMappingsV1Api - object-oriented interface
+ * MachineAccountMappingsApi - object-oriented interface
  * @export
- * @class MachineAccountMappingsV1Api
+ * @class MachineAccountMappingsApi
  * @extends {BaseAPI}
  */
-export class MachineAccountMappingsV1Api extends BaseAPI {
+export class MachineAccountMappingsApi extends BaseAPI {
     /**
      * Creates Machine Account Mappings for both identities and accounts for a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary Create machine account mappings
-     * @param {MachineAccountMappingsV1ApiCreateMachineAccountMappingsV1Request} requestParameters Request parameters.
+     * @param {MachineAccountMappingsApiCreateMachineAccountMappingsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MachineAccountMappingsV1Api
+     * @memberof MachineAccountMappingsApi
      */
-    public createMachineAccountMappingsV1(requestParameters: MachineAccountMappingsV1ApiCreateMachineAccountMappingsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineAccountMappingsV1ApiFp(this.configuration).createMachineAccountMappingsV1(requestParameters.sourceId, requestParameters.attributemappingsV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createMachineAccountMappingsV1(requestParameters: MachineAccountMappingsApiCreateMachineAccountMappingsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountMappingsApiFp(this.configuration).createMachineAccountMappingsV1(requestParameters.sourceId, requestParameters.attributemappings, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to remove machine account attribute mappings for a Source.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary Delete source\'s machine account mappings
-     * @param {MachineAccountMappingsV1ApiDeleteMachineAccountMappingsV1Request} requestParameters Request parameters.
+     * @param {MachineAccountMappingsApiDeleteMachineAccountMappingsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MachineAccountMappingsV1Api
+     * @memberof MachineAccountMappingsApi
      */
-    public deleteMachineAccountMappingsV1(requestParameters: MachineAccountMappingsV1ApiDeleteMachineAccountMappingsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineAccountMappingsV1ApiFp(this.configuration).deleteMachineAccountMappingsV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteMachineAccountMappingsV1(requestParameters: MachineAccountMappingsApiDeleteMachineAccountMappingsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountMappingsApiFp(this.configuration).deleteMachineAccountMappingsV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Retrieves Machine account mappings for a specified source using Source ID.
      * @summary Machine account mapping for source
-     * @param {MachineAccountMappingsV1ApiListMachineAccountMappingsV1Request} requestParameters Request parameters.
+     * @param {MachineAccountMappingsApiListMachineAccountMappingsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MachineAccountMappingsV1Api
+     * @memberof MachineAccountMappingsApi
      */
-    public listMachineAccountMappingsV1(requestParameters: MachineAccountMappingsV1ApiListMachineAccountMappingsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineAccountMappingsV1ApiFp(this.configuration).listMachineAccountMappingsV1(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listMachineAccountMappingsV1(requestParameters: MachineAccountMappingsApiListMachineAccountMappingsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountMappingsApiFp(this.configuration).listMachineAccountMappingsV1(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to update Machine Account Attribute Mapping for a Source. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary Update source\'s machine account mappings
-     * @param {MachineAccountMappingsV1ApiSetMachineAccountMappingsV1Request} requestParameters Request parameters.
+     * @param {MachineAccountMappingsApiSetMachineAccountMappingsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MachineAccountMappingsV1Api
+     * @memberof MachineAccountMappingsApi
      */
-    public setMachineAccountMappingsV1(requestParameters: MachineAccountMappingsV1ApiSetMachineAccountMappingsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineAccountMappingsV1ApiFp(this.configuration).setMachineAccountMappingsV1(requestParameters.sourceId, requestParameters.attributemappingsV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public setMachineAccountMappingsV1(requestParameters: MachineAccountMappingsApiSetMachineAccountMappingsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountMappingsApiFp(this.configuration).setMachineAccountMappingsV1(requestParameters.sourceId, requestParameters.attributemappings, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

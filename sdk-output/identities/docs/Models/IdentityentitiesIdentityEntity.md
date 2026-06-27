@@ -1,21 +1,21 @@
 ---
-id: v1-identityentities-identity-entity-v1
-title: IdentityentitiesIdentityEntityV1
-pagination_label: IdentityentitiesIdentityEntityV1
-sidebar_label: IdentityentitiesIdentityEntityV1
+id: v1-identityentities-identity-entity
+title: IdentityentitiesIdentityEntity
+pagination_label: IdentityentitiesIdentityEntity
+sidebar_label: IdentityentitiesIdentityEntity
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'IdentityentitiesIdentityEntityV1', 'v1IdentityentitiesIdentityEntityV1']
-slug: /tools/sdk/typescript/identities/models/identityentities-identity-entity-v1
-tags: ['SDK', 'Software Development Kit', 'IdentityentitiesIdentityEntityV1', 'v1IdentityentitiesIdentityEntityV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'IdentityentitiesIdentityEntity', 'v1IdentityentitiesIdentityEntity']
+slug: /tools/sdk/typescript/identities/models/identityentities-identity-entity
+tags: ['SDK', 'Software Development Kit', 'IdentityentitiesIdentityEntity', 'v1IdentityentitiesIdentityEntity']
 ---
 
-# IdentityentitiesIdentityEntityV1
+# IdentityentitiesIdentityEntity
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **(optional)** **string** | id of the resource to which the identity is associated | [default to undefined]
-**name** | **(optional)** **string** | name of the resource to which the identity is associated | [default to undefined]
-**type** | **(optional)** **string** | type of the resource to which the identity is associated | [default to undefined]
+**id** | **(optional)** `string` | id of the resource to which the identity is associated | [default to undefined]
+**name** | **(optional)** `string` | name of the resource to which the identity is associated | [default to undefined]
+**type** | **(optional)** `string` | type of the resource to which the identity is associated | [default to undefined]
 

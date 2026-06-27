@@ -2,8 +2,8 @@
 .npmignore
 .openapi-generator-ignore
 DataSegment.md
-DataSegmentationV1Api.md
-DataSegmentationV1ApideveloperSite_code_examples.yaml
+DataSegmentationApi.md
+DataSegmentationApideveloperSite_code_examples.yaml
 Dtotype.md
 Errormessagedto.md
 Errorresponsedto.md

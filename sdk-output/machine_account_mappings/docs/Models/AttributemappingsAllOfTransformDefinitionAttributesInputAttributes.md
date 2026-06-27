@@ -1,21 +1,21 @@
 ---
-id: v1-attributemappings-all-of-transform-definition-attributes-input-attributes-v1
-title: AttributemappingsAllOfTransformDefinitionAttributesInputAttributesV1
-pagination_label: AttributemappingsAllOfTransformDefinitionAttributesInputAttributesV1
-sidebar_label: AttributemappingsAllOfTransformDefinitionAttributesInputAttributesV1
+id: v1-attributemappings-all-of-transform-definition-attributes-input-attributes
+title: AttributemappingsAllOfTransformDefinitionAttributesInputAttributes
+pagination_label: AttributemappingsAllOfTransformDefinitionAttributesInputAttributes
+sidebar_label: AttributemappingsAllOfTransformDefinitionAttributesInputAttributes
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AttributemappingsAllOfTransformDefinitionAttributesInputAttributesV1', 'v1AttributemappingsAllOfTransformDefinitionAttributesInputAttributesV1']
-slug: /tools/sdk/typescript/machine_account_mappings/models/attributemappings-all-of-transform-definition-attributes-input-attributes-v1
-tags: ['SDK', 'Software Development Kit', 'AttributemappingsAllOfTransformDefinitionAttributesInputAttributesV1', 'v1AttributemappingsAllOfTransformDefinitionAttributesInputAttributesV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'AttributemappingsAllOfTransformDefinitionAttributesInputAttributes', 'v1AttributemappingsAllOfTransformDefinitionAttributesInputAttributes']
+slug: /tools/sdk/typescript/machine_account_mappings/models/attributemappings-all-of-transform-definition-attributes-input-attributes
+tags: ['SDK', 'Software Development Kit', 'AttributemappingsAllOfTransformDefinitionAttributesInputAttributes', 'v1AttributemappingsAllOfTransformDefinitionAttributesInputAttributes']
 ---
 
-# AttributemappingsAllOfTransformDefinitionAttributesInputAttributesV1
+# AttributemappingsAllOfTransformDefinitionAttributesInputAttributes
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributeName** | **(optional)** **string** | The name of attribute | [default to undefined]
-**sourceName** | **(optional)** **string** | Name of the Source | [default to undefined]
-**name** | **(optional)** **string** | ID of the Source | [default to undefined]
+**attributeName** | **(optional)** `string` | The name of attribute | [default to undefined]
+**sourceName** | **(optional)** `string` | Name of the Source | [default to undefined]
+**name** | **(optional)** `string` | ID of the Source | [default to undefined]
 

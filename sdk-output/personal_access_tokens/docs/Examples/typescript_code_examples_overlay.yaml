@@ -4,14 +4,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/personal_access_tokens/methods/personal-access-tokens#create-personal-access-token-v1
       source: |
-        import { PersonalAccessTokensV1Api } from 'sailpoint-api-client';
+        import { PersonalAccessTokensApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new PersonalAccessTokensV1Api(configuration);
-        const createpersonalaccesstokenrequestV1: CreatepersonalaccesstokenrequestV1 = ; // CreatepersonalaccesstokenrequestV1 | Configuration for creating a personal access token, including name, scope, expiration settings, and user acknowledgment of never-expiring tokens. **Important:** See the endpoint description for validation rules regarding the relationship between `expirationDate` and `userAwareTokenNeverExpires`.
-        const result = await apiInstance.createPersonalAccessTokenV1(createpersonalaccesstokenrequestV1);
+        const configuration = new Configuration();
+        const apiInstance = new PersonalAccessTokensApi(configuration);
+        const createpersonalaccesstokenrequest: Createpersonalaccesstokenrequest = ; // Createpersonalaccesstokenrequest | Configuration for creating a personal access token, including name, scope, expiration settings, and user acknowledgment of never-expiring tokens. **Important:** See the endpoint description for validation rules regarding the relationship between `expirationDate` and `userAwareTokenNeverExpires`.
+        const result = await apiInstance.createPersonalAccessTokenV1({ createpersonalaccesstokenrequest: createpersonalaccesstokenrequest });
         console.log(result);
 - path: /personal-access-tokens/v1/{id}
   method: DELETE
@@ -19,14 +18,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/personal_access_tokens/methods/personal-access-tokens#delete-personal-access-token-v1
       source: |
-        import { PersonalAccessTokensV1Api } from 'sailpoint-api-client';
+        import { PersonalAccessTokensApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new PersonalAccessTokensV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new PersonalAccessTokensApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The personal access token id (default to undefined)
-        const result = await apiInstance.deletePersonalAccessTokenV1(id);
+        const result = await apiInstance.deletePersonalAccessTokenV1({ id: id });
         console.log(result);
 - path: /personal-access-tokens/v1
   method: GET
@@ -34,15 +32,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/personal_access_tokens/methods/personal-access-tokens#list-personal-access-tokens-v1
       source: |
-        import { PersonalAccessTokensV1Api } from 'sailpoint-api-client';
+        import { PersonalAccessTokensApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new PersonalAccessTokensV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new PersonalAccessTokensApi(configuration);
         const ownerId: string = '2c9180867b50d088017b554662fb281e'; // string | The identity ID of the owner whose personal access tokens should be listed.  If \"me\", the caller should have the following right: \'idn:my-personal-access-tokens:read\' If an actual owner ID or if the `owner-id` parameter is omitted in the request,  the caller should have the following right: \'idn:all-personal-access-tokens:read\'.  If the caller has the following right, then managed personal access tokens associated with `owner-id`  will be retrieved: \'idn:managed-personal-access-tokens:read\' (optional) (default to undefined)
         const filters: string = 'lastUsed le 2023-02-05T10:59:27.214Z'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional) (default to undefined)
-        const result = await apiInstance.listPersonalAccessTokensV1();
+        const result = await apiInstance.listPersonalAccessTokensV1({  });
         console.log(result);
 - path: /personal-access-tokens/v1/{id}
   method: PATCH
@@ -50,13 +47,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/personal_access_tokens/methods/personal-access-tokens#patch-personal-access-token-v1
       source: |
-        import { PersonalAccessTokensV1Api } from 'sailpoint-api-client';
+        import { PersonalAccessTokensApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new PersonalAccessTokensV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new PersonalAccessTokensApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The Personal Access Token id (default to undefined)
-        const jsonpatchoperationV1: Array&lt;JsonpatchoperationV1&gt; = [{"op":"replace","path":"/name","value":"New name"},{"op":"replace","path":"/scope","value":["sp:scopes:all"]},{"op":"replace","path":"/expirationDate","value":"2027-12-31T23:59:59.999Z"}]; // Array<JsonpatchoperationV1> | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope * expirationDate * userAwareTokenNeverExpires  **Important:** See the endpoint description for validation rules regarding the relationship between `expirationDate` and `userAwareTokenNeverExpires`. 
-        const result = await apiInstance.patchPersonalAccessTokenV1(id, jsonpatchoperationV1);
+        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/name","value":"New name"},{"op":"replace","path":"/scope","value":["sp:scopes:all"]},{"op":"replace","path":"/expirationDate","value":"2027-12-31T23:59:59.999Z"}]; // Array<Jsonpatchoperation> | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope * expirationDate * userAwareTokenNeverExpires  **Important:** See the endpoint description for validation rules regarding the relationship between `expirationDate` and `userAwareTokenNeverExpires`. 
+        const result = await apiInstance.patchPersonalAccessTokenV1({ id: id, jsonpatchoperation: jsonpatchoperation });
         console.log(result);

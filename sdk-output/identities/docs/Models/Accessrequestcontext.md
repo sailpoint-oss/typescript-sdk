@@ -1,19 +1,19 @@
 ---
-id: v1-accessrequestcontext-v1
-title: AccessrequestcontextV1
-pagination_label: AccessrequestcontextV1
-sidebar_label: AccessrequestcontextV1
+id: v1-accessrequestcontext
+title: Accessrequestcontext
+pagination_label: Accessrequestcontext
+sidebar_label: Accessrequestcontext
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccessrequestcontextV1', 'v1AccessrequestcontextV1']
-slug: /tools/sdk/typescript/identities/models/accessrequestcontext-v1
-tags: ['SDK', 'Software Development Kit', 'AccessrequestcontextV1', 'v1AccessrequestcontextV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accessrequestcontext', 'v1Accessrequestcontext']
+slug: /tools/sdk/typescript/identities/models/accessrequestcontext
+tags: ['SDK', 'Software Development Kit', 'Accessrequestcontext', 'v1Accessrequestcontext']
 ---
 
-# AccessrequestcontextV1
+# Accessrequestcontext
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**contextAttributes** | **(optional)** **Array&lt;ContextattributedtoV1&gt;** |  | [default to undefined]
+**contextAttributes** | **(optional)** `Array<Contextattributedto>` |  | [default to undefined]
 

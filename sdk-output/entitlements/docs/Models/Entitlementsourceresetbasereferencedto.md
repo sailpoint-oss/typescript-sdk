@@ -1,21 +1,21 @@
 ---
-id: v1-entitlementsourceresetbasereferencedto-v1
-title: EntitlementsourceresetbasereferencedtoV1
-pagination_label: EntitlementsourceresetbasereferencedtoV1
-sidebar_label: EntitlementsourceresetbasereferencedtoV1
+id: v1-entitlementsourceresetbasereferencedto
+title: Entitlementsourceresetbasereferencedto
+pagination_label: Entitlementsourceresetbasereferencedto
+sidebar_label: Entitlementsourceresetbasereferencedto
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'EntitlementsourceresetbasereferencedtoV1', 'v1EntitlementsourceresetbasereferencedtoV1']
-slug: /tools/sdk/typescript/entitlements/models/entitlementsourceresetbasereferencedto-v1
-tags: ['SDK', 'Software Development Kit', 'EntitlementsourceresetbasereferencedtoV1', 'v1EntitlementsourceresetbasereferencedtoV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Entitlementsourceresetbasereferencedto', 'v1Entitlementsourceresetbasereferencedto']
+slug: /tools/sdk/typescript/entitlements/models/entitlementsourceresetbasereferencedto
+tags: ['SDK', 'Software Development Kit', 'Entitlementsourceresetbasereferencedto', 'v1Entitlementsourceresetbasereferencedto']
 ---
 
-# EntitlementsourceresetbasereferencedtoV1
+# Entitlementsourceresetbasereferencedto
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | The DTO type | [default to undefined]
-**id** | **(optional)** **string** | The task ID of the object to which this reference applies | [default to undefined]
-**name** | **(optional)** **string** | Human-readable display name of the object to which this reference applies | [default to undefined]
+**type** | **(optional)** `string` | The DTO type | [default to undefined]
+**id** | **(optional)** `string` | The task ID of the object to which this reference applies | [default to undefined]
+**name** | **(optional)** `string` | Human-readable display name of the object to which this reference applies | [default to undefined]
 

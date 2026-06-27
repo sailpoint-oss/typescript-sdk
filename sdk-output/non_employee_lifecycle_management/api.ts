@@ -29,7 +29,7 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
  * @enum {string}
  */
 
-export const ApprovalstatusV1 = {
+export const Approvalstatus = {
     Approved: 'APPROVED',
     Rejected: 'REJECTED',
     Pending: 'PENDING',
@@ -37,51 +37,51 @@ export const ApprovalstatusV1 = {
     Cancelled: 'CANCELLED'
 } as const;
 
-export type ApprovalstatusV1 = typeof ApprovalstatusV1[keyof typeof ApprovalstatusV1];
+export type Approvalstatus = typeof Approvalstatus[keyof typeof Approvalstatus];
 
 
 /**
  * 
  * @export
- * @interface ArrayInnerV1
+ * @interface ArrayInner
  */
-export interface ArrayInnerV1 {
+export interface ArrayInner {
 }
 /**
  * 
  * @export
- * @interface DeleteNonEmployeeRecordsInBulkV1RequestV1
+ * @interface DeleteNonEmployeeRecordsInBulkV1Request
  */
-export interface DeleteNonEmployeeRecordsInBulkV1RequestV1 {
+export interface DeleteNonEmployeeRecordsInBulkV1Request {
     /**
      * List of non-employee ids.
      * @type {Array<string>}
-     * @memberof DeleteNonEmployeeRecordsInBulkV1RequestV1
+     * @memberof DeleteNonEmployeeRecordsInBulkV1Request
      */
     'ids': Array<string>;
 }
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -90,74 +90,74 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface ImportNonEmployeeRecordsInBulkV1RequestV1
+ * @interface ImportNonEmployeeRecordsInBulkV1Request
  */
-export interface ImportNonEmployeeRecordsInBulkV1RequestV1 {
+export interface ImportNonEmployeeRecordsInBulkV1Request {
     /**
      * 
      * @type {File}
-     * @memberof ImportNonEmployeeRecordsInBulkV1RequestV1
+     * @memberof ImportNonEmployeeRecordsInBulkV1Request
      */
     'data': File;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface JsonpatchoperationV1
+ * @interface Jsonpatchoperation
  */
-export interface JsonpatchoperationV1 {
+export interface Jsonpatchoperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
-    'op': JsonpatchoperationV1OpV1;
+    'op': JsonpatchoperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValueV1}
-     * @memberof JsonpatchoperationV1
+     * @type {JsonpatchoperationValue}
+     * @memberof Jsonpatchoperation
      */
-    'value'?: JsonpatchoperationValueV1;
+    'value'?: JsonpatchoperationValue;
 }
 
-export const JsonpatchoperationV1OpV1 = {
+export const JsonpatchoperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -166,38 +166,38 @@ export const JsonpatchoperationV1OpV1 = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationV1OpV1 = typeof JsonpatchoperationV1OpV1[keyof typeof JsonpatchoperationV1OpV1];
+export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
 
 /**
- * @type JsonpatchoperationValueV1
+ * @type JsonpatchoperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number | object | string;
+export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * 
  * @export
- * @interface ListNonEmployeeRecordsV1401ResponseV1
+ * @interface ListNonEmployeeRecordsV1401Response
  */
-export interface ListNonEmployeeRecordsV1401ResponseV1 {
+export interface ListNonEmployeeRecordsV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListNonEmployeeRecordsV1401ResponseV1
+     * @memberof ListNonEmployeeRecordsV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ListNonEmployeeRecordsV1429ResponseV1
+ * @interface ListNonEmployeeRecordsV1429Response
  */
-export interface ListNonEmployeeRecordsV1429ResponseV1 {
+export interface ListNonEmployeeRecordsV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListNonEmployeeRecordsV1429ResponseV1
+     * @memberof ListNonEmployeeRecordsV1429Response
      */
     'message'?: any;
 }
@@ -207,142 +207,142 @@ export interface ListNonEmployeeRecordsV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface NonemployeeapprovaldecisionV1
+ * @interface Nonemployeeapprovaldecision
  */
-export interface NonemployeeapprovaldecisionV1 {
+export interface Nonemployeeapprovaldecision {
     /**
      * Comment on the approval item.
      * @type {string}
-     * @memberof NonemployeeapprovaldecisionV1
+     * @memberof Nonemployeeapprovaldecision
      */
     'comment'?: string;
 }
 /**
  * 
  * @export
- * @interface NonemployeeapprovalitemV1
+ * @interface Nonemployeeapprovalitem
  */
-export interface NonemployeeapprovalitemV1 {
+export interface Nonemployeeapprovalitem {
     /**
      * Non-Employee approval item id
      * @type {string}
-     * @memberof NonemployeeapprovalitemV1
+     * @memberof Nonemployeeapprovalitem
      */
     'id'?: string;
     /**
      * 
-     * @type {NonemployeeidentityreferencewithidV1}
-     * @memberof NonemployeeapprovalitemV1
+     * @type {Nonemployeeidentityreferencewithid}
+     * @memberof Nonemployeeapprovalitem
      */
-    'approver'?: NonemployeeidentityreferencewithidV1;
+    'approver'?: Nonemployeeidentityreferencewithid;
     /**
      * Requested identity account name
      * @type {string}
-     * @memberof NonemployeeapprovalitemV1
+     * @memberof Nonemployeeapprovalitem
      */
     'accountName'?: string;
     /**
      * 
-     * @type {ApprovalstatusV1}
-     * @memberof NonemployeeapprovalitemV1
+     * @type {Approvalstatus}
+     * @memberof Nonemployeeapprovalitem
      */
-    'approvalStatus'?: ApprovalstatusV1;
+    'approvalStatus'?: Approvalstatus;
     /**
      * Approval order
      * @type {number}
-     * @memberof NonemployeeapprovalitemV1
+     * @memberof Nonemployeeapprovalitem
      */
     'approvalOrder'?: number;
     /**
      * comment of approver
      * @type {string}
-     * @memberof NonemployeeapprovalitemV1
+     * @memberof Nonemployeeapprovalitem
      */
     'comment'?: string;
     /**
      * When the request was last modified.
      * @type {string}
-     * @memberof NonemployeeapprovalitemV1
+     * @memberof Nonemployeeapprovalitem
      */
     'modified'?: string;
     /**
      * When the request was created.
      * @type {string}
-     * @memberof NonemployeeapprovalitemV1
+     * @memberof Nonemployeeapprovalitem
      */
     'created'?: string;
     /**
      * 
-     * @type {NonemployeerequestliteV1}
-     * @memberof NonemployeeapprovalitemV1
+     * @type {Nonemployeerequestlite}
+     * @memberof Nonemployeeapprovalitem
      */
-    'nonEmployeeRequest'?: NonemployeerequestliteV1;
+    'nonEmployeeRequest'?: Nonemployeerequestlite;
 }
 
 
 /**
  * 
  * @export
- * @interface NonemployeeapprovalitembaseV1
+ * @interface Nonemployeeapprovalitembase
  */
-export interface NonemployeeapprovalitembaseV1 {
+export interface Nonemployeeapprovalitembase {
     /**
      * Non-Employee approval item id
      * @type {string}
-     * @memberof NonemployeeapprovalitembaseV1
+     * @memberof Nonemployeeapprovalitembase
      */
     'id'?: string;
     /**
      * 
-     * @type {NonemployeeidentityreferencewithidV1}
-     * @memberof NonemployeeapprovalitembaseV1
+     * @type {Nonemployeeidentityreferencewithid}
+     * @memberof Nonemployeeapprovalitembase
      */
-    'approver'?: NonemployeeidentityreferencewithidV1;
+    'approver'?: Nonemployeeidentityreferencewithid;
     /**
      * Requested identity account name
      * @type {string}
-     * @memberof NonemployeeapprovalitembaseV1
+     * @memberof Nonemployeeapprovalitembase
      */
     'accountName'?: string;
     /**
      * 
-     * @type {ApprovalstatusV1}
-     * @memberof NonemployeeapprovalitembaseV1
+     * @type {Approvalstatus}
+     * @memberof Nonemployeeapprovalitembase
      */
-    'approvalStatus'?: ApprovalstatusV1;
+    'approvalStatus'?: Approvalstatus;
     /**
      * Approval order
      * @type {number}
-     * @memberof NonemployeeapprovalitembaseV1
+     * @memberof Nonemployeeapprovalitembase
      */
     'approvalOrder'?: number;
     /**
      * comment of approver
      * @type {string}
-     * @memberof NonemployeeapprovalitembaseV1
+     * @memberof Nonemployeeapprovalitembase
      */
     'comment'?: string;
     /**
      * When the request was last modified.
      * @type {string}
-     * @memberof NonemployeeapprovalitembaseV1
+     * @memberof Nonemployeeapprovalitembase
      */
     'modified'?: string;
     /**
      * When the request was created.
      * @type {string}
-     * @memberof NonemployeeapprovalitembaseV1
+     * @memberof Nonemployeeapprovalitembase
      */
     'created'?: string;
 }
@@ -351,160 +351,160 @@ export interface NonemployeeapprovalitembaseV1 {
 /**
  * 
  * @export
- * @interface NonemployeeapprovalitemdetailV1
+ * @interface Nonemployeeapprovalitemdetail
  */
-export interface NonemployeeapprovalitemdetailV1 {
+export interface Nonemployeeapprovalitemdetail {
     /**
      * Non-Employee approval item id
      * @type {string}
-     * @memberof NonemployeeapprovalitemdetailV1
+     * @memberof Nonemployeeapprovalitemdetail
      */
     'id'?: string;
     /**
      * 
-     * @type {NonemployeeidentityreferencewithidV1}
-     * @memberof NonemployeeapprovalitemdetailV1
+     * @type {Nonemployeeidentityreferencewithid}
+     * @memberof Nonemployeeapprovalitemdetail
      */
-    'approver'?: NonemployeeidentityreferencewithidV1;
+    'approver'?: Nonemployeeidentityreferencewithid;
     /**
      * Requested identity account name
      * @type {string}
-     * @memberof NonemployeeapprovalitemdetailV1
+     * @memberof Nonemployeeapprovalitemdetail
      */
     'accountName'?: string;
     /**
      * 
-     * @type {ApprovalstatusV1}
-     * @memberof NonemployeeapprovalitemdetailV1
+     * @type {Approvalstatus}
+     * @memberof Nonemployeeapprovalitemdetail
      */
-    'approvalStatus'?: ApprovalstatusV1;
+    'approvalStatus'?: Approvalstatus;
     /**
      * Approval order
      * @type {number}
-     * @memberof NonemployeeapprovalitemdetailV1
+     * @memberof Nonemployeeapprovalitemdetail
      */
     'approvalOrder'?: number;
     /**
      * comment of approver
      * @type {string}
-     * @memberof NonemployeeapprovalitemdetailV1
+     * @memberof Nonemployeeapprovalitemdetail
      */
     'comment'?: string;
     /**
      * When the request was last modified.
      * @type {string}
-     * @memberof NonemployeeapprovalitemdetailV1
+     * @memberof Nonemployeeapprovalitemdetail
      */
     'modified'?: string;
     /**
      * When the request was created.
      * @type {string}
-     * @memberof NonemployeeapprovalitemdetailV1
+     * @memberof Nonemployeeapprovalitemdetail
      */
     'created'?: string;
     /**
      * 
-     * @type {NonemployeerequestwithoutapprovalitemV1}
-     * @memberof NonemployeeapprovalitemdetailV1
+     * @type {Nonemployeerequestwithoutapprovalitem}
+     * @memberof Nonemployeeapprovalitemdetail
      */
-    'nonEmployeeRequest'?: NonemployeerequestwithoutapprovalitemV1;
+    'nonEmployeeRequest'?: Nonemployeerequestwithoutapprovalitem;
 }
 
 
 /**
  * 
  * @export
- * @interface NonemployeeapprovalsummaryV1
+ * @interface Nonemployeeapprovalsummary
  */
-export interface NonemployeeapprovalsummaryV1 {
+export interface Nonemployeeapprovalsummary {
     /**
      * The number of approved non-employee approval requests.
      * @type {number}
-     * @memberof NonemployeeapprovalsummaryV1
+     * @memberof Nonemployeeapprovalsummary
      */
     'approved'?: number;
     /**
      * The number of pending non-employee approval requests.
      * @type {number}
-     * @memberof NonemployeeapprovalsummaryV1
+     * @memberof Nonemployeeapprovalsummary
      */
     'pending'?: number;
     /**
      * The number of rejected non-employee approval requests.
      * @type {number}
-     * @memberof NonemployeeapprovalsummaryV1
+     * @memberof Nonemployeeapprovalsummary
      */
     'rejected'?: number;
 }
 /**
  * 
  * @export
- * @interface NonemployeebulkuploadjobV1
+ * @interface Nonemployeebulkuploadjob
  */
-export interface NonemployeebulkuploadjobV1 {
+export interface Nonemployeebulkuploadjob {
     /**
      * The bulk upload job\'s ID. (UUID)
      * @type {string}
-     * @memberof NonemployeebulkuploadjobV1
+     * @memberof Nonemployeebulkuploadjob
      */
     'id'?: string;
     /**
      * The ID of the source to bulk-upload non-employees to. (UUID)
      * @type {string}
-     * @memberof NonemployeebulkuploadjobV1
+     * @memberof Nonemployeebulkuploadjob
      */
     'sourceId'?: string;
     /**
      * The date-time the job was submitted.
      * @type {string}
-     * @memberof NonemployeebulkuploadjobV1
+     * @memberof Nonemployeebulkuploadjob
      */
     'created'?: string;
     /**
      * The date-time that the job was last updated.
      * @type {string}
-     * @memberof NonemployeebulkuploadjobV1
+     * @memberof Nonemployeebulkuploadjob
      */
     'modified'?: string;
     /**
      * Returns the following values indicating the progress or result of the bulk upload job. \"PENDING\" means the job is queued and waiting to be processed. \"IN_PROGRESS\" means the job is currently being processed. \"COMPLETED\" means the job has been completed without any errors. \"ERROR\" means the job failed to process with errors. 
      * @type {string}
-     * @memberof NonemployeebulkuploadjobV1
+     * @memberof Nonemployeebulkuploadjob
      */
-    'status'?: NonemployeebulkuploadjobV1StatusV1;
+    'status'?: NonemployeebulkuploadjobStatusEnum;
 }
 
-export const NonemployeebulkuploadjobV1StatusV1 = {
+export const NonemployeebulkuploadjobStatusEnum = {
     Pending: 'PENDING',
     InProgress: 'IN_PROGRESS',
     Completed: 'COMPLETED',
     Error: 'ERROR'
 } as const;
 
-export type NonemployeebulkuploadjobV1StatusV1 = typeof NonemployeebulkuploadjobV1StatusV1[keyof typeof NonemployeebulkuploadjobV1StatusV1];
+export type NonemployeebulkuploadjobStatusEnum = typeof NonemployeebulkuploadjobStatusEnum[keyof typeof NonemployeebulkuploadjobStatusEnum];
 
 /**
  * 
  * @export
- * @interface NonemployeebulkuploadstatusV1
+ * @interface Nonemployeebulkuploadstatus
  */
-export interface NonemployeebulkuploadstatusV1 {
+export interface Nonemployeebulkuploadstatus {
     /**
      * Returns the following values indicating the progress or result of the bulk upload job. \"PENDING\" means the job is queued and waiting to be processed. \"IN_PROGRESS\" means the job is currently being processed. \"COMPLETED\" means the job has been completed without any errors. \"ERROR\" means the job failed to process with errors. null means job has been submitted to the source. 
      * @type {string}
-     * @memberof NonemployeebulkuploadstatusV1
+     * @memberof Nonemployeebulkuploadstatus
      */
-    'status'?: NonemployeebulkuploadstatusV1StatusV1;
+    'status'?: NonemployeebulkuploadstatusStatusEnum;
 }
 
-export const NonemployeebulkuploadstatusV1StatusV1 = {
+export const NonemployeebulkuploadstatusStatusEnum = {
     Pending: 'PENDING',
     InProgress: 'IN_PROGRESS',
     Completed: 'COMPLETED',
     Error: 'ERROR'
 } as const;
 
-export type NonemployeebulkuploadstatusV1StatusV1 = typeof NonemployeebulkuploadstatusV1StatusV1[keyof typeof NonemployeebulkuploadstatusV1StatusV1];
+export type NonemployeebulkuploadstatusStatusEnum = typeof NonemployeebulkuploadstatusStatusEnum[keyof typeof NonemployeebulkuploadstatusStatusEnum];
 
 /**
  * Identifies if the identity is a normal identity or a governance group
@@ -512,30 +512,30 @@ export type NonemployeebulkuploadstatusV1StatusV1 = typeof Nonemployeebulkupload
  * @enum {string}
  */
 
-export const NonemployeeidentitydtotypeV1 = {
+export const Nonemployeeidentitydtotype = {
     GovernanceGroup: 'GOVERNANCE_GROUP',
     Identity: 'IDENTITY'
 } as const;
 
-export type NonemployeeidentitydtotypeV1 = typeof NonemployeeidentitydtotypeV1[keyof typeof NonemployeeidentitydtotypeV1];
+export type Nonemployeeidentitydtotype = typeof Nonemployeeidentitydtotype[keyof typeof Nonemployeeidentitydtotype];
 
 
 /**
  * 
  * @export
- * @interface NonemployeeidentityreferencewithidV1
+ * @interface Nonemployeeidentityreferencewithid
  */
-export interface NonemployeeidentityreferencewithidV1 {
+export interface Nonemployeeidentityreferencewithid {
     /**
      * 
-     * @type {NonemployeeidentitydtotypeV1}
-     * @memberof NonemployeeidentityreferencewithidV1
+     * @type {Nonemployeeidentitydtotype}
+     * @memberof Nonemployeeidentityreferencewithid
      */
-    'type'?: NonemployeeidentitydtotypeV1;
+    'type'?: Nonemployeeidentitydtotype;
     /**
      * Identity id
      * @type {string}
-     * @memberof NonemployeeidentityreferencewithidV1
+     * @memberof Nonemployeeidentityreferencewithid
      */
     'id'?: string;
 }
@@ -544,238 +544,238 @@ export interface NonemployeeidentityreferencewithidV1 {
 /**
  * 
  * @export
- * @interface NonemployeeidnuserrequestV1
+ * @interface Nonemployeeidnuserrequest
  */
-export interface NonemployeeidnuserrequestV1 {
+export interface Nonemployeeidnuserrequest {
     /**
      * Identity id.
      * @type {string}
-     * @memberof NonemployeeidnuserrequestV1
+     * @memberof Nonemployeeidnuserrequest
      */
     'id': string;
 }
 /**
  * 
  * @export
- * @interface NonemployeerecordV1
+ * @interface Nonemployeerecord
  */
-export interface NonemployeerecordV1 {
+export interface Nonemployeerecord {
     /**
      * Non-Employee record id.
      * @type {string}
-     * @memberof NonemployeerecordV1
+     * @memberof Nonemployeerecord
      */
     'id'?: string;
     /**
      * Requested identity account name.
      * @type {string}
-     * @memberof NonemployeerecordV1
+     * @memberof Nonemployeerecord
      */
     'accountName'?: string;
     /**
      * Non-Employee\'s first name.
      * @type {string}
-     * @memberof NonemployeerecordV1
+     * @memberof Nonemployeerecord
      */
     'firstName'?: string;
     /**
      * Non-Employee\'s last name.
      * @type {string}
-     * @memberof NonemployeerecordV1
+     * @memberof Nonemployeerecord
      */
     'lastName'?: string;
     /**
      * Non-Employee\'s email.
      * @type {string}
-     * @memberof NonemployeerecordV1
+     * @memberof Nonemployeerecord
      */
     'email'?: string;
     /**
      * Non-Employee\'s phone.
      * @type {string}
-     * @memberof NonemployeerecordV1
+     * @memberof Nonemployeerecord
      */
     'phone'?: string;
     /**
      * The account ID of a valid identity to serve as this non-employee\'s manager.
      * @type {string}
-     * @memberof NonemployeerecordV1
+     * @memberof Nonemployeerecord
      */
     'manager'?: string;
     /**
      * Non-Employee\'s source id.
      * @type {string}
-     * @memberof NonemployeerecordV1
+     * @memberof Nonemployeerecord
      */
     'sourceId'?: string;
     /**
      * Additional attributes for a non-employee. Up to 10 custom attributes can be added.
      * @type {{ [key: string]: string; }}
-     * @memberof NonemployeerecordV1
+     * @memberof Nonemployeerecord
      */
     'data'?: { [key: string]: string; };
     /**
      * Non-Employee employment start date.
      * @type {string}
-     * @memberof NonemployeerecordV1
+     * @memberof Nonemployeerecord
      */
     'startDate'?: string;
     /**
      * Non-Employee employment end date.
      * @type {string}
-     * @memberof NonemployeerecordV1
+     * @memberof Nonemployeerecord
      */
     'endDate'?: string;
     /**
      * When the request was last modified.
      * @type {string}
-     * @memberof NonemployeerecordV1
+     * @memberof Nonemployeerecord
      */
     'modified'?: string;
     /**
      * When the request was created.
      * @type {string}
-     * @memberof NonemployeerecordV1
+     * @memberof Nonemployeerecord
      */
     'created'?: string;
 }
 /**
  * 
  * @export
- * @interface NonemployeerejectapprovaldecisionV1
+ * @interface Nonemployeerejectapprovaldecision
  */
-export interface NonemployeerejectapprovaldecisionV1 {
+export interface Nonemployeerejectapprovaldecision {
     /**
      * Comment on the approval item.
      * @type {string}
-     * @memberof NonemployeerejectapprovaldecisionV1
+     * @memberof Nonemployeerejectapprovaldecision
      */
     'comment': string;
 }
 /**
  * 
  * @export
- * @interface NonemployeerequestV1
+ * @interface Nonemployeerequest
  */
-export interface NonemployeerequestV1 {
+export interface Nonemployeerequest {
     /**
      * Non-Employee source id.
      * @type {string}
-     * @memberof NonemployeerequestV1
+     * @memberof Nonemployeerequest
      */
     'id'?: string;
     /**
      * Source Id associated with this non-employee source.
      * @type {string}
-     * @memberof NonemployeerequestV1
+     * @memberof Nonemployeerequest
      */
     'sourceId'?: string;
     /**
      * Source name associated with this non-employee source.
      * @type {string}
-     * @memberof NonemployeerequestV1
+     * @memberof Nonemployeerequest
      */
     'name'?: string;
     /**
      * Source description associated with this non-employee source.
      * @type {string}
-     * @memberof NonemployeerequestV1
+     * @memberof Nonemployeerequest
      */
     'description'?: string;
     /**
      * Requested identity account name.
      * @type {string}
-     * @memberof NonemployeerequestV1
+     * @memberof Nonemployeerequest
      */
     'accountName'?: string;
     /**
      * Non-Employee\'s first name.
      * @type {string}
-     * @memberof NonemployeerequestV1
+     * @memberof Nonemployeerequest
      */
     'firstName'?: string;
     /**
      * Non-Employee\'s last name.
      * @type {string}
-     * @memberof NonemployeerequestV1
+     * @memberof Nonemployeerequest
      */
     'lastName'?: string;
     /**
      * Non-Employee\'s email.
      * @type {string}
-     * @memberof NonemployeerequestV1
+     * @memberof Nonemployeerequest
      */
     'email'?: string;
     /**
      * Non-Employee\'s phone.
      * @type {string}
-     * @memberof NonemployeerequestV1
+     * @memberof Nonemployeerequest
      */
     'phone'?: string;
     /**
      * The account ID of a valid identity to serve as this non-employee\'s manager.
      * @type {string}
-     * @memberof NonemployeerequestV1
+     * @memberof Nonemployeerequest
      */
     'manager'?: string;
     /**
      * 
-     * @type {NonemployeesourceliteV1}
-     * @memberof NonemployeerequestV1
+     * @type {Nonemployeesourcelite}
+     * @memberof Nonemployeerequest
      */
-    'nonEmployeeSource'?: NonemployeesourceliteV1;
+    'nonEmployeeSource'?: Nonemployeesourcelite;
     /**
      * Additional attributes for a non-employee. Up to 10 custom attributes can be added.
      * @type {{ [key: string]: string; }}
-     * @memberof NonemployeerequestV1
+     * @memberof Nonemployeerequest
      */
     'data'?: { [key: string]: string; };
     /**
      * List of approval item for the request
-     * @type {Array<NonemployeeapprovalitembaseV1>}
-     * @memberof NonemployeerequestV1
+     * @type {Array<Nonemployeeapprovalitembase>}
+     * @memberof Nonemployeerequest
      */
-    'approvalItems'?: Array<NonemployeeapprovalitembaseV1>;
+    'approvalItems'?: Array<Nonemployeeapprovalitembase>;
     /**
      * 
-     * @type {ApprovalstatusV1}
-     * @memberof NonemployeerequestV1
+     * @type {Approvalstatus}
+     * @memberof Nonemployeerequest
      */
-    'approvalStatus'?: ApprovalstatusV1;
+    'approvalStatus'?: Approvalstatus;
     /**
      * Comment of requester
      * @type {string}
-     * @memberof NonemployeerequestV1
+     * @memberof Nonemployeerequest
      */
     'comment'?: string;
     /**
      * When the request was completely approved.
      * @type {string}
-     * @memberof NonemployeerequestV1
+     * @memberof Nonemployeerequest
      */
     'completionDate'?: string;
     /**
      * Non-Employee employment start date.
      * @type {string}
-     * @memberof NonemployeerequestV1
+     * @memberof Nonemployeerequest
      */
     'startDate'?: string;
     /**
      * Non-Employee employment end date.
      * @type {string}
-     * @memberof NonemployeerequestV1
+     * @memberof Nonemployeerequest
      */
     'endDate'?: string;
     /**
      * When the request was last modified.
      * @type {string}
-     * @memberof NonemployeerequestV1
+     * @memberof Nonemployeerequest
      */
     'modified'?: string;
     /**
      * When the request was created.
      * @type {string}
-     * @memberof NonemployeerequestV1
+     * @memberof Nonemployeerequest
      */
     'created'?: string;
 }
@@ -784,226 +784,226 @@ export interface NonemployeerequestV1 {
 /**
  * 
  * @export
- * @interface NonemployeerequestbodyV1
+ * @interface Nonemployeerequestbody
  */
-export interface NonemployeerequestbodyV1 {
+export interface Nonemployeerequestbody {
     /**
      * Requested identity account name.
      * @type {string}
-     * @memberof NonemployeerequestbodyV1
+     * @memberof Nonemployeerequestbody
      */
     'accountName': string;
     /**
      * Non-Employee\'s first name.
      * @type {string}
-     * @memberof NonemployeerequestbodyV1
+     * @memberof Nonemployeerequestbody
      */
     'firstName': string;
     /**
      * Non-Employee\'s last name.
      * @type {string}
-     * @memberof NonemployeerequestbodyV1
+     * @memberof Nonemployeerequestbody
      */
     'lastName': string;
     /**
      * Non-Employee\'s email.
      * @type {string}
-     * @memberof NonemployeerequestbodyV1
+     * @memberof Nonemployeerequestbody
      */
     'email': string;
     /**
      * Non-Employee\'s phone.
      * @type {string}
-     * @memberof NonemployeerequestbodyV1
+     * @memberof Nonemployeerequestbody
      */
     'phone': string;
     /**
      * The account ID of a valid identity to serve as this non-employee\'s manager.
      * @type {string}
-     * @memberof NonemployeerequestbodyV1
+     * @memberof Nonemployeerequestbody
      */
     'manager': string;
     /**
      * Non-Employee\'s source id.
      * @type {string}
-     * @memberof NonemployeerequestbodyV1
+     * @memberof Nonemployeerequestbody
      */
     'sourceId': string;
     /**
      * Additional attributes for a non-employee. Up to 10 custom attributes can be added.
      * @type {{ [key: string]: string; }}
-     * @memberof NonemployeerequestbodyV1
+     * @memberof Nonemployeerequestbody
      */
     'data'?: { [key: string]: string; };
     /**
      * Non-Employee employment start date.
      * @type {string}
-     * @memberof NonemployeerequestbodyV1
+     * @memberof Nonemployeerequestbody
      */
     'startDate': string;
     /**
      * Non-Employee employment end date.
      * @type {string}
-     * @memberof NonemployeerequestbodyV1
+     * @memberof Nonemployeerequestbody
      */
     'endDate': string;
 }
 /**
  * 
  * @export
- * @interface NonemployeerequestliteV1
+ * @interface Nonemployeerequestlite
  */
-export interface NonemployeerequestliteV1 {
+export interface Nonemployeerequestlite {
     /**
      * Non-Employee request id.
      * @type {string}
-     * @memberof NonemployeerequestliteV1
+     * @memberof Nonemployeerequestlite
      */
     'id'?: string;
     /**
      * 
-     * @type {NonemployeeidentityreferencewithidV1}
-     * @memberof NonemployeerequestliteV1
+     * @type {Nonemployeeidentityreferencewithid}
+     * @memberof Nonemployeerequestlite
      */
-    'requester'?: NonemployeeidentityreferencewithidV1;
+    'requester'?: Nonemployeeidentityreferencewithid;
 }
 /**
  * 
  * @export
- * @interface NonemployeerequestsummaryV1
+ * @interface Nonemployeerequestsummary
  */
-export interface NonemployeerequestsummaryV1 {
+export interface Nonemployeerequestsummary {
     /**
      * The number of approved non-employee requests on all sources that *requested-for* user manages.
      * @type {number}
-     * @memberof NonemployeerequestsummaryV1
+     * @memberof Nonemployeerequestsummary
      */
     'approved'?: number;
     /**
      * The number of rejected non-employee requests on all sources that *requested-for* user manages.
      * @type {number}
-     * @memberof NonemployeerequestsummaryV1
+     * @memberof Nonemployeerequestsummary
      */
     'rejected'?: number;
     /**
      * The number of pending non-employee requests on all sources that *requested-for* user manages.
      * @type {number}
-     * @memberof NonemployeerequestsummaryV1
+     * @memberof Nonemployeerequestsummary
      */
     'pending'?: number;
     /**
      * The number of non-employee records on all sources that *requested-for* user manages.
      * @type {number}
-     * @memberof NonemployeerequestsummaryV1
+     * @memberof Nonemployeerequestsummary
      */
     'nonEmployeeCount'?: number;
 }
 /**
  * 
  * @export
- * @interface NonemployeerequestwithoutapprovalitemV1
+ * @interface Nonemployeerequestwithoutapprovalitem
  */
-export interface NonemployeerequestwithoutapprovalitemV1 {
+export interface Nonemployeerequestwithoutapprovalitem {
     /**
      * Non-Employee request id.
      * @type {string}
-     * @memberof NonemployeerequestwithoutapprovalitemV1
+     * @memberof Nonemployeerequestwithoutapprovalitem
      */
     'id'?: string;
     /**
      * 
-     * @type {NonemployeeidentityreferencewithidV1}
-     * @memberof NonemployeerequestwithoutapprovalitemV1
+     * @type {Nonemployeeidentityreferencewithid}
+     * @memberof Nonemployeerequestwithoutapprovalitem
      */
-    'requester'?: NonemployeeidentityreferencewithidV1;
+    'requester'?: Nonemployeeidentityreferencewithid;
     /**
      * Requested identity account name.
      * @type {string}
-     * @memberof NonemployeerequestwithoutapprovalitemV1
+     * @memberof Nonemployeerequestwithoutapprovalitem
      */
     'accountName'?: string;
     /**
      * Non-Employee\'s first name.
      * @type {string}
-     * @memberof NonemployeerequestwithoutapprovalitemV1
+     * @memberof Nonemployeerequestwithoutapprovalitem
      */
     'firstName'?: string;
     /**
      * Non-Employee\'s last name.
      * @type {string}
-     * @memberof NonemployeerequestwithoutapprovalitemV1
+     * @memberof Nonemployeerequestwithoutapprovalitem
      */
     'lastName'?: string;
     /**
      * Non-Employee\'s email.
      * @type {string}
-     * @memberof NonemployeerequestwithoutapprovalitemV1
+     * @memberof Nonemployeerequestwithoutapprovalitem
      */
     'email'?: string;
     /**
      * Non-Employee\'s phone.
      * @type {string}
-     * @memberof NonemployeerequestwithoutapprovalitemV1
+     * @memberof Nonemployeerequestwithoutapprovalitem
      */
     'phone'?: string;
     /**
      * The account ID of a valid identity to serve as this non-employee\'s manager.
      * @type {string}
-     * @memberof NonemployeerequestwithoutapprovalitemV1
+     * @memberof Nonemployeerequestwithoutapprovalitem
      */
     'manager'?: string;
     /**
      * 
-     * @type {NonemployeesourcelitewithschemaattributesV1}
-     * @memberof NonemployeerequestwithoutapprovalitemV1
+     * @type {Nonemployeesourcelitewithschemaattributes}
+     * @memberof Nonemployeerequestwithoutapprovalitem
      */
-    'nonEmployeeSource'?: NonemployeesourcelitewithschemaattributesV1;
+    'nonEmployeeSource'?: Nonemployeesourcelitewithschemaattributes;
     /**
      * Additional attributes for a non-employee. Up to 10 custom attributes can be added.
      * @type {{ [key: string]: string; }}
-     * @memberof NonemployeerequestwithoutapprovalitemV1
+     * @memberof Nonemployeerequestwithoutapprovalitem
      */
     'data'?: { [key: string]: string; };
     /**
      * 
-     * @type {ApprovalstatusV1}
-     * @memberof NonemployeerequestwithoutapprovalitemV1
+     * @type {Approvalstatus}
+     * @memberof Nonemployeerequestwithoutapprovalitem
      */
-    'approvalStatus'?: ApprovalstatusV1;
+    'approvalStatus'?: Approvalstatus;
     /**
      * Comment of requester
      * @type {string}
-     * @memberof NonemployeerequestwithoutapprovalitemV1
+     * @memberof Nonemployeerequestwithoutapprovalitem
      */
     'comment'?: string;
     /**
      * When the request was completely approved.
      * @type {string}
-     * @memberof NonemployeerequestwithoutapprovalitemV1
+     * @memberof Nonemployeerequestwithoutapprovalitem
      */
     'completionDate'?: string;
     /**
      * Non-Employee employment start date.
      * @type {string}
-     * @memberof NonemployeerequestwithoutapprovalitemV1
+     * @memberof Nonemployeerequestwithoutapprovalitem
      */
     'startDate'?: string;
     /**
      * Non-Employee employment end date.
      * @type {string}
-     * @memberof NonemployeerequestwithoutapprovalitemV1
+     * @memberof Nonemployeerequestwithoutapprovalitem
      */
     'endDate'?: string;
     /**
      * When the request was last modified.
      * @type {string}
-     * @memberof NonemployeerequestwithoutapprovalitemV1
+     * @memberof Nonemployeerequestwithoutapprovalitem
      */
     'modified'?: string;
     /**
      * When the request was created.
      * @type {string}
-     * @memberof NonemployeerequestwithoutapprovalitemV1
+     * @memberof Nonemployeerequestwithoutapprovalitem
      */
     'created'?: string;
 }
@@ -1012,67 +1012,67 @@ export interface NonemployeerequestwithoutapprovalitemV1 {
 /**
  * 
  * @export
- * @interface NonemployeeschemaattributeV1
+ * @interface Nonemployeeschemaattribute
  */
-export interface NonemployeeschemaattributeV1 {
+export interface Nonemployeeschemaattribute {
     /**
      * Schema Attribute Id
      * @type {string}
-     * @memberof NonemployeeschemaattributeV1
+     * @memberof Nonemployeeschemaattribute
      */
     'id'?: string;
     /**
      * True if this schema attribute is mandatory on all non-employees sources.
      * @type {boolean}
-     * @memberof NonemployeeschemaattributeV1
+     * @memberof Nonemployeeschemaattribute
      */
     'system'?: boolean;
     /**
      * When the schema attribute was last modified.
      * @type {string}
-     * @memberof NonemployeeschemaattributeV1
+     * @memberof Nonemployeeschemaattribute
      */
     'modified'?: string;
     /**
      * When the schema attribute was created.
      * @type {string}
-     * @memberof NonemployeeschemaattributeV1
+     * @memberof Nonemployeeschemaattribute
      */
     'created'?: string;
     /**
      * 
-     * @type {NonemployeeschemaattributetypeV1}
-     * @memberof NonemployeeschemaattributeV1
+     * @type {Nonemployeeschemaattributetype}
+     * @memberof Nonemployeeschemaattribute
      */
-    'type': NonemployeeschemaattributetypeV1;
+    'type': Nonemployeeschemaattributetype;
     /**
      * Label displayed on the UI for this schema attribute.
      * @type {string}
-     * @memberof NonemployeeschemaattributeV1
+     * @memberof Nonemployeeschemaattribute
      */
     'label': string;
     /**
      * The technical name of the attribute. Must be unique per source.
      * @type {string}
-     * @memberof NonemployeeschemaattributeV1
+     * @memberof Nonemployeeschemaattribute
      */
     'technicalName': string;
     /**
      * help text displayed by UI.
      * @type {string}
-     * @memberof NonemployeeschemaattributeV1
+     * @memberof Nonemployeeschemaattribute
      */
     'helpText'?: string;
     /**
      * Hint text that fills UI box.
      * @type {string}
-     * @memberof NonemployeeschemaattributeV1
+     * @memberof Nonemployeeschemaattribute
      */
     'placeholder'?: string;
     /**
      * If true, the schema attribute is required for all non-employees in the source
      * @type {boolean}
-     * @memberof NonemployeeschemaattributeV1
+     * @memberof Nonemployeeschemaattribute
      */
     'required'?: boolean;
 }
@@ -1081,43 +1081,43 @@ export interface NonemployeeschemaattributeV1 {
 /**
  * 
  * @export
- * @interface NonemployeeschemaattributebodyV1
+ * @interface Nonemployeeschemaattributebody
  */
-export interface NonemployeeschemaattributebodyV1 {
+export interface Nonemployeeschemaattributebody {
     /**
      * Type of the attribute. Only type \'TEXT\' is supported for custom attributes.
      * @type {string}
-     * @memberof NonemployeeschemaattributebodyV1
+     * @memberof Nonemployeeschemaattributebody
      */
     'type': string;
     /**
      * Label displayed on the UI for this schema attribute.
      * @type {string}
-     * @memberof NonemployeeschemaattributebodyV1
+     * @memberof Nonemployeeschemaattributebody
      */
     'label': string;
     /**
      * The technical name of the attribute. Must be unique per source.
      * @type {string}
-     * @memberof NonemployeeschemaattributebodyV1
+     * @memberof Nonemployeeschemaattributebody
      */
     'technicalName': string;
     /**
      * help text displayed by UI.
      * @type {string}
-     * @memberof NonemployeeschemaattributebodyV1
+     * @memberof Nonemployeeschemaattributebody
      */
     'helpText'?: string;
     /**
      * Hint text that fills UI box.
      * @type {string}
-     * @memberof NonemployeeschemaattributebodyV1
+     * @memberof Nonemployeeschemaattributebody
      */
     'placeholder'?: string;
     /**
      * If true, the schema attribute is required for all non-employees in the source
      * @type {boolean}
-     * @memberof NonemployeeschemaattributebodyV1
+     * @memberof Nonemployeeschemaattributebody
      */
     'required'?: boolean;
 }
@@ -1127,323 +1127,323 @@ export interface NonemployeeschemaattributebodyV1 {
  * @enum {string}
  */
 
-export const NonemployeeschemaattributetypeV1 = {
+export const Nonemployeeschemaattributetype = {
     Text: 'TEXT',
     Date: 'DATE',
     Identity: 'IDENTITY'
 } as const;
 
-export type NonemployeeschemaattributetypeV1 = typeof NonemployeeschemaattributetypeV1[keyof typeof NonemployeeschemaattributetypeV1];
+export type Nonemployeeschemaattributetype = typeof Nonemployeeschemaattributetype[keyof typeof Nonemployeeschemaattributetype];
 
 
 /**
  * 
  * @export
- * @interface NonemployeesourceV1
+ * @interface Nonemployeesource
  */
-export interface NonemployeesourceV1 {
+export interface Nonemployeesource {
     /**
      * Non-Employee source id.
      * @type {string}
-     * @memberof NonemployeesourceV1
+     * @memberof Nonemployeesource
      */
     'id'?: string;
     /**
      * Source Id associated with this non-employee source.
      * @type {string}
-     * @memberof NonemployeesourceV1
+     * @memberof Nonemployeesource
      */
     'sourceId'?: string;
     /**
      * Source name associated with this non-employee source.
      * @type {string}
-     * @memberof NonemployeesourceV1
+     * @memberof Nonemployeesource
      */
     'name'?: string;
     /**
      * Source description associated with this non-employee source.
      * @type {string}
-     * @memberof NonemployeesourceV1
+     * @memberof Nonemployeesource
      */
     'description'?: string;
     /**
      * List of approvers
-     * @type {Array<NonemployeeidentityreferencewithidV1>}
-     * @memberof NonemployeesourceV1
+     * @type {Array<Nonemployeeidentityreferencewithid>}
+     * @memberof Nonemployeesource
      */
-    'approvers'?: Array<NonemployeeidentityreferencewithidV1>;
+    'approvers'?: Array<Nonemployeeidentityreferencewithid>;
     /**
      * List of account managers
-     * @type {Array<NonemployeeidentityreferencewithidV1>}
-     * @memberof NonemployeesourceV1
+     * @type {Array<Nonemployeeidentityreferencewithid>}
+     * @memberof Nonemployeesource
      */
-    'accountManagers'?: Array<NonemployeeidentityreferencewithidV1>;
+    'accountManagers'?: Array<Nonemployeeidentityreferencewithid>;
     /**
      * When the request was last modified.
      * @type {string}
-     * @memberof NonemployeesourceV1
+     * @memberof Nonemployeesource
      */
     'modified'?: string;
     /**
      * When the request was created.
      * @type {string}
-     * @memberof NonemployeesourceV1
+     * @memberof Nonemployeesource
      */
     'created'?: string;
 }
 /**
  * 
  * @export
- * @interface NonemployeesourceliteV1
+ * @interface Nonemployeesourcelite
  */
-export interface NonemployeesourceliteV1 {
+export interface Nonemployeesourcelite {
     /**
      * Non-Employee source id.
      * @type {string}
-     * @memberof NonemployeesourceliteV1
+     * @memberof Nonemployeesourcelite
      */
     'id'?: string;
     /**
      * Source Id associated with this non-employee source.
      * @type {string}
-     * @memberof NonemployeesourceliteV1
+     * @memberof Nonemployeesourcelite
      */
     'sourceId'?: string;
     /**
      * Source name associated with this non-employee source.
      * @type {string}
-     * @memberof NonemployeesourceliteV1
+     * @memberof Nonemployeesourcelite
      */
     'name'?: string;
     /**
      * Source description associated with this non-employee source.
      * @type {string}
-     * @memberof NonemployeesourceliteV1
+     * @memberof Nonemployeesourcelite
      */
     'description'?: string;
 }
 /**
  * 
  * @export
- * @interface NonemployeesourcelitewithschemaattributesV1
+ * @interface Nonemployeesourcelitewithschemaattributes
  */
-export interface NonemployeesourcelitewithschemaattributesV1 {
+export interface Nonemployeesourcelitewithschemaattributes {
     /**
      * Non-Employee source id.
      * @type {string}
-     * @memberof NonemployeesourcelitewithschemaattributesV1
+     * @memberof Nonemployeesourcelitewithschemaattributes
      */
     'id'?: string;
     /**
      * Source Id associated with this non-employee source.
      * @type {string}
-     * @memberof NonemployeesourcelitewithschemaattributesV1
+     * @memberof Nonemployeesourcelitewithschemaattributes
      */
     'sourceId'?: string;
     /**
      * Source name associated with this non-employee source.
      * @type {string}
-     * @memberof NonemployeesourcelitewithschemaattributesV1
+     * @memberof Nonemployeesourcelitewithschemaattributes
      */
     'name'?: string;
     /**
      * Source description associated with this non-employee source.
      * @type {string}
-     * @memberof NonemployeesourcelitewithschemaattributesV1
+     * @memberof Nonemployeesourcelitewithschemaattributes
      */
     'description'?: string;
     /**
      * List of schema attributes associated with this non-employee source.
-     * @type {Array<NonemployeeschemaattributeV1>}
-     * @memberof NonemployeesourcelitewithschemaattributesV1
+     * @type {Array<Nonemployeeschemaattribute>}
+     * @memberof Nonemployeesourcelitewithschemaattributes
      */
-    'schemaAttributes'?: Array<NonemployeeschemaattributeV1>;
+    'schemaAttributes'?: Array<Nonemployeeschemaattribute>;
 }
 /**
  * 
  * @export
- * @interface NonemployeesourcerequestbodyV1
+ * @interface Nonemployeesourcerequestbody
  */
-export interface NonemployeesourcerequestbodyV1 {
+export interface Nonemployeesourcerequestbody {
     /**
      * Name of non-employee source.
      * @type {string}
-     * @memberof NonemployeesourcerequestbodyV1
+     * @memberof Nonemployeesourcerequestbody
      */
     'name': string;
     /**
      * Description of non-employee source.
      * @type {string}
-     * @memberof NonemployeesourcerequestbodyV1
+     * @memberof Nonemployeesourcerequestbody
      */
     'description': string;
     /**
      * 
-     * @type {NonemployeeidnuserrequestV1}
-     * @memberof NonemployeesourcerequestbodyV1
+     * @type {Nonemployeeidnuserrequest}
+     * @memberof Nonemployeesourcerequestbody
      */
-    'owner': NonemployeeidnuserrequestV1;
+    'owner': Nonemployeeidnuserrequest;
     /**
      * The ID for the management workgroup that contains source sub-admins
      * @type {string}
-     * @memberof NonemployeesourcerequestbodyV1
+     * @memberof Nonemployeesourcerequestbody
      */
     'managementWorkgroup'?: string;
     /**
      * List of approvers.
-     * @type {Array<NonemployeeidnuserrequestV1>}
-     * @memberof NonemployeesourcerequestbodyV1
+     * @type {Array<Nonemployeeidnuserrequest>}
+     * @memberof Nonemployeesourcerequestbody
      */
-    'approvers'?: Array<NonemployeeidnuserrequestV1>;
+    'approvers'?: Array<Nonemployeeidnuserrequest>;
     /**
      * List of account managers.
-     * @type {Array<NonemployeeidnuserrequestV1>}
-     * @memberof NonemployeesourcerequestbodyV1
+     * @type {Array<Nonemployeeidnuserrequest>}
+     * @memberof Nonemployeesourcerequestbody
      */
-    'accountManagers'?: Array<NonemployeeidnuserrequestV1>;
+    'accountManagers'?: Array<Nonemployeeidnuserrequest>;
 }
 /**
  * 
  * @export
- * @interface NonemployeesourcewithcloudexternalidV1
+ * @interface Nonemployeesourcewithcloudexternalid
  */
-export interface NonemployeesourcewithcloudexternalidV1 {
+export interface Nonemployeesourcewithcloudexternalid {
     /**
      * Non-Employee source id.
      * @type {string}
-     * @memberof NonemployeesourcewithcloudexternalidV1
+     * @memberof Nonemployeesourcewithcloudexternalid
      */
     'id'?: string;
     /**
      * Source Id associated with this non-employee source.
      * @type {string}
-     * @memberof NonemployeesourcewithcloudexternalidV1
+     * @memberof Nonemployeesourcewithcloudexternalid
      */
     'sourceId'?: string;
     /**
      * Source name associated with this non-employee source.
      * @type {string}
-     * @memberof NonemployeesourcewithcloudexternalidV1
+     * @memberof Nonemployeesourcewithcloudexternalid
      */
     'name'?: string;
     /**
      * Source description associated with this non-employee source.
      * @type {string}
-     * @memberof NonemployeesourcewithcloudexternalidV1
+     * @memberof Nonemployeesourcewithcloudexternalid
      */
     'description'?: string;
     /**
      * List of approvers
-     * @type {Array<NonemployeeidentityreferencewithidV1>}
-     * @memberof NonemployeesourcewithcloudexternalidV1
+     * @type {Array<Nonemployeeidentityreferencewithid>}
+     * @memberof Nonemployeesourcewithcloudexternalid
      */
-    'approvers'?: Array<NonemployeeidentityreferencewithidV1>;
+    'approvers'?: Array<Nonemployeeidentityreferencewithid>;
     /**
      * List of account managers
-     * @type {Array<NonemployeeidentityreferencewithidV1>}
-     * @memberof NonemployeesourcewithcloudexternalidV1
+     * @type {Array<Nonemployeeidentityreferencewithid>}
+     * @memberof Nonemployeesourcewithcloudexternalid
      */
-    'accountManagers'?: Array<NonemployeeidentityreferencewithidV1>;
+    'accountManagers'?: Array<Nonemployeeidentityreferencewithid>;
     /**
      * When the request was last modified.
      * @type {string}
-     * @memberof NonemployeesourcewithcloudexternalidV1
+     * @memberof Nonemployeesourcewithcloudexternalid
      */
     'modified'?: string;
     /**
      * When the request was created.
      * @type {string}
-     * @memberof NonemployeesourcewithcloudexternalidV1
+     * @memberof Nonemployeesourcewithcloudexternalid
      */
     'created'?: string;
     /**
      * Legacy ID used for sources from the V1 API. This attribute will be removed from a future version of the API and will not be considered a breaking change. No clients should rely on this ID always being present.
      * @type {string}
-     * @memberof NonemployeesourcewithcloudexternalidV1
+     * @memberof Nonemployeesourcewithcloudexternalid
      */
     'cloudExternalId'?: string;
 }
 /**
  * 
  * @export
- * @interface NonemployeesourcewithnecountV1
+ * @interface Nonemployeesourcewithnecount
  */
-export interface NonemployeesourcewithnecountV1 {
+export interface Nonemployeesourcewithnecount {
     /**
      * Non-Employee source id.
      * @type {string}
-     * @memberof NonemployeesourcewithnecountV1
+     * @memberof Nonemployeesourcewithnecount
      */
     'id'?: string;
     /**
      * Source Id associated with this non-employee source.
      * @type {string}
-     * @memberof NonemployeesourcewithnecountV1
+     * @memberof Nonemployeesourcewithnecount
      */
     'sourceId'?: string;
     /**
      * Source name associated with this non-employee source.
      * @type {string}
-     * @memberof NonemployeesourcewithnecountV1
+     * @memberof Nonemployeesourcewithnecount
      */
     'name'?: string;
     /**
      * Source description associated with this non-employee source.
      * @type {string}
-     * @memberof NonemployeesourcewithnecountV1
+     * @memberof Nonemployeesourcewithnecount
      */
     'description'?: string;
     /**
      * List of approvers
-     * @type {Array<NonemployeeidentityreferencewithidV1>}
-     * @memberof NonemployeesourcewithnecountV1
+     * @type {Array<Nonemployeeidentityreferencewithid>}
+     * @memberof Nonemployeesourcewithnecount
      */
-    'approvers'?: Array<NonemployeeidentityreferencewithidV1>;
+    'approvers'?: Array<Nonemployeeidentityreferencewithid>;
     /**
      * List of account managers
-     * @type {Array<NonemployeeidentityreferencewithidV1>}
-     * @memberof NonemployeesourcewithnecountV1
+     * @type {Array<Nonemployeeidentityreferencewithid>}
+     * @memberof Nonemployeesourcewithnecount
      */
-    'accountManagers'?: Array<NonemployeeidentityreferencewithidV1>;
+    'accountManagers'?: Array<Nonemployeeidentityreferencewithid>;
     /**
      * When the request was last modified.
      * @type {string}
-     * @memberof NonemployeesourcewithnecountV1
+     * @memberof Nonemployeesourcewithnecount
      */
     'modified'?: string;
     /**
      * When the request was created.
      * @type {string}
-     * @memberof NonemployeesourcewithnecountV1
+     * @memberof Nonemployeesourcewithnecount
      */
     'created'?: string;
     /**
      * Number of non-employee records associated with this source. This value is \'NULL\' by default. To get the non-employee count, you must set the `non-employee-count` flag in your request to \'true\'.
      * @type {number}
-     * @memberof NonemployeesourcewithnecountV1
+     * @memberof Nonemployeesourcewithnecount
      */
     'nonEmployeeCount'?: number | null;
 }
 
 /**
- * NonEmployeeLifecycleManagementV1Api - axios parameter creator
+ * NonEmployeeLifecycleManagementApi - axios parameter creator
  * @export
  */
-export const NonEmployeeLifecycleManagementV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Approves a non-employee approval request and notifies the next approver. The current user must be the requested approver.
          * @summary Approve a non-employee request
          * @param {string} id Non-Employee approval item id (UUID)
-         * @param {NonemployeeapprovaldecisionV1} nonemployeeapprovaldecisionV1 
+         * @param {Nonemployeeapprovaldecision} nonemployeeapprovaldecision 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        approveNonEmployeeRequestV1: async (id: string, nonemployeeapprovaldecisionV1: NonemployeeapprovaldecisionV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        approveNonEmployeeRequestV1: async (id: string, nonemployeeapprovaldecision: Nonemployeeapprovaldecision, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('approveNonEmployeeRequestV1', 'id', id)
-            // verify required parameter 'nonemployeeapprovaldecisionV1' is not null or undefined
-            assertParamExists('approveNonEmployeeRequestV1', 'nonemployeeapprovaldecisionV1', nonemployeeapprovaldecisionV1)
+            // verify required parameter 'nonemployeeapprovaldecision' is not null or undefined
+            assertParamExists('approveNonEmployeeRequestV1', 'nonemployeeapprovaldecision', nonemployeeapprovaldecision)
             const localVarPath = `/non-employee-approvals/v1/{id}/approve`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1464,7 +1464,7 @@ export const NonEmployeeLifecycleManagementV1ApiAxiosParamCreator = function (co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(nonemployeeapprovaldecisionV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(nonemployeeapprovaldecision, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1474,13 +1474,13 @@ export const NonEmployeeLifecycleManagementV1ApiAxiosParamCreator = function (co
         /**
          * This request will create a non-employee record. Requires role context of `idn:nesr:create`
          * @summary Create non-employee record
-         * @param {NonemployeerequestbodyV1} nonemployeerequestbodyV1 Non-Employee record creation request body.
+         * @param {Nonemployeerequestbody} nonemployeerequestbody Non-Employee record creation request body.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createNonEmployeeRecordV1: async (nonemployeerequestbodyV1: NonemployeerequestbodyV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'nonemployeerequestbodyV1' is not null or undefined
-            assertParamExists('createNonEmployeeRecordV1', 'nonemployeerequestbodyV1', nonemployeerequestbodyV1)
+        createNonEmployeeRecordV1: async (nonemployeerequestbody: Nonemployeerequestbody, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'nonemployeerequestbody' is not null or undefined
+            assertParamExists('createNonEmployeeRecordV1', 'nonemployeerequestbody', nonemployeerequestbody)
             const localVarPath = `/non-employee-records/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1500,7 +1500,7 @@ export const NonEmployeeLifecycleManagementV1ApiAxiosParamCreator = function (co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(nonemployeerequestbodyV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(nonemployeerequestbody, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1510,13 +1510,13 @@ export const NonEmployeeLifecycleManagementV1ApiAxiosParamCreator = function (co
         /**
          * This request will create a non-employee request and notify the approver. Requires role context of `idn:nesr:create` or the user must own the source.
          * @summary Create non-employee request
-         * @param {NonemployeerequestbodyV1} nonemployeerequestbodyV1 Non-Employee creation request body
+         * @param {Nonemployeerequestbody} nonemployeerequestbody Non-Employee creation request body
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createNonEmployeeRequestV1: async (nonemployeerequestbodyV1: NonemployeerequestbodyV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'nonemployeerequestbodyV1' is not null or undefined
-            assertParamExists('createNonEmployeeRequestV1', 'nonemployeerequestbodyV1', nonemployeerequestbodyV1)
+        createNonEmployeeRequestV1: async (nonemployeerequestbody: Nonemployeerequestbody, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'nonemployeerequestbody' is not null or undefined
+            assertParamExists('createNonEmployeeRequestV1', 'nonemployeerequestbody', nonemployeerequestbody)
             const localVarPath = `/non-employee-requests/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1536,7 +1536,7 @@ export const NonEmployeeLifecycleManagementV1ApiAxiosParamCreator = function (co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(nonemployeerequestbodyV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(nonemployeerequestbody, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1547,15 +1547,15 @@ export const NonEmployeeLifecycleManagementV1ApiAxiosParamCreator = function (co
          * This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a \"400.1.409 Reference conflict\" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a \"400.1.4 Limit violation\" response. Requires role context of `idn:nesr:create`
          * @summary Create a new schema attribute for non-employee source
          * @param {string} sourceId The Source id
-         * @param {NonemployeeschemaattributebodyV1} nonemployeeschemaattributebodyV1 
+         * @param {Nonemployeeschemaattributebody} nonemployeeschemaattributebody 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createNonEmployeeSourceSchemaAttributesV1: async (sourceId: string, nonemployeeschemaattributebodyV1: NonemployeeschemaattributebodyV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createNonEmployeeSourceSchemaAttributesV1: async (sourceId: string, nonemployeeschemaattributebody: Nonemployeeschemaattributebody, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('createNonEmployeeSourceSchemaAttributesV1', 'sourceId', sourceId)
-            // verify required parameter 'nonemployeeschemaattributebodyV1' is not null or undefined
-            assertParamExists('createNonEmployeeSourceSchemaAttributesV1', 'nonemployeeschemaattributebodyV1', nonemployeeschemaattributebodyV1)
+            // verify required parameter 'nonemployeeschemaattributebody' is not null or undefined
+            assertParamExists('createNonEmployeeSourceSchemaAttributesV1', 'nonemployeeschemaattributebody', nonemployeeschemaattributebody)
             const localVarPath = `/non-employee-sources/v1/{sourceId}/schema-attributes`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1576,7 +1576,7 @@ export const NonEmployeeLifecycleManagementV1ApiAxiosParamCreator = function (co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(nonemployeeschemaattributebodyV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(nonemployeeschemaattributebody, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1586,13 +1586,13 @@ export const NonEmployeeLifecycleManagementV1ApiAxiosParamCreator = function (co
         /**
          * Create a non-employee source. 
          * @summary Create non-employee source
-         * @param {NonemployeesourcerequestbodyV1} nonemployeesourcerequestbodyV1 Non-Employee source creation request body.
+         * @param {Nonemployeesourcerequestbody} nonemployeesourcerequestbody Non-Employee source creation request body.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createNonEmployeeSourceV1: async (nonemployeesourcerequestbodyV1: NonemployeesourcerequestbodyV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'nonemployeesourcerequestbodyV1' is not null or undefined
-            assertParamExists('createNonEmployeeSourceV1', 'nonemployeesourcerequestbodyV1', nonemployeesourcerequestbodyV1)
+        createNonEmployeeSourceV1: async (nonemployeesourcerequestbody: Nonemployeesourcerequestbody, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'nonemployeesourcerequestbody' is not null or undefined
+            assertParamExists('createNonEmployeeSourceV1', 'nonemployeesourcerequestbody', nonemployeesourcerequestbody)
             const localVarPath = `/non-employee-sources/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1612,7 +1612,7 @@ export const NonEmployeeLifecycleManagementV1ApiAxiosParamCreator = function (co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(nonemployeesourcerequestbodyV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(nonemployeesourcerequestbody, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1656,13 +1656,13 @@ export const NonEmployeeLifecycleManagementV1ApiAxiosParamCreator = function (co
         /**
          * This request will delete multiple non-employee records based on the non-employee ids provided. Requires role context of `idn:nesr:delete`
          * @summary Delete multiple non-employee records
-         * @param {DeleteNonEmployeeRecordsInBulkV1RequestV1} deleteNonEmployeeRecordsInBulkV1RequestV1 Non-Employee bulk delete request body.
+         * @param {DeleteNonEmployeeRecordsInBulkV1Request} deleteNonEmployeeRecordsInBulkV1Request Non-Employee bulk delete request body.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteNonEmployeeRecordsInBulkV1: async (deleteNonEmployeeRecordsInBulkV1RequestV1: DeleteNonEmployeeRecordsInBulkV1RequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'deleteNonEmployeeRecordsInBulkV1RequestV1' is not null or undefined
-            assertParamExists('deleteNonEmployeeRecordsInBulkV1', 'deleteNonEmployeeRecordsInBulkV1RequestV1', deleteNonEmployeeRecordsInBulkV1RequestV1)
+        deleteNonEmployeeRecordsInBulkV1: async (deleteNonEmployeeRecordsInBulkV1Request: DeleteNonEmployeeRecordsInBulkV1Request, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'deleteNonEmployeeRecordsInBulkV1Request' is not null or undefined
+            assertParamExists('deleteNonEmployeeRecordsInBulkV1', 'deleteNonEmployeeRecordsInBulkV1Request', deleteNonEmployeeRecordsInBulkV1Request)
             const localVarPath = `/non-employee-records/v1/bulk-delete`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1682,7 +1682,7 @@ export const NonEmployeeLifecycleManagementV1ApiAxiosParamCreator = function (co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(deleteNonEmployeeRecordsInBulkV1RequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(deleteNonEmployeeRecordsInBulkV1Request, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2498,15 +2498,15 @@ export const NonEmployeeLifecycleManagementV1ApiAxiosParamCreator = function (co
          * This request will patch a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
          * @summary Patch non-employee record
          * @param {string} id Non-employee record id (UUID)
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchNonEmployeeRecordV1: async (id: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchNonEmployeeRecordV1: async (id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchNonEmployeeRecordV1', 'id', id)
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('patchNonEmployeeRecordV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('patchNonEmployeeRecordV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/non-employee-records/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2527,7 +2527,7 @@ export const NonEmployeeLifecycleManagementV1ApiAxiosParamCreator = function (co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2539,17 +2539,17 @@ export const NonEmployeeLifecycleManagementV1ApiAxiosParamCreator = function (co
          * @summary Patch a schema attribute for non-employee source
          * @param {string} attributeId The Schema Attribute Id (UUID)
          * @param {string} sourceId The Source id
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update \&#39;:\&#39; \&#39;label\&#39;, \&#39;helpText\&#39;, \&#39;placeholder\&#39;, \&#39;required\&#39;.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update \&#39;:\&#39; \&#39;label\&#39;, \&#39;helpText\&#39;, \&#39;placeholder\&#39;, \&#39;required\&#39;.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchNonEmployeeSchemaAttributeV1: async (attributeId: string, sourceId: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchNonEmployeeSchemaAttributeV1: async (attributeId: string, sourceId: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'attributeId' is not null or undefined
             assertParamExists('patchNonEmployeeSchemaAttributeV1', 'attributeId', attributeId)
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('patchNonEmployeeSchemaAttributeV1', 'sourceId', sourceId)
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('patchNonEmployeeSchemaAttributeV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('patchNonEmployeeSchemaAttributeV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/non-employee-sources/v1/{sourceId}/schema-attributes/{attributeId}`
                 .replace(`{${"attributeId"}}`, encodeURIComponent(String(attributeId)))
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
@@ -2571,7 +2571,7 @@ export const NonEmployeeLifecycleManagementV1ApiAxiosParamCreator = function (co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2582,15 +2582,15 @@ export const NonEmployeeLifecycleManagementV1ApiAxiosParamCreator = function (co
          * patch a non-employee source. (partial update) <br/> Patchable field: **name, description, approvers, accountManagers** Requires role context of `idn:nesr:update`.
          * @summary Patch a non-employee source
          * @param {string} sourceId Source Id
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchNonEmployeeSourceV1: async (sourceId: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchNonEmployeeSourceV1: async (sourceId: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('patchNonEmployeeSourceV1', 'sourceId', sourceId)
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('patchNonEmployeeSourceV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('patchNonEmployeeSourceV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/non-employee-sources/v1/{sourceId}`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2611,7 +2611,7 @@ export const NonEmployeeLifecycleManagementV1ApiAxiosParamCreator = function (co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2622,15 +2622,15 @@ export const NonEmployeeLifecycleManagementV1ApiAxiosParamCreator = function (co
          * This endpoint will reject an approval item request and notify user. The current user must be the requested approver.
          * @summary Reject a non-employee request
          * @param {string} id Non-Employee approval item id (UUID)
-         * @param {NonemployeerejectapprovaldecisionV1} nonemployeerejectapprovaldecisionV1 
+         * @param {Nonemployeerejectapprovaldecision} nonemployeerejectapprovaldecision 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        rejectNonEmployeeRequestV1: async (id: string, nonemployeerejectapprovaldecisionV1: NonemployeerejectapprovaldecisionV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        rejectNonEmployeeRequestV1: async (id: string, nonemployeerejectapprovaldecision: Nonemployeerejectapprovaldecision, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('rejectNonEmployeeRequestV1', 'id', id)
-            // verify required parameter 'nonemployeerejectapprovaldecisionV1' is not null or undefined
-            assertParamExists('rejectNonEmployeeRequestV1', 'nonemployeerejectapprovaldecisionV1', nonemployeerejectapprovaldecisionV1)
+            // verify required parameter 'nonemployeerejectapprovaldecision' is not null or undefined
+            assertParamExists('rejectNonEmployeeRequestV1', 'nonemployeerejectapprovaldecision', nonemployeerejectapprovaldecision)
             const localVarPath = `/non-employee-approvals/v1/{id}/reject`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2651,7 +2651,7 @@ export const NonEmployeeLifecycleManagementV1ApiAxiosParamCreator = function (co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(nonemployeerejectapprovaldecisionV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(nonemployeerejectapprovaldecision, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2662,15 +2662,15 @@ export const NonEmployeeLifecycleManagementV1ApiAxiosParamCreator = function (co
          * This request will update a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
          * @summary Update non-employee record
          * @param {string} id Non-employee record id (UUID)
-         * @param {NonemployeerequestbodyV1} nonemployeerequestbodyV1 Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+         * @param {Nonemployeerequestbody} nonemployeerequestbody Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateNonEmployeeRecordV1: async (id: string, nonemployeerequestbodyV1: NonemployeerequestbodyV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateNonEmployeeRecordV1: async (id: string, nonemployeerequestbody: Nonemployeerequestbody, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateNonEmployeeRecordV1', 'id', id)
-            // verify required parameter 'nonemployeerequestbodyV1' is not null or undefined
-            assertParamExists('updateNonEmployeeRecordV1', 'nonemployeerequestbodyV1', nonemployeerequestbodyV1)
+            // verify required parameter 'nonemployeerequestbody' is not null or undefined
+            assertParamExists('updateNonEmployeeRecordV1', 'nonemployeerequestbody', nonemployeerequestbody)
             const localVarPath = `/non-employee-records/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2691,7 +2691,7 @@ export const NonEmployeeLifecycleManagementV1ApiAxiosParamCreator = function (co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(nonemployeerequestbodyV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(nonemployeerequestbody, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2702,77 +2702,77 @@ export const NonEmployeeLifecycleManagementV1ApiAxiosParamCreator = function (co
 };
 
 /**
- * NonEmployeeLifecycleManagementV1Api - functional programming interface
+ * NonEmployeeLifecycleManagementApi - functional programming interface
  * @export
  */
-export const NonEmployeeLifecycleManagementV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = NonEmployeeLifecycleManagementV1ApiAxiosParamCreator(configuration)
+export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = NonEmployeeLifecycleManagementApiAxiosParamCreator(configuration)
     return {
         /**
          * Approves a non-employee approval request and notifies the next approver. The current user must be the requested approver.
          * @summary Approve a non-employee request
          * @param {string} id Non-Employee approval item id (UUID)
-         * @param {NonemployeeapprovaldecisionV1} nonemployeeapprovaldecisionV1 
+         * @param {Nonemployeeapprovaldecision} nonemployeeapprovaldecision 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async approveNonEmployeeRequestV1(id: string, nonemployeeapprovaldecisionV1: NonemployeeapprovaldecisionV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonemployeeapprovalitemV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.approveNonEmployeeRequestV1(id, nonemployeeapprovaldecisionV1, axiosOptions);
+        async approveNonEmployeeRequestV1(id: string, nonemployeeapprovaldecision: Nonemployeeapprovaldecision, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Nonemployeeapprovalitem>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.approveNonEmployeeRequestV1(id, nonemployeeapprovaldecision, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.approveNonEmployeeRequestV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.approveNonEmployeeRequestV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This request will create a non-employee record. Requires role context of `idn:nesr:create`
          * @summary Create non-employee record
-         * @param {NonemployeerequestbodyV1} nonemployeerequestbodyV1 Non-Employee record creation request body.
+         * @param {Nonemployeerequestbody} nonemployeerequestbody Non-Employee record creation request body.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createNonEmployeeRecordV1(nonemployeerequestbodyV1: NonemployeerequestbodyV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonemployeerecordV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeRecordV1(nonemployeerequestbodyV1, axiosOptions);
+        async createNonEmployeeRecordV1(nonemployeerequestbody: Nonemployeerequestbody, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Nonemployeerecord>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeRecordV1(nonemployeerequestbody, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.createNonEmployeeRecordV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.createNonEmployeeRecordV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This request will create a non-employee request and notify the approver. Requires role context of `idn:nesr:create` or the user must own the source.
          * @summary Create non-employee request
-         * @param {NonemployeerequestbodyV1} nonemployeerequestbodyV1 Non-Employee creation request body
+         * @param {Nonemployeerequestbody} nonemployeerequestbody Non-Employee creation request body
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createNonEmployeeRequestV1(nonemployeerequestbodyV1: NonemployeerequestbodyV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonemployeerequestV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeRequestV1(nonemployeerequestbodyV1, axiosOptions);
+        async createNonEmployeeRequestV1(nonemployeerequestbody: Nonemployeerequestbody, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Nonemployeerequest>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeRequestV1(nonemployeerequestbody, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.createNonEmployeeRequestV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.createNonEmployeeRequestV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a \"400.1.409 Reference conflict\" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a \"400.1.4 Limit violation\" response. Requires role context of `idn:nesr:create`
          * @summary Create a new schema attribute for non-employee source
          * @param {string} sourceId The Source id
-         * @param {NonemployeeschemaattributebodyV1} nonemployeeschemaattributebodyV1 
+         * @param {Nonemployeeschemaattributebody} nonemployeeschemaattributebody 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createNonEmployeeSourceSchemaAttributesV1(sourceId: string, nonemployeeschemaattributebodyV1: NonemployeeschemaattributebodyV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonemployeeschemaattributeV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeSourceSchemaAttributesV1(sourceId, nonemployeeschemaattributebodyV1, axiosOptions);
+        async createNonEmployeeSourceSchemaAttributesV1(sourceId: string, nonemployeeschemaattributebody: Nonemployeeschemaattributebody, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Nonemployeeschemaattribute>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeSourceSchemaAttributesV1(sourceId, nonemployeeschemaattributebody, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.createNonEmployeeSourceSchemaAttributesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.createNonEmployeeSourceSchemaAttributesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Create a non-employee source. 
          * @summary Create non-employee source
-         * @param {NonemployeesourcerequestbodyV1} nonemployeesourcerequestbodyV1 Non-Employee source creation request body.
+         * @param {Nonemployeesourcerequestbody} nonemployeesourcerequestbody Non-Employee source creation request body.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createNonEmployeeSourceV1(nonemployeesourcerequestbodyV1: NonemployeesourcerequestbodyV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonemployeesourcewithcloudexternalidV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeSourceV1(nonemployeesourcerequestbodyV1, axiosOptions);
+        async createNonEmployeeSourceV1(nonemployeesourcerequestbody: Nonemployeesourcerequestbody, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Nonemployeesourcewithcloudexternalid>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeSourceV1(nonemployeesourcerequestbody, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.createNonEmployeeSourceV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.createNonEmployeeSourceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2785,20 +2785,20 @@ export const NonEmployeeLifecycleManagementV1ApiFp = function(configuration?: Co
         async deleteNonEmployeeRecordV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeRecordV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.deleteNonEmployeeRecordV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.deleteNonEmployeeRecordV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This request will delete multiple non-employee records based on the non-employee ids provided. Requires role context of `idn:nesr:delete`
          * @summary Delete multiple non-employee records
-         * @param {DeleteNonEmployeeRecordsInBulkV1RequestV1} deleteNonEmployeeRecordsInBulkV1RequestV1 Non-Employee bulk delete request body.
+         * @param {DeleteNonEmployeeRecordsInBulkV1Request} deleteNonEmployeeRecordsInBulkV1Request Non-Employee bulk delete request body.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteNonEmployeeRecordsInBulkV1(deleteNonEmployeeRecordsInBulkV1RequestV1: DeleteNonEmployeeRecordsInBulkV1RequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeRecordsInBulkV1(deleteNonEmployeeRecordsInBulkV1RequestV1, axiosOptions);
+        async deleteNonEmployeeRecordsInBulkV1(deleteNonEmployeeRecordsInBulkV1Request: DeleteNonEmployeeRecordsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeRecordsInBulkV1(deleteNonEmployeeRecordsInBulkV1Request, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.deleteNonEmployeeRecordsInBulkV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.deleteNonEmployeeRecordsInBulkV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2811,7 +2811,7 @@ export const NonEmployeeLifecycleManagementV1ApiFp = function(configuration?: Co
         async deleteNonEmployeeRequestV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeRequestV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.deleteNonEmployeeRequestV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.deleteNonEmployeeRequestV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2825,7 +2825,7 @@ export const NonEmployeeLifecycleManagementV1ApiFp = function(configuration?: Co
         async deleteNonEmployeeSchemaAttributeV1(attributeId: string, sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeSchemaAttributeV1(attributeId, sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.deleteNonEmployeeSchemaAttributeV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.deleteNonEmployeeSchemaAttributeV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2838,7 +2838,7 @@ export const NonEmployeeLifecycleManagementV1ApiFp = function(configuration?: Co
         async deleteNonEmployeeSourceSchemaAttributesV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeSourceSchemaAttributesV1(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.deleteNonEmployeeSourceSchemaAttributesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.deleteNonEmployeeSourceSchemaAttributesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2851,7 +2851,7 @@ export const NonEmployeeLifecycleManagementV1ApiFp = function(configuration?: Co
         async deleteNonEmployeeSourceV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeSourceV1(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.deleteNonEmployeeSourceV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.deleteNonEmployeeSourceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2864,7 +2864,7 @@ export const NonEmployeeLifecycleManagementV1ApiFp = function(configuration?: Co
         async exportNonEmployeeRecordsV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.exportNonEmployeeRecordsV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.exportNonEmployeeRecordsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.exportNonEmployeeRecordsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2877,7 +2877,7 @@ export const NonEmployeeLifecycleManagementV1ApiFp = function(configuration?: Co
         async exportNonEmployeeSourceSchemaTemplateV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.exportNonEmployeeSourceSchemaTemplateV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.exportNonEmployeeSourceSchemaTemplateV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.exportNonEmployeeSourceSchemaTemplateV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2887,10 +2887,10 @@ export const NonEmployeeLifecycleManagementV1ApiFp = function(configuration?: Co
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeApprovalSummaryV1(requestedFor: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonemployeeapprovalsummaryV1>> {
+        async getNonEmployeeApprovalSummaryV1(requestedFor: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Nonemployeeapprovalsummary>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeApprovalSummaryV1(requestedFor, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.getNonEmployeeApprovalSummaryV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.getNonEmployeeApprovalSummaryV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2901,10 +2901,10 @@ export const NonEmployeeLifecycleManagementV1ApiFp = function(configuration?: Co
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeApprovalV1(id: string, includeDetail?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonemployeeapprovalitemdetailV1>> {
+        async getNonEmployeeApprovalV1(id: string, includeDetail?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Nonemployeeapprovalitemdetail>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeApprovalV1(id, includeDetail, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.getNonEmployeeApprovalV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.getNonEmployeeApprovalV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2914,10 +2914,10 @@ export const NonEmployeeLifecycleManagementV1ApiFp = function(configuration?: Co
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeBulkUploadStatusV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonemployeebulkuploadstatusV1>> {
+        async getNonEmployeeBulkUploadStatusV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Nonemployeebulkuploadstatus>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeBulkUploadStatusV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.getNonEmployeeBulkUploadStatusV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.getNonEmployeeBulkUploadStatusV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2927,10 +2927,10 @@ export const NonEmployeeLifecycleManagementV1ApiFp = function(configuration?: Co
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeRecordV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonemployeerecordV1>> {
+        async getNonEmployeeRecordV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Nonemployeerecord>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeRecordV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.getNonEmployeeRecordV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.getNonEmployeeRecordV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2940,10 +2940,10 @@ export const NonEmployeeLifecycleManagementV1ApiFp = function(configuration?: Co
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeRequestSummaryV1(requestedFor: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonemployeerequestsummaryV1>> {
+        async getNonEmployeeRequestSummaryV1(requestedFor: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Nonemployeerequestsummary>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeRequestSummaryV1(requestedFor, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.getNonEmployeeRequestSummaryV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.getNonEmployeeRequestSummaryV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2953,10 +2953,10 @@ export const NonEmployeeLifecycleManagementV1ApiFp = function(configuration?: Co
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeRequestV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonemployeerequestV1>> {
+        async getNonEmployeeRequestV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Nonemployeerequest>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeRequestV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.getNonEmployeeRequestV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.getNonEmployeeRequestV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2967,10 +2967,10 @@ export const NonEmployeeLifecycleManagementV1ApiFp = function(configuration?: Co
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeSchemaAttributeV1(attributeId: string, sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonemployeeschemaattributeV1>> {
+        async getNonEmployeeSchemaAttributeV1(attributeId: string, sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Nonemployeeschemaattribute>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeSchemaAttributeV1(attributeId, sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.getNonEmployeeSchemaAttributeV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.getNonEmployeeSchemaAttributeV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2980,10 +2980,10 @@ export const NonEmployeeLifecycleManagementV1ApiFp = function(configuration?: Co
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeSourceSchemaAttributesV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonemployeeschemaattributeV1>>> {
+        async getNonEmployeeSourceSchemaAttributesV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Nonemployeeschemaattribute>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeSourceSchemaAttributesV1(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.getNonEmployeeSourceSchemaAttributesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.getNonEmployeeSourceSchemaAttributesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2993,10 +2993,10 @@ export const NonEmployeeLifecycleManagementV1ApiFp = function(configuration?: Co
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeSourceV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonemployeesourceV1>> {
+        async getNonEmployeeSourceV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Nonemployeesource>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeSourceV1(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.getNonEmployeeSourceV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.getNonEmployeeSourceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -3007,10 +3007,10 @@ export const NonEmployeeLifecycleManagementV1ApiFp = function(configuration?: Co
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importNonEmployeeRecordsInBulkV1(id: string, data: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonemployeebulkuploadjobV1>> {
+        async importNonEmployeeRecordsInBulkV1(id: string, data: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Nonemployeebulkuploadjob>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.importNonEmployeeRecordsInBulkV1(id, data, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.importNonEmployeeRecordsInBulkV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.importNonEmployeeRecordsInBulkV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -3025,10 +3025,10 @@ export const NonEmployeeLifecycleManagementV1ApiFp = function(configuration?: Co
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listNonEmployeeApprovalsV1(requestedFor?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonemployeeapprovalitemV1>>> {
+        async listNonEmployeeApprovalsV1(requestedFor?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Nonemployeeapprovalitem>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeApprovalsV1(requestedFor, limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.listNonEmployeeApprovalsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.listNonEmployeeApprovalsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -3042,10 +3042,10 @@ export const NonEmployeeLifecycleManagementV1ApiFp = function(configuration?: Co
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listNonEmployeeRecordsV1(limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonemployeerecordV1>>> {
+        async listNonEmployeeRecordsV1(limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Nonemployeerecord>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeRecordsV1(limit, offset, count, sorters, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.listNonEmployeeRecordsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.listNonEmployeeRecordsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -3060,10 +3060,10 @@ export const NonEmployeeLifecycleManagementV1ApiFp = function(configuration?: Co
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listNonEmployeeRequestsV1(requestedFor: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonemployeerequestV1>>> {
+        async listNonEmployeeRequestsV1(requestedFor: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Nonemployeerequest>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeRequestsV1(requestedFor, limit, offset, count, sorters, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.listNonEmployeeRequestsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.listNonEmployeeRequestsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -3078,24 +3078,24 @@ export const NonEmployeeLifecycleManagementV1ApiFp = function(configuration?: Co
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listNonEmployeeSourcesV1(limit?: number, offset?: number, count?: boolean, requestedFor?: string, nonEmployeeCount?: boolean, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonemployeesourcewithnecountV1>>> {
+        async listNonEmployeeSourcesV1(limit?: number, offset?: number, count?: boolean, requestedFor?: string, nonEmployeeCount?: boolean, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Nonemployeesourcewithnecount>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeSourcesV1(limit, offset, count, requestedFor, nonEmployeeCount, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.listNonEmployeeSourcesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.listNonEmployeeSourcesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This request will patch a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
          * @summary Patch non-employee record
          * @param {string} id Non-employee record id (UUID)
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchNonEmployeeRecordV1(id: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonemployeerecordV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchNonEmployeeRecordV1(id, jsonpatchoperationV1, axiosOptions);
+        async patchNonEmployeeRecordV1(id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Nonemployeerecord>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchNonEmployeeRecordV1(id, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.patchNonEmployeeRecordV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.patchNonEmployeeRecordV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -3103,1445 +3103,1445 @@ export const NonEmployeeLifecycleManagementV1ApiFp = function(configuration?: Co
          * @summary Patch a schema attribute for non-employee source
          * @param {string} attributeId The Schema Attribute Id (UUID)
          * @param {string} sourceId The Source id
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update \&#39;:\&#39; \&#39;label\&#39;, \&#39;helpText\&#39;, \&#39;placeholder\&#39;, \&#39;required\&#39;.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update \&#39;:\&#39; \&#39;label\&#39;, \&#39;helpText\&#39;, \&#39;placeholder\&#39;, \&#39;required\&#39;.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchNonEmployeeSchemaAttributeV1(attributeId: string, sourceId: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonemployeeschemaattributeV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchNonEmployeeSchemaAttributeV1(attributeId, sourceId, jsonpatchoperationV1, axiosOptions);
+        async patchNonEmployeeSchemaAttributeV1(attributeId: string, sourceId: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Nonemployeeschemaattribute>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchNonEmployeeSchemaAttributeV1(attributeId, sourceId, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.patchNonEmployeeSchemaAttributeV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.patchNonEmployeeSchemaAttributeV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * patch a non-employee source. (partial update) <br/> Patchable field: **name, description, approvers, accountManagers** Requires role context of `idn:nesr:update`.
          * @summary Patch a non-employee source
          * @param {string} sourceId Source Id
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchNonEmployeeSourceV1(sourceId: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonemployeesourceV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchNonEmployeeSourceV1(sourceId, jsonpatchoperationV1, axiosOptions);
+        async patchNonEmployeeSourceV1(sourceId: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Nonemployeesource>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchNonEmployeeSourceV1(sourceId, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.patchNonEmployeeSourceV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.patchNonEmployeeSourceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This endpoint will reject an approval item request and notify user. The current user must be the requested approver.
          * @summary Reject a non-employee request
          * @param {string} id Non-Employee approval item id (UUID)
-         * @param {NonemployeerejectapprovaldecisionV1} nonemployeerejectapprovaldecisionV1 
+         * @param {Nonemployeerejectapprovaldecision} nonemployeerejectapprovaldecision 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async rejectNonEmployeeRequestV1(id: string, nonemployeerejectapprovaldecisionV1: NonemployeerejectapprovaldecisionV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonemployeeapprovalitemV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectNonEmployeeRequestV1(id, nonemployeerejectapprovaldecisionV1, axiosOptions);
+        async rejectNonEmployeeRequestV1(id: string, nonemployeerejectapprovaldecision: Nonemployeerejectapprovaldecision, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Nonemployeeapprovalitem>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectNonEmployeeRequestV1(id, nonemployeerejectapprovaldecision, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.rejectNonEmployeeRequestV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.rejectNonEmployeeRequestV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This request will update a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
          * @summary Update non-employee record
          * @param {string} id Non-employee record id (UUID)
-         * @param {NonemployeerequestbodyV1} nonemployeerequestbodyV1 Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+         * @param {Nonemployeerequestbody} nonemployeerequestbody Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateNonEmployeeRecordV1(id: string, nonemployeerequestbodyV1: NonemployeerequestbodyV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonemployeerecordV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateNonEmployeeRecordV1(id, nonemployeerequestbodyV1, axiosOptions);
+        async updateNonEmployeeRecordV1(id: string, nonemployeerequestbody: Nonemployeerequestbody, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Nonemployeerecord>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateNonEmployeeRecordV1(id, nonemployeerequestbody, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementV1Api.updateNonEmployeeRecordV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.updateNonEmployeeRecordV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * NonEmployeeLifecycleManagementV1Api - factory interface
+ * NonEmployeeLifecycleManagementApi - factory interface
  * @export
  */
-export const NonEmployeeLifecycleManagementV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = NonEmployeeLifecycleManagementV1ApiFp(configuration)
+export const NonEmployeeLifecycleManagementApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = NonEmployeeLifecycleManagementApiFp(configuration)
     return {
         /**
          * Approves a non-employee approval request and notifies the next approver. The current user must be the requested approver.
          * @summary Approve a non-employee request
-         * @param {NonEmployeeLifecycleManagementV1ApiApproveNonEmployeeRequestV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiApproveNonEmployeeRequestV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        approveNonEmployeeRequestV1(requestParameters: NonEmployeeLifecycleManagementV1ApiApproveNonEmployeeRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NonemployeeapprovalitemV1> {
-            return localVarFp.approveNonEmployeeRequestV1(requestParameters.id, requestParameters.nonemployeeapprovaldecisionV1, axiosOptions).then((request) => request(axios, basePath));
+        approveNonEmployeeRequestV1(requestParameters: NonEmployeeLifecycleManagementApiApproveNonEmployeeRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Nonemployeeapprovalitem> {
+            return localVarFp.approveNonEmployeeRequestV1(requestParameters.id, requestParameters.nonemployeeapprovaldecision, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This request will create a non-employee record. Requires role context of `idn:nesr:create`
          * @summary Create non-employee record
-         * @param {NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeRecordV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiCreateNonEmployeeRecordV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createNonEmployeeRecordV1(requestParameters: NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeRecordV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NonemployeerecordV1> {
-            return localVarFp.createNonEmployeeRecordV1(requestParameters.nonemployeerequestbodyV1, axiosOptions).then((request) => request(axios, basePath));
+        createNonEmployeeRecordV1(requestParameters: NonEmployeeLifecycleManagementApiCreateNonEmployeeRecordV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Nonemployeerecord> {
+            return localVarFp.createNonEmployeeRecordV1(requestParameters.nonemployeerequestbody, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This request will create a non-employee request and notify the approver. Requires role context of `idn:nesr:create` or the user must own the source.
          * @summary Create non-employee request
-         * @param {NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeRequestV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiCreateNonEmployeeRequestV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createNonEmployeeRequestV1(requestParameters: NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NonemployeerequestV1> {
-            return localVarFp.createNonEmployeeRequestV1(requestParameters.nonemployeerequestbodyV1, axiosOptions).then((request) => request(axios, basePath));
+        createNonEmployeeRequestV1(requestParameters: NonEmployeeLifecycleManagementApiCreateNonEmployeeRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Nonemployeerequest> {
+            return localVarFp.createNonEmployeeRequestV1(requestParameters.nonemployeerequestbody, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a \"400.1.409 Reference conflict\" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a \"400.1.4 Limit violation\" response. Requires role context of `idn:nesr:create`
          * @summary Create a new schema attribute for non-employee source
-         * @param {NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeSourceSchemaAttributesV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceSchemaAttributesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createNonEmployeeSourceSchemaAttributesV1(requestParameters: NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeSourceSchemaAttributesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NonemployeeschemaattributeV1> {
-            return localVarFp.createNonEmployeeSourceSchemaAttributesV1(requestParameters.sourceId, requestParameters.nonemployeeschemaattributebodyV1, axiosOptions).then((request) => request(axios, basePath));
+        createNonEmployeeSourceSchemaAttributesV1(requestParameters: NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceSchemaAttributesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Nonemployeeschemaattribute> {
+            return localVarFp.createNonEmployeeSourceSchemaAttributesV1(requestParameters.sourceId, requestParameters.nonemployeeschemaattributebody, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Create a non-employee source. 
          * @summary Create non-employee source
-         * @param {NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeSourceV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createNonEmployeeSourceV1(requestParameters: NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NonemployeesourcewithcloudexternalidV1> {
-            return localVarFp.createNonEmployeeSourceV1(requestParameters.nonemployeesourcerequestbodyV1, axiosOptions).then((request) => request(axios, basePath));
+        createNonEmployeeSourceV1(requestParameters: NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Nonemployeesourcewithcloudexternalid> {
+            return localVarFp.createNonEmployeeSourceV1(requestParameters.nonemployeesourcerequestbody, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This request will delete a non-employee record. Requires role context of `idn:nesr:delete`
          * @summary Delete non-employee record
-         * @param {NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeRecordV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteNonEmployeeRecordV1(requestParameters: NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeRecordV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteNonEmployeeRecordV1(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteNonEmployeeRecordV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This request will delete multiple non-employee records based on the non-employee ids provided. Requires role context of `idn:nesr:delete`
          * @summary Delete multiple non-employee records
-         * @param {NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeRecordsInBulkV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordsInBulkV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteNonEmployeeRecordsInBulkV1(requestParameters: NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeRecordsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.deleteNonEmployeeRecordsInBulkV1(requestParameters.deleteNonEmployeeRecordsInBulkV1RequestV1, axiosOptions).then((request) => request(axios, basePath));
+        deleteNonEmployeeRecordsInBulkV1(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteNonEmployeeRecordsInBulkV1(requestParameters.deleteNonEmployeeRecordsInBulkV1Request, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This request will delete a non-employee request.  Requires role context of `idn:nesr:delete`
          * @summary Delete non-employee request
-         * @param {NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeRequestV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiDeleteNonEmployeeRequestV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteNonEmployeeRequestV1(requestParameters: NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteNonEmployeeRequestV1(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteNonEmployeeRequestV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point deletes a specific schema attribute for a non-employee source. Requires role context of `idn:nesr:delete` 
          * @summary Delete a schema attribute for non-employee source
-         * @param {NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeSchemaAttributeV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiDeleteNonEmployeeSchemaAttributeV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteNonEmployeeSchemaAttributeV1(requestParameters: NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeSchemaAttributeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteNonEmployeeSchemaAttributeV1(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeSchemaAttributeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteNonEmployeeSchemaAttributeV1(requestParameters.attributeId, requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point deletes all custom schema attributes for a non-employee source. Requires role context of `idn:nesr:delete`
          * @summary Delete all custom schema attributes for non-employee source
-         * @param {NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeSourceSchemaAttributesV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceSchemaAttributesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteNonEmployeeSourceSchemaAttributesV1(requestParameters: NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeSourceSchemaAttributesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteNonEmployeeSourceSchemaAttributesV1(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceSchemaAttributesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteNonEmployeeSourceSchemaAttributesV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This request will delete a non-employee source. Requires role context of `idn:nesr:delete`.
          * @summary Delete non-employee source
-         * @param {NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeSourceV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteNonEmployeeSourceV1(requestParameters: NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteNonEmployeeSourceV1(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteNonEmployeeSourceV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This requests a CSV download for all non-employees from a provided source. Requires role context of `idn:nesr:read`
          * @summary Exports non-employee records to csv
-         * @param {NonEmployeeLifecycleManagementV1ApiExportNonEmployeeRecordsV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiExportNonEmployeeRecordsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        exportNonEmployeeRecordsV1(requestParameters: NonEmployeeLifecycleManagementV1ApiExportNonEmployeeRecordsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        exportNonEmployeeRecordsV1(requestParameters: NonEmployeeLifecycleManagementApiExportNonEmployeeRecordsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.exportNonEmployeeRecordsV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This requests a download for the Source Schema Template for a provided source. Requires role context of `idn:nesr:read`
          * @summary Exports source schema template
-         * @param {NonEmployeeLifecycleManagementV1ApiExportNonEmployeeSourceSchemaTemplateV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiExportNonEmployeeSourceSchemaTemplateV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        exportNonEmployeeSourceSchemaTemplateV1(requestParameters: NonEmployeeLifecycleManagementV1ApiExportNonEmployeeSourceSchemaTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        exportNonEmployeeSourceSchemaTemplateV1(requestParameters: NonEmployeeLifecycleManagementApiExportNonEmployeeSourceSchemaTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.exportNonEmployeeSourceSchemaTemplateV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This request will retrieve a summary of non-employee approval requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a summary of all non-employee approval requests assigned to a particular approver by passing in that approver\'s id.   2. The current user is an approver, in which case \"me\" should be provided as the `requested-for` value. This will provide the approver with a summary of the approval items assigned to him or her.
          * @summary Get summary of non-employee approval requests
-         * @param {NonEmployeeLifecycleManagementV1ApiGetNonEmployeeApprovalSummaryV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalSummaryV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getNonEmployeeApprovalSummaryV1(requestParameters: NonEmployeeLifecycleManagementV1ApiGetNonEmployeeApprovalSummaryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NonemployeeapprovalsummaryV1> {
+        getNonEmployeeApprovalSummaryV1(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalSummaryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Nonemployeeapprovalsummary> {
             return localVarFp.getNonEmployeeApprovalSummaryV1(requestParameters.requestedFor, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Gets a non-employee approval item detail. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in which case they can get any approval.   2. The user owns the requested approval.
          * @summary Get a non-employee approval item detail
-         * @param {NonEmployeeLifecycleManagementV1ApiGetNonEmployeeApprovalV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getNonEmployeeApprovalV1(requestParameters: NonEmployeeLifecycleManagementV1ApiGetNonEmployeeApprovalV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NonemployeeapprovalitemdetailV1> {
+        getNonEmployeeApprovalV1(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Nonemployeeapprovalitemdetail> {
             return localVarFp.getNonEmployeeApprovalV1(requestParameters.id, requestParameters.includeDetail, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source. Requires role context of `idn:nesr:read` 
          * @summary Obtain the status of bulk upload on the source
-         * @param {NonEmployeeLifecycleManagementV1ApiGetNonEmployeeBulkUploadStatusV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeBulkUploadStatusV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getNonEmployeeBulkUploadStatusV1(requestParameters: NonEmployeeLifecycleManagementV1ApiGetNonEmployeeBulkUploadStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NonemployeebulkuploadstatusV1> {
+        getNonEmployeeBulkUploadStatusV1(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeBulkUploadStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Nonemployeebulkuploadstatus> {
             return localVarFp.getNonEmployeeBulkUploadStatusV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a non-employee record. Requires role context of `idn:nesr:read`
          * @summary Get a non-employee record
-         * @param {NonEmployeeLifecycleManagementV1ApiGetNonEmployeeRecordV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeRecordV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getNonEmployeeRecordV1(requestParameters: NonEmployeeLifecycleManagementV1ApiGetNonEmployeeRecordV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NonemployeerecordV1> {
+        getNonEmployeeRecordV1(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeRecordV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Nonemployeerecord> {
             return localVarFp.getNonEmployeeRecordV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This request will retrieve a summary of non-employee requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a summary of all non-employee approval requests assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a summary of the non-employee requests in the source(s) he or she manages.
          * @summary Get summary of non-employee requests
-         * @param {NonEmployeeLifecycleManagementV1ApiGetNonEmployeeRequestSummaryV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeRequestSummaryV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getNonEmployeeRequestSummaryV1(requestParameters: NonEmployeeLifecycleManagementV1ApiGetNonEmployeeRequestSummaryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NonemployeerequestsummaryV1> {
+        getNonEmployeeRequestSummaryV1(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeRequestSummaryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Nonemployeerequestsummary> {
             return localVarFp.getNonEmployeeRequestSummaryV1(requestParameters.requestedFor, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a non-employee request. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in this case the user can get the non-employee request for any user.   2. The user must be the owner of the non-employee request.
          * @summary Get a non-employee request
-         * @param {NonEmployeeLifecycleManagementV1ApiGetNonEmployeeRequestV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeRequestV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getNonEmployeeRequestV1(requestParameters: NonEmployeeLifecycleManagementV1ApiGetNonEmployeeRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NonemployeerequestV1> {
+        getNonEmployeeRequestV1(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Nonemployeerequest> {
             return localVarFp.getNonEmployeeRequestV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API gets a schema attribute by Id for the specified Non-Employee SourceId. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
          * @summary Get schema attribute non-employee source
-         * @param {NonEmployeeLifecycleManagementV1ApiGetNonEmployeeSchemaAttributeV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeSchemaAttributeV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getNonEmployeeSchemaAttributeV1(requestParameters: NonEmployeeLifecycleManagementV1ApiGetNonEmployeeSchemaAttributeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NonemployeeschemaattributeV1> {
+        getNonEmployeeSchemaAttributeV1(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeSchemaAttributeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Nonemployeeschemaattribute> {
             return localVarFp.getNonEmployeeSchemaAttributeV1(requestParameters.attributeId, requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8 mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can add up to 10 custom attributes. This interface returns all the mandatory attributes followed by any custom attributes. At most, a total of 18 attributes will be returned. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
          * @summary List schema attributes non-employee source
-         * @param {NonEmployeeLifecycleManagementV1ApiGetNonEmployeeSourceSchemaAttributesV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeSourceSchemaAttributesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getNonEmployeeSourceSchemaAttributesV1(requestParameters: NonEmployeeLifecycleManagementV1ApiGetNonEmployeeSourceSchemaAttributesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<NonemployeeschemaattributeV1>> {
+        getNonEmployeeSourceSchemaAttributesV1(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeSourceSchemaAttributesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Nonemployeeschemaattribute>> {
             return localVarFp.getNonEmployeeSourceSchemaAttributesV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a non-employee source. There are two contextual uses for the requested-for path parameter:    1. The user has the role context of `idn:nesr:read`, in which case he or she may request any source.   2. The current user is an account manager, in which case the user can only request sources that they own.
          * @summary Get a non-employee source
-         * @param {NonEmployeeLifecycleManagementV1ApiGetNonEmployeeSourceV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeSourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getNonEmployeeSourceV1(requestParameters: NonEmployeeLifecycleManagementV1ApiGetNonEmployeeSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NonemployeesourceV1> {
+        getNonEmployeeSourceV1(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Nonemployeesource> {
             return localVarFp.getNonEmployeeSourceV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This post will import, or update, Non-Employee records found in the CSV. Requires role context of `idn:nesr:create`
          * @summary Imports, or updates, non-employee records
-         * @param {NonEmployeeLifecycleManagementV1ApiImportNonEmployeeRecordsInBulkV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiImportNonEmployeeRecordsInBulkV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        importNonEmployeeRecordsInBulkV1(requestParameters: NonEmployeeLifecycleManagementV1ApiImportNonEmployeeRecordsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NonemployeebulkuploadjobV1> {
+        importNonEmployeeRecordsInBulkV1(requestParameters: NonEmployeeLifecycleManagementApiImportNonEmployeeRecordsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Nonemployeebulkuploadjob> {
             return localVarFp.importNonEmployeeRecordsInBulkV1(requestParameters.id, requestParameters.data, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a list of non-employee approval requests. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in which case they can list the approvals for any approver.   2. The user owns the requested approval.
          * @summary Get list of non-employee approval requests
-         * @param {NonEmployeeLifecycleManagementV1ApiListNonEmployeeApprovalsV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiListNonEmployeeApprovalsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listNonEmployeeApprovalsV1(requestParameters: NonEmployeeLifecycleManagementV1ApiListNonEmployeeApprovalsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<NonemployeeapprovalitemV1>> {
+        listNonEmployeeApprovalsV1(requestParameters: NonEmployeeLifecycleManagementApiListNonEmployeeApprovalsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Nonemployeeapprovalitem>> {
             return localVarFp.listNonEmployeeApprovalsV1(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a list of non-employee records. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in which case they can get a list of all of the non-employees.   2. The user is an account manager, in which case they can get a list of the non-employees that they manage.
          * @summary List non-employee records
-         * @param {NonEmployeeLifecycleManagementV1ApiListNonEmployeeRecordsV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiListNonEmployeeRecordsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listNonEmployeeRecordsV1(requestParameters: NonEmployeeLifecycleManagementV1ApiListNonEmployeeRecordsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<NonemployeerecordV1>> {
+        listNonEmployeeRecordsV1(requestParameters: NonEmployeeLifecycleManagementApiListNonEmployeeRecordsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Nonemployeerecord>> {
             return localVarFp.listNonEmployeeRecordsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a list of non-employee requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a list non-employee requests assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a list of the non-employee requests in the source(s) he or she manages.
          * @summary List non-employee requests
-         * @param {NonEmployeeLifecycleManagementV1ApiListNonEmployeeRequestsV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiListNonEmployeeRequestsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listNonEmployeeRequestsV1(requestParameters: NonEmployeeLifecycleManagementV1ApiListNonEmployeeRequestsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<NonemployeerequestV1>> {
+        listNonEmployeeRequestsV1(requestParameters: NonEmployeeLifecycleManagementApiListNonEmployeeRequestsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Nonemployeerequest>> {
             return localVarFp.listNonEmployeeRequestsV1(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get a list of non-employee sources. There are two contextual uses for the `requested-for` path parameter:    1. If the user has the role context of `idn:nesr:read`, he or she may request a list sources assigned to a particular account manager by passing in that manager\'s `id`.   2. If the current user is an account manager, the user should provide \'me\' as the `requested-for` value. Doing so provide the user with a list of the sources he or she owns.
          * @summary List non-employee sources
-         * @param {NonEmployeeLifecycleManagementV1ApiListNonEmployeeSourcesV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiListNonEmployeeSourcesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listNonEmployeeSourcesV1(requestParameters: NonEmployeeLifecycleManagementV1ApiListNonEmployeeSourcesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<NonemployeesourcewithnecountV1>> {
+        listNonEmployeeSourcesV1(requestParameters: NonEmployeeLifecycleManagementApiListNonEmployeeSourcesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Nonemployeesourcewithnecount>> {
             return localVarFp.listNonEmployeeSourcesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.requestedFor, requestParameters.nonEmployeeCount, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This request will patch a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
          * @summary Patch non-employee record
-         * @param {NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeRecordV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiPatchNonEmployeeRecordV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchNonEmployeeRecordV1(requestParameters: NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeRecordV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NonemployeerecordV1> {
-            return localVarFp.patchNonEmployeeRecordV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        patchNonEmployeeRecordV1(requestParameters: NonEmployeeLifecycleManagementApiPatchNonEmployeeRecordV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Nonemployeerecord> {
+            return localVarFp.patchNonEmployeeRecordV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point patches a specific schema attribute for a non-employee SourceId. Requires role context of `idn:nesr:update` 
          * @summary Patch a schema attribute for non-employee source
-         * @param {NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeSchemaAttributeV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiPatchNonEmployeeSchemaAttributeV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchNonEmployeeSchemaAttributeV1(requestParameters: NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeSchemaAttributeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NonemployeeschemaattributeV1> {
-            return localVarFp.patchNonEmployeeSchemaAttributeV1(requestParameters.attributeId, requestParameters.sourceId, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        patchNonEmployeeSchemaAttributeV1(requestParameters: NonEmployeeLifecycleManagementApiPatchNonEmployeeSchemaAttributeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Nonemployeeschemaattribute> {
+            return localVarFp.patchNonEmployeeSchemaAttributeV1(requestParameters.attributeId, requestParameters.sourceId, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * patch a non-employee source. (partial update) <br/> Patchable field: **name, description, approvers, accountManagers** Requires role context of `idn:nesr:update`.
          * @summary Patch a non-employee source
-         * @param {NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeSourceV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiPatchNonEmployeeSourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchNonEmployeeSourceV1(requestParameters: NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NonemployeesourceV1> {
-            return localVarFp.patchNonEmployeeSourceV1(requestParameters.sourceId, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        patchNonEmployeeSourceV1(requestParameters: NonEmployeeLifecycleManagementApiPatchNonEmployeeSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Nonemployeesource> {
+            return localVarFp.patchNonEmployeeSourceV1(requestParameters.sourceId, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint will reject an approval item request and notify user. The current user must be the requested approver.
          * @summary Reject a non-employee request
-         * @param {NonEmployeeLifecycleManagementV1ApiRejectNonEmployeeRequestV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiRejectNonEmployeeRequestV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        rejectNonEmployeeRequestV1(requestParameters: NonEmployeeLifecycleManagementV1ApiRejectNonEmployeeRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NonemployeeapprovalitemV1> {
-            return localVarFp.rejectNonEmployeeRequestV1(requestParameters.id, requestParameters.nonemployeerejectapprovaldecisionV1, axiosOptions).then((request) => request(axios, basePath));
+        rejectNonEmployeeRequestV1(requestParameters: NonEmployeeLifecycleManagementApiRejectNonEmployeeRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Nonemployeeapprovalitem> {
+            return localVarFp.rejectNonEmployeeRequestV1(requestParameters.id, requestParameters.nonemployeerejectapprovaldecision, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This request will update a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
          * @summary Update non-employee record
-         * @param {NonEmployeeLifecycleManagementV1ApiUpdateNonEmployeeRecordV1Request} requestParameters Request parameters.
+         * @param {NonEmployeeLifecycleManagementApiUpdateNonEmployeeRecordV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateNonEmployeeRecordV1(requestParameters: NonEmployeeLifecycleManagementV1ApiUpdateNonEmployeeRecordV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NonemployeerecordV1> {
-            return localVarFp.updateNonEmployeeRecordV1(requestParameters.id, requestParameters.nonemployeerequestbodyV1, axiosOptions).then((request) => request(axios, basePath));
+        updateNonEmployeeRecordV1(requestParameters: NonEmployeeLifecycleManagementApiUpdateNonEmployeeRecordV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Nonemployeerecord> {
+            return localVarFp.updateNonEmployeeRecordV1(requestParameters.id, requestParameters.nonemployeerequestbody, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for approveNonEmployeeRequestV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for approveNonEmployeeRequestV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiApproveNonEmployeeRequestV1Request
+ * @interface NonEmployeeLifecycleManagementApiApproveNonEmployeeRequestV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiApproveNonEmployeeRequestV1Request {
+export interface NonEmployeeLifecycleManagementApiApproveNonEmployeeRequestV1Request {
     /**
      * Non-Employee approval item id (UUID)
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiApproveNonEmployeeRequestV1
+     * @memberof NonEmployeeLifecycleManagementApiApproveNonEmployeeRequestV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {NonemployeeapprovaldecisionV1}
-     * @memberof NonEmployeeLifecycleManagementV1ApiApproveNonEmployeeRequestV1
+     * @type {Nonemployeeapprovaldecision}
+     * @memberof NonEmployeeLifecycleManagementApiApproveNonEmployeeRequestV1
      */
-    readonly nonemployeeapprovaldecisionV1: NonemployeeapprovaldecisionV1
+    readonly nonemployeeapprovaldecision: Nonemployeeapprovaldecision
 }
 
 /**
- * Request parameters for createNonEmployeeRecordV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for createNonEmployeeRecordV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeRecordV1Request
+ * @interface NonEmployeeLifecycleManagementApiCreateNonEmployeeRecordV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeRecordV1Request {
+export interface NonEmployeeLifecycleManagementApiCreateNonEmployeeRecordV1Request {
     /**
      * Non-Employee record creation request body.
-     * @type {NonemployeerequestbodyV1}
-     * @memberof NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeRecordV1
+     * @type {Nonemployeerequestbody}
+     * @memberof NonEmployeeLifecycleManagementApiCreateNonEmployeeRecordV1
      */
-    readonly nonemployeerequestbodyV1: NonemployeerequestbodyV1
+    readonly nonemployeerequestbody: Nonemployeerequestbody
 }
 
 /**
- * Request parameters for createNonEmployeeRequestV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for createNonEmployeeRequestV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeRequestV1Request
+ * @interface NonEmployeeLifecycleManagementApiCreateNonEmployeeRequestV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeRequestV1Request {
+export interface NonEmployeeLifecycleManagementApiCreateNonEmployeeRequestV1Request {
     /**
      * Non-Employee creation request body
-     * @type {NonemployeerequestbodyV1}
-     * @memberof NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeRequestV1
+     * @type {Nonemployeerequestbody}
+     * @memberof NonEmployeeLifecycleManagementApiCreateNonEmployeeRequestV1
      */
-    readonly nonemployeerequestbodyV1: NonemployeerequestbodyV1
+    readonly nonemployeerequestbody: Nonemployeerequestbody
 }
 
 /**
- * Request parameters for createNonEmployeeSourceSchemaAttributesV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for createNonEmployeeSourceSchemaAttributesV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeSourceSchemaAttributesV1Request
+ * @interface NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceSchemaAttributesV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeSourceSchemaAttributesV1Request {
+export interface NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceSchemaAttributesV1Request {
     /**
      * The Source id
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeSourceSchemaAttributesV1
+     * @memberof NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceSchemaAttributesV1
      */
     readonly sourceId: string
 
     /**
      * 
-     * @type {NonemployeeschemaattributebodyV1}
-     * @memberof NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeSourceSchemaAttributesV1
+     * @type {Nonemployeeschemaattributebody}
+     * @memberof NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceSchemaAttributesV1
      */
-    readonly nonemployeeschemaattributebodyV1: NonemployeeschemaattributebodyV1
+    readonly nonemployeeschemaattributebody: Nonemployeeschemaattributebody
 }
 
 /**
- * Request parameters for createNonEmployeeSourceV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for createNonEmployeeSourceV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeSourceV1Request
+ * @interface NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeSourceV1Request {
+export interface NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceV1Request {
     /**
      * Non-Employee source creation request body.
-     * @type {NonemployeesourcerequestbodyV1}
-     * @memberof NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeSourceV1
+     * @type {Nonemployeesourcerequestbody}
+     * @memberof NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceV1
      */
-    readonly nonemployeesourcerequestbodyV1: NonemployeesourcerequestbodyV1
+    readonly nonemployeesourcerequestbody: Nonemployeesourcerequestbody
 }
 
 /**
- * Request parameters for deleteNonEmployeeRecordV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for deleteNonEmployeeRecordV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeRecordV1Request
+ * @interface NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeRecordV1Request {
+export interface NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordV1Request {
     /**
      * Non-Employee record id (UUID)
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeRecordV1
+     * @memberof NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for deleteNonEmployeeRecordsInBulkV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for deleteNonEmployeeRecordsInBulkV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeRecordsInBulkV1Request
+ * @interface NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordsInBulkV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeRecordsInBulkV1Request {
+export interface NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordsInBulkV1Request {
     /**
      * Non-Employee bulk delete request body.
-     * @type {DeleteNonEmployeeRecordsInBulkV1RequestV1}
-     * @memberof NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeRecordsInBulkV1
+     * @type {DeleteNonEmployeeRecordsInBulkV1Request}
+     * @memberof NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordsInBulkV1
      */
-    readonly deleteNonEmployeeRecordsInBulkV1RequestV1: DeleteNonEmployeeRecordsInBulkV1RequestV1
+    readonly deleteNonEmployeeRecordsInBulkV1Request: DeleteNonEmployeeRecordsInBulkV1Request
 }
 
 /**
- * Request parameters for deleteNonEmployeeRequestV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for deleteNonEmployeeRequestV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeRequestV1Request
+ * @interface NonEmployeeLifecycleManagementApiDeleteNonEmployeeRequestV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeRequestV1Request {
+export interface NonEmployeeLifecycleManagementApiDeleteNonEmployeeRequestV1Request {
     /**
      * Non-Employee request id in the UUID format
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeRequestV1
+     * @memberof NonEmployeeLifecycleManagementApiDeleteNonEmployeeRequestV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for deleteNonEmployeeSchemaAttributeV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for deleteNonEmployeeSchemaAttributeV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeSchemaAttributeV1Request
+ * @interface NonEmployeeLifecycleManagementApiDeleteNonEmployeeSchemaAttributeV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeSchemaAttributeV1Request {
+export interface NonEmployeeLifecycleManagementApiDeleteNonEmployeeSchemaAttributeV1Request {
     /**
      * The Schema Attribute Id (UUID)
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeSchemaAttributeV1
+     * @memberof NonEmployeeLifecycleManagementApiDeleteNonEmployeeSchemaAttributeV1
      */
     readonly attributeId: string
 
     /**
      * The Source id
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeSchemaAttributeV1
+     * @memberof NonEmployeeLifecycleManagementApiDeleteNonEmployeeSchemaAttributeV1
      */
     readonly sourceId: string
 }
 
 /**
- * Request parameters for deleteNonEmployeeSourceSchemaAttributesV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for deleteNonEmployeeSourceSchemaAttributesV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeSourceSchemaAttributesV1Request
+ * @interface NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceSchemaAttributesV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeSourceSchemaAttributesV1Request {
+export interface NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceSchemaAttributesV1Request {
     /**
      * The Source id
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeSourceSchemaAttributesV1
+     * @memberof NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceSchemaAttributesV1
      */
     readonly sourceId: string
 }
 
 /**
- * Request parameters for deleteNonEmployeeSourceV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for deleteNonEmployeeSourceV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeSourceV1Request
+ * @interface NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeSourceV1Request {
+export interface NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceV1Request {
     /**
      * Source Id
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeSourceV1
+     * @memberof NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceV1
      */
     readonly sourceId: string
 }
 
 /**
- * Request parameters for exportNonEmployeeRecordsV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for exportNonEmployeeRecordsV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiExportNonEmployeeRecordsV1Request
+ * @interface NonEmployeeLifecycleManagementApiExportNonEmployeeRecordsV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiExportNonEmployeeRecordsV1Request {
+export interface NonEmployeeLifecycleManagementApiExportNonEmployeeRecordsV1Request {
     /**
      * Source Id (UUID)
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiExportNonEmployeeRecordsV1
+     * @memberof NonEmployeeLifecycleManagementApiExportNonEmployeeRecordsV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for exportNonEmployeeSourceSchemaTemplateV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for exportNonEmployeeSourceSchemaTemplateV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiExportNonEmployeeSourceSchemaTemplateV1Request
+ * @interface NonEmployeeLifecycleManagementApiExportNonEmployeeSourceSchemaTemplateV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiExportNonEmployeeSourceSchemaTemplateV1Request {
+export interface NonEmployeeLifecycleManagementApiExportNonEmployeeSourceSchemaTemplateV1Request {
     /**
      * Source Id (UUID)
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiExportNonEmployeeSourceSchemaTemplateV1
+     * @memberof NonEmployeeLifecycleManagementApiExportNonEmployeeSourceSchemaTemplateV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getNonEmployeeApprovalSummaryV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for getNonEmployeeApprovalSummaryV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiGetNonEmployeeApprovalSummaryV1Request
+ * @interface NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalSummaryV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiGetNonEmployeeApprovalSummaryV1Request {
+export interface NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalSummaryV1Request {
     /**
      * The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use \&quot;me\&quot; instead to indicate the current user.
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiGetNonEmployeeApprovalSummaryV1
+     * @memberof NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalSummaryV1
      */
     readonly requestedFor: string
 }
 
 /**
- * Request parameters for getNonEmployeeApprovalV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for getNonEmployeeApprovalV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiGetNonEmployeeApprovalV1Request
+ * @interface NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiGetNonEmployeeApprovalV1Request {
+export interface NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalV1Request {
     /**
      * Non-Employee approval item id (UUID)
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiGetNonEmployeeApprovalV1
+     * @memberof NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalV1
      */
     readonly id: string
 
     /**
      * The object nonEmployeeRequest will not be included detail when set to false. *Default value is true*
      * @type {boolean}
-     * @memberof NonEmployeeLifecycleManagementV1ApiGetNonEmployeeApprovalV1
+     * @memberof NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalV1
      */
     readonly includeDetail?: boolean
 }
 
 /**
- * Request parameters for getNonEmployeeBulkUploadStatusV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for getNonEmployeeBulkUploadStatusV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiGetNonEmployeeBulkUploadStatusV1Request
+ * @interface NonEmployeeLifecycleManagementApiGetNonEmployeeBulkUploadStatusV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiGetNonEmployeeBulkUploadStatusV1Request {
+export interface NonEmployeeLifecycleManagementApiGetNonEmployeeBulkUploadStatusV1Request {
     /**
      * Source ID (UUID)
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiGetNonEmployeeBulkUploadStatusV1
+     * @memberof NonEmployeeLifecycleManagementApiGetNonEmployeeBulkUploadStatusV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getNonEmployeeRecordV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for getNonEmployeeRecordV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiGetNonEmployeeRecordV1Request
+ * @interface NonEmployeeLifecycleManagementApiGetNonEmployeeRecordV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiGetNonEmployeeRecordV1Request {
+export interface NonEmployeeLifecycleManagementApiGetNonEmployeeRecordV1Request {
     /**
      * Non-Employee record id (UUID)
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiGetNonEmployeeRecordV1
+     * @memberof NonEmployeeLifecycleManagementApiGetNonEmployeeRecordV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getNonEmployeeRequestSummaryV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for getNonEmployeeRequestSummaryV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiGetNonEmployeeRequestSummaryV1Request
+ * @interface NonEmployeeLifecycleManagementApiGetNonEmployeeRequestSummaryV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiGetNonEmployeeRequestSummaryV1Request {
+export interface NonEmployeeLifecycleManagementApiGetNonEmployeeRequestSummaryV1Request {
     /**
      * The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use \&quot;me\&quot; instead to indicate the current user.
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiGetNonEmployeeRequestSummaryV1
+     * @memberof NonEmployeeLifecycleManagementApiGetNonEmployeeRequestSummaryV1
      */
     readonly requestedFor: string
 }
 
 /**
- * Request parameters for getNonEmployeeRequestV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for getNonEmployeeRequestV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiGetNonEmployeeRequestV1Request
+ * @interface NonEmployeeLifecycleManagementApiGetNonEmployeeRequestV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiGetNonEmployeeRequestV1Request {
+export interface NonEmployeeLifecycleManagementApiGetNonEmployeeRequestV1Request {
     /**
      * Non-Employee request id (UUID)
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiGetNonEmployeeRequestV1
+     * @memberof NonEmployeeLifecycleManagementApiGetNonEmployeeRequestV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getNonEmployeeSchemaAttributeV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for getNonEmployeeSchemaAttributeV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiGetNonEmployeeSchemaAttributeV1Request
+ * @interface NonEmployeeLifecycleManagementApiGetNonEmployeeSchemaAttributeV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiGetNonEmployeeSchemaAttributeV1Request {
+export interface NonEmployeeLifecycleManagementApiGetNonEmployeeSchemaAttributeV1Request {
     /**
      * The Schema Attribute Id (UUID)
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiGetNonEmployeeSchemaAttributeV1
+     * @memberof NonEmployeeLifecycleManagementApiGetNonEmployeeSchemaAttributeV1
      */
     readonly attributeId: string
 
     /**
      * The Source id
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiGetNonEmployeeSchemaAttributeV1
+     * @memberof NonEmployeeLifecycleManagementApiGetNonEmployeeSchemaAttributeV1
      */
     readonly sourceId: string
 }
 
 /**
- * Request parameters for getNonEmployeeSourceSchemaAttributesV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for getNonEmployeeSourceSchemaAttributesV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiGetNonEmployeeSourceSchemaAttributesV1Request
+ * @interface NonEmployeeLifecycleManagementApiGetNonEmployeeSourceSchemaAttributesV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiGetNonEmployeeSourceSchemaAttributesV1Request {
+export interface NonEmployeeLifecycleManagementApiGetNonEmployeeSourceSchemaAttributesV1Request {
     /**
      * The Source id
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiGetNonEmployeeSourceSchemaAttributesV1
+     * @memberof NonEmployeeLifecycleManagementApiGetNonEmployeeSourceSchemaAttributesV1
      */
     readonly sourceId: string
 }
 
 /**
- * Request parameters for getNonEmployeeSourceV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for getNonEmployeeSourceV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiGetNonEmployeeSourceV1Request
+ * @interface NonEmployeeLifecycleManagementApiGetNonEmployeeSourceV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiGetNonEmployeeSourceV1Request {
+export interface NonEmployeeLifecycleManagementApiGetNonEmployeeSourceV1Request {
     /**
      * Source Id
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiGetNonEmployeeSourceV1
+     * @memberof NonEmployeeLifecycleManagementApiGetNonEmployeeSourceV1
      */
     readonly sourceId: string
 }
 
 /**
- * Request parameters for importNonEmployeeRecordsInBulkV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for importNonEmployeeRecordsInBulkV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiImportNonEmployeeRecordsInBulkV1Request
+ * @interface NonEmployeeLifecycleManagementApiImportNonEmployeeRecordsInBulkV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiImportNonEmployeeRecordsInBulkV1Request {
+export interface NonEmployeeLifecycleManagementApiImportNonEmployeeRecordsInBulkV1Request {
     /**
      * Source Id (UUID)
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiImportNonEmployeeRecordsInBulkV1
+     * @memberof NonEmployeeLifecycleManagementApiImportNonEmployeeRecordsInBulkV1
      */
     readonly id: string
 
     /**
      * 
      * @type {File}
-     * @memberof NonEmployeeLifecycleManagementV1ApiImportNonEmployeeRecordsInBulkV1
+     * @memberof NonEmployeeLifecycleManagementApiImportNonEmployeeRecordsInBulkV1
      */
     readonly data: File
 }
 
 /**
- * Request parameters for listNonEmployeeApprovalsV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for listNonEmployeeApprovalsV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiListNonEmployeeApprovalsV1Request
+ * @interface NonEmployeeLifecycleManagementApiListNonEmployeeApprovalsV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiListNonEmployeeApprovalsV1Request {
+export interface NonEmployeeLifecycleManagementApiListNonEmployeeApprovalsV1Request {
     /**
      * The identity for whom the request was made. *me* indicates the current user.
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiListNonEmployeeApprovalsV1
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeApprovalsV1
      */
     readonly requestedFor?: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof NonEmployeeLifecycleManagementV1ApiListNonEmployeeApprovalsV1
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeApprovalsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof NonEmployeeLifecycleManagementV1ApiListNonEmployeeApprovalsV1
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeApprovalsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof NonEmployeeLifecycleManagementV1ApiListNonEmployeeApprovalsV1
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeApprovalsV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **approvalStatus**: *eq*
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiListNonEmployeeApprovalsV1
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeApprovalsV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified**
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiListNonEmployeeApprovalsV1
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeApprovalsV1
      */
     readonly sorters?: string
 }
 
 /**
- * Request parameters for listNonEmployeeRecordsV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for listNonEmployeeRecordsV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiListNonEmployeeRecordsV1Request
+ * @interface NonEmployeeLifecycleManagementApiListNonEmployeeRecordsV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiListNonEmployeeRecordsV1Request {
+export interface NonEmployeeLifecycleManagementApiListNonEmployeeRecordsV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof NonEmployeeLifecycleManagementV1ApiListNonEmployeeRecordsV1
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeRecordsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof NonEmployeeLifecycleManagementV1ApiListNonEmployeeRecordsV1
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeRecordsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof NonEmployeeLifecycleManagementV1ApiListNonEmployeeRecordsV1
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeRecordsV1
      */
     readonly count?: boolean
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, accountName, sourceId, manager, firstName, lastName, email, phone, startDate, endDate, created, modified**
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiListNonEmployeeRecordsV1
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeRecordsV1
      */
     readonly sorters?: string
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiListNonEmployeeRecordsV1
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeRecordsV1
      */
     readonly filters?: string
 }
 
 /**
- * Request parameters for listNonEmployeeRequestsV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for listNonEmployeeRequestsV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiListNonEmployeeRequestsV1Request
+ * @interface NonEmployeeLifecycleManagementApiListNonEmployeeRequestsV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiListNonEmployeeRequestsV1Request {
+export interface NonEmployeeLifecycleManagementApiListNonEmployeeRequestsV1Request {
     /**
      * The identity for whom the request was made. *me* indicates the current user.
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiListNonEmployeeRequestsV1
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeRequestsV1
      */
     readonly requestedFor: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof NonEmployeeLifecycleManagementV1ApiListNonEmployeeRequestsV1
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeRequestsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof NonEmployeeLifecycleManagementV1ApiListNonEmployeeRequestsV1
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeRequestsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof NonEmployeeLifecycleManagementV1ApiListNonEmployeeRequestsV1
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeRequestsV1
      */
     readonly count?: boolean
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, approvalStatus, firstName, lastName, email, phone, accountName, startDate, endDate**
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiListNonEmployeeRequestsV1
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeRequestsV1
      */
     readonly sorters?: string
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq* 
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiListNonEmployeeRequestsV1
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeRequestsV1
      */
     readonly filters?: string
 }
 
 /**
- * Request parameters for listNonEmployeeSourcesV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for listNonEmployeeSourcesV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiListNonEmployeeSourcesV1Request
+ * @interface NonEmployeeLifecycleManagementApiListNonEmployeeSourcesV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiListNonEmployeeSourcesV1Request {
+export interface NonEmployeeLifecycleManagementApiListNonEmployeeSourcesV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof NonEmployeeLifecycleManagementV1ApiListNonEmployeeSourcesV1
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeSourcesV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof NonEmployeeLifecycleManagementV1ApiListNonEmployeeSourcesV1
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeSourcesV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof NonEmployeeLifecycleManagementV1ApiListNonEmployeeSourcesV1
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeSourcesV1
      */
     readonly count?: boolean
 
     /**
      * Identity the request was made for. Use \&#39;me\&#39; to indicate the current user.
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiListNonEmployeeSourcesV1
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeSourcesV1
      */
     readonly requestedFor?: string
 
     /**
      * Flag that determines whether the API will return a non-employee count associated with the source.
      * @type {boolean}
-     * @memberof NonEmployeeLifecycleManagementV1ApiListNonEmployeeSourcesV1
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeSourcesV1
      */
     readonly nonEmployeeCount?: boolean
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId**
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiListNonEmployeeSourcesV1
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeSourcesV1
      */
     readonly sorters?: string
 }
 
 /**
- * Request parameters for patchNonEmployeeRecordV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for patchNonEmployeeRecordV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeRecordV1Request
+ * @interface NonEmployeeLifecycleManagementApiPatchNonEmployeeRecordV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeRecordV1Request {
+export interface NonEmployeeLifecycleManagementApiPatchNonEmployeeRecordV1Request {
     /**
      * Non-employee record id (UUID)
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeRecordV1
+     * @memberof NonEmployeeLifecycleManagementApiPatchNonEmployeeRecordV1
      */
     readonly id: string
 
     /**
      * A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeRecordV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof NonEmployeeLifecycleManagementApiPatchNonEmployeeRecordV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * Request parameters for patchNonEmployeeSchemaAttributeV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for patchNonEmployeeSchemaAttributeV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeSchemaAttributeV1Request
+ * @interface NonEmployeeLifecycleManagementApiPatchNonEmployeeSchemaAttributeV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeSchemaAttributeV1Request {
+export interface NonEmployeeLifecycleManagementApiPatchNonEmployeeSchemaAttributeV1Request {
     /**
      * The Schema Attribute Id (UUID)
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeSchemaAttributeV1
+     * @memberof NonEmployeeLifecycleManagementApiPatchNonEmployeeSchemaAttributeV1
      */
     readonly attributeId: string
 
     /**
      * The Source id
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeSchemaAttributeV1
+     * @memberof NonEmployeeLifecycleManagementApiPatchNonEmployeeSchemaAttributeV1
      */
     readonly sourceId: string
 
     /**
      * A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update \&#39;:\&#39; \&#39;label\&#39;, \&#39;helpText\&#39;, \&#39;placeholder\&#39;, \&#39;required\&#39;.
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeSchemaAttributeV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof NonEmployeeLifecycleManagementApiPatchNonEmployeeSchemaAttributeV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * Request parameters for patchNonEmployeeSourceV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for patchNonEmployeeSourceV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeSourceV1Request
+ * @interface NonEmployeeLifecycleManagementApiPatchNonEmployeeSourceV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeSourceV1Request {
+export interface NonEmployeeLifecycleManagementApiPatchNonEmployeeSourceV1Request {
     /**
      * Source Id
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeSourceV1
+     * @memberof NonEmployeeLifecycleManagementApiPatchNonEmployeeSourceV1
      */
     readonly sourceId: string
 
     /**
      * A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeSourceV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof NonEmployeeLifecycleManagementApiPatchNonEmployeeSourceV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * Request parameters for rejectNonEmployeeRequestV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for rejectNonEmployeeRequestV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiRejectNonEmployeeRequestV1Request
+ * @interface NonEmployeeLifecycleManagementApiRejectNonEmployeeRequestV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiRejectNonEmployeeRequestV1Request {
+export interface NonEmployeeLifecycleManagementApiRejectNonEmployeeRequestV1Request {
     /**
      * Non-Employee approval item id (UUID)
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiRejectNonEmployeeRequestV1
+     * @memberof NonEmployeeLifecycleManagementApiRejectNonEmployeeRequestV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {NonemployeerejectapprovaldecisionV1}
-     * @memberof NonEmployeeLifecycleManagementV1ApiRejectNonEmployeeRequestV1
+     * @type {Nonemployeerejectapprovaldecision}
+     * @memberof NonEmployeeLifecycleManagementApiRejectNonEmployeeRequestV1
      */
-    readonly nonemployeerejectapprovaldecisionV1: NonemployeerejectapprovaldecisionV1
+    readonly nonemployeerejectapprovaldecision: Nonemployeerejectapprovaldecision
 }
 
 /**
- * Request parameters for updateNonEmployeeRecordV1 operation in NonEmployeeLifecycleManagementV1Api.
+ * Request parameters for updateNonEmployeeRecordV1 operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementV1ApiUpdateNonEmployeeRecordV1Request
+ * @interface NonEmployeeLifecycleManagementApiUpdateNonEmployeeRecordV1Request
  */
-export interface NonEmployeeLifecycleManagementV1ApiUpdateNonEmployeeRecordV1Request {
+export interface NonEmployeeLifecycleManagementApiUpdateNonEmployeeRecordV1Request {
     /**
      * Non-employee record id (UUID)
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementV1ApiUpdateNonEmployeeRecordV1
+     * @memberof NonEmployeeLifecycleManagementApiUpdateNonEmployeeRecordV1
      */
     readonly id: string
 
     /**
      * Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
-     * @type {NonemployeerequestbodyV1}
-     * @memberof NonEmployeeLifecycleManagementV1ApiUpdateNonEmployeeRecordV1
+     * @type {Nonemployeerequestbody}
+     * @memberof NonEmployeeLifecycleManagementApiUpdateNonEmployeeRecordV1
      */
-    readonly nonemployeerequestbodyV1: NonemployeerequestbodyV1
+    readonly nonemployeerequestbody: Nonemployeerequestbody
 }
 
 /**
- * NonEmployeeLifecycleManagementV1Api - object-oriented interface
+ * NonEmployeeLifecycleManagementApi - object-oriented interface
  * @export
- * @class NonEmployeeLifecycleManagementV1Api
+ * @class NonEmployeeLifecycleManagementApi
  * @extends {BaseAPI}
  */
-export class NonEmployeeLifecycleManagementV1Api extends BaseAPI {
+export class NonEmployeeLifecycleManagementApi extends BaseAPI {
     /**
      * Approves a non-employee approval request and notifies the next approver. The current user must be the requested approver.
      * @summary Approve a non-employee request
-     * @param {NonEmployeeLifecycleManagementV1ApiApproveNonEmployeeRequestV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiApproveNonEmployeeRequestV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public approveNonEmployeeRequestV1(requestParameters: NonEmployeeLifecycleManagementV1ApiApproveNonEmployeeRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).approveNonEmployeeRequestV1(requestParameters.id, requestParameters.nonemployeeapprovaldecisionV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public approveNonEmployeeRequestV1(requestParameters: NonEmployeeLifecycleManagementApiApproveNonEmployeeRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).approveNonEmployeeRequestV1(requestParameters.id, requestParameters.nonemployeeapprovaldecision, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This request will create a non-employee record. Requires role context of `idn:nesr:create`
      * @summary Create non-employee record
-     * @param {NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeRecordV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiCreateNonEmployeeRecordV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public createNonEmployeeRecordV1(requestParameters: NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeRecordV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).createNonEmployeeRecordV1(requestParameters.nonemployeerequestbodyV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createNonEmployeeRecordV1(requestParameters: NonEmployeeLifecycleManagementApiCreateNonEmployeeRecordV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).createNonEmployeeRecordV1(requestParameters.nonemployeerequestbody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This request will create a non-employee request and notify the approver. Requires role context of `idn:nesr:create` or the user must own the source.
      * @summary Create non-employee request
-     * @param {NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeRequestV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiCreateNonEmployeeRequestV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public createNonEmployeeRequestV1(requestParameters: NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).createNonEmployeeRequestV1(requestParameters.nonemployeerequestbodyV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createNonEmployeeRequestV1(requestParameters: NonEmployeeLifecycleManagementApiCreateNonEmployeeRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).createNonEmployeeRequestV1(requestParameters.nonemployeerequestbody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a \"400.1.409 Reference conflict\" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a \"400.1.4 Limit violation\" response. Requires role context of `idn:nesr:create`
      * @summary Create a new schema attribute for non-employee source
-     * @param {NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeSourceSchemaAttributesV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceSchemaAttributesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public createNonEmployeeSourceSchemaAttributesV1(requestParameters: NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeSourceSchemaAttributesV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).createNonEmployeeSourceSchemaAttributesV1(requestParameters.sourceId, requestParameters.nonemployeeschemaattributebodyV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createNonEmployeeSourceSchemaAttributesV1(requestParameters: NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceSchemaAttributesV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).createNonEmployeeSourceSchemaAttributesV1(requestParameters.sourceId, requestParameters.nonemployeeschemaattributebody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Create a non-employee source. 
      * @summary Create non-employee source
-     * @param {NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeSourceV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public createNonEmployeeSourceV1(requestParameters: NonEmployeeLifecycleManagementV1ApiCreateNonEmployeeSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).createNonEmployeeSourceV1(requestParameters.nonemployeesourcerequestbodyV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createNonEmployeeSourceV1(requestParameters: NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).createNonEmployeeSourceV1(requestParameters.nonemployeesourcerequestbody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This request will delete a non-employee record. Requires role context of `idn:nesr:delete`
      * @summary Delete non-employee record
-     * @param {NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeRecordV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public deleteNonEmployeeRecordV1(requestParameters: NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeRecordV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).deleteNonEmployeeRecordV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteNonEmployeeRecordV1(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteNonEmployeeRecordV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This request will delete multiple non-employee records based on the non-employee ids provided. Requires role context of `idn:nesr:delete`
      * @summary Delete multiple non-employee records
-     * @param {NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeRecordsInBulkV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordsInBulkV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public deleteNonEmployeeRecordsInBulkV1(requestParameters: NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeRecordsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).deleteNonEmployeeRecordsInBulkV1(requestParameters.deleteNonEmployeeRecordsInBulkV1RequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteNonEmployeeRecordsInBulkV1(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteNonEmployeeRecordsInBulkV1(requestParameters.deleteNonEmployeeRecordsInBulkV1Request, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This request will delete a non-employee request.  Requires role context of `idn:nesr:delete`
      * @summary Delete non-employee request
-     * @param {NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeRequestV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiDeleteNonEmployeeRequestV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public deleteNonEmployeeRequestV1(requestParameters: NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).deleteNonEmployeeRequestV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteNonEmployeeRequestV1(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteNonEmployeeRequestV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point deletes a specific schema attribute for a non-employee source. Requires role context of `idn:nesr:delete` 
      * @summary Delete a schema attribute for non-employee source
-     * @param {NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeSchemaAttributeV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiDeleteNonEmployeeSchemaAttributeV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public deleteNonEmployeeSchemaAttributeV1(requestParameters: NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeSchemaAttributeV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).deleteNonEmployeeSchemaAttributeV1(requestParameters.attributeId, requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteNonEmployeeSchemaAttributeV1(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeSchemaAttributeV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteNonEmployeeSchemaAttributeV1(requestParameters.attributeId, requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point deletes all custom schema attributes for a non-employee source. Requires role context of `idn:nesr:delete`
      * @summary Delete all custom schema attributes for non-employee source
-     * @param {NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeSourceSchemaAttributesV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceSchemaAttributesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public deleteNonEmployeeSourceSchemaAttributesV1(requestParameters: NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeSourceSchemaAttributesV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).deleteNonEmployeeSourceSchemaAttributesV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteNonEmployeeSourceSchemaAttributesV1(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceSchemaAttributesV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteNonEmployeeSourceSchemaAttributesV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This request will delete a non-employee source. Requires role context of `idn:nesr:delete`.
      * @summary Delete non-employee source
-     * @param {NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeSourceV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public deleteNonEmployeeSourceV1(requestParameters: NonEmployeeLifecycleManagementV1ApiDeleteNonEmployeeSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).deleteNonEmployeeSourceV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteNonEmployeeSourceV1(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteNonEmployeeSourceV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This requests a CSV download for all non-employees from a provided source. Requires role context of `idn:nesr:read`
      * @summary Exports non-employee records to csv
-     * @param {NonEmployeeLifecycleManagementV1ApiExportNonEmployeeRecordsV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiExportNonEmployeeRecordsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public exportNonEmployeeRecordsV1(requestParameters: NonEmployeeLifecycleManagementV1ApiExportNonEmployeeRecordsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).exportNonEmployeeRecordsV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public exportNonEmployeeRecordsV1(requestParameters: NonEmployeeLifecycleManagementApiExportNonEmployeeRecordsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).exportNonEmployeeRecordsV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This requests a download for the Source Schema Template for a provided source. Requires role context of `idn:nesr:read`
      * @summary Exports source schema template
-     * @param {NonEmployeeLifecycleManagementV1ApiExportNonEmployeeSourceSchemaTemplateV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiExportNonEmployeeSourceSchemaTemplateV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public exportNonEmployeeSourceSchemaTemplateV1(requestParameters: NonEmployeeLifecycleManagementV1ApiExportNonEmployeeSourceSchemaTemplateV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).exportNonEmployeeSourceSchemaTemplateV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public exportNonEmployeeSourceSchemaTemplateV1(requestParameters: NonEmployeeLifecycleManagementApiExportNonEmployeeSourceSchemaTemplateV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).exportNonEmployeeSourceSchemaTemplateV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This request will retrieve a summary of non-employee approval requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a summary of all non-employee approval requests assigned to a particular approver by passing in that approver\'s id.   2. The current user is an approver, in which case \"me\" should be provided as the `requested-for` value. This will provide the approver with a summary of the approval items assigned to him or her.
      * @summary Get summary of non-employee approval requests
-     * @param {NonEmployeeLifecycleManagementV1ApiGetNonEmployeeApprovalSummaryV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalSummaryV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public getNonEmployeeApprovalSummaryV1(requestParameters: NonEmployeeLifecycleManagementV1ApiGetNonEmployeeApprovalSummaryV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).getNonEmployeeApprovalSummaryV1(requestParameters.requestedFor, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeApprovalSummaryV1(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalSummaryV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeApprovalSummaryV1(requestParameters.requestedFor, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Gets a non-employee approval item detail. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in which case they can get any approval.   2. The user owns the requested approval.
      * @summary Get a non-employee approval item detail
-     * @param {NonEmployeeLifecycleManagementV1ApiGetNonEmployeeApprovalV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public getNonEmployeeApprovalV1(requestParameters: NonEmployeeLifecycleManagementV1ApiGetNonEmployeeApprovalV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).getNonEmployeeApprovalV1(requestParameters.id, requestParameters.includeDetail, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeApprovalV1(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeApprovalV1(requestParameters.id, requestParameters.includeDetail, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source. Requires role context of `idn:nesr:read` 
      * @summary Obtain the status of bulk upload on the source
-     * @param {NonEmployeeLifecycleManagementV1ApiGetNonEmployeeBulkUploadStatusV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeBulkUploadStatusV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public getNonEmployeeBulkUploadStatusV1(requestParameters: NonEmployeeLifecycleManagementV1ApiGetNonEmployeeBulkUploadStatusV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).getNonEmployeeBulkUploadStatusV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeBulkUploadStatusV1(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeBulkUploadStatusV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeBulkUploadStatusV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a non-employee record. Requires role context of `idn:nesr:read`
      * @summary Get a non-employee record
-     * @param {NonEmployeeLifecycleManagementV1ApiGetNonEmployeeRecordV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeRecordV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public getNonEmployeeRecordV1(requestParameters: NonEmployeeLifecycleManagementV1ApiGetNonEmployeeRecordV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).getNonEmployeeRecordV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeRecordV1(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeRecordV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeRecordV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This request will retrieve a summary of non-employee requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a summary of all non-employee approval requests assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a summary of the non-employee requests in the source(s) he or she manages.
      * @summary Get summary of non-employee requests
-     * @param {NonEmployeeLifecycleManagementV1ApiGetNonEmployeeRequestSummaryV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeRequestSummaryV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public getNonEmployeeRequestSummaryV1(requestParameters: NonEmployeeLifecycleManagementV1ApiGetNonEmployeeRequestSummaryV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).getNonEmployeeRequestSummaryV1(requestParameters.requestedFor, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeRequestSummaryV1(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeRequestSummaryV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeRequestSummaryV1(requestParameters.requestedFor, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a non-employee request. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in this case the user can get the non-employee request for any user.   2. The user must be the owner of the non-employee request.
      * @summary Get a non-employee request
-     * @param {NonEmployeeLifecycleManagementV1ApiGetNonEmployeeRequestV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeRequestV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public getNonEmployeeRequestV1(requestParameters: NonEmployeeLifecycleManagementV1ApiGetNonEmployeeRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).getNonEmployeeRequestV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeRequestV1(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeRequestV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API gets a schema attribute by Id for the specified Non-Employee SourceId. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
      * @summary Get schema attribute non-employee source
-     * @param {NonEmployeeLifecycleManagementV1ApiGetNonEmployeeSchemaAttributeV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeSchemaAttributeV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public getNonEmployeeSchemaAttributeV1(requestParameters: NonEmployeeLifecycleManagementV1ApiGetNonEmployeeSchemaAttributeV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).getNonEmployeeSchemaAttributeV1(requestParameters.attributeId, requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeSchemaAttributeV1(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeSchemaAttributeV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeSchemaAttributeV1(requestParameters.attributeId, requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8 mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can add up to 10 custom attributes. This interface returns all the mandatory attributes followed by any custom attributes. At most, a total of 18 attributes will be returned. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
      * @summary List schema attributes non-employee source
-     * @param {NonEmployeeLifecycleManagementV1ApiGetNonEmployeeSourceSchemaAttributesV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeSourceSchemaAttributesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public getNonEmployeeSourceSchemaAttributesV1(requestParameters: NonEmployeeLifecycleManagementV1ApiGetNonEmployeeSourceSchemaAttributesV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).getNonEmployeeSourceSchemaAttributesV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeSourceSchemaAttributesV1(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeSourceSchemaAttributesV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeSourceSchemaAttributesV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a non-employee source. There are two contextual uses for the requested-for path parameter:    1. The user has the role context of `idn:nesr:read`, in which case he or she may request any source.   2. The current user is an account manager, in which case the user can only request sources that they own.
      * @summary Get a non-employee source
-     * @param {NonEmployeeLifecycleManagementV1ApiGetNonEmployeeSourceV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeSourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public getNonEmployeeSourceV1(requestParameters: NonEmployeeLifecycleManagementV1ApiGetNonEmployeeSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).getNonEmployeeSourceV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeSourceV1(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeSourceV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This post will import, or update, Non-Employee records found in the CSV. Requires role context of `idn:nesr:create`
      * @summary Imports, or updates, non-employee records
-     * @param {NonEmployeeLifecycleManagementV1ApiImportNonEmployeeRecordsInBulkV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiImportNonEmployeeRecordsInBulkV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public importNonEmployeeRecordsInBulkV1(requestParameters: NonEmployeeLifecycleManagementV1ApiImportNonEmployeeRecordsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).importNonEmployeeRecordsInBulkV1(requestParameters.id, requestParameters.data, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public importNonEmployeeRecordsInBulkV1(requestParameters: NonEmployeeLifecycleManagementApiImportNonEmployeeRecordsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).importNonEmployeeRecordsInBulkV1(requestParameters.id, requestParameters.data, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a list of non-employee approval requests. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in which case they can list the approvals for any approver.   2. The user owns the requested approval.
      * @summary Get list of non-employee approval requests
-     * @param {NonEmployeeLifecycleManagementV1ApiListNonEmployeeApprovalsV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiListNonEmployeeApprovalsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public listNonEmployeeApprovalsV1(requestParameters: NonEmployeeLifecycleManagementV1ApiListNonEmployeeApprovalsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).listNonEmployeeApprovalsV1(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listNonEmployeeApprovalsV1(requestParameters: NonEmployeeLifecycleManagementApiListNonEmployeeApprovalsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).listNonEmployeeApprovalsV1(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a list of non-employee records. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in which case they can get a list of all of the non-employees.   2. The user is an account manager, in which case they can get a list of the non-employees that they manage.
      * @summary List non-employee records
-     * @param {NonEmployeeLifecycleManagementV1ApiListNonEmployeeRecordsV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiListNonEmployeeRecordsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public listNonEmployeeRecordsV1(requestParameters: NonEmployeeLifecycleManagementV1ApiListNonEmployeeRecordsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).listNonEmployeeRecordsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listNonEmployeeRecordsV1(requestParameters: NonEmployeeLifecycleManagementApiListNonEmployeeRecordsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).listNonEmployeeRecordsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a list of non-employee requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a list non-employee requests assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a list of the non-employee requests in the source(s) he or she manages.
      * @summary List non-employee requests
-     * @param {NonEmployeeLifecycleManagementV1ApiListNonEmployeeRequestsV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiListNonEmployeeRequestsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public listNonEmployeeRequestsV1(requestParameters: NonEmployeeLifecycleManagementV1ApiListNonEmployeeRequestsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).listNonEmployeeRequestsV1(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listNonEmployeeRequestsV1(requestParameters: NonEmployeeLifecycleManagementApiListNonEmployeeRequestsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).listNonEmployeeRequestsV1(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get a list of non-employee sources. There are two contextual uses for the `requested-for` path parameter:    1. If the user has the role context of `idn:nesr:read`, he or she may request a list sources assigned to a particular account manager by passing in that manager\'s `id`.   2. If the current user is an account manager, the user should provide \'me\' as the `requested-for` value. Doing so provide the user with a list of the sources he or she owns.
      * @summary List non-employee sources
-     * @param {NonEmployeeLifecycleManagementV1ApiListNonEmployeeSourcesV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiListNonEmployeeSourcesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public listNonEmployeeSourcesV1(requestParameters: NonEmployeeLifecycleManagementV1ApiListNonEmployeeSourcesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).listNonEmployeeSourcesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.requestedFor, requestParameters.nonEmployeeCount, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listNonEmployeeSourcesV1(requestParameters: NonEmployeeLifecycleManagementApiListNonEmployeeSourcesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).listNonEmployeeSourcesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.requestedFor, requestParameters.nonEmployeeCount, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This request will patch a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
      * @summary Patch non-employee record
-     * @param {NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeRecordV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiPatchNonEmployeeRecordV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public patchNonEmployeeRecordV1(requestParameters: NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeRecordV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).patchNonEmployeeRecordV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchNonEmployeeRecordV1(requestParameters: NonEmployeeLifecycleManagementApiPatchNonEmployeeRecordV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).patchNonEmployeeRecordV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point patches a specific schema attribute for a non-employee SourceId. Requires role context of `idn:nesr:update` 
      * @summary Patch a schema attribute for non-employee source
-     * @param {NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeSchemaAttributeV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiPatchNonEmployeeSchemaAttributeV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public patchNonEmployeeSchemaAttributeV1(requestParameters: NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeSchemaAttributeV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).patchNonEmployeeSchemaAttributeV1(requestParameters.attributeId, requestParameters.sourceId, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchNonEmployeeSchemaAttributeV1(requestParameters: NonEmployeeLifecycleManagementApiPatchNonEmployeeSchemaAttributeV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).patchNonEmployeeSchemaAttributeV1(requestParameters.attributeId, requestParameters.sourceId, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * patch a non-employee source. (partial update) <br/> Patchable field: **name, description, approvers, accountManagers** Requires role context of `idn:nesr:update`.
      * @summary Patch a non-employee source
-     * @param {NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeSourceV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiPatchNonEmployeeSourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public patchNonEmployeeSourceV1(requestParameters: NonEmployeeLifecycleManagementV1ApiPatchNonEmployeeSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).patchNonEmployeeSourceV1(requestParameters.sourceId, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchNonEmployeeSourceV1(requestParameters: NonEmployeeLifecycleManagementApiPatchNonEmployeeSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).patchNonEmployeeSourceV1(requestParameters.sourceId, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint will reject an approval item request and notify user. The current user must be the requested approver.
      * @summary Reject a non-employee request
-     * @param {NonEmployeeLifecycleManagementV1ApiRejectNonEmployeeRequestV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiRejectNonEmployeeRequestV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public rejectNonEmployeeRequestV1(requestParameters: NonEmployeeLifecycleManagementV1ApiRejectNonEmployeeRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).rejectNonEmployeeRequestV1(requestParameters.id, requestParameters.nonemployeerejectapprovaldecisionV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public rejectNonEmployeeRequestV1(requestParameters: NonEmployeeLifecycleManagementApiRejectNonEmployeeRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).rejectNonEmployeeRequestV1(requestParameters.id, requestParameters.nonemployeerejectapprovaldecision, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This request will update a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
      * @summary Update non-employee record
-     * @param {NonEmployeeLifecycleManagementV1ApiUpdateNonEmployeeRecordV1Request} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiUpdateNonEmployeeRecordV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementV1Api
+     * @memberof NonEmployeeLifecycleManagementApi
      */
-    public updateNonEmployeeRecordV1(requestParameters: NonEmployeeLifecycleManagementV1ApiUpdateNonEmployeeRecordV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementV1ApiFp(this.configuration).updateNonEmployeeRecordV1(requestParameters.id, requestParameters.nonemployeerequestbodyV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateNonEmployeeRecordV1(requestParameters: NonEmployeeLifecycleManagementApiUpdateNonEmployeeRecordV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).updateNonEmployeeRecordV1(requestParameters.id, requestParameters.nonemployeerequestbody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

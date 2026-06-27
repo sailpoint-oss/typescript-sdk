@@ -1,15 +1,15 @@
 ---
-id: v1-roleassignmentsourcetype-v1
-title: RoleassignmentsourcetypeV1
-pagination_label: RoleassignmentsourcetypeV1
-sidebar_label: RoleassignmentsourcetypeV1
+id: v1-roleassignmentsourcetype
+title: Roleassignmentsourcetype
+pagination_label: Roleassignmentsourcetype
+sidebar_label: Roleassignmentsourcetype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RoleassignmentsourcetypeV1', 'v1RoleassignmentsourcetypeV1']
-slug: /tools/sdk/typescript/roles/models/roleassignmentsourcetype-v1
-tags: ['SDK', 'Software Development Kit', 'RoleassignmentsourcetypeV1', 'v1RoleassignmentsourcetypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Roleassignmentsourcetype', 'v1Roleassignmentsourcetype']
+slug: /tools/sdk/typescript/roles/models/roleassignmentsourcetype
+tags: ['SDK', 'Software Development Kit', 'Roleassignmentsourcetype', 'v1Roleassignmentsourcetype']
 ---
 
-# RoleassignmentsourcetypeV1
+# Roleassignmentsourcetype
 
 ## Enum
 

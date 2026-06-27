@@ -23,8 +23,8 @@ Reassignmenttypeenum.md
 Tenantconfigurationdetails.md
 Tenantconfigurationrequest.md
 Tenantconfigurationresponse.md
-WorkReassignmentV1Api.md
-WorkReassignmentV1ApideveloperSite_code_examples.yaml
+WorkReassignmentApi.md
+WorkReassignmentApideveloperSite_code_examples.yaml
 api.ts
 base.ts
 common.ts

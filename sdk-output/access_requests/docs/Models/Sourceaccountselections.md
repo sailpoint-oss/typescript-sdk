@@ -1,22 +1,22 @@
 ---
-id: v1-sourceaccountselections-v1
-title: SourceaccountselectionsV1
-pagination_label: SourceaccountselectionsV1
-sidebar_label: SourceaccountselectionsV1
+id: v1-sourceaccountselections
+title: Sourceaccountselections
+pagination_label: Sourceaccountselections
+sidebar_label: Sourceaccountselections
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SourceaccountselectionsV1', 'v1SourceaccountselectionsV1']
-slug: /tools/sdk/typescript/access_requests/models/sourceaccountselections-v1
-tags: ['SDK', 'Software Development Kit', 'SourceaccountselectionsV1', 'v1SourceaccountselectionsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Sourceaccountselections', 'v1Sourceaccountselections']
+slug: /tools/sdk/typescript/access_requests/models/sourceaccountselections
+tags: ['SDK', 'Software Development Kit', 'Sourceaccountselections', 'v1Sourceaccountselections']
 ---
 
-# SourceaccountselectionsV1
+# Sourceaccountselections
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **DtotypeV1** |  | [default to undefined]
-**id** | **(optional)** **string** | The source id | [default to undefined]
-**name** | **(optional)** **string** | The source name | [default to undefined]
-**accounts** | **(optional)** **Array&lt;AccountinforefV1&gt;** | The accounts information for a particular source in the requested item | [default to undefined]
+**type** | **(optional)** `Dtotype` |  | [default to undefined]
+**id** | **(optional)** `string` | The source id | [default to undefined]
+**name** | **(optional)** `string` | The source name | [default to undefined]
+**accounts** | **(optional)** `Array<Accountinforef>` | The accounts information for a particular source in the requested item | [default to undefined]
 

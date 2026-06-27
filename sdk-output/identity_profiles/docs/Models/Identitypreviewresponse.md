@@ -1,20 +1,20 @@
 ---
-id: v1-identitypreviewresponse-v1
-title: IdentitypreviewresponseV1
-pagination_label: IdentitypreviewresponseV1
-sidebar_label: IdentitypreviewresponseV1
+id: v1-identitypreviewresponse
+title: Identitypreviewresponse
+pagination_label: Identitypreviewresponse
+sidebar_label: Identitypreviewresponse
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'IdentitypreviewresponseV1', 'v1IdentitypreviewresponseV1']
-slug: /tools/sdk/typescript/identity_profiles/models/identitypreviewresponse-v1
-tags: ['SDK', 'Software Development Kit', 'IdentitypreviewresponseV1', 'v1IdentitypreviewresponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Identitypreviewresponse', 'v1Identitypreviewresponse']
+slug: /tools/sdk/typescript/identity_profiles/models/identitypreviewresponse
+tags: ['SDK', 'Software Development Kit', 'Identitypreviewresponse', 'v1Identitypreviewresponse']
 ---
 
-# IdentitypreviewresponseV1
+# Identitypreviewresponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identity** | **(optional)** **IdentitypreviewresponseIdentityV1** |  | [default to undefined]
-**previewAttributes** | **(optional)** **Array&lt;IdentityattributepreviewV1&gt;** |  | [default to undefined]
+**identity** | **(optional)** `IdentitypreviewresponseIdentity` |  | [default to undefined]
+**previewAttributes** | **(optional)** `Array<Identityattributepreview>` |  | [default to undefined]
 

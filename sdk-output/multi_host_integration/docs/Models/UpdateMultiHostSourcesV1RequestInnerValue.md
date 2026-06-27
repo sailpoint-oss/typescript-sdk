@@ -1,15 +1,15 @@
 ---
-id: v1-update-multi-host-sources-v1-request-inner-value-v1
-title: UpdateMultiHostSourcesV1RequestInnerValueV1
-pagination_label: UpdateMultiHostSourcesV1RequestInnerValueV1
-sidebar_label: UpdateMultiHostSourcesV1RequestInnerValueV1
+id: v1-update-multi-host-sources-v1-request-inner-value
+title: UpdateMultiHostSourcesV1RequestInnerValue
+pagination_label: UpdateMultiHostSourcesV1RequestInnerValue
+sidebar_label: UpdateMultiHostSourcesV1RequestInnerValue
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'UpdateMultiHostSourcesV1RequestInnerValueV1', 'v1UpdateMultiHostSourcesV1RequestInnerValueV1']
-slug: /tools/sdk/typescript/multi_host_integration/models/update-multi-host-sources-v1-request-inner-value-v1
-tags: ['SDK', 'Software Development Kit', 'UpdateMultiHostSourcesV1RequestInnerValueV1', 'v1UpdateMultiHostSourcesV1RequestInnerValueV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'UpdateMultiHostSourcesV1RequestInnerValue', 'v1UpdateMultiHostSourcesV1RequestInnerValue']
+slug: /tools/sdk/typescript/multi_host_integration/models/update-multi-host-sources-v1-request-inner-value
+tags: ['SDK', 'Software Development Kit', 'UpdateMultiHostSourcesV1RequestInnerValue', 'v1UpdateMultiHostSourcesV1RequestInnerValue']
 ---
 
-# UpdateMultiHostSourcesV1RequestInnerValueV1
+# UpdateMultiHostSourcesV1RequestInnerValue
 
 ## Properties
 

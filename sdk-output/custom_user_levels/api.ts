@@ -26,57 +26,57 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ArrayInnerV1
+ * @interface ArrayInner
  */
-export interface ArrayInnerV1 {
+export interface ArrayInner {
 }
 /**
  * 
  * @export
- * @interface AuthuserlevelsidentitycountV1
+ * @interface Authuserlevelsidentitycount
  */
-export interface AuthuserlevelsidentitycountV1 {
+export interface Authuserlevelsidentitycount {
     /**
      * The unique identifier of the user level.
      * @type {string}
-     * @memberof AuthuserlevelsidentitycountV1
+     * @memberof Authuserlevelsidentitycount
      */
     'id'?: string;
     /**
      * Number of identities having this user level.
      * @type {number}
-     * @memberof AuthuserlevelsidentitycountV1
+     * @memberof Authuserlevelsidentitycount
      */
     'count'?: number;
 }
 /**
  * 
  * @export
- * @interface AuthuserslimresponseV1
+ * @interface Authuserslimresponse
  */
-export interface AuthuserslimresponseV1 {
+export interface Authuserslimresponse {
     /**
      * Identity ID.
      * @type {string}
-     * @memberof AuthuserslimresponseV1
+     * @memberof Authuserslimresponse
      */
     'id'?: string;
     /**
      * Identity unique identifier.
      * @type {string}
-     * @memberof AuthuserslimresponseV1
+     * @memberof Authuserslimresponse
      */
     'uid'?: string;
     /**
      * Identity alias.
      * @type {string}
-     * @memberof AuthuserslimresponseV1
+     * @memberof Authuserslimresponse
      */
     'alias'?: string;
     /**
      * Identity name in display format.
      * @type {string}
-     * @memberof AuthuserslimresponseV1
+     * @memberof Authuserslimresponse
      */
     'displayName'?: string;
 }
@@ -86,7 +86,7 @@ export interface AuthuserslimresponseV1 {
  * @enum {string}
  */
 
-export const DtotypeV1 = {
+export const Dtotype = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
@@ -118,31 +118,31 @@ export const DtotypeV1 = {
     Workgroup: 'WORKGROUP'
 } as const;
 
-export type DtotypeV1 = typeof DtotypeV1[keyof typeof DtotypeV1];
+export type Dtotype = typeof Dtotype[keyof typeof Dtotype];
 
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -151,99 +151,99 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * A HierarchicalRightSet
  * @export
- * @interface HierarchicalrightsetV1
+ * @interface Hierarchicalrightset
  */
-export interface HierarchicalrightsetV1 {
+export interface Hierarchicalrightset {
     /**
      * The unique identifier of the RightSet.
      * @type {string}
-     * @memberof HierarchicalrightsetV1
+     * @memberof Hierarchicalrightset
      */
     'id'?: string;
     /**
      * The human-readable name of the RightSet.
      * @type {string}
-     * @memberof HierarchicalrightsetV1
+     * @memberof Hierarchicalrightset
      */
     'name'?: string;
     /**
      * A human-readable description of the RightSet.
      * @type {string}
-     * @memberof HierarchicalrightsetV1
+     * @memberof Hierarchicalrightset
      */
     'description'?: string | null;
     /**
      * The category of the RightSet.
      * @type {string}
-     * @memberof HierarchicalrightsetV1
+     * @memberof Hierarchicalrightset
      */
     'category'?: string;
     /**
      * 
-     * @type {NestedconfigV1}
-     * @memberof HierarchicalrightsetV1
+     * @type {Nestedconfig}
+     * @memberof Hierarchicalrightset
      */
-    'nestedConfig'?: NestedconfigV1;
+    'nestedConfig'?: Nestedconfig;
     /**
      * List of child HierarchicalRightSets.
-     * @type {Array<HierarchicalrightsetV1>}
-     * @memberof HierarchicalrightsetV1
+     * @type {Array<Hierarchicalrightset>}
+     * @memberof Hierarchicalrightset
      */
-    'children'?: Array<HierarchicalrightsetV1>;
+    'children'?: Array<Hierarchicalrightset>;
 }
 /**
  * The manager for the identity.
  * @export
- * @interface IdentityreferenceV1
+ * @interface Identityreference
  */
-export interface IdentityreferenceV1 {
+export interface Identityreference {
     /**
      * 
-     * @type {DtotypeV1}
-     * @memberof IdentityreferenceV1
+     * @type {Dtotype}
+     * @memberof Identityreference
      */
-    'type'?: DtotypeV1;
+    'type'?: Dtotype;
     /**
      * Identity id
      * @type {string}
-     * @memberof IdentityreferenceV1
+     * @memberof Identityreference
      */
     'id'?: string;
     /**
      * Human-readable display name of identity.
      * @type {string}
-     * @memberof IdentityreferenceV1
+     * @memberof Identityreference
      */
     'name'?: string;
 }
@@ -252,43 +252,43 @@ export interface IdentityreferenceV1 {
 /**
  * A JSONPatch document as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface JsonpatchV1
+ * @interface Jsonpatch
  */
-export interface JsonpatchV1 {
+export interface Jsonpatch {
     /**
      * Operations to be applied
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof JsonpatchV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof Jsonpatch
      */
-    'operations'?: Array<JsonpatchoperationV1>;
+    'operations'?: Array<Jsonpatchoperation>;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface JsonpatchoperationV1
+ * @interface Jsonpatchoperation
  */
-export interface JsonpatchoperationV1 {
+export interface Jsonpatchoperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
-    'op': JsonpatchoperationV1OpV1;
+    'op': JsonpatchoperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValueV1}
-     * @memberof JsonpatchoperationV1
+     * @type {JsonpatchoperationValue}
+     * @memberof Jsonpatchoperation
      */
-    'value'?: JsonpatchoperationValueV1;
+    'value'?: JsonpatchoperationValue;
 }
 
-export const JsonpatchoperationV1OpV1 = {
+export const JsonpatchoperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -297,38 +297,38 @@ export const JsonpatchoperationV1OpV1 = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationV1OpV1 = typeof JsonpatchoperationV1OpV1[keyof typeof JsonpatchoperationV1OpV1];
+export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
 
 /**
- * @type JsonpatchoperationValueV1
+ * @type JsonpatchoperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number | object | string;
+export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * 
  * @export
- * @interface ListUserLevelsV1401ResponseV1
+ * @interface ListUserLevelsV1401Response
  */
-export interface ListUserLevelsV1401ResponseV1 {
+export interface ListUserLevelsV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListUserLevelsV1401ResponseV1
+     * @memberof ListUserLevelsV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ListUserLevelsV1429ResponseV1
+ * @interface ListUserLevelsV1429Response
  */
-export interface ListUserLevelsV1429ResponseV1 {
+export interface ListUserLevelsV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListUserLevelsV1429ResponseV1
+     * @memberof ListUserLevelsV1429Response
      */
     'message'?: any;
 }
@@ -338,392 +338,392 @@ export interface ListUserLevelsV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * A NestedConfig
  * @export
- * @interface NestedconfigV1
+ * @interface Nestedconfig
  */
-export interface NestedconfigV1 {
+export interface Nestedconfig {
     /**
      * The unique identifier of the ancestor RightSet.
      * @type {string}
-     * @memberof NestedconfigV1
+     * @memberof Nestedconfig
      */
     'ancestorId'?: string;
     /**
      * The depth level of the configuration.
      * @type {number}
-     * @memberof NestedconfigV1
+     * @memberof Nestedconfig
      */
     'depth'?: number;
     /**
      * The unique identifier of the parent RightSet.
      * @type {string}
-     * @memberof NestedconfigV1
+     * @memberof Nestedconfig
      */
     'parentId'?: string | null;
     /**
      * List of unique identifiers for child configurations.
      * @type {Array<string>}
-     * @memberof NestedconfigV1
+     * @memberof Nestedconfig
      */
     'childrenIds'?: Array<string>;
 }
 /**
- * 
- * @export
- * @interface PublicidentityAttributesInnerV1
- */
-export interface PublicidentityAttributesInnerV1 {
-    /**
-     * The attribute key
-     * @type {string}
-     * @memberof PublicidentityAttributesInnerV1
-     */
-    'key'?: string;
-    /**
-     * Human-readable display name of the attribute
-     * @type {string}
-     * @memberof PublicidentityAttributesInnerV1
-     */
-    'name'?: string;
-    /**
-     * The attribute value
-     * @type {string}
-     * @memberof PublicidentityAttributesInnerV1
-     */
-    'value'?: string | null;
-}
-/**
  * Details about a public identity
  * @export
- * @interface PublicidentityV1
+ * @interface Publicidentity
  */
-export interface PublicidentityV1 {
+export interface Publicidentity {
     /**
      * Identity id
      * @type {string}
-     * @memberof PublicidentityV1
+     * @memberof Publicidentity
      */
     'id'?: string;
     /**
      * Human-readable display name of identity.
      * @type {string}
-     * @memberof PublicidentityV1
+     * @memberof Publicidentity
      */
     'name'?: string;
     /**
      * Alternate unique identifier for the identity.
      * @type {string}
-     * @memberof PublicidentityV1
+     * @memberof Publicidentity
      */
     'alias'?: string;
     /**
      * Email address of identity.
      * @type {string}
-     * @memberof PublicidentityV1
+     * @memberof Publicidentity
      */
     'email'?: string | null;
     /**
      * The lifecycle status for the identity
      * @type {string}
-     * @memberof PublicidentityV1
+     * @memberof Publicidentity
      */
     'status'?: string | null;
     /**
      * The current state of the identity, which determines how Identity Security Cloud interacts with the identity. An identity that is Active will be included identity picklists in Request Center, identity processing, and more. Identities that are Inactive will be excluded from these features. 
      * @type {string}
-     * @memberof PublicidentityV1
+     * @memberof Publicidentity
      */
-    'identityState'?: PublicidentityV1IdentityStateV1 | null;
+    'identityState'?: PublicidentityIdentityStateEnum | null;
     /**
      * 
-     * @type {IdentityreferenceV1}
-     * @memberof PublicidentityV1
+     * @type {Identityreference}
+     * @memberof Publicidentity
      */
-    'manager'?: IdentityreferenceV1 | null;
+    'manager'?: Identityreference | null;
     /**
      * The public identity attributes of the identity
-     * @type {Array<PublicidentityAttributesInnerV1>}
-     * @memberof PublicidentityV1
+     * @type {Array<PublicidentityAttributesInner>}
+     * @memberof Publicidentity
      */
-    'attributes'?: Array<PublicidentityAttributesInnerV1>;
+    'attributes'?: Array<PublicidentityAttributesInner>;
 }
 
-export const PublicidentityV1IdentityStateV1 = {
+export const PublicidentityIdentityStateEnum = {
     Active: 'ACTIVE',
     InactiveShortTerm: 'INACTIVE_SHORT_TERM',
     InactiveLongTerm: 'INACTIVE_LONG_TERM'
 } as const;
 
-export type PublicidentityV1IdentityStateV1 = typeof PublicidentityV1IdentityStateV1[keyof typeof PublicidentityV1IdentityStateV1];
+export type PublicidentityIdentityStateEnum = typeof PublicidentityIdentityStateEnum[keyof typeof PublicidentityIdentityStateEnum];
 
+/**
+ * 
+ * @export
+ * @interface PublicidentityAttributesInner
+ */
+export interface PublicidentityAttributesInner {
+    /**
+     * The attribute key
+     * @type {string}
+     * @memberof PublicidentityAttributesInner
+     */
+    'key'?: string;
+    /**
+     * Human-readable display name of the attribute
+     * @type {string}
+     * @memberof PublicidentityAttributesInner
+     */
+    'name'?: string;
+    /**
+     * The attribute value
+     * @type {string}
+     * @memberof PublicidentityAttributesInner
+     */
+    'value'?: string | null;
+}
 /**
  * A RightSetDTO represents a collection of rights that assigned to capability or scope, enabling them to possess specific rights to access corresponding APIs.
  * @export
- * @interface RightsetdtoV1
+ * @interface Rightsetdto
  */
-export interface RightsetdtoV1 {
+export interface Rightsetdto {
     /**
      * The unique identifier of the RightSet.
      * @type {string}
-     * @memberof RightsetdtoV1
+     * @memberof Rightsetdto
      */
     'id'?: string;
     /**
      * The human-readable name of the RightSet.
      * @type {string}
-     * @memberof RightsetdtoV1
+     * @memberof Rightsetdto
      */
     'name'?: string;
     /**
      * A human-readable description of the RightSet.
      * @type {string}
-     * @memberof RightsetdtoV1
+     * @memberof Rightsetdto
      */
     'description'?: string;
     /**
      * The category of the RightSet.
      * @type {string}
-     * @memberof RightsetdtoV1
+     * @memberof Rightsetdto
      */
     'category'?: string;
     /**
      * Right is the most granular unit that determines specific API permissions, this is a list of rights associated with the RightSet.
      * @type {Array<string>}
-     * @memberof RightsetdtoV1
+     * @memberof Rightsetdto
      */
     'rights'?: Array<string>;
     /**
      * List of unique identifiers for related RightSets, current RightSet contains rights from these RightSets.
      * @type {Array<string>}
-     * @memberof RightsetdtoV1
+     * @memberof Rightsetdto
      */
     'rightSetIds'?: Array<string>;
     /**
      * List of unique identifiers for UI-assignable child RightSets, used to build UI components.
      * @type {Array<string>}
-     * @memberof RightsetdtoV1
+     * @memberof Rightsetdto
      */
     'uiAssignableChildRightSetIds'?: Array<string>;
     /**
      * Indicates whether the RightSet is UI-assignable.
      * @type {boolean}
-     * @memberof RightsetdtoV1
+     * @memberof Rightsetdto
      */
     'uiAssignable'?: boolean;
     /**
      * The translated name of the RightSet.
      * @type {string}
-     * @memberof RightsetdtoV1
+     * @memberof Rightsetdto
      */
     'translatedName'?: string;
     /**
      * The translated description of the RightSet.
      * @type {string}
-     * @memberof RightsetdtoV1
+     * @memberof Rightsetdto
      */
     'translatedDescription'?: string | null;
     /**
      * The unique identifier of the parent RightSet for UI Assignable RightSet.
      * @type {string}
-     * @memberof RightsetdtoV1
+     * @memberof Rightsetdto
      */
     'parentId'?: string | null;
 }
 /**
  * It represents a summary of a user level publish operation, including its metadata and status.
  * @export
- * @interface UserlevelpublishsummaryV1
+ * @interface Userlevelpublishsummary
  */
-export interface UserlevelpublishsummaryV1 {
+export interface Userlevelpublishsummary {
     /**
      * The unique identifier of the UserLevel.
      * @type {string}
-     * @memberof UserlevelpublishsummaryV1
+     * @memberof Userlevelpublishsummary
      */
     'userLevelId'?: string;
     /**
      * Indicates whether the API call triggered a publish operation.
      * @type {boolean}
-     * @memberof UserlevelpublishsummaryV1
+     * @memberof Userlevelpublishsummary
      */
     'publish'?: boolean;
     /**
      * The status of the UserLevel publish operation.
      * @type {string}
-     * @memberof UserlevelpublishsummaryV1
+     * @memberof Userlevelpublishsummary
      */
     'status'?: string;
     /**
      * The last modification timestamp of the UserLevel.
      * @type {string}
-     * @memberof UserlevelpublishsummaryV1
+     * @memberof Userlevelpublishsummary
      */
     'modified'?: string;
 }
 /**
  * Payload containing details for creating a custom user level.
  * @export
- * @interface UserlevelrequestV1
+ * @interface Userlevelrequest
  */
-export interface UserlevelrequestV1 {
+export interface Userlevelrequest {
     /**
      * The name of the user level.
      * @type {string}
-     * @memberof UserlevelrequestV1
+     * @memberof Userlevelrequest
      */
     'name': string;
     /**
      * A brief description of the user level.
      * @type {string}
-     * @memberof UserlevelrequestV1
+     * @memberof Userlevelrequest
      */
     'description': string;
     /**
      * 
-     * @type {PublicidentityV1}
-     * @memberof UserlevelrequestV1
+     * @type {Publicidentity}
+     * @memberof Userlevelrequest
      */
-    'owner': PublicidentityV1;
+    'owner': Publicidentity;
     /**
      * A list of rights associated with the user level.
      * @type {Array<string>}
-     * @memberof UserlevelrequestV1
+     * @memberof Userlevelrequest
      */
     'rightSets'?: Array<string>;
 }
 /**
  * It represents a summary of a user level, including its metadata, attributes, and associated properties.
  * @export
- * @interface UserlevelsummarydtoV1
+ * @interface Userlevelsummarydto
  */
-export interface UserlevelsummarydtoV1 {
+export interface Userlevelsummarydto {
     /**
      * The unique identifier of the UserLevel.
      * @type {string}
-     * @memberof UserlevelsummarydtoV1
+     * @memberof Userlevelsummarydto
      */
     'id'?: string;
     /**
      * The human-readable name of the UserLevel.
      * @type {string}
-     * @memberof UserlevelsummarydtoV1
+     * @memberof Userlevelsummarydto
      */
     'name'?: string;
     /**
      * A human-readable description of the UserLevel.
      * @type {string}
-     * @memberof UserlevelsummarydtoV1
+     * @memberof Userlevelsummarydto
      */
     'description'?: string | null;
     /**
      * The legacy group associated with the UserLevel, used for backward compatibility for the UserLevel id.
      * @type {string}
-     * @memberof UserlevelsummarydtoV1
+     * @memberof Userlevelsummarydto
      */
     'legacyGroup'?: string | null;
     /**
      * List of RightSets associated with the UserLevel.
-     * @type {Array<RightsetdtoV1>}
-     * @memberof UserlevelsummarydtoV1
+     * @type {Array<Rightsetdto>}
+     * @memberof Userlevelsummarydto
      */
-    'rightSets'?: Array<RightsetdtoV1>;
+    'rightSets'?: Array<Rightsetdto>;
     /**
      * Indicates whether the UserLevel is custom.
      * @type {boolean}
-     * @memberof UserlevelsummarydtoV1
+     * @memberof Userlevelsummarydto
      */
     'custom'?: boolean;
     /**
      * Indicates whether the UserLevel is admin-assignable.
      * @type {boolean}
-     * @memberof UserlevelsummarydtoV1
+     * @memberof Userlevelsummarydto
      */
     'adminAssignable'?: boolean;
     /**
      * The translated name of the UserLevel.
      * @type {string}
-     * @memberof UserlevelsummarydtoV1
+     * @memberof Userlevelsummarydto
      */
     'translatedName'?: string | null;
     /**
      * The translated grant message for the UserLevel.
      * @type {string}
-     * @memberof UserlevelsummarydtoV1
+     * @memberof Userlevelsummarydto
      */
     'translatedGrant'?: string | null;
     /**
      * The translated remove message for the UserLevel.
      * @type {string}
-     * @memberof UserlevelsummarydtoV1
+     * @memberof Userlevelsummarydto
      */
     'translatedRemove'?: string | null;
     /**
      * 
-     * @type {PublicidentityV1}
-     * @memberof UserlevelsummarydtoV1
+     * @type {Publicidentity}
+     * @memberof Userlevelsummarydto
      */
-    'owner'?: PublicidentityV1;
+    'owner'?: Publicidentity;
     /**
      * The status of the UserLevel.
      * @type {string}
-     * @memberof UserlevelsummarydtoV1
+     * @memberof Userlevelsummarydto
      */
-    'status'?: UserlevelsummarydtoV1StatusV1;
+    'status'?: UserlevelsummarydtoStatusEnum;
     /**
      * The creation timestamp of the UserLevel.
      * @type {string}
-     * @memberof UserlevelsummarydtoV1
+     * @memberof Userlevelsummarydto
      */
     'created'?: string;
     /**
      * The last modification timestamp of the UserLevel.
      * @type {string}
-     * @memberof UserlevelsummarydtoV1
+     * @memberof Userlevelsummarydto
      */
     'modified'?: string;
     /**
      * The count of associated identities for the UserLevel.
      * @type {number}
-     * @memberof UserlevelsummarydtoV1
+     * @memberof Userlevelsummarydto
      */
     'associatedIdentitiesCount'?: number | null;
 }
 
-export const UserlevelsummarydtoV1StatusV1 = {
+export const UserlevelsummarydtoStatusEnum = {
     Active: 'ACTIVE',
     Draft: 'DRAFT'
 } as const;
 
-export type UserlevelsummarydtoV1StatusV1 = typeof UserlevelsummarydtoV1StatusV1[keyof typeof UserlevelsummarydtoV1StatusV1];
+export type UserlevelsummarydtoStatusEnum = typeof UserlevelsummarydtoStatusEnum[keyof typeof UserlevelsummarydtoStatusEnum];
 
 
 /**
- * CustomUserLevelsV1Api - axios parameter creator
+ * CustomUserLevelsApi - axios parameter creator
  * @export
  */
-export const CustomUserLevelsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const CustomUserLevelsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Creates a new custom user level for the tenant.
          * @summary Create a custom user level
-         * @param {UserlevelrequestV1} userlevelrequestV1 Payload containing the details of the user level to be created.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
+         * @param {Userlevelrequest} userlevelrequest Payload containing the details of the user level to be created.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createCustomUserLevelV1: async (userlevelrequestV1: UserlevelrequestV1, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'userlevelrequestV1' is not null or undefined
-            assertParamExists('createCustomUserLevelV1', 'userlevelrequestV1', userlevelrequestV1)
+        createCustomUserLevelV1: async (userlevelrequest: Userlevelrequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'userlevelrequest' is not null or undefined
+            assertParamExists('createCustomUserLevelV1', 'userlevelrequest', userlevelrequest)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -750,7 +750,7 @@ export const CustomUserLevelsV1ApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(userlevelrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(userlevelrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -965,7 +965,7 @@ export const CustomUserLevelsV1ApiAxiosParamCreator = function (configuration?: 
          * Retrieves a list of user levels for the tenant.
          * @summary List user levels
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
-         * @param {ListUserLevelsV1DetailLevelV1} [detailLevel] Specifies the level of detail for the user levels.
+         * @param {ListUserLevelsV1DetailLevelEnum} [detailLevel] Specifies the level of detail for the user levels.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *co*    **owner**: *co*    **status**: *eq*  **description**: *co*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, description, status, owner**
          * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -973,7 +973,7 @@ export const CustomUserLevelsV1ApiAxiosParamCreator = function (configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listUserLevelsV1: async (xSailPointExperimental?: string, detailLevel?: ListUserLevelsV1DetailLevelV1, filters?: string, sorters?: string, limit?: number, offset?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listUserLevelsV1: async (xSailPointExperimental?: string, detailLevel?: ListUserLevelsV1DetailLevelEnum, filters?: string, sorters?: string, limit?: number, offset?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -1114,16 +1114,16 @@ export const CustomUserLevelsV1ApiAxiosParamCreator = function (configuration?: 
          * Updates the details of a specific user level using JSON Patch.
          * @summary Update a user level
          * @param {string} id The unique identifier of the user level.
-         * @param {JsonpatchV1} jsonpatchV1 JSON Patch payload for updating the user level.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
+         * @param {Jsonpatch} jsonpatch JSON Patch payload for updating the user level.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateUserLevelV1: async (id: string, jsonpatchV1: JsonpatchV1, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateUserLevelV1: async (id: string, jsonpatch: Jsonpatch, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateUserLevelV1', 'id', id)
-            // verify required parameter 'jsonpatchV1' is not null or undefined
-            assertParamExists('updateUserLevelV1', 'jsonpatchV1', jsonpatchV1)
+            // verify required parameter 'jsonpatch' is not null or undefined
+            assertParamExists('updateUserLevelV1', 'jsonpatch', jsonpatch)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -1151,7 +1151,7 @@ export const CustomUserLevelsV1ApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatch, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1162,24 +1162,24 @@ export const CustomUserLevelsV1ApiAxiosParamCreator = function (configuration?: 
 };
 
 /**
- * CustomUserLevelsV1Api - functional programming interface
+ * CustomUserLevelsApi - functional programming interface
  * @export
  */
-export const CustomUserLevelsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = CustomUserLevelsV1ApiAxiosParamCreator(configuration)
+export const CustomUserLevelsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = CustomUserLevelsApiAxiosParamCreator(configuration)
     return {
         /**
          * Creates a new custom user level for the tenant.
          * @summary Create a custom user level
-         * @param {UserlevelrequestV1} userlevelrequestV1 Payload containing the details of the user level to be created.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
+         * @param {Userlevelrequest} userlevelrequest Payload containing the details of the user level to be created.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createCustomUserLevelV1(userlevelrequestV1: UserlevelrequestV1, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserlevelsummarydtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createCustomUserLevelV1(userlevelrequestV1, xSailPointExperimental, axiosOptions);
+        async createCustomUserLevelV1(userlevelrequest: Userlevelrequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Userlevelsummarydto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCustomUserLevelV1(userlevelrequest, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomUserLevelsV1Api.createCustomUserLevelV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomUserLevelsApi.createCustomUserLevelV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1193,7 +1193,7 @@ export const CustomUserLevelsV1ApiFp = function(configuration?: Configuration) {
         async deleteUserLevelV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteUserLevelV1(id, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomUserLevelsV1Api.deleteUserLevelV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomUserLevelsApi.deleteUserLevelV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1204,10 +1204,10 @@ export const CustomUserLevelsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getUserLevelV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserlevelsummarydtoV1>> {
+        async getUserLevelV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Userlevelsummarydto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserLevelV1(id, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomUserLevelsV1Api.getUserLevelV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomUserLevelsApi.getUserLevelV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1221,10 +1221,10 @@ export const CustomUserLevelsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAllAuthorizationRightSetsV1(xSailPointExperimental?: string, filters?: string, sorters?: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HierarchicalrightsetV1>>> {
+        async listAllAuthorizationRightSetsV1(xSailPointExperimental?: string, filters?: string, sorters?: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Hierarchicalrightset>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAllAuthorizationRightSetsV1(xSailPointExperimental, filters, sorters, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomUserLevelsV1Api.listAllAuthorizationRightSetsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomUserLevelsApi.listAllAuthorizationRightSetsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1239,17 +1239,17 @@ export const CustomUserLevelsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserLevelIdentitiesV1(id: string, xSailPointExperimental?: string, count?: boolean, sorters?: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AuthuserslimresponseV1>>> {
+        async listUserLevelIdentitiesV1(id: string, xSailPointExperimental?: string, count?: boolean, sorters?: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Authuserslimresponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listUserLevelIdentitiesV1(id, xSailPointExperimental, count, sorters, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomUserLevelsV1Api.listUserLevelIdentitiesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomUserLevelsApi.listUserLevelIdentitiesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Retrieves a list of user levels for the tenant.
          * @summary List user levels
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
-         * @param {ListUserLevelsV1DetailLevelV1} [detailLevel] Specifies the level of detail for the user levels.
+         * @param {ListUserLevelsV1DetailLevelEnum} [detailLevel] Specifies the level of detail for the user levels.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *co*    **owner**: *co*    **status**: *eq*  **description**: *co*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, description, status, owner**
          * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -1257,10 +1257,10 @@ export const CustomUserLevelsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserLevelsV1(xSailPointExperimental?: string, detailLevel?: ListUserLevelsV1DetailLevelV1, filters?: string, sorters?: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserlevelsummarydtoV1>>> {
+        async listUserLevelsV1(xSailPointExperimental?: string, detailLevel?: ListUserLevelsV1DetailLevelEnum, filters?: string, sorters?: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Userlevelsummarydto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listUserLevelsV1(xSailPointExperimental, detailLevel, filters, sorters, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomUserLevelsV1Api.listUserLevelsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomUserLevelsApi.listUserLevelsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1271,10 +1271,10 @@ export const CustomUserLevelsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async publishCustomUserLevelV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserlevelpublishsummaryV1>> {
+        async publishCustomUserLevelV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Userlevelpublishsummary>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.publishCustomUserLevelV1(id, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomUserLevelsV1Api.publishCustomUserLevelV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomUserLevelsApi.publishCustomUserLevelV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1285,526 +1285,526 @@ export const CustomUserLevelsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async showUserLevelCountsV1(requestBody: Array<string>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AuthuserlevelsidentitycountV1>>> {
+        async showUserLevelCountsV1(requestBody: Array<string>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Authuserlevelsidentitycount>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.showUserLevelCountsV1(requestBody, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomUserLevelsV1Api.showUserLevelCountsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomUserLevelsApi.showUserLevelCountsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Updates the details of a specific user level using JSON Patch.
          * @summary Update a user level
          * @param {string} id The unique identifier of the user level.
-         * @param {JsonpatchV1} jsonpatchV1 JSON Patch payload for updating the user level.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
+         * @param {Jsonpatch} jsonpatch JSON Patch payload for updating the user level.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateUserLevelV1(id: string, jsonpatchV1: JsonpatchV1, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserlevelsummarydtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateUserLevelV1(id, jsonpatchV1, xSailPointExperimental, axiosOptions);
+        async updateUserLevelV1(id: string, jsonpatch: Jsonpatch, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Userlevelsummarydto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateUserLevelV1(id, jsonpatch, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomUserLevelsV1Api.updateUserLevelV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomUserLevelsApi.updateUserLevelV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * CustomUserLevelsV1Api - factory interface
+ * CustomUserLevelsApi - factory interface
  * @export
  */
-export const CustomUserLevelsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = CustomUserLevelsV1ApiFp(configuration)
+export const CustomUserLevelsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = CustomUserLevelsApiFp(configuration)
     return {
         /**
          * Creates a new custom user level for the tenant.
          * @summary Create a custom user level
-         * @param {CustomUserLevelsV1ApiCreateCustomUserLevelV1Request} requestParameters Request parameters.
+         * @param {CustomUserLevelsApiCreateCustomUserLevelV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createCustomUserLevelV1(requestParameters: CustomUserLevelsV1ApiCreateCustomUserLevelV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<UserlevelsummarydtoV1> {
-            return localVarFp.createCustomUserLevelV1(requestParameters.userlevelrequestV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        createCustomUserLevelV1(requestParameters: CustomUserLevelsApiCreateCustomUserLevelV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Userlevelsummarydto> {
+            return localVarFp.createCustomUserLevelV1(requestParameters.userlevelrequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Deletes a specific user level by its ID.
          * @summary Delete a user level
-         * @param {CustomUserLevelsV1ApiDeleteUserLevelV1Request} requestParameters Request parameters.
+         * @param {CustomUserLevelsApiDeleteUserLevelV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteUserLevelV1(requestParameters: CustomUserLevelsV1ApiDeleteUserLevelV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteUserLevelV1(requestParameters: CustomUserLevelsApiDeleteUserLevelV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteUserLevelV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Fetches the details of a specific user level by its ID.
          * @summary Retrieve a user level
-         * @param {CustomUserLevelsV1ApiGetUserLevelV1Request} requestParameters Request parameters.
+         * @param {CustomUserLevelsApiGetUserLevelV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getUserLevelV1(requestParameters: CustomUserLevelsV1ApiGetUserLevelV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<UserlevelsummarydtoV1> {
+        getUserLevelV1(requestParameters: CustomUserLevelsApiGetUserLevelV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Userlevelsummarydto> {
             return localVarFp.getUserLevelV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Retrieves a list of authorization assignable right sets for the tenant.
          * @summary List all uiAssignable right sets
-         * @param {CustomUserLevelsV1ApiListAllAuthorizationRightSetsV1Request} requestParameters Request parameters.
+         * @param {CustomUserLevelsApiListAllAuthorizationRightSetsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAllAuthorizationRightSetsV1(requestParameters: CustomUserLevelsV1ApiListAllAuthorizationRightSetsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<HierarchicalrightsetV1>> {
+        listAllAuthorizationRightSetsV1(requestParameters: CustomUserLevelsApiListAllAuthorizationRightSetsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Hierarchicalrightset>> {
             return localVarFp.listAllAuthorizationRightSetsV1(requestParameters.xSailPointExperimental, requestParameters.filters, requestParameters.sorters, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * List of identities associated with a user level.
          * @summary List user level identities
-         * @param {CustomUserLevelsV1ApiListUserLevelIdentitiesV1Request} requestParameters Request parameters.
+         * @param {CustomUserLevelsApiListUserLevelIdentitiesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listUserLevelIdentitiesV1(requestParameters: CustomUserLevelsV1ApiListUserLevelIdentitiesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AuthuserslimresponseV1>> {
+        listUserLevelIdentitiesV1(requestParameters: CustomUserLevelsApiListUserLevelIdentitiesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Authuserslimresponse>> {
             return localVarFp.listUserLevelIdentitiesV1(requestParameters.id, requestParameters.xSailPointExperimental, requestParameters.count, requestParameters.sorters, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Retrieves a list of user levels for the tenant.
          * @summary List user levels
-         * @param {CustomUserLevelsV1ApiListUserLevelsV1Request} requestParameters Request parameters.
+         * @param {CustomUserLevelsApiListUserLevelsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listUserLevelsV1(requestParameters: CustomUserLevelsV1ApiListUserLevelsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<UserlevelsummarydtoV1>> {
+        listUserLevelsV1(requestParameters: CustomUserLevelsApiListUserLevelsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Userlevelsummarydto>> {
             return localVarFp.listUserLevelsV1(requestParameters.xSailPointExperimental, requestParameters.detailLevel, requestParameters.filters, requestParameters.sorters, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Publishes a custom user level for the tenant, making it active and available.
          * @summary Publish a custom user level
-         * @param {CustomUserLevelsV1ApiPublishCustomUserLevelV1Request} requestParameters Request parameters.
+         * @param {CustomUserLevelsApiPublishCustomUserLevelV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        publishCustomUserLevelV1(requestParameters: CustomUserLevelsV1ApiPublishCustomUserLevelV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<UserlevelpublishsummaryV1> {
+        publishCustomUserLevelV1(requestParameters: CustomUserLevelsApiPublishCustomUserLevelV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Userlevelpublishsummary> {
             return localVarFp.publishCustomUserLevelV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * List of user levels along with the number of identities associated to it.
          * @summary Count user levels identities
-         * @param {CustomUserLevelsV1ApiShowUserLevelCountsV1Request} requestParameters Request parameters.
+         * @param {CustomUserLevelsApiShowUserLevelCountsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        showUserLevelCountsV1(requestParameters: CustomUserLevelsV1ApiShowUserLevelCountsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AuthuserlevelsidentitycountV1>> {
+        showUserLevelCountsV1(requestParameters: CustomUserLevelsApiShowUserLevelCountsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Authuserlevelsidentitycount>> {
             return localVarFp.showUserLevelCountsV1(requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Updates the details of a specific user level using JSON Patch.
          * @summary Update a user level
-         * @param {CustomUserLevelsV1ApiUpdateUserLevelV1Request} requestParameters Request parameters.
+         * @param {CustomUserLevelsApiUpdateUserLevelV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateUserLevelV1(requestParameters: CustomUserLevelsV1ApiUpdateUserLevelV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<UserlevelsummarydtoV1> {
-            return localVarFp.updateUserLevelV1(requestParameters.id, requestParameters.jsonpatchV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        updateUserLevelV1(requestParameters: CustomUserLevelsApiUpdateUserLevelV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Userlevelsummarydto> {
+            return localVarFp.updateUserLevelV1(requestParameters.id, requestParameters.jsonpatch, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createCustomUserLevelV1 operation in CustomUserLevelsV1Api.
+ * Request parameters for createCustomUserLevelV1 operation in CustomUserLevelsApi.
  * @export
- * @interface CustomUserLevelsV1ApiCreateCustomUserLevelV1Request
+ * @interface CustomUserLevelsApiCreateCustomUserLevelV1Request
  */
-export interface CustomUserLevelsV1ApiCreateCustomUserLevelV1Request {
+export interface CustomUserLevelsApiCreateCustomUserLevelV1Request {
     /**
      * Payload containing the details of the user level to be created.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
-     * @type {UserlevelrequestV1}
-     * @memberof CustomUserLevelsV1ApiCreateCustomUserLevelV1
+     * @type {Userlevelrequest}
+     * @memberof CustomUserLevelsApiCreateCustomUserLevelV1
      */
-    readonly userlevelrequestV1: UserlevelrequestV1
+    readonly userlevelrequest: Userlevelrequest
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof CustomUserLevelsV1ApiCreateCustomUserLevelV1
+     * @memberof CustomUserLevelsApiCreateCustomUserLevelV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for deleteUserLevelV1 operation in CustomUserLevelsV1Api.
+ * Request parameters for deleteUserLevelV1 operation in CustomUserLevelsApi.
  * @export
- * @interface CustomUserLevelsV1ApiDeleteUserLevelV1Request
+ * @interface CustomUserLevelsApiDeleteUserLevelV1Request
  */
-export interface CustomUserLevelsV1ApiDeleteUserLevelV1Request {
+export interface CustomUserLevelsApiDeleteUserLevelV1Request {
     /**
      * The unique identifier of the user level.
      * @type {string}
-     * @memberof CustomUserLevelsV1ApiDeleteUserLevelV1
+     * @memberof CustomUserLevelsApiDeleteUserLevelV1
      */
     readonly id: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof CustomUserLevelsV1ApiDeleteUserLevelV1
+     * @memberof CustomUserLevelsApiDeleteUserLevelV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getUserLevelV1 operation in CustomUserLevelsV1Api.
+ * Request parameters for getUserLevelV1 operation in CustomUserLevelsApi.
  * @export
- * @interface CustomUserLevelsV1ApiGetUserLevelV1Request
+ * @interface CustomUserLevelsApiGetUserLevelV1Request
  */
-export interface CustomUserLevelsV1ApiGetUserLevelV1Request {
+export interface CustomUserLevelsApiGetUserLevelV1Request {
     /**
      * The unique identifier of the user level.
      * @type {string}
-     * @memberof CustomUserLevelsV1ApiGetUserLevelV1
+     * @memberof CustomUserLevelsApiGetUserLevelV1
      */
     readonly id: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof CustomUserLevelsV1ApiGetUserLevelV1
+     * @memberof CustomUserLevelsApiGetUserLevelV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for listAllAuthorizationRightSetsV1 operation in CustomUserLevelsV1Api.
+ * Request parameters for listAllAuthorizationRightSetsV1 operation in CustomUserLevelsApi.
  * @export
- * @interface CustomUserLevelsV1ApiListAllAuthorizationRightSetsV1Request
+ * @interface CustomUserLevelsApiListAllAuthorizationRightSetsV1Request
  */
-export interface CustomUserLevelsV1ApiListAllAuthorizationRightSetsV1Request {
+export interface CustomUserLevelsApiListAllAuthorizationRightSetsV1Request {
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof CustomUserLevelsV1ApiListAllAuthorizationRightSetsV1
+     * @memberof CustomUserLevelsApiListAllAuthorizationRightSetsV1
      */
     readonly xSailPointExperimental?: string
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **category**: *eq*
      * @type {string}
-     * @memberof CustomUserLevelsV1ApiListAllAuthorizationRightSetsV1
+     * @memberof CustomUserLevelsApiListAllAuthorizationRightSetsV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, category**
      * @type {string}
-     * @memberof CustomUserLevelsV1ApiListAllAuthorizationRightSetsV1
+     * @memberof CustomUserLevelsApiListAllAuthorizationRightSetsV1
      */
     readonly sorters?: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof CustomUserLevelsV1ApiListAllAuthorizationRightSetsV1
+     * @memberof CustomUserLevelsApiListAllAuthorizationRightSetsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof CustomUserLevelsV1ApiListAllAuthorizationRightSetsV1
+     * @memberof CustomUserLevelsApiListAllAuthorizationRightSetsV1
      */
     readonly offset?: number
 }
 
 /**
- * Request parameters for listUserLevelIdentitiesV1 operation in CustomUserLevelsV1Api.
+ * Request parameters for listUserLevelIdentitiesV1 operation in CustomUserLevelsApi.
  * @export
- * @interface CustomUserLevelsV1ApiListUserLevelIdentitiesV1Request
+ * @interface CustomUserLevelsApiListUserLevelIdentitiesV1Request
  */
-export interface CustomUserLevelsV1ApiListUserLevelIdentitiesV1Request {
+export interface CustomUserLevelsApiListUserLevelIdentitiesV1Request {
     /**
      * The unique identifier of the user level.
      * @type {string}
-     * @memberof CustomUserLevelsV1ApiListUserLevelIdentitiesV1
+     * @memberof CustomUserLevelsApiListUserLevelIdentitiesV1
      */
     readonly id: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof CustomUserLevelsV1ApiListUserLevelIdentitiesV1
+     * @memberof CustomUserLevelsApiListUserLevelIdentitiesV1
      */
     readonly xSailPointExperimental?: string
 
     /**
      * If true, X-Total-Count header with the the total number of identities for this user level will be included in the response.
      * @type {boolean}
-     * @memberof CustomUserLevelsV1ApiListUserLevelIdentitiesV1
+     * @memberof CustomUserLevelsApiListUserLevelIdentitiesV1
      */
     readonly count?: boolean
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName**
      * @type {string}
-     * @memberof CustomUserLevelsV1ApiListUserLevelIdentitiesV1
+     * @memberof CustomUserLevelsApiListUserLevelIdentitiesV1
      */
     readonly sorters?: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof CustomUserLevelsV1ApiListUserLevelIdentitiesV1
+     * @memberof CustomUserLevelsApiListUserLevelIdentitiesV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof CustomUserLevelsV1ApiListUserLevelIdentitiesV1
+     * @memberof CustomUserLevelsApiListUserLevelIdentitiesV1
      */
     readonly offset?: number
 }
 
 /**
- * Request parameters for listUserLevelsV1 operation in CustomUserLevelsV1Api.
+ * Request parameters for listUserLevelsV1 operation in CustomUserLevelsApi.
  * @export
- * @interface CustomUserLevelsV1ApiListUserLevelsV1Request
+ * @interface CustomUserLevelsApiListUserLevelsV1Request
  */
-export interface CustomUserLevelsV1ApiListUserLevelsV1Request {
+export interface CustomUserLevelsApiListUserLevelsV1Request {
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof CustomUserLevelsV1ApiListUserLevelsV1
+     * @memberof CustomUserLevelsApiListUserLevelsV1
      */
     readonly xSailPointExperimental?: string
 
     /**
      * Specifies the level of detail for the user levels.
      * @type {'FULL' | 'SLIM'}
-     * @memberof CustomUserLevelsV1ApiListUserLevelsV1
+     * @memberof CustomUserLevelsApiListUserLevelsV1
      */
-    readonly detailLevel?: ListUserLevelsV1DetailLevelV1
+    readonly detailLevel?: ListUserLevelsV1DetailLevelEnum
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *co*    **owner**: *co*    **status**: *eq*  **description**: *co*
      * @type {string}
-     * @memberof CustomUserLevelsV1ApiListUserLevelsV1
+     * @memberof CustomUserLevelsApiListUserLevelsV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, description, status, owner**
      * @type {string}
-     * @memberof CustomUserLevelsV1ApiListUserLevelsV1
+     * @memberof CustomUserLevelsApiListUserLevelsV1
      */
     readonly sorters?: string
 
     /**
      * Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof CustomUserLevelsV1ApiListUserLevelsV1
+     * @memberof CustomUserLevelsApiListUserLevelsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof CustomUserLevelsV1ApiListUserLevelsV1
+     * @memberof CustomUserLevelsApiListUserLevelsV1
      */
     readonly offset?: number
 }
 
 /**
- * Request parameters for publishCustomUserLevelV1 operation in CustomUserLevelsV1Api.
+ * Request parameters for publishCustomUserLevelV1 operation in CustomUserLevelsApi.
  * @export
- * @interface CustomUserLevelsV1ApiPublishCustomUserLevelV1Request
+ * @interface CustomUserLevelsApiPublishCustomUserLevelV1Request
  */
-export interface CustomUserLevelsV1ApiPublishCustomUserLevelV1Request {
+export interface CustomUserLevelsApiPublishCustomUserLevelV1Request {
     /**
      * The unique identifier of the user level to publish.
      * @type {string}
-     * @memberof CustomUserLevelsV1ApiPublishCustomUserLevelV1
+     * @memberof CustomUserLevelsApiPublishCustomUserLevelV1
      */
     readonly id: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof CustomUserLevelsV1ApiPublishCustomUserLevelV1
+     * @memberof CustomUserLevelsApiPublishCustomUserLevelV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for showUserLevelCountsV1 operation in CustomUserLevelsV1Api.
+ * Request parameters for showUserLevelCountsV1 operation in CustomUserLevelsApi.
  * @export
- * @interface CustomUserLevelsV1ApiShowUserLevelCountsV1Request
+ * @interface CustomUserLevelsApiShowUserLevelCountsV1Request
  */
-export interface CustomUserLevelsV1ApiShowUserLevelCountsV1Request {
+export interface CustomUserLevelsApiShowUserLevelCountsV1Request {
     /**
      * List of user level ids. Max 50 identifiers can be passed in a single request.
      * @type {Array<string>}
-     * @memberof CustomUserLevelsV1ApiShowUserLevelCountsV1
+     * @memberof CustomUserLevelsApiShowUserLevelCountsV1
      */
     readonly requestBody: Array<string>
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof CustomUserLevelsV1ApiShowUserLevelCountsV1
+     * @memberof CustomUserLevelsApiShowUserLevelCountsV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for updateUserLevelV1 operation in CustomUserLevelsV1Api.
+ * Request parameters for updateUserLevelV1 operation in CustomUserLevelsApi.
  * @export
- * @interface CustomUserLevelsV1ApiUpdateUserLevelV1Request
+ * @interface CustomUserLevelsApiUpdateUserLevelV1Request
  */
-export interface CustomUserLevelsV1ApiUpdateUserLevelV1Request {
+export interface CustomUserLevelsApiUpdateUserLevelV1Request {
     /**
      * The unique identifier of the user level.
      * @type {string}
-     * @memberof CustomUserLevelsV1ApiUpdateUserLevelV1
+     * @memberof CustomUserLevelsApiUpdateUserLevelV1
      */
     readonly id: string
 
     /**
      * JSON Patch payload for updating the user level.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
-     * @type {JsonpatchV1}
-     * @memberof CustomUserLevelsV1ApiUpdateUserLevelV1
+     * @type {Jsonpatch}
+     * @memberof CustomUserLevelsApiUpdateUserLevelV1
      */
-    readonly jsonpatchV1: JsonpatchV1
+    readonly jsonpatch: Jsonpatch
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof CustomUserLevelsV1ApiUpdateUserLevelV1
+     * @memberof CustomUserLevelsApiUpdateUserLevelV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * CustomUserLevelsV1Api - object-oriented interface
+ * CustomUserLevelsApi - object-oriented interface
  * @export
- * @class CustomUserLevelsV1Api
+ * @class CustomUserLevelsApi
  * @extends {BaseAPI}
  */
-export class CustomUserLevelsV1Api extends BaseAPI {
+export class CustomUserLevelsApi extends BaseAPI {
     /**
      * Creates a new custom user level for the tenant.
      * @summary Create a custom user level
-     * @param {CustomUserLevelsV1ApiCreateCustomUserLevelV1Request} requestParameters Request parameters.
+     * @param {CustomUserLevelsApiCreateCustomUserLevelV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomUserLevelsV1Api
+     * @memberof CustomUserLevelsApi
      */
-    public createCustomUserLevelV1(requestParameters: CustomUserLevelsV1ApiCreateCustomUserLevelV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomUserLevelsV1ApiFp(this.configuration).createCustomUserLevelV1(requestParameters.userlevelrequestV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createCustomUserLevelV1(requestParameters: CustomUserLevelsApiCreateCustomUserLevelV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomUserLevelsApiFp(this.configuration).createCustomUserLevelV1(requestParameters.userlevelrequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Deletes a specific user level by its ID.
      * @summary Delete a user level
-     * @param {CustomUserLevelsV1ApiDeleteUserLevelV1Request} requestParameters Request parameters.
+     * @param {CustomUserLevelsApiDeleteUserLevelV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomUserLevelsV1Api
+     * @memberof CustomUserLevelsApi
      */
-    public deleteUserLevelV1(requestParameters: CustomUserLevelsV1ApiDeleteUserLevelV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomUserLevelsV1ApiFp(this.configuration).deleteUserLevelV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteUserLevelV1(requestParameters: CustomUserLevelsApiDeleteUserLevelV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomUserLevelsApiFp(this.configuration).deleteUserLevelV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Fetches the details of a specific user level by its ID.
      * @summary Retrieve a user level
-     * @param {CustomUserLevelsV1ApiGetUserLevelV1Request} requestParameters Request parameters.
+     * @param {CustomUserLevelsApiGetUserLevelV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomUserLevelsV1Api
+     * @memberof CustomUserLevelsApi
      */
-    public getUserLevelV1(requestParameters: CustomUserLevelsV1ApiGetUserLevelV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomUserLevelsV1ApiFp(this.configuration).getUserLevelV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getUserLevelV1(requestParameters: CustomUserLevelsApiGetUserLevelV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomUserLevelsApiFp(this.configuration).getUserLevelV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Retrieves a list of authorization assignable right sets for the tenant.
      * @summary List all uiAssignable right sets
-     * @param {CustomUserLevelsV1ApiListAllAuthorizationRightSetsV1Request} requestParameters Request parameters.
+     * @param {CustomUserLevelsApiListAllAuthorizationRightSetsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomUserLevelsV1Api
+     * @memberof CustomUserLevelsApi
      */
-    public listAllAuthorizationRightSetsV1(requestParameters: CustomUserLevelsV1ApiListAllAuthorizationRightSetsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomUserLevelsV1ApiFp(this.configuration).listAllAuthorizationRightSetsV1(requestParameters.xSailPointExperimental, requestParameters.filters, requestParameters.sorters, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listAllAuthorizationRightSetsV1(requestParameters: CustomUserLevelsApiListAllAuthorizationRightSetsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomUserLevelsApiFp(this.configuration).listAllAuthorizationRightSetsV1(requestParameters.xSailPointExperimental, requestParameters.filters, requestParameters.sorters, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * List of identities associated with a user level.
      * @summary List user level identities
-     * @param {CustomUserLevelsV1ApiListUserLevelIdentitiesV1Request} requestParameters Request parameters.
+     * @param {CustomUserLevelsApiListUserLevelIdentitiesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomUserLevelsV1Api
+     * @memberof CustomUserLevelsApi
      */
-    public listUserLevelIdentitiesV1(requestParameters: CustomUserLevelsV1ApiListUserLevelIdentitiesV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomUserLevelsV1ApiFp(this.configuration).listUserLevelIdentitiesV1(requestParameters.id, requestParameters.xSailPointExperimental, requestParameters.count, requestParameters.sorters, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listUserLevelIdentitiesV1(requestParameters: CustomUserLevelsApiListUserLevelIdentitiesV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomUserLevelsApiFp(this.configuration).listUserLevelIdentitiesV1(requestParameters.id, requestParameters.xSailPointExperimental, requestParameters.count, requestParameters.sorters, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Retrieves a list of user levels for the tenant.
      * @summary List user levels
-     * @param {CustomUserLevelsV1ApiListUserLevelsV1Request} requestParameters Request parameters.
+     * @param {CustomUserLevelsApiListUserLevelsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomUserLevelsV1Api
+     * @memberof CustomUserLevelsApi
      */
-    public listUserLevelsV1(requestParameters: CustomUserLevelsV1ApiListUserLevelsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomUserLevelsV1ApiFp(this.configuration).listUserLevelsV1(requestParameters.xSailPointExperimental, requestParameters.detailLevel, requestParameters.filters, requestParameters.sorters, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listUserLevelsV1(requestParameters: CustomUserLevelsApiListUserLevelsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomUserLevelsApiFp(this.configuration).listUserLevelsV1(requestParameters.xSailPointExperimental, requestParameters.detailLevel, requestParameters.filters, requestParameters.sorters, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Publishes a custom user level for the tenant, making it active and available.
      * @summary Publish a custom user level
-     * @param {CustomUserLevelsV1ApiPublishCustomUserLevelV1Request} requestParameters Request parameters.
+     * @param {CustomUserLevelsApiPublishCustomUserLevelV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomUserLevelsV1Api
+     * @memberof CustomUserLevelsApi
      */
-    public publishCustomUserLevelV1(requestParameters: CustomUserLevelsV1ApiPublishCustomUserLevelV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomUserLevelsV1ApiFp(this.configuration).publishCustomUserLevelV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public publishCustomUserLevelV1(requestParameters: CustomUserLevelsApiPublishCustomUserLevelV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomUserLevelsApiFp(this.configuration).publishCustomUserLevelV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * List of user levels along with the number of identities associated to it.
      * @summary Count user levels identities
-     * @param {CustomUserLevelsV1ApiShowUserLevelCountsV1Request} requestParameters Request parameters.
+     * @param {CustomUserLevelsApiShowUserLevelCountsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomUserLevelsV1Api
+     * @memberof CustomUserLevelsApi
      */
-    public showUserLevelCountsV1(requestParameters: CustomUserLevelsV1ApiShowUserLevelCountsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomUserLevelsV1ApiFp(this.configuration).showUserLevelCountsV1(requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public showUserLevelCountsV1(requestParameters: CustomUserLevelsApiShowUserLevelCountsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomUserLevelsApiFp(this.configuration).showUserLevelCountsV1(requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Updates the details of a specific user level using JSON Patch.
      * @summary Update a user level
-     * @param {CustomUserLevelsV1ApiUpdateUserLevelV1Request} requestParameters Request parameters.
+     * @param {CustomUserLevelsApiUpdateUserLevelV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomUserLevelsV1Api
+     * @memberof CustomUserLevelsApi
      */
-    public updateUserLevelV1(requestParameters: CustomUserLevelsV1ApiUpdateUserLevelV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomUserLevelsV1ApiFp(this.configuration).updateUserLevelV1(requestParameters.id, requestParameters.jsonpatchV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateUserLevelV1(requestParameters: CustomUserLevelsApiUpdateUserLevelV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomUserLevelsApiFp(this.configuration).updateUserLevelV1(requestParameters.id, requestParameters.jsonpatch, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
 /**
  * @export
  */
-export const ListUserLevelsV1DetailLevelV1 = {
+export const ListUserLevelsV1DetailLevelEnum = {
     Full: 'FULL',
     Slim: 'SLIM'
 } as const;
-export type ListUserLevelsV1DetailLevelV1 = typeof ListUserLevelsV1DetailLevelV1[keyof typeof ListUserLevelsV1DetailLevelV1];
+export type ListUserLevelsV1DetailLevelEnum = typeof ListUserLevelsV1DetailLevelEnum[keyof typeof ListUserLevelsV1DetailLevelEnum];
 
 

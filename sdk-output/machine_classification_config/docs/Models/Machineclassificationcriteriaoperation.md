@@ -1,15 +1,15 @@
 ---
-id: v1-machineclassificationcriteriaoperation-v1
-title: MachineclassificationcriteriaoperationV1
-pagination_label: MachineclassificationcriteriaoperationV1
-sidebar_label: MachineclassificationcriteriaoperationV1
+id: v1-machineclassificationcriteriaoperation
+title: Machineclassificationcriteriaoperation
+pagination_label: Machineclassificationcriteriaoperation
+sidebar_label: Machineclassificationcriteriaoperation
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'MachineclassificationcriteriaoperationV1', 'v1MachineclassificationcriteriaoperationV1']
-slug: /tools/sdk/typescript/machine_classification_config/models/machineclassificationcriteriaoperation-v1
-tags: ['SDK', 'Software Development Kit', 'MachineclassificationcriteriaoperationV1', 'v1MachineclassificationcriteriaoperationV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Machineclassificationcriteriaoperation', 'v1Machineclassificationcriteriaoperation']
+slug: /tools/sdk/typescript/machine_classification_config/models/machineclassificationcriteriaoperation
+tags: ['SDK', 'Software Development Kit', 'Machineclassificationcriteriaoperation', 'v1Machineclassificationcriteriaoperation']
 ---
 
-# MachineclassificationcriteriaoperationV1
+# Machineclassificationcriteriaoperation
 
 ## Enum
 

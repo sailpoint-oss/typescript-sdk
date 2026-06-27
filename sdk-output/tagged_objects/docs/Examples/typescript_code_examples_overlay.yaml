@@ -4,15 +4,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/tagged_objects/methods/tagged-objects#delete-tagged-object-v1
       source: |
-        import { TaggedObjectsV1Api } from 'sailpoint-api-client';
+        import { TaggedObjectsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new TaggedObjectsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new TaggedObjectsApi(configuration);
         const type: string = 'ROLE'; // 'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE' | The type of object to delete tags from. (default to undefined)
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The ID of the object to delete tags from. (default to undefined)
-        const result = await apiInstance.deleteTaggedObjectV1(type, id);
+        const result = await apiInstance.deleteTaggedObjectV1({ type: type, id: id });
         console.log(result);
 - path: /tagged-objects/v1/bulk-remove
   method: POST
@@ -20,14 +19,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/tagged_objects/methods/tagged-objects#delete-tags-to-many-object-v1
       source: |
-        import { TaggedObjectsV1Api } from 'sailpoint-api-client';
+        import { TaggedObjectsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new TaggedObjectsV1Api(configuration);
-        const bulkremovetaggedobjectV1: BulkremovetaggedobjectV1 = ; // BulkremovetaggedobjectV1 | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
-        const result = await apiInstance.deleteTagsToManyObjectV1(bulkremovetaggedobjectV1);
+        const configuration = new Configuration();
+        const apiInstance = new TaggedObjectsApi(configuration);
+        const bulkremovetaggedobject: Bulkremovetaggedobject = ; // Bulkremovetaggedobject | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+        const result = await apiInstance.deleteTagsToManyObjectV1({ bulkremovetaggedobject: bulkremovetaggedobject });
         console.log(result);
 - path: /tagged-objects/v1/{type}/{id}
   method: GET
@@ -35,15 +33,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/tagged_objects/methods/tagged-objects#get-tagged-object-v1
       source: |
-        import { TaggedObjectsV1Api } from 'sailpoint-api-client';
+        import { TaggedObjectsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new TaggedObjectsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new TaggedObjectsApi(configuration);
         const type: string = 'ROLE'; // 'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE' | The type of tagged object to retrieve. (default to undefined)
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The ID of the object reference to retrieve. (default to undefined)
-        const result = await apiInstance.getTaggedObjectV1(type, id);
+        const result = await apiInstance.getTaggedObjectV1({ type: type, id: id });
         console.log(result);
 - path: /tagged-objects/v1/{type}
   method: GET
@@ -51,18 +48,17 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/tagged_objects/methods/tagged-objects#list-tagged-objects-by-type-v1
       source: |
-        import { TaggedObjectsV1Api } from 'sailpoint-api-client';
+        import { TaggedObjectsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new TaggedObjectsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new TaggedObjectsApi(configuration);
         const type: string = 'ROLE'; // 'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE' | The type of tagged object to retrieve. (default to undefined)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const filters: string = 'objectRef.id eq "2c91808568c529c60168cca6f90c1313"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq*  **objectRef.type**: *eq* (optional) (default to undefined)
-        const result = await apiInstance.listTaggedObjectsByTypeV1(type);
+        const result = await apiInstance.listTaggedObjectsByTypeV1({ type: type });
         console.log(result);
 - path: /tagged-objects/v1
   method: GET
@@ -70,17 +66,16 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/tagged_objects/methods/tagged-objects#list-tagged-objects-v1
       source: |
-        import { TaggedObjectsV1Api } from 'sailpoint-api-client';
+        import { TaggedObjectsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new TaggedObjectsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new TaggedObjectsApi(configuration);
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const filters: string = 'tagName eq "BU_FINANCE"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq, in*  **objectRef.type**: *eq, in*  **tagName**: *eq, in* (optional) (default to undefined)
-        const result = await apiInstance.listTaggedObjectsV1();
+        const result = await apiInstance.listTaggedObjectsV1({  });
         console.log(result);
 - path: /tagged-objects/v1/{type}/{id}
   method: PUT
@@ -88,16 +83,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/tagged_objects/methods/tagged-objects#put-tagged-object-v1
       source: |
-        import { TaggedObjectsV1Api } from 'sailpoint-api-client';
+        import { TaggedObjectsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new TaggedObjectsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new TaggedObjectsApi(configuration);
         const type: string = 'ROLE'; // 'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE' | The type of tagged object to update. (default to undefined)
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The ID of the object reference to update. (default to undefined)
-        const taggedobjectV1: TaggedobjectV1 = ; // TaggedobjectV1 | 
-        const result = await apiInstance.putTaggedObjectV1(type, id, taggedobjectV1);
+        const taggedobject: Taggedobject = ; // Taggedobject | 
+        const result = await apiInstance.putTaggedObjectV1({ type: type, id: id, taggedobject: taggedobject });
         console.log(result);
 - path: /tagged-objects/v1
   method: POST
@@ -105,14 +99,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/tagged_objects/methods/tagged-objects#set-tag-to-object-v1
       source: |
-        import { TaggedObjectsV1Api } from 'sailpoint-api-client';
+        import { TaggedObjectsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new TaggedObjectsV1Api(configuration);
-        const taggedobjectV1: TaggedobjectV1 = ; // TaggedobjectV1 | 
-        const result = await apiInstance.setTagToObjectV1(taggedobjectV1);
+        const configuration = new Configuration();
+        const apiInstance = new TaggedObjectsApi(configuration);
+        const taggedobject: Taggedobject = ; // Taggedobject | 
+        const result = await apiInstance.setTagToObjectV1({ taggedobject: taggedobject });
         console.log(result);
 - path: /tagged-objects/v1/bulk-add
   method: POST
@@ -120,12 +113,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/tagged_objects/methods/tagged-objects#set-tags-to-many-objects-v1
       source: |
-        import { TaggedObjectsV1Api } from 'sailpoint-api-client';
+        import { TaggedObjectsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new TaggedObjectsV1Api(configuration);
-        const bulkaddtaggedobjectV1: BulkaddtaggedobjectV1 = ; // BulkaddtaggedobjectV1 | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
-        const result = await apiInstance.setTagsToManyObjectsV1(bulkaddtaggedobjectV1);
+        const configuration = new Configuration();
+        const apiInstance = new TaggedObjectsApi(configuration);
+        const bulkaddtaggedobject: Bulkaddtaggedobject = ; // Bulkaddtaggedobject | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+        const result = await apiInstance.setTagsToManyObjectsV1({ bulkaddtaggedobject: bulkaddtaggedobject });
         console.log(result);

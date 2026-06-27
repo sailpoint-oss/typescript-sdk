@@ -4,12 +4,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/branding/methods/branding#create-branding-item-v1
       source: |
-        import { BrandingV1Api } from 'sailpoint-api-client';
+        import { BrandingApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new BrandingV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new BrandingApi(configuration);
         const name: string = 'name_example'; // string | name of branding item (default to undefined)
         const productName: string = 'productName_example'; // string | product name (default to undefined)
         const actionButtonColor: string = 'actionButtonColor_example'; // string | hex value of color for action button (optional) (default to undefined)
@@ -18,7 +17,7 @@
         const emailFromAddress: string = 'emailFromAddress_example'; // string | email from address (optional) (default to undefined)
         const loginInformationalMessage: string = 'loginInformationalMessage_example'; // string | login information message (optional) (default to undefined)
         const fileStandard: File = BINARY_DATA_HERE; // File | png file with logo (optional) (default to undefined)
-        const result = await apiInstance.createBrandingItemV1(name, productName);
+        const result = await apiInstance.createBrandingItemV1({ name: name, productName: productName });
         console.log(result);
 - path: /brandings/v1/{name}
   method: DELETE
@@ -26,14 +25,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/branding/methods/branding#delete-branding-v1
       source: |
-        import { BrandingV1Api } from 'sailpoint-api-client';
+        import { BrandingApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new BrandingV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new BrandingApi(configuration);
         const name: string = 'default'; // string | The name of the branding item to be deleted (default to undefined)
-        const result = await apiInstance.deleteBrandingV1(name);
+        const result = await apiInstance.deleteBrandingV1({ name: name });
         console.log(result);
 - path: /brandings/v1
   method: GET
@@ -41,13 +39,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/branding/methods/branding#get-branding-list-v1
       source: |
-        import { BrandingV1Api } from 'sailpoint-api-client';
+        import { BrandingApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new BrandingV1Api(configuration);
-        const result = await apiInstance.getBrandingListV1();
+        const configuration = new Configuration();
+        const apiInstance = new BrandingApi(configuration);
+        const result = await apiInstance.getBrandingListV1({  });
         console.log(result);
 - path: /brandings/v1/{name}
   method: GET
@@ -55,14 +52,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/branding/methods/branding#get-branding-v1
       source: |
-        import { BrandingV1Api } from 'sailpoint-api-client';
+        import { BrandingApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new BrandingV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new BrandingApi(configuration);
         const name: string = 'default'; // string | The name of the branding item to be retrieved (default to undefined)
-        const result = await apiInstance.getBrandingV1(name);
+        const result = await apiInstance.getBrandingV1({ name: name });
         console.log(result);
 - path: /brandings/v1/{name}
   method: PUT
@@ -70,12 +66,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/branding/methods/branding#set-branding-item-v1
       source: |
-        import { BrandingV1Api } from 'sailpoint-api-client';
+        import { BrandingApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new BrandingV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new BrandingApi(configuration);
         const name: string = 'default'; // string | The name of the branding item to be retrieved (default to undefined)
         const name2: string = 'name_example'; // string | name of branding item (default to undefined)
         const productName: string = 'productName_example'; // string | product name (default to undefined)
@@ -85,5 +80,5 @@
         const emailFromAddress: string = 'emailFromAddress_example'; // string | email from address (optional) (default to undefined)
         const loginInformationalMessage: string = 'loginInformationalMessage_example'; // string | login information message (optional) (default to undefined)
         const fileStandard: File = BINARY_DATA_HERE; // File | png file with logo (optional) (default to undefined)
-        const result = await apiInstance.setBrandingItemV1(name, name2, productName);
+        const result = await apiInstance.setBrandingItemV1({ name: name, name2: name2, productName: productName });
         console.log(result);

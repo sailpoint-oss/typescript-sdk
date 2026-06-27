@@ -1,21 +1,21 @@
 ---
-id: v1-role-propagation-status-response-terminated-by-v1
-title: RolePropagationStatusResponseTerminatedByV1
-pagination_label: RolePropagationStatusResponseTerminatedByV1
-sidebar_label: RolePropagationStatusResponseTerminatedByV1
+id: v1-role-propagation-status-response-terminated-by
+title: RolePropagationStatusResponseTerminatedBy
+pagination_label: RolePropagationStatusResponseTerminatedBy
+sidebar_label: RolePropagationStatusResponseTerminatedBy
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RolePropagationStatusResponseTerminatedByV1', 'v1RolePropagationStatusResponseTerminatedByV1']
-slug: /tools/sdk/typescript/role_propagation/models/role-propagation-status-response-terminated-by-v1
-tags: ['SDK', 'Software Development Kit', 'RolePropagationStatusResponseTerminatedByV1', 'v1RolePropagationStatusResponseTerminatedByV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'RolePropagationStatusResponseTerminatedBy', 'v1RolePropagationStatusResponseTerminatedBy']
+slug: /tools/sdk/typescript/role_propagation/models/role-propagation-status-response-terminated-by
+tags: ['SDK', 'Software Development Kit', 'RolePropagationStatusResponseTerminatedBy', 'v1RolePropagationStatusResponseTerminatedBy']
 ---
 
-# RolePropagationStatusResponseTerminatedByV1
+# RolePropagationStatusResponseTerminatedBy
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | DTO type of the Identity who terminated the Role Propagation process. | [default to undefined]
-**id** | **(optional)** **string** | ID of the Identity who terminated the Role Propagation process. | [default to undefined]
-**name** | **(optional)** **string** | Name of the Identity who terminated the Role Propagation process. | [default to undefined]
+**type** | **(optional)** `string` | DTO type of the Identity who terminated the Role Propagation process. | [default to undefined]
+**id** | **(optional)** `string` | ID of the Identity who terminated the Role Propagation process. | [default to undefined]
+**name** | **(optional)** `string` | Name of the Identity who terminated the Role Propagation process. | [default to undefined]
 

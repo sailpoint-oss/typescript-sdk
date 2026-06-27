@@ -1,19 +1,19 @@
 ---
-id: v1-multihostintegrations-connector-attributes-connector-file-upload-history-v1
-title: MultihostintegrationsConnectorAttributesConnectorFileUploadHistoryV1
-pagination_label: MultihostintegrationsConnectorAttributesConnectorFileUploadHistoryV1
-sidebar_label: MultihostintegrationsConnectorAttributesConnectorFileUploadHistoryV1
+id: v1-multihostintegrations-connector-attributes-connector-file-upload-history
+title: MultihostintegrationsConnectorAttributesConnectorFileUploadHistory
+pagination_label: MultihostintegrationsConnectorAttributesConnectorFileUploadHistory
+sidebar_label: MultihostintegrationsConnectorAttributesConnectorFileUploadHistory
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'MultihostintegrationsConnectorAttributesConnectorFileUploadHistoryV1', 'v1MultihostintegrationsConnectorAttributesConnectorFileUploadHistoryV1']
-slug: /tools/sdk/typescript/multi_host_integration/models/multihostintegrations-connector-attributes-connector-file-upload-history-v1
-tags: ['SDK', 'Software Development Kit', 'MultihostintegrationsConnectorAttributesConnectorFileUploadHistoryV1', 'v1MultihostintegrationsConnectorAttributesConnectorFileUploadHistoryV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'MultihostintegrationsConnectorAttributesConnectorFileUploadHistory', 'v1MultihostintegrationsConnectorAttributesConnectorFileUploadHistory']
+slug: /tools/sdk/typescript/multi_host_integration/models/multihostintegrations-connector-attributes-connector-file-upload-history
+tags: ['SDK', 'Software Development Kit', 'MultihostintegrationsConnectorAttributesConnectorFileUploadHistory', 'v1MultihostintegrationsConnectorAttributesConnectorFileUploadHistory']
 ---
 
-# MultihostintegrationsConnectorAttributesConnectorFileUploadHistoryV1
+# MultihostintegrationsConnectorAttributesConnectorFileUploadHistory
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**connectorFileNameUploadedDate** | **(optional)** **string** | File name of the connector JAR | [default to undefined]
+**connectorFileNameUploadedDate** | **(optional)** `string` | File name of the connector JAR | [default to undefined]
 

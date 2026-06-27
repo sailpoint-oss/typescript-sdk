@@ -1,20 +1,20 @@
 ---
-id: v1-rolemetadatabulkupdatebyidrequest-values-inner-v1
-title: RolemetadatabulkupdatebyidrequestValuesInnerV1
-pagination_label: RolemetadatabulkupdatebyidrequestValuesInnerV1
-sidebar_label: RolemetadatabulkupdatebyidrequestValuesInnerV1
+id: v1-rolemetadatabulkupdatebyidrequest-values-inner
+title: RolemetadatabulkupdatebyidrequestValuesInner
+pagination_label: RolemetadatabulkupdatebyidrequestValuesInner
+sidebar_label: RolemetadatabulkupdatebyidrequestValuesInner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RolemetadatabulkupdatebyidrequestValuesInnerV1', 'v1RolemetadatabulkupdatebyidrequestValuesInnerV1']
-slug: /tools/sdk/typescript/roles/models/rolemetadatabulkupdatebyidrequest-values-inner-v1
-tags: ['SDK', 'Software Development Kit', 'RolemetadatabulkupdatebyidrequestValuesInnerV1', 'v1RolemetadatabulkupdatebyidrequestValuesInnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'RolemetadatabulkupdatebyidrequestValuesInner', 'v1RolemetadatabulkupdatebyidrequestValuesInner']
+slug: /tools/sdk/typescript/roles/models/rolemetadatabulkupdatebyidrequest-values-inner
+tags: ['SDK', 'Software Development Kit', 'RolemetadatabulkupdatebyidrequestValuesInner', 'v1RolemetadatabulkupdatebyidrequestValuesInner']
 ---
 
-# RolemetadatabulkupdatebyidrequestValuesInnerV1
+# RolemetadatabulkupdatebyidrequestValuesInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attribute** | **string** | the key of metadata attribute | [default to undefined]
-**values** | **Array&lt;string&gt;** | the values of attribute to be updated | [default to undefined]
+**attribute** | `string` | the key of metadata attribute | [default to undefined]
+**values** | `Array<string>` | the values of attribute to be updated | [default to undefined]
 

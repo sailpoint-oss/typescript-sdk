@@ -1,20 +1,20 @@
 ---
-id: v1-accounttogglerequest-v1
-title: AccounttogglerequestV1
-pagination_label: AccounttogglerequestV1
-sidebar_label: AccounttogglerequestV1
+id: v1-accounttogglerequest
+title: Accounttogglerequest
+pagination_label: Accounttogglerequest
+sidebar_label: Accounttogglerequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccounttogglerequestV1', 'v1AccounttogglerequestV1']
-slug: /tools/sdk/typescript/accounts/models/accounttogglerequest-v1
-tags: ['SDK', 'Software Development Kit', 'AccounttogglerequestV1', 'v1AccounttogglerequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accounttogglerequest', 'v1Accounttogglerequest']
+slug: /tools/sdk/typescript/accounts/models/accounttogglerequest
+tags: ['SDK', 'Software Development Kit', 'Accounttogglerequest', 'v1Accounttogglerequest']
 ---
 
-# AccounttogglerequestV1
+# Accounttogglerequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**externalVerificationId** | **(optional)** **string** | If set, an external process validates that the user wants to proceed with this request. | [default to undefined]
-**forceProvisioning** | **(optional)** **boolean** | If set, provisioning updates the account attribute at the source.   This option is used when the account is not synced to ensure the attribute is updated. Providing \'true\' for an unlocked account will add and process \'Unlock\' operation by the workflow. | [default to undefined]
+**externalVerificationId** | **(optional)** `string` | If set, an external process validates that the user wants to proceed with this request. | [default to undefined]
+**forceProvisioning** | **(optional)** `boolean` | If set, provisioning updates the account attribute at the source.   This option is used when the account is not synced to ensure the attribute is updated. Providing \'true\' for an unlocked account will add and process \'Unlock\' operation by the workflow. | [default to undefined]
 

@@ -2,8 +2,8 @@
 .npmignore
 .openapi-generator-ignore
 ArrayInner.md
-EntitlementConnectionsV1Api.md
-EntitlementConnectionsV1ApideveloperSite_code_examples.yaml
+EntitlementConnectionsApi.md
+EntitlementConnectionsApideveloperSite_code_examples.yaml
 Entitlementconnection.md
 Entitlementconnectionbulkupdateitem.md
 Entitlementconnectionbulkupdateresultitem.md

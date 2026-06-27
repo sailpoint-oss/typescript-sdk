@@ -1,21 +1,21 @@
 ---
-id: v1-roleassignmentdto-assignment-context-v1
-title: RoleassignmentdtoAssignmentContextV1
-pagination_label: RoleassignmentdtoAssignmentContextV1
-sidebar_label: RoleassignmentdtoAssignmentContextV1
+id: v1-roleassignmentdto-assignment-context
+title: RoleassignmentdtoAssignmentContext
+pagination_label: RoleassignmentdtoAssignmentContext
+sidebar_label: RoleassignmentdtoAssignmentContext
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RoleassignmentdtoAssignmentContextV1', 'v1RoleassignmentdtoAssignmentContextV1']
-slug: /tools/sdk/typescript/identities/models/roleassignmentdto-assignment-context-v1
-tags: ['SDK', 'Software Development Kit', 'RoleassignmentdtoAssignmentContextV1', 'v1RoleassignmentdtoAssignmentContextV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'RoleassignmentdtoAssignmentContext', 'v1RoleassignmentdtoAssignmentContext']
+slug: /tools/sdk/typescript/identities/models/roleassignmentdto-assignment-context
+tags: ['SDK', 'Software Development Kit', 'RoleassignmentdtoAssignmentContext', 'v1RoleassignmentdtoAssignmentContext']
 ---
 
-# RoleassignmentdtoAssignmentContextV1
+# RoleassignmentdtoAssignmentContext
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**requested** | **(optional)** **AccessrequestcontextV1** |  | [default to undefined]
-**matched** | **(optional)** **Array&lt;RolematchdtoV1&gt;** |  | [default to undefined]
-**computedDate** | **(optional)** **string** | Date that the assignment will was evaluated | [default to undefined]
+**requested** | **(optional)** `Accessrequestcontext` |  | [default to undefined]
+**matched** | **(optional)** `Array<Rolematchdto>` |  | [default to undefined]
+**computedDate** | **(optional)** `string` | Date that the assignment will was evaluated | [default to undefined]
 

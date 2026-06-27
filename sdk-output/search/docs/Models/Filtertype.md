@@ -1,15 +1,15 @@
 ---
-id: v1-filtertype-v1
-title: FiltertypeV1
-pagination_label: FiltertypeV1
-sidebar_label: FiltertypeV1
+id: v1-filtertype
+title: Filtertype
+pagination_label: Filtertype
+sidebar_label: Filtertype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'FiltertypeV1', 'v1FiltertypeV1']
-slug: /tools/sdk/typescript/search/models/filtertype-v1
-tags: ['SDK', 'Software Development Kit', 'FiltertypeV1', 'v1FiltertypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Filtertype', 'v1Filtertype']
+slug: /tools/sdk/typescript/search/models/filtertype
+tags: ['SDK', 'Software Development Kit', 'Filtertype', 'v1Filtertype']
 ---
 
-# FiltertypeV1
+# Filtertype
 
 ## Enum
 

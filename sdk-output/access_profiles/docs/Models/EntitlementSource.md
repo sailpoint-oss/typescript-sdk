@@ -1,21 +1,21 @@
 ---
-id: v1-entitlement-source-v1
-title: EntitlementSourceV1
-pagination_label: EntitlementSourceV1
-sidebar_label: EntitlementSourceV1
+id: v1-entitlement-source
+title: EntitlementSource
+pagination_label: EntitlementSource
+sidebar_label: EntitlementSource
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'EntitlementSourceV1', 'v1EntitlementSourceV1']
-slug: /tools/sdk/typescript/access_profiles/models/entitlement-source-v1
-tags: ['SDK', 'Software Development Kit', 'EntitlementSourceV1', 'v1EntitlementSourceV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'EntitlementSource', 'v1EntitlementSource']
+slug: /tools/sdk/typescript/access_profiles/models/entitlement-source
+tags: ['SDK', 'Software Development Kit', 'EntitlementSource', 'v1EntitlementSource']
 ---
 
-# EntitlementSourceV1
+# EntitlementSource
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **(optional)** **string** | The source ID | [default to undefined]
-**type** | **(optional)** **string** | The source type, will always be \"SOURCE\" | [default to undefined]
-**name** | **(optional)** **string** | The source name | [default to undefined]
+**id** | **(optional)** `string` | The source ID | [default to undefined]
+**type** | **(optional)** `string` | The source type, will always be \"SOURCE\" | [default to undefined]
+**name** | **(optional)** `string` | The source name | [default to undefined]
 

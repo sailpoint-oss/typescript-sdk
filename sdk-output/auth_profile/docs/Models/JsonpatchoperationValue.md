@@ -1,15 +1,15 @@
 ---
-id: v1-jsonpatchoperation-value-v1
-title: JsonpatchoperationValueV1
-pagination_label: JsonpatchoperationValueV1
-sidebar_label: JsonpatchoperationValueV1
+id: v1-jsonpatchoperation-value
+title: JsonpatchoperationValue
+pagination_label: JsonpatchoperationValue
+sidebar_label: JsonpatchoperationValue
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'JsonpatchoperationValueV1', 'v1JsonpatchoperationValueV1']
-slug: /tools/sdk/typescript/auth_profile/models/jsonpatchoperation-value-v1
-tags: ['SDK', 'Software Development Kit', 'JsonpatchoperationValueV1', 'v1JsonpatchoperationValueV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'JsonpatchoperationValue', 'v1JsonpatchoperationValue']
+slug: /tools/sdk/typescript/auth_profile/models/jsonpatchoperation-value
+tags: ['SDK', 'Software Development Kit', 'JsonpatchoperationValue', 'v1JsonpatchoperationValue']
 ---
 
-# JsonpatchoperationValueV1
+# JsonpatchoperationValue
 
 ## Properties
 

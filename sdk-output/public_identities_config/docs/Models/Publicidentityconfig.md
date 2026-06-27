@@ -1,21 +1,21 @@
 ---
-id: v1-publicidentityconfig-v1
-title: PublicidentityconfigV1
-pagination_label: PublicidentityconfigV1
-sidebar_label: PublicidentityconfigV1
+id: v1-publicidentityconfig
+title: Publicidentityconfig
+pagination_label: Publicidentityconfig
+sidebar_label: Publicidentityconfig
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'PublicidentityconfigV1', 'v1PublicidentityconfigV1']
-slug: /tools/sdk/typescript/public_identities_config/models/publicidentityconfig-v1
-tags: ['SDK', 'Software Development Kit', 'PublicidentityconfigV1', 'v1PublicidentityconfigV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Publicidentityconfig', 'v1Publicidentityconfig']
+slug: /tools/sdk/typescript/public_identities_config/models/publicidentityconfig
+tags: ['SDK', 'Software Development Kit', 'Publicidentityconfig', 'v1Publicidentityconfig']
 ---
 
-# PublicidentityconfigV1
+# Publicidentityconfig
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | **(optional)** **Array&lt;PublicidentityattributeconfigV1&gt;** | Up to 5 identity attributes that will be available to everyone in the org for all users in the org. | [default to undefined]
-**modified** | **(optional)** **string** | When this configuration was last modified. | [default to undefined]
-**modifiedBy** | **(optional)** **IdentityreferenceV1** |  | [default to undefined]
+**attributes** | **(optional)** `Array<Publicidentityattributeconfig>` | Up to 5 identity attributes that will be available to everyone in the org for all users in the org. | [default to undefined]
+**modified** | **(optional)** `string` | When this configuration was last modified. | [default to undefined]
+**modifiedBy** | **(optional)** `Identityreference` |  | [default to undefined]
 

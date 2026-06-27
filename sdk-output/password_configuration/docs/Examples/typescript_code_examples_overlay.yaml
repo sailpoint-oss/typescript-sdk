@@ -4,14 +4,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/password_configuration/methods/password-configuration#create-password-org-config-v1
       source: |
-        import { PasswordConfigurationV1Api } from 'sailpoint-api-client';
+        import { PasswordConfigurationApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new PasswordConfigurationV1Api(configuration);
-        const passwordorgconfigV1: PasswordorgconfigV1 = {"customInstructionsEnabled":true,"digitTokenEnabled":true,"digitTokenDurationMinutes":12,"digitTokenLength":9}; // PasswordorgconfigV1 | 
-        const result = await apiInstance.createPasswordOrgConfigV1(passwordorgconfigV1);
+        const configuration = new Configuration();
+        const apiInstance = new PasswordConfigurationApi(configuration);
+        const passwordorgconfig: Passwordorgconfig = {"customInstructionsEnabled":true,"digitTokenEnabled":true,"digitTokenDurationMinutes":12,"digitTokenLength":9}; // Passwordorgconfig | 
+        const result = await apiInstance.createPasswordOrgConfigV1({ passwordorgconfig: passwordorgconfig });
         console.log(result);
 - path: /password-org-config/v1
   method: GET
@@ -19,13 +18,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/password_configuration/methods/password-configuration#get-password-org-config-v1
       source: |
-        import { PasswordConfigurationV1Api } from 'sailpoint-api-client';
+        import { PasswordConfigurationApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new PasswordConfigurationV1Api(configuration);
-        const result = await apiInstance.getPasswordOrgConfigV1();
+        const configuration = new Configuration();
+        const apiInstance = new PasswordConfigurationApi(configuration);
+        const result = await apiInstance.getPasswordOrgConfigV1({  });
         console.log(result);
 - path: /password-org-config/v1
   method: PUT
@@ -33,12 +31,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/password_configuration/methods/password-configuration#put-password-org-config-v1
       source: |
-        import { PasswordConfigurationV1Api } from 'sailpoint-api-client';
+        import { PasswordConfigurationApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new PasswordConfigurationV1Api(configuration);
-        const passwordorgconfigV1: PasswordorgconfigV1 = {"digitTokenEnabled":true,"digitTokenDurationMinutes":12}; // PasswordorgconfigV1 | 
-        const result = await apiInstance.putPasswordOrgConfigV1(passwordorgconfigV1);
+        const configuration = new Configuration();
+        const apiInstance = new PasswordConfigurationApi(configuration);
+        const passwordorgconfig: Passwordorgconfig = {"digitTokenEnabled":true,"digitTokenDurationMinutes":12}; // Passwordorgconfig | 
+        const result = await apiInstance.putPasswordOrgConfigV1({ passwordorgconfig: passwordorgconfig });
         console.log(result);

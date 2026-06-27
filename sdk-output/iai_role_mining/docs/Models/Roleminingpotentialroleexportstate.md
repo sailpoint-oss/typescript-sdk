@@ -1,15 +1,15 @@
 ---
-id: v1-roleminingpotentialroleexportstate-v1
-title: RoleminingpotentialroleexportstateV1
-pagination_label: RoleminingpotentialroleexportstateV1
-sidebar_label: RoleminingpotentialroleexportstateV1
+id: v1-roleminingpotentialroleexportstate
+title: Roleminingpotentialroleexportstate
+pagination_label: Roleminingpotentialroleexportstate
+sidebar_label: Roleminingpotentialroleexportstate
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RoleminingpotentialroleexportstateV1', 'v1RoleminingpotentialroleexportstateV1']
-slug: /tools/sdk/typescript/iai_role_mining/models/roleminingpotentialroleexportstate-v1
-tags: ['SDK', 'Software Development Kit', 'RoleminingpotentialroleexportstateV1', 'v1RoleminingpotentialroleexportstateV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Roleminingpotentialroleexportstate', 'v1Roleminingpotentialroleexportstate']
+slug: /tools/sdk/typescript/iai_role_mining/models/roleminingpotentialroleexportstate
+tags: ['SDK', 'Software Development Kit', 'Roleminingpotentialroleexportstate', 'v1Roleminingpotentialroleexportstate']
 ---
 
-# RoleminingpotentialroleexportstateV1
+# Roleminingpotentialroleexportstate
 
 ## Enum
 

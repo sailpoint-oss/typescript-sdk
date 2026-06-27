@@ -1,20 +1,20 @@
 ---
-id: v1-publicidentityattributeconfig-v1
-title: PublicidentityattributeconfigV1
-pagination_label: PublicidentityattributeconfigV1
-sidebar_label: PublicidentityattributeconfigV1
+id: v1-publicidentityattributeconfig
+title: Publicidentityattributeconfig
+pagination_label: Publicidentityattributeconfig
+sidebar_label: Publicidentityattributeconfig
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'PublicidentityattributeconfigV1', 'v1PublicidentityattributeconfigV1']
-slug: /tools/sdk/typescript/public_identities_config/models/publicidentityattributeconfig-v1
-tags: ['SDK', 'Software Development Kit', 'PublicidentityattributeconfigV1', 'v1PublicidentityattributeconfigV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Publicidentityattributeconfig', 'v1Publicidentityattributeconfig']
+slug: /tools/sdk/typescript/public_identities_config/models/publicidentityattributeconfig
+tags: ['SDK', 'Software Development Kit', 'Publicidentityattributeconfig', 'v1Publicidentityattributeconfig']
 ---
 
-# PublicidentityattributeconfigV1
+# Publicidentityattributeconfig
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**key** | **(optional)** **string** | The attribute key | [default to undefined]
-**name** | **(optional)** **string** | The attribute display name | [default to undefined]
+**key** | **(optional)** `string` | The attribute key | [default to undefined]
+**name** | **(optional)** `string` | The attribute display name | [default to undefined]
 

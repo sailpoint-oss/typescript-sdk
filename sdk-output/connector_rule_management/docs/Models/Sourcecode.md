@@ -1,20 +1,20 @@
 ---
-id: v1-sourcecode-v1
-title: SourcecodeV1
-pagination_label: SourcecodeV1
-sidebar_label: SourcecodeV1
+id: v1-sourcecode
+title: Sourcecode
+pagination_label: Sourcecode
+sidebar_label: Sourcecode
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SourcecodeV1', 'v1SourcecodeV1']
-slug: /tools/sdk/typescript/connector_rule_management/models/sourcecode-v1
-tags: ['SDK', 'Software Development Kit', 'SourcecodeV1', 'v1SourcecodeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Sourcecode', 'v1Sourcecode']
+slug: /tools/sdk/typescript/connector_rule_management/models/sourcecode
+tags: ['SDK', 'Software Development Kit', 'Sourcecode', 'v1Sourcecode']
 ---
 
-# SourcecodeV1
+# Sourcecode
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**version** | **string** | the version of the code | [default to undefined]
-**script** | **string** | The code | [default to undefined]
+**version** | `string` | the version of the code | [default to undefined]
+**script** | `string` | The code | [default to undefined]
 

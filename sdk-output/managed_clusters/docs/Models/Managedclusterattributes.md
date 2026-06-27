@@ -1,20 +1,20 @@
 ---
-id: v1-managedclusterattributes-v1
-title: ManagedclusterattributesV1
-pagination_label: ManagedclusterattributesV1
-sidebar_label: ManagedclusterattributesV1
+id: v1-managedclusterattributes
+title: Managedclusterattributes
+pagination_label: Managedclusterattributes
+sidebar_label: Managedclusterattributes
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ManagedclusterattributesV1', 'v1ManagedclusterattributesV1']
-slug: /tools/sdk/typescript/managed_clusters/models/managedclusterattributes-v1
-tags: ['SDK', 'Software Development Kit', 'ManagedclusterattributesV1', 'v1ManagedclusterattributesV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Managedclusterattributes', 'v1Managedclusterattributes']
+slug: /tools/sdk/typescript/managed_clusters/models/managedclusterattributes
+tags: ['SDK', 'Software Development Kit', 'Managedclusterattributes', 'v1Managedclusterattributes']
 ---
 
-# ManagedclusterattributesV1
+# Managedclusterattributes
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**queue** | **(optional)** **ManagedclusterqueueV1** |  | [default to undefined]
-**keystore** | **(optional)** **string** | ManagedCluster keystore for spConnectCluster type | [default to undefined]
+**queue** | **(optional)** `Managedclusterqueue` |  | [default to undefined]
+**keystore** | **(optional)** `string` | ManagedCluster keystore for spConnectCluster type | [default to undefined]
 

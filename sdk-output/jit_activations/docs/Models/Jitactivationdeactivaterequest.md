@@ -1,19 +1,19 @@
 ---
-id: v1-jitactivationdeactivaterequest-v1
-title: JitactivationdeactivaterequestV1
-pagination_label: JitactivationdeactivaterequestV1
-sidebar_label: JitactivationdeactivaterequestV1
+id: v1-jitactivationdeactivaterequest
+title: Jitactivationdeactivaterequest
+pagination_label: Jitactivationdeactivaterequest
+sidebar_label: Jitactivationdeactivaterequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'JitactivationdeactivaterequestV1', 'v1JitactivationdeactivaterequestV1']
-slug: /tools/sdk/typescript/jit_activations/models/jitactivationdeactivaterequest-v1
-tags: ['SDK', 'Software Development Kit', 'JitactivationdeactivaterequestV1', 'v1JitactivationdeactivaterequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Jitactivationdeactivaterequest', 'v1Jitactivationdeactivaterequest']
+slug: /tools/sdk/typescript/jit_activations/models/jitactivationdeactivaterequest
+tags: ['SDK', 'Software Development Kit', 'Jitactivationdeactivaterequest', 'v1Jitactivationdeactivaterequest']
 ---
 
-# JitactivationdeactivaterequestV1
+# Jitactivationdeactivaterequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**connectionId** | **string** | Entitlement connection identifier for the activation to deactivate. | [default to undefined]
+**connectionId** | `string` | Entitlement connection identifier for the activation to deactivate. | [default to undefined]
 

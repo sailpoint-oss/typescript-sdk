@@ -1,20 +1,20 @@
 ---
-id: v1-nonemployeerequestlite-v1
-title: NonemployeerequestliteV1
-pagination_label: NonemployeerequestliteV1
-sidebar_label: NonemployeerequestliteV1
+id: v1-nonemployeerequestlite
+title: Nonemployeerequestlite
+pagination_label: Nonemployeerequestlite
+sidebar_label: Nonemployeerequestlite
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'NonemployeerequestliteV1', 'v1NonemployeerequestliteV1']
-slug: /tools/sdk/typescript/non_employee_lifecycle_management/models/nonemployeerequestlite-v1
-tags: ['SDK', 'Software Development Kit', 'NonemployeerequestliteV1', 'v1NonemployeerequestliteV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Nonemployeerequestlite', 'v1Nonemployeerequestlite']
+slug: /tools/sdk/typescript/non_employee_lifecycle_management/models/nonemployeerequestlite
+tags: ['SDK', 'Software Development Kit', 'Nonemployeerequestlite', 'v1Nonemployeerequestlite']
 ---
 
-# NonemployeerequestliteV1
+# Nonemployeerequestlite
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **(optional)** **string** | Non-Employee request id. | [default to undefined]
-**requester** | **(optional)** **NonemployeeidentityreferencewithidV1** |  | [default to undefined]
+**id** | **(optional)** `string` | Non-Employee request id. | [default to undefined]
+**requester** | **(optional)** `Nonemployeeidentityreferencewithid` |  | [default to undefined]
 

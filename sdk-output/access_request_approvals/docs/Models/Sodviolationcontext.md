@@ -1,20 +1,20 @@
 ---
-id: v1-sodviolationcontext-v1
-title: SodviolationcontextV1
-pagination_label: SodviolationcontextV1
-sidebar_label: SodviolationcontextV1
+id: v1-sodviolationcontext
+title: Sodviolationcontext
+pagination_label: Sodviolationcontext
+sidebar_label: Sodviolationcontext
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SodviolationcontextV1', 'v1SodviolationcontextV1']
-slug: /tools/sdk/typescript/access_request_approvals/models/sodviolationcontext-v1
-tags: ['SDK', 'Software Development Kit', 'SodviolationcontextV1', 'v1SodviolationcontextV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Sodviolationcontext', 'v1Sodviolationcontext']
+slug: /tools/sdk/typescript/access_request_approvals/models/sodviolationcontext
+tags: ['SDK', 'Software Development Kit', 'Sodviolationcontext', 'v1Sodviolationcontext']
 ---
 
-# SodviolationcontextV1
+# Sodviolationcontext
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**policy** | **(optional)** **SodpolicydtoV1** |  | [default to undefined]
-**conflictingAccessCriteria** | **(optional)** **SodviolationcontextConflictingAccessCriteriaV1** |  | [default to undefined]
+**policy** | **(optional)** `Sodpolicydto` |  | [default to undefined]
+**conflictingAccessCriteria** | **(optional)** `SodviolationcontextConflictingAccessCriteria` |  | [default to undefined]
 

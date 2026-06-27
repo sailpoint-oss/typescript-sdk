@@ -1,19 +1,19 @@
 ---
-id: v1-start-launcher-v1200-response-v1
-title: StartLauncherV1200ResponseV1
-pagination_label: StartLauncherV1200ResponseV1
-sidebar_label: StartLauncherV1200ResponseV1
+id: v1-start-launcher-v1200-response
+title: StartLauncherV1200Response
+pagination_label: StartLauncherV1200Response
+sidebar_label: StartLauncherV1200Response
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'StartLauncherV1200ResponseV1', 'v1StartLauncherV1200ResponseV1']
-slug: /tools/sdk/typescript/launchers/models/start-launcher-v1200-response-v1
-tags: ['SDK', 'Software Development Kit', 'StartLauncherV1200ResponseV1', 'v1StartLauncherV1200ResponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'StartLauncherV1200Response', 'v1StartLauncherV1200Response']
+slug: /tools/sdk/typescript/launchers/models/start-launcher-v1200-response
+tags: ['SDK', 'Software Development Kit', 'StartLauncherV1200Response', 'v1StartLauncherV1200Response']
 ---
 
-# StartLauncherV1200ResponseV1
+# StartLauncherV1200Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**interactiveProcessId** | **string** | ID of the Interactive Process that was launched | [default to undefined]
+**interactiveProcessId** | `string` | ID of the Interactive Process that was launched | [default to undefined]
 

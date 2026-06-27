@@ -1,20 +1,20 @@
 ---
-id: v1-violationownerassignmentconfig-v1
-title: ViolationownerassignmentconfigV1
-pagination_label: ViolationownerassignmentconfigV1
-sidebar_label: ViolationownerassignmentconfigV1
+id: v1-violationownerassignmentconfig
+title: Violationownerassignmentconfig
+pagination_label: Violationownerassignmentconfig
+sidebar_label: Violationownerassignmentconfig
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ViolationownerassignmentconfigV1', 'v1ViolationownerassignmentconfigV1']
-slug: /tools/sdk/typescript/sod_policies/models/violationownerassignmentconfig-v1
-tags: ['SDK', 'Software Development Kit', 'ViolationownerassignmentconfigV1', 'v1ViolationownerassignmentconfigV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Violationownerassignmentconfig', 'v1Violationownerassignmentconfig']
+slug: /tools/sdk/typescript/sod_policies/models/violationownerassignmentconfig
+tags: ['SDK', 'Software Development Kit', 'Violationownerassignmentconfig', 'v1Violationownerassignmentconfig']
 ---
 
-# ViolationownerassignmentconfigV1
+# Violationownerassignmentconfig
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**assignmentRule** | **(optional)** **string** | Details about the violations owner. MANAGER - identity\'s manager STATIC - Governance Group or Identity | [default to undefined]
-**ownerRef** | **(optional)** **ViolationownerassignmentconfigOwnerRefV1** |  | [default to undefined]
+**assignmentRule** | **(optional)** `string` | Details about the violations owner. MANAGER - identity\'s manager STATIC - Governance Group or Identity | [default to undefined]
+**ownerRef** | **(optional)** `ViolationownerassignmentconfigOwnerRef` |  | [default to undefined]
 

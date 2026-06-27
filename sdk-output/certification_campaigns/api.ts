@@ -26,557 +26,261 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface AccessconstraintV1
+ * @interface Accessconstraint
  */
-export interface AccessconstraintV1 {
+export interface Accessconstraint {
     /**
      * Type of Access
      * @type {string}
-     * @memberof AccessconstraintV1
+     * @memberof Accessconstraint
      */
-    'type': AccessconstraintV1TypeV1;
+    'type': AccessconstraintTypeEnum;
     /**
      * Must be set only if operator is SELECTED.
      * @type {Array<string>}
-     * @memberof AccessconstraintV1
+     * @memberof Accessconstraint
      */
     'ids'?: Array<string>;
     /**
      * Used to determine whether the scope of the campaign should be reduced for selected ids or all.
      * @type {string}
-     * @memberof AccessconstraintV1
+     * @memberof Accessconstraint
      */
-    'operator': AccessconstraintV1OperatorV1;
+    'operator': AccessconstraintOperatorEnum;
 }
 
-export const AccessconstraintV1TypeV1 = {
+export const AccessconstraintTypeEnum = {
     Entitlement: 'ENTITLEMENT',
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE'
 } as const;
 
-export type AccessconstraintV1TypeV1 = typeof AccessconstraintV1TypeV1[keyof typeof AccessconstraintV1TypeV1];
-export const AccessconstraintV1OperatorV1 = {
+export type AccessconstraintTypeEnum = typeof AccessconstraintTypeEnum[keyof typeof AccessconstraintTypeEnum];
+export const AccessconstraintOperatorEnum = {
     All: 'ALL',
     Selected: 'SELECTED'
 } as const;
 
-export type AccessconstraintV1OperatorV1 = typeof AccessconstraintV1OperatorV1[keyof typeof AccessconstraintV1OperatorV1];
+export type AccessconstraintOperatorEnum = typeof AccessconstraintOperatorEnum[keyof typeof AccessconstraintOperatorEnum];
 
 /**
  * 
  * @export
- * @interface ActivatecampaignoptionsV1
+ * @interface Activatecampaignoptions
  */
-export interface ActivatecampaignoptionsV1 {
+export interface Activatecampaignoptions {
     /**
      * The timezone must be in a valid ISO 8601 format. Timezones in ISO 8601 are represented as UTC (represented as \'Z\') or as an offset from UTC. The offset format can be +/-hh:mm, +/-hhmm, or +/-hh.
      * @type {string}
-     * @memberof ActivatecampaignoptionsV1
+     * @memberof Activatecampaignoptions
      */
     'timeZone'?: string;
 }
 /**
  * 
  * @export
- * @interface AdminreviewreassignReassignToV1
+ * @interface Adminreviewreassign
  */
-export interface AdminreviewreassignReassignToV1 {
-    /**
-     * The identity ID to which the review is being assigned.
-     * @type {string}
-     * @memberof AdminreviewreassignReassignToV1
-     */
-    'id'?: string;
-    /**
-     * The type of the ID provided.
-     * @type {string}
-     * @memberof AdminreviewreassignReassignToV1
-     */
-    'type'?: AdminreviewreassignReassignToV1TypeV1;
-}
-
-export const AdminreviewreassignReassignToV1TypeV1 = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type AdminreviewreassignReassignToV1TypeV1 = typeof AdminreviewreassignReassignToV1TypeV1[keyof typeof AdminreviewreassignReassignToV1TypeV1];
-
-/**
- * 
- * @export
- * @interface AdminreviewreassignV1
- */
-export interface AdminreviewreassignV1 {
+export interface Adminreviewreassign {
     /**
      * List of certification IDs to reassign
      * @type {Array<string>}
-     * @memberof AdminreviewreassignV1
+     * @memberof Adminreviewreassign
      */
     'certificationIds'?: Array<string>;
     /**
      * 
-     * @type {AdminreviewreassignReassignToV1}
-     * @memberof AdminreviewreassignV1
+     * @type {AdminreviewreassignReassignTo}
+     * @memberof Adminreviewreassign
      */
-    'reassignTo'?: AdminreviewreassignReassignToV1;
+    'reassignTo'?: AdminreviewreassignReassignTo;
     /**
      * Comment to explain why the certification was reassigned
      * @type {string}
-     * @memberof AdminreviewreassignV1
+     * @memberof Adminreviewreassign
      */
     'reason'?: string;
 }
 /**
  * 
  * @export
- * @interface ArrayInnerV1
+ * @interface AdminreviewreassignReassignTo
  */
-export interface ArrayInnerV1 {
-}
-/**
- * Determines which items will be included in this campaign. The default campaign filter is used if this field is left blank.
- * @export
- * @interface Campaign2AllOfFilterV1
- */
-export interface Campaign2AllOfFilterV1 {
+export interface AdminreviewreassignReassignTo {
     /**
-     * The ID of whatever type of filter is being used.
+     * The identity ID to which the review is being assigned.
      * @type {string}
-     * @memberof Campaign2AllOfFilterV1
+     * @memberof AdminreviewreassignReassignTo
      */
     'id'?: string;
     /**
-     * Type of the filter
+     * The type of the ID provided.
      * @type {string}
-     * @memberof Campaign2AllOfFilterV1
+     * @memberof AdminreviewreassignReassignTo
      */
-    'type'?: Campaign2AllOfFilterV1TypeV1;
-    /**
-     * Name of the filter
-     * @type {string}
-     * @memberof Campaign2AllOfFilterV1
-     */
-    'name'?: string;
+    'type'?: AdminreviewreassignReassignToTypeEnum;
 }
 
-export const Campaign2AllOfFilterV1TypeV1 = {
-    CampaignFilter: 'CAMPAIGN_FILTER'
-} as const;
-
-export type Campaign2AllOfFilterV1TypeV1 = typeof Campaign2AllOfFilterV1TypeV1[keyof typeof Campaign2AllOfFilterV1TypeV1];
-
-/**
- * Must be set only if the campaign type is MACHINE_ACCOUNT.
- * @export
- * @interface Campaign2AllOfMachineAccountCampaignInfoV1
- */
-export interface Campaign2AllOfMachineAccountCampaignInfoV1 {
-    /**
-     * The list of sources to be included in the campaign.
-     * @type {Array<string>}
-     * @memberof Campaign2AllOfMachineAccountCampaignInfoV1
-     */
-    'sourceIds'?: Array<string>;
-    /**
-     * The reviewer\'s type.
-     * @type {string}
-     * @memberof Campaign2AllOfMachineAccountCampaignInfoV1
-     */
-    'reviewerType'?: Campaign2AllOfMachineAccountCampaignInfoV1ReviewerTypeV1;
-}
-
-export const Campaign2AllOfMachineAccountCampaignInfoV1ReviewerTypeV1 = {
-    AccountOwner: 'ACCOUNT_OWNER'
-} as const;
-
-export type Campaign2AllOfMachineAccountCampaignInfoV1ReviewerTypeV1 = typeof Campaign2AllOfMachineAccountCampaignInfoV1ReviewerTypeV1[keyof typeof Campaign2AllOfMachineAccountCampaignInfoV1ReviewerTypeV1];
-
-/**
- * This determines who remediation tasks will be assigned to. Remediation tasks are created for each revoke decision on items in the campaign. The only legal remediator type is \'IDENTITY\', and the chosen identity must be a Role Admin or Org Admin.
- * @export
- * @interface Campaign2AllOfRoleCompositionCampaignInfoRemediatorRefV1
- */
-export interface Campaign2AllOfRoleCompositionCampaignInfoRemediatorRefV1 {
-    /**
-     * Legal Remediator Type
-     * @type {string}
-     * @memberof Campaign2AllOfRoleCompositionCampaignInfoRemediatorRefV1
-     */
-    'type': Campaign2AllOfRoleCompositionCampaignInfoRemediatorRefV1TypeV1;
-    /**
-     * The ID of the remediator.
-     * @type {string}
-     * @memberof Campaign2AllOfRoleCompositionCampaignInfoRemediatorRefV1
-     */
-    'id': string;
-    /**
-     * The name of the remediator.
-     * @type {string}
-     * @memberof Campaign2AllOfRoleCompositionCampaignInfoRemediatorRefV1
-     */
-    'name'?: string;
-}
-
-export const Campaign2AllOfRoleCompositionCampaignInfoRemediatorRefV1TypeV1 = {
+export const AdminreviewreassignReassignToTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type Campaign2AllOfRoleCompositionCampaignInfoRemediatorRefV1TypeV1 = typeof Campaign2AllOfRoleCompositionCampaignInfoRemediatorRefV1TypeV1[keyof typeof Campaign2AllOfRoleCompositionCampaignInfoRemediatorRefV1TypeV1];
-
-/**
- * If specified, this identity or governance group will be the reviewer for all certifications in this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP.
- * @export
- * @interface Campaign2AllOfRoleCompositionCampaignInfoReviewerV1
- */
-export interface Campaign2AllOfRoleCompositionCampaignInfoReviewerV1 {
-    /**
-     * The reviewer\'s DTO type.
-     * @type {string}
-     * @memberof Campaign2AllOfRoleCompositionCampaignInfoReviewerV1
-     */
-    'type'?: Campaign2AllOfRoleCompositionCampaignInfoReviewerV1TypeV1;
-    /**
-     * The reviewer\'s ID.
-     * @type {string}
-     * @memberof Campaign2AllOfRoleCompositionCampaignInfoReviewerV1
-     */
-    'id'?: string;
-    /**
-     * The reviewer\'s name.
-     * @type {string}
-     * @memberof Campaign2AllOfRoleCompositionCampaignInfoReviewerV1
-     */
-    'name'?: string;
-}
-
-export const Campaign2AllOfRoleCompositionCampaignInfoReviewerV1TypeV1 = {
-    GovernanceGroup: 'GOVERNANCE_GROUP',
-    Identity: 'IDENTITY'
-} as const;
-
-export type Campaign2AllOfRoleCompositionCampaignInfoReviewerV1TypeV1 = typeof Campaign2AllOfRoleCompositionCampaignInfoReviewerV1TypeV1[keyof typeof Campaign2AllOfRoleCompositionCampaignInfoReviewerV1TypeV1];
-
-/**
- * Optional configuration options for role composition campaigns.
- * @export
- * @interface Campaign2AllOfRoleCompositionCampaignInfoV1
- */
-export interface Campaign2AllOfRoleCompositionCampaignInfoV1 {
-    /**
-     * The ID of the identity or governance group reviewing this campaign. Deprecated in favor of the \"reviewer\" object.
-     * @type {string}
-     * @memberof Campaign2AllOfRoleCompositionCampaignInfoV1
-     * @deprecated
-     */
-    'reviewerId'?: string | null;
-    /**
-     * 
-     * @type {Campaign2AllOfRoleCompositionCampaignInfoReviewerV1}
-     * @memberof Campaign2AllOfRoleCompositionCampaignInfoV1
-     */
-    'reviewer'?: Campaign2AllOfRoleCompositionCampaignInfoReviewerV1 | null;
-    /**
-     * Optional list of roles to include in this campaign. Only one of `roleIds` and `query` may be set; if neither are set, all roles are included.
-     * @type {Array<string>}
-     * @memberof Campaign2AllOfRoleCompositionCampaignInfoV1
-     */
-    'roleIds'?: Array<string>;
-    /**
-     * 
-     * @type {Campaign2AllOfRoleCompositionCampaignInfoRemediatorRefV1}
-     * @memberof Campaign2AllOfRoleCompositionCampaignInfoV1
-     */
-    'remediatorRef': Campaign2AllOfRoleCompositionCampaignInfoRemediatorRefV1;
-    /**
-     * Optional search query to scope this campaign to a set of roles. Only one of `roleIds` and `query` may be set; if neither are set, all roles are included.
-     * @type {string}
-     * @memberof Campaign2AllOfRoleCompositionCampaignInfoV1
-     */
-    'query'?: string | null;
-    /**
-     * Describes this role composition campaign. Intended for storing the query used, and possibly the number of roles selected/available.
-     * @type {string}
-     * @memberof Campaign2AllOfRoleCompositionCampaignInfoV1
-     */
-    'description'?: string | null;
-}
-/**
- * If specified, this identity or governance group will be the reviewer for all certifications in this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP.
- * @export
- * @interface Campaign2AllOfSearchCampaignInfoReviewerV1
- */
-export interface Campaign2AllOfSearchCampaignInfoReviewerV1 {
-    /**
-     * The reviewer\'s DTO type.
-     * @type {string}
-     * @memberof Campaign2AllOfSearchCampaignInfoReviewerV1
-     */
-    'type'?: Campaign2AllOfSearchCampaignInfoReviewerV1TypeV1;
-    /**
-     * The reviewer\'s ID.
-     * @type {string}
-     * @memberof Campaign2AllOfSearchCampaignInfoReviewerV1
-     */
-    'id'?: string;
-    /**
-     * The reviewer\'s name.
-     * @type {string}
-     * @memberof Campaign2AllOfSearchCampaignInfoReviewerV1
-     */
-    'name'?: string | null;
-}
-
-export const Campaign2AllOfSearchCampaignInfoReviewerV1TypeV1 = {
-    GovernanceGroup: 'GOVERNANCE_GROUP',
-    Identity: 'IDENTITY'
-} as const;
-
-export type Campaign2AllOfSearchCampaignInfoReviewerV1TypeV1 = typeof Campaign2AllOfSearchCampaignInfoReviewerV1TypeV1[keyof typeof Campaign2AllOfSearchCampaignInfoReviewerV1TypeV1];
-
-/**
- * Must be set only if the campaign type is SEARCH.
- * @export
- * @interface Campaign2AllOfSearchCampaignInfoV1
- */
-export interface Campaign2AllOfSearchCampaignInfoV1 {
-    /**
-     * The type of search campaign represented.
-     * @type {string}
-     * @memberof Campaign2AllOfSearchCampaignInfoV1
-     */
-    'type': Campaign2AllOfSearchCampaignInfoV1TypeV1;
-    /**
-     * Describes this search campaign. Intended for storing the query used, and possibly the number of identities selected/available.
-     * @type {string}
-     * @memberof Campaign2AllOfSearchCampaignInfoV1
-     */
-    'description'?: string;
-    /**
-     * 
-     * @type {Campaign2AllOfSearchCampaignInfoReviewerV1}
-     * @memberof Campaign2AllOfSearchCampaignInfoV1
-     */
-    'reviewer'?: Campaign2AllOfSearchCampaignInfoReviewerV1 | null;
-    /**
-     * The scope for the campaign. The campaign will cover identities returned by the query and identities that have access items returned by the query. One of `query` or `identityIds` must be set.
-     * @type {string}
-     * @memberof Campaign2AllOfSearchCampaignInfoV1
-     */
-    'query'?: string | null;
-    /**
-     * A direct list of identities to include in this campaign. One of `identityIds` or `query` must be set.
-     * @type {Array<string>}
-     * @memberof Campaign2AllOfSearchCampaignInfoV1
-     */
-    'identityIds'?: Array<string> | null;
-    /**
-     * Further reduces the scope of the campaign by excluding identities (from `query` or `identityIds`) that do not have this access.
-     * @type {Array<AccessconstraintV1>}
-     * @memberof Campaign2AllOfSearchCampaignInfoV1
-     */
-    'accessConstraints'?: Array<AccessconstraintV1>;
-}
-
-export const Campaign2AllOfSearchCampaignInfoV1TypeV1 = {
-    Identity: 'IDENTITY',
-    Access: 'ACCESS'
-} as const;
-
-export type Campaign2AllOfSearchCampaignInfoV1TypeV1 = typeof Campaign2AllOfSearchCampaignInfoV1TypeV1[keyof typeof Campaign2AllOfSearchCampaignInfoV1TypeV1];
-
-/**
- * Must be set only if the campaign type is SOURCE_OWNER.
- * @export
- * @interface Campaign2AllOfSourceOwnerCampaignInfoV1
- */
-export interface Campaign2AllOfSourceOwnerCampaignInfoV1 {
-    /**
-     * The list of sources to be included in the campaign.
-     * @type {Array<string>}
-     * @memberof Campaign2AllOfSourceOwnerCampaignInfoV1
-     */
-    'sourceIds'?: Array<string>;
-}
-/**
- * 
- * @export
- * @interface Campaign2AllOfSourcesWithOrphanEntitlementsV1
- */
-export interface Campaign2AllOfSourcesWithOrphanEntitlementsV1 {
-    /**
-     * Id of the source
-     * @type {string}
-     * @memberof Campaign2AllOfSourcesWithOrphanEntitlementsV1
-     */
-    'id'?: string;
-    /**
-     * Type
-     * @type {string}
-     * @memberof Campaign2AllOfSourcesWithOrphanEntitlementsV1
-     */
-    'type'?: Campaign2AllOfSourcesWithOrphanEntitlementsV1TypeV1;
-    /**
-     * Name of the source
-     * @type {string}
-     * @memberof Campaign2AllOfSourcesWithOrphanEntitlementsV1
-     */
-    'name'?: string;
-}
-
-export const Campaign2AllOfSourcesWithOrphanEntitlementsV1TypeV1 = {
-    Source: 'SOURCE'
-} as const;
-
-export type Campaign2AllOfSourcesWithOrphanEntitlementsV1TypeV1 = typeof Campaign2AllOfSourcesWithOrphanEntitlementsV1TypeV1[keyof typeof Campaign2AllOfSourcesWithOrphanEntitlementsV1TypeV1];
+export type AdminreviewreassignReassignToTypeEnum = typeof AdminreviewreassignReassignToTypeEnum[keyof typeof AdminreviewreassignReassignToTypeEnum];
 
 /**
  * 
  * @export
- * @interface Campaign2V1
+ * @interface ArrayInner
  */
-export interface Campaign2V1 {
+export interface ArrayInner {
+}
+/**
+ * 
+ * @export
+ * @interface Campaign2
+ */
+export interface Campaign2 {
     /**
      * Id of the campaign
      * @type {string}
-     * @memberof Campaign2V1
+     * @memberof Campaign2
      */
     'id'?: string | null;
     /**
      * The campaign name. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details. 
      * @type {string}
-     * @memberof Campaign2V1
+     * @memberof Campaign2
      */
     'name': string;
     /**
      * The campaign description. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details. 
      * @type {string}
-     * @memberof Campaign2V1
+     * @memberof Campaign2
      */
     'description': string | null;
     /**
      * The campaign\'s completion deadline.  This date must be in the future in order to activate the campaign.  If you try to activate a campaign with a deadline of today or in the past, you will receive a 400 error response.
      * @type {string}
-     * @memberof Campaign2V1
+     * @memberof Campaign2
      */
     'deadline'?: string | null;
     /**
      * The type of campaign. Could be extended in the future.
      * @type {string}
-     * @memberof Campaign2V1
+     * @memberof Campaign2
      */
-    'type': Campaign2V1TypeV1;
+    'type': Campaign2TypeEnum;
     /**
      * Enables email notification for this campaign
      * @type {boolean}
-     * @memberof Campaign2V1
+     * @memberof Campaign2
      */
     'emailNotificationEnabled'?: boolean;
     /**
      * Allows auto revoke for this campaign
      * @type {boolean}
-     * @memberof Campaign2V1
+     * @memberof Campaign2
      */
     'autoRevokeAllowed'?: boolean;
     /**
      * Enables IAI for this campaign. Accepts true even if the IAI product feature is off. If IAI is turned off then campaigns generated from this template will indicate false. The real value will then be returned if IAI is ever enabled for the org in the future.
      * @type {boolean}
-     * @memberof Campaign2V1
+     * @memberof Campaign2
      */
     'recommendationsEnabled'?: boolean;
     /**
      * The campaign\'s current status.
      * @type {string}
-     * @memberof Campaign2V1
+     * @memberof Campaign2
      */
-    'status'?: Campaign2V1StatusV1 | null;
+    'status'?: Campaign2StatusEnum | null;
     /**
      * The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
      * @type {string}
-     * @memberof Campaign2V1
+     * @memberof Campaign2
      */
-    'correlatedStatus'?: Campaign2V1CorrelatedStatusV1;
+    'correlatedStatus'?: Campaign2CorrelatedStatusEnum;
     /**
      * Created time of the campaign
      * @type {string}
-     * @memberof Campaign2V1
+     * @memberof Campaign2
      */
     'created'?: string | null;
     /**
      * The total number of certifications in this campaign.
      * @type {number}
-     * @memberof Campaign2V1
+     * @memberof Campaign2
      */
     'totalCertifications'?: number | null;
     /**
      * The number of completed certifications in this campaign.
      * @type {number}
-     * @memberof Campaign2V1
+     * @memberof Campaign2
      */
     'completedCertifications'?: number | null;
     /**
      * A list of errors and warnings that have accumulated.
-     * @type {Array<CampaignalertV1>}
-     * @memberof Campaign2V1
+     * @type {Array<Campaignalert>}
+     * @memberof Campaign2
      */
-    'alerts'?: Array<CampaignalertV1> | null;
+    'alerts'?: Array<Campaignalert> | null;
     /**
      * Modified time of the campaign
      * @type {string}
-     * @memberof Campaign2V1
+     * @memberof Campaign2
      */
     'modified'?: string | null;
     /**
      * 
-     * @type {Campaign2AllOfFilterV1}
-     * @memberof Campaign2V1
+     * @type {Campaign2AllOfFilter}
+     * @memberof Campaign2
      */
-    'filter'?: Campaign2AllOfFilterV1 | null;
+    'filter'?: Campaign2AllOfFilter | null;
     /**
      * Determines if comments on sunset date changes are required.
      * @type {boolean}
-     * @memberof Campaign2V1
+     * @memberof Campaign2
      */
     'sunsetCommentsRequired'?: boolean;
     /**
      * 
-     * @type {Campaign2AllOfSourceOwnerCampaignInfoV1}
-     * @memberof Campaign2V1
+     * @type {Campaign2AllOfSourceOwnerCampaignInfo}
+     * @memberof Campaign2
      */
-    'sourceOwnerCampaignInfo'?: Campaign2AllOfSourceOwnerCampaignInfoV1 | null;
+    'sourceOwnerCampaignInfo'?: Campaign2AllOfSourceOwnerCampaignInfo | null;
     /**
      * 
-     * @type {Campaign2AllOfSearchCampaignInfoV1}
-     * @memberof Campaign2V1
+     * @type {Campaign2AllOfSearchCampaignInfo}
+     * @memberof Campaign2
      */
-    'searchCampaignInfo'?: Campaign2AllOfSearchCampaignInfoV1 | null;
+    'searchCampaignInfo'?: Campaign2AllOfSearchCampaignInfo | null;
     /**
      * 
-     * @type {Campaign2AllOfRoleCompositionCampaignInfoV1}
-     * @memberof Campaign2V1
+     * @type {Campaign2AllOfRoleCompositionCampaignInfo}
+     * @memberof Campaign2
      */
-    'roleCompositionCampaignInfo'?: Campaign2AllOfRoleCompositionCampaignInfoV1 | null;
+    'roleCompositionCampaignInfo'?: Campaign2AllOfRoleCompositionCampaignInfo | null;
     /**
      * 
-     * @type {Campaign2AllOfMachineAccountCampaignInfoV1}
-     * @memberof Campaign2V1
+     * @type {Campaign2AllOfMachineAccountCampaignInfo}
+     * @memberof Campaign2
      */
-    'machineAccountCampaignInfo'?: Campaign2AllOfMachineAccountCampaignInfoV1 | null;
+    'machineAccountCampaignInfo'?: Campaign2AllOfMachineAccountCampaignInfo | null;
     /**
      * A list of sources in the campaign that contain \\\"orphan entitlements\\\" (entitlements without a corresponding Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may be unknown orphan entitlements in the campaign (the campaign was created before this feature was implemented).
-     * @type {Array<Campaign2AllOfSourcesWithOrphanEntitlementsV1>}
-     * @memberof Campaign2V1
+     * @type {Array<Campaign2AllOfSourcesWithOrphanEntitlements>}
+     * @memberof Campaign2
      */
-    'sourcesWithOrphanEntitlements'?: Array<Campaign2AllOfSourcesWithOrphanEntitlementsV1> | null;
+    'sourcesWithOrphanEntitlements'?: Array<Campaign2AllOfSourcesWithOrphanEntitlements> | null;
     /**
      * Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions.
      * @type {string}
-     * @memberof Campaign2V1
+     * @memberof Campaign2
      */
-    'mandatoryCommentRequirement'?: Campaign2V1MandatoryCommentRequirementV1;
+    'mandatoryCommentRequirement'?: Campaign2MandatoryCommentRequirementEnum;
 }
 
-export const Campaign2V1TypeV1 = {
+export const Campaign2TypeEnum = {
     Manager: 'MANAGER',
     SourceOwner: 'SOURCE_OWNER',
     Search: 'SEARCH',
@@ -584,8 +288,8 @@ export const Campaign2V1TypeV1 = {
     MachineAccount: 'MACHINE_ACCOUNT'
 } as const;
 
-export type Campaign2V1TypeV1 = typeof Campaign2V1TypeV1[keyof typeof Campaign2V1TypeV1];
-export const Campaign2V1StatusV1 = {
+export type Campaign2TypeEnum = typeof Campaign2TypeEnum[keyof typeof Campaign2TypeEnum];
+export const Campaign2StatusEnum = {
     Pending: 'PENDING',
     Staged: 'STAGED',
     Canceling: 'CANCELING',
@@ -597,126 +301,422 @@ export const Campaign2V1StatusV1 = {
     Archived: 'ARCHIVED'
 } as const;
 
-export type Campaign2V1StatusV1 = typeof Campaign2V1StatusV1[keyof typeof Campaign2V1StatusV1];
-export const Campaign2V1CorrelatedStatusV1 = {
+export type Campaign2StatusEnum = typeof Campaign2StatusEnum[keyof typeof Campaign2StatusEnum];
+export const Campaign2CorrelatedStatusEnum = {
     Correlated: 'CORRELATED',
     Uncorrelated: 'UNCORRELATED'
 } as const;
 
-export type Campaign2V1CorrelatedStatusV1 = typeof Campaign2V1CorrelatedStatusV1[keyof typeof Campaign2V1CorrelatedStatusV1];
-export const Campaign2V1MandatoryCommentRequirementV1 = {
+export type Campaign2CorrelatedStatusEnum = typeof Campaign2CorrelatedStatusEnum[keyof typeof Campaign2CorrelatedStatusEnum];
+export const Campaign2MandatoryCommentRequirementEnum = {
     AllDecisions: 'ALL_DECISIONS',
     RevokeOnlyDecisions: 'REVOKE_ONLY_DECISIONS',
     NoDecisions: 'NO_DECISIONS'
 } as const;
 
-export type Campaign2V1MandatoryCommentRequirementV1 = typeof Campaign2V1MandatoryCommentRequirementV1[keyof typeof Campaign2V1MandatoryCommentRequirementV1];
+export type Campaign2MandatoryCommentRequirementEnum = typeof Campaign2MandatoryCommentRequirementEnum[keyof typeof Campaign2MandatoryCommentRequirementEnum];
+
+/**
+ * Determines which items will be included in this campaign. The default campaign filter is used if this field is left blank.
+ * @export
+ * @interface Campaign2AllOfFilter
+ */
+export interface Campaign2AllOfFilter {
+    /**
+     * The ID of whatever type of filter is being used.
+     * @type {string}
+     * @memberof Campaign2AllOfFilter
+     */
+    'id'?: string;
+    /**
+     * Type of the filter
+     * @type {string}
+     * @memberof Campaign2AllOfFilter
+     */
+    'type'?: Campaign2AllOfFilterTypeEnum;
+    /**
+     * Name of the filter
+     * @type {string}
+     * @memberof Campaign2AllOfFilter
+     */
+    'name'?: string;
+}
+
+export const Campaign2AllOfFilterTypeEnum = {
+    CampaignFilter: 'CAMPAIGN_FILTER'
+} as const;
+
+export type Campaign2AllOfFilterTypeEnum = typeof Campaign2AllOfFilterTypeEnum[keyof typeof Campaign2AllOfFilterTypeEnum];
+
+/**
+ * Must be set only if the campaign type is MACHINE_ACCOUNT.
+ * @export
+ * @interface Campaign2AllOfMachineAccountCampaignInfo
+ */
+export interface Campaign2AllOfMachineAccountCampaignInfo {
+    /**
+     * The list of sources to be included in the campaign.
+     * @type {Array<string>}
+     * @memberof Campaign2AllOfMachineAccountCampaignInfo
+     */
+    'sourceIds'?: Array<string>;
+    /**
+     * The reviewer\'s type.
+     * @type {string}
+     * @memberof Campaign2AllOfMachineAccountCampaignInfo
+     */
+    'reviewerType'?: Campaign2AllOfMachineAccountCampaignInfoReviewerTypeEnum;
+}
+
+export const Campaign2AllOfMachineAccountCampaignInfoReviewerTypeEnum = {
+    AccountOwner: 'ACCOUNT_OWNER'
+} as const;
+
+export type Campaign2AllOfMachineAccountCampaignInfoReviewerTypeEnum = typeof Campaign2AllOfMachineAccountCampaignInfoReviewerTypeEnum[keyof typeof Campaign2AllOfMachineAccountCampaignInfoReviewerTypeEnum];
+
+/**
+ * Optional configuration options for role composition campaigns.
+ * @export
+ * @interface Campaign2AllOfRoleCompositionCampaignInfo
+ */
+export interface Campaign2AllOfRoleCompositionCampaignInfo {
+    /**
+     * The ID of the identity or governance group reviewing this campaign. Deprecated in favor of the \"reviewer\" object.
+     * @type {string}
+     * @memberof Campaign2AllOfRoleCompositionCampaignInfo
+     * @deprecated
+     */
+    'reviewerId'?: string | null;
+    /**
+     * 
+     * @type {Campaign2AllOfRoleCompositionCampaignInfoReviewer}
+     * @memberof Campaign2AllOfRoleCompositionCampaignInfo
+     */
+    'reviewer'?: Campaign2AllOfRoleCompositionCampaignInfoReviewer | null;
+    /**
+     * Optional list of roles to include in this campaign. Only one of `roleIds` and `query` may be set; if neither are set, all roles are included.
+     * @type {Array<string>}
+     * @memberof Campaign2AllOfRoleCompositionCampaignInfo
+     */
+    'roleIds'?: Array<string>;
+    /**
+     * 
+     * @type {Campaign2AllOfRoleCompositionCampaignInfoRemediatorRef}
+     * @memberof Campaign2AllOfRoleCompositionCampaignInfo
+     */
+    'remediatorRef': Campaign2AllOfRoleCompositionCampaignInfoRemediatorRef;
+    /**
+     * Optional search query to scope this campaign to a set of roles. Only one of `roleIds` and `query` may be set; if neither are set, all roles are included.
+     * @type {string}
+     * @memberof Campaign2AllOfRoleCompositionCampaignInfo
+     */
+    'query'?: string | null;
+    /**
+     * Describes this role composition campaign. Intended for storing the query used, and possibly the number of roles selected/available.
+     * @type {string}
+     * @memberof Campaign2AllOfRoleCompositionCampaignInfo
+     */
+    'description'?: string | null;
+}
+/**
+ * This determines who remediation tasks will be assigned to. Remediation tasks are created for each revoke decision on items in the campaign. The only legal remediator type is \'IDENTITY\', and the chosen identity must be a Role Admin or Org Admin.
+ * @export
+ * @interface Campaign2AllOfRoleCompositionCampaignInfoRemediatorRef
+ */
+export interface Campaign2AllOfRoleCompositionCampaignInfoRemediatorRef {
+    /**
+     * Legal Remediator Type
+     * @type {string}
+     * @memberof Campaign2AllOfRoleCompositionCampaignInfoRemediatorRef
+     */
+    'type': Campaign2AllOfRoleCompositionCampaignInfoRemediatorRefTypeEnum;
+    /**
+     * The ID of the remediator.
+     * @type {string}
+     * @memberof Campaign2AllOfRoleCompositionCampaignInfoRemediatorRef
+     */
+    'id': string;
+    /**
+     * The name of the remediator.
+     * @type {string}
+     * @memberof Campaign2AllOfRoleCompositionCampaignInfoRemediatorRef
+     */
+    'name'?: string;
+}
+
+export const Campaign2AllOfRoleCompositionCampaignInfoRemediatorRefTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type Campaign2AllOfRoleCompositionCampaignInfoRemediatorRefTypeEnum = typeof Campaign2AllOfRoleCompositionCampaignInfoRemediatorRefTypeEnum[keyof typeof Campaign2AllOfRoleCompositionCampaignInfoRemediatorRefTypeEnum];
+
+/**
+ * If specified, this identity or governance group will be the reviewer for all certifications in this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP.
+ * @export
+ * @interface Campaign2AllOfRoleCompositionCampaignInfoReviewer
+ */
+export interface Campaign2AllOfRoleCompositionCampaignInfoReviewer {
+    /**
+     * The reviewer\'s DTO type.
+     * @type {string}
+     * @memberof Campaign2AllOfRoleCompositionCampaignInfoReviewer
+     */
+    'type'?: Campaign2AllOfRoleCompositionCampaignInfoReviewerTypeEnum;
+    /**
+     * The reviewer\'s ID.
+     * @type {string}
+     * @memberof Campaign2AllOfRoleCompositionCampaignInfoReviewer
+     */
+    'id'?: string;
+    /**
+     * The reviewer\'s name.
+     * @type {string}
+     * @memberof Campaign2AllOfRoleCompositionCampaignInfoReviewer
+     */
+    'name'?: string;
+}
+
+export const Campaign2AllOfRoleCompositionCampaignInfoReviewerTypeEnum = {
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    Identity: 'IDENTITY'
+} as const;
+
+export type Campaign2AllOfRoleCompositionCampaignInfoReviewerTypeEnum = typeof Campaign2AllOfRoleCompositionCampaignInfoReviewerTypeEnum[keyof typeof Campaign2AllOfRoleCompositionCampaignInfoReviewerTypeEnum];
+
+/**
+ * Must be set only if the campaign type is SEARCH.
+ * @export
+ * @interface Campaign2AllOfSearchCampaignInfo
+ */
+export interface Campaign2AllOfSearchCampaignInfo {
+    /**
+     * The type of search campaign represented.
+     * @type {string}
+     * @memberof Campaign2AllOfSearchCampaignInfo
+     */
+    'type': Campaign2AllOfSearchCampaignInfoTypeEnum;
+    /**
+     * Describes this search campaign. Intended for storing the query used, and possibly the number of identities selected/available.
+     * @type {string}
+     * @memberof Campaign2AllOfSearchCampaignInfo
+     */
+    'description'?: string;
+    /**
+     * 
+     * @type {Campaign2AllOfSearchCampaignInfoReviewer}
+     * @memberof Campaign2AllOfSearchCampaignInfo
+     */
+    'reviewer'?: Campaign2AllOfSearchCampaignInfoReviewer | null;
+    /**
+     * The scope for the campaign. The campaign will cover identities returned by the query and identities that have access items returned by the query. One of `query` or `identityIds` must be set.
+     * @type {string}
+     * @memberof Campaign2AllOfSearchCampaignInfo
+     */
+    'query'?: string | null;
+    /**
+     * A direct list of identities to include in this campaign. One of `identityIds` or `query` must be set.
+     * @type {Array<string>}
+     * @memberof Campaign2AllOfSearchCampaignInfo
+     */
+    'identityIds'?: Array<string> | null;
+    /**
+     * Further reduces the scope of the campaign by excluding identities (from `query` or `identityIds`) that do not have this access.
+     * @type {Array<Accessconstraint>}
+     * @memberof Campaign2AllOfSearchCampaignInfo
+     */
+    'accessConstraints'?: Array<Accessconstraint>;
+}
+
+export const Campaign2AllOfSearchCampaignInfoTypeEnum = {
+    Identity: 'IDENTITY',
+    Access: 'ACCESS'
+} as const;
+
+export type Campaign2AllOfSearchCampaignInfoTypeEnum = typeof Campaign2AllOfSearchCampaignInfoTypeEnum[keyof typeof Campaign2AllOfSearchCampaignInfoTypeEnum];
+
+/**
+ * If specified, this identity or governance group will be the reviewer for all certifications in this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP.
+ * @export
+ * @interface Campaign2AllOfSearchCampaignInfoReviewer
+ */
+export interface Campaign2AllOfSearchCampaignInfoReviewer {
+    /**
+     * The reviewer\'s DTO type.
+     * @type {string}
+     * @memberof Campaign2AllOfSearchCampaignInfoReviewer
+     */
+    'type'?: Campaign2AllOfSearchCampaignInfoReviewerTypeEnum;
+    /**
+     * The reviewer\'s ID.
+     * @type {string}
+     * @memberof Campaign2AllOfSearchCampaignInfoReviewer
+     */
+    'id'?: string;
+    /**
+     * The reviewer\'s name.
+     * @type {string}
+     * @memberof Campaign2AllOfSearchCampaignInfoReviewer
+     */
+    'name'?: string | null;
+}
+
+export const Campaign2AllOfSearchCampaignInfoReviewerTypeEnum = {
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    Identity: 'IDENTITY'
+} as const;
+
+export type Campaign2AllOfSearchCampaignInfoReviewerTypeEnum = typeof Campaign2AllOfSearchCampaignInfoReviewerTypeEnum[keyof typeof Campaign2AllOfSearchCampaignInfoReviewerTypeEnum];
+
+/**
+ * Must be set only if the campaign type is SOURCE_OWNER.
+ * @export
+ * @interface Campaign2AllOfSourceOwnerCampaignInfo
+ */
+export interface Campaign2AllOfSourceOwnerCampaignInfo {
+    /**
+     * The list of sources to be included in the campaign.
+     * @type {Array<string>}
+     * @memberof Campaign2AllOfSourceOwnerCampaignInfo
+     */
+    'sourceIds'?: Array<string>;
+}
+/**
+ * 
+ * @export
+ * @interface Campaign2AllOfSourcesWithOrphanEntitlements
+ */
+export interface Campaign2AllOfSourcesWithOrphanEntitlements {
+    /**
+     * Id of the source
+     * @type {string}
+     * @memberof Campaign2AllOfSourcesWithOrphanEntitlements
+     */
+    'id'?: string;
+    /**
+     * Type
+     * @type {string}
+     * @memberof Campaign2AllOfSourcesWithOrphanEntitlements
+     */
+    'type'?: Campaign2AllOfSourcesWithOrphanEntitlementsTypeEnum;
+    /**
+     * Name of the source
+     * @type {string}
+     * @memberof Campaign2AllOfSourcesWithOrphanEntitlements
+     */
+    'name'?: string;
+}
+
+export const Campaign2AllOfSourcesWithOrphanEntitlementsTypeEnum = {
+    Source: 'SOURCE'
+} as const;
+
+export type Campaign2AllOfSourcesWithOrphanEntitlementsTypeEnum = typeof Campaign2AllOfSourcesWithOrphanEntitlementsTypeEnum[keyof typeof Campaign2AllOfSourcesWithOrphanEntitlementsTypeEnum];
 
 /**
  * 
  * @export
- * @interface CampaignalertV1
+ * @interface Campaignalert
  */
-export interface CampaignalertV1 {
+export interface Campaignalert {
     /**
      * Denotes the level of the message
      * @type {string}
-     * @memberof CampaignalertV1
+     * @memberof Campaignalert
      */
-    'level'?: CampaignalertV1LevelV1;
+    'level'?: CampaignalertLevelEnum;
     /**
      * 
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof CampaignalertV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Campaignalert
      */
-    'localizations'?: Array<ErrormessagedtoV1>;
+    'localizations'?: Array<Errormessagedto>;
 }
 
-export const CampaignalertV1LevelV1 = {
+export const CampaignalertLevelEnum = {
     Error: 'ERROR',
     Warn: 'WARN',
     Info: 'INFO'
 } as const;
 
-export type CampaignalertV1LevelV1 = typeof CampaignalertV1LevelV1[keyof typeof CampaignalertV1LevelV1];
+export type CampaignalertLevelEnum = typeof CampaignalertLevelEnum[keyof typeof CampaignalertLevelEnum];
 
 /**
  * 
  * @export
- * @interface CampaigncompleteoptionsV1
+ * @interface Campaigncompleteoptions
  */
-export interface CampaigncompleteoptionsV1 {
+export interface Campaigncompleteoptions {
     /**
      * Determines whether to auto-approve(APPROVE) or auto-revoke(REVOKE) upon campaign completion.
      * @type {string}
-     * @memberof CampaigncompleteoptionsV1
+     * @memberof Campaigncompleteoptions
      */
-    'autoCompleteAction'?: CampaigncompleteoptionsV1AutoCompleteActionV1;
+    'autoCompleteAction'?: CampaigncompleteoptionsAutoCompleteActionEnum;
 }
 
-export const CampaigncompleteoptionsV1AutoCompleteActionV1 = {
+export const CampaigncompleteoptionsAutoCompleteActionEnum = {
     Approve: 'APPROVE',
     Revoke: 'REVOKE'
 } as const;
 
-export type CampaigncompleteoptionsV1AutoCompleteActionV1 = typeof CampaigncompleteoptionsV1AutoCompleteActionV1[keyof typeof CampaigncompleteoptionsV1AutoCompleteActionV1];
+export type CampaigncompleteoptionsAutoCompleteActionEnum = typeof CampaigncompleteoptionsAutoCompleteActionEnum[keyof typeof CampaigncompleteoptionsAutoCompleteActionEnum];
 
 /**
  * 
  * @export
- * @interface CampaignreferenceV1
+ * @interface Campaignreference
  */
-export interface CampaignreferenceV1 {
+export interface Campaignreference {
     /**
      * The unique ID of the campaign.
      * @type {string}
-     * @memberof CampaignreferenceV1
+     * @memberof Campaignreference
      */
     'id': string;
     /**
      * The name of the campaign.
      * @type {string}
-     * @memberof CampaignreferenceV1
+     * @memberof Campaignreference
      */
     'name': string;
     /**
      * The type of object that is being referenced.
      * @type {string}
-     * @memberof CampaignreferenceV1
+     * @memberof Campaignreference
      */
-    'type': CampaignreferenceV1TypeV1;
+    'type': CampaignreferenceTypeEnum;
     /**
      * The type of the campaign.
      * @type {string}
-     * @memberof CampaignreferenceV1
+     * @memberof Campaignreference
      */
-    'campaignType': CampaignreferenceV1CampaignTypeV1;
+    'campaignType': CampaignreferenceCampaignTypeEnum;
     /**
      * The description of the campaign set by the admin who created it.
      * @type {string}
-     * @memberof CampaignreferenceV1
+     * @memberof Campaignreference
      */
     'description': string | null;
     /**
      * The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
      * @type {string}
-     * @memberof CampaignreferenceV1
+     * @memberof Campaignreference
      */
-    'correlatedStatus': CampaignreferenceV1CorrelatedStatusV1;
+    'correlatedStatus': CampaignreferenceCorrelatedStatusEnum;
     /**
      * Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions.
      * @type {string}
-     * @memberof CampaignreferenceV1
+     * @memberof Campaignreference
      */
-    'mandatoryCommentRequirement': CampaignreferenceV1MandatoryCommentRequirementV1;
+    'mandatoryCommentRequirement': CampaignreferenceMandatoryCommentRequirementEnum;
 }
 
-export const CampaignreferenceV1TypeV1 = {
+export const CampaignreferenceTypeEnum = {
     Campaign: 'CAMPAIGN'
 } as const;
 
-export type CampaignreferenceV1TypeV1 = typeof CampaignreferenceV1TypeV1[keyof typeof CampaignreferenceV1TypeV1];
-export const CampaignreferenceV1CampaignTypeV1 = {
+export type CampaignreferenceTypeEnum = typeof CampaignreferenceTypeEnum[keyof typeof CampaignreferenceTypeEnum];
+export const CampaignreferenceCampaignTypeEnum = {
     Manager: 'MANAGER',
     SourceOwner: 'SOURCE_OWNER',
     Search: 'SEARCH',
@@ -724,71 +724,71 @@ export const CampaignreferenceV1CampaignTypeV1 = {
     MachineAccount: 'MACHINE_ACCOUNT'
 } as const;
 
-export type CampaignreferenceV1CampaignTypeV1 = typeof CampaignreferenceV1CampaignTypeV1[keyof typeof CampaignreferenceV1CampaignTypeV1];
-export const CampaignreferenceV1CorrelatedStatusV1 = {
+export type CampaignreferenceCampaignTypeEnum = typeof CampaignreferenceCampaignTypeEnum[keyof typeof CampaignreferenceCampaignTypeEnum];
+export const CampaignreferenceCorrelatedStatusEnum = {
     Correlated: 'CORRELATED',
     Uncorrelated: 'UNCORRELATED'
 } as const;
 
-export type CampaignreferenceV1CorrelatedStatusV1 = typeof CampaignreferenceV1CorrelatedStatusV1[keyof typeof CampaignreferenceV1CorrelatedStatusV1];
-export const CampaignreferenceV1MandatoryCommentRequirementV1 = {
+export type CampaignreferenceCorrelatedStatusEnum = typeof CampaignreferenceCorrelatedStatusEnum[keyof typeof CampaignreferenceCorrelatedStatusEnum];
+export const CampaignreferenceMandatoryCommentRequirementEnum = {
     AllDecisions: 'ALL_DECISIONS',
     RevokeOnlyDecisions: 'REVOKE_ONLY_DECISIONS',
     NoDecisions: 'NO_DECISIONS'
 } as const;
 
-export type CampaignreferenceV1MandatoryCommentRequirementV1 = typeof CampaignreferenceV1MandatoryCommentRequirementV1[keyof typeof CampaignreferenceV1MandatoryCommentRequirementV1];
+export type CampaignreferenceMandatoryCommentRequirementEnum = typeof CampaignreferenceMandatoryCommentRequirementEnum[keyof typeof CampaignreferenceMandatoryCommentRequirementEnum];
 
 /**
  * 
  * @export
- * @interface CampaignreportV1
+ * @interface Campaignreport
  */
-export interface CampaignreportV1 {
+export interface Campaignreport {
     /**
      * SOD policy violation report result DTO type.
      * @type {string}
-     * @memberof CampaignreportV1
+     * @memberof Campaignreport
      */
-    'type'?: CampaignreportV1TypeV1;
+    'type'?: CampaignreportTypeEnum;
     /**
      * SOD policy violation report result ID.
      * @type {string}
-     * @memberof CampaignreportV1
+     * @memberof Campaignreport
      */
     'id'?: string;
     /**
      * Human-readable name of the SOD policy violation report result.
      * @type {string}
-     * @memberof CampaignreportV1
+     * @memberof Campaignreport
      */
     'name'?: string;
     /**
      * Status of a SOD policy violation report.
      * @type {string}
-     * @memberof CampaignreportV1
+     * @memberof Campaignreport
      */
-    'status'?: CampaignreportV1StatusV1;
+    'status'?: CampaignreportStatusEnum;
     /**
      * 
-     * @type {ReporttypeV1}
-     * @memberof CampaignreportV1
+     * @type {Reporttype}
+     * @memberof Campaignreport
      */
-    'reportType': ReporttypeV1;
+    'reportType': Reporttype;
     /**
      * The most recent date and time this report was run
      * @type {string}
-     * @memberof CampaignreportV1
+     * @memberof Campaignreport
      */
     'lastRunAt'?: string;
 }
 
-export const CampaignreportV1TypeV1 = {
+export const CampaignreportTypeEnum = {
     ReportResult: 'REPORT_RESULT'
 } as const;
 
-export type CampaignreportV1TypeV1 = typeof CampaignreportV1TypeV1[keyof typeof CampaignreportV1TypeV1];
-export const CampaignreportV1StatusV1 = {
+export type CampaignreportTypeEnum = typeof CampaignreportTypeEnum[keyof typeof CampaignreportTypeEnum];
+export const CampaignreportStatusEnum = {
     Success: 'SUCCESS',
     Warning: 'WARNING',
     Error: 'ERROR',
@@ -797,190 +797,190 @@ export const CampaignreportV1StatusV1 = {
     Pending: 'PENDING'
 } as const;
 
-export type CampaignreportV1StatusV1 = typeof CampaignreportV1StatusV1[keyof typeof CampaignreportV1StatusV1];
+export type CampaignreportStatusEnum = typeof CampaignreportStatusEnum[keyof typeof CampaignreportStatusEnum];
 
 /**
  * 
  * @export
- * @interface CampaignreportsconfigV1
+ * @interface Campaignreportsconfig
  */
-export interface CampaignreportsconfigV1 {
+export interface Campaignreportsconfig {
     /**
      * list of identity attribute columns
      * @type {Array<string>}
-     * @memberof CampaignreportsconfigV1
+     * @memberof Campaignreportsconfig
      */
     'identityAttributeColumns'?: Array<string> | null;
 }
 /**
  * 
  * @export
- * @interface CampaignsdeleterequestV1
+ * @interface Campaignsdeleterequest
  */
-export interface CampaignsdeleterequestV1 {
+export interface Campaignsdeleterequest {
     /**
      * The ids of the campaigns to delete
      * @type {Array<string>}
-     * @memberof CampaignsdeleterequestV1
+     * @memberof Campaignsdeleterequest
      */
     'ids'?: Array<string>;
 }
 /**
- * The owner of this template, and the owner of campaigns generated from this template via a schedule. This field is automatically populated at creation time with the current user.
- * @export
- * @interface CampaigntemplateOwnerRefV1
- */
-export interface CampaigntemplateOwnerRefV1 {
-    /**
-     * Id of the owner
-     * @type {string}
-     * @memberof CampaigntemplateOwnerRefV1
-     */
-    'id'?: string;
-    /**
-     * Type of the owner
-     * @type {string}
-     * @memberof CampaigntemplateOwnerRefV1
-     */
-    'type'?: CampaigntemplateOwnerRefV1TypeV1;
-    /**
-     * Name of the owner
-     * @type {string}
-     * @memberof CampaigntemplateOwnerRefV1
-     */
-    'name'?: string;
-    /**
-     * Email of the owner
-     * @type {string}
-     * @memberof CampaigntemplateOwnerRefV1
-     */
-    'email'?: string;
-}
-
-export const CampaigntemplateOwnerRefV1TypeV1 = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type CampaigntemplateOwnerRefV1TypeV1 = typeof CampaigntemplateOwnerRefV1TypeV1[keyof typeof CampaigntemplateOwnerRefV1TypeV1];
-
-/**
  * Campaign Template
  * @export
- * @interface CampaigntemplateV1
+ * @interface Campaigntemplate
  */
-export interface CampaigntemplateV1 {
+export interface Campaigntemplate {
     /**
      * Id of the campaign template
      * @type {string}
-     * @memberof CampaigntemplateV1
+     * @memberof Campaigntemplate
      */
     'id'?: string;
     /**
      * This template\'s name. Has no bearing on generated campaigns\' names.
      * @type {string}
-     * @memberof CampaigntemplateV1
+     * @memberof Campaigntemplate
      */
     'name': string;
     /**
      * This template\'s description. Has no bearing on generated campaigns\' descriptions.
      * @type {string}
-     * @memberof CampaigntemplateV1
+     * @memberof Campaigntemplate
      */
     'description': string;
     /**
      * Creation date of Campaign Template
      * @type {string}
-     * @memberof CampaigntemplateV1
+     * @memberof Campaigntemplate
      */
     'created': string;
     /**
      * Modification date of Campaign Template
      * @type {string}
-     * @memberof CampaigntemplateV1
+     * @memberof Campaigntemplate
      */
     'modified': string | null;
     /**
      * Indicates if this campaign template has been scheduled.
      * @type {boolean}
-     * @memberof CampaigntemplateV1
+     * @memberof Campaigntemplate
      */
     'scheduled'?: boolean;
     /**
      * 
-     * @type {CampaigntemplateOwnerRefV1}
-     * @memberof CampaigntemplateV1
+     * @type {CampaigntemplateOwnerRef}
+     * @memberof Campaigntemplate
      */
-    'ownerRef'?: CampaigntemplateOwnerRefV1;
+    'ownerRef'?: CampaigntemplateOwnerRef;
     /**
      * The time period during which the campaign should be completed, formatted as an ISO-8601 Duration. When this template generates a campaign, the campaign\'s deadline will be the current date plus this duration. For example, if generation occurred on 2020-01-01 and this field was \"P2W\" (two weeks), the resulting campaign\'s deadline would be 2020-01-15 (the current date plus 14 days).
      * @type {string}
-     * @memberof CampaigntemplateV1
+     * @memberof Campaigntemplate
      */
     'deadlineDuration'?: string | null;
     /**
      * 
-     * @type {Campaign2V1}
-     * @memberof CampaigntemplateV1
+     * @type {Campaign2}
+     * @memberof Campaigntemplate
      */
-    'campaign': Campaign2V1;
+    'campaign': Campaign2;
 }
+/**
+ * The owner of this template, and the owner of campaigns generated from this template via a schedule. This field is automatically populated at creation time with the current user.
+ * @export
+ * @interface CampaigntemplateOwnerRef
+ */
+export interface CampaigntemplateOwnerRef {
+    /**
+     * Id of the owner
+     * @type {string}
+     * @memberof CampaigntemplateOwnerRef
+     */
+    'id'?: string;
+    /**
+     * Type of the owner
+     * @type {string}
+     * @memberof CampaigntemplateOwnerRef
+     */
+    'type'?: CampaigntemplateOwnerRefTypeEnum;
+    /**
+     * Name of the owner
+     * @type {string}
+     * @memberof CampaigntemplateOwnerRef
+     */
+    'name'?: string;
+    /**
+     * Email of the owner
+     * @type {string}
+     * @memberof CampaigntemplateOwnerRef
+     */
+    'email'?: string;
+}
+
+export const CampaigntemplateOwnerRefTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type CampaigntemplateOwnerRefTypeEnum = typeof CampaigntemplateOwnerRefTypeEnum[keyof typeof CampaigntemplateOwnerRefTypeEnum];
+
 /**
  * 
  * @export
- * @interface CertificationtaskV1
+ * @interface Certificationtask
  */
-export interface CertificationtaskV1 {
+export interface Certificationtask {
     /**
      * The ID of the certification task.
      * @type {string}
-     * @memberof CertificationtaskV1
+     * @memberof Certificationtask
      */
     'id'?: string;
     /**
      * The type of the certification task. More values may be added in the future.
      * @type {string}
-     * @memberof CertificationtaskV1
+     * @memberof Certificationtask
      */
-    'type'?: CertificationtaskV1TypeV1;
+    'type'?: CertificationtaskTypeEnum;
     /**
      * The type of item that is being operated on by this task whose ID is stored in the targetId field.
      * @type {string}
-     * @memberof CertificationtaskV1
+     * @memberof Certificationtask
      */
-    'targetType'?: CertificationtaskV1TargetTypeV1;
+    'targetType'?: CertificationtaskTargetTypeEnum;
     /**
      * The ID of the item being operated on by this task.
      * @type {string}
-     * @memberof CertificationtaskV1
+     * @memberof Certificationtask
      */
     'targetId'?: string;
     /**
      * The status of the task.
      * @type {string}
-     * @memberof CertificationtaskV1
+     * @memberof Certificationtask
      */
-    'status'?: CertificationtaskV1StatusV1;
+    'status'?: CertificationtaskStatusEnum;
     /**
      * List of error messages
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof CertificationtaskV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Certificationtask
      */
-    'errors'?: Array<ErrormessagedtoV1>;
+    'errors'?: Array<Errormessagedto>;
     /**
      * Reassignment trails that lead to self certification identity
-     * @type {Array<ReassignmenttraildtoV1>}
-     * @memberof CertificationtaskV1
+     * @type {Array<Reassignmenttraildto>}
+     * @memberof Certificationtask
      */
-    'reassignmentTrailDTOs'?: Array<ReassignmenttraildtoV1>;
+    'reassignmentTrailDTOs'?: Array<Reassignmenttraildto>;
     /**
      * The date and time on which this task was created.
      * @type {string}
-     * @memberof CertificationtaskV1
+     * @memberof Certificationtask
      */
     'created'?: string;
 }
 
-export const CertificationtaskV1TypeV1 = {
+export const CertificationtaskTypeEnum = {
     Reassign: 'REASSIGN',
     AdminReassign: 'ADMIN_REASSIGN',
     CompleteCertification: 'COMPLETE_CERTIFICATION',
@@ -991,44 +991,44 @@ export const CertificationtaskV1TypeV1 = {
     CampaignDelete: 'CAMPAIGN_DELETE'
 } as const;
 
-export type CertificationtaskV1TypeV1 = typeof CertificationtaskV1TypeV1[keyof typeof CertificationtaskV1TypeV1];
-export const CertificationtaskV1TargetTypeV1 = {
+export type CertificationtaskTypeEnum = typeof CertificationtaskTypeEnum[keyof typeof CertificationtaskTypeEnum];
+export const CertificationtaskTargetTypeEnum = {
     Certification: 'CERTIFICATION',
     Campaign: 'CAMPAIGN'
 } as const;
 
-export type CertificationtaskV1TargetTypeV1 = typeof CertificationtaskV1TargetTypeV1[keyof typeof CertificationtaskV1TargetTypeV1];
-export const CertificationtaskV1StatusV1 = {
+export type CertificationtaskTargetTypeEnum = typeof CertificationtaskTargetTypeEnum[keyof typeof CertificationtaskTargetTypeEnum];
+export const CertificationtaskStatusEnum = {
     Queued: 'QUEUED',
     InProgress: 'IN_PROGRESS',
     Success: 'SUCCESS',
     Error: 'ERROR'
 } as const;
 
-export type CertificationtaskV1StatusV1 = typeof CertificationtaskV1StatusV1[keyof typeof CertificationtaskV1StatusV1];
+export type CertificationtaskStatusEnum = typeof CertificationtaskStatusEnum[keyof typeof CertificationtaskStatusEnum];
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -1037,181 +1037,181 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetActiveCampaignsV1200ResponseInnerV1
+ * @interface GetActiveCampaignsV1200ResponseInner
  */
-export interface GetActiveCampaignsV1200ResponseInnerV1 {
+export interface GetActiveCampaignsV1200ResponseInner {
     /**
      * Id of the campaign
      * @type {string}
-     * @memberof GetActiveCampaignsV1200ResponseInnerV1
+     * @memberof GetActiveCampaignsV1200ResponseInner
      */
     'id'?: string | null;
     /**
      * The campaign name. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details. 
      * @type {string}
-     * @memberof GetActiveCampaignsV1200ResponseInnerV1
+     * @memberof GetActiveCampaignsV1200ResponseInner
      */
     'name': string;
     /**
      * The campaign description. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details. 
      * @type {string}
-     * @memberof GetActiveCampaignsV1200ResponseInnerV1
+     * @memberof GetActiveCampaignsV1200ResponseInner
      */
     'description': string | null;
     /**
      * The campaign\'s completion deadline.  This date must be in the future in order to activate the campaign.  If you try to activate a campaign with a deadline of today or in the past, you will receive a 400 error response.
      * @type {string}
-     * @memberof GetActiveCampaignsV1200ResponseInnerV1
+     * @memberof GetActiveCampaignsV1200ResponseInner
      */
     'deadline'?: string | null;
     /**
      * The type of campaign. Could be extended in the future.
      * @type {string}
-     * @memberof GetActiveCampaignsV1200ResponseInnerV1
+     * @memberof GetActiveCampaignsV1200ResponseInner
      */
-    'type': GetActiveCampaignsV1200ResponseInnerV1TypeV1;
+    'type': GetActiveCampaignsV1200ResponseInnerTypeEnum;
     /**
      * Enables email notification for this campaign
      * @type {boolean}
-     * @memberof GetActiveCampaignsV1200ResponseInnerV1
+     * @memberof GetActiveCampaignsV1200ResponseInner
      */
     'emailNotificationEnabled'?: boolean;
     /**
      * Allows auto revoke for this campaign
      * @type {boolean}
-     * @memberof GetActiveCampaignsV1200ResponseInnerV1
+     * @memberof GetActiveCampaignsV1200ResponseInner
      */
     'autoRevokeAllowed'?: boolean;
     /**
      * Enables IAI for this campaign. Accepts true even if the IAI product feature is off. If IAI is turned off then campaigns generated from this template will indicate false. The real value will then be returned if IAI is ever enabled for the org in the future.
      * @type {boolean}
-     * @memberof GetActiveCampaignsV1200ResponseInnerV1
+     * @memberof GetActiveCampaignsV1200ResponseInner
      */
     'recommendationsEnabled'?: boolean;
     /**
      * The campaign\'s current status.
      * @type {string}
-     * @memberof GetActiveCampaignsV1200ResponseInnerV1
+     * @memberof GetActiveCampaignsV1200ResponseInner
      */
-    'status'?: GetActiveCampaignsV1200ResponseInnerV1StatusV1 | null;
+    'status'?: GetActiveCampaignsV1200ResponseInnerStatusEnum | null;
     /**
      * The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
      * @type {string}
-     * @memberof GetActiveCampaignsV1200ResponseInnerV1
+     * @memberof GetActiveCampaignsV1200ResponseInner
      */
-    'correlatedStatus'?: GetActiveCampaignsV1200ResponseInnerV1CorrelatedStatusV1;
+    'correlatedStatus'?: GetActiveCampaignsV1200ResponseInnerCorrelatedStatusEnum;
     /**
      * Created time of the campaign
      * @type {string}
-     * @memberof GetActiveCampaignsV1200ResponseInnerV1
+     * @memberof GetActiveCampaignsV1200ResponseInner
      */
     'created'?: string | null;
     /**
      * The total number of certifications in this campaign.
      * @type {number}
-     * @memberof GetActiveCampaignsV1200ResponseInnerV1
+     * @memberof GetActiveCampaignsV1200ResponseInner
      */
     'totalCertifications'?: number | null;
     /**
      * The number of completed certifications in this campaign.
      * @type {number}
-     * @memberof GetActiveCampaignsV1200ResponseInnerV1
+     * @memberof GetActiveCampaignsV1200ResponseInner
      */
     'completedCertifications'?: number | null;
     /**
      * A list of errors and warnings that have accumulated.
-     * @type {Array<CampaignalertV1>}
-     * @memberof GetActiveCampaignsV1200ResponseInnerV1
+     * @type {Array<Campaignalert>}
+     * @memberof GetActiveCampaignsV1200ResponseInner
      */
-    'alerts'?: Array<CampaignalertV1> | null;
+    'alerts'?: Array<Campaignalert> | null;
     /**
      * Modified time of the campaign
      * @type {string}
-     * @memberof GetActiveCampaignsV1200ResponseInnerV1
+     * @memberof GetActiveCampaignsV1200ResponseInner
      */
     'modified'?: string | null;
     /**
      * 
-     * @type {Campaign2AllOfFilterV1}
-     * @memberof GetActiveCampaignsV1200ResponseInnerV1
+     * @type {Campaign2AllOfFilter}
+     * @memberof GetActiveCampaignsV1200ResponseInner
      */
-    'filter'?: Campaign2AllOfFilterV1 | null;
+    'filter'?: Campaign2AllOfFilter | null;
     /**
      * Determines if comments on sunset date changes are required.
      * @type {boolean}
-     * @memberof GetActiveCampaignsV1200ResponseInnerV1
+     * @memberof GetActiveCampaignsV1200ResponseInner
      */
     'sunsetCommentsRequired'?: boolean;
     /**
      * 
-     * @type {Campaign2AllOfSourceOwnerCampaignInfoV1}
-     * @memberof GetActiveCampaignsV1200ResponseInnerV1
+     * @type {Campaign2AllOfSourceOwnerCampaignInfo}
+     * @memberof GetActiveCampaignsV1200ResponseInner
      */
-    'sourceOwnerCampaignInfo'?: Campaign2AllOfSourceOwnerCampaignInfoV1 | null;
+    'sourceOwnerCampaignInfo'?: Campaign2AllOfSourceOwnerCampaignInfo | null;
     /**
      * 
-     * @type {Campaign2AllOfSearchCampaignInfoV1}
-     * @memberof GetActiveCampaignsV1200ResponseInnerV1
+     * @type {Campaign2AllOfSearchCampaignInfo}
+     * @memberof GetActiveCampaignsV1200ResponseInner
      */
-    'searchCampaignInfo'?: Campaign2AllOfSearchCampaignInfoV1 | null;
+    'searchCampaignInfo'?: Campaign2AllOfSearchCampaignInfo | null;
     /**
      * 
-     * @type {Campaign2AllOfRoleCompositionCampaignInfoV1}
-     * @memberof GetActiveCampaignsV1200ResponseInnerV1
+     * @type {Campaign2AllOfRoleCompositionCampaignInfo}
+     * @memberof GetActiveCampaignsV1200ResponseInner
      */
-    'roleCompositionCampaignInfo'?: Campaign2AllOfRoleCompositionCampaignInfoV1 | null;
+    'roleCompositionCampaignInfo'?: Campaign2AllOfRoleCompositionCampaignInfo | null;
     /**
      * 
-     * @type {Campaign2AllOfMachineAccountCampaignInfoV1}
-     * @memberof GetActiveCampaignsV1200ResponseInnerV1
+     * @type {Campaign2AllOfMachineAccountCampaignInfo}
+     * @memberof GetActiveCampaignsV1200ResponseInner
      */
-    'machineAccountCampaignInfo'?: Campaign2AllOfMachineAccountCampaignInfoV1 | null;
+    'machineAccountCampaignInfo'?: Campaign2AllOfMachineAccountCampaignInfo | null;
     /**
      * A list of sources in the campaign that contain \\\"orphan entitlements\\\" (entitlements without a corresponding Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may be unknown orphan entitlements in the campaign (the campaign was created before this feature was implemented).
-     * @type {Array<Campaign2AllOfSourcesWithOrphanEntitlementsV1>}
-     * @memberof GetActiveCampaignsV1200ResponseInnerV1
+     * @type {Array<Campaign2AllOfSourcesWithOrphanEntitlements>}
+     * @memberof GetActiveCampaignsV1200ResponseInner
      */
-    'sourcesWithOrphanEntitlements'?: Array<Campaign2AllOfSourcesWithOrphanEntitlementsV1> | null;
+    'sourcesWithOrphanEntitlements'?: Array<Campaign2AllOfSourcesWithOrphanEntitlements> | null;
     /**
      * Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions.
      * @type {string}
-     * @memberof GetActiveCampaignsV1200ResponseInnerV1
+     * @memberof GetActiveCampaignsV1200ResponseInner
      */
-    'mandatoryCommentRequirement'?: GetActiveCampaignsV1200ResponseInnerV1MandatoryCommentRequirementV1;
+    'mandatoryCommentRequirement'?: GetActiveCampaignsV1200ResponseInnerMandatoryCommentRequirementEnum;
 }
 
-export const GetActiveCampaignsV1200ResponseInnerV1TypeV1 = {
+export const GetActiveCampaignsV1200ResponseInnerTypeEnum = {
     Manager: 'MANAGER',
     SourceOwner: 'SOURCE_OWNER',
     Search: 'SEARCH',
@@ -1219,8 +1219,8 @@ export const GetActiveCampaignsV1200ResponseInnerV1TypeV1 = {
     MachineAccount: 'MACHINE_ACCOUNT'
 } as const;
 
-export type GetActiveCampaignsV1200ResponseInnerV1TypeV1 = typeof GetActiveCampaignsV1200ResponseInnerV1TypeV1[keyof typeof GetActiveCampaignsV1200ResponseInnerV1TypeV1];
-export const GetActiveCampaignsV1200ResponseInnerV1StatusV1 = {
+export type GetActiveCampaignsV1200ResponseInnerTypeEnum = typeof GetActiveCampaignsV1200ResponseInnerTypeEnum[keyof typeof GetActiveCampaignsV1200ResponseInnerTypeEnum];
+export const GetActiveCampaignsV1200ResponseInnerStatusEnum = {
     Pending: 'PENDING',
     Staged: 'STAGED',
     Canceling: 'CANCELING',
@@ -1232,194 +1232,194 @@ export const GetActiveCampaignsV1200ResponseInnerV1StatusV1 = {
     Archived: 'ARCHIVED'
 } as const;
 
-export type GetActiveCampaignsV1200ResponseInnerV1StatusV1 = typeof GetActiveCampaignsV1200ResponseInnerV1StatusV1[keyof typeof GetActiveCampaignsV1200ResponseInnerV1StatusV1];
-export const GetActiveCampaignsV1200ResponseInnerV1CorrelatedStatusV1 = {
+export type GetActiveCampaignsV1200ResponseInnerStatusEnum = typeof GetActiveCampaignsV1200ResponseInnerStatusEnum[keyof typeof GetActiveCampaignsV1200ResponseInnerStatusEnum];
+export const GetActiveCampaignsV1200ResponseInnerCorrelatedStatusEnum = {
     Correlated: 'CORRELATED',
     Uncorrelated: 'UNCORRELATED'
 } as const;
 
-export type GetActiveCampaignsV1200ResponseInnerV1CorrelatedStatusV1 = typeof GetActiveCampaignsV1200ResponseInnerV1CorrelatedStatusV1[keyof typeof GetActiveCampaignsV1200ResponseInnerV1CorrelatedStatusV1];
-export const GetActiveCampaignsV1200ResponseInnerV1MandatoryCommentRequirementV1 = {
+export type GetActiveCampaignsV1200ResponseInnerCorrelatedStatusEnum = typeof GetActiveCampaignsV1200ResponseInnerCorrelatedStatusEnum[keyof typeof GetActiveCampaignsV1200ResponseInnerCorrelatedStatusEnum];
+export const GetActiveCampaignsV1200ResponseInnerMandatoryCommentRequirementEnum = {
     AllDecisions: 'ALL_DECISIONS',
     RevokeOnlyDecisions: 'REVOKE_ONLY_DECISIONS',
     NoDecisions: 'NO_DECISIONS'
 } as const;
 
-export type GetActiveCampaignsV1200ResponseInnerV1MandatoryCommentRequirementV1 = typeof GetActiveCampaignsV1200ResponseInnerV1MandatoryCommentRequirementV1[keyof typeof GetActiveCampaignsV1200ResponseInnerV1MandatoryCommentRequirementV1];
+export type GetActiveCampaignsV1200ResponseInnerMandatoryCommentRequirementEnum = typeof GetActiveCampaignsV1200ResponseInnerMandatoryCommentRequirementEnum[keyof typeof GetActiveCampaignsV1200ResponseInnerMandatoryCommentRequirementEnum];
 
 /**
  * 
  * @export
- * @interface GetActiveCampaignsV1401ResponseV1
+ * @interface GetActiveCampaignsV1401Response
  */
-export interface GetActiveCampaignsV1401ResponseV1 {
+export interface GetActiveCampaignsV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetActiveCampaignsV1401ResponseV1
+     * @memberof GetActiveCampaignsV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetActiveCampaignsV1429ResponseV1
+ * @interface GetActiveCampaignsV1429Response
  */
-export interface GetActiveCampaignsV1429ResponseV1 {
+export interface GetActiveCampaignsV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetActiveCampaignsV1429ResponseV1
+     * @memberof GetActiveCampaignsV1429Response
      */
     'message'?: any;
 }
 /**
  * 
  * @export
- * @interface GetCampaignV1200ResponseV1
+ * @interface GetCampaignV1200Response
  */
-export interface GetCampaignV1200ResponseV1 {
+export interface GetCampaignV1200Response {
     /**
      * Id of the campaign
      * @type {string}
-     * @memberof GetCampaignV1200ResponseV1
+     * @memberof GetCampaignV1200Response
      */
     'id'?: string | null;
     /**
      * The campaign name. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details. 
      * @type {string}
-     * @memberof GetCampaignV1200ResponseV1
+     * @memberof GetCampaignV1200Response
      */
     'name': string;
     /**
      * The campaign description. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details. 
      * @type {string}
-     * @memberof GetCampaignV1200ResponseV1
+     * @memberof GetCampaignV1200Response
      */
     'description': string | null;
     /**
      * The campaign\'s completion deadline.  This date must be in the future in order to activate the campaign.  If you try to activate a campaign with a deadline of today or in the past, you will receive a 400 error response.
      * @type {string}
-     * @memberof GetCampaignV1200ResponseV1
+     * @memberof GetCampaignV1200Response
      */
     'deadline'?: string | null;
     /**
      * The type of campaign. Could be extended in the future.
      * @type {string}
-     * @memberof GetCampaignV1200ResponseV1
+     * @memberof GetCampaignV1200Response
      */
-    'type': GetCampaignV1200ResponseV1TypeV1;
+    'type': GetCampaignV1200ResponseTypeEnum;
     /**
      * Enables email notification for this campaign
      * @type {boolean}
-     * @memberof GetCampaignV1200ResponseV1
+     * @memberof GetCampaignV1200Response
      */
     'emailNotificationEnabled'?: boolean;
     /**
      * Allows auto revoke for this campaign
      * @type {boolean}
-     * @memberof GetCampaignV1200ResponseV1
+     * @memberof GetCampaignV1200Response
      */
     'autoRevokeAllowed'?: boolean;
     /**
      * Enables IAI for this campaign. Accepts true even if the IAI product feature is off. If IAI is turned off then campaigns generated from this template will indicate false. The real value will then be returned if IAI is ever enabled for the org in the future.
      * @type {boolean}
-     * @memberof GetCampaignV1200ResponseV1
+     * @memberof GetCampaignV1200Response
      */
     'recommendationsEnabled'?: boolean;
     /**
      * The campaign\'s current status.
      * @type {string}
-     * @memberof GetCampaignV1200ResponseV1
+     * @memberof GetCampaignV1200Response
      */
-    'status'?: GetCampaignV1200ResponseV1StatusV1 | null;
+    'status'?: GetCampaignV1200ResponseStatusEnum | null;
     /**
      * The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
      * @type {string}
-     * @memberof GetCampaignV1200ResponseV1
+     * @memberof GetCampaignV1200Response
      */
-    'correlatedStatus'?: GetCampaignV1200ResponseV1CorrelatedStatusV1;
+    'correlatedStatus'?: GetCampaignV1200ResponseCorrelatedStatusEnum;
     /**
      * Created time of the campaign
      * @type {string}
-     * @memberof GetCampaignV1200ResponseV1
+     * @memberof GetCampaignV1200Response
      */
     'created'?: string | null;
     /**
      * The total number of certifications in this campaign.
      * @type {number}
-     * @memberof GetCampaignV1200ResponseV1
+     * @memberof GetCampaignV1200Response
      */
     'totalCertifications'?: number | null;
     /**
      * The number of completed certifications in this campaign.
      * @type {number}
-     * @memberof GetCampaignV1200ResponseV1
+     * @memberof GetCampaignV1200Response
      */
     'completedCertifications'?: number | null;
     /**
      * A list of errors and warnings that have accumulated.
-     * @type {Array<CampaignalertV1>}
-     * @memberof GetCampaignV1200ResponseV1
+     * @type {Array<Campaignalert>}
+     * @memberof GetCampaignV1200Response
      */
-    'alerts'?: Array<CampaignalertV1> | null;
+    'alerts'?: Array<Campaignalert> | null;
     /**
      * Modified time of the campaign
      * @type {string}
-     * @memberof GetCampaignV1200ResponseV1
+     * @memberof GetCampaignV1200Response
      */
     'modified'?: string | null;
     /**
      * 
-     * @type {Campaign2AllOfFilterV1}
-     * @memberof GetCampaignV1200ResponseV1
+     * @type {Campaign2AllOfFilter}
+     * @memberof GetCampaignV1200Response
      */
-    'filter'?: Campaign2AllOfFilterV1 | null;
+    'filter'?: Campaign2AllOfFilter | null;
     /**
      * Determines if comments on sunset date changes are required.
      * @type {boolean}
-     * @memberof GetCampaignV1200ResponseV1
+     * @memberof GetCampaignV1200Response
      */
     'sunsetCommentsRequired'?: boolean;
     /**
      * 
-     * @type {Campaign2AllOfSourceOwnerCampaignInfoV1}
-     * @memberof GetCampaignV1200ResponseV1
+     * @type {Campaign2AllOfSourceOwnerCampaignInfo}
+     * @memberof GetCampaignV1200Response
      */
-    'sourceOwnerCampaignInfo'?: Campaign2AllOfSourceOwnerCampaignInfoV1 | null;
+    'sourceOwnerCampaignInfo'?: Campaign2AllOfSourceOwnerCampaignInfo | null;
     /**
      * 
-     * @type {Campaign2AllOfSearchCampaignInfoV1}
-     * @memberof GetCampaignV1200ResponseV1
+     * @type {Campaign2AllOfSearchCampaignInfo}
+     * @memberof GetCampaignV1200Response
      */
-    'searchCampaignInfo'?: Campaign2AllOfSearchCampaignInfoV1 | null;
+    'searchCampaignInfo'?: Campaign2AllOfSearchCampaignInfo | null;
     /**
      * 
-     * @type {Campaign2AllOfRoleCompositionCampaignInfoV1}
-     * @memberof GetCampaignV1200ResponseV1
+     * @type {Campaign2AllOfRoleCompositionCampaignInfo}
+     * @memberof GetCampaignV1200Response
      */
-    'roleCompositionCampaignInfo'?: Campaign2AllOfRoleCompositionCampaignInfoV1 | null;
+    'roleCompositionCampaignInfo'?: Campaign2AllOfRoleCompositionCampaignInfo | null;
     /**
      * 
-     * @type {Campaign2AllOfMachineAccountCampaignInfoV1}
-     * @memberof GetCampaignV1200ResponseV1
+     * @type {Campaign2AllOfMachineAccountCampaignInfo}
+     * @memberof GetCampaignV1200Response
      */
-    'machineAccountCampaignInfo'?: Campaign2AllOfMachineAccountCampaignInfoV1 | null;
+    'machineAccountCampaignInfo'?: Campaign2AllOfMachineAccountCampaignInfo | null;
     /**
      * A list of sources in the campaign that contain \\\"orphan entitlements\\\" (entitlements without a corresponding Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may be unknown orphan entitlements in the campaign (the campaign was created before this feature was implemented).
-     * @type {Array<Campaign2AllOfSourcesWithOrphanEntitlementsV1>}
-     * @memberof GetCampaignV1200ResponseV1
+     * @type {Array<Campaign2AllOfSourcesWithOrphanEntitlements>}
+     * @memberof GetCampaignV1200Response
      */
-    'sourcesWithOrphanEntitlements'?: Array<Campaign2AllOfSourcesWithOrphanEntitlementsV1> | null;
+    'sourcesWithOrphanEntitlements'?: Array<Campaign2AllOfSourcesWithOrphanEntitlements> | null;
     /**
      * Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions.
      * @type {string}
-     * @memberof GetCampaignV1200ResponseV1
+     * @memberof GetCampaignV1200Response
      */
-    'mandatoryCommentRequirement'?: GetCampaignV1200ResponseV1MandatoryCommentRequirementV1;
+    'mandatoryCommentRequirement'?: GetCampaignV1200ResponseMandatoryCommentRequirementEnum;
 }
 
-export const GetCampaignV1200ResponseV1TypeV1 = {
+export const GetCampaignV1200ResponseTypeEnum = {
     Manager: 'MANAGER',
     SourceOwner: 'SOURCE_OWNER',
     Search: 'SEARCH',
@@ -1427,8 +1427,8 @@ export const GetCampaignV1200ResponseV1TypeV1 = {
     MachineAccount: 'MACHINE_ACCOUNT'
 } as const;
 
-export type GetCampaignV1200ResponseV1TypeV1 = typeof GetCampaignV1200ResponseV1TypeV1[keyof typeof GetCampaignV1200ResponseV1TypeV1];
-export const GetCampaignV1200ResponseV1StatusV1 = {
+export type GetCampaignV1200ResponseTypeEnum = typeof GetCampaignV1200ResponseTypeEnum[keyof typeof GetCampaignV1200ResponseTypeEnum];
+export const GetCampaignV1200ResponseStatusEnum = {
     Pending: 'PENDING',
     Staged: 'STAGED',
     Canceling: 'CANCELING',
@@ -1440,48 +1440,48 @@ export const GetCampaignV1200ResponseV1StatusV1 = {
     Archived: 'ARCHIVED'
 } as const;
 
-export type GetCampaignV1200ResponseV1StatusV1 = typeof GetCampaignV1200ResponseV1StatusV1[keyof typeof GetCampaignV1200ResponseV1StatusV1];
-export const GetCampaignV1200ResponseV1CorrelatedStatusV1 = {
+export type GetCampaignV1200ResponseStatusEnum = typeof GetCampaignV1200ResponseStatusEnum[keyof typeof GetCampaignV1200ResponseStatusEnum];
+export const GetCampaignV1200ResponseCorrelatedStatusEnum = {
     Correlated: 'CORRELATED',
     Uncorrelated: 'UNCORRELATED'
 } as const;
 
-export type GetCampaignV1200ResponseV1CorrelatedStatusV1 = typeof GetCampaignV1200ResponseV1CorrelatedStatusV1[keyof typeof GetCampaignV1200ResponseV1CorrelatedStatusV1];
-export const GetCampaignV1200ResponseV1MandatoryCommentRequirementV1 = {
+export type GetCampaignV1200ResponseCorrelatedStatusEnum = typeof GetCampaignV1200ResponseCorrelatedStatusEnum[keyof typeof GetCampaignV1200ResponseCorrelatedStatusEnum];
+export const GetCampaignV1200ResponseMandatoryCommentRequirementEnum = {
     AllDecisions: 'ALL_DECISIONS',
     RevokeOnlyDecisions: 'REVOKE_ONLY_DECISIONS',
     NoDecisions: 'NO_DECISIONS'
 } as const;
 
-export type GetCampaignV1200ResponseV1MandatoryCommentRequirementV1 = typeof GetCampaignV1200ResponseV1MandatoryCommentRequirementV1[keyof typeof GetCampaignV1200ResponseV1MandatoryCommentRequirementV1];
+export type GetCampaignV1200ResponseMandatoryCommentRequirementEnum = typeof GetCampaignV1200ResponseMandatoryCommentRequirementEnum[keyof typeof GetCampaignV1200ResponseMandatoryCommentRequirementEnum];
 
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface JsonpatchoperationV1
+ * @interface Jsonpatchoperation
  */
-export interface JsonpatchoperationV1 {
+export interface Jsonpatchoperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
-    'op': JsonpatchoperationV1OpV1;
+    'op': JsonpatchoperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValueV1}
-     * @memberof JsonpatchoperationV1
+     * @type {JsonpatchoperationValue}
+     * @memberof Jsonpatchoperation
      */
-    'value'?: JsonpatchoperationValueV1;
+    'value'?: JsonpatchoperationValue;
 }
 
-export const JsonpatchoperationV1OpV1 = {
+export const JsonpatchoperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -1490,14 +1490,14 @@ export const JsonpatchoperationV1OpV1 = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationV1OpV1 = typeof JsonpatchoperationV1OpV1[keyof typeof JsonpatchoperationV1OpV1];
+export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
 
 /**
- * @type JsonpatchoperationValueV1
+ * @type JsonpatchoperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number | object | string;
+export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -1505,77 +1505,77 @@ export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number |
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface ReassignmenttraildtoV1
+ * @interface Reassignmenttraildto
  */
-export interface ReassignmenttraildtoV1 {
+export interface Reassignmenttraildto {
     /**
      * The ID of previous owner identity.
      * @type {string}
-     * @memberof ReassignmenttraildtoV1
+     * @memberof Reassignmenttraildto
      */
     'previousOwner'?: string;
     /**
      * The ID of new owner identity.
      * @type {string}
-     * @memberof ReassignmenttraildtoV1
+     * @memberof Reassignmenttraildto
      */
     'newOwner'?: string;
     /**
      * The type of reassignment.
      * @type {string}
-     * @memberof ReassignmenttraildtoV1
+     * @memberof Reassignmenttraildto
      */
     'reassignmentType'?: string;
 }
 /**
  * 
  * @export
- * @interface ReportresultreferenceV1
+ * @interface Reportresultreference
  */
-export interface ReportresultreferenceV1 {
+export interface Reportresultreference {
     /**
      * SOD policy violation report result DTO type.
      * @type {string}
-     * @memberof ReportresultreferenceV1
+     * @memberof Reportresultreference
      */
-    'type'?: ReportresultreferenceV1TypeV1;
+    'type'?: ReportresultreferenceTypeEnum;
     /**
      * SOD policy violation report result ID.
      * @type {string}
-     * @memberof ReportresultreferenceV1
+     * @memberof Reportresultreference
      */
     'id'?: string;
     /**
      * Human-readable name of the SOD policy violation report result.
      * @type {string}
-     * @memberof ReportresultreferenceV1
+     * @memberof Reportresultreference
      */
     'name'?: string;
     /**
      * Status of a SOD policy violation report.
      * @type {string}
-     * @memberof ReportresultreferenceV1
+     * @memberof Reportresultreference
      */
-    'status'?: ReportresultreferenceV1StatusV1;
+    'status'?: ReportresultreferenceStatusEnum;
 }
 
-export const ReportresultreferenceV1TypeV1 = {
+export const ReportresultreferenceTypeEnum = {
     ReportResult: 'REPORT_RESULT'
 } as const;
 
-export type ReportresultreferenceV1TypeV1 = typeof ReportresultreferenceV1TypeV1[keyof typeof ReportresultreferenceV1TypeV1];
-export const ReportresultreferenceV1StatusV1 = {
+export type ReportresultreferenceTypeEnum = typeof ReportresultreferenceTypeEnum[keyof typeof ReportresultreferenceTypeEnum];
+export const ReportresultreferenceStatusEnum = {
     Success: 'SUCCESS',
     Warning: 'WARNING',
     Error: 'ERROR',
@@ -1584,7 +1584,7 @@ export const ReportresultreferenceV1StatusV1 = {
     Pending: 'PENDING'
 } as const;
 
-export type ReportresultreferenceV1StatusV1 = typeof ReportresultreferenceV1StatusV1[keyof typeof ReportresultreferenceV1StatusV1];
+export type ReportresultreferenceStatusEnum = typeof ReportresultreferenceStatusEnum[keyof typeof ReportresultreferenceStatusEnum];
 
 /**
  * type of a Report
@@ -1592,261 +1592,261 @@ export type ReportresultreferenceV1StatusV1 = typeof ReportresultreferenceV1Stat
  * @enum {string}
  */
 
-export const ReporttypeV1 = {
+export const Reporttype = {
     CampaignCompositionReport: 'CAMPAIGN_COMPOSITION_REPORT',
     CampaignRemediationStatusReport: 'CAMPAIGN_REMEDIATION_STATUS_REPORT',
     CampaignStatusReport: 'CAMPAIGN_STATUS_REPORT',
     CertificationSignoffReport: 'CERTIFICATION_SIGNOFF_REPORT'
 } as const;
 
-export type ReporttypeV1 = typeof ReporttypeV1[keyof typeof ReporttypeV1];
+export type Reporttype = typeof Reporttype[keyof typeof Reporttype];
 
-
-/**
- * Specifies which day(s) a schedule is active for. This is required for all schedule types. The \"values\" field holds different data depending on the type of schedule: * WEEKLY: days of the week (1-7) * MONTHLY: days of the month (1-31, L, L-1...) * ANNUALLY: if the \"months\" field is also set: days of the month (1-31, L, L-1...); otherwise: ISO-8601 dates without year (\"--12-31\") * CALENDAR: ISO-8601 dates (\"2020-12-31\")  Note that CALENDAR only supports the LIST type, and ANNUALLY does not support the RANGE type when provided with ISO-8601 dates without year.  Examples:  On Sundays: * type LIST * values \"1\"  The second to last day of the month: * type LIST * values \"L-1\"  From the 20th to the last day of the month: * type RANGE * values \"20\", \"L\"  Every March 2nd: * type LIST * values \"--03-02\"  On March 2nd, 2021: * type: LIST * values \"2021-03-02\" 
- * @export
- * @interface Schedule2DaysV1
- */
-export interface Schedule2DaysV1 {
-    /**
-     * Enum type to specify days value
-     * @type {string}
-     * @memberof Schedule2DaysV1
-     */
-    'type': Schedule2DaysV1TypeV1;
-    /**
-     * Values of the days based on the enum type mentioned above
-     * @type {Array<string>}
-     * @memberof Schedule2DaysV1
-     */
-    'values': Array<string>;
-    /**
-     * Interval between the cert generations
-     * @type {number}
-     * @memberof Schedule2DaysV1
-     */
-    'interval'?: number | null;
-}
-
-export const Schedule2DaysV1TypeV1 = {
-    List: 'LIST',
-    Range: 'RANGE'
-} as const;
-
-export type Schedule2DaysV1TypeV1 = typeof Schedule2DaysV1TypeV1[keyof typeof Schedule2DaysV1TypeV1];
-
-/**
- * Specifies which hour(s) a schedule is active for. Examples:  Every three hours starting from 8AM, inclusive: * type LIST * values \"8\" * interval 3  During business hours: * type RANGE * values \"9\", \"5\"  At 5AM, noon, and 5PM: * type LIST * values \"5\", \"12\", \"17\" 
- * @export
- * @interface Schedule2HoursV1
- */
-export interface Schedule2HoursV1 {
-    /**
-     * Enum type to specify hours value
-     * @type {string}
-     * @memberof Schedule2HoursV1
-     */
-    'type': Schedule2HoursV1TypeV1;
-    /**
-     * Values of the days based on the enum type mentioned above
-     * @type {Array<string>}
-     * @memberof Schedule2HoursV1
-     */
-    'values': Array<string>;
-    /**
-     * Interval between the cert generations
-     * @type {number}
-     * @memberof Schedule2HoursV1
-     */
-    'interval'?: number | null;
-}
-
-export const Schedule2HoursV1TypeV1 = {
-    List: 'LIST',
-    Range: 'RANGE'
-} as const;
-
-export type Schedule2HoursV1TypeV1 = typeof Schedule2HoursV1TypeV1[keyof typeof Schedule2HoursV1TypeV1];
-
-/**
- * Specifies which months of a schedule are active. Only valid for ANNUALLY schedule types. Examples:  On February and March: * type LIST * values \"2\", \"3\"  Every 3 months, starting in January (quarterly): * type LIST * values \"1\" * interval 3  Every two months between July and December: * type RANGE * values \"7\", \"12\" * interval 2 
- * @export
- * @interface Schedule2MonthsV1
- */
-export interface Schedule2MonthsV1 {
-    /**
-     * Enum type to specify months value
-     * @type {string}
-     * @memberof Schedule2MonthsV1
-     */
-    'type': Schedule2MonthsV1TypeV1;
-    /**
-     * Values of the months based on the enum type mentioned above
-     * @type {Array<string>}
-     * @memberof Schedule2MonthsV1
-     */
-    'values': Array<string>;
-    /**
-     * Interval between the cert generations
-     * @type {number}
-     * @memberof Schedule2MonthsV1
-     */
-    'interval'?: number;
-}
-
-export const Schedule2MonthsV1TypeV1 = {
-    List: 'LIST',
-    Range: 'RANGE'
-} as const;
-
-export type Schedule2MonthsV1TypeV1 = typeof Schedule2MonthsV1TypeV1[keyof typeof Schedule2MonthsV1TypeV1];
 
 /**
  * 
  * @export
- * @interface Schedule2V1
+ * @interface Schedule2
  */
-export interface Schedule2V1 {
+export interface Schedule2 {
     /**
      * Determines the overall schedule cadence. In general, all time period fields smaller than the chosen type can be configured. For example, a DAILY schedule can have \'hours\' set, but not \'days\'; a WEEKLY schedule can have both \'hours\' and \'days\' set.
      * @type {string}
-     * @memberof Schedule2V1
+     * @memberof Schedule2
      */
-    'type': Schedule2V1TypeV1;
+    'type': Schedule2TypeEnum;
     /**
      * 
-     * @type {Schedule2MonthsV1}
-     * @memberof Schedule2V1
+     * @type {Schedule2Months}
+     * @memberof Schedule2
      */
-    'months'?: Schedule2MonthsV1 | null;
+    'months'?: Schedule2Months | null;
     /**
      * 
-     * @type {Schedule2DaysV1}
-     * @memberof Schedule2V1
+     * @type {Schedule2Days}
+     * @memberof Schedule2
      */
-    'days'?: Schedule2DaysV1;
+    'days'?: Schedule2Days;
     /**
      * 
-     * @type {Schedule2HoursV1}
-     * @memberof Schedule2V1
+     * @type {Schedule2Hours}
+     * @memberof Schedule2
      */
-    'hours': Schedule2HoursV1;
+    'hours': Schedule2Hours;
     /**
      * Specifies the time after which this schedule will no longer occur.
      * @type {string}
-     * @memberof Schedule2V1
+     * @memberof Schedule2
      */
     'expiration'?: string | null;
     /**
      * The time zone to use when running the schedule. For instance, if the schedule is scheduled to run at 1AM, and this field is set to \"CST\", the schedule will run at 1AM CST.
      * @type {string}
-     * @memberof Schedule2V1
+     * @memberof Schedule2
      */
     'timeZoneId'?: string;
 }
 
-export const Schedule2V1TypeV1 = {
+export const Schedule2TypeEnum = {
     Weekly: 'WEEKLY',
     Monthly: 'MONTHLY',
     Annually: 'ANNUALLY',
     Calendar: 'CALENDAR'
 } as const;
 
-export type Schedule2V1TypeV1 = typeof Schedule2V1TypeV1[keyof typeof Schedule2V1TypeV1];
+export type Schedule2TypeEnum = typeof Schedule2TypeEnum[keyof typeof Schedule2TypeEnum];
+
+/**
+ * Specifies which day(s) a schedule is active for. This is required for all schedule types. The \"values\" field holds different data depending on the type of schedule: * WEEKLY: days of the week (1-7) * MONTHLY: days of the month (1-31, L, L-1...) * ANNUALLY: if the \"months\" field is also set: days of the month (1-31, L, L-1...); otherwise: ISO-8601 dates without year (\"--12-31\") * CALENDAR: ISO-8601 dates (\"2020-12-31\")  Note that CALENDAR only supports the LIST type, and ANNUALLY does not support the RANGE type when provided with ISO-8601 dates without year.  Examples:  On Sundays: * type LIST * values \"1\"  The second to last day of the month: * type LIST * values \"L-1\"  From the 20th to the last day of the month: * type RANGE * values \"20\", \"L\"  Every March 2nd: * type LIST * values \"--03-02\"  On March 2nd, 2021: * type: LIST * values \"2021-03-02\" 
+ * @export
+ * @interface Schedule2Days
+ */
+export interface Schedule2Days {
+    /**
+     * Enum type to specify days value
+     * @type {string}
+     * @memberof Schedule2Days
+     */
+    'type': Schedule2DaysTypeEnum;
+    /**
+     * Values of the days based on the enum type mentioned above
+     * @type {Array<string>}
+     * @memberof Schedule2Days
+     */
+    'values': Array<string>;
+    /**
+     * Interval between the cert generations
+     * @type {number}
+     * @memberof Schedule2Days
+     */
+    'interval'?: number | null;
+}
+
+export const Schedule2DaysTypeEnum = {
+    List: 'LIST',
+    Range: 'RANGE'
+} as const;
+
+export type Schedule2DaysTypeEnum = typeof Schedule2DaysTypeEnum[keyof typeof Schedule2DaysTypeEnum];
+
+/**
+ * Specifies which hour(s) a schedule is active for. Examples:  Every three hours starting from 8AM, inclusive: * type LIST * values \"8\" * interval 3  During business hours: * type RANGE * values \"9\", \"5\"  At 5AM, noon, and 5PM: * type LIST * values \"5\", \"12\", \"17\" 
+ * @export
+ * @interface Schedule2Hours
+ */
+export interface Schedule2Hours {
+    /**
+     * Enum type to specify hours value
+     * @type {string}
+     * @memberof Schedule2Hours
+     */
+    'type': Schedule2HoursTypeEnum;
+    /**
+     * Values of the days based on the enum type mentioned above
+     * @type {Array<string>}
+     * @memberof Schedule2Hours
+     */
+    'values': Array<string>;
+    /**
+     * Interval between the cert generations
+     * @type {number}
+     * @memberof Schedule2Hours
+     */
+    'interval'?: number | null;
+}
+
+export const Schedule2HoursTypeEnum = {
+    List: 'LIST',
+    Range: 'RANGE'
+} as const;
+
+export type Schedule2HoursTypeEnum = typeof Schedule2HoursTypeEnum[keyof typeof Schedule2HoursTypeEnum];
+
+/**
+ * Specifies which months of a schedule are active. Only valid for ANNUALLY schedule types. Examples:  On February and March: * type LIST * values \"2\", \"3\"  Every 3 months, starting in January (quarterly): * type LIST * values \"1\" * interval 3  Every two months between July and December: * type RANGE * values \"7\", \"12\" * interval 2 
+ * @export
+ * @interface Schedule2Months
+ */
+export interface Schedule2Months {
+    /**
+     * Enum type to specify months value
+     * @type {string}
+     * @memberof Schedule2Months
+     */
+    'type': Schedule2MonthsTypeEnum;
+    /**
+     * Values of the months based on the enum type mentioned above
+     * @type {Array<string>}
+     * @memberof Schedule2Months
+     */
+    'values': Array<string>;
+    /**
+     * Interval between the cert generations
+     * @type {number}
+     * @memberof Schedule2Months
+     */
+    'interval'?: number;
+}
+
+export const Schedule2MonthsTypeEnum = {
+    List: 'LIST',
+    Range: 'RANGE'
+} as const;
+
+export type Schedule2MonthsTypeEnum = typeof Schedule2MonthsTypeEnum[keyof typeof Schedule2MonthsTypeEnum];
 
 /**
  * 
  * @export
- * @interface SlimcampaignV1
+ * @interface Slimcampaign
  */
-export interface SlimcampaignV1 {
+export interface Slimcampaign {
     /**
      * Id of the campaign
      * @type {string}
-     * @memberof SlimcampaignV1
+     * @memberof Slimcampaign
      */
     'id'?: string | null;
     /**
      * The campaign name. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details. 
      * @type {string}
-     * @memberof SlimcampaignV1
+     * @memberof Slimcampaign
      */
     'name': string;
     /**
      * The campaign description. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details. 
      * @type {string}
-     * @memberof SlimcampaignV1
+     * @memberof Slimcampaign
      */
     'description': string | null;
     /**
      * The campaign\'s completion deadline.  This date must be in the future in order to activate the campaign.  If you try to activate a campaign with a deadline of today or in the past, you will receive a 400 error response.
      * @type {string}
-     * @memberof SlimcampaignV1
+     * @memberof Slimcampaign
      */
     'deadline'?: string | null;
     /**
      * The type of campaign. Could be extended in the future.
      * @type {string}
-     * @memberof SlimcampaignV1
+     * @memberof Slimcampaign
      */
-    'type': SlimcampaignV1TypeV1;
+    'type': SlimcampaignTypeEnum;
     /**
      * Enables email notification for this campaign
      * @type {boolean}
-     * @memberof SlimcampaignV1
+     * @memberof Slimcampaign
      */
     'emailNotificationEnabled'?: boolean;
     /**
      * Allows auto revoke for this campaign
      * @type {boolean}
-     * @memberof SlimcampaignV1
+     * @memberof Slimcampaign
      */
     'autoRevokeAllowed'?: boolean;
     /**
      * Enables IAI for this campaign. Accepts true even if the IAI product feature is off. If IAI is turned off then campaigns generated from this template will indicate false. The real value will then be returned if IAI is ever enabled for the org in the future.
      * @type {boolean}
-     * @memberof SlimcampaignV1
+     * @memberof Slimcampaign
      */
     'recommendationsEnabled'?: boolean;
     /**
      * The campaign\'s current status.
      * @type {string}
-     * @memberof SlimcampaignV1
+     * @memberof Slimcampaign
      */
-    'status'?: SlimcampaignV1StatusV1 | null;
+    'status'?: SlimcampaignStatusEnum | null;
     /**
      * The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
      * @type {string}
-     * @memberof SlimcampaignV1
+     * @memberof Slimcampaign
      */
-    'correlatedStatus'?: SlimcampaignV1CorrelatedStatusV1;
+    'correlatedStatus'?: SlimcampaignCorrelatedStatusEnum;
     /**
      * Created time of the campaign
      * @type {string}
-     * @memberof SlimcampaignV1
+     * @memberof Slimcampaign
      */
     'created'?: string | null;
     /**
      * The total number of certifications in this campaign.
      * @type {number}
-     * @memberof SlimcampaignV1
+     * @memberof Slimcampaign
      */
     'totalCertifications'?: number | null;
     /**
      * The number of completed certifications in this campaign.
      * @type {number}
-     * @memberof SlimcampaignV1
+     * @memberof Slimcampaign
      */
     'completedCertifications'?: number | null;
     /**
      * A list of errors and warnings that have accumulated.
-     * @type {Array<CampaignalertV1>}
-     * @memberof SlimcampaignV1
+     * @type {Array<Campaignalert>}
+     * @memberof Slimcampaign
      */
-    'alerts'?: Array<CampaignalertV1> | null;
+    'alerts'?: Array<Campaignalert> | null;
 }
 
-export const SlimcampaignV1TypeV1 = {
+export const SlimcampaignTypeEnum = {
     Manager: 'MANAGER',
     SourceOwner: 'SOURCE_OWNER',
     Search: 'SEARCH',
@@ -1854,8 +1854,8 @@ export const SlimcampaignV1TypeV1 = {
     MachineAccount: 'MACHINE_ACCOUNT'
 } as const;
 
-export type SlimcampaignV1TypeV1 = typeof SlimcampaignV1TypeV1[keyof typeof SlimcampaignV1TypeV1];
-export const SlimcampaignV1StatusV1 = {
+export type SlimcampaignTypeEnum = typeof SlimcampaignTypeEnum[keyof typeof SlimcampaignTypeEnum];
+export const SlimcampaignStatusEnum = {
     Pending: 'PENDING',
     Staged: 'STAGED',
     Canceling: 'CANCELING',
@@ -1867,62 +1867,62 @@ export const SlimcampaignV1StatusV1 = {
     Archived: 'ARCHIVED'
 } as const;
 
-export type SlimcampaignV1StatusV1 = typeof SlimcampaignV1StatusV1[keyof typeof SlimcampaignV1StatusV1];
-export const SlimcampaignV1CorrelatedStatusV1 = {
+export type SlimcampaignStatusEnum = typeof SlimcampaignStatusEnum[keyof typeof SlimcampaignStatusEnum];
+export const SlimcampaignCorrelatedStatusEnum = {
     Correlated: 'CORRELATED',
     Uncorrelated: 'UNCORRELATED'
 } as const;
 
-export type SlimcampaignV1CorrelatedStatusV1 = typeof SlimcampaignV1CorrelatedStatusV1[keyof typeof SlimcampaignV1CorrelatedStatusV1];
+export type SlimcampaignCorrelatedStatusEnum = typeof SlimcampaignCorrelatedStatusEnum[keyof typeof SlimcampaignCorrelatedStatusEnum];
 
 /**
  * SOD policy violation report result.
  * @export
- * @interface SodreportresultdtoV1
+ * @interface Sodreportresultdto
  */
-export interface SodreportresultdtoV1 {
+export interface Sodreportresultdto {
     /**
      * SOD policy violation report result DTO type.
      * @type {string}
-     * @memberof SodreportresultdtoV1
+     * @memberof Sodreportresultdto
      */
-    'type'?: SodreportresultdtoV1TypeV1;
+    'type'?: SodreportresultdtoTypeEnum;
     /**
      * SOD policy violation report result ID.
      * @type {string}
-     * @memberof SodreportresultdtoV1
+     * @memberof Sodreportresultdto
      */
     'id'?: string;
     /**
      * Human-readable name of the SOD policy violation report result.
      * @type {string}
-     * @memberof SodreportresultdtoV1
+     * @memberof Sodreportresultdto
      */
     'name'?: string;
 }
 
-export const SodreportresultdtoV1TypeV1 = {
+export const SodreportresultdtoTypeEnum = {
     ReportResult: 'REPORT_RESULT'
 } as const;
 
-export type SodreportresultdtoV1TypeV1 = typeof SodreportresultdtoV1TypeV1[keyof typeof SodreportresultdtoV1TypeV1];
+export type SodreportresultdtoTypeEnum = typeof SodreportresultdtoTypeEnum[keyof typeof SodreportresultdtoTypeEnum];
 
 
 /**
- * CertificationCampaignsV1Api - axios parameter creator
+ * CertificationCampaignsApi - axios parameter creator
  * @export
  */
-export const CertificationCampaignsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const CertificationCampaignsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Use this API to complete a certification campaign. This functionality is provided to admins so that they can complete a certification even if all items have not been completed. 
          * @summary Complete a campaign
          * @param {string} id Campaign ID.
-         * @param {CampaigncompleteoptionsV1} [campaigncompleteoptionsV1] Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE
+         * @param {Campaigncompleteoptions} [campaigncompleteoptions] Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        completeCampaignV1: async (id: string, campaigncompleteoptionsV1?: CampaigncompleteoptionsV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        completeCampaignV1: async (id: string, campaigncompleteoptions?: Campaigncompleteoptions, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('completeCampaignV1', 'id', id)
             const localVarPath = `/campaigns/v1/{id}/complete`
@@ -1945,7 +1945,7 @@ export const CertificationCampaignsV1ApiAxiosParamCreator = function (configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(campaigncompleteoptionsV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(campaigncompleteoptions, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1955,13 +1955,13 @@ export const CertificationCampaignsV1ApiAxiosParamCreator = function (configurat
         /**
          * Use this API to create a certification campaign template based on campaign. 
          * @summary Create a campaign template
-         * @param {CampaigntemplateV1} campaigntemplateV1 
+         * @param {Campaigntemplate} campaigntemplate 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createCampaignTemplateV1: async (campaigntemplateV1: CampaigntemplateV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'campaigntemplateV1' is not null or undefined
-            assertParamExists('createCampaignTemplateV1', 'campaigntemplateV1', campaigntemplateV1)
+        createCampaignTemplateV1: async (campaigntemplate: Campaigntemplate, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'campaigntemplate' is not null or undefined
+            assertParamExists('createCampaignTemplateV1', 'campaigntemplate', campaigntemplate)
             const localVarPath = `/campaign-templates/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1981,7 +1981,7 @@ export const CertificationCampaignsV1ApiAxiosParamCreator = function (configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(campaigntemplateV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(campaigntemplate, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1991,13 +1991,13 @@ export const CertificationCampaignsV1ApiAxiosParamCreator = function (configurat
         /**
          * Use this API to create a certification campaign with the information provided in the request body.     
          * @summary Create a campaign
-         * @param {Campaign2V1} campaign2V1 
+         * @param {Campaign2} campaign2 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createCampaignV1: async (campaign2V1: Campaign2V1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'campaign2V1' is not null or undefined
-            assertParamExists('createCampaignV1', 'campaign2V1', campaign2V1)
+        createCampaignV1: async (campaign2: Campaign2, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'campaign2' is not null or undefined
+            assertParamExists('createCampaignV1', 'campaign2', campaign2)
             const localVarPath = `/campaigns/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2017,7 +2017,7 @@ export const CertificationCampaignsV1ApiAxiosParamCreator = function (configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(campaign2V1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(campaign2, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2095,13 +2095,13 @@ export const CertificationCampaignsV1ApiAxiosParamCreator = function (configurat
         /**
          * Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs. 
          * @summary Delete campaigns
-         * @param {CampaignsdeleterequestV1} campaignsdeleterequestV1 IDs of the campaigns to delete.
+         * @param {Campaignsdeleterequest} campaignsdeleterequest IDs of the campaigns to delete.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteCampaignsV1: async (campaignsdeleterequestV1: CampaignsdeleterequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'campaignsdeleterequestV1' is not null or undefined
-            assertParamExists('deleteCampaignsV1', 'campaignsdeleterequestV1', campaignsdeleterequestV1)
+        deleteCampaignsV1: async (campaignsdeleterequest: Campaignsdeleterequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'campaignsdeleterequest' is not null or undefined
+            assertParamExists('deleteCampaignsV1', 'campaignsdeleterequest', campaignsdeleterequest)
             const localVarPath = `/campaigns/v1/delete`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2121,7 +2121,7 @@ export const CertificationCampaignsV1ApiAxiosParamCreator = function (configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(campaignsdeleterequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(campaignsdeleterequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2131,7 +2131,7 @@ export const CertificationCampaignsV1ApiAxiosParamCreator = function (configurat
         /**
          * Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query. 
          * @summary List campaigns
-         * @param {GetActiveCampaignsV1DetailV1} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
+         * @param {GetActiveCampaignsV1DetailEnum} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -2140,7 +2140,7 @@ export const CertificationCampaignsV1ApiAxiosParamCreator = function (configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getActiveCampaignsV1: async (detail?: GetActiveCampaignsV1DetailV1, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getActiveCampaignsV1: async (detail?: GetActiveCampaignsV1DetailEnum, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/campaigns/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2379,11 +2379,11 @@ export const CertificationCampaignsV1ApiAxiosParamCreator = function (configurat
          * Use this API to get information for an existing certification campaign by the campaign\'s ID. 
          * @summary Get campaign
          * @param {string} id ID of the campaign to be retrieved.
-         * @param {GetCampaignV1DetailV1} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
+         * @param {GetCampaignV1DetailEnum} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCampaignV1: async (id: string, detail?: GetCampaignV1DetailV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getCampaignV1: async (id: string, detail?: GetCampaignV1DetailEnum, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getCampaignV1', 'id', id)
             const localVarPath = `/campaigns/v1/{id}`
@@ -2418,15 +2418,15 @@ export const CertificationCampaignsV1ApiAxiosParamCreator = function (configurat
          * This API reassigns the specified certifications from one identity to another.     
          * @summary Reassign certifications
          * @param {string} id The certification campaign ID
-         * @param {AdminreviewreassignV1} adminreviewreassignV1 
+         * @param {Adminreviewreassign} adminreviewreassign 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        moveV1: async (id: string, adminreviewreassignV1: AdminreviewreassignV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        moveV1: async (id: string, adminreviewreassign: Adminreviewreassign, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('moveV1', 'id', id)
-            // verify required parameter 'adminreviewreassignV1' is not null or undefined
-            assertParamExists('moveV1', 'adminreviewreassignV1', adminreviewreassignV1)
+            // verify required parameter 'adminreviewreassign' is not null or undefined
+            assertParamExists('moveV1', 'adminreviewreassign', adminreviewreassign)
             const localVarPath = `/campaigns/v1/{id}/reassign`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2447,7 +2447,7 @@ export const CertificationCampaignsV1ApiAxiosParamCreator = function (configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(adminreviewreassignV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(adminreviewreassign, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2458,15 +2458,15 @@ export const CertificationCampaignsV1ApiAxiosParamCreator = function (configurat
          * Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. 
          * @summary Update a campaign template
          * @param {string} id ID of the campaign template being modified.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchCampaignTemplateV1: async (id: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchCampaignTemplateV1: async (id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchCampaignTemplateV1', 'id', id)
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('patchCampaignTemplateV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('patchCampaignTemplateV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/campaign-templates/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2487,7 +2487,7 @@ export const CertificationCampaignsV1ApiAxiosParamCreator = function (configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2497,13 +2497,13 @@ export const CertificationCampaignsV1ApiAxiosParamCreator = function (configurat
         /**
          * Use this API to overwrite the configuration for campaign reports.  
          * @summary Set campaign reports configuration
-         * @param {CampaignreportsconfigV1} campaignreportsconfigV1 Campaign report configuration.
+         * @param {Campaignreportsconfig} campaignreportsconfig Campaign report configuration.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setCampaignReportsConfigV1: async (campaignreportsconfigV1: CampaignreportsconfigV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'campaignreportsconfigV1' is not null or undefined
-            assertParamExists('setCampaignReportsConfigV1', 'campaignreportsconfigV1', campaignreportsconfigV1)
+        setCampaignReportsConfigV1: async (campaignreportsconfig: Campaignreportsconfig, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'campaignreportsconfig' is not null or undefined
+            assertParamExists('setCampaignReportsConfigV1', 'campaignreportsconfig', campaignreportsconfig)
             const localVarPath = `/campaigns/v1/reports-configuration`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2523,7 +2523,7 @@ export const CertificationCampaignsV1ApiAxiosParamCreator = function (configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(campaignreportsconfigV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(campaignreportsconfig, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2534,11 +2534,11 @@ export const CertificationCampaignsV1ApiAxiosParamCreator = function (configurat
          * Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one. 
          * @summary Set campaign template schedule
          * @param {string} id ID of the campaign template being scheduled.
-         * @param {Schedule2V1} [schedule2V1] 
+         * @param {Schedule2} [schedule2] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setCampaignTemplateScheduleV1: async (id: string, schedule2V1?: Schedule2V1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        setCampaignTemplateScheduleV1: async (id: string, schedule2?: Schedule2, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('setCampaignTemplateScheduleV1', 'id', id)
             const localVarPath = `/campaign-templates/v1/{id}/schedule`
@@ -2561,7 +2561,7 @@ export const CertificationCampaignsV1ApiAxiosParamCreator = function (configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(schedule2V1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(schedule2, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2606,11 +2606,11 @@ export const CertificationCampaignsV1ApiAxiosParamCreator = function (configurat
          * Use this API to run a report for a certification campaign. 
          * @summary Run campaign report
          * @param {string} id ID of the campaign the report is being run for.
-         * @param {ReporttypeV1} type Type of the report to run.
+         * @param {Reporttype} type Type of the report to run.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startCampaignReportV1: async (id: string, type: ReporttypeV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        startCampaignReportV1: async (id: string, type: Reporttype, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('startCampaignReportV1', 'id', id)
             // verify required parameter 'type' is not null or undefined
@@ -2644,11 +2644,11 @@ export const CertificationCampaignsV1ApiAxiosParamCreator = function (configurat
          * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. 
          * @summary Activate a campaign
          * @param {string} id Campaign ID.
-         * @param {ActivatecampaignoptionsV1} [activatecampaignoptionsV1] Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller\&#39;s timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format.
+         * @param {Activatecampaignoptions} [activatecampaignoptions] Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller\&#39;s timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startCampaignV1: async (id: string, activatecampaignoptionsV1?: ActivatecampaignoptionsV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        startCampaignV1: async (id: string, activatecampaignoptions?: Activatecampaignoptions, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('startCampaignV1', 'id', id)
             const localVarPath = `/campaigns/v1/{id}/activate`
@@ -2671,7 +2671,7 @@ export const CertificationCampaignsV1ApiAxiosParamCreator = function (configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(activatecampaignoptionsV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(activatecampaignoptions, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2716,15 +2716,15 @@ export const CertificationCampaignsV1ApiAxiosParamCreator = function (configurat
          * Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. 
          * @summary Update a campaign
          * @param {string} id ID of the campaign template being modified.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateCampaignV1: async (id: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateCampaignV1: async (id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateCampaignV1', 'id', id)
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('updateCampaignV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('updateCampaignV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/campaigns/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2745,7 +2745,7 @@ export const CertificationCampaignsV1ApiAxiosParamCreator = function (configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2756,50 +2756,50 @@ export const CertificationCampaignsV1ApiAxiosParamCreator = function (configurat
 };
 
 /**
- * CertificationCampaignsV1Api - functional programming interface
+ * CertificationCampaignsApi - functional programming interface
  * @export
  */
-export const CertificationCampaignsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = CertificationCampaignsV1ApiAxiosParamCreator(configuration)
+export const CertificationCampaignsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = CertificationCampaignsApiAxiosParamCreator(configuration)
     return {
         /**
          * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Use this API to complete a certification campaign. This functionality is provided to admins so that they can complete a certification even if all items have not been completed. 
          * @summary Complete a campaign
          * @param {string} id Campaign ID.
-         * @param {CampaigncompleteoptionsV1} [campaigncompleteoptionsV1] Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE
+         * @param {Campaigncompleteoptions} [campaigncompleteoptions] Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async completeCampaignV1(id: string, campaigncompleteoptionsV1?: CampaigncompleteoptionsV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.completeCampaignV1(id, campaigncompleteoptionsV1, axiosOptions);
+        async completeCampaignV1(id: string, campaigncompleteoptions?: Campaigncompleteoptions, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.completeCampaignV1(id, campaigncompleteoptions, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsV1Api.completeCampaignV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.completeCampaignV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Use this API to create a certification campaign template based on campaign. 
          * @summary Create a campaign template
-         * @param {CampaigntemplateV1} campaigntemplateV1 
+         * @param {Campaigntemplate} campaigntemplate 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createCampaignTemplateV1(campaigntemplateV1: CampaigntemplateV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaigntemplateV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createCampaignTemplateV1(campaigntemplateV1, axiosOptions);
+        async createCampaignTemplateV1(campaigntemplate: Campaigntemplate, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Campaigntemplate>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCampaignTemplateV1(campaigntemplate, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsV1Api.createCampaignTemplateV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.createCampaignTemplateV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Use this API to create a certification campaign with the information provided in the request body.     
          * @summary Create a campaign
-         * @param {Campaign2V1} campaign2V1 
+         * @param {Campaign2} campaign2 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createCampaignV1(campaign2V1: Campaign2V1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Campaign2V1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createCampaignV1(campaign2V1, axiosOptions);
+        async createCampaignV1(campaign2: Campaign2, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Campaign2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCampaignV1(campaign2, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsV1Api.createCampaignV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.createCampaignV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2812,7 +2812,7 @@ export const CertificationCampaignsV1ApiFp = function(configuration?: Configurat
         async deleteCampaignTemplateScheduleV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaignTemplateScheduleV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsV1Api.deleteCampaignTemplateScheduleV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.deleteCampaignTemplateScheduleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2825,26 +2825,26 @@ export const CertificationCampaignsV1ApiFp = function(configuration?: Configurat
         async deleteCampaignTemplateV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaignTemplateV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsV1Api.deleteCampaignTemplateV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.deleteCampaignTemplateV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs. 
          * @summary Delete campaigns
-         * @param {CampaignsdeleterequestV1} campaignsdeleterequestV1 IDs of the campaigns to delete.
+         * @param {Campaignsdeleterequest} campaignsdeleterequest IDs of the campaigns to delete.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteCampaignsV1(campaignsdeleterequestV1: CampaignsdeleterequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaignsV1(campaignsdeleterequestV1, axiosOptions);
+        async deleteCampaignsV1(campaignsdeleterequest: Campaignsdeleterequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaignsV1(campaignsdeleterequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsV1Api.deleteCampaignsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.deleteCampaignsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query. 
          * @summary List campaigns
-         * @param {GetActiveCampaignsV1DetailV1} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
+         * @param {GetActiveCampaignsV1DetailEnum} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -2853,10 +2853,10 @@ export const CertificationCampaignsV1ApiFp = function(configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getActiveCampaignsV1(detail?: GetActiveCampaignsV1DetailV1, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetActiveCampaignsV1200ResponseInnerV1>>> {
+        async getActiveCampaignsV1(detail?: GetActiveCampaignsV1DetailEnum, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetActiveCampaignsV1200ResponseInner>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getActiveCampaignsV1(detail, limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsV1Api.getActiveCampaignsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.getActiveCampaignsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2865,10 +2865,10 @@ export const CertificationCampaignsV1ApiFp = function(configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCampaignReportsConfigV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignreportsconfigV1>> {
+        async getCampaignReportsConfigV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Campaignreportsconfig>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignReportsConfigV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsV1Api.getCampaignReportsConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.getCampaignReportsConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2878,10 +2878,10 @@ export const CertificationCampaignsV1ApiFp = function(configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCampaignReportsV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaignreportV1>>> {
+        async getCampaignReportsV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Campaignreport>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignReportsV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsV1Api.getCampaignReportsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.getCampaignReportsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2891,10 +2891,10 @@ export const CertificationCampaignsV1ApiFp = function(configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCampaignTemplateScheduleV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schedule2V1>> {
+        async getCampaignTemplateScheduleV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schedule2>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignTemplateScheduleV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsV1Api.getCampaignTemplateScheduleV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.getCampaignTemplateScheduleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2904,10 +2904,10 @@ export const CertificationCampaignsV1ApiFp = function(configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCampaignTemplateV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaigntemplateV1>> {
+        async getCampaignTemplateV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Campaigntemplate>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignTemplateV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsV1Api.getCampaignTemplateV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.getCampaignTemplateV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2921,79 +2921,79 @@ export const CertificationCampaignsV1ApiFp = function(configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCampaignTemplatesV1(limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaigntemplateV1>>> {
+        async getCampaignTemplatesV1(limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Campaigntemplate>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignTemplatesV1(limit, offset, count, sorters, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsV1Api.getCampaignTemplatesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.getCampaignTemplatesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Use this API to get information for an existing certification campaign by the campaign\'s ID. 
          * @summary Get campaign
          * @param {string} id ID of the campaign to be retrieved.
-         * @param {GetCampaignV1DetailV1} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
+         * @param {GetCampaignV1DetailEnum} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCampaignV1(id: string, detail?: GetCampaignV1DetailV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetCampaignV1200ResponseV1>> {
+        async getCampaignV1(id: string, detail?: GetCampaignV1DetailEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetCampaignV1200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignV1(id, detail, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsV1Api.getCampaignV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.getCampaignV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API reassigns the specified certifications from one identity to another.     
          * @summary Reassign certifications
          * @param {string} id The certification campaign ID
-         * @param {AdminreviewreassignV1} adminreviewreassignV1 
+         * @param {Adminreviewreassign} adminreviewreassign 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async moveV1(id: string, adminreviewreassignV1: AdminreviewreassignV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CertificationtaskV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.moveV1(id, adminreviewreassignV1, axiosOptions);
+        async moveV1(id: string, adminreviewreassign: Adminreviewreassign, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Certificationtask>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.moveV1(id, adminreviewreassign, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsV1Api.moveV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.moveV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. 
          * @summary Update a campaign template
          * @param {string} id ID of the campaign template being modified.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchCampaignTemplateV1(id: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaigntemplateV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchCampaignTemplateV1(id, jsonpatchoperationV1, axiosOptions);
+        async patchCampaignTemplateV1(id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Campaigntemplate>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchCampaignTemplateV1(id, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsV1Api.patchCampaignTemplateV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.patchCampaignTemplateV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Use this API to overwrite the configuration for campaign reports.  
          * @summary Set campaign reports configuration
-         * @param {CampaignreportsconfigV1} campaignreportsconfigV1 Campaign report configuration.
+         * @param {Campaignreportsconfig} campaignreportsconfig Campaign report configuration.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setCampaignReportsConfigV1(campaignreportsconfigV1: CampaignreportsconfigV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignreportsconfigV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setCampaignReportsConfigV1(campaignreportsconfigV1, axiosOptions);
+        async setCampaignReportsConfigV1(campaignreportsconfig: Campaignreportsconfig, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Campaignreportsconfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setCampaignReportsConfigV1(campaignreportsconfig, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsV1Api.setCampaignReportsConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.setCampaignReportsConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one. 
          * @summary Set campaign template schedule
          * @param {string} id ID of the campaign template being scheduled.
-         * @param {Schedule2V1} [schedule2V1] 
+         * @param {Schedule2} [schedule2] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setCampaignTemplateScheduleV1(id: string, schedule2V1?: Schedule2V1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setCampaignTemplateScheduleV1(id, schedule2V1, axiosOptions);
+        async setCampaignTemplateScheduleV1(id: string, schedule2?: Schedule2, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setCampaignTemplateScheduleV1(id, schedule2, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsV1Api.setCampaignTemplateScheduleV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.setCampaignTemplateScheduleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -3006,35 +3006,35 @@ export const CertificationCampaignsV1ApiFp = function(configuration?: Configurat
         async startCampaignRemediationScanV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.startCampaignRemediationScanV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsV1Api.startCampaignRemediationScanV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.startCampaignRemediationScanV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Use this API to run a report for a certification campaign. 
          * @summary Run campaign report
          * @param {string} id ID of the campaign the report is being run for.
-         * @param {ReporttypeV1} type Type of the report to run.
+         * @param {Reporttype} type Type of the report to run.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startCampaignReportV1(id: string, type: ReporttypeV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+        async startCampaignReportV1(id: string, type: Reporttype, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.startCampaignReportV1(id, type, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsV1Api.startCampaignReportV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.startCampaignReportV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. 
          * @summary Activate a campaign
          * @param {string} id Campaign ID.
-         * @param {ActivatecampaignoptionsV1} [activatecampaignoptionsV1] Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller\&#39;s timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format.
+         * @param {Activatecampaignoptions} [activatecampaignoptions] Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller\&#39;s timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startCampaignV1(id: string, activatecampaignoptionsV1?: ActivatecampaignoptionsV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startCampaignV1(id, activatecampaignoptionsV1, axiosOptions);
+        async startCampaignV1(id: string, activatecampaignoptions?: Activatecampaignoptions, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startCampaignV1(id, activatecampaignoptions, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsV1Api.startCampaignV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.startCampaignV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -3044,104 +3044,104 @@ export const CertificationCampaignsV1ApiFp = function(configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startGenerateCampaignTemplateV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignreferenceV1>> {
+        async startGenerateCampaignTemplateV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Campaignreference>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.startGenerateCampaignTemplateV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsV1Api.startGenerateCampaignTemplateV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.startGenerateCampaignTemplateV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. 
          * @summary Update a campaign
          * @param {string} id ID of the campaign template being modified.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateCampaignV1(id: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SlimcampaignV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateCampaignV1(id, jsonpatchoperationV1, axiosOptions);
+        async updateCampaignV1(id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Slimcampaign>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateCampaignV1(id, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsV1Api.updateCampaignV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.updateCampaignV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * CertificationCampaignsV1Api - factory interface
+ * CertificationCampaignsApi - factory interface
  * @export
  */
-export const CertificationCampaignsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = CertificationCampaignsV1ApiFp(configuration)
+export const CertificationCampaignsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = CertificationCampaignsApiFp(configuration)
     return {
         /**
          * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Use this API to complete a certification campaign. This functionality is provided to admins so that they can complete a certification even if all items have not been completed. 
          * @summary Complete a campaign
-         * @param {CertificationCampaignsV1ApiCompleteCampaignV1Request} requestParameters Request parameters.
+         * @param {CertificationCampaignsApiCompleteCampaignV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        completeCampaignV1(requestParameters: CertificationCampaignsV1ApiCompleteCampaignV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
-            return localVarFp.completeCampaignV1(requestParameters.id, requestParameters.campaigncompleteoptionsV1, axiosOptions).then((request) => request(axios, basePath));
+        completeCampaignV1(requestParameters: CertificationCampaignsApiCompleteCampaignV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
+            return localVarFp.completeCampaignV1(requestParameters.id, requestParameters.campaigncompleteoptions, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to create a certification campaign template based on campaign. 
          * @summary Create a campaign template
-         * @param {CertificationCampaignsV1ApiCreateCampaignTemplateV1Request} requestParameters Request parameters.
+         * @param {CertificationCampaignsApiCreateCampaignTemplateV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createCampaignTemplateV1(requestParameters: CertificationCampaignsV1ApiCreateCampaignTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CampaigntemplateV1> {
-            return localVarFp.createCampaignTemplateV1(requestParameters.campaigntemplateV1, axiosOptions).then((request) => request(axios, basePath));
+        createCampaignTemplateV1(requestParameters: CertificationCampaignsApiCreateCampaignTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Campaigntemplate> {
+            return localVarFp.createCampaignTemplateV1(requestParameters.campaigntemplate, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to create a certification campaign with the information provided in the request body.     
          * @summary Create a campaign
-         * @param {CertificationCampaignsV1ApiCreateCampaignV1Request} requestParameters Request parameters.
+         * @param {CertificationCampaignsApiCreateCampaignV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createCampaignV1(requestParameters: CertificationCampaignsV1ApiCreateCampaignV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Campaign2V1> {
-            return localVarFp.createCampaignV1(requestParameters.campaign2V1, axiosOptions).then((request) => request(axios, basePath));
+        createCampaignV1(requestParameters: CertificationCampaignsApiCreateCampaignV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Campaign2> {
+            return localVarFp.createCampaignV1(requestParameters.campaign2, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set. 
          * @summary Delete campaign template schedule
-         * @param {CertificationCampaignsV1ApiDeleteCampaignTemplateScheduleV1Request} requestParameters Request parameters.
+         * @param {CertificationCampaignsApiDeleteCampaignTemplateScheduleV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteCampaignTemplateScheduleV1(requestParameters: CertificationCampaignsV1ApiDeleteCampaignTemplateScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteCampaignTemplateScheduleV1(requestParameters: CertificationCampaignsApiDeleteCampaignTemplateScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteCampaignTemplateScheduleV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to delete a certification campaign template by ID. 
          * @summary Delete a campaign template
-         * @param {CertificationCampaignsV1ApiDeleteCampaignTemplateV1Request} requestParameters Request parameters.
+         * @param {CertificationCampaignsApiDeleteCampaignTemplateV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteCampaignTemplateV1(requestParameters: CertificationCampaignsV1ApiDeleteCampaignTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteCampaignTemplateV1(requestParameters: CertificationCampaignsApiDeleteCampaignTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteCampaignTemplateV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs. 
          * @summary Delete campaigns
-         * @param {CertificationCampaignsV1ApiDeleteCampaignsV1Request} requestParameters Request parameters.
+         * @param {CertificationCampaignsApiDeleteCampaignsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteCampaignsV1(requestParameters: CertificationCampaignsV1ApiDeleteCampaignsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
-            return localVarFp.deleteCampaignsV1(requestParameters.campaignsdeleterequestV1, axiosOptions).then((request) => request(axios, basePath));
+        deleteCampaignsV1(requestParameters: CertificationCampaignsApiDeleteCampaignsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
+            return localVarFp.deleteCampaignsV1(requestParameters.campaignsdeleterequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query. 
          * @summary List campaigns
-         * @param {CertificationCampaignsV1ApiGetActiveCampaignsV1Request} requestParameters Request parameters.
+         * @param {CertificationCampaignsApiGetActiveCampaignsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getActiveCampaignsV1(requestParameters: CertificationCampaignsV1ApiGetActiveCampaignsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<GetActiveCampaignsV1200ResponseInnerV1>> {
+        getActiveCampaignsV1(requestParameters: CertificationCampaignsApiGetActiveCampaignsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<GetActiveCampaignsV1200ResponseInner>> {
             return localVarFp.getActiveCampaignsV1(requestParameters.detail, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -3150,654 +3150,654 @@ export const CertificationCampaignsV1ApiFactory = function (configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCampaignReportsConfigV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CampaignreportsconfigV1> {
+        getCampaignReportsConfigV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Campaignreportsconfig> {
             return localVarFp.getCampaignReportsConfigV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to fetch all reports for a certification campaign by campaign ID. 
          * @summary Get campaign reports
-         * @param {CertificationCampaignsV1ApiGetCampaignReportsV1Request} requestParameters Request parameters.
+         * @param {CertificationCampaignsApiGetCampaignReportsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCampaignReportsV1(requestParameters: CertificationCampaignsV1ApiGetCampaignReportsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<CampaignreportV1>> {
+        getCampaignReportsV1(requestParameters: CertificationCampaignsApiGetCampaignReportsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Campaignreport>> {
             return localVarFp.getCampaignReportsV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set. 
          * @summary Get campaign template schedule
-         * @param {CertificationCampaignsV1ApiGetCampaignTemplateScheduleV1Request} requestParameters Request parameters.
+         * @param {CertificationCampaignsApiGetCampaignTemplateScheduleV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCampaignTemplateScheduleV1(requestParameters: CertificationCampaignsV1ApiGetCampaignTemplateScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Schedule2V1> {
+        getCampaignTemplateScheduleV1(requestParameters: CertificationCampaignsApiGetCampaignTemplateScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Schedule2> {
             return localVarFp.getCampaignTemplateScheduleV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to fetch a certification campaign template by ID. 
          * @summary Get a campaign template
-         * @param {CertificationCampaignsV1ApiGetCampaignTemplateV1Request} requestParameters Request parameters.
+         * @param {CertificationCampaignsApiGetCampaignTemplateV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCampaignTemplateV1(requestParameters: CertificationCampaignsV1ApiGetCampaignTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CampaigntemplateV1> {
+        getCampaignTemplateV1(requestParameters: CertificationCampaignsApiGetCampaignTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Campaigntemplate> {
             return localVarFp.getCampaignTemplateV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params.  The API returns all campaign templates matching the query parameters.  
          * @summary List campaign templates
-         * @param {CertificationCampaignsV1ApiGetCampaignTemplatesV1Request} requestParameters Request parameters.
+         * @param {CertificationCampaignsApiGetCampaignTemplatesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCampaignTemplatesV1(requestParameters: CertificationCampaignsV1ApiGetCampaignTemplatesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<CampaigntemplateV1>> {
+        getCampaignTemplatesV1(requestParameters: CertificationCampaignsApiGetCampaignTemplatesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Campaigntemplate>> {
             return localVarFp.getCampaignTemplatesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to get information for an existing certification campaign by the campaign\'s ID. 
          * @summary Get campaign
-         * @param {CertificationCampaignsV1ApiGetCampaignV1Request} requestParameters Request parameters.
+         * @param {CertificationCampaignsApiGetCampaignV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCampaignV1(requestParameters: CertificationCampaignsV1ApiGetCampaignV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetCampaignV1200ResponseV1> {
+        getCampaignV1(requestParameters: CertificationCampaignsApiGetCampaignV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetCampaignV1200Response> {
             return localVarFp.getCampaignV1(requestParameters.id, requestParameters.detail, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API reassigns the specified certifications from one identity to another.     
          * @summary Reassign certifications
-         * @param {CertificationCampaignsV1ApiMoveV1Request} requestParameters Request parameters.
+         * @param {CertificationCampaignsApiMoveV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        moveV1(requestParameters: CertificationCampaignsV1ApiMoveV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CertificationtaskV1> {
-            return localVarFp.moveV1(requestParameters.id, requestParameters.adminreviewreassignV1, axiosOptions).then((request) => request(axios, basePath));
+        moveV1(requestParameters: CertificationCampaignsApiMoveV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Certificationtask> {
+            return localVarFp.moveV1(requestParameters.id, requestParameters.adminreviewreassign, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. 
          * @summary Update a campaign template
-         * @param {CertificationCampaignsV1ApiPatchCampaignTemplateV1Request} requestParameters Request parameters.
+         * @param {CertificationCampaignsApiPatchCampaignTemplateV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchCampaignTemplateV1(requestParameters: CertificationCampaignsV1ApiPatchCampaignTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CampaigntemplateV1> {
-            return localVarFp.patchCampaignTemplateV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        patchCampaignTemplateV1(requestParameters: CertificationCampaignsApiPatchCampaignTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Campaigntemplate> {
+            return localVarFp.patchCampaignTemplateV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to overwrite the configuration for campaign reports.  
          * @summary Set campaign reports configuration
-         * @param {CertificationCampaignsV1ApiSetCampaignReportsConfigV1Request} requestParameters Request parameters.
+         * @param {CertificationCampaignsApiSetCampaignReportsConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setCampaignReportsConfigV1(requestParameters: CertificationCampaignsV1ApiSetCampaignReportsConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CampaignreportsconfigV1> {
-            return localVarFp.setCampaignReportsConfigV1(requestParameters.campaignreportsconfigV1, axiosOptions).then((request) => request(axios, basePath));
+        setCampaignReportsConfigV1(requestParameters: CertificationCampaignsApiSetCampaignReportsConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Campaignreportsconfig> {
+            return localVarFp.setCampaignReportsConfigV1(requestParameters.campaignreportsconfig, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one. 
          * @summary Set campaign template schedule
-         * @param {CertificationCampaignsV1ApiSetCampaignTemplateScheduleV1Request} requestParameters Request parameters.
+         * @param {CertificationCampaignsApiSetCampaignTemplateScheduleV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setCampaignTemplateScheduleV1(requestParameters: CertificationCampaignsV1ApiSetCampaignTemplateScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.setCampaignTemplateScheduleV1(requestParameters.id, requestParameters.schedule2V1, axiosOptions).then((request) => request(axios, basePath));
+        setCampaignTemplateScheduleV1(requestParameters: CertificationCampaignsApiSetCampaignTemplateScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.setCampaignTemplateScheduleV1(requestParameters.id, requestParameters.schedule2, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to run a remediation scan task for a certification campaign. 
          * @summary Run campaign remediation scan
-         * @param {CertificationCampaignsV1ApiStartCampaignRemediationScanV1Request} requestParameters Request parameters.
+         * @param {CertificationCampaignsApiStartCampaignRemediationScanV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startCampaignRemediationScanV1(requestParameters: CertificationCampaignsV1ApiStartCampaignRemediationScanV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
+        startCampaignRemediationScanV1(requestParameters: CertificationCampaignsApiStartCampaignRemediationScanV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
             return localVarFp.startCampaignRemediationScanV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to run a report for a certification campaign. 
          * @summary Run campaign report
-         * @param {CertificationCampaignsV1ApiStartCampaignReportV1Request} requestParameters Request parameters.
+         * @param {CertificationCampaignsApiStartCampaignReportV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startCampaignReportV1(requestParameters: CertificationCampaignsV1ApiStartCampaignReportV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
+        startCampaignReportV1(requestParameters: CertificationCampaignsApiStartCampaignReportV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
             return localVarFp.startCampaignReportV1(requestParameters.id, requestParameters.type, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. 
          * @summary Activate a campaign
-         * @param {CertificationCampaignsV1ApiStartCampaignV1Request} requestParameters Request parameters.
+         * @param {CertificationCampaignsApiStartCampaignV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startCampaignV1(requestParameters: CertificationCampaignsV1ApiStartCampaignV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
-            return localVarFp.startCampaignV1(requestParameters.id, requestParameters.activatecampaignoptionsV1, axiosOptions).then((request) => request(axios, basePath));
+        startCampaignV1(requestParameters: CertificationCampaignsApiStartCampaignV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
+            return localVarFp.startCampaignV1(requestParameters.id, requestParameters.activatecampaignoptions, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to generate a new certification campaign from a campaign template.  The campaign object contained in the template has special formatting applied to its name and description fields that determine the generated campaign\'s name/description. Placeholders in those fields are formatted with the current date and time upon generation.  Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For example, \"%Y\" inserts the current year, and a campaign template named \"Campaign for %y\" generates a campaign called \"Campaign for 2020\" (assuming the year at generation time is 2020).  Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). 
          * @summary Generate a campaign from template
-         * @param {CertificationCampaignsV1ApiStartGenerateCampaignTemplateV1Request} requestParameters Request parameters.
+         * @param {CertificationCampaignsApiStartGenerateCampaignTemplateV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startGenerateCampaignTemplateV1(requestParameters: CertificationCampaignsV1ApiStartGenerateCampaignTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CampaignreferenceV1> {
+        startGenerateCampaignTemplateV1(requestParameters: CertificationCampaignsApiStartGenerateCampaignTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Campaignreference> {
             return localVarFp.startGenerateCampaignTemplateV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. 
          * @summary Update a campaign
-         * @param {CertificationCampaignsV1ApiUpdateCampaignV1Request} requestParameters Request parameters.
+         * @param {CertificationCampaignsApiUpdateCampaignV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateCampaignV1(requestParameters: CertificationCampaignsV1ApiUpdateCampaignV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SlimcampaignV1> {
-            return localVarFp.updateCampaignV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        updateCampaignV1(requestParameters: CertificationCampaignsApiUpdateCampaignV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Slimcampaign> {
+            return localVarFp.updateCampaignV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for completeCampaignV1 operation in CertificationCampaignsV1Api.
+ * Request parameters for completeCampaignV1 operation in CertificationCampaignsApi.
  * @export
- * @interface CertificationCampaignsV1ApiCompleteCampaignV1Request
+ * @interface CertificationCampaignsApiCompleteCampaignV1Request
  */
-export interface CertificationCampaignsV1ApiCompleteCampaignV1Request {
+export interface CertificationCampaignsApiCompleteCampaignV1Request {
     /**
      * Campaign ID.
      * @type {string}
-     * @memberof CertificationCampaignsV1ApiCompleteCampaignV1
+     * @memberof CertificationCampaignsApiCompleteCampaignV1
      */
     readonly id: string
 
     /**
      * Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE
-     * @type {CampaigncompleteoptionsV1}
-     * @memberof CertificationCampaignsV1ApiCompleteCampaignV1
+     * @type {Campaigncompleteoptions}
+     * @memberof CertificationCampaignsApiCompleteCampaignV1
      */
-    readonly campaigncompleteoptionsV1?: CampaigncompleteoptionsV1
+    readonly campaigncompleteoptions?: Campaigncompleteoptions
 }
 
 /**
- * Request parameters for createCampaignTemplateV1 operation in CertificationCampaignsV1Api.
+ * Request parameters for createCampaignTemplateV1 operation in CertificationCampaignsApi.
  * @export
- * @interface CertificationCampaignsV1ApiCreateCampaignTemplateV1Request
+ * @interface CertificationCampaignsApiCreateCampaignTemplateV1Request
  */
-export interface CertificationCampaignsV1ApiCreateCampaignTemplateV1Request {
+export interface CertificationCampaignsApiCreateCampaignTemplateV1Request {
     /**
      * 
-     * @type {CampaigntemplateV1}
-     * @memberof CertificationCampaignsV1ApiCreateCampaignTemplateV1
+     * @type {Campaigntemplate}
+     * @memberof CertificationCampaignsApiCreateCampaignTemplateV1
      */
-    readonly campaigntemplateV1: CampaigntemplateV1
+    readonly campaigntemplate: Campaigntemplate
 }
 
 /**
- * Request parameters for createCampaignV1 operation in CertificationCampaignsV1Api.
+ * Request parameters for createCampaignV1 operation in CertificationCampaignsApi.
  * @export
- * @interface CertificationCampaignsV1ApiCreateCampaignV1Request
+ * @interface CertificationCampaignsApiCreateCampaignV1Request
  */
-export interface CertificationCampaignsV1ApiCreateCampaignV1Request {
+export interface CertificationCampaignsApiCreateCampaignV1Request {
     /**
      * 
-     * @type {Campaign2V1}
-     * @memberof CertificationCampaignsV1ApiCreateCampaignV1
+     * @type {Campaign2}
+     * @memberof CertificationCampaignsApiCreateCampaignV1
      */
-    readonly campaign2V1: Campaign2V1
+    readonly campaign2: Campaign2
 }
 
 /**
- * Request parameters for deleteCampaignTemplateScheduleV1 operation in CertificationCampaignsV1Api.
+ * Request parameters for deleteCampaignTemplateScheduleV1 operation in CertificationCampaignsApi.
  * @export
- * @interface CertificationCampaignsV1ApiDeleteCampaignTemplateScheduleV1Request
+ * @interface CertificationCampaignsApiDeleteCampaignTemplateScheduleV1Request
  */
-export interface CertificationCampaignsV1ApiDeleteCampaignTemplateScheduleV1Request {
+export interface CertificationCampaignsApiDeleteCampaignTemplateScheduleV1Request {
     /**
      * ID of the campaign template whose schedule is being deleted.
      * @type {string}
-     * @memberof CertificationCampaignsV1ApiDeleteCampaignTemplateScheduleV1
+     * @memberof CertificationCampaignsApiDeleteCampaignTemplateScheduleV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for deleteCampaignTemplateV1 operation in CertificationCampaignsV1Api.
+ * Request parameters for deleteCampaignTemplateV1 operation in CertificationCampaignsApi.
  * @export
- * @interface CertificationCampaignsV1ApiDeleteCampaignTemplateV1Request
+ * @interface CertificationCampaignsApiDeleteCampaignTemplateV1Request
  */
-export interface CertificationCampaignsV1ApiDeleteCampaignTemplateV1Request {
+export interface CertificationCampaignsApiDeleteCampaignTemplateV1Request {
     /**
      * ID of the campaign template being deleted.
      * @type {string}
-     * @memberof CertificationCampaignsV1ApiDeleteCampaignTemplateV1
+     * @memberof CertificationCampaignsApiDeleteCampaignTemplateV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for deleteCampaignsV1 operation in CertificationCampaignsV1Api.
+ * Request parameters for deleteCampaignsV1 operation in CertificationCampaignsApi.
  * @export
- * @interface CertificationCampaignsV1ApiDeleteCampaignsV1Request
+ * @interface CertificationCampaignsApiDeleteCampaignsV1Request
  */
-export interface CertificationCampaignsV1ApiDeleteCampaignsV1Request {
+export interface CertificationCampaignsApiDeleteCampaignsV1Request {
     /**
      * IDs of the campaigns to delete.
-     * @type {CampaignsdeleterequestV1}
-     * @memberof CertificationCampaignsV1ApiDeleteCampaignsV1
+     * @type {Campaignsdeleterequest}
+     * @memberof CertificationCampaignsApiDeleteCampaignsV1
      */
-    readonly campaignsdeleterequestV1: CampaignsdeleterequestV1
+    readonly campaignsdeleterequest: Campaignsdeleterequest
 }
 
 /**
- * Request parameters for getActiveCampaignsV1 operation in CertificationCampaignsV1Api.
+ * Request parameters for getActiveCampaignsV1 operation in CertificationCampaignsApi.
  * @export
- * @interface CertificationCampaignsV1ApiGetActiveCampaignsV1Request
+ * @interface CertificationCampaignsApiGetActiveCampaignsV1Request
  */
-export interface CertificationCampaignsV1ApiGetActiveCampaignsV1Request {
+export interface CertificationCampaignsApiGetActiveCampaignsV1Request {
     /**
      * Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
      * @type {'SLIM' | 'FULL'}
-     * @memberof CertificationCampaignsV1ApiGetActiveCampaignsV1
+     * @memberof CertificationCampaignsApiGetActiveCampaignsV1
      */
-    readonly detail?: GetActiveCampaignsV1DetailV1
+    readonly detail?: GetActiveCampaignsV1DetailEnum
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof CertificationCampaignsV1ApiGetActiveCampaignsV1
+     * @memberof CertificationCampaignsApiGetActiveCampaignsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof CertificationCampaignsV1ApiGetActiveCampaignsV1
+     * @memberof CertificationCampaignsApiGetActiveCampaignsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof CertificationCampaignsV1ApiGetActiveCampaignsV1
+     * @memberof CertificationCampaignsApiGetActiveCampaignsV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **status**: *eq, in*
      * @type {string}
-     * @memberof CertificationCampaignsV1ApiGetActiveCampaignsV1
+     * @memberof CertificationCampaignsApiGetActiveCampaignsV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created**
      * @type {string}
-     * @memberof CertificationCampaignsV1ApiGetActiveCampaignsV1
+     * @memberof CertificationCampaignsApiGetActiveCampaignsV1
      */
     readonly sorters?: string
 }
 
 /**
- * Request parameters for getCampaignReportsV1 operation in CertificationCampaignsV1Api.
+ * Request parameters for getCampaignReportsV1 operation in CertificationCampaignsApi.
  * @export
- * @interface CertificationCampaignsV1ApiGetCampaignReportsV1Request
+ * @interface CertificationCampaignsApiGetCampaignReportsV1Request
  */
-export interface CertificationCampaignsV1ApiGetCampaignReportsV1Request {
+export interface CertificationCampaignsApiGetCampaignReportsV1Request {
     /**
      * ID of the campaign whose reports are being fetched.
      * @type {string}
-     * @memberof CertificationCampaignsV1ApiGetCampaignReportsV1
+     * @memberof CertificationCampaignsApiGetCampaignReportsV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getCampaignTemplateScheduleV1 operation in CertificationCampaignsV1Api.
+ * Request parameters for getCampaignTemplateScheduleV1 operation in CertificationCampaignsApi.
  * @export
- * @interface CertificationCampaignsV1ApiGetCampaignTemplateScheduleV1Request
+ * @interface CertificationCampaignsApiGetCampaignTemplateScheduleV1Request
  */
-export interface CertificationCampaignsV1ApiGetCampaignTemplateScheduleV1Request {
+export interface CertificationCampaignsApiGetCampaignTemplateScheduleV1Request {
     /**
      * ID of the campaign template whose schedule is being fetched.
      * @type {string}
-     * @memberof CertificationCampaignsV1ApiGetCampaignTemplateScheduleV1
+     * @memberof CertificationCampaignsApiGetCampaignTemplateScheduleV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getCampaignTemplateV1 operation in CertificationCampaignsV1Api.
+ * Request parameters for getCampaignTemplateV1 operation in CertificationCampaignsApi.
  * @export
- * @interface CertificationCampaignsV1ApiGetCampaignTemplateV1Request
+ * @interface CertificationCampaignsApiGetCampaignTemplateV1Request
  */
-export interface CertificationCampaignsV1ApiGetCampaignTemplateV1Request {
+export interface CertificationCampaignsApiGetCampaignTemplateV1Request {
     /**
      * Requested campaign template\&#39;s ID.
      * @type {string}
-     * @memberof CertificationCampaignsV1ApiGetCampaignTemplateV1
+     * @memberof CertificationCampaignsApiGetCampaignTemplateV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getCampaignTemplatesV1 operation in CertificationCampaignsV1Api.
+ * Request parameters for getCampaignTemplatesV1 operation in CertificationCampaignsApi.
  * @export
- * @interface CertificationCampaignsV1ApiGetCampaignTemplatesV1Request
+ * @interface CertificationCampaignsApiGetCampaignTemplatesV1Request
  */
-export interface CertificationCampaignsV1ApiGetCampaignTemplatesV1Request {
+export interface CertificationCampaignsApiGetCampaignTemplatesV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof CertificationCampaignsV1ApiGetCampaignTemplatesV1
+     * @memberof CertificationCampaignsApiGetCampaignTemplatesV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof CertificationCampaignsV1ApiGetCampaignTemplatesV1
+     * @memberof CertificationCampaignsApiGetCampaignTemplatesV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof CertificationCampaignsV1ApiGetCampaignTemplatesV1
+     * @memberof CertificationCampaignsApiGetCampaignTemplatesV1
      */
     readonly count?: boolean
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
      * @type {string}
-     * @memberof CertificationCampaignsV1ApiGetCampaignTemplatesV1
+     * @memberof CertificationCampaignsApiGetCampaignTemplatesV1
      */
     readonly sorters?: string
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, ge, gt, in, le, lt, ne, sw*  **id**: *eq, ge, gt, in, le, lt, ne, sw*
      * @type {string}
-     * @memberof CertificationCampaignsV1ApiGetCampaignTemplatesV1
+     * @memberof CertificationCampaignsApiGetCampaignTemplatesV1
      */
     readonly filters?: string
 }
 
 /**
- * Request parameters for getCampaignV1 operation in CertificationCampaignsV1Api.
+ * Request parameters for getCampaignV1 operation in CertificationCampaignsApi.
  * @export
- * @interface CertificationCampaignsV1ApiGetCampaignV1Request
+ * @interface CertificationCampaignsApiGetCampaignV1Request
  */
-export interface CertificationCampaignsV1ApiGetCampaignV1Request {
+export interface CertificationCampaignsApiGetCampaignV1Request {
     /**
      * ID of the campaign to be retrieved.
      * @type {string}
-     * @memberof CertificationCampaignsV1ApiGetCampaignV1
+     * @memberof CertificationCampaignsApiGetCampaignV1
      */
     readonly id: string
 
     /**
      * Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
      * @type {'SLIM' | 'FULL'}
-     * @memberof CertificationCampaignsV1ApiGetCampaignV1
+     * @memberof CertificationCampaignsApiGetCampaignV1
      */
-    readonly detail?: GetCampaignV1DetailV1
+    readonly detail?: GetCampaignV1DetailEnum
 }
 
 /**
- * Request parameters for moveV1 operation in CertificationCampaignsV1Api.
+ * Request parameters for moveV1 operation in CertificationCampaignsApi.
  * @export
- * @interface CertificationCampaignsV1ApiMoveV1Request
+ * @interface CertificationCampaignsApiMoveV1Request
  */
-export interface CertificationCampaignsV1ApiMoveV1Request {
+export interface CertificationCampaignsApiMoveV1Request {
     /**
      * The certification campaign ID
      * @type {string}
-     * @memberof CertificationCampaignsV1ApiMoveV1
+     * @memberof CertificationCampaignsApiMoveV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {AdminreviewreassignV1}
-     * @memberof CertificationCampaignsV1ApiMoveV1
+     * @type {Adminreviewreassign}
+     * @memberof CertificationCampaignsApiMoveV1
      */
-    readonly adminreviewreassignV1: AdminreviewreassignV1
+    readonly adminreviewreassign: Adminreviewreassign
 }
 
 /**
- * Request parameters for patchCampaignTemplateV1 operation in CertificationCampaignsV1Api.
+ * Request parameters for patchCampaignTemplateV1 operation in CertificationCampaignsApi.
  * @export
- * @interface CertificationCampaignsV1ApiPatchCampaignTemplateV1Request
+ * @interface CertificationCampaignsApiPatchCampaignTemplateV1Request
  */
-export interface CertificationCampaignsV1ApiPatchCampaignTemplateV1Request {
+export interface CertificationCampaignsApiPatchCampaignTemplateV1Request {
     /**
      * ID of the campaign template being modified.
      * @type {string}
-     * @memberof CertificationCampaignsV1ApiPatchCampaignTemplateV1
+     * @memberof CertificationCampaignsApiPatchCampaignTemplateV1
      */
     readonly id: string
 
     /**
      * A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof CertificationCampaignsV1ApiPatchCampaignTemplateV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof CertificationCampaignsApiPatchCampaignTemplateV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * Request parameters for setCampaignReportsConfigV1 operation in CertificationCampaignsV1Api.
+ * Request parameters for setCampaignReportsConfigV1 operation in CertificationCampaignsApi.
  * @export
- * @interface CertificationCampaignsV1ApiSetCampaignReportsConfigV1Request
+ * @interface CertificationCampaignsApiSetCampaignReportsConfigV1Request
  */
-export interface CertificationCampaignsV1ApiSetCampaignReportsConfigV1Request {
+export interface CertificationCampaignsApiSetCampaignReportsConfigV1Request {
     /**
      * Campaign report configuration.
-     * @type {CampaignreportsconfigV1}
-     * @memberof CertificationCampaignsV1ApiSetCampaignReportsConfigV1
+     * @type {Campaignreportsconfig}
+     * @memberof CertificationCampaignsApiSetCampaignReportsConfigV1
      */
-    readonly campaignreportsconfigV1: CampaignreportsconfigV1
+    readonly campaignreportsconfig: Campaignreportsconfig
 }
 
 /**
- * Request parameters for setCampaignTemplateScheduleV1 operation in CertificationCampaignsV1Api.
+ * Request parameters for setCampaignTemplateScheduleV1 operation in CertificationCampaignsApi.
  * @export
- * @interface CertificationCampaignsV1ApiSetCampaignTemplateScheduleV1Request
+ * @interface CertificationCampaignsApiSetCampaignTemplateScheduleV1Request
  */
-export interface CertificationCampaignsV1ApiSetCampaignTemplateScheduleV1Request {
+export interface CertificationCampaignsApiSetCampaignTemplateScheduleV1Request {
     /**
      * ID of the campaign template being scheduled.
      * @type {string}
-     * @memberof CertificationCampaignsV1ApiSetCampaignTemplateScheduleV1
+     * @memberof CertificationCampaignsApiSetCampaignTemplateScheduleV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {Schedule2V1}
-     * @memberof CertificationCampaignsV1ApiSetCampaignTemplateScheduleV1
+     * @type {Schedule2}
+     * @memberof CertificationCampaignsApiSetCampaignTemplateScheduleV1
      */
-    readonly schedule2V1?: Schedule2V1
+    readonly schedule2?: Schedule2
 }
 
 /**
- * Request parameters for startCampaignRemediationScanV1 operation in CertificationCampaignsV1Api.
+ * Request parameters for startCampaignRemediationScanV1 operation in CertificationCampaignsApi.
  * @export
- * @interface CertificationCampaignsV1ApiStartCampaignRemediationScanV1Request
+ * @interface CertificationCampaignsApiStartCampaignRemediationScanV1Request
  */
-export interface CertificationCampaignsV1ApiStartCampaignRemediationScanV1Request {
+export interface CertificationCampaignsApiStartCampaignRemediationScanV1Request {
     /**
      * ID of the campaign the remediation scan is being run for.
      * @type {string}
-     * @memberof CertificationCampaignsV1ApiStartCampaignRemediationScanV1
+     * @memberof CertificationCampaignsApiStartCampaignRemediationScanV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for startCampaignReportV1 operation in CertificationCampaignsV1Api.
+ * Request parameters for startCampaignReportV1 operation in CertificationCampaignsApi.
  * @export
- * @interface CertificationCampaignsV1ApiStartCampaignReportV1Request
+ * @interface CertificationCampaignsApiStartCampaignReportV1Request
  */
-export interface CertificationCampaignsV1ApiStartCampaignReportV1Request {
+export interface CertificationCampaignsApiStartCampaignReportV1Request {
     /**
      * ID of the campaign the report is being run for.
      * @type {string}
-     * @memberof CertificationCampaignsV1ApiStartCampaignReportV1
+     * @memberof CertificationCampaignsApiStartCampaignReportV1
      */
     readonly id: string
 
     /**
      * Type of the report to run.
-     * @type {ReporttypeV1}
-     * @memberof CertificationCampaignsV1ApiStartCampaignReportV1
+     * @type {Reporttype}
+     * @memberof CertificationCampaignsApiStartCampaignReportV1
      */
-    readonly type: ReporttypeV1
+    readonly type: Reporttype
 }
 
 /**
- * Request parameters for startCampaignV1 operation in CertificationCampaignsV1Api.
+ * Request parameters for startCampaignV1 operation in CertificationCampaignsApi.
  * @export
- * @interface CertificationCampaignsV1ApiStartCampaignV1Request
+ * @interface CertificationCampaignsApiStartCampaignV1Request
  */
-export interface CertificationCampaignsV1ApiStartCampaignV1Request {
+export interface CertificationCampaignsApiStartCampaignV1Request {
     /**
      * Campaign ID.
      * @type {string}
-     * @memberof CertificationCampaignsV1ApiStartCampaignV1
+     * @memberof CertificationCampaignsApiStartCampaignV1
      */
     readonly id: string
 
     /**
      * Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller\&#39;s timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format.
-     * @type {ActivatecampaignoptionsV1}
-     * @memberof CertificationCampaignsV1ApiStartCampaignV1
+     * @type {Activatecampaignoptions}
+     * @memberof CertificationCampaignsApiStartCampaignV1
      */
-    readonly activatecampaignoptionsV1?: ActivatecampaignoptionsV1
+    readonly activatecampaignoptions?: Activatecampaignoptions
 }
 
 /**
- * Request parameters for startGenerateCampaignTemplateV1 operation in CertificationCampaignsV1Api.
+ * Request parameters for startGenerateCampaignTemplateV1 operation in CertificationCampaignsApi.
  * @export
- * @interface CertificationCampaignsV1ApiStartGenerateCampaignTemplateV1Request
+ * @interface CertificationCampaignsApiStartGenerateCampaignTemplateV1Request
  */
-export interface CertificationCampaignsV1ApiStartGenerateCampaignTemplateV1Request {
+export interface CertificationCampaignsApiStartGenerateCampaignTemplateV1Request {
     /**
      * ID of the campaign template to use for generation.
      * @type {string}
-     * @memberof CertificationCampaignsV1ApiStartGenerateCampaignTemplateV1
+     * @memberof CertificationCampaignsApiStartGenerateCampaignTemplateV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for updateCampaignV1 operation in CertificationCampaignsV1Api.
+ * Request parameters for updateCampaignV1 operation in CertificationCampaignsApi.
  * @export
- * @interface CertificationCampaignsV1ApiUpdateCampaignV1Request
+ * @interface CertificationCampaignsApiUpdateCampaignV1Request
  */
-export interface CertificationCampaignsV1ApiUpdateCampaignV1Request {
+export interface CertificationCampaignsApiUpdateCampaignV1Request {
     /**
      * ID of the campaign template being modified.
      * @type {string}
-     * @memberof CertificationCampaignsV1ApiUpdateCampaignV1
+     * @memberof CertificationCampaignsApiUpdateCampaignV1
      */
     readonly id: string
 
     /**
      * A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof CertificationCampaignsV1ApiUpdateCampaignV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof CertificationCampaignsApiUpdateCampaignV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * CertificationCampaignsV1Api - object-oriented interface
+ * CertificationCampaignsApi - object-oriented interface
  * @export
- * @class CertificationCampaignsV1Api
+ * @class CertificationCampaignsApi
  * @extends {BaseAPI}
  */
-export class CertificationCampaignsV1Api extends BaseAPI {
+export class CertificationCampaignsApi extends BaseAPI {
     /**
      * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Use this API to complete a certification campaign. This functionality is provided to admins so that they can complete a certification even if all items have not been completed. 
      * @summary Complete a campaign
-     * @param {CertificationCampaignsV1ApiCompleteCampaignV1Request} requestParameters Request parameters.
+     * @param {CertificationCampaignsApiCompleteCampaignV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationCampaignsV1Api
+     * @memberof CertificationCampaignsApi
      */
-    public completeCampaignV1(requestParameters: CertificationCampaignsV1ApiCompleteCampaignV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationCampaignsV1ApiFp(this.configuration).completeCampaignV1(requestParameters.id, requestParameters.campaigncompleteoptionsV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public completeCampaignV1(requestParameters: CertificationCampaignsApiCompleteCampaignV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).completeCampaignV1(requestParameters.id, requestParameters.campaigncompleteoptions, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to create a certification campaign template based on campaign. 
      * @summary Create a campaign template
-     * @param {CertificationCampaignsV1ApiCreateCampaignTemplateV1Request} requestParameters Request parameters.
+     * @param {CertificationCampaignsApiCreateCampaignTemplateV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationCampaignsV1Api
+     * @memberof CertificationCampaignsApi
      */
-    public createCampaignTemplateV1(requestParameters: CertificationCampaignsV1ApiCreateCampaignTemplateV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationCampaignsV1ApiFp(this.configuration).createCampaignTemplateV1(requestParameters.campaigntemplateV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createCampaignTemplateV1(requestParameters: CertificationCampaignsApiCreateCampaignTemplateV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).createCampaignTemplateV1(requestParameters.campaigntemplate, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to create a certification campaign with the information provided in the request body.     
      * @summary Create a campaign
-     * @param {CertificationCampaignsV1ApiCreateCampaignV1Request} requestParameters Request parameters.
+     * @param {CertificationCampaignsApiCreateCampaignV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationCampaignsV1Api
+     * @memberof CertificationCampaignsApi
      */
-    public createCampaignV1(requestParameters: CertificationCampaignsV1ApiCreateCampaignV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationCampaignsV1ApiFp(this.configuration).createCampaignV1(requestParameters.campaign2V1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createCampaignV1(requestParameters: CertificationCampaignsApiCreateCampaignV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).createCampaignV1(requestParameters.campaign2, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set. 
      * @summary Delete campaign template schedule
-     * @param {CertificationCampaignsV1ApiDeleteCampaignTemplateScheduleV1Request} requestParameters Request parameters.
+     * @param {CertificationCampaignsApiDeleteCampaignTemplateScheduleV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationCampaignsV1Api
+     * @memberof CertificationCampaignsApi
      */
-    public deleteCampaignTemplateScheduleV1(requestParameters: CertificationCampaignsV1ApiDeleteCampaignTemplateScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationCampaignsV1ApiFp(this.configuration).deleteCampaignTemplateScheduleV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteCampaignTemplateScheduleV1(requestParameters: CertificationCampaignsApiDeleteCampaignTemplateScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).deleteCampaignTemplateScheduleV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to delete a certification campaign template by ID. 
      * @summary Delete a campaign template
-     * @param {CertificationCampaignsV1ApiDeleteCampaignTemplateV1Request} requestParameters Request parameters.
+     * @param {CertificationCampaignsApiDeleteCampaignTemplateV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationCampaignsV1Api
+     * @memberof CertificationCampaignsApi
      */
-    public deleteCampaignTemplateV1(requestParameters: CertificationCampaignsV1ApiDeleteCampaignTemplateV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationCampaignsV1ApiFp(this.configuration).deleteCampaignTemplateV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteCampaignTemplateV1(requestParameters: CertificationCampaignsApiDeleteCampaignTemplateV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).deleteCampaignTemplateV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs. 
      * @summary Delete campaigns
-     * @param {CertificationCampaignsV1ApiDeleteCampaignsV1Request} requestParameters Request parameters.
+     * @param {CertificationCampaignsApiDeleteCampaignsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationCampaignsV1Api
+     * @memberof CertificationCampaignsApi
      */
-    public deleteCampaignsV1(requestParameters: CertificationCampaignsV1ApiDeleteCampaignsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationCampaignsV1ApiFp(this.configuration).deleteCampaignsV1(requestParameters.campaignsdeleterequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteCampaignsV1(requestParameters: CertificationCampaignsApiDeleteCampaignsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).deleteCampaignsV1(requestParameters.campaignsdeleterequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query. 
      * @summary List campaigns
-     * @param {CertificationCampaignsV1ApiGetActiveCampaignsV1Request} requestParameters Request parameters.
+     * @param {CertificationCampaignsApiGetActiveCampaignsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationCampaignsV1Api
+     * @memberof CertificationCampaignsApi
      */
-    public getActiveCampaignsV1(requestParameters: CertificationCampaignsV1ApiGetActiveCampaignsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationCampaignsV1ApiFp(this.configuration).getActiveCampaignsV1(requestParameters.detail, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getActiveCampaignsV1(requestParameters: CertificationCampaignsApiGetActiveCampaignsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).getActiveCampaignsV1(requestParameters.detail, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3805,196 +3805,196 @@ export class CertificationCampaignsV1Api extends BaseAPI {
      * @summary Get campaign reports configuration
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationCampaignsV1Api
+     * @memberof CertificationCampaignsApi
      */
     public getCampaignReportsConfigV1(axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationCampaignsV1ApiFp(this.configuration).getCampaignReportsConfigV1(axiosOptions).then((request) => request(this.axios, this.basePath));
+        return CertificationCampaignsApiFp(this.configuration).getCampaignReportsConfigV1(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to fetch all reports for a certification campaign by campaign ID. 
      * @summary Get campaign reports
-     * @param {CertificationCampaignsV1ApiGetCampaignReportsV1Request} requestParameters Request parameters.
+     * @param {CertificationCampaignsApiGetCampaignReportsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationCampaignsV1Api
+     * @memberof CertificationCampaignsApi
      */
-    public getCampaignReportsV1(requestParameters: CertificationCampaignsV1ApiGetCampaignReportsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationCampaignsV1ApiFp(this.configuration).getCampaignReportsV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getCampaignReportsV1(requestParameters: CertificationCampaignsApiGetCampaignReportsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).getCampaignReportsV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set. 
      * @summary Get campaign template schedule
-     * @param {CertificationCampaignsV1ApiGetCampaignTemplateScheduleV1Request} requestParameters Request parameters.
+     * @param {CertificationCampaignsApiGetCampaignTemplateScheduleV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationCampaignsV1Api
+     * @memberof CertificationCampaignsApi
      */
-    public getCampaignTemplateScheduleV1(requestParameters: CertificationCampaignsV1ApiGetCampaignTemplateScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationCampaignsV1ApiFp(this.configuration).getCampaignTemplateScheduleV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getCampaignTemplateScheduleV1(requestParameters: CertificationCampaignsApiGetCampaignTemplateScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).getCampaignTemplateScheduleV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to fetch a certification campaign template by ID. 
      * @summary Get a campaign template
-     * @param {CertificationCampaignsV1ApiGetCampaignTemplateV1Request} requestParameters Request parameters.
+     * @param {CertificationCampaignsApiGetCampaignTemplateV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationCampaignsV1Api
+     * @memberof CertificationCampaignsApi
      */
-    public getCampaignTemplateV1(requestParameters: CertificationCampaignsV1ApiGetCampaignTemplateV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationCampaignsV1ApiFp(this.configuration).getCampaignTemplateV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getCampaignTemplateV1(requestParameters: CertificationCampaignsApiGetCampaignTemplateV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).getCampaignTemplateV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params.  The API returns all campaign templates matching the query parameters.  
      * @summary List campaign templates
-     * @param {CertificationCampaignsV1ApiGetCampaignTemplatesV1Request} requestParameters Request parameters.
+     * @param {CertificationCampaignsApiGetCampaignTemplatesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationCampaignsV1Api
+     * @memberof CertificationCampaignsApi
      */
-    public getCampaignTemplatesV1(requestParameters: CertificationCampaignsV1ApiGetCampaignTemplatesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationCampaignsV1ApiFp(this.configuration).getCampaignTemplatesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getCampaignTemplatesV1(requestParameters: CertificationCampaignsApiGetCampaignTemplatesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).getCampaignTemplatesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to get information for an existing certification campaign by the campaign\'s ID. 
      * @summary Get campaign
-     * @param {CertificationCampaignsV1ApiGetCampaignV1Request} requestParameters Request parameters.
+     * @param {CertificationCampaignsApiGetCampaignV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationCampaignsV1Api
+     * @memberof CertificationCampaignsApi
      */
-    public getCampaignV1(requestParameters: CertificationCampaignsV1ApiGetCampaignV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationCampaignsV1ApiFp(this.configuration).getCampaignV1(requestParameters.id, requestParameters.detail, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getCampaignV1(requestParameters: CertificationCampaignsApiGetCampaignV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).getCampaignV1(requestParameters.id, requestParameters.detail, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API reassigns the specified certifications from one identity to another.     
      * @summary Reassign certifications
-     * @param {CertificationCampaignsV1ApiMoveV1Request} requestParameters Request parameters.
+     * @param {CertificationCampaignsApiMoveV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationCampaignsV1Api
+     * @memberof CertificationCampaignsApi
      */
-    public moveV1(requestParameters: CertificationCampaignsV1ApiMoveV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationCampaignsV1ApiFp(this.configuration).moveV1(requestParameters.id, requestParameters.adminreviewreassignV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public moveV1(requestParameters: CertificationCampaignsApiMoveV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).moveV1(requestParameters.id, requestParameters.adminreviewreassign, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. 
      * @summary Update a campaign template
-     * @param {CertificationCampaignsV1ApiPatchCampaignTemplateV1Request} requestParameters Request parameters.
+     * @param {CertificationCampaignsApiPatchCampaignTemplateV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationCampaignsV1Api
+     * @memberof CertificationCampaignsApi
      */
-    public patchCampaignTemplateV1(requestParameters: CertificationCampaignsV1ApiPatchCampaignTemplateV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationCampaignsV1ApiFp(this.configuration).patchCampaignTemplateV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchCampaignTemplateV1(requestParameters: CertificationCampaignsApiPatchCampaignTemplateV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).patchCampaignTemplateV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to overwrite the configuration for campaign reports.  
      * @summary Set campaign reports configuration
-     * @param {CertificationCampaignsV1ApiSetCampaignReportsConfigV1Request} requestParameters Request parameters.
+     * @param {CertificationCampaignsApiSetCampaignReportsConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationCampaignsV1Api
+     * @memberof CertificationCampaignsApi
      */
-    public setCampaignReportsConfigV1(requestParameters: CertificationCampaignsV1ApiSetCampaignReportsConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationCampaignsV1ApiFp(this.configuration).setCampaignReportsConfigV1(requestParameters.campaignreportsconfigV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public setCampaignReportsConfigV1(requestParameters: CertificationCampaignsApiSetCampaignReportsConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).setCampaignReportsConfigV1(requestParameters.campaignreportsconfig, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one. 
      * @summary Set campaign template schedule
-     * @param {CertificationCampaignsV1ApiSetCampaignTemplateScheduleV1Request} requestParameters Request parameters.
+     * @param {CertificationCampaignsApiSetCampaignTemplateScheduleV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationCampaignsV1Api
+     * @memberof CertificationCampaignsApi
      */
-    public setCampaignTemplateScheduleV1(requestParameters: CertificationCampaignsV1ApiSetCampaignTemplateScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationCampaignsV1ApiFp(this.configuration).setCampaignTemplateScheduleV1(requestParameters.id, requestParameters.schedule2V1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public setCampaignTemplateScheduleV1(requestParameters: CertificationCampaignsApiSetCampaignTemplateScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).setCampaignTemplateScheduleV1(requestParameters.id, requestParameters.schedule2, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to run a remediation scan task for a certification campaign. 
      * @summary Run campaign remediation scan
-     * @param {CertificationCampaignsV1ApiStartCampaignRemediationScanV1Request} requestParameters Request parameters.
+     * @param {CertificationCampaignsApiStartCampaignRemediationScanV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationCampaignsV1Api
+     * @memberof CertificationCampaignsApi
      */
-    public startCampaignRemediationScanV1(requestParameters: CertificationCampaignsV1ApiStartCampaignRemediationScanV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationCampaignsV1ApiFp(this.configuration).startCampaignRemediationScanV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public startCampaignRemediationScanV1(requestParameters: CertificationCampaignsApiStartCampaignRemediationScanV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).startCampaignRemediationScanV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to run a report for a certification campaign. 
      * @summary Run campaign report
-     * @param {CertificationCampaignsV1ApiStartCampaignReportV1Request} requestParameters Request parameters.
+     * @param {CertificationCampaignsApiStartCampaignReportV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationCampaignsV1Api
+     * @memberof CertificationCampaignsApi
      */
-    public startCampaignReportV1(requestParameters: CertificationCampaignsV1ApiStartCampaignReportV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationCampaignsV1ApiFp(this.configuration).startCampaignReportV1(requestParameters.id, requestParameters.type, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public startCampaignReportV1(requestParameters: CertificationCampaignsApiStartCampaignReportV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).startCampaignReportV1(requestParameters.id, requestParameters.type, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. 
      * @summary Activate a campaign
-     * @param {CertificationCampaignsV1ApiStartCampaignV1Request} requestParameters Request parameters.
+     * @param {CertificationCampaignsApiStartCampaignV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationCampaignsV1Api
+     * @memberof CertificationCampaignsApi
      */
-    public startCampaignV1(requestParameters: CertificationCampaignsV1ApiStartCampaignV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationCampaignsV1ApiFp(this.configuration).startCampaignV1(requestParameters.id, requestParameters.activatecampaignoptionsV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public startCampaignV1(requestParameters: CertificationCampaignsApiStartCampaignV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).startCampaignV1(requestParameters.id, requestParameters.activatecampaignoptions, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to generate a new certification campaign from a campaign template.  The campaign object contained in the template has special formatting applied to its name and description fields that determine the generated campaign\'s name/description. Placeholders in those fields are formatted with the current date and time upon generation.  Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For example, \"%Y\" inserts the current year, and a campaign template named \"Campaign for %y\" generates a campaign called \"Campaign for 2020\" (assuming the year at generation time is 2020).  Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). 
      * @summary Generate a campaign from template
-     * @param {CertificationCampaignsV1ApiStartGenerateCampaignTemplateV1Request} requestParameters Request parameters.
+     * @param {CertificationCampaignsApiStartGenerateCampaignTemplateV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationCampaignsV1Api
+     * @memberof CertificationCampaignsApi
      */
-    public startGenerateCampaignTemplateV1(requestParameters: CertificationCampaignsV1ApiStartGenerateCampaignTemplateV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationCampaignsV1ApiFp(this.configuration).startGenerateCampaignTemplateV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public startGenerateCampaignTemplateV1(requestParameters: CertificationCampaignsApiStartGenerateCampaignTemplateV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).startGenerateCampaignTemplateV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. 
      * @summary Update a campaign
-     * @param {CertificationCampaignsV1ApiUpdateCampaignV1Request} requestParameters Request parameters.
+     * @param {CertificationCampaignsApiUpdateCampaignV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationCampaignsV1Api
+     * @memberof CertificationCampaignsApi
      */
-    public updateCampaignV1(requestParameters: CertificationCampaignsV1ApiUpdateCampaignV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationCampaignsV1ApiFp(this.configuration).updateCampaignV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateCampaignV1(requestParameters: CertificationCampaignsApiUpdateCampaignV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).updateCampaignV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
 /**
  * @export
  */
-export const GetActiveCampaignsV1DetailV1 = {
+export const GetActiveCampaignsV1DetailEnum = {
     Slim: 'SLIM',
     Full: 'FULL'
 } as const;
-export type GetActiveCampaignsV1DetailV1 = typeof GetActiveCampaignsV1DetailV1[keyof typeof GetActiveCampaignsV1DetailV1];
+export type GetActiveCampaignsV1DetailEnum = typeof GetActiveCampaignsV1DetailEnum[keyof typeof GetActiveCampaignsV1DetailEnum];
 /**
  * @export
  */
-export const GetCampaignV1DetailV1 = {
+export const GetCampaignV1DetailEnum = {
     Slim: 'SLIM',
     Full: 'FULL'
 } as const;
-export type GetCampaignV1DetailV1 = typeof GetCampaignV1DetailV1[keyof typeof GetCampaignV1DetailV1];
+export type GetCampaignV1DetailEnum = typeof GetCampaignV1DetailEnum[keyof typeof GetCampaignV1DetailEnum];
 
 

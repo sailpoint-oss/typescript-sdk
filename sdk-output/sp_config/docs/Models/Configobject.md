@@ -1,21 +1,21 @@
 ---
-id: v1-configobject-v1
-title: ConfigobjectV1
-pagination_label: ConfigobjectV1
-sidebar_label: ConfigobjectV1
+id: v1-configobject
+title: Configobject
+pagination_label: Configobject
+sidebar_label: Configobject
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ConfigobjectV1', 'v1ConfigobjectV1']
-slug: /tools/sdk/typescript/sp_config/models/configobject-v1
-tags: ['SDK', 'Software Development Kit', 'ConfigobjectV1', 'v1ConfigobjectV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Configobject', 'v1Configobject']
+slug: /tools/sdk/typescript/sp_config/models/configobject
+tags: ['SDK', 'Software Development Kit', 'Configobject', 'v1Configobject']
 ---
 
-# ConfigobjectV1
+# Configobject
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**version** | **(optional)** **number** | Current version of configuration object. | [default to undefined]
-**self** | **(optional)** **SelfimportexportdtoV1** |  | [default to undefined]
+**version** | **(optional)** `number` | Current version of configuration object. | [default to undefined]
+**self** | **(optional)** `Selfimportexportdto` |  | [default to undefined]
 **object** | **(optional)**  | Object details. Format dependant on the object type. | [default to undefined]
 

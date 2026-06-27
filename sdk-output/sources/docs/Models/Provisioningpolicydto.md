@@ -1,22 +1,22 @@
 ---
-id: v1-provisioningpolicydto-v1
-title: ProvisioningpolicydtoV1
-pagination_label: ProvisioningpolicydtoV1
-sidebar_label: ProvisioningpolicydtoV1
+id: v1-provisioningpolicydto
+title: Provisioningpolicydto
+pagination_label: Provisioningpolicydto
+sidebar_label: Provisioningpolicydto
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ProvisioningpolicydtoV1', 'v1ProvisioningpolicydtoV1']
-slug: /tools/sdk/typescript/sources/models/provisioningpolicydto-v1
-tags: ['SDK', 'Software Development Kit', 'ProvisioningpolicydtoV1', 'v1ProvisioningpolicydtoV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Provisioningpolicydto', 'v1Provisioningpolicydto']
+slug: /tools/sdk/typescript/sources/models/provisioningpolicydto
+tags: ['SDK', 'Software Development Kit', 'Provisioningpolicydto', 'v1Provisioningpolicydto']
 ---
 
-# ProvisioningpolicydtoV1
+# Provisioningpolicydto
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** | the provisioning policy name | [default to undefined]
-**description** | **(optional)** **string** | the description of the provisioning policy | [default to undefined]
-**usageType** | **(optional)** **UsagetypeV1** |  | [default to undefined]
-**fields** | **(optional)** **Array&lt;FielddetailsdtoV1&gt;** |  | [default to undefined]
+**name** | `string` | the provisioning policy name | [default to undefined]
+**description** | **(optional)** `string` | the description of the provisioning policy | [default to undefined]
+**usageType** | **(optional)** `Usagetype` |  | [default to undefined]
+**fields** | **(optional)** `Array<Fielddetailsdto>` |  | [default to undefined]
 

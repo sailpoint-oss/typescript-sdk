@@ -1,21 +1,21 @@
 ---
-id: v1-roleassignmentdto-assigner-v1
-title: RoleassignmentdtoAssignerV1
-pagination_label: RoleassignmentdtoAssignerV1
-sidebar_label: RoleassignmentdtoAssignerV1
+id: v1-roleassignmentdto-assigner
+title: RoleassignmentdtoAssigner
+pagination_label: RoleassignmentdtoAssigner
+sidebar_label: RoleassignmentdtoAssigner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RoleassignmentdtoAssignerV1', 'v1RoleassignmentdtoAssignerV1']
-slug: /tools/sdk/typescript/identities/models/roleassignmentdto-assigner-v1
-tags: ['SDK', 'Software Development Kit', 'RoleassignmentdtoAssignerV1', 'v1RoleassignmentdtoAssignerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'RoleassignmentdtoAssigner', 'v1RoleassignmentdtoAssigner']
+slug: /tools/sdk/typescript/identities/models/roleassignmentdto-assigner
+tags: ['SDK', 'Software Development Kit', 'RoleassignmentdtoAssigner', 'v1RoleassignmentdtoAssigner']
 ---
 
-# RoleassignmentdtoAssignerV1
+# RoleassignmentdtoAssigner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | Object type | [default to undefined]
-**id** | **(optional)** **string** | ID of the object to which this reference applies | [default to undefined]
-**name** | **(optional)** **string** | Human-readable display name of the object to which this reference applies | [default to undefined]
+**type** | **(optional)** `string` | Object type | [default to undefined]
+**id** | **(optional)** `string` | ID of the object to which this reference applies | [default to undefined]
+**name** | **(optional)** `string` | Human-readable display name of the object to which this reference applies | [default to undefined]
 

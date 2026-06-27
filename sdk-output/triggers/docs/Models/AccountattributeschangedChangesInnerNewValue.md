@@ -1,15 +1,15 @@
 ---
-id: v1-accountattributeschanged-changes-inner-new-value-v1
-title: AccountattributeschangedChangesInnerNewValueV1
-pagination_label: AccountattributeschangedChangesInnerNewValueV1
-sidebar_label: AccountattributeschangedChangesInnerNewValueV1
+id: v1-accountattributeschanged-changes-inner-new-value
+title: AccountattributeschangedChangesInnerNewValue
+pagination_label: AccountattributeschangedChangesInnerNewValue
+sidebar_label: AccountattributeschangedChangesInnerNewValue
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccountattributeschangedChangesInnerNewValueV1', 'v1AccountattributeschangedChangesInnerNewValueV1']
-slug: /tools/sdk/typescript/triggers/models/accountattributeschanged-changes-inner-new-value-v1
-tags: ['SDK', 'Software Development Kit', 'AccountattributeschangedChangesInnerNewValueV1', 'v1AccountattributeschangedChangesInnerNewValueV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'AccountattributeschangedChangesInnerNewValue', 'v1AccountattributeschangedChangesInnerNewValue']
+slug: /tools/sdk/typescript/triggers/models/accountattributeschanged-changes-inner-new-value
+tags: ['SDK', 'Software Development Kit', 'AccountattributeschangedChangesInnerNewValue', 'v1AccountattributeschangedChangesInnerNewValue']
 ---
 
-# AccountattributeschangedChangesInnerNewValueV1
+# AccountattributeschangedChangesInnerNewValue
 
 ## Properties
 

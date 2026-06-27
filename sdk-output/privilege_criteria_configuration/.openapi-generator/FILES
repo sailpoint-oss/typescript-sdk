@@ -7,8 +7,8 @@ GetPrivilegeCriteriaConfigV1401Response.md
 GetPrivilegeCriteriaConfigV1429Response.md
 Index.md
 Localeorigin.md
-PrivilegeCriteriaConfigurationV1Api.md
-PrivilegeCriteriaConfigurationV1ApideveloperSite_code_examples.yaml
+PrivilegeCriteriaConfigurationApi.md
+PrivilegeCriteriaConfigurationApideveloperSite_code_examples.yaml
 Privilegecriteriaconfigdto.md
 README.md
 api.ts

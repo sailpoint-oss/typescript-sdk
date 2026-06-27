@@ -14,8 +14,8 @@ ListPersonalAccessTokensV1401Response.md
 ListPersonalAccessTokensV1429Response.md
 Localeorigin.md
 Patowner.md
-PersonalAccessTokensV1Api.md
-PersonalAccessTokensV1ApideveloperSite_code_examples.yaml
+PersonalAccessTokensApi.md
+PersonalAccessTokensApideveloperSite_code_examples.yaml
 README.md
 api.ts
 base.ts

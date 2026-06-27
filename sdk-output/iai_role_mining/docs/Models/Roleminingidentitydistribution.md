@@ -1,20 +1,20 @@
 ---
-id: v1-roleminingidentitydistribution-v1
-title: RoleminingidentitydistributionV1
-pagination_label: RoleminingidentitydistributionV1
-sidebar_label: RoleminingidentitydistributionV1
+id: v1-roleminingidentitydistribution
+title: Roleminingidentitydistribution
+pagination_label: Roleminingidentitydistribution
+sidebar_label: Roleminingidentitydistribution
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RoleminingidentitydistributionV1', 'v1RoleminingidentitydistributionV1']
-slug: /tools/sdk/typescript/iai_role_mining/models/roleminingidentitydistribution-v1
-tags: ['SDK', 'Software Development Kit', 'RoleminingidentitydistributionV1', 'v1RoleminingidentitydistributionV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Roleminingidentitydistribution', 'v1Roleminingidentitydistribution']
+slug: /tools/sdk/typescript/iai_role_mining/models/roleminingidentitydistribution
+tags: ['SDK', 'Software Development Kit', 'Roleminingidentitydistribution', 'v1Roleminingidentitydistribution']
 ---
 
-# RoleminingidentitydistributionV1
+# Roleminingidentitydistribution
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributeName** | **(optional)** **string** | Id of the potential role | [default to undefined]
-**distribution** | **(optional)** **Array&lt;RoleminingidentitydistributionDistributionInnerV1&gt;** |  | [default to undefined]
+**attributeName** | **(optional)** `string` | Id of the potential role | [default to undefined]
+**distribution** | **(optional)** `Array<RoleminingidentitydistributionDistributionInner>` |  | [default to undefined]
 

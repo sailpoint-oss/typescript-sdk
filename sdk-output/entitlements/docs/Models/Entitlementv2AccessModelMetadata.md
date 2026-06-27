@@ -1,19 +1,19 @@
 ---
-id: v1-entitlementv2-access-model-metadata-v1
-title: Entitlementv2AccessModelMetadataV1
-pagination_label: Entitlementv2AccessModelMetadataV1
-sidebar_label: Entitlementv2AccessModelMetadataV1
+id: v1-entitlementv2-access-model-metadata
+title: Entitlementv2AccessModelMetadata
+pagination_label: Entitlementv2AccessModelMetadata
+sidebar_label: Entitlementv2AccessModelMetadata
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'Entitlementv2AccessModelMetadataV1', 'v1Entitlementv2AccessModelMetadataV1']
-slug: /tools/sdk/typescript/entitlements/models/entitlementv2-access-model-metadata-v1
-tags: ['SDK', 'Software Development Kit', 'Entitlementv2AccessModelMetadataV1', 'v1Entitlementv2AccessModelMetadataV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Entitlementv2AccessModelMetadata', 'v1Entitlementv2AccessModelMetadata']
+slug: /tools/sdk/typescript/entitlements/models/entitlementv2-access-model-metadata
+tags: ['SDK', 'Software Development Kit', 'Entitlementv2AccessModelMetadata', 'v1Entitlementv2AccessModelMetadata']
 ---
 
-# Entitlementv2AccessModelMetadataV1
+# Entitlementv2AccessModelMetadata
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | **(optional)** **Array&lt;AccessmodelmetadataV1&gt;** |  | [default to undefined]
+**attributes** | **(optional)** `Array<Accessmodelmetadata>` |  | [default to undefined]
 

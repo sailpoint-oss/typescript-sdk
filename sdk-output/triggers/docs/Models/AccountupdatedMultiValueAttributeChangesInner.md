@@ -1,21 +1,21 @@
 ---
-id: v1-accountupdated-multi-value-attribute-changes-inner-v1
-title: AccountupdatedMultiValueAttributeChangesInnerV1
-pagination_label: AccountupdatedMultiValueAttributeChangesInnerV1
-sidebar_label: AccountupdatedMultiValueAttributeChangesInnerV1
+id: v1-accountupdated-multi-value-attribute-changes-inner
+title: AccountupdatedMultiValueAttributeChangesInner
+pagination_label: AccountupdatedMultiValueAttributeChangesInner
+sidebar_label: AccountupdatedMultiValueAttributeChangesInner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccountupdatedMultiValueAttributeChangesInnerV1', 'v1AccountupdatedMultiValueAttributeChangesInnerV1']
-slug: /tools/sdk/typescript/triggers/models/accountupdated-multi-value-attribute-changes-inner-v1
-tags: ['SDK', 'Software Development Kit', 'AccountupdatedMultiValueAttributeChangesInnerV1', 'v1AccountupdatedMultiValueAttributeChangesInnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'AccountupdatedMultiValueAttributeChangesInner', 'v1AccountupdatedMultiValueAttributeChangesInner']
+slug: /tools/sdk/typescript/triggers/models/accountupdated-multi-value-attribute-changes-inner
+tags: ['SDK', 'Software Development Kit', 'AccountupdatedMultiValueAttributeChangesInner', 'v1AccountupdatedMultiValueAttributeChangesInner']
 ---
 
-# AccountupdatedMultiValueAttributeChangesInnerV1
+# AccountupdatedMultiValueAttributeChangesInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** | The name of the attribute that was changed. | [default to undefined]
-**addedValues** | **Array&lt;AccountupdatedMultiValueAttributeChangesInnerAddedValuesInnerV1&gt;** | The values that were added to the attribute. | [default to undefined]
-**removedValues** | **Array&lt;AccountupdatedMultiValueAttributeChangesInnerAddedValuesInnerV1&gt;** | The values that were removed from the attribute. | [default to undefined]
+**name** | `string` | The name of the attribute that was changed. | [default to undefined]
+**addedValues** | `Array<AccountupdatedMultiValueAttributeChangesInnerAddedValuesInner>` | The values that were added to the attribute. | [default to undefined]
+**removedValues** | `Array<AccountupdatedMultiValueAttributeChangesInnerAddedValuesInner>` | The values that were removed from the attribute. | [default to undefined]
 

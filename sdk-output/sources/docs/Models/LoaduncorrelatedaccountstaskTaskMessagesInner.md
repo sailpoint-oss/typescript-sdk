@@ -1,23 +1,23 @@
 ---
-id: v1-loaduncorrelatedaccountstask-task-messages-inner-v1
-title: LoaduncorrelatedaccountstaskTaskMessagesInnerV1
-pagination_label: LoaduncorrelatedaccountstaskTaskMessagesInnerV1
-sidebar_label: LoaduncorrelatedaccountstaskTaskMessagesInnerV1
+id: v1-loaduncorrelatedaccountstask-task-messages-inner
+title: LoaduncorrelatedaccountstaskTaskMessagesInner
+pagination_label: LoaduncorrelatedaccountstaskTaskMessagesInner
+sidebar_label: LoaduncorrelatedaccountstaskTaskMessagesInner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'LoaduncorrelatedaccountstaskTaskMessagesInnerV1', 'v1LoaduncorrelatedaccountstaskTaskMessagesInnerV1']
-slug: /tools/sdk/typescript/sources/models/loaduncorrelatedaccountstask-task-messages-inner-v1
-tags: ['SDK', 'Software Development Kit', 'LoaduncorrelatedaccountstaskTaskMessagesInnerV1', 'v1LoaduncorrelatedaccountstaskTaskMessagesInnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'LoaduncorrelatedaccountstaskTaskMessagesInner', 'v1LoaduncorrelatedaccountstaskTaskMessagesInner']
+slug: /tools/sdk/typescript/sources/models/loaduncorrelatedaccountstask-task-messages-inner
+tags: ['SDK', 'Software Development Kit', 'LoaduncorrelatedaccountstaskTaskMessagesInner', 'v1LoaduncorrelatedaccountstaskTaskMessagesInner']
 ---
 
-# LoaduncorrelatedaccountstaskTaskMessagesInnerV1
+# LoaduncorrelatedaccountstaskTaskMessagesInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | Type of the message. | [default to undefined]
-**error** | **(optional)** **boolean** | Flag whether message is an error. | [default to false]
-**warning** | **(optional)** **boolean** | Flag whether message is a warning. | [default to false]
-**key** | **(optional)** **string** | Message string identifier. | [default to undefined]
-**localizedText** | **(optional)** **string** | Message context with the locale based language. | [default to undefined]
+**type** | **(optional)** `string` | Type of the message. | [default to undefined]
+**error** | **(optional)** `boolean` | Flag whether message is an error. | [default to false]
+**warning** | **(optional)** `boolean` | Flag whether message is a warning. | [default to false]
+**key** | **(optional)** `string` | Message string identifier. | [default to undefined]
+**localizedText** | **(optional)** `string` | Message context with the locale based language. | [default to undefined]
 

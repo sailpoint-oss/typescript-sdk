@@ -4,15 +4,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/account_deletion_requests/methods/account-deletion-requests#delete-account-request-v1
       source: |
-        import { AccountDeletionRequestsV1Api } from 'sailpoint-api-client';
+        import { AccountDeletionRequestsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccountDeletionRequestsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AccountDeletionRequestsApi(configuration);
         const accountId: string = 'ef38f94347e94562b5bb8424a56498d8'; // string | Account ID. (default to undefined)
-        const accountdeleterequestinputV1: AccountdeleterequestinputV1 = {"comments":"I requested this account deletion."}; // AccountdeleterequestinputV1 |  (optional)
-        const result = await apiInstance.deleteAccountRequestV1(accountId);
+        const accountdeleterequestinput: Accountdeleterequestinput = {"comments":"I requested this account deletion."}; // Accountdeleterequestinput |  (optional)
+        const result = await apiInstance.deleteAccountRequestV1({ accountId: accountId });
         console.log(result);
 - path: /account-requests/v1/deletion
   method: GET
@@ -20,15 +19,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/account_deletion_requests/methods/account-deletion-requests#get-account-deletion-requests-v1
       source: |
-        import { AccountDeletionRequestsV1Api } from 'sailpoint-api-client';
+        import { AccountDeletionRequestsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccountDeletionRequestsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AccountDeletionRequestsApi(configuration);
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const mine: boolean = true; // boolean | Determines whether to return only the account deletion requests initiated by the currently authenticated user. If set to true, the response includes only deletion requests created by the logged-in user. If set to false or not provided, the response includes all deletion requests for the tenant, regardless of the initiator. This parameter allows users to view their own requests, while administrators can view all requests within the tenant. (optional) (default to false)
-        const result = await apiInstance.getAccountDeletionRequestsV1();
+        const result = await apiInstance.getAccountDeletionRequestsV1({  });
         console.log(result);

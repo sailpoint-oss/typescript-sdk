@@ -1,8 +1,8 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
-AccountDeletionRequestsV1Api.md
-AccountDeletionRequestsV1ApideveloperSite_code_examples.yaml
+AccountDeletionRequestsApi.md
+AccountDeletionRequestsApideveloperSite_code_examples.yaml
 Accountactionrequestdto.md
 AccountactionrequestdtoAccountDetails.md
 AccountactionrequestdtoCorrelatedIdentity.md

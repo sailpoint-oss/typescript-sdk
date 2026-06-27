@@ -1,20 +1,20 @@
 ---
-id: v1-range-v1
-title: RangeV1
-pagination_label: RangeV1
-sidebar_label: RangeV1
+id: v1-range
+title: Range
+pagination_label: Range
+sidebar_label: Range
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RangeV1', 'v1RangeV1']
-slug: /tools/sdk/typescript/saved_search/models/range-v1
-tags: ['SDK', 'Software Development Kit', 'RangeV1', 'v1RangeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Range', 'v1Range']
+slug: /tools/sdk/typescript/saved_search/models/range
+tags: ['SDK', 'Software Development Kit', 'Range', 'v1Range']
 ---
 
-# RangeV1
+# Range
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**lower** | **(optional)** **BoundV1** |  | [default to undefined]
-**upper** | **(optional)** **BoundV1** |  | [default to undefined]
+**lower** | **(optional)** `Bound` |  | [default to undefined]
+**upper** | **(optional)** `Bound` |  | [default to undefined]
 

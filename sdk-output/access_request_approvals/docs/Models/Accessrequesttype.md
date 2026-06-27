@@ -1,15 +1,15 @@
 ---
-id: v1-accessrequesttype-v1
-title: AccessrequesttypeV1
-pagination_label: AccessrequesttypeV1
-sidebar_label: AccessrequesttypeV1
+id: v1-accessrequesttype
+title: Accessrequesttype
+pagination_label: Accessrequesttype
+sidebar_label: Accessrequesttype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccessrequesttypeV1', 'v1AccessrequesttypeV1']
-slug: /tools/sdk/typescript/access_request_approvals/models/accessrequesttype-v1
-tags: ['SDK', 'Software Development Kit', 'AccessrequesttypeV1', 'v1AccessrequesttypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accessrequesttype', 'v1Accessrequesttype']
+slug: /tools/sdk/typescript/access_request_approvals/models/accessrequesttype
+tags: ['SDK', 'Software Development Kit', 'Accessrequesttype', 'v1Accessrequesttype']
 ---
 
-# AccessrequesttypeV1
+# Accessrequesttype
 
 ## Enum
 

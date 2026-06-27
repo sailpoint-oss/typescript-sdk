@@ -1,21 +1,21 @@
 ---
-id: v1-vaclusterstatuschangeevent-previous-health-check-result-v1
-title: VaclusterstatuschangeeventPreviousHealthCheckResultV1
-pagination_label: VaclusterstatuschangeeventPreviousHealthCheckResultV1
-sidebar_label: VaclusterstatuschangeeventPreviousHealthCheckResultV1
+id: v1-vaclusterstatuschangeevent-previous-health-check-result
+title: VaclusterstatuschangeeventPreviousHealthCheckResult
+pagination_label: VaclusterstatuschangeeventPreviousHealthCheckResult
+sidebar_label: VaclusterstatuschangeeventPreviousHealthCheckResult
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'VaclusterstatuschangeeventPreviousHealthCheckResultV1', 'v1VaclusterstatuschangeeventPreviousHealthCheckResultV1']
-slug: /tools/sdk/typescript/triggers/models/vaclusterstatuschangeevent-previous-health-check-result-v1
-tags: ['SDK', 'Software Development Kit', 'VaclusterstatuschangeeventPreviousHealthCheckResultV1', 'v1VaclusterstatuschangeeventPreviousHealthCheckResultV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'VaclusterstatuschangeeventPreviousHealthCheckResult', 'v1VaclusterstatuschangeeventPreviousHealthCheckResult']
+slug: /tools/sdk/typescript/triggers/models/vaclusterstatuschangeevent-previous-health-check-result
+tags: ['SDK', 'Software Development Kit', 'VaclusterstatuschangeeventPreviousHealthCheckResult', 'v1VaclusterstatuschangeeventPreviousHealthCheckResult']
 ---
 
-# VaclusterstatuschangeeventPreviousHealthCheckResultV1
+# VaclusterstatuschangeeventPreviousHealthCheckResult
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **string** | Detailed message of the result of the health check. | [default to undefined]
-**resultType** | **string** | The type of the health check result. | [default to undefined]
-**status** | **string** | The status of the health check. | [default to undefined]
+**message** | `string` | Detailed message of the result of the health check. | [default to undefined]
+**resultType** | `string` | The type of the health check result. | [default to undefined]
+**status** | `string` | The status of the health check. | [default to undefined]
 

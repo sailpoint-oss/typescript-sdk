@@ -1,20 +1,20 @@
 ---
-id: v1-reassignment-v1
-title: ReassignmentV1
-pagination_label: ReassignmentV1
-sidebar_label: ReassignmentV1
+id: v1-reassignment
+title: Reassignment
+pagination_label: Reassignment
+sidebar_label: Reassignment
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ReassignmentV1', 'v1ReassignmentV1']
-slug: /tools/sdk/typescript/certifications/models/reassignment-v1
-tags: ['SDK', 'Software Development Kit', 'ReassignmentV1', 'v1ReassignmentV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Reassignment', 'v1Reassignment']
+slug: /tools/sdk/typescript/certifications/models/reassignment
+tags: ['SDK', 'Software Development Kit', 'Reassignment', 'v1Reassignment']
 ---
 
-# ReassignmentV1
+# Reassignment
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**from** | **(optional)** **CertificationreferenceV1** |  | [default to undefined]
-**comment** | **(optional)** **string** | The comment entered when the Certification was reassigned | [default to undefined]
+**from** | **(optional)** `Certificationreference` |  | [default to undefined]
+**comment** | **(optional)** `string` | The comment entered when the Certification was reassigned | [default to undefined]
 

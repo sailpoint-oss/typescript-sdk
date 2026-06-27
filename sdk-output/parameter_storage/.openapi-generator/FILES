@@ -8,8 +8,8 @@ GetAttestationDocumentV1401Response.md
 GetAttestationDocumentV1429Response.md
 Index.md
 Localeorigin.md
-ParameterStorageV1Api.md
-ParameterStorageV1ApideveloperSite_code_examples.yaml
+ParameterStorageApi.md
+ParameterStorageApideveloperSite_code_examples.yaml
 Parameterstorageattestationdocument.md
 Parameterstoragejsonpatch.md
 Parameterstoragenewparameter.md

@@ -1,20 +1,20 @@
 ---
-id: v1-backupoptions-v1
-title: BackupoptionsV1
-pagination_label: BackupoptionsV1
-sidebar_label: BackupoptionsV1
+id: v1-backupoptions
+title: Backupoptions
+pagination_label: Backupoptions
+sidebar_label: Backupoptions
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'BackupoptionsV1', 'v1BackupoptionsV1']
-slug: /tools/sdk/typescript/configuration_hub/models/backupoptions-v1
-tags: ['SDK', 'Software Development Kit', 'BackupoptionsV1', 'v1BackupoptionsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Backupoptions', 'v1Backupoptions']
+slug: /tools/sdk/typescript/configuration_hub/models/backupoptions
+tags: ['SDK', 'Software Development Kit', 'Backupoptions', 'v1Backupoptions']
 ---
 
-# BackupoptionsV1
+# Backupoptions
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**includeTypes** | **(optional)** **Array&lt;string&gt;** | Object type names to be included in a Configuration Hub backup command. | [default to undefined]
+**includeTypes** | **(optional)** `Array<string>` | Object type names to be included in a Configuration Hub backup command. | [default to undefined]
 **objectOptions** | **(optional)**  | Additional options targeting specific objects related to each item in the includeTypes field. | [default to undefined]
 

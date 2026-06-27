@@ -26,122 +26,122 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ActivityconfigurationsettingsV1
+ * @interface Activityconfigurationsettings
  */
-export interface ActivityconfigurationsettingsV1 {
+export interface Activityconfigurationsettings {
     /**
      * Indicates whether the feature or configuration is enabled.
      * @type {boolean}
-     * @memberof ActivityconfigurationsettingsV1
+     * @memberof Activityconfigurationsettings
      */
     'isEnabled'?: boolean;
     /**
      * The identifier of the cluster associated with this configuration, if applicable.
      * @type {string}
-     * @memberof ActivityconfigurationsettingsV1
+     * @memberof Activityconfigurationsettings
      */
     'clusterId'?: string | null;
     /**
      * The time period for retaining activity logs.
      * @type {number}
-     * @memberof ActivityconfigurationsettingsV1
+     * @memberof Activityconfigurationsettings
      */
     'retentionTimePeriod'?: number;
     /**
      * The type of retention period (e.g., days, months, years).
      * @type {string}
-     * @memberof ActivityconfigurationsettingsV1
+     * @memberof Activityconfigurationsettings
      */
     'retentionTimeType'?: string | null;
     /**
      * List of user identifiers to exclude from activity tracking.
      * @type {Array<string>}
-     * @memberof ActivityconfigurationsettingsV1
+     * @memberof Activityconfigurationsettings
      */
     'excludeUsers'?: Array<string> | null;
     /**
      * List of folder paths to exclude from activity tracking.
      * @type {Array<string>}
-     * @memberof ActivityconfigurationsettingsV1
+     * @memberof Activityconfigurationsettings
      */
     'excludeFolders'?: Array<string> | null;
     /**
      * List of file extensions to exclude from activity tracking.
      * @type {Array<string>}
-     * @memberof ActivityconfigurationsettingsV1
+     * @memberof Activityconfigurationsettings
      */
     'excludeFileExtensions'?: Array<string> | null;
     /**
      * List of actions to exclude from activity tracking.
      * @type {Array<string>}
-     * @memberof ActivityconfigurationsettingsV1
+     * @memberof Activityconfigurationsettings
      */
     'excludeActions'?: Array<string> | null;
 }
 /**
  * 
  * @export
- * @interface ApplicationcrawlersettingsV1
+ * @interface Applicationcrawlersettings
  */
-export interface ApplicationcrawlersettingsV1 {
+export interface Applicationcrawlersettings {
     /**
      * Indicates whether the feature or configuration is enabled.
      * @type {boolean}
-     * @memberof ApplicationcrawlersettingsV1
+     * @memberof Applicationcrawlersettings
      */
     'isEnabled'?: boolean;
     /**
      * The identifier of the cluster associated with this configuration, if applicable.
      * @type {string}
-     * @memberof ApplicationcrawlersettingsV1
+     * @memberof Applicationcrawlersettings
      */
     'clusterId'?: string | null;
     /**
      * 
-     * @type {CrawlresourcessizesoptionsV1}
-     * @memberof ApplicationcrawlersettingsV1
+     * @type {Crawlresourcessizesoptions}
+     * @memberof Applicationcrawlersettings
      */
-    'calculateResourceSize'?: CrawlresourcessizesoptionsV1;
+    'calculateResourceSize'?: Crawlresourcessizesoptions;
     /**
      * Indicates whether to crawl the snapshots folder.
      * @type {boolean}
-     * @memberof ApplicationcrawlersettingsV1
+     * @memberof Applicationcrawlersettings
      */
     'crawlSnapshotsFolder'?: boolean | null;
     /**
      * Indicates whether to crawl mailboxes.
      * @type {boolean}
-     * @memberof ApplicationcrawlersettingsV1
+     * @memberof Applicationcrawlersettings
      */
     'crawlMailboxes'?: boolean | null;
     /**
      * Indicates whether to crawl public folders.
      * @type {boolean}
-     * @memberof ApplicationcrawlersettingsV1
+     * @memberof Applicationcrawlersettings
      */
     'crawlPublicFolders'?: boolean | null;
     /**
      * Regular expression pattern for paths to exclude from crawling.
      * @type {string}
-     * @memberof ApplicationcrawlersettingsV1
+     * @memberof Applicationcrawlersettings
      */
     'excludedPathsByRegex'?: string | null;
     /**
      * List of top-level shares to crawl.
      * @type {Array<string>}
-     * @memberof ApplicationcrawlersettingsV1
+     * @memberof Applicationcrawlersettings
      */
     'crawlTopLevelShares'?: Array<string> | null;
     /**
      * List of resource identifiers to exclude from crawling.
      * @type {Array<string>}
-     * @memberof ApplicationcrawlersettingsV1
+     * @memberof Applicationcrawlersettings
      */
     'excludedResources'?: Array<string> | null;
     /**
      * List of resource identifiers to include in crawling.
      * @type {Array<string>}
-     * @memberof ApplicationcrawlersettingsV1
+     * @memberof Applicationcrawlersettings
      */
     'includeResources'?: Array<string> | null;
 }
@@ -150,67 +150,67 @@ export interface ApplicationcrawlersettingsV1 {
 /**
  * 
  * @export
- * @interface ApplicationitemV1
+ * @interface Applicationitem
  */
-export interface ApplicationitemV1 {
+export interface Applicationitem {
     /**
      * The unique identifier of the application.
      * @type {number}
-     * @memberof ApplicationitemV1
+     * @memberof Applicationitem
      */
     'id'?: number;
     /**
      * The display name of the application.
      * @type {string}
-     * @memberof ApplicationitemV1
+     * @memberof Applicationitem
      */
     'name'?: string | null;
     /**
      * A brief description of the application and its purpose.
      * @type {string}
-     * @memberof ApplicationitemV1
+     * @memberof Applicationitem
      */
     'description'?: string | null;
     /**
      * The type of the application.
      * @type {string}
-     * @memberof ApplicationitemV1
+     * @memberof Applicationitem
      */
     'type'?: string | null;
     /**
      * A list of tags associated with the application.
-     * @type {Array<TagV1>}
-     * @memberof ApplicationitemV1
+     * @type {Array<Tag>}
+     * @memberof Applicationitem
      */
-    'tags'?: Array<TagV1> | null;
+    'tags'?: Array<Tag> | null;
     /**
      * The status of the last connection test performed on the application.
      * @type {string}
-     * @memberof ApplicationitemV1
+     * @memberof Applicationitem
      */
     'testConnectionStatus'?: string | null;
     /**
      * The timestamp of the last connection test performed on the application, in milliseconds since epoch.
      * @type {number}
-     * @memberof ApplicationitemV1
+     * @memberof Applicationitem
      */
     'testConnectionDate'?: number | null;
     /**
      * The identifier of the cluster used for crawling resources.
      * @type {string}
-     * @memberof ApplicationitemV1
+     * @memberof Applicationitem
      */
     'rcClusterId'?: string | null;
     /**
      * The identifier of the cluster used for data classification.
      * @type {string}
-     * @memberof ApplicationitemV1
+     * @memberof Applicationitem
      */
     'dcClusterId'?: string | null;
     /**
      * The identifier of the cluster used for permission collection.
      * @type {string}
-     * @memberof ApplicationitemV1
+     * @memberof Applicationitem
      */
     'pcClusterId'?: string | null;
 }
@@ -220,7 +220,7 @@ export interface ApplicationitemV1 {
  * @enum {number}
  */
 
-export const ApplicationtypeV1 = {
+export const Applicationtype = {
     NUMBER_1: 1,
     NUMBER_8: 8,
     NUMBER_9: 9,
@@ -238,110 +238,110 @@ export const ApplicationtypeV1 = {
     NUMBER_37: 37
 } as const;
 
-export type ApplicationtypeV1 = typeof ApplicationtypeV1[keyof typeof ApplicationtypeV1];
+export type Applicationtype = typeof Applicationtype[keyof typeof Applicationtype];
 
 
 /**
  * 
  * @export
- * @interface AssignresourceownerrequestV1
+ * @interface Assignresourceownerrequest
  */
-export interface AssignresourceownerrequestV1 {
+export interface Assignresourceownerrequest {
     /**
      * The unique identifier of the application containing the resource.
      * @type {number}
-     * @memberof AssignresourceownerrequestV1
+     * @memberof Assignresourceownerrequest
      */
     'appId'?: number;
     /**
      * The full path to the resource within the application (e.g., file path or object path).
      * @type {string}
-     * @memberof AssignresourceownerrequestV1
+     * @memberof Assignresourceownerrequest
      */
     'fullPath'?: string | null;
     /**
      * The unique identifier (UUID) of the identity to be assigned as the resource owner.
      * @type {string}
-     * @memberof AssignresourceownerrequestV1
+     * @memberof Assignresourceownerrequest
      */
     'identityId'?: string;
 }
 /**
  * 
  * @export
- * @interface BasecreateapplicationrequestV1
+ * @interface Basecreateapplicationrequest
  */
-export interface BasecreateapplicationrequestV1 {
+export interface Basecreateapplicationrequest {
     /**
      * 
-     * @type {ApplicationtypeV1}
-     * @memberof BasecreateapplicationrequestV1
+     * @type {Applicationtype}
+     * @memberof Basecreateapplicationrequest
      */
-    'applicationType': ApplicationtypeV1;
+    'applicationType': Applicationtype;
     /**
      * The display name of the application.
      * @type {string}
-     * @memberof BasecreateapplicationrequestV1
+     * @memberof Basecreateapplicationrequest
      */
     'name': string;
     /**
      * A brief description of the application and its purpose.
      * @type {string}
-     * @memberof BasecreateapplicationrequestV1
+     * @memberof Basecreateapplicationrequest
      */
     'description'?: string | null;
     /**
      * A list of tags to categorize or identify the application.
-     * @type {Array<Int64stringkeyvaluepairV1>}
-     * @memberof BasecreateapplicationrequestV1
+     * @type {Array<Int64stringkeyvaluepair>}
+     * @memberof Basecreateapplicationrequest
      */
-    'tags'?: Array<Int64stringkeyvaluepairV1> | null;
+    'tags'?: Array<Int64stringkeyvaluepair> | null;
     /**
      * The unique identifier for the identity collector associated with this application.
      * @type {number}
-     * @memberof BasecreateapplicationrequestV1
+     * @memberof Basecreateapplicationrequest
      */
     'identityCollectorId'?: number | null;
     /**
      * The unique identifier for the AD identity collector.
      * @type {number}
-     * @memberof BasecreateapplicationrequestV1
+     * @memberof Basecreateapplicationrequest
      */
     'adIdentityCollectorId'?: number | null;
     /**
      * The unique identifier for the NIS identity collector.
      * @type {number}
-     * @memberof BasecreateapplicationrequestV1
+     * @memberof Basecreateapplicationrequest
      */
     'nisIdentityCollectorId'?: number | null;
     /**
      * 
-     * @type {ApplicationcrawlersettingsV1}
-     * @memberof BasecreateapplicationrequestV1
+     * @type {Applicationcrawlersettings}
+     * @memberof Basecreateapplicationrequest
      */
-    'applicationCrawlerSettings'?: ApplicationcrawlersettingsV1;
+    'applicationCrawlerSettings'?: Applicationcrawlersettings;
     /**
      * 
-     * @type {PermissioncollectorsettingsV1}
-     * @memberof BasecreateapplicationrequestV1
+     * @type {Permissioncollectorsettings}
+     * @memberof Basecreateapplicationrequest
      */
-    'permissionCollectorSettings'?: PermissioncollectorsettingsV1;
+    'permissionCollectorSettings'?: Permissioncollectorsettings;
     /**
      * 
-     * @type {DataclassificationsettingsV1}
-     * @memberof BasecreateapplicationrequestV1
+     * @type {Dataclassificationsettings}
+     * @memberof Basecreateapplicationrequest
      */
-    'dataClassificationSettings'?: DataclassificationsettingsV1;
+    'dataClassificationSettings'?: Dataclassificationsettings;
     /**
      * 
-     * @type {ActivityconfigurationsettingsV1}
-     * @memberof BasecreateapplicationrequestV1
+     * @type {Activityconfigurationsettings}
+     * @memberof Basecreateapplicationrequest
      */
-    'activityConfigurationSettings'?: ActivityconfigurationsettingsV1;
+    'activityConfigurationSettings'?: Activityconfigurationsettings;
     /**
      * If true, the application setup will be executed immediately after creation.
      * @type {boolean}
-     * @memberof BasecreateapplicationrequestV1
+     * @memberof Basecreateapplicationrequest
      */
     'executeNow'?: boolean;
 }
@@ -350,19 +350,19 @@ export interface BasecreateapplicationrequestV1 {
 /**
  * 
  * @export
- * @interface BasesettingsV1
+ * @interface Basesettings
  */
-export interface BasesettingsV1 {
+export interface Basesettings {
     /**
      * Indicates whether the feature or configuration is enabled.
      * @type {boolean}
-     * @memberof BasesettingsV1
+     * @memberof Basesettings
      */
     'isEnabled'?: boolean;
     /**
      * The identifier of the cluster associated with this configuration, if applicable.
      * @type {string}
-     * @memberof BasesettingsV1
+     * @memberof Basesettings
      */
     'clusterId'?: string | null;
 }
@@ -372,7 +372,7 @@ export interface BasesettingsV1 {
  * @enum {number}
  */
 
-export const BusinessservicetypeV1 = {
+export const Businessservicetype = {
     NUMBER_0: 0,
     NUMBER_1: 1,
     NUMBER_2: 2,
@@ -445,7 +445,7 @@ export const BusinessservicetypeV1 = {
     NUMBER_1411: 1411
 } as const;
 
-export type BusinessservicetypeV1 = typeof BusinessservicetypeV1[keyof typeof BusinessservicetypeV1];
+export type Businessservicetype = typeof Businessservicetype[keyof typeof Businessservicetype];
 
 
 /**
@@ -454,187 +454,187 @@ export type BusinessservicetypeV1 = typeof BusinessservicetypeV1[keyof typeof Bu
  * @enum {number}
  */
 
-export const CrawlresourcessizesoptionsV1 = {
+export const Crawlresourcessizesoptions = {
     NUMBER_0: 0,
     NUMBER_1: 1,
     NUMBER_2: 2,
     NUMBER_3: 3
 } as const;
 
-export type CrawlresourcessizesoptionsV1 = typeof CrawlresourcessizesoptionsV1[keyof typeof CrawlresourcessizesoptionsV1];
+export type Crawlresourcessizesoptions = typeof Crawlresourcessizesoptions[keyof typeof Crawlresourcessizesoptions];
 
 
 /**
  * 
  * @export
- * @interface CreateIdentityCollectorV1200ResponseV1
+ * @interface CreateIdentityCollectorV1200Response
  */
-export interface CreateIdentityCollectorV1200ResponseV1 {
+export interface CreateIdentityCollectorV1200Response {
     /**
      * The unique identifier of the created identity collector.
      * @type {number}
-     * @memberof CreateIdentityCollectorV1200ResponseV1
+     * @memberof CreateIdentityCollectorV1200Response
      */
     'id'?: number;
     /**
      * The display name of the created identity collector.
      * @type {string}
-     * @memberof CreateIdentityCollectorV1200ResponseV1
+     * @memberof CreateIdentityCollectorV1200Response
      */
     'name'?: string;
 }
 /**
  * 
  * @export
- * @interface CreateidentitycollectorrequestV1
+ * @interface Createidentitycollectorrequest
  */
-export interface CreateidentitycollectorrequestV1 {
+export interface Createidentitycollectorrequest {
     /**
      * The display name for the new identity collector. Must be unique within the tenant.
      * @type {string}
-     * @memberof CreateidentitycollectorrequestV1
+     * @memberof Createidentitycollectorrequest
      */
     'name': string;
     /**
      * The identifier of the source to create the identity collector for, represented as a UUID. Both hyphenated and non-hyphenated formats are accepted. The identity collector type is derived from this source.
      * @type {string}
-     * @memberof CreateidentitycollectorrequestV1
+     * @memberof Createidentitycollectorrequest
      */
     'sourceId': string;
 }
 /**
  * 
  * @export
- * @interface CreateschedulerequestV1
+ * @interface Createschedulerequest
  */
-export interface CreateschedulerequestV1 {
+export interface Createschedulerequest {
     /**
      * The type or category of the scheduled task.
      * @type {string}
-     * @memberof CreateschedulerequestV1
+     * @memberof Createschedulerequest
      */
     'taskTypeName'?: string | null;
     /**
      * The scheduling type, such as \"Daily\", \"Weekly\" etc.
      * @type {string}
-     * @memberof CreateschedulerequestV1
+     * @memberof Createschedulerequest
      */
     'scheduleType'?: string | null;
     /**
      * The interval depends on the chosen schedule cycle (scheduleType), i.e. if the schedule is daily, the interval will represent the days between executions.
      * @type {number}
-     * @memberof CreateschedulerequestV1
+     * @memberof Createschedulerequest
      */
     'interval'?: number | null;
     /**
      * The display name of the scheduled task.
      * @type {string}
-     * @memberof CreateschedulerequestV1
+     * @memberof Createschedulerequest
      */
     'scheduleTaskName'?: string | null;
     /**
      * The start time for the scheduled task, represented as epoch seconds.
      * @type {number}
-     * @memberof CreateschedulerequestV1
+     * @memberof Createschedulerequest
      */
     'startTime'?: number;
     /**
      * The end time for the scheduled task, represented as epoch seconds.
      * @type {number}
-     * @memberof CreateschedulerequestV1
+     * @memberof Createschedulerequest
      */
     'endTime'?: number;
     /**
      * A list of days of the week when the task should run (e.g., \"Monday\", \"Wednesday\").
      * @type {Array<string>}
-     * @memberof CreateschedulerequestV1
+     * @memberof Createschedulerequest
      */
     'daysOfWeek'?: Array<string> | null;
     /**
      * Indicates whether the scheduled task is currently active.
      * @type {boolean}
-     * @memberof CreateschedulerequestV1
+     * @memberof Createschedulerequest
      */
     'active'?: boolean;
     /**
      * The ID of another scheduled task that triggers this scheduled task upon its completion.
      * @type {number}
-     * @memberof CreateschedulerequestV1
+     * @memberof Createschedulerequest
      */
     'runAfterScheduleTaskId'?: number | null;
     /**
      * The unique identifier of the application associated with the scheduled task.
      * @type {number}
-     * @memberof CreateschedulerequestV1
+     * @memberof Createschedulerequest
      */
     'applicationId'?: number | null;
 }
 /**
  * 
  * @export
- * @interface DataclassificationsettingsV1
+ * @interface Dataclassificationsettings
  */
-export interface DataclassificationsettingsV1 {
+export interface Dataclassificationsettings {
     /**
      * Indicates whether the feature or configuration is enabled.
      * @type {boolean}
-     * @memberof DataclassificationsettingsV1
+     * @memberof Dataclassificationsettings
      */
     'isEnabled'?: boolean;
     /**
      * The identifier of the cluster associated with this configuration, if applicable.
      * @type {string}
-     * @memberof DataclassificationsettingsV1
+     * @memberof Dataclassificationsettings
      */
     'clusterId'?: string | null;
 }
 /**
  * 
  * @export
- * @interface DataownermodelV1
+ * @interface Dataownermodel
  */
-export interface DataownermodelV1 {
+export interface Dataownermodel {
     /**
      * The unique identifier (UUID) of the identity assigned as the owner of the resource.
      * @type {string}
-     * @memberof DataownermodelV1
+     * @memberof Dataownermodel
      */
     'identityId'?: string;
     /**
      * The unique identifier of the resource owned by the identity.
      * @type {number}
-     * @memberof DataownermodelV1
+     * @memberof Dataownermodel
      */
     'resourceId'?: number;
     /**
      * The full path to the resource within the system or application.
      * @type {string}
-     * @memberof DataownermodelV1
+     * @memberof Dataownermodel
      */
     'fullPath'?: string | null;
 }
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -643,107 +643,107 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetTasksV1401ResponseV1
+ * @interface GetTasksV1401Response
  */
-export interface GetTasksV1401ResponseV1 {
+export interface GetTasksV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetTasksV1401ResponseV1
+     * @memberof GetTasksV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetTasksV1429ResponseV1
+ * @interface GetTasksV1429Response
  */
-export interface GetTasksV1429ResponseV1 {
+export interface GetTasksV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetTasksV1429ResponseV1
+     * @memberof GetTasksV1429Response
      */
     'message'?: any;
 }
 /**
  * 
  * @export
- * @interface IdentitycollectorlistitemV1
+ * @interface Identitycollectorlistitem
  */
-export interface IdentitycollectorlistitemV1 {
+export interface Identitycollectorlistitem {
     /**
      * The unique identifier of the identity collector.
      * @type {string}
-     * @memberof IdentitycollectorlistitemV1
+     * @memberof Identitycollectorlistitem
      */
     'id'?: string;
     /**
      * The display name of the identity collector.
      * @type {string}
-     * @memberof IdentitycollectorlistitemV1
+     * @memberof Identitycollectorlistitem
      */
     'name'?: string;
     /**
      * The identity collector type, derived from its underlying source. Possible values include \"Active Directory\", \"Azure Active Directory\", \"Google Drive\", \"Dropbox\", \"Box\", \"Microsoft Entra SaaS\", \"Snowflake\", and \"Databricks\".
      * @type {string}
-     * @memberof IdentitycollectorlistitemV1
+     * @memberof Identitycollectorlistitem
      */
     'type'?: string;
     /**
      * The identifier of the source the identity collector is associated with, represented as a UUID. Both hyphenated and non-hyphenated formats are accepted.
      * @type {string}
-     * @memberof IdentitycollectorlistitemV1
+     * @memberof Identitycollectorlistitem
      */
     'sourceId'?: string;
 }
 /**
  * 
  * @export
- * @interface Int64stringkeyvaluepairV1
+ * @interface Int64stringkeyvaluepair
  */
-export interface Int64stringkeyvaluepairV1 {
+export interface Int64stringkeyvaluepair {
     /**
      * The key for the tag or pair.
      * @type {number}
-     * @memberof Int64stringkeyvaluepairV1
+     * @memberof Int64stringkeyvaluepair
      */
     'key'?: number;
     /**
      * The value for the tag or pair.
      * @type {string}
-     * @memberof Int64stringkeyvaluepairV1
+     * @memberof Int64stringkeyvaluepair
      */
     'value'?: string | null;
 }
@@ -753,172 +753,172 @@ export interface Int64stringkeyvaluepairV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface PermissioncollectorsettingsV1
+ * @interface Permissioncollectorsettings
  */
-export interface PermissioncollectorsettingsV1 {
+export interface Permissioncollectorsettings {
     /**
      * Indicates whether the feature or configuration is enabled.
      * @type {boolean}
-     * @memberof PermissioncollectorsettingsV1
+     * @memberof Permissioncollectorsettings
      */
     'isEnabled'?: boolean;
     /**
      * The identifier of the cluster associated with this configuration, if applicable.
      * @type {string}
-     * @memberof PermissioncollectorsettingsV1
+     * @memberof Permissioncollectorsettings
      */
     'clusterId'?: string | null;
     /**
      * Indicates whether unique permissions should be analyzed for resources.
      * @type {boolean}
-     * @memberof PermissioncollectorsettingsV1
+     * @memberof Permissioncollectorsettings
      */
     'analyzeUniquePermissions'?: boolean | null;
     /**
      * Indicates whether effective permissions should be calculated.
      * @type {boolean}
-     * @memberof PermissioncollectorsettingsV1
+     * @memberof Permissioncollectorsettings
      */
     'calculateEffectivePermissions'?: boolean | null;
     /**
      * Indicates whether riskiest permissions should be calculated.
      * @type {boolean}
-     * @memberof PermissioncollectorsettingsV1
+     * @memberof Permissioncollectorsettings
      */
     'calculateRiskiestPermissions'?: boolean | null;
     /**
      * Source for effective permissions calculation.
      * @type {string}
-     * @memberof PermissioncollectorsettingsV1
+     * @memberof Permissioncollectorsettings
      */
     'effectivePermissionsSource'?: string | null;
 }
 /**
  * 
  * @export
- * @interface PutIdentityCollectorV1409ResponseMessagesInnerV1
+ * @interface PutIdentityCollectorV1409Response
  */
-export interface PutIdentityCollectorV1409ResponseMessagesInnerV1 {
+export interface PutIdentityCollectorV1409Response {
+    /**
+     * Fine-grained error code providing more detail of the error.
+     * @type {string}
+     * @memberof PutIdentityCollectorV1409Response
+     */
+    'detailCode'?: string;
+    /**
+     * Unique tracking id for the error.
+     * @type {string}
+     * @memberof PutIdentityCollectorV1409Response
+     */
+    'trackingId'?: string;
+    /**
+     * Generic localized reason for error.
+     * @type {Array<PutIdentityCollectorV1409ResponseMessagesInner>}
+     * @memberof PutIdentityCollectorV1409Response
+     */
+    'messages'?: Array<PutIdentityCollectorV1409ResponseMessagesInner>;
+}
+/**
+ * 
+ * @export
+ * @interface PutIdentityCollectorV1409ResponseMessagesInner
+ */
+export interface PutIdentityCollectorV1409ResponseMessagesInner {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof PutIdentityCollectorV1409ResponseMessagesInnerV1
+     * @memberof PutIdentityCollectorV1409ResponseMessagesInner
      */
     'locale'?: string;
     /**
      * An indicator of how the locale was selected.
      * @type {string}
-     * @memberof PutIdentityCollectorV1409ResponseMessagesInnerV1
+     * @memberof PutIdentityCollectorV1409ResponseMessagesInner
      */
     'localeOrigin'?: string;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof PutIdentityCollectorV1409ResponseMessagesInnerV1
+     * @memberof PutIdentityCollectorV1409ResponseMessagesInner
      */
     'text'?: string;
 }
 /**
  * 
  * @export
- * @interface PutIdentityCollectorV1409ResponseV1
+ * @interface Reelectrequest
  */
-export interface PutIdentityCollectorV1409ResponseV1 {
-    /**
-     * Fine-grained error code providing more detail of the error.
-     * @type {string}
-     * @memberof PutIdentityCollectorV1409ResponseV1
-     */
-    'detailCode'?: string;
-    /**
-     * Unique tracking id for the error.
-     * @type {string}
-     * @memberof PutIdentityCollectorV1409ResponseV1
-     */
-    'trackingId'?: string;
-    /**
-     * Generic localized reason for error.
-     * @type {Array<PutIdentityCollectorV1409ResponseMessagesInnerV1>}
-     * @memberof PutIdentityCollectorV1409ResponseV1
-     */
-    'messages'?: Array<PutIdentityCollectorV1409ResponseMessagesInnerV1>;
-}
-/**
- * 
- * @export
- * @interface ReelectrequestV1
- */
-export interface ReelectrequestV1 {
+export interface Reelectrequest {
     /**
      * The UUID of the identity proposed to be re-elected as the resource owner.
      * @type {string}
-     * @memberof ReelectrequestV1
+     * @memberof Reelectrequest
      */
     'ownerId'?: string;
     /**
      * The name of the campaign or election process for re-electing the owner.
      * @type {string}
-     * @memberof ReelectrequestV1
+     * @memberof Reelectrequest
      */
     'campaignName'?: string | null;
     /**
      * A list of UUIDs representing the identities of reviewers participating in the re-election process.
      * @type {Array<string>}
-     * @memberof ReelectrequestV1
+     * @memberof Reelectrequest
      */
     'reviewers'?: Array<string> | null;
 }
 /**
  * 
  * @export
- * @interface ResourcemodelV1
+ * @interface Resourcemodel
  */
-export interface ResourcemodelV1 {
+export interface Resourcemodel {
     /**
      * The unique identifier for the resource.
      * @type {number}
-     * @memberof ResourcemodelV1
+     * @memberof Resourcemodel
      */
     'id'?: number;
     /**
      * The display name or label for the resource.
      * @type {string}
-     * @memberof ResourcemodelV1
+     * @memberof Resourcemodel
      */
     'name'?: string | null;
     /**
      * The full path to the resource within the system or application.
      * @type {string}
-     * @memberof ResourcemodelV1
+     * @memberof Resourcemodel
      */
     'fullPath'?: string | null;
     /**
      * The unique identifier of the application to which this resource belongs.
      * @type {number}
-     * @memberof ResourcemodelV1
+     * @memberof Resourcemodel
      */
     'applicationId'?: number;
     /**
      * 
-     * @type {BusinessservicetypeV1}
-     * @memberof ResourcemodelV1
+     * @type {Businessservicetype}
+     * @memberof Resourcemodel
      */
-    'type'?: BusinessservicetypeV1;
+    'type'?: Businessservicetype;
     /**
      * A list of UUIDs representing the owners of the resource.
      * @type {Array<string>}
-     * @memberof ResourcemodelV1
+     * @memberof Resourcemodel
      */
     'owners'?: Array<string> | null;
 }
@@ -927,284 +927,284 @@ export interface ResourcemodelV1 {
 /**
  * 
  * @export
- * @interface ScheduleinfoV1
+ * @interface Scheduleinfo
  */
-export interface ScheduleinfoV1 {
+export interface Scheduleinfo {
     /**
      * The unique identifier for the scheduled task.
      * @type {number}
-     * @memberof ScheduleinfoV1
+     * @memberof Scheduleinfo
      */
     'scheduleTaskId'?: number;
     /**
      * The display name of the scheduled task.
      * @type {string}
-     * @memberof ScheduleinfoV1
+     * @memberof Scheduleinfo
      */
     'scheduleTaskName'?: string | null;
     /**
      * The type or category of the scheduled task.
      * @type {string}
-     * @memberof ScheduleinfoV1
+     * @memberof Scheduleinfo
      */
     'taskTypeName'?: string | null;
     /**
      * The interval depends on the chosen schedule cycle (scheduleType), i.e. if the schedule is daily, the interval will represent the days between executions.
      * @type {number}
-     * @memberof ScheduleinfoV1
+     * @memberof Scheduleinfo
      */
     'interval'?: number;
     /**
      * The scheduling type, such as \"Daily\", \"Weekly\", or \"Manual\" etc.
      * @type {string}
-     * @memberof ScheduleinfoV1
+     * @memberof Scheduleinfo
      */
     'scheduleType'?: string | null;
     /**
      * Indicates whether the scheduled task is currently active.
      * @type {boolean}
-     * @memberof ScheduleinfoV1
+     * @memberof Scheduleinfo
      */
     'active'?: boolean;
     /**
      * The start time for the scheduled task, represented as epoch seconds.
      * @type {number}
-     * @memberof ScheduleinfoV1
+     * @memberof Scheduleinfo
      */
     'startTime'?: number | null;
     /**
      * The end time for the scheduled task, represented as epoch seconds.
      * @type {number}
-     * @memberof ScheduleinfoV1
+     * @memberof Scheduleinfo
      */
     'endTime'?: number | null;
     /**
      * A list of days of the week when the task should run (e.g., \"Monday\", \"Wednesday\").
      * @type {Array<string>}
-     * @memberof ScheduleinfoV1
+     * @memberof Scheduleinfo
      */
     'daysOfWeek'?: Array<string> | null;
     /**
      * The ID of another scheduled task that triggers this scheduled task upon its completion.
      * @type {number}
-     * @memberof ScheduleinfoV1
+     * @memberof Scheduleinfo
      */
     'runAfterScheduleTaskId'?: number | null;
     /**
      * The name of the scheduled task that must complete before this task runs.
      * @type {string}
-     * @memberof ScheduleinfoV1
+     * @memberof Scheduleinfo
      */
     'runAfterScheduleTaskName'?: string | null;
     /**
      * The unique identifier of the application associated with the scheduled task.
      * @type {number}
-     * @memberof ScheduleinfoV1
+     * @memberof Scheduleinfo
      */
     'applicationId'?: number | null;
     /**
      * The display name of the user who created the scheduled task.
      * @type {string}
-     * @memberof ScheduleinfoV1
+     * @memberof Scheduleinfo
      */
     'createdByDisplayName'?: string | null;
     /**
      * The next scheduled run time for the task, represented as epoch seconds.
      * @type {number}
-     * @memberof ScheduleinfoV1
+     * @memberof Scheduleinfo
      */
     'nextRun'?: number | null;
     /**
      * The last run time of the task, represented as epoch seconds.
      * @type {number}
-     * @memberof ScheduleinfoV1
+     * @memberof Scheduleinfo
      */
     'lastRun'?: number | null;
 }
 /**
  * 
  * @export
- * @interface TagV1
+ * @interface Tag
  */
-export interface TagV1 {
+export interface Tag {
     /**
      * The unique identifier for the tag.
      * @type {number}
-     * @memberof TagV1
+     * @memberof Tag
      */
     'id'?: number;
     /**
      * The display name or label for the tag.
      * @type {string}
-     * @memberof TagV1
+     * @memberof Tag
      */
     'name'?: string | null;
 }
 /**
  * 
  * @export
- * @interface TaskinfoV1
+ * @interface Taskinfo
  */
-export interface TaskinfoV1 {
+export interface Taskinfo {
     /**
      * The unique identifier for the task.
      * @type {number}
-     * @memberof TaskinfoV1
+     * @memberof Taskinfo
      */
     'taskId'?: number | null;
     /**
      * The type or category of the task.
      * @type {string}
-     * @memberof TaskinfoV1
+     * @memberof Taskinfo
      */
     'taskTypeName'?: string | null;
     /**
      * The start time of the task, represented as epoch seconds.
      * @type {number}
-     * @memberof TaskinfoV1
+     * @memberof Taskinfo
      */
     'startTime'?: number | null;
     /**
      * The end time of the task, represented as epoch seconds.
      * @type {number}
-     * @memberof TaskinfoV1
+     * @memberof Taskinfo
      */
     'endTime'?: number | null;
     /**
      * The display name of the task.
      * @type {string}
-     * @memberof TaskinfoV1
+     * @memberof Taskinfo
      */
     'taskName'?: string | null;
     /**
      * The display name of the user who created the task.
      * @type {string}
-     * @memberof TaskinfoV1
+     * @memberof Taskinfo
      */
     'createdByDisplayName'?: string | null;
     /**
      * The progress of the task, typically represented as a percentage (0-100).
      * @type {number}
-     * @memberof TaskinfoV1
+     * @memberof Taskinfo
      */
     'progress'?: number;
     /**
      * The current status of the task (e.g., \"Running\", \"Completed\", \"Failed\").
      * @type {string}
-     * @memberof TaskinfoV1
+     * @memberof Taskinfo
      */
     'status'?: string | null;
     /**
      * Additional details or information about the task.
      * @type {string}
-     * @memberof TaskinfoV1
+     * @memberof Taskinfo
      */
     'details'?: string | null;
     /**
      * The unique identifier of the associated scheduled task, if applicable.
      * @type {number}
-     * @memberof TaskinfoV1
+     * @memberof Taskinfo
      */
     'scheduleTaskId'?: number | null;
 }
 /**
  * 
  * @export
- * @interface UpdateidentitycollectorrequestV1
+ * @interface Updateidentitycollectorrequest
  */
-export interface UpdateidentitycollectorrequestV1 {
+export interface Updateidentitycollectorrequest {
     /**
      * The display name of the identity collector. Must be unique within the tenant.
      * @type {string}
-     * @memberof UpdateidentitycollectorrequestV1
+     * @memberof Updateidentitycollectorrequest
      */
     'name': string;
     /**
      * The identifier of the associated source, represented as a UUID. Both hyphenated and non-hyphenated formats are accepted. This value cannot be modified for an existing identity collector and must match the current value.
      * @type {string}
-     * @memberof UpdateidentitycollectorrequestV1
+     * @memberof Updateidentitycollectorrequest
      */
     'sourceId': string;
     /**
      * The identity collector type. This value cannot be modified for an existing identity collector and must match the current value.
      * @type {string}
-     * @memberof UpdateidentitycollectorrequestV1
+     * @memberof Updateidentitycollectorrequest
      */
     'type': string;
 }
 /**
  * 
  * @export
- * @interface UpdateschedulerequestV1
+ * @interface Updateschedulerequest
  */
-export interface UpdateschedulerequestV1 {
+export interface Updateschedulerequest {
     /**
      * The type or category of the scheduled task.
      * @type {string}
-     * @memberof UpdateschedulerequestV1
+     * @memberof Updateschedulerequest
      */
     'taskTypeName'?: string | null;
     /**
      * The scheduling type, such as \"Daily\", \"Weekly\", or \"Manual\" etc.
      * @type {string}
-     * @memberof UpdateschedulerequestV1
+     * @memberof Updateschedulerequest
      */
     'scheduleType'?: string | null;
     /**
      * The interval depends on the chosen schedule cycle (scheduleType), i.e. if the schedule is daily, the interval will represent the days between executions.
      * @type {number}
-     * @memberof UpdateschedulerequestV1
+     * @memberof Updateschedulerequest
      */
     'interval'?: number | null;
     /**
      * The display name of the scheduled task.
      * @type {string}
-     * @memberof UpdateschedulerequestV1
+     * @memberof Updateschedulerequest
      */
     'scheduleTaskName'?: string | null;
     /**
      * The start time for the scheduled task, represented as epoch seconds.
      * @type {number}
-     * @memberof UpdateschedulerequestV1
+     * @memberof Updateschedulerequest
      */
     'startTime'?: number;
     /**
      * The end time for the scheduled task, represented as epoch seconds.
      * @type {number}
-     * @memberof UpdateschedulerequestV1
+     * @memberof Updateschedulerequest
      */
     'endTime'?: number;
     /**
      * A list of days of the week when the task should run (e.g., \"Monday\", \"Wednesday\").
      * @type {Array<string>}
-     * @memberof UpdateschedulerequestV1
+     * @memberof Updateschedulerequest
      */
     'daysOfWeek'?: Array<string> | null;
     /**
      * Indicates whether the scheduled task is currently active.
      * @type {boolean}
-     * @memberof UpdateschedulerequestV1
+     * @memberof Updateschedulerequest
      */
     'active'?: boolean;
     /**
      * The ID of another scheduled task that triggers this scheduled task upon its completion.
      * @type {number}
-     * @memberof UpdateschedulerequestV1
+     * @memberof Updateschedulerequest
      */
     'runAfterScheduleTaskId'?: number | null;
     /**
      * The unique identifier of the application associated with the scheduled task.
      * @type {number}
-     * @memberof UpdateschedulerequestV1
+     * @memberof Updateschedulerequest
      */
     'applicationId'?: number | null;
 }
 
 /**
- * DataAccessSecurityV1Api - axios parameter creator
+ * DataAccessSecurityApi - axios parameter creator
  * @export
  */
-export const DataAccessSecurityV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const DataAccessSecurityApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This end-point sends a request to cancel a task in Data Access Security.
@@ -1243,13 +1243,13 @@ export const DataAccessSecurityV1ApiAxiosParamCreator = function (configuration?
         /**
          * This endpoint creates a new application in Data Access Security with the specified configuration.
          * @summary Create application
-         * @param {BasecreateapplicationrequestV1} basecreateapplicationrequestV1 Request body containing the details required to create a new application.
+         * @param {Basecreateapplicationrequest} basecreateapplicationrequest Request body containing the details required to create a new application.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createApplicationV1: async (basecreateapplicationrequestV1: BasecreateapplicationrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'basecreateapplicationrequestV1' is not null or undefined
-            assertParamExists('createApplicationV1', 'basecreateapplicationrequestV1', basecreateapplicationrequestV1)
+        createApplicationV1: async (basecreateapplicationrequest: Basecreateapplicationrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'basecreateapplicationrequest' is not null or undefined
+            assertParamExists('createApplicationV1', 'basecreateapplicationrequest', basecreateapplicationrequest)
             const localVarPath = `/das/v1/applications`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1269,7 +1269,7 @@ export const DataAccessSecurityV1ApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(basecreateapplicationrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(basecreateapplicationrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1279,13 +1279,13 @@ export const DataAccessSecurityV1ApiAxiosParamCreator = function (configuration?
         /**
          * This endpoint creates a new identity collector in Data Access Security for the specified source. The identity collector type is derived from the source.
          * @summary Create identity collector
-         * @param {CreateidentitycollectorrequestV1} createidentitycollectorrequestV1 Request body containing the details required to create a new identity collector.
+         * @param {Createidentitycollectorrequest} createidentitycollectorrequest Request body containing the details required to create a new identity collector.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createIdentityCollectorV1: async (createidentitycollectorrequestV1: CreateidentitycollectorrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'createidentitycollectorrequestV1' is not null or undefined
-            assertParamExists('createIdentityCollectorV1', 'createidentitycollectorrequestV1', createidentitycollectorrequestV1)
+        createIdentityCollectorV1: async (createidentitycollectorrequest: Createidentitycollectorrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'createidentitycollectorrequest' is not null or undefined
+            assertParamExists('createIdentityCollectorV1', 'createidentitycollectorrequest', createidentitycollectorrequest)
             const localVarPath = `/das/identity-collectors/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1305,7 +1305,7 @@ export const DataAccessSecurityV1ApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createidentitycollectorrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(createidentitycollectorrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1315,13 +1315,13 @@ export const DataAccessSecurityV1ApiAxiosParamCreator = function (configuration?
         /**
          * 
          * @summary Create a new schedule.
-         * @param {CreateschedulerequestV1} createschedulerequestV1 
+         * @param {Createschedulerequest} createschedulerequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createScheduleV1: async (createschedulerequestV1: CreateschedulerequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'createschedulerequestV1' is not null or undefined
-            assertParamExists('createScheduleV1', 'createschedulerequestV1', createschedulerequestV1)
+        createScheduleV1: async (createschedulerequest: Createschedulerequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'createschedulerequest' is not null or undefined
+            assertParamExists('createScheduleV1', 'createschedulerequest', createschedulerequest)
             const localVarPath = `/das/v1/tasks/schedules`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1341,7 +1341,7 @@ export const DataAccessSecurityV1ApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createschedulerequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(createschedulerequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1351,13 +1351,13 @@ export const DataAccessSecurityV1ApiAxiosParamCreator = function (configuration?
         /**
          * 
          * @summary Assign owner to application resource.
-         * @param {AssignresourceownerrequestV1} assignresourceownerrequestV1 The request body must contain the application ID, resource path, and identity ID to be assigned as the resource owner.
+         * @param {Assignresourceownerrequest} assignresourceownerrequest The request body must contain the application ID, resource path, and identity ID to be assigned as the resource owner.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        dasV1OwnersAssignPost: async (assignresourceownerrequestV1: AssignresourceownerrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'assignresourceownerrequestV1' is not null or undefined
-            assertParamExists('dasV1OwnersAssignPost', 'assignresourceownerrequestV1', assignresourceownerrequestV1)
+        dasV1OwnersAssignPost: async (assignresourceownerrequest: Assignresourceownerrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'assignresourceownerrequest' is not null or undefined
+            assertParamExists('dasV1OwnersAssignPost', 'assignresourceownerrequest', assignresourceownerrequest)
             const localVarPath = `/das/v1/owners/assign`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1377,7 +1377,7 @@ export const DataAccessSecurityV1ApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(assignresourceownerrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(assignresourceownerrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1431,13 +1431,13 @@ export const DataAccessSecurityV1ApiAxiosParamCreator = function (configuration?
         /**
          * 
          * @summary Re-elect resource owner.
-         * @param {ReelectrequestV1} reelectrequestV1 The request body must contain details for re-electing a resource owner. Date/time fields should use epoch format in seconds.
+         * @param {Reelectrequest} reelectrequest The request body must contain details for re-electing a resource owner. Date/time fields should use epoch format in seconds.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        dasV1OwnersReelectPost: async (reelectrequestV1: ReelectrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'reelectrequestV1' is not null or undefined
-            assertParamExists('dasV1OwnersReelectPost', 'reelectrequestV1', reelectrequestV1)
+        dasV1OwnersReelectPost: async (reelectrequest: Reelectrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'reelectrequest' is not null or undefined
+            assertParamExists('dasV1OwnersReelectPost', 'reelectrequest', reelectrequest)
             const localVarPath = `/das/v1/owners/reelect`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1457,7 +1457,7 @@ export const DataAccessSecurityV1ApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(reelectrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(reelectrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2032,15 +2032,15 @@ export const DataAccessSecurityV1ApiAxiosParamCreator = function (configuration?
          * This endpoint updates an existing application in Data Access Security with the specified configuration.
          * @summary Update application by identifier.
          * @param {number} id The unique identifier of the application to update.
-         * @param {BasecreateapplicationrequestV1} basecreateapplicationrequestV1 Request body containing the updated details for the application.
+         * @param {Basecreateapplicationrequest} basecreateapplicationrequest Request body containing the updated details for the application.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putApplicationV1: async (id: number, basecreateapplicationrequestV1: BasecreateapplicationrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putApplicationV1: async (id: number, basecreateapplicationrequest: Basecreateapplicationrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('putApplicationV1', 'id', id)
-            // verify required parameter 'basecreateapplicationrequestV1' is not null or undefined
-            assertParamExists('putApplicationV1', 'basecreateapplicationrequestV1', basecreateapplicationrequestV1)
+            // verify required parameter 'basecreateapplicationrequest' is not null or undefined
+            assertParamExists('putApplicationV1', 'basecreateapplicationrequest', basecreateapplicationrequest)
             const localVarPath = `/das/v1/applications/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2061,7 +2061,7 @@ export const DataAccessSecurityV1ApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(basecreateapplicationrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(basecreateapplicationrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2072,15 +2072,15 @@ export const DataAccessSecurityV1ApiAxiosParamCreator = function (configuration?
          * This endpoint updates the name of an existing identity collector in Data Access Security. The `sourceId` and `type` cannot be changed and must match the current values.
          * @summary Update identity collector by identifier
          * @param {number} id The unique identifier of the identity collector to update.
-         * @param {UpdateidentitycollectorrequestV1} updateidentitycollectorrequestV1 Request body containing the updated details for the identity collector.
+         * @param {Updateidentitycollectorrequest} updateidentitycollectorrequest Request body containing the updated details for the identity collector.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putIdentityCollectorV1: async (id: number, updateidentitycollectorrequestV1: UpdateidentitycollectorrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putIdentityCollectorV1: async (id: number, updateidentitycollectorrequest: Updateidentitycollectorrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('putIdentityCollectorV1', 'id', id)
-            // verify required parameter 'updateidentitycollectorrequestV1' is not null or undefined
-            assertParamExists('putIdentityCollectorV1', 'updateidentitycollectorrequestV1', updateidentitycollectorrequestV1)
+            // verify required parameter 'updateidentitycollectorrequest' is not null or undefined
+            assertParamExists('putIdentityCollectorV1', 'updateidentitycollectorrequest', updateidentitycollectorrequest)
             const localVarPath = `/das/identity-collectors/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2101,7 +2101,7 @@ export const DataAccessSecurityV1ApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(updateidentitycollectorrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(updateidentitycollectorrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2112,15 +2112,15 @@ export const DataAccessSecurityV1ApiAxiosParamCreator = function (configuration?
          * 
          * @summary Update a schedule.
          * @param {number} id The unique identifier of the schedule to update.
-         * @param {UpdateschedulerequestV1} updateschedulerequestV1 
+         * @param {Updateschedulerequest} updateschedulerequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putScheduleV1: async (id: number, updateschedulerequestV1: UpdateschedulerequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putScheduleV1: async (id: number, updateschedulerequest: Updateschedulerequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('putScheduleV1', 'id', id)
-            // verify required parameter 'updateschedulerequestV1' is not null or undefined
-            assertParamExists('putScheduleV1', 'updateschedulerequestV1', updateschedulerequestV1)
+            // verify required parameter 'updateschedulerequest' is not null or undefined
+            assertParamExists('putScheduleV1', 'updateschedulerequest', updateschedulerequest)
             const localVarPath = `/das/v1/tasks/schedules/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2141,7 +2141,7 @@ export const DataAccessSecurityV1ApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(updateschedulerequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(updateschedulerequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2186,11 +2186,11 @@ export const DataAccessSecurityV1ApiAxiosParamCreator = function (configuration?
 };
 
 /**
- * DataAccessSecurityV1Api - functional programming interface
+ * DataAccessSecurityApi - functional programming interface
  * @export
  */
-export const DataAccessSecurityV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = DataAccessSecurityV1ApiAxiosParamCreator(configuration)
+export const DataAccessSecurityApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = DataAccessSecurityApiAxiosParamCreator(configuration)
     return {
         /**
          * This end-point sends a request to cancel a task in Data Access Security.
@@ -2202,59 +2202,59 @@ export const DataAccessSecurityV1ApiFp = function(configuration?: Configuration)
         async cancelTaskV1(id: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.cancelTaskV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.cancelTaskV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.cancelTaskV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This endpoint creates a new application in Data Access Security with the specified configuration.
          * @summary Create application
-         * @param {BasecreateapplicationrequestV1} basecreateapplicationrequestV1 Request body containing the details required to create a new application.
+         * @param {Basecreateapplicationrequest} basecreateapplicationrequest Request body containing the details required to create a new application.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createApplicationV1(basecreateapplicationrequestV1: BasecreateapplicationrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createApplicationV1(basecreateapplicationrequestV1, axiosOptions);
+        async createApplicationV1(basecreateapplicationrequest: Basecreateapplicationrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createApplicationV1(basecreateapplicationrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.createApplicationV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.createApplicationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This endpoint creates a new identity collector in Data Access Security for the specified source. The identity collector type is derived from the source.
          * @summary Create identity collector
-         * @param {CreateidentitycollectorrequestV1} createidentitycollectorrequestV1 Request body containing the details required to create a new identity collector.
+         * @param {Createidentitycollectorrequest} createidentitycollectorrequest Request body containing the details required to create a new identity collector.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createIdentityCollectorV1(createidentitycollectorrequestV1: CreateidentitycollectorrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateIdentityCollectorV1200ResponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createIdentityCollectorV1(createidentitycollectorrequestV1, axiosOptions);
+        async createIdentityCollectorV1(createidentitycollectorrequest: Createidentitycollectorrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateIdentityCollectorV1200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createIdentityCollectorV1(createidentitycollectorrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.createIdentityCollectorV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.createIdentityCollectorV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * 
          * @summary Create a new schedule.
-         * @param {CreateschedulerequestV1} createschedulerequestV1 
+         * @param {Createschedulerequest} createschedulerequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createScheduleV1(createschedulerequestV1: CreateschedulerequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<number>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createScheduleV1(createschedulerequestV1, axiosOptions);
+        async createScheduleV1(createschedulerequest: Createschedulerequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<number>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createScheduleV1(createschedulerequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.createScheduleV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.createScheduleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * 
          * @summary Assign owner to application resource.
-         * @param {AssignresourceownerrequestV1} assignresourceownerrequestV1 The request body must contain the application ID, resource path, and identity ID to be assigned as the resource owner.
+         * @param {Assignresourceownerrequest} assignresourceownerrequest The request body must contain the application ID, resource path, and identity ID to be assigned as the resource owner.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async dasV1OwnersAssignPost(assignresourceownerrequestV1: AssignresourceownerrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<number>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.dasV1OwnersAssignPost(assignresourceownerrequestV1, axiosOptions);
+        async dasV1OwnersAssignPost(assignresourceownerrequest: Assignresourceownerrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<number>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.dasV1OwnersAssignPost(assignresourceownerrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.dasV1OwnersAssignPost']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.dasV1OwnersAssignPost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2266,23 +2266,23 @@ export const DataAccessSecurityV1ApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async dasV1OwnersOwnerIdentityIdResourcesGet(ownerIdentityId: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ResourcemodelV1>>> {
+        async dasV1OwnersOwnerIdentityIdResourcesGet(ownerIdentityId: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Resourcemodel>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.dasV1OwnersOwnerIdentityIdResourcesGet(ownerIdentityId, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.dasV1OwnersOwnerIdentityIdResourcesGet']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.dasV1OwnersOwnerIdentityIdResourcesGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * 
          * @summary Re-elect resource owner.
-         * @param {ReelectrequestV1} reelectrequestV1 The request body must contain details for re-electing a resource owner. Date/time fields should use epoch format in seconds.
+         * @param {Reelectrequest} reelectrequest The request body must contain details for re-electing a resource owner. Date/time fields should use epoch format in seconds.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async dasV1OwnersReelectPost(reelectrequestV1: ReelectrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<number>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.dasV1OwnersReelectPost(reelectrequestV1, axiosOptions);
+        async dasV1OwnersReelectPost(reelectrequest: Reelectrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<number>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.dasV1OwnersReelectPost(reelectrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.dasV1OwnersReelectPost']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.dasV1OwnersReelectPost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2297,7 +2297,7 @@ export const DataAccessSecurityV1ApiFp = function(configuration?: Configuration)
         async dasV1OwnersResourcesResourceIdGet(resourceId: number, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<string>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.dasV1OwnersResourcesResourceIdGet(resourceId, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.dasV1OwnersResourcesResourceIdGet']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.dasV1OwnersResourcesResourceIdGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2311,7 +2311,7 @@ export const DataAccessSecurityV1ApiFp = function(configuration?: Configuration)
         async dasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPost(sourceIdentityId: string, destinationIdentityId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<number>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.dasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPost(sourceIdentityId, destinationIdentityId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.dasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPost']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.dasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2324,7 +2324,7 @@ export const DataAccessSecurityV1ApiFp = function(configuration?: Configuration)
         async deleteApplicationV1(id: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteApplicationV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.deleteApplicationV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.deleteApplicationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2337,7 +2337,7 @@ export const DataAccessSecurityV1ApiFp = function(configuration?: Configuration)
         async deleteIdentityCollectorV1(id: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityCollectorV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.deleteIdentityCollectorV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.deleteIdentityCollectorV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2350,7 +2350,7 @@ export const DataAccessSecurityV1ApiFp = function(configuration?: Configuration)
         async deleteScheduleV1(id: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteScheduleV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.deleteScheduleV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.deleteScheduleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2363,7 +2363,7 @@ export const DataAccessSecurityV1ApiFp = function(configuration?: Configuration)
         async deleteTaskV1(id: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTaskV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.deleteTaskV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.deleteTaskV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2373,10 +2373,10 @@ export const DataAccessSecurityV1ApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getApplicationV1(id: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ApplicationitemV1>> {
+        async getApplicationV1(id: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Applicationitem>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getApplicationV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.getApplicationV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.getApplicationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2389,10 +2389,10 @@ export const DataAccessSecurityV1ApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getApplicationsV1(filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ApplicationitemV1>>> {
+        async getApplicationsV1(filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Applicationitem>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getApplicationsV1(filters, limit, offset, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.getApplicationsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.getApplicationsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2404,10 +2404,10 @@ export const DataAccessSecurityV1ApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getOwnersV1(appId: number, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DataownermodelV1>>> {
+        async getOwnersV1(appId: number, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Dataownermodel>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOwnersV1(appId, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.getOwnersV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.getOwnersV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2417,10 +2417,10 @@ export const DataAccessSecurityV1ApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getScheduleV1(id: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScheduleinfoV1>> {
+        async getScheduleV1(id: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scheduleinfo>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getScheduleV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.getScheduleV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.getScheduleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2433,10 +2433,10 @@ export const DataAccessSecurityV1ApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSchedulesV1(filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ScheduleinfoV1>>> {
+        async getSchedulesV1(filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Scheduleinfo>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSchedulesV1(filters, limit, offset, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.getSchedulesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.getSchedulesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2446,10 +2446,10 @@ export const DataAccessSecurityV1ApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getTaskV1(id: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskinfoV1>> {
+        async getTaskV1(id: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Taskinfo>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTaskV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.getTaskV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.getTaskV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2462,10 +2462,10 @@ export const DataAccessSecurityV1ApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getTasksV1(filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaskinfoV1>>> {
+        async getTasksV1(filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Taskinfo>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTasksV1(filters, limit, offset, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.getTasksV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.getTasksV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2478,52 +2478,52 @@ export const DataAccessSecurityV1ApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listIdentityCollectorsV1(filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentitycollectorlistitemV1>>> {
+        async listIdentityCollectorsV1(filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Identitycollectorlistitem>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityCollectorsV1(filters, limit, offset, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.listIdentityCollectorsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.listIdentityCollectorsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This endpoint updates an existing application in Data Access Security with the specified configuration.
          * @summary Update application by identifier.
          * @param {number} id The unique identifier of the application to update.
-         * @param {BasecreateapplicationrequestV1} basecreateapplicationrequestV1 Request body containing the updated details for the application.
+         * @param {Basecreateapplicationrequest} basecreateapplicationrequest Request body containing the updated details for the application.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putApplicationV1(id: number, basecreateapplicationrequestV1: BasecreateapplicationrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putApplicationV1(id, basecreateapplicationrequestV1, axiosOptions);
+        async putApplicationV1(id: number, basecreateapplicationrequest: Basecreateapplicationrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putApplicationV1(id, basecreateapplicationrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.putApplicationV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.putApplicationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This endpoint updates the name of an existing identity collector in Data Access Security. The `sourceId` and `type` cannot be changed and must match the current values.
          * @summary Update identity collector by identifier
          * @param {number} id The unique identifier of the identity collector to update.
-         * @param {UpdateidentitycollectorrequestV1} updateidentitycollectorrequestV1 Request body containing the updated details for the identity collector.
+         * @param {Updateidentitycollectorrequest} updateidentitycollectorrequest Request body containing the updated details for the identity collector.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putIdentityCollectorV1(id: number, updateidentitycollectorrequestV1: UpdateidentitycollectorrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putIdentityCollectorV1(id, updateidentitycollectorrequestV1, axiosOptions);
+        async putIdentityCollectorV1(id: number, updateidentitycollectorrequest: Updateidentitycollectorrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putIdentityCollectorV1(id, updateidentitycollectorrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.putIdentityCollectorV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.putIdentityCollectorV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * 
          * @summary Update a schedule.
          * @param {number} id The unique identifier of the schedule to update.
-         * @param {UpdateschedulerequestV1} updateschedulerequestV1 
+         * @param {Updateschedulerequest} updateschedulerequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putScheduleV1(id: number, updateschedulerequestV1: UpdateschedulerequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putScheduleV1(id, updateschedulerequestV1, axiosOptions);
+        async putScheduleV1(id: number, updateschedulerequest: Updateschedulerequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putScheduleV1(id, updateschedulerequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.putScheduleV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.putScheduleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2536,1081 +2536,1081 @@ export const DataAccessSecurityV1ApiFp = function(configuration?: Configuration)
         async startTaskRerunV1(id: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.startTaskRerunV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityV1Api.startTaskRerunV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.startTaskRerunV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * DataAccessSecurityV1Api - factory interface
+ * DataAccessSecurityApi - factory interface
  * @export
  */
-export const DataAccessSecurityV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = DataAccessSecurityV1ApiFp(configuration)
+export const DataAccessSecurityApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = DataAccessSecurityApiFp(configuration)
     return {
         /**
          * This end-point sends a request to cancel a task in Data Access Security.
          * @summary Cancel a DAS task.
-         * @param {DataAccessSecurityV1ApiCancelTaskV1Request} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiCancelTaskV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        cancelTaskV1(requestParameters: DataAccessSecurityV1ApiCancelTaskV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        cancelTaskV1(requestParameters: DataAccessSecurityApiCancelTaskV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.cancelTaskV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint creates a new application in Data Access Security with the specified configuration.
          * @summary Create application
-         * @param {DataAccessSecurityV1ApiCreateApplicationV1Request} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiCreateApplicationV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createApplicationV1(requestParameters: DataAccessSecurityV1ApiCreateApplicationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.createApplicationV1(requestParameters.basecreateapplicationrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        createApplicationV1(requestParameters: DataAccessSecurityApiCreateApplicationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.createApplicationV1(requestParameters.basecreateapplicationrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint creates a new identity collector in Data Access Security for the specified source. The identity collector type is derived from the source.
          * @summary Create identity collector
-         * @param {DataAccessSecurityV1ApiCreateIdentityCollectorV1Request} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiCreateIdentityCollectorV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createIdentityCollectorV1(requestParameters: DataAccessSecurityV1ApiCreateIdentityCollectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CreateIdentityCollectorV1200ResponseV1> {
-            return localVarFp.createIdentityCollectorV1(requestParameters.createidentitycollectorrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        createIdentityCollectorV1(requestParameters: DataAccessSecurityApiCreateIdentityCollectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CreateIdentityCollectorV1200Response> {
+            return localVarFp.createIdentityCollectorV1(requestParameters.createidentitycollectorrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Create a new schedule.
-         * @param {DataAccessSecurityV1ApiCreateScheduleV1Request} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiCreateScheduleV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createScheduleV1(requestParameters: DataAccessSecurityV1ApiCreateScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<number> {
-            return localVarFp.createScheduleV1(requestParameters.createschedulerequestV1, axiosOptions).then((request) => request(axios, basePath));
+        createScheduleV1(requestParameters: DataAccessSecurityApiCreateScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<number> {
+            return localVarFp.createScheduleV1(requestParameters.createschedulerequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Assign owner to application resource.
-         * @param {DataAccessSecurityV1ApiDasV1OwnersAssignPostRequest} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiDasV1OwnersAssignPostRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        dasV1OwnersAssignPost(requestParameters: DataAccessSecurityV1ApiDasV1OwnersAssignPostRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<number> {
-            return localVarFp.dasV1OwnersAssignPost(requestParameters.assignresourceownerrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        dasV1OwnersAssignPost(requestParameters: DataAccessSecurityApiDasV1OwnersAssignPostRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<number> {
+            return localVarFp.dasV1OwnersAssignPost(requestParameters.assignresourceownerrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary List resources for owner.
-         * @param {DataAccessSecurityV1ApiDasV1OwnersOwnerIdentityIdResourcesGetRequest} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiDasV1OwnersOwnerIdentityIdResourcesGetRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        dasV1OwnersOwnerIdentityIdResourcesGet(requestParameters: DataAccessSecurityV1ApiDasV1OwnersOwnerIdentityIdResourcesGetRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ResourcemodelV1>> {
+        dasV1OwnersOwnerIdentityIdResourcesGet(requestParameters: DataAccessSecurityApiDasV1OwnersOwnerIdentityIdResourcesGetRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Resourcemodel>> {
             return localVarFp.dasV1OwnersOwnerIdentityIdResourcesGet(requestParameters.ownerIdentityId, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Re-elect resource owner.
-         * @param {DataAccessSecurityV1ApiDasV1OwnersReelectPostRequest} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiDasV1OwnersReelectPostRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        dasV1OwnersReelectPost(requestParameters: DataAccessSecurityV1ApiDasV1OwnersReelectPostRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<number> {
-            return localVarFp.dasV1OwnersReelectPost(requestParameters.reelectrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        dasV1OwnersReelectPost(requestParameters: DataAccessSecurityApiDasV1OwnersReelectPostRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<number> {
+            return localVarFp.dasV1OwnersReelectPost(requestParameters.reelectrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary List owners for resource.
-         * @param {DataAccessSecurityV1ApiDasV1OwnersResourcesResourceIdGetRequest} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiDasV1OwnersResourcesResourceIdGetRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        dasV1OwnersResourcesResourceIdGet(requestParameters: DataAccessSecurityV1ApiDasV1OwnersResourcesResourceIdGetRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<string>> {
+        dasV1OwnersResourcesResourceIdGet(requestParameters: DataAccessSecurityApiDasV1OwnersResourcesResourceIdGetRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<string>> {
             return localVarFp.dasV1OwnersResourcesResourceIdGet(requestParameters.resourceId, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Reassign resource owner.
-         * @param {DataAccessSecurityV1ApiDasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPostRequest} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiDasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPostRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        dasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPost(requestParameters: DataAccessSecurityV1ApiDasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPostRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<number> {
+        dasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPost(requestParameters: DataAccessSecurityApiDasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPostRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<number> {
             return localVarFp.dasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPost(requestParameters.sourceIdentityId, requestParameters.destinationIdentityId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint deletes an application from Data Access Security by its unique identifier.
          * @summary Delete an application by identifier.
-         * @param {DataAccessSecurityV1ApiDeleteApplicationV1Request} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiDeleteApplicationV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteApplicationV1(requestParameters: DataAccessSecurityV1ApiDeleteApplicationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteApplicationV1(requestParameters: DataAccessSecurityApiDeleteApplicationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteApplicationV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint deletes an identity collector from Data Access Security by its unique identifier.
          * @summary Delete identity collector by identifier
-         * @param {DataAccessSecurityV1ApiDeleteIdentityCollectorV1Request} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiDeleteIdentityCollectorV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteIdentityCollectorV1(requestParameters: DataAccessSecurityV1ApiDeleteIdentityCollectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteIdentityCollectorV1(requestParameters: DataAccessSecurityApiDeleteIdentityCollectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteIdentityCollectorV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point sends a request to delete a schedule in Data Access Security.
          * @summary Delete a DAS schedule.
-         * @param {DataAccessSecurityV1ApiDeleteScheduleV1Request} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiDeleteScheduleV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteScheduleV1(requestParameters: DataAccessSecurityV1ApiDeleteScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteScheduleV1(requestParameters: DataAccessSecurityApiDeleteScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteScheduleV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point sends a request to delete a task in Data Access Security. 
          * @summary Delete a DAS task.
-         * @param {DataAccessSecurityV1ApiDeleteTaskV1Request} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiDeleteTaskV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteTaskV1(requestParameters: DataAccessSecurityV1ApiDeleteTaskV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteTaskV1(requestParameters: DataAccessSecurityApiDeleteTaskV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteTaskV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint retrieves the details of a specific application in Data Access Security by its unique identifier.
          * @summary Retrieve application details by identifier.
-         * @param {DataAccessSecurityV1ApiGetApplicationV1Request} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiGetApplicationV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getApplicationV1(requestParameters: DataAccessSecurityV1ApiGetApplicationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ApplicationitemV1> {
+        getApplicationV1(requestParameters: DataAccessSecurityApiGetApplicationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Applicationitem> {
             return localVarFp.getApplicationV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint lists all the applications in Data Access Security with optional filtering.
          * @summary Search applications in DAS.
-         * @param {DataAccessSecurityV1ApiGetApplicationsV1Request} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiGetApplicationsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getApplicationsV1(requestParameters: DataAccessSecurityV1ApiGetApplicationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ApplicationitemV1>> {
+        getApplicationsV1(requestParameters: DataAccessSecurityApiGetApplicationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Applicationitem>> {
             return localVarFp.getApplicationsV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Retrieve owners per application.
-         * @param {DataAccessSecurityV1ApiGetOwnersV1Request} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiGetOwnersV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getOwnersV1(requestParameters: DataAccessSecurityV1ApiGetOwnersV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<DataownermodelV1>> {
+        getOwnersV1(requestParameters: DataAccessSecurityApiGetOwnersV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Dataownermodel>> {
             return localVarFp.getOwnersV1(requestParameters.appId, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point gets a schedule in Data Access Security.
          * @summary Get a DAS schedule.
-         * @param {DataAccessSecurityV1ApiGetScheduleV1Request} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiGetScheduleV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getScheduleV1(requestParameters: DataAccessSecurityV1ApiGetScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ScheduleinfoV1> {
+        getScheduleV1(requestParameters: DataAccessSecurityApiGetScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Scheduleinfo> {
             return localVarFp.getScheduleV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point lists all the schedules in Data Access Security.
          * @summary List all schedules.
-         * @param {DataAccessSecurityV1ApiGetSchedulesV1Request} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiGetSchedulesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSchedulesV1(requestParameters: DataAccessSecurityV1ApiGetSchedulesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ScheduleinfoV1>> {
+        getSchedulesV1(requestParameters: DataAccessSecurityApiGetSchedulesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Scheduleinfo>> {
             return localVarFp.getSchedulesV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point gets a task in Data Access Security.
          * @summary Get a DAS task.
-         * @param {DataAccessSecurityV1ApiGetTaskV1Request} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiGetTaskV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getTaskV1(requestParameters: DataAccessSecurityV1ApiGetTaskV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TaskinfoV1> {
+        getTaskV1(requestParameters: DataAccessSecurityApiGetTaskV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Taskinfo> {
             return localVarFp.getTaskV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point lists all the tasks in Data Access Security.
          * @summary Lists all DAS tasks.
-         * @param {DataAccessSecurityV1ApiGetTasksV1Request} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiGetTasksV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getTasksV1(requestParameters: DataAccessSecurityV1ApiGetTasksV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<TaskinfoV1>> {
+        getTasksV1(requestParameters: DataAccessSecurityApiGetTasksV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Taskinfo>> {
             return localVarFp.getTasksV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint lists the identity collectors in Data Access Security with optional filtering and pagination.  Sorting is not supported for this endpoint; supplying the `sorters` query parameter results in a validation error.
          * @summary List identity collectors
-         * @param {DataAccessSecurityV1ApiListIdentityCollectorsV1Request} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiListIdentityCollectorsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listIdentityCollectorsV1(requestParameters: DataAccessSecurityV1ApiListIdentityCollectorsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<IdentitycollectorlistitemV1>> {
+        listIdentityCollectorsV1(requestParameters: DataAccessSecurityApiListIdentityCollectorsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Identitycollectorlistitem>> {
             return localVarFp.listIdentityCollectorsV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint updates an existing application in Data Access Security with the specified configuration.
          * @summary Update application by identifier.
-         * @param {DataAccessSecurityV1ApiPutApplicationV1Request} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiPutApplicationV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putApplicationV1(requestParameters: DataAccessSecurityV1ApiPutApplicationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.putApplicationV1(requestParameters.id, requestParameters.basecreateapplicationrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        putApplicationV1(requestParameters: DataAccessSecurityApiPutApplicationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.putApplicationV1(requestParameters.id, requestParameters.basecreateapplicationrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint updates the name of an existing identity collector in Data Access Security. The `sourceId` and `type` cannot be changed and must match the current values.
          * @summary Update identity collector by identifier
-         * @param {DataAccessSecurityV1ApiPutIdentityCollectorV1Request} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiPutIdentityCollectorV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putIdentityCollectorV1(requestParameters: DataAccessSecurityV1ApiPutIdentityCollectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.putIdentityCollectorV1(requestParameters.id, requestParameters.updateidentitycollectorrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        putIdentityCollectorV1(requestParameters: DataAccessSecurityApiPutIdentityCollectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.putIdentityCollectorV1(requestParameters.id, requestParameters.updateidentitycollectorrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Update a schedule.
-         * @param {DataAccessSecurityV1ApiPutScheduleV1Request} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiPutScheduleV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putScheduleV1(requestParameters: DataAccessSecurityV1ApiPutScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.putScheduleV1(requestParameters.id, requestParameters.updateschedulerequestV1, axiosOptions).then((request) => request(axios, basePath));
+        putScheduleV1(requestParameters: DataAccessSecurityApiPutScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.putScheduleV1(requestParameters.id, requestParameters.updateschedulerequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point sends a request to re-run a task in Data Access Security.
          * @summary Rerun a DAS task.
-         * @param {DataAccessSecurityV1ApiStartTaskRerunV1Request} requestParameters Request parameters.
+         * @param {DataAccessSecurityApiStartTaskRerunV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startTaskRerunV1(requestParameters: DataAccessSecurityV1ApiStartTaskRerunV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        startTaskRerunV1(requestParameters: DataAccessSecurityApiStartTaskRerunV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.startTaskRerunV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for cancelTaskV1 operation in DataAccessSecurityV1Api.
+ * Request parameters for cancelTaskV1 operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiCancelTaskV1Request
+ * @interface DataAccessSecurityApiCancelTaskV1Request
  */
-export interface DataAccessSecurityV1ApiCancelTaskV1Request {
+export interface DataAccessSecurityApiCancelTaskV1Request {
     /**
      * The unique identifier of the task to cancel.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiCancelTaskV1
+     * @memberof DataAccessSecurityApiCancelTaskV1
      */
     readonly id: number
 }
 
 /**
- * Request parameters for createApplicationV1 operation in DataAccessSecurityV1Api.
+ * Request parameters for createApplicationV1 operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiCreateApplicationV1Request
+ * @interface DataAccessSecurityApiCreateApplicationV1Request
  */
-export interface DataAccessSecurityV1ApiCreateApplicationV1Request {
+export interface DataAccessSecurityApiCreateApplicationV1Request {
     /**
      * Request body containing the details required to create a new application.
-     * @type {BasecreateapplicationrequestV1}
-     * @memberof DataAccessSecurityV1ApiCreateApplicationV1
+     * @type {Basecreateapplicationrequest}
+     * @memberof DataAccessSecurityApiCreateApplicationV1
      */
-    readonly basecreateapplicationrequestV1: BasecreateapplicationrequestV1
+    readonly basecreateapplicationrequest: Basecreateapplicationrequest
 }
 
 /**
- * Request parameters for createIdentityCollectorV1 operation in DataAccessSecurityV1Api.
+ * Request parameters for createIdentityCollectorV1 operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiCreateIdentityCollectorV1Request
+ * @interface DataAccessSecurityApiCreateIdentityCollectorV1Request
  */
-export interface DataAccessSecurityV1ApiCreateIdentityCollectorV1Request {
+export interface DataAccessSecurityApiCreateIdentityCollectorV1Request {
     /**
      * Request body containing the details required to create a new identity collector.
-     * @type {CreateidentitycollectorrequestV1}
-     * @memberof DataAccessSecurityV1ApiCreateIdentityCollectorV1
+     * @type {Createidentitycollectorrequest}
+     * @memberof DataAccessSecurityApiCreateIdentityCollectorV1
      */
-    readonly createidentitycollectorrequestV1: CreateidentitycollectorrequestV1
+    readonly createidentitycollectorrequest: Createidentitycollectorrequest
 }
 
 /**
- * Request parameters for createScheduleV1 operation in DataAccessSecurityV1Api.
+ * Request parameters for createScheduleV1 operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiCreateScheduleV1Request
+ * @interface DataAccessSecurityApiCreateScheduleV1Request
  */
-export interface DataAccessSecurityV1ApiCreateScheduleV1Request {
+export interface DataAccessSecurityApiCreateScheduleV1Request {
     /**
      * 
-     * @type {CreateschedulerequestV1}
-     * @memberof DataAccessSecurityV1ApiCreateScheduleV1
+     * @type {Createschedulerequest}
+     * @memberof DataAccessSecurityApiCreateScheduleV1
      */
-    readonly createschedulerequestV1: CreateschedulerequestV1
+    readonly createschedulerequest: Createschedulerequest
 }
 
 /**
- * Request parameters for dasV1OwnersAssignPost operation in DataAccessSecurityV1Api.
+ * Request parameters for dasV1OwnersAssignPost operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiDasV1OwnersAssignPostRequest
+ * @interface DataAccessSecurityApiDasV1OwnersAssignPostRequest
  */
-export interface DataAccessSecurityV1ApiDasV1OwnersAssignPostRequest {
+export interface DataAccessSecurityApiDasV1OwnersAssignPostRequest {
     /**
      * The request body must contain the application ID, resource path, and identity ID to be assigned as the resource owner.
-     * @type {AssignresourceownerrequestV1}
-     * @memberof DataAccessSecurityV1ApiDasV1OwnersAssignPost
+     * @type {Assignresourceownerrequest}
+     * @memberof DataAccessSecurityApiDasV1OwnersAssignPost
      */
-    readonly assignresourceownerrequestV1: AssignresourceownerrequestV1
+    readonly assignresourceownerrequest: Assignresourceownerrequest
 }
 
 /**
- * Request parameters for dasV1OwnersOwnerIdentityIdResourcesGet operation in DataAccessSecurityV1Api.
+ * Request parameters for dasV1OwnersOwnerIdentityIdResourcesGet operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiDasV1OwnersOwnerIdentityIdResourcesGetRequest
+ * @interface DataAccessSecurityApiDasV1OwnersOwnerIdentityIdResourcesGetRequest
  */
-export interface DataAccessSecurityV1ApiDasV1OwnersOwnerIdentityIdResourcesGetRequest {
+export interface DataAccessSecurityApiDasV1OwnersOwnerIdentityIdResourcesGetRequest {
     /**
      * Unique identifier for the owner. This should be a UUID representing the owner\&#39;s identity.
      * @type {string}
-     * @memberof DataAccessSecurityV1ApiDasV1OwnersOwnerIdentityIdResourcesGet
+     * @memberof DataAccessSecurityApiDasV1OwnersOwnerIdentityIdResourcesGet
      */
     readonly ownerIdentityId: string
 
     /**
      * Not applicable for this endpoint. Do not use.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiDasV1OwnersOwnerIdentityIdResourcesGet
+     * @memberof DataAccessSecurityApiDasV1OwnersOwnerIdentityIdResourcesGet
      */
     readonly limit?: number
 
     /**
      * Not applicable for this endpoint. Do not use.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiDasV1OwnersOwnerIdentityIdResourcesGet
+     * @memberof DataAccessSecurityApiDasV1OwnersOwnerIdentityIdResourcesGet
      */
     readonly offset?: number
 }
 
 /**
- * Request parameters for dasV1OwnersReelectPost operation in DataAccessSecurityV1Api.
+ * Request parameters for dasV1OwnersReelectPost operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiDasV1OwnersReelectPostRequest
+ * @interface DataAccessSecurityApiDasV1OwnersReelectPostRequest
  */
-export interface DataAccessSecurityV1ApiDasV1OwnersReelectPostRequest {
+export interface DataAccessSecurityApiDasV1OwnersReelectPostRequest {
     /**
      * The request body must contain details for re-electing a resource owner. Date/time fields should use epoch format in seconds.
-     * @type {ReelectrequestV1}
-     * @memberof DataAccessSecurityV1ApiDasV1OwnersReelectPost
+     * @type {Reelectrequest}
+     * @memberof DataAccessSecurityApiDasV1OwnersReelectPost
      */
-    readonly reelectrequestV1: ReelectrequestV1
+    readonly reelectrequest: Reelectrequest
 }
 
 /**
- * Request parameters for dasV1OwnersResourcesResourceIdGet operation in DataAccessSecurityV1Api.
+ * Request parameters for dasV1OwnersResourcesResourceIdGet operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiDasV1OwnersResourcesResourceIdGetRequest
+ * @interface DataAccessSecurityApiDasV1OwnersResourcesResourceIdGetRequest
  */
-export interface DataAccessSecurityV1ApiDasV1OwnersResourcesResourceIdGetRequest {
+export interface DataAccessSecurityApiDasV1OwnersResourcesResourceIdGetRequest {
     /**
      * Unique identifier for the resource.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiDasV1OwnersResourcesResourceIdGet
+     * @memberof DataAccessSecurityApiDasV1OwnersResourcesResourceIdGet
      */
     readonly resourceId: number
 
     /**
      * Not applicable for this endpoint. Do not use.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiDasV1OwnersResourcesResourceIdGet
+     * @memberof DataAccessSecurityApiDasV1OwnersResourcesResourceIdGet
      */
     readonly limit?: number
 
     /**
      * Not applicable for this endpoint. Do not use.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiDasV1OwnersResourcesResourceIdGet
+     * @memberof DataAccessSecurityApiDasV1OwnersResourcesResourceIdGet
      */
     readonly offset?: number
 }
 
 /**
- * Request parameters for dasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPost operation in DataAccessSecurityV1Api.
+ * Request parameters for dasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPost operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiDasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPostRequest
+ * @interface DataAccessSecurityApiDasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPostRequest
  */
-export interface DataAccessSecurityV1ApiDasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPostRequest {
+export interface DataAccessSecurityApiDasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPostRequest {
     /**
      * Unique identifier for the source owner. This should be a UUID representing the identity to reassign from.
      * @type {string}
-     * @memberof DataAccessSecurityV1ApiDasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPost
+     * @memberof DataAccessSecurityApiDasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPost
      */
     readonly sourceIdentityId: string
 
     /**
      * Unique identifier for the destination owner. This should be a UUID representing the identity to reassign to.
      * @type {string}
-     * @memberof DataAccessSecurityV1ApiDasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPost
+     * @memberof DataAccessSecurityApiDasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPost
      */
     readonly destinationIdentityId: string
 }
 
 /**
- * Request parameters for deleteApplicationV1 operation in DataAccessSecurityV1Api.
+ * Request parameters for deleteApplicationV1 operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiDeleteApplicationV1Request
+ * @interface DataAccessSecurityApiDeleteApplicationV1Request
  */
-export interface DataAccessSecurityV1ApiDeleteApplicationV1Request {
+export interface DataAccessSecurityApiDeleteApplicationV1Request {
     /**
      * The unique identifier of the application to delete.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiDeleteApplicationV1
+     * @memberof DataAccessSecurityApiDeleteApplicationV1
      */
     readonly id: number
 }
 
 /**
- * Request parameters for deleteIdentityCollectorV1 operation in DataAccessSecurityV1Api.
+ * Request parameters for deleteIdentityCollectorV1 operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiDeleteIdentityCollectorV1Request
+ * @interface DataAccessSecurityApiDeleteIdentityCollectorV1Request
  */
-export interface DataAccessSecurityV1ApiDeleteIdentityCollectorV1Request {
+export interface DataAccessSecurityApiDeleteIdentityCollectorV1Request {
     /**
      * The unique identifier of the identity collector to delete.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiDeleteIdentityCollectorV1
+     * @memberof DataAccessSecurityApiDeleteIdentityCollectorV1
      */
     readonly id: number
 }
 
 /**
- * Request parameters for deleteScheduleV1 operation in DataAccessSecurityV1Api.
+ * Request parameters for deleteScheduleV1 operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiDeleteScheduleV1Request
+ * @interface DataAccessSecurityApiDeleteScheduleV1Request
  */
-export interface DataAccessSecurityV1ApiDeleteScheduleV1Request {
+export interface DataAccessSecurityApiDeleteScheduleV1Request {
     /**
      * The unique identifier of the schedule to delete.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiDeleteScheduleV1
+     * @memberof DataAccessSecurityApiDeleteScheduleV1
      */
     readonly id: number
 }
 
 /**
- * Request parameters for deleteTaskV1 operation in DataAccessSecurityV1Api.
+ * Request parameters for deleteTaskV1 operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiDeleteTaskV1Request
+ * @interface DataAccessSecurityApiDeleteTaskV1Request
  */
-export interface DataAccessSecurityV1ApiDeleteTaskV1Request {
+export interface DataAccessSecurityApiDeleteTaskV1Request {
     /**
      * The unique identifier of the task to delete.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiDeleteTaskV1
+     * @memberof DataAccessSecurityApiDeleteTaskV1
      */
     readonly id: number
 }
 
 /**
- * Request parameters for getApplicationV1 operation in DataAccessSecurityV1Api.
+ * Request parameters for getApplicationV1 operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiGetApplicationV1Request
+ * @interface DataAccessSecurityApiGetApplicationV1Request
  */
-export interface DataAccessSecurityV1ApiGetApplicationV1Request {
+export interface DataAccessSecurityApiGetApplicationV1Request {
     /**
      * The unique identifier of the application to retrieve.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiGetApplicationV1
+     * @memberof DataAccessSecurityApiGetApplicationV1
      */
     readonly id: number
 }
 
 /**
- * Request parameters for getApplicationsV1 operation in DataAccessSecurityV1Api.
+ * Request parameters for getApplicationsV1 operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiGetApplicationsV1Request
+ * @interface DataAccessSecurityApiGetApplicationsV1Request
  */
-export interface DataAccessSecurityV1ApiGetApplicationsV1Request {
+export interface DataAccessSecurityApiGetApplicationsV1Request {
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **appIds**: *eq, in*  **tagIds**: *eq, in*  **statuses**: *eq, in*  **groupCodes**: *eq, in*  **virtualAppId**: *eq*  **appName**: *eq*  **supportsValidation**: *eq*  Supported composite operators are *and, or*
      * @type {string}
-     * @memberof DataAccessSecurityV1ApiGetApplicationsV1
+     * @memberof DataAccessSecurityApiGetApplicationsV1
      */
     readonly filters?: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiGetApplicationsV1
+     * @memberof DataAccessSecurityApiGetApplicationsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiGetApplicationsV1
+     * @memberof DataAccessSecurityApiGetApplicationsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof DataAccessSecurityV1ApiGetApplicationsV1
+     * @memberof DataAccessSecurityApiGetApplicationsV1
      */
     readonly count?: boolean
 }
 
 /**
- * Request parameters for getOwnersV1 operation in DataAccessSecurityV1Api.
+ * Request parameters for getOwnersV1 operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiGetOwnersV1Request
+ * @interface DataAccessSecurityApiGetOwnersV1Request
  */
-export interface DataAccessSecurityV1ApiGetOwnersV1Request {
+export interface DataAccessSecurityApiGetOwnersV1Request {
     /**
      * The unique identifier of the application for which to retrieve owners.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiGetOwnersV1
+     * @memberof DataAccessSecurityApiGetOwnersV1
      */
     readonly appId: number
 
     /**
      * Not applicable for this endpoint. Do not use.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiGetOwnersV1
+     * @memberof DataAccessSecurityApiGetOwnersV1
      */
     readonly limit?: number
 
     /**
      * Not applicable for this endpoint. Do not use.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiGetOwnersV1
+     * @memberof DataAccessSecurityApiGetOwnersV1
      */
     readonly offset?: number
 }
 
 /**
- * Request parameters for getScheduleV1 operation in DataAccessSecurityV1Api.
+ * Request parameters for getScheduleV1 operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiGetScheduleV1Request
+ * @interface DataAccessSecurityApiGetScheduleV1Request
  */
-export interface DataAccessSecurityV1ApiGetScheduleV1Request {
+export interface DataAccessSecurityApiGetScheduleV1Request {
     /**
      * The unique identifier of the schedule to retrieve.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiGetScheduleV1
+     * @memberof DataAccessSecurityApiGetScheduleV1
      */
     readonly id: number
 }
 
 /**
- * Request parameters for getSchedulesV1 operation in DataAccessSecurityV1Api.
+ * Request parameters for getSchedulesV1 operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiGetSchedulesV1Request
+ * @interface DataAccessSecurityApiGetSchedulesV1Request
  */
-export interface DataAccessSecurityV1ApiGetSchedulesV1Request {
+export interface DataAccessSecurityApiGetSchedulesV1Request {
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **scheduleTaskIds**: *eq, in*  **taskTypeName**: *eq, in*  **status**: *eq*  **applicationId**: *eq*  **fullName**: *eq*  **nameSubString**: *eq*  **scheduleType**: *eq*  Supported composite operators are *and, or*
      * @type {string}
-     * @memberof DataAccessSecurityV1ApiGetSchedulesV1
+     * @memberof DataAccessSecurityApiGetSchedulesV1
      */
     readonly filters?: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiGetSchedulesV1
+     * @memberof DataAccessSecurityApiGetSchedulesV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiGetSchedulesV1
+     * @memberof DataAccessSecurityApiGetSchedulesV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof DataAccessSecurityV1ApiGetSchedulesV1
+     * @memberof DataAccessSecurityApiGetSchedulesV1
      */
     readonly count?: boolean
 }
 
 /**
- * Request parameters for getTaskV1 operation in DataAccessSecurityV1Api.
+ * Request parameters for getTaskV1 operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiGetTaskV1Request
+ * @interface DataAccessSecurityApiGetTaskV1Request
  */
-export interface DataAccessSecurityV1ApiGetTaskV1Request {
+export interface DataAccessSecurityApiGetTaskV1Request {
     /**
      * The unique identifier of the task to retrieve.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiGetTaskV1
+     * @memberof DataAccessSecurityApiGetTaskV1
      */
     readonly id: number
 }
 
 /**
- * Request parameters for getTasksV1 operation in DataAccessSecurityV1Api.
+ * Request parameters for getTasksV1 operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiGetTasksV1Request
+ * @interface DataAccessSecurityApiGetTasksV1Request
  */
-export interface DataAccessSecurityV1ApiGetTasksV1Request {
+export interface DataAccessSecurityApiGetTasksV1Request {
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **taskIds**: *eq, in*  **statuses**: *eq, in*  **taskTypeName**: *eq, in*  **taskName**: *eq*  **endBeforeTime**: *eq*  Supported composite operators are *and, or*  Example: taskTypeName eq \&quot;DataSync\&quot; and endBeforeTime eq 1762240800
      * @type {string}
-     * @memberof DataAccessSecurityV1ApiGetTasksV1
+     * @memberof DataAccessSecurityApiGetTasksV1
      */
     readonly filters?: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiGetTasksV1
+     * @memberof DataAccessSecurityApiGetTasksV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiGetTasksV1
+     * @memberof DataAccessSecurityApiGetTasksV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof DataAccessSecurityV1ApiGetTasksV1
+     * @memberof DataAccessSecurityApiGetTasksV1
      */
     readonly count?: boolean
 }
 
 /**
- * Request parameters for listIdentityCollectorsV1 operation in DataAccessSecurityV1Api.
+ * Request parameters for listIdentityCollectorsV1 operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiListIdentityCollectorsV1Request
+ * @interface DataAccessSecurityApiListIdentityCollectorsV1Request
  */
-export interface DataAccessSecurityV1ApiListIdentityCollectorsV1Request {
+export interface DataAccessSecurityApiListIdentityCollectorsV1Request {
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  **type**: *eq, in*  **id**: *eq, in*  Supported composite operators are *and, or*
      * @type {string}
-     * @memberof DataAccessSecurityV1ApiListIdentityCollectorsV1
+     * @memberof DataAccessSecurityApiListIdentityCollectorsV1
      */
     readonly filters?: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiListIdentityCollectorsV1
+     * @memberof DataAccessSecurityApiListIdentityCollectorsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiListIdentityCollectorsV1
+     * @memberof DataAccessSecurityApiListIdentityCollectorsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof DataAccessSecurityV1ApiListIdentityCollectorsV1
+     * @memberof DataAccessSecurityApiListIdentityCollectorsV1
      */
     readonly count?: boolean
 }
 
 /**
- * Request parameters for putApplicationV1 operation in DataAccessSecurityV1Api.
+ * Request parameters for putApplicationV1 operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiPutApplicationV1Request
+ * @interface DataAccessSecurityApiPutApplicationV1Request
  */
-export interface DataAccessSecurityV1ApiPutApplicationV1Request {
+export interface DataAccessSecurityApiPutApplicationV1Request {
     /**
      * The unique identifier of the application to update.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiPutApplicationV1
+     * @memberof DataAccessSecurityApiPutApplicationV1
      */
     readonly id: number
 
     /**
      * Request body containing the updated details for the application.
-     * @type {BasecreateapplicationrequestV1}
-     * @memberof DataAccessSecurityV1ApiPutApplicationV1
+     * @type {Basecreateapplicationrequest}
+     * @memberof DataAccessSecurityApiPutApplicationV1
      */
-    readonly basecreateapplicationrequestV1: BasecreateapplicationrequestV1
+    readonly basecreateapplicationrequest: Basecreateapplicationrequest
 }
 
 /**
- * Request parameters for putIdentityCollectorV1 operation in DataAccessSecurityV1Api.
+ * Request parameters for putIdentityCollectorV1 operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiPutIdentityCollectorV1Request
+ * @interface DataAccessSecurityApiPutIdentityCollectorV1Request
  */
-export interface DataAccessSecurityV1ApiPutIdentityCollectorV1Request {
+export interface DataAccessSecurityApiPutIdentityCollectorV1Request {
     /**
      * The unique identifier of the identity collector to update.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiPutIdentityCollectorV1
+     * @memberof DataAccessSecurityApiPutIdentityCollectorV1
      */
     readonly id: number
 
     /**
      * Request body containing the updated details for the identity collector.
-     * @type {UpdateidentitycollectorrequestV1}
-     * @memberof DataAccessSecurityV1ApiPutIdentityCollectorV1
+     * @type {Updateidentitycollectorrequest}
+     * @memberof DataAccessSecurityApiPutIdentityCollectorV1
      */
-    readonly updateidentitycollectorrequestV1: UpdateidentitycollectorrequestV1
+    readonly updateidentitycollectorrequest: Updateidentitycollectorrequest
 }
 
 /**
- * Request parameters for putScheduleV1 operation in DataAccessSecurityV1Api.
+ * Request parameters for putScheduleV1 operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiPutScheduleV1Request
+ * @interface DataAccessSecurityApiPutScheduleV1Request
  */
-export interface DataAccessSecurityV1ApiPutScheduleV1Request {
+export interface DataAccessSecurityApiPutScheduleV1Request {
     /**
      * The unique identifier of the schedule to update.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiPutScheduleV1
+     * @memberof DataAccessSecurityApiPutScheduleV1
      */
     readonly id: number
 
     /**
      * 
-     * @type {UpdateschedulerequestV1}
-     * @memberof DataAccessSecurityV1ApiPutScheduleV1
+     * @type {Updateschedulerequest}
+     * @memberof DataAccessSecurityApiPutScheduleV1
      */
-    readonly updateschedulerequestV1: UpdateschedulerequestV1
+    readonly updateschedulerequest: Updateschedulerequest
 }
 
 /**
- * Request parameters for startTaskRerunV1 operation in DataAccessSecurityV1Api.
+ * Request parameters for startTaskRerunV1 operation in DataAccessSecurityApi.
  * @export
- * @interface DataAccessSecurityV1ApiStartTaskRerunV1Request
+ * @interface DataAccessSecurityApiStartTaskRerunV1Request
  */
-export interface DataAccessSecurityV1ApiStartTaskRerunV1Request {
+export interface DataAccessSecurityApiStartTaskRerunV1Request {
     /**
      * The unique identifier of the task to rerun.
      * @type {number}
-     * @memberof DataAccessSecurityV1ApiStartTaskRerunV1
+     * @memberof DataAccessSecurityApiStartTaskRerunV1
      */
     readonly id: number
 }
 
 /**
- * DataAccessSecurityV1Api - object-oriented interface
+ * DataAccessSecurityApi - object-oriented interface
  * @export
- * @class DataAccessSecurityV1Api
+ * @class DataAccessSecurityApi
  * @extends {BaseAPI}
  */
-export class DataAccessSecurityV1Api extends BaseAPI {
+export class DataAccessSecurityApi extends BaseAPI {
     /**
      * This end-point sends a request to cancel a task in Data Access Security.
      * @summary Cancel a DAS task.
-     * @param {DataAccessSecurityV1ApiCancelTaskV1Request} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiCancelTaskV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public cancelTaskV1(requestParameters: DataAccessSecurityV1ApiCancelTaskV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).cancelTaskV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public cancelTaskV1(requestParameters: DataAccessSecurityApiCancelTaskV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).cancelTaskV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint creates a new application in Data Access Security with the specified configuration.
      * @summary Create application
-     * @param {DataAccessSecurityV1ApiCreateApplicationV1Request} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiCreateApplicationV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public createApplicationV1(requestParameters: DataAccessSecurityV1ApiCreateApplicationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).createApplicationV1(requestParameters.basecreateapplicationrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createApplicationV1(requestParameters: DataAccessSecurityApiCreateApplicationV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).createApplicationV1(requestParameters.basecreateapplicationrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint creates a new identity collector in Data Access Security for the specified source. The identity collector type is derived from the source.
      * @summary Create identity collector
-     * @param {DataAccessSecurityV1ApiCreateIdentityCollectorV1Request} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiCreateIdentityCollectorV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public createIdentityCollectorV1(requestParameters: DataAccessSecurityV1ApiCreateIdentityCollectorV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).createIdentityCollectorV1(requestParameters.createidentitycollectorrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createIdentityCollectorV1(requestParameters: DataAccessSecurityApiCreateIdentityCollectorV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).createIdentityCollectorV1(requestParameters.createidentitycollectorrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Create a new schedule.
-     * @param {DataAccessSecurityV1ApiCreateScheduleV1Request} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiCreateScheduleV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public createScheduleV1(requestParameters: DataAccessSecurityV1ApiCreateScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).createScheduleV1(requestParameters.createschedulerequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createScheduleV1(requestParameters: DataAccessSecurityApiCreateScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).createScheduleV1(requestParameters.createschedulerequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Assign owner to application resource.
-     * @param {DataAccessSecurityV1ApiDasV1OwnersAssignPostRequest} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiDasV1OwnersAssignPostRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public dasV1OwnersAssignPost(requestParameters: DataAccessSecurityV1ApiDasV1OwnersAssignPostRequest, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).dasV1OwnersAssignPost(requestParameters.assignresourceownerrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public dasV1OwnersAssignPost(requestParameters: DataAccessSecurityApiDasV1OwnersAssignPostRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).dasV1OwnersAssignPost(requestParameters.assignresourceownerrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary List resources for owner.
-     * @param {DataAccessSecurityV1ApiDasV1OwnersOwnerIdentityIdResourcesGetRequest} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiDasV1OwnersOwnerIdentityIdResourcesGetRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public dasV1OwnersOwnerIdentityIdResourcesGet(requestParameters: DataAccessSecurityV1ApiDasV1OwnersOwnerIdentityIdResourcesGetRequest, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).dasV1OwnersOwnerIdentityIdResourcesGet(requestParameters.ownerIdentityId, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public dasV1OwnersOwnerIdentityIdResourcesGet(requestParameters: DataAccessSecurityApiDasV1OwnersOwnerIdentityIdResourcesGetRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).dasV1OwnersOwnerIdentityIdResourcesGet(requestParameters.ownerIdentityId, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Re-elect resource owner.
-     * @param {DataAccessSecurityV1ApiDasV1OwnersReelectPostRequest} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiDasV1OwnersReelectPostRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public dasV1OwnersReelectPost(requestParameters: DataAccessSecurityV1ApiDasV1OwnersReelectPostRequest, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).dasV1OwnersReelectPost(requestParameters.reelectrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public dasV1OwnersReelectPost(requestParameters: DataAccessSecurityApiDasV1OwnersReelectPostRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).dasV1OwnersReelectPost(requestParameters.reelectrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary List owners for resource.
-     * @param {DataAccessSecurityV1ApiDasV1OwnersResourcesResourceIdGetRequest} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiDasV1OwnersResourcesResourceIdGetRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public dasV1OwnersResourcesResourceIdGet(requestParameters: DataAccessSecurityV1ApiDasV1OwnersResourcesResourceIdGetRequest, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).dasV1OwnersResourcesResourceIdGet(requestParameters.resourceId, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public dasV1OwnersResourcesResourceIdGet(requestParameters: DataAccessSecurityApiDasV1OwnersResourcesResourceIdGetRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).dasV1OwnersResourcesResourceIdGet(requestParameters.resourceId, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Reassign resource owner.
-     * @param {DataAccessSecurityV1ApiDasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPostRequest} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiDasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPostRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public dasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPost(requestParameters: DataAccessSecurityV1ApiDasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPostRequest, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).dasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPost(requestParameters.sourceIdentityId, requestParameters.destinationIdentityId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public dasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPost(requestParameters: DataAccessSecurityApiDasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPostRequest, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).dasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPost(requestParameters.sourceIdentityId, requestParameters.destinationIdentityId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint deletes an application from Data Access Security by its unique identifier.
      * @summary Delete an application by identifier.
-     * @param {DataAccessSecurityV1ApiDeleteApplicationV1Request} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiDeleteApplicationV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public deleteApplicationV1(requestParameters: DataAccessSecurityV1ApiDeleteApplicationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).deleteApplicationV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteApplicationV1(requestParameters: DataAccessSecurityApiDeleteApplicationV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).deleteApplicationV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint deletes an identity collector from Data Access Security by its unique identifier.
      * @summary Delete identity collector by identifier
-     * @param {DataAccessSecurityV1ApiDeleteIdentityCollectorV1Request} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiDeleteIdentityCollectorV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public deleteIdentityCollectorV1(requestParameters: DataAccessSecurityV1ApiDeleteIdentityCollectorV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).deleteIdentityCollectorV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteIdentityCollectorV1(requestParameters: DataAccessSecurityApiDeleteIdentityCollectorV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).deleteIdentityCollectorV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point sends a request to delete a schedule in Data Access Security.
      * @summary Delete a DAS schedule.
-     * @param {DataAccessSecurityV1ApiDeleteScheduleV1Request} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiDeleteScheduleV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public deleteScheduleV1(requestParameters: DataAccessSecurityV1ApiDeleteScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).deleteScheduleV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteScheduleV1(requestParameters: DataAccessSecurityApiDeleteScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).deleteScheduleV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point sends a request to delete a task in Data Access Security. 
      * @summary Delete a DAS task.
-     * @param {DataAccessSecurityV1ApiDeleteTaskV1Request} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiDeleteTaskV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public deleteTaskV1(requestParameters: DataAccessSecurityV1ApiDeleteTaskV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).deleteTaskV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteTaskV1(requestParameters: DataAccessSecurityApiDeleteTaskV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).deleteTaskV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint retrieves the details of a specific application in Data Access Security by its unique identifier.
      * @summary Retrieve application details by identifier.
-     * @param {DataAccessSecurityV1ApiGetApplicationV1Request} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiGetApplicationV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public getApplicationV1(requestParameters: DataAccessSecurityV1ApiGetApplicationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).getApplicationV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getApplicationV1(requestParameters: DataAccessSecurityApiGetApplicationV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).getApplicationV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint lists all the applications in Data Access Security with optional filtering.
      * @summary Search applications in DAS.
-     * @param {DataAccessSecurityV1ApiGetApplicationsV1Request} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiGetApplicationsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public getApplicationsV1(requestParameters: DataAccessSecurityV1ApiGetApplicationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).getApplicationsV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getApplicationsV1(requestParameters: DataAccessSecurityApiGetApplicationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).getApplicationsV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Retrieve owners per application.
-     * @param {DataAccessSecurityV1ApiGetOwnersV1Request} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiGetOwnersV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public getOwnersV1(requestParameters: DataAccessSecurityV1ApiGetOwnersV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).getOwnersV1(requestParameters.appId, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getOwnersV1(requestParameters: DataAccessSecurityApiGetOwnersV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).getOwnersV1(requestParameters.appId, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point gets a schedule in Data Access Security.
      * @summary Get a DAS schedule.
-     * @param {DataAccessSecurityV1ApiGetScheduleV1Request} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiGetScheduleV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public getScheduleV1(requestParameters: DataAccessSecurityV1ApiGetScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).getScheduleV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getScheduleV1(requestParameters: DataAccessSecurityApiGetScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).getScheduleV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point lists all the schedules in Data Access Security.
      * @summary List all schedules.
-     * @param {DataAccessSecurityV1ApiGetSchedulesV1Request} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiGetSchedulesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public getSchedulesV1(requestParameters: DataAccessSecurityV1ApiGetSchedulesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).getSchedulesV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSchedulesV1(requestParameters: DataAccessSecurityApiGetSchedulesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).getSchedulesV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point gets a task in Data Access Security.
      * @summary Get a DAS task.
-     * @param {DataAccessSecurityV1ApiGetTaskV1Request} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiGetTaskV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public getTaskV1(requestParameters: DataAccessSecurityV1ApiGetTaskV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).getTaskV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getTaskV1(requestParameters: DataAccessSecurityApiGetTaskV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).getTaskV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point lists all the tasks in Data Access Security.
      * @summary Lists all DAS tasks.
-     * @param {DataAccessSecurityV1ApiGetTasksV1Request} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiGetTasksV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public getTasksV1(requestParameters: DataAccessSecurityV1ApiGetTasksV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).getTasksV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getTasksV1(requestParameters: DataAccessSecurityApiGetTasksV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).getTasksV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint lists the identity collectors in Data Access Security with optional filtering and pagination.  Sorting is not supported for this endpoint; supplying the `sorters` query parameter results in a validation error.
      * @summary List identity collectors
-     * @param {DataAccessSecurityV1ApiListIdentityCollectorsV1Request} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiListIdentityCollectorsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public listIdentityCollectorsV1(requestParameters: DataAccessSecurityV1ApiListIdentityCollectorsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).listIdentityCollectorsV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listIdentityCollectorsV1(requestParameters: DataAccessSecurityApiListIdentityCollectorsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).listIdentityCollectorsV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint updates an existing application in Data Access Security with the specified configuration.
      * @summary Update application by identifier.
-     * @param {DataAccessSecurityV1ApiPutApplicationV1Request} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiPutApplicationV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public putApplicationV1(requestParameters: DataAccessSecurityV1ApiPutApplicationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).putApplicationV1(requestParameters.id, requestParameters.basecreateapplicationrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putApplicationV1(requestParameters: DataAccessSecurityApiPutApplicationV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).putApplicationV1(requestParameters.id, requestParameters.basecreateapplicationrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint updates the name of an existing identity collector in Data Access Security. The `sourceId` and `type` cannot be changed and must match the current values.
      * @summary Update identity collector by identifier
-     * @param {DataAccessSecurityV1ApiPutIdentityCollectorV1Request} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiPutIdentityCollectorV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public putIdentityCollectorV1(requestParameters: DataAccessSecurityV1ApiPutIdentityCollectorV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).putIdentityCollectorV1(requestParameters.id, requestParameters.updateidentitycollectorrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putIdentityCollectorV1(requestParameters: DataAccessSecurityApiPutIdentityCollectorV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).putIdentityCollectorV1(requestParameters.id, requestParameters.updateidentitycollectorrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Update a schedule.
-     * @param {DataAccessSecurityV1ApiPutScheduleV1Request} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiPutScheduleV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public putScheduleV1(requestParameters: DataAccessSecurityV1ApiPutScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).putScheduleV1(requestParameters.id, requestParameters.updateschedulerequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putScheduleV1(requestParameters: DataAccessSecurityApiPutScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).putScheduleV1(requestParameters.id, requestParameters.updateschedulerequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point sends a request to re-run a task in Data Access Security.
      * @summary Rerun a DAS task.
-     * @param {DataAccessSecurityV1ApiStartTaskRerunV1Request} requestParameters Request parameters.
+     * @param {DataAccessSecurityApiStartTaskRerunV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DataAccessSecurityV1Api
+     * @memberof DataAccessSecurityApi
      */
-    public startTaskRerunV1(requestParameters: DataAccessSecurityV1ApiStartTaskRerunV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityV1ApiFp(this.configuration).startTaskRerunV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public startTaskRerunV1(requestParameters: DataAccessSecurityApiStartTaskRerunV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).startTaskRerunV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

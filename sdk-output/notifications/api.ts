@@ -26,196 +26,196 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface CreateDomainDkimV1405ResponseV1
+ * @interface CreateDomainDkimV1405Response
  */
-export interface CreateDomainDkimV1405ResponseV1 {
+export interface CreateDomainDkimV1405Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof CreateDomainDkimV1405ResponseV1
+     * @memberof CreateDomainDkimV1405Response
      */
     'errorName'?: any;
     /**
      * Description of the error
      * @type {any}
-     * @memberof CreateDomainDkimV1405ResponseV1
+     * @memberof CreateDomainDkimV1405Response
      */
     'errorMessage'?: any;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof CreateDomainDkimV1405ResponseV1
+     * @memberof CreateDomainDkimV1405Response
      */
     'trackingId'?: string;
 }
 /**
  * DKIM attributes for a domain or identity
  * @export
- * @interface DkimattributesV1
+ * @interface Dkimattributes
  */
-export interface DkimattributesV1 {
+export interface Dkimattributes {
     /**
      * UUID associated with domain to be verified
      * @type {string}
-     * @memberof DkimattributesV1
+     * @memberof Dkimattributes
      */
     'id'?: string;
     /**
      * The identity or domain address
      * @type {string}
-     * @memberof DkimattributesV1
+     * @memberof Dkimattributes
      */
     'address'?: string;
     /**
      * Whether or not DKIM has been enabled for this domain / identity
      * @type {boolean}
-     * @memberof DkimattributesV1
+     * @memberof Dkimattributes
      */
     'dkimEnabled'?: boolean;
     /**
      * The tokens to be added to a DNS for verification
      * @type {Array<string>}
-     * @memberof DkimattributesV1
+     * @memberof Dkimattributes
      */
     'dkimTokens'?: Array<string>;
     /**
      * The current status if the domain /identity has been verified. Ie SUCCESS, FAILED, PENDING
      * @type {string}
-     * @memberof DkimattributesV1
+     * @memberof Dkimattributes
      */
     'dkimVerificationStatus'?: string;
     /**
      * The AWS SES region the domain is associated with
      * @type {string}
-     * @memberof DkimattributesV1
+     * @memberof Dkimattributes
      */
     'region'?: string;
 }
 /**
  * 
  * @export
- * @interface DomainaddressV1
+ * @interface Domainaddress
  */
-export interface DomainaddressV1 {
+export interface Domainaddress {
     /**
      * A domain address
      * @type {string}
-     * @memberof DomainaddressV1
+     * @memberof Domainaddress
      */
     'domain'?: string;
 }
 /**
  * Domain status DTO containing everything required to verify via DKIM
  * @export
- * @interface DomainstatusdtoV1
+ * @interface Domainstatusdto
  */
-export interface DomainstatusdtoV1 {
+export interface Domainstatusdto {
     /**
      * New UUID associated with domain to be verified
      * @type {string}
-     * @memberof DomainstatusdtoV1
+     * @memberof Domainstatusdto
      */
     'id'?: string;
     /**
      * A domain address
      * @type {string}
-     * @memberof DomainstatusdtoV1
+     * @memberof Domainstatusdto
      */
     'domain'?: string;
     /**
      * DKIM is enabled for this domain
      * @type {boolean}
-     * @memberof DomainstatusdtoV1
+     * @memberof Domainstatusdto
      */
     'dkimEnabled'?: boolean;
     /**
      * DKIM tokens required for authentication
      * @type {Array<string>}
-     * @memberof DomainstatusdtoV1
+     * @memberof Domainstatusdto
      */
     'dkimTokens'?: Array<string>;
     /**
      * Status of DKIM authentication
      * @type {string}
-     * @memberof DomainstatusdtoV1
+     * @memberof Domainstatusdto
      */
     'dkimVerificationStatus'?: string;
     /**
      * The AWS SES region the domain is associated with
      * @type {string}
-     * @memberof DomainstatusdtoV1
+     * @memberof Domainstatusdto
      */
     'region'?: string;
 }
 /**
  * 
  * @export
- * @interface EmailstatusdtoV1
+ * @interface Emailstatusdto
  */
-export interface EmailstatusdtoV1 {
+export interface Emailstatusdto {
     /**
      * Unique identifier for the verified sender address
      * @type {string}
-     * @memberof EmailstatusdtoV1
+     * @memberof Emailstatusdto
      */
     'id'?: string | null;
     /**
      * The verified sender email address
      * @type {string}
-     * @memberof EmailstatusdtoV1
+     * @memberof Emailstatusdto
      */
     'email'?: string;
     /**
      * Whether the sender address is verified by domain
      * @type {boolean}
-     * @memberof EmailstatusdtoV1
+     * @memberof Emailstatusdto
      */
     'isVerifiedByDomain'?: boolean;
     /**
      * The verification status of the sender address
      * @type {string}
-     * @memberof EmailstatusdtoV1
+     * @memberof Emailstatusdto
      */
-    'verificationStatus'?: EmailstatusdtoV1VerificationStatusV1;
+    'verificationStatus'?: EmailstatusdtoVerificationStatusEnum;
     /**
      * The AWS SES region the sender address is associated with
      * @type {string}
-     * @memberof EmailstatusdtoV1
+     * @memberof Emailstatusdto
      */
     'region'?: string | null;
 }
 
-export const EmailstatusdtoV1VerificationStatusV1 = {
+export const EmailstatusdtoVerificationStatusEnum = {
     Pending: 'PENDING',
     Success: 'SUCCESS',
     Failed: 'FAILED',
     Na: 'NA'
 } as const;
 
-export type EmailstatusdtoV1VerificationStatusV1 = typeof EmailstatusdtoV1VerificationStatusV1[keyof typeof EmailstatusdtoV1VerificationStatusV1];
+export type EmailstatusdtoVerificationStatusEnum = typeof EmailstatusdtoVerificationStatusEnum[keyof typeof EmailstatusdtoVerificationStatusEnum];
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -224,57 +224,57 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetNotificationTemplateVariablesV1401ResponseV1
+ * @interface GetNotificationTemplateVariablesV1401Response
  */
-export interface GetNotificationTemplateVariablesV1401ResponseV1 {
+export interface GetNotificationTemplateVariablesV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetNotificationTemplateVariablesV1401ResponseV1
+     * @memberof GetNotificationTemplateVariablesV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetNotificationTemplateVariablesV1429ResponseV1
+ * @interface GetNotificationTemplateVariablesV1429Response
  */
-export interface GetNotificationTemplateVariablesV1429ResponseV1 {
+export interface GetNotificationTemplateVariablesV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetNotificationTemplateVariablesV1429ResponseV1
+     * @memberof GetNotificationTemplateVariablesV1429Response
      */
     'message'?: any;
 }
@@ -284,76 +284,76 @@ export interface GetNotificationTemplateVariablesV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * MAIL FROM attributes for a domain / identity
  * @export
- * @interface MailfromattributesV1
+ * @interface Mailfromattributes
  */
-export interface MailfromattributesV1 {
+export interface Mailfromattributes {
     /**
      * The email identity
      * @type {string}
-     * @memberof MailfromattributesV1
+     * @memberof Mailfromattributes
      */
     'identity'?: string;
     /**
      * The name of a domain that an email identity uses as a custom MAIL FROM domain
      * @type {string}
-     * @memberof MailfromattributesV1
+     * @memberof Mailfromattributes
      */
     'mailFromDomain'?: string;
     /**
      * MX record that is required in customer\'s DNS to allow the domain to receive bounce and complaint notifications that email providers send you
      * @type {string}
-     * @memberof MailfromattributesV1
+     * @memberof Mailfromattributes
      */
     'mxRecord'?: string;
     /**
      * TXT record that is required in customer\'s DNS in order to prove that Amazon SES is authorized to send email from your domain
      * @type {string}
-     * @memberof MailfromattributesV1
+     * @memberof Mailfromattributes
      */
     'txtRecord'?: string;
     /**
      * The current status of the MAIL FROM verification
      * @type {string}
-     * @memberof MailfromattributesV1
+     * @memberof Mailfromattributes
      */
-    'mailFromDomainStatus'?: MailfromattributesV1MailFromDomainStatusV1;
+    'mailFromDomainStatus'?: MailfromattributesMailFromDomainStatusEnum;
 }
 
-export const MailfromattributesV1MailFromDomainStatusV1 = {
+export const MailfromattributesMailFromDomainStatusEnum = {
     Pending: 'PENDING',
     Success: 'SUCCESS',
     Failed: 'FAILED'
 } as const;
 
-export type MailfromattributesV1MailFromDomainStatusV1 = typeof MailfromattributesV1MailFromDomainStatusV1[keyof typeof MailfromattributesV1MailFromDomainStatusV1];
+export type MailfromattributesMailFromDomainStatusEnum = typeof MailfromattributesMailFromDomainStatusEnum[keyof typeof MailfromattributesMailFromDomainStatusEnum];
 
 /**
  * MAIL FROM attributes for a domain / identity
  * @export
- * @interface MailfromattributesdtoV1
+ * @interface Mailfromattributesdto
  */
-export interface MailfromattributesdtoV1 {
+export interface Mailfromattributesdto {
     /**
      * The identity or domain address
      * @type {string}
-     * @memberof MailfromattributesdtoV1
+     * @memberof Mailfromattributesdto
      */
     'identity'?: string;
     /**
      * The new MAIL FROM domain of the identity. Must be a subdomain of the identity.
      * @type {string}
-     * @memberof MailfromattributesdtoV1
+     * @memberof Mailfromattributesdto
      */
     'mailFromDomain'?: string;
 }
@@ -363,512 +363,512 @@ export interface MailfromattributesdtoV1 {
  * @enum {string}
  */
 
-export const MediumV1 = {
+export const Medium = {
     Email: 'EMAIL',
     Slack: 'SLACK',
     Teams: 'TEAMS'
 } as const;
 
-export type MediumV1 = typeof MediumV1[keyof typeof MediumV1];
+export type Medium = typeof Medium[keyof typeof Medium];
 
 
 /**
  * 
  * @export
- * @interface NotificationtemplatecontextV1
+ * @interface Notificationtemplatecontext
  */
-export interface NotificationtemplatecontextV1 {
+export interface Notificationtemplatecontext {
     /**
      * A JSON object that stores the context.
      * @type {{ [key: string]: any; }}
-     * @memberof NotificationtemplatecontextV1
+     * @memberof Notificationtemplatecontext
      */
     'attributes'?: { [key: string]: any; };
     /**
      * When the global context was created
      * @type {string}
-     * @memberof NotificationtemplatecontextV1
+     * @memberof Notificationtemplatecontext
      */
     'created'?: string;
     /**
      * When the global context was last modified
      * @type {string}
-     * @memberof NotificationtemplatecontextV1
+     * @memberof Notificationtemplatecontext
      */
     'modified'?: string;
 }
 /**
  * Maps an Identity\'s attribute key to a list of preferred notification mediums.
  * @export
- * @interface PreferencesdtoV1
+ * @interface Preferencesdto
  */
-export interface PreferencesdtoV1 {
+export interface Preferencesdto {
     /**
      * The template notification key.
      * @type {string}
-     * @memberof PreferencesdtoV1
+     * @memberof Preferencesdto
      */
     'key'?: string;
     /**
      * List of preferred notification mediums, i.e., the mediums (or method) for which notifications are enabled. More mediums may be added in the future.
-     * @type {Array<MediumV1>}
-     * @memberof PreferencesdtoV1
+     * @type {Array<Medium>}
+     * @memberof Preferencesdto
      */
-    'mediums'?: Array<MediumV1>;
+    'mediums'?: Array<Medium>;
     /**
      * Modified date of preference
      * @type {string}
-     * @memberof PreferencesdtoV1
+     * @memberof Preferencesdto
      */
     'modified'?: string;
 }
 /**
  * 
  * @export
- * @interface SendtestnotificationrequestdtoV1
+ * @interface Sendtestnotificationrequestdto
  */
-export interface SendtestnotificationrequestdtoV1 {
+export interface Sendtestnotificationrequestdto {
     /**
      * The template notification key.
      * @type {string}
-     * @memberof SendtestnotificationrequestdtoV1
+     * @memberof Sendtestnotificationrequestdto
      */
     'key'?: string;
     /**
      * The notification medium. Has to be one of the following enum values.
      * @type {string}
-     * @memberof SendtestnotificationrequestdtoV1
+     * @memberof Sendtestnotificationrequestdto
      */
-    'medium'?: SendtestnotificationrequestdtoV1MediumV1;
+    'medium'?: SendtestnotificationrequestdtoMediumEnum;
     /**
      * The locale for the message text.
      * @type {string}
-     * @memberof SendtestnotificationrequestdtoV1
+     * @memberof Sendtestnotificationrequestdto
      */
     'locale'?: string;
     /**
      * A Json object that denotes the context specific to the template.
      * @type {object}
-     * @memberof SendtestnotificationrequestdtoV1
+     * @memberof Sendtestnotificationrequestdto
      */
     'context'?: object;
     /**
      * A list of override recipient email addresses for the test notification.
      * @type {Array<string>}
-     * @memberof SendtestnotificationrequestdtoV1
+     * @memberof Sendtestnotificationrequestdto
      */
     'recipientEmailList'?: Array<string>;
     /**
      * A list of CC email addresses for the test notification.
      * @type {Array<string>}
-     * @memberof SendtestnotificationrequestdtoV1
+     * @memberof Sendtestnotificationrequestdto
      */
     'carbonCopy'?: Array<string>;
     /**
      * A list of BCC email addresses for the test notification.
      * @type {Array<string>}
-     * @memberof SendtestnotificationrequestdtoV1
+     * @memberof Sendtestnotificationrequestdto
      */
     'blindCarbonCopy'?: Array<string>;
 }
 
-export const SendtestnotificationrequestdtoV1MediumV1 = {
+export const SendtestnotificationrequestdtoMediumEnum = {
     Email: 'EMAIL',
     Slack: 'SLACK',
     Teams: 'TEAMS'
 } as const;
 
-export type SendtestnotificationrequestdtoV1MediumV1 = typeof SendtestnotificationrequestdtoV1MediumV1[keyof typeof SendtestnotificationrequestdtoV1MediumV1];
+export type SendtestnotificationrequestdtoMediumEnum = typeof SendtestnotificationrequestdtoMediumEnum[keyof typeof SendtestnotificationrequestdtoMediumEnum];
 
 /**
  * 
  * @export
- * @interface TemplatebulkdeletedtoV1
+ * @interface Templatebulkdeletedto
  */
-export interface TemplatebulkdeletedtoV1 {
+export interface Templatebulkdeletedto {
     /**
      * The template key to delete
      * @type {string}
-     * @memberof TemplatebulkdeletedtoV1
+     * @memberof Templatebulkdeletedto
      */
     'key': string;
     /**
      * The notification medium (EMAIL, SLACK, or TEAMS)
      * @type {string}
-     * @memberof TemplatebulkdeletedtoV1
+     * @memberof Templatebulkdeletedto
      */
-    'medium'?: TemplatebulkdeletedtoV1MediumV1;
+    'medium'?: TemplatebulkdeletedtoMediumEnum;
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof TemplatebulkdeletedtoV1
+     * @memberof Templatebulkdeletedto
      */
     'locale'?: string;
 }
 
-export const TemplatebulkdeletedtoV1MediumV1 = {
+export const TemplatebulkdeletedtoMediumEnum = {
     Email: 'EMAIL',
     Slack: 'SLACK',
     Teams: 'TEAMS'
 } as const;
 
-export type TemplatebulkdeletedtoV1MediumV1 = typeof TemplatebulkdeletedtoV1MediumV1[keyof typeof TemplatebulkdeletedtoV1MediumV1];
+export type TemplatebulkdeletedtoMediumEnum = typeof TemplatebulkdeletedtoMediumEnum[keyof typeof TemplatebulkdeletedtoMediumEnum];
 
 /**
  * 
  * @export
- * @interface TemplatedtoSlackTemplateV1
+ * @interface Templatedto
  */
-export interface TemplatedtoSlackTemplateV1 {
-    /**
-     * The template key
-     * @type {string}
-     * @memberof TemplatedtoSlackTemplateV1
-     */
-    'key'?: string | null;
-    /**
-     * The main text content of the Slack message
-     * @type {string}
-     * @memberof TemplatedtoSlackTemplateV1
-     */
-    'text'?: string;
-    /**
-     * JSON string of Slack Block Kit blocks for rich formatting
-     * @type {string}
-     * @memberof TemplatedtoSlackTemplateV1
-     */
-    'blocks'?: string | null;
-    /**
-     * JSON string of Slack attachments
-     * @type {string}
-     * @memberof TemplatedtoSlackTemplateV1
-     */
-    'attachments'?: string;
-    /**
-     * The type of notification
-     * @type {string}
-     * @memberof TemplatedtoSlackTemplateV1
-     */
-    'notificationType'?: string | null;
-    /**
-     * The approval request ID
-     * @type {string}
-     * @memberof TemplatedtoSlackTemplateV1
-     */
-    'approvalId'?: string | null;
-    /**
-     * The request ID
-     * @type {string}
-     * @memberof TemplatedtoSlackTemplateV1
-     */
-    'requestId'?: string | null;
-    /**
-     * The ID of the user who made the request
-     * @type {string}
-     * @memberof TemplatedtoSlackTemplateV1
-     */
-    'requestedById'?: string | null;
-    /**
-     * Whether this is a subscription notification
-     * @type {boolean}
-     * @memberof TemplatedtoSlackTemplateV1
-     */
-    'isSubscription'?: boolean | null;
-    /**
-     * 
-     * @type {TemplateslackAutoApprovalDataV1}
-     * @memberof TemplatedtoSlackTemplateV1
-     */
-    'autoApprovalData'?: TemplateslackAutoApprovalDataV1 | null;
-    /**
-     * 
-     * @type {TemplateslackCustomFieldsV1}
-     * @memberof TemplatedtoSlackTemplateV1
-     */
-    'customFields'?: TemplateslackCustomFieldsV1 | null;
-}
-/**
- * 
- * @export
- * @interface TemplatedtoTeamsTemplateV1
- */
-export interface TemplatedtoTeamsTemplateV1 {
-    /**
-     * The template key
-     * @type {string}
-     * @memberof TemplatedtoTeamsTemplateV1
-     */
-    'key'?: string | null;
-    /**
-     * The title of the Teams message
-     * @type {string}
-     * @memberof TemplatedtoTeamsTemplateV1
-     */
-    'title'?: string | null;
-    /**
-     * The main text content of the Teams message
-     * @type {string}
-     * @memberof TemplatedtoTeamsTemplateV1
-     */
-    'text'?: string;
-    /**
-     * JSON string of the Teams adaptive card
-     * @type {string}
-     * @memberof TemplatedtoTeamsTemplateV1
-     */
-    'messageJSON'?: string | null;
-    /**
-     * Whether this is a subscription notification
-     * @type {boolean}
-     * @memberof TemplatedtoTeamsTemplateV1
-     */
-    'isSubscription'?: boolean | null;
-    /**
-     * The approval request ID
-     * @type {string}
-     * @memberof TemplatedtoTeamsTemplateV1
-     */
-    'approvalId'?: string | null;
-    /**
-     * The request ID
-     * @type {string}
-     * @memberof TemplatedtoTeamsTemplateV1
-     */
-    'requestId'?: string | null;
-    /**
-     * The ID of the user who made the request
-     * @type {string}
-     * @memberof TemplatedtoTeamsTemplateV1
-     */
-    'requestedById'?: string | null;
-    /**
-     * The type of notification
-     * @type {string}
-     * @memberof TemplatedtoTeamsTemplateV1
-     */
-    'notificationType'?: string | null;
-    /**
-     * 
-     * @type {TemplateslackAutoApprovalDataV1}
-     * @memberof TemplatedtoTeamsTemplateV1
-     */
-    'autoApprovalData'?: TemplateslackAutoApprovalDataV1 | null;
-    /**
-     * 
-     * @type {TemplateslackCustomFieldsV1}
-     * @memberof TemplatedtoTeamsTemplateV1
-     */
-    'customFields'?: TemplateslackCustomFieldsV1 | null;
-}
-/**
- * 
- * @export
- * @interface TemplatedtoV1
- */
-export interface TemplatedtoV1 {
+export interface Templatedto {
     /**
      * The key of the template
      * @type {string}
-     * @memberof TemplatedtoV1
+     * @memberof Templatedto
      */
     'key': string;
     /**
      * The name of the Task Manager Subscription
      * @type {string}
-     * @memberof TemplatedtoV1
+     * @memberof Templatedto
      */
     'name'?: string;
     /**
      * The message medium. More mediums may be added in the future.
      * @type {string}
-     * @memberof TemplatedtoV1
+     * @memberof Templatedto
      */
-    'medium': TemplatedtoV1MediumV1;
+    'medium': TemplatedtoMediumEnum;
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof TemplatedtoV1
+     * @memberof Templatedto
      */
     'locale': string;
     /**
      * The subject line in the template
      * @type {string}
-     * @memberof TemplatedtoV1
+     * @memberof Templatedto
      */
     'subject'?: string;
     /**
      * The header value is now located within the body field. If included with non-null values, will result in a 400.
      * @type {string}
-     * @memberof TemplatedtoV1
+     * @memberof Templatedto
      * @deprecated
      */
     'header'?: string | null;
     /**
      * The body in the template
      * @type {string}
-     * @memberof TemplatedtoV1
+     * @memberof Templatedto
      */
     'body'?: string;
     /**
      * The footer value is now located within the body field. If included with non-null values, will result in a 400.
      * @type {string}
-     * @memberof TemplatedtoV1
+     * @memberof Templatedto
      * @deprecated
      */
     'footer'?: string | null;
     /**
      * The \"From:\" address in the template
      * @type {string}
-     * @memberof TemplatedtoV1
+     * @memberof Templatedto
      */
     'from'?: string;
     /**
      * The \"Reply To\" line in the template
      * @type {string}
-     * @memberof TemplatedtoV1
+     * @memberof Templatedto
      */
     'replyTo'?: string;
     /**
      * The description in the template
      * @type {string}
-     * @memberof TemplatedtoV1
+     * @memberof Templatedto
      */
     'description'?: string;
     /**
      * This is auto-generated.
      * @type {string}
-     * @memberof TemplatedtoV1
+     * @memberof Templatedto
      */
     'id'?: string;
     /**
      * The time when this template is created. This is auto-generated.
      * @type {string}
-     * @memberof TemplatedtoV1
+     * @memberof Templatedto
      */
     'created'?: string;
     /**
      * The time when this template was last modified. This is auto-generated.
      * @type {string}
-     * @memberof TemplatedtoV1
+     * @memberof Templatedto
      */
     'modified'?: string;
     /**
      * 
-     * @type {TemplatedtoSlackTemplateV1}
-     * @memberof TemplatedtoV1
+     * @type {TemplatedtoSlackTemplate}
+     * @memberof Templatedto
      */
-    'slackTemplate'?: TemplatedtoSlackTemplateV1;
+    'slackTemplate'?: TemplatedtoSlackTemplate;
     /**
      * 
-     * @type {TemplatedtoTeamsTemplateV1}
-     * @memberof TemplatedtoV1
+     * @type {TemplatedtoTeamsTemplate}
+     * @memberof Templatedto
      */
-    'teamsTemplate'?: TemplatedtoTeamsTemplateV1;
+    'teamsTemplate'?: TemplatedtoTeamsTemplate;
 }
 
-export const TemplatedtoV1MediumV1 = {
+export const TemplatedtoMediumEnum = {
     Email: 'EMAIL',
     Slack: 'SLACK',
     Teams: 'TEAMS'
 } as const;
 
-export type TemplatedtoV1MediumV1 = typeof TemplatedtoV1MediumV1[keyof typeof TemplatedtoV1MediumV1];
+export type TemplatedtoMediumEnum = typeof TemplatedtoMediumEnum[keyof typeof TemplatedtoMediumEnum];
 
 /**
  * 
  * @export
- * @interface TemplatedtodefaultV1
+ * @interface TemplatedtoSlackTemplate
  */
-export interface TemplatedtodefaultV1 {
+export interface TemplatedtoSlackTemplate {
+    /**
+     * The template key
+     * @type {string}
+     * @memberof TemplatedtoSlackTemplate
+     */
+    'key'?: string | null;
+    /**
+     * The main text content of the Slack message
+     * @type {string}
+     * @memberof TemplatedtoSlackTemplate
+     */
+    'text'?: string;
+    /**
+     * JSON string of Slack Block Kit blocks for rich formatting
+     * @type {string}
+     * @memberof TemplatedtoSlackTemplate
+     */
+    'blocks'?: string | null;
+    /**
+     * JSON string of Slack attachments
+     * @type {string}
+     * @memberof TemplatedtoSlackTemplate
+     */
+    'attachments'?: string;
+    /**
+     * The type of notification
+     * @type {string}
+     * @memberof TemplatedtoSlackTemplate
+     */
+    'notificationType'?: string | null;
+    /**
+     * The approval request ID
+     * @type {string}
+     * @memberof TemplatedtoSlackTemplate
+     */
+    'approvalId'?: string | null;
+    /**
+     * The request ID
+     * @type {string}
+     * @memberof TemplatedtoSlackTemplate
+     */
+    'requestId'?: string | null;
+    /**
+     * The ID of the user who made the request
+     * @type {string}
+     * @memberof TemplatedtoSlackTemplate
+     */
+    'requestedById'?: string | null;
+    /**
+     * Whether this is a subscription notification
+     * @type {boolean}
+     * @memberof TemplatedtoSlackTemplate
+     */
+    'isSubscription'?: boolean | null;
+    /**
+     * 
+     * @type {TemplateslackAutoApprovalData}
+     * @memberof TemplatedtoSlackTemplate
+     */
+    'autoApprovalData'?: TemplateslackAutoApprovalData | null;
+    /**
+     * 
+     * @type {TemplateslackCustomFields}
+     * @memberof TemplatedtoSlackTemplate
+     */
+    'customFields'?: TemplateslackCustomFields | null;
+}
+/**
+ * 
+ * @export
+ * @interface TemplatedtoTeamsTemplate
+ */
+export interface TemplatedtoTeamsTemplate {
+    /**
+     * The template key
+     * @type {string}
+     * @memberof TemplatedtoTeamsTemplate
+     */
+    'key'?: string | null;
+    /**
+     * The title of the Teams message
+     * @type {string}
+     * @memberof TemplatedtoTeamsTemplate
+     */
+    'title'?: string | null;
+    /**
+     * The main text content of the Teams message
+     * @type {string}
+     * @memberof TemplatedtoTeamsTemplate
+     */
+    'text'?: string;
+    /**
+     * JSON string of the Teams adaptive card
+     * @type {string}
+     * @memberof TemplatedtoTeamsTemplate
+     */
+    'messageJSON'?: string | null;
+    /**
+     * Whether this is a subscription notification
+     * @type {boolean}
+     * @memberof TemplatedtoTeamsTemplate
+     */
+    'isSubscription'?: boolean | null;
+    /**
+     * The approval request ID
+     * @type {string}
+     * @memberof TemplatedtoTeamsTemplate
+     */
+    'approvalId'?: string | null;
+    /**
+     * The request ID
+     * @type {string}
+     * @memberof TemplatedtoTeamsTemplate
+     */
+    'requestId'?: string | null;
+    /**
+     * The ID of the user who made the request
+     * @type {string}
+     * @memberof TemplatedtoTeamsTemplate
+     */
+    'requestedById'?: string | null;
+    /**
+     * The type of notification
+     * @type {string}
+     * @memberof TemplatedtoTeamsTemplate
+     */
+    'notificationType'?: string | null;
+    /**
+     * 
+     * @type {TemplateslackAutoApprovalData}
+     * @memberof TemplatedtoTeamsTemplate
+     */
+    'autoApprovalData'?: TemplateslackAutoApprovalData | null;
+    /**
+     * 
+     * @type {TemplateslackCustomFields}
+     * @memberof TemplatedtoTeamsTemplate
+     */
+    'customFields'?: TemplateslackCustomFields | null;
+}
+/**
+ * 
+ * @export
+ * @interface Templatedtodefault
+ */
+export interface Templatedtodefault {
     /**
      * The key of the default template
      * @type {string}
-     * @memberof TemplatedtodefaultV1
+     * @memberof Templatedtodefault
      */
     'key'?: string;
     /**
      * The name of the default template
      * @type {string}
-     * @memberof TemplatedtodefaultV1
+     * @memberof Templatedtodefault
      */
     'name'?: string;
     /**
      * The message medium. More mediums may be added in the future.
      * @type {string}
-     * @memberof TemplatedtodefaultV1
+     * @memberof Templatedtodefault
      */
-    'medium'?: TemplatedtodefaultV1MediumV1;
+    'medium'?: TemplatedtodefaultMediumEnum;
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof TemplatedtodefaultV1
+     * @memberof Templatedtodefault
      */
     'locale'?: string;
     /**
      * The subject of the default template
      * @type {string}
-     * @memberof TemplatedtodefaultV1
+     * @memberof Templatedtodefault
      */
     'subject'?: string | null;
     /**
      * The header value is now located within the body field. If included with non-null values, will result in a 400.
      * @type {string}
-     * @memberof TemplatedtodefaultV1
+     * @memberof Templatedtodefault
      * @deprecated
      */
     'header'?: string | null;
     /**
      * The body of the default template
      * @type {string}
-     * @memberof TemplatedtodefaultV1
+     * @memberof Templatedtodefault
      */
     'body'?: string;
     /**
      * The footer value is now located within the body field. If included with non-null values, will result in a 400.
      * @type {string}
-     * @memberof TemplatedtodefaultV1
+     * @memberof Templatedtodefault
      * @deprecated
      */
     'footer'?: string | null;
     /**
      * The \"From:\" address of the default template
      * @type {string}
-     * @memberof TemplatedtodefaultV1
+     * @memberof Templatedtodefault
      */
     'from'?: string | null;
     /**
      * The \"Reply To\" field of the default template
      * @type {string}
-     * @memberof TemplatedtodefaultV1
+     * @memberof Templatedtodefault
      */
     'replyTo'?: string | null;
     /**
      * The description of the default template
      * @type {string}
-     * @memberof TemplatedtodefaultV1
+     * @memberof Templatedtodefault
      */
     'description'?: string | null;
     /**
      * 
-     * @type {TemplateslackV1}
-     * @memberof TemplatedtodefaultV1
+     * @type {Templateslack}
+     * @memberof Templatedtodefault
      */
-    'slackTemplate'?: TemplateslackV1 | null;
+    'slackTemplate'?: Templateslack | null;
     /**
      * 
-     * @type {TemplateteamsV1}
-     * @memberof TemplatedtodefaultV1
+     * @type {Templateteams}
+     * @memberof Templatedtodefault
      */
-    'teamsTemplate'?: TemplateteamsV1 | null;
+    'teamsTemplate'?: Templateteams | null;
 }
 
-export const TemplatedtodefaultV1MediumV1 = {
+export const TemplatedtodefaultMediumEnum = {
     Email: 'EMAIL',
     Slack: 'SLACK',
     Teams: 'TEAMS'
 } as const;
 
-export type TemplatedtodefaultV1MediumV1 = typeof TemplatedtodefaultV1MediumV1[keyof typeof TemplatedtodefaultV1MediumV1];
+export type TemplatedtodefaultMediumEnum = typeof TemplatedtodefaultMediumEnum[keyof typeof TemplatedtodefaultMediumEnum];
 
 /**
  * The notification delivery medium.
@@ -876,262 +876,262 @@ export type TemplatedtodefaultV1MediumV1 = typeof TemplatedtodefaultV1MediumV1[k
  * @enum {string}
  */
 
-export const TemplatemediumdtoV1 = {
+export const Templatemediumdto = {
     Email: 'EMAIL',
     Slack: 'SLACK',
     Teams: 'TEAMS'
 } as const;
 
-export type TemplatemediumdtoV1 = typeof TemplatemediumdtoV1[keyof typeof TemplatemediumdtoV1];
+export type Templatemediumdto = typeof Templatemediumdto[keyof typeof Templatemediumdto];
 
 
 /**
  * 
  * @export
- * @interface TemplateslackAutoApprovalDataV1
+ * @interface Templateslack
  */
-export interface TemplateslackAutoApprovalDataV1 {
+export interface Templateslack {
+    /**
+     * The template key
+     * @type {string}
+     * @memberof Templateslack
+     */
+    'key'?: string | null;
+    /**
+     * The main text content of the Slack message
+     * @type {string}
+     * @memberof Templateslack
+     */
+    'text'?: string;
+    /**
+     * JSON string of Slack Block Kit blocks for rich formatting
+     * @type {string}
+     * @memberof Templateslack
+     */
+    'blocks'?: string | null;
+    /**
+     * JSON string of Slack attachments
+     * @type {string}
+     * @memberof Templateslack
+     */
+    'attachments'?: string;
+    /**
+     * The type of notification
+     * @type {string}
+     * @memberof Templateslack
+     */
+    'notificationType'?: string | null;
+    /**
+     * The approval request ID
+     * @type {string}
+     * @memberof Templateslack
+     */
+    'approvalId'?: string | null;
+    /**
+     * The request ID
+     * @type {string}
+     * @memberof Templateslack
+     */
+    'requestId'?: string | null;
+    /**
+     * The ID of the user who made the request
+     * @type {string}
+     * @memberof Templateslack
+     */
+    'requestedById'?: string | null;
+    /**
+     * Whether this is a subscription notification
+     * @type {boolean}
+     * @memberof Templateslack
+     */
+    'isSubscription'?: boolean | null;
+    /**
+     * 
+     * @type {TemplateslackAutoApprovalData}
+     * @memberof Templateslack
+     */
+    'autoApprovalData'?: TemplateslackAutoApprovalData | null;
+    /**
+     * 
+     * @type {TemplateslackCustomFields}
+     * @memberof Templateslack
+     */
+    'customFields'?: TemplateslackCustomFields | null;
+}
+/**
+ * 
+ * @export
+ * @interface TemplateslackAutoApprovalData
+ */
+export interface TemplateslackAutoApprovalData {
     /**
      * Whether the request was auto-approved
      * @type {string}
-     * @memberof TemplateslackAutoApprovalDataV1
+     * @memberof TemplateslackAutoApprovalData
      */
     'isAutoApproved'?: string | null;
     /**
      * The item ID
      * @type {string}
-     * @memberof TemplateslackAutoApprovalDataV1
+     * @memberof TemplateslackAutoApprovalData
      */
     'itemId'?: string | null;
     /**
      * The item type
      * @type {string}
-     * @memberof TemplateslackAutoApprovalDataV1
+     * @memberof TemplateslackAutoApprovalData
      */
     'itemType'?: string | null;
     /**
      * JSON message for auto-approval
      * @type {string}
-     * @memberof TemplateslackAutoApprovalDataV1
+     * @memberof TemplateslackAutoApprovalData
      */
     'autoApprovalMessageJSON'?: string | null;
     /**
      * Title for auto-approval
      * @type {string}
-     * @memberof TemplateslackAutoApprovalDataV1
+     * @memberof TemplateslackAutoApprovalData
      */
     'autoApprovalTitle'?: string | null;
 }
 /**
  * 
  * @export
- * @interface TemplateslackCustomFieldsV1
+ * @interface TemplateslackCustomFields
  */
-export interface TemplateslackCustomFieldsV1 {
+export interface TemplateslackCustomFields {
     /**
      * The type of request
      * @type {string}
-     * @memberof TemplateslackCustomFieldsV1
+     * @memberof TemplateslackCustomFields
      */
     'requestType'?: string | null;
     /**
      * Whether the request contains a deny action
      * @type {string}
-     * @memberof TemplateslackCustomFieldsV1
+     * @memberof TemplateslackCustomFields
      */
     'containsDeny'?: string | null;
     /**
      * The campaign ID
      * @type {string}
-     * @memberof TemplateslackCustomFieldsV1
+     * @memberof TemplateslackCustomFields
      */
     'campaignId'?: string | null;
     /**
      * The campaign status
      * @type {string}
-     * @memberof TemplateslackCustomFieldsV1
+     * @memberof TemplateslackCustomFields
      */
     'campaignStatus'?: string | null;
 }
 /**
  * 
  * @export
- * @interface TemplateslackV1
+ * @interface Templateteams
  */
-export interface TemplateslackV1 {
+export interface Templateteams {
     /**
      * The template key
      * @type {string}
-     * @memberof TemplateslackV1
-     */
-    'key'?: string | null;
-    /**
-     * The main text content of the Slack message
-     * @type {string}
-     * @memberof TemplateslackV1
-     */
-    'text'?: string;
-    /**
-     * JSON string of Slack Block Kit blocks for rich formatting
-     * @type {string}
-     * @memberof TemplateslackV1
-     */
-    'blocks'?: string | null;
-    /**
-     * JSON string of Slack attachments
-     * @type {string}
-     * @memberof TemplateslackV1
-     */
-    'attachments'?: string;
-    /**
-     * The type of notification
-     * @type {string}
-     * @memberof TemplateslackV1
-     */
-    'notificationType'?: string | null;
-    /**
-     * The approval request ID
-     * @type {string}
-     * @memberof TemplateslackV1
-     */
-    'approvalId'?: string | null;
-    /**
-     * The request ID
-     * @type {string}
-     * @memberof TemplateslackV1
-     */
-    'requestId'?: string | null;
-    /**
-     * The ID of the user who made the request
-     * @type {string}
-     * @memberof TemplateslackV1
-     */
-    'requestedById'?: string | null;
-    /**
-     * Whether this is a subscription notification
-     * @type {boolean}
-     * @memberof TemplateslackV1
-     */
-    'isSubscription'?: boolean | null;
-    /**
-     * 
-     * @type {TemplateslackAutoApprovalDataV1}
-     * @memberof TemplateslackV1
-     */
-    'autoApprovalData'?: TemplateslackAutoApprovalDataV1 | null;
-    /**
-     * 
-     * @type {TemplateslackCustomFieldsV1}
-     * @memberof TemplateslackV1
-     */
-    'customFields'?: TemplateslackCustomFieldsV1 | null;
-}
-/**
- * 
- * @export
- * @interface TemplateteamsV1
- */
-export interface TemplateteamsV1 {
-    /**
-     * The template key
-     * @type {string}
-     * @memberof TemplateteamsV1
+     * @memberof Templateteams
      */
     'key'?: string | null;
     /**
      * The title of the Teams message
      * @type {string}
-     * @memberof TemplateteamsV1
+     * @memberof Templateteams
      */
     'title'?: string | null;
     /**
      * The main text content of the Teams message
      * @type {string}
-     * @memberof TemplateteamsV1
+     * @memberof Templateteams
      */
     'text'?: string;
     /**
      * JSON string of the Teams adaptive card
      * @type {string}
-     * @memberof TemplateteamsV1
+     * @memberof Templateteams
      */
     'messageJSON'?: string | null;
     /**
      * Whether this is a subscription notification
      * @type {boolean}
-     * @memberof TemplateteamsV1
+     * @memberof Templateteams
      */
     'isSubscription'?: boolean | null;
     /**
      * The approval request ID
      * @type {string}
-     * @memberof TemplateteamsV1
+     * @memberof Templateteams
      */
     'approvalId'?: string | null;
     /**
      * The request ID
      * @type {string}
-     * @memberof TemplateteamsV1
+     * @memberof Templateteams
      */
     'requestId'?: string | null;
     /**
      * The ID of the user who made the request
      * @type {string}
-     * @memberof TemplateteamsV1
+     * @memberof Templateteams
      */
     'requestedById'?: string | null;
     /**
      * The type of notification
      * @type {string}
-     * @memberof TemplateteamsV1
+     * @memberof Templateteams
      */
     'notificationType'?: string | null;
     /**
      * 
-     * @type {TemplateslackAutoApprovalDataV1}
-     * @memberof TemplateteamsV1
+     * @type {TemplateslackAutoApprovalData}
+     * @memberof Templateteams
      */
-    'autoApprovalData'?: TemplateslackAutoApprovalDataV1 | null;
+    'autoApprovalData'?: TemplateslackAutoApprovalData | null;
     /**
      * 
-     * @type {TemplateslackCustomFieldsV1}
-     * @memberof TemplateteamsV1
+     * @type {TemplateslackCustomFields}
+     * @memberof Templateteams
      */
-    'customFields'?: TemplateslackCustomFieldsV1 | null;
+    'customFields'?: TemplateslackCustomFields | null;
 }
 /**
  * A variable available for use in a notification template. Variables can be template-specific (from domain events) or global (available to all templates like __recipient, __global, __util). Template variables provide self-documenting metadata about what variables are available when customizing notification templates. 
  * @export
- * @interface TemplatevariableV1
+ * @interface Templatevariable
  */
-export interface TemplatevariableV1 {
+export interface Templatevariable {
     /**
      * The variable name as used when rendering context in templates.
      * @type {string}
-     * @memberof TemplatevariableV1
+     * @memberof Templatevariable
      */
     'key'?: string;
     /**
      * The data type for this variable. Use JSON Schema-like names for values (string, boolean, number, object, array) or \"function\" for template utility/helper functions (e.g. __dateTool.format(), __esc.html()). 
      * @type {string}
-     * @memberof TemplatevariableV1
+     * @memberof Templatevariable
      */
-    'type'?: TemplatevariableV1TypeV1;
+    'type'?: TemplatevariableTypeEnum;
     /**
      * Human-readable description explaining what this variable represents.
      * @type {string}
-     * @memberof TemplatevariableV1
+     * @memberof Templatevariable
      */
     'description'?: string | null;
     /**
      * Example value demonstrating the format and usage. For type \"function\", often a Velocity-style call (e.g. $__esc.html($value)). Can be a string, number, boolean, object, array, or null when no example is defined. 
      * @type {any}
-     * @memberof TemplatevariableV1
+     * @memberof Templatevariable
      */
     'example'?: any | null;
 }
 
-export const TemplatevariableV1TypeV1 = {
+export const TemplatevariableTypeEnum = {
     String: 'string',
     Boolean: 'boolean',
     Number: 'number',
@@ -1140,58 +1140,58 @@ export const TemplatevariableV1TypeV1 = {
     Function: 'function'
 } as const;
 
-export type TemplatevariableV1TypeV1 = typeof TemplatevariableV1TypeV1[keyof typeof TemplatevariableV1TypeV1];
+export type TemplatevariableTypeEnum = typeof TemplatevariableTypeEnum[keyof typeof TemplatevariableTypeEnum];
 
 /**
  * Variables available for use in a notification template. Variables can be template-specific (from domain events) or global (available to all templates like __recipient, __global, __util). 
  * @export
- * @interface TemplatevariablesdtoV1
+ * @interface Templatevariablesdto
  */
-export interface TemplatevariablesdtoV1 {
+export interface Templatevariablesdto {
     /**
      * The notification template key.
      * @type {string}
-     * @memberof TemplatevariablesdtoV1
+     * @memberof Templatevariablesdto
      */
     'key'?: string;
     /**
      * 
-     * @type {TemplatemediumdtoV1}
-     * @memberof TemplatevariablesdtoV1
+     * @type {Templatemediumdto}
+     * @memberof Templatevariablesdto
      */
-    'medium'?: TemplatemediumdtoV1;
+    'medium'?: Templatemediumdto;
     /**
      * Global variables available to all templates for this tenant (e.g. __global.*, __recipient, __util.*, __dateTool.*, __esc.*). Includes both data variables and function-type helpers. 
-     * @type {Array<TemplatevariableV1>}
-     * @memberof TemplatevariablesdtoV1
+     * @type {Array<Templatevariable>}
+     * @memberof Templatevariablesdto
      */
-    'globalVariables'?: Array<TemplatevariableV1> | null;
+    'globalVariables'?: Array<Templatevariable> | null;
     /**
      * Template-specific variables for the given key and medium (e.g. approverPath, requester, attributes).
-     * @type {Array<TemplatevariableV1>}
-     * @memberof TemplatevariablesdtoV1
+     * @type {Array<Templatevariable>}
+     * @memberof Templatevariablesdto
      */
-    'templateVariables'?: Array<TemplatevariableV1> | null;
+    'templateVariables'?: Array<Templatevariable> | null;
 }
 
 
 
 /**
- * NotificationsV1Api - axios parameter creator
+ * NotificationsApi - axios parameter creator
  * @export
  */
-export const NotificationsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const NotificationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Create a domain to be verified via DKIM (DomainKeys Identified Mail)
          * @summary Verify domain address via dkim
-         * @param {DomainaddressV1} domainaddressV1 
+         * @param {Domainaddress} domainaddress 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createDomainDkimV1: async (domainaddressV1: DomainaddressV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'domainaddressV1' is not null or undefined
-            assertParamExists('createDomainDkimV1', 'domainaddressV1', domainaddressV1)
+        createDomainDkimV1: async (domainaddress: Domainaddress, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'domainaddress' is not null or undefined
+            assertParamExists('createDomainDkimV1', 'domainaddress', domainaddress)
             const localVarPath = `/verified-domains/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1211,7 +1211,7 @@ export const NotificationsV1ApiAxiosParamCreator = function (configuration?: Con
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(domainaddressV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(domainaddress, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1221,13 +1221,13 @@ export const NotificationsV1ApiAxiosParamCreator = function (configuration?: Con
         /**
          * This will update notification templates that are available in your tenant.  Note that you cannot create new templates in your tenant, but you can use this to create custom notifications from existing templates.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready. 
          * @summary Create notification template
-         * @param {TemplatedtoV1} templatedtoV1 
+         * @param {Templatedto} templatedto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createNotificationTemplateV1: async (templatedtoV1: TemplatedtoV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'templatedtoV1' is not null or undefined
-            assertParamExists('createNotificationTemplateV1', 'templatedtoV1', templatedtoV1)
+        createNotificationTemplateV1: async (templatedto: Templatedto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'templatedto' is not null or undefined
+            assertParamExists('createNotificationTemplateV1', 'templatedto', templatedto)
             const localVarPath = `/notification-templates/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1247,7 +1247,7 @@ export const NotificationsV1ApiAxiosParamCreator = function (configuration?: Con
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(templatedtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(templatedto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1257,13 +1257,13 @@ export const NotificationsV1ApiAxiosParamCreator = function (configuration?: Con
         /**
          * Create a new sender email address and initiate verification process.
          * @summary Create verified from address
-         * @param {EmailstatusdtoV1} emailstatusdtoV1 
+         * @param {Emailstatusdto} emailstatusdto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createVerifiedFromAddressV1: async (emailstatusdtoV1: EmailstatusdtoV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'emailstatusdtoV1' is not null or undefined
-            assertParamExists('createVerifiedFromAddressV1', 'emailstatusdtoV1', emailstatusdtoV1)
+        createVerifiedFromAddressV1: async (emailstatusdto: Emailstatusdto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'emailstatusdto' is not null or undefined
+            assertParamExists('createVerifiedFromAddressV1', 'emailstatusdto', emailstatusdto)
             const localVarPath = `/verified-from-addresses/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1283,7 +1283,7 @@ export const NotificationsV1ApiAxiosParamCreator = function (configuration?: Con
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(emailstatusdtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(emailstatusdto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1293,13 +1293,13 @@ export const NotificationsV1ApiAxiosParamCreator = function (configuration?: Con
         /**
          * This lets you bulk delete templates that you previously created for your site.
          * @summary Bulk delete notification templates
-         * @param {Array<TemplatebulkdeletedtoV1>} templatebulkdeletedtoV1 
+         * @param {Array<Templatebulkdeletedto>} templatebulkdeletedto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteNotificationTemplatesInBulkV1: async (templatebulkdeletedtoV1: Array<TemplatebulkdeletedtoV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'templatebulkdeletedtoV1' is not null or undefined
-            assertParamExists('deleteNotificationTemplatesInBulkV1', 'templatebulkdeletedtoV1', templatebulkdeletedtoV1)
+        deleteNotificationTemplatesInBulkV1: async (templatebulkdeletedto: Array<Templatebulkdeletedto>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'templatebulkdeletedto' is not null or undefined
+            assertParamExists('deleteNotificationTemplatesInBulkV1', 'templatebulkdeletedto', templatebulkdeletedto)
             const localVarPath = `/notification-templates/v1/bulk-delete`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1319,7 +1319,7 @@ export const NotificationsV1ApiAxiosParamCreator = function (configuration?: Con
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(templatebulkdeletedtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(templatebulkdeletedto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1506,12 +1506,12 @@ export const NotificationsV1ApiAxiosParamCreator = function (configuration?: Con
          * Returns global variables and template-specific variables for a given notification template key and medium. Use these variable names in template content; they are replaced at send time with the corresponding values. Variable lists can be sorted by key, type, or description via the sorters query parameter (default ascending by key). 
          * @summary Get notification template variables
          * @param {string} key The notification template key. Valid keys (and key/medium pairs) are available from the list notification templates operation. 
-         * @param {GetNotificationTemplateVariablesV1MediumV1} medium The notification template medium (e.g. EMAIL, SLACK, TEAMS). Valid key/medium pairs are available from the list notification templates operation. 
+         * @param {GetNotificationTemplateVariablesV1MediumEnum} medium The notification template medium (e.g. EMAIL, SLACK, TEAMS). Valid key/medium pairs are available from the list notification templates operation. 
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, type, description**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getNotificationTemplateVariablesV1: async (key: string, medium: GetNotificationTemplateVariablesV1MediumV1, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getNotificationTemplateVariablesV1: async (key: string, medium: GetNotificationTemplateVariablesV1MediumEnum, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'key' is not null or undefined
             assertParamExists('getNotificationTemplateVariablesV1', 'key', key)
             // verify required parameter 'medium' is not null or undefined
@@ -1728,13 +1728,13 @@ export const NotificationsV1ApiAxiosParamCreator = function (configuration?: Con
         /**
          * Change the MAIL FROM domain of an AWS SES email identity and provide the MX and TXT records to be placed in the caller\'s DNS
          * @summary Change mail from domain
-         * @param {MailfromattributesdtoV1} mailfromattributesdtoV1 
+         * @param {Mailfromattributesdto} mailfromattributesdto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putMailFromAttributesV1: async (mailfromattributesdtoV1: MailfromattributesdtoV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'mailfromattributesdtoV1' is not null or undefined
-            assertParamExists('putMailFromAttributesV1', 'mailfromattributesdtoV1', mailfromattributesdtoV1)
+        putMailFromAttributesV1: async (mailfromattributesdto: Mailfromattributesdto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'mailfromattributesdto' is not null or undefined
+            assertParamExists('putMailFromAttributesV1', 'mailfromattributesdto', mailfromattributesdto)
             const localVarPath = `/mail-from-attributes/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1754,7 +1754,7 @@ export const NotificationsV1ApiAxiosParamCreator = function (configuration?: Con
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(mailfromattributesdtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(mailfromattributesdto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1764,13 +1764,13 @@ export const NotificationsV1ApiAxiosParamCreator = function (configuration?: Con
         /**
          * Send a Test Notification
          * @summary Send test notification
-         * @param {SendtestnotificationrequestdtoV1} sendtestnotificationrequestdtoV1 
+         * @param {Sendtestnotificationrequestdto} sendtestnotificationrequestdto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        sendTestNotificationV1: async (sendtestnotificationrequestdtoV1: SendtestnotificationrequestdtoV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'sendtestnotificationrequestdtoV1' is not null or undefined
-            assertParamExists('sendTestNotificationV1', 'sendtestnotificationrequestdtoV1', sendtestnotificationrequestdtoV1)
+        sendTestNotificationV1: async (sendtestnotificationrequestdto: Sendtestnotificationrequestdto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sendtestnotificationrequestdto' is not null or undefined
+            assertParamExists('sendTestNotificationV1', 'sendtestnotificationrequestdto', sendtestnotificationrequestdto)
             const localVarPath = `/send-test-notification/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1790,7 +1790,7 @@ export const NotificationsV1ApiAxiosParamCreator = function (configuration?: Con
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(sendtestnotificationrequestdtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(sendtestnotificationrequestdto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1801,62 +1801,62 @@ export const NotificationsV1ApiAxiosParamCreator = function (configuration?: Con
 };
 
 /**
- * NotificationsV1Api - functional programming interface
+ * NotificationsApi - functional programming interface
  * @export
  */
-export const NotificationsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = NotificationsV1ApiAxiosParamCreator(configuration)
+export const NotificationsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = NotificationsApiAxiosParamCreator(configuration)
     return {
         /**
          * Create a domain to be verified via DKIM (DomainKeys Identified Mail)
          * @summary Verify domain address via dkim
-         * @param {DomainaddressV1} domainaddressV1 
+         * @param {Domainaddress} domainaddress 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createDomainDkimV1(domainaddressV1: DomainaddressV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DomainstatusdtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createDomainDkimV1(domainaddressV1, axiosOptions);
+        async createDomainDkimV1(domainaddress: Domainaddress, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Domainstatusdto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createDomainDkimV1(domainaddress, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NotificationsV1Api.createDomainDkimV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NotificationsApi.createDomainDkimV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This will update notification templates that are available in your tenant.  Note that you cannot create new templates in your tenant, but you can use this to create custom notifications from existing templates.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready. 
          * @summary Create notification template
-         * @param {TemplatedtoV1} templatedtoV1 
+         * @param {Templatedto} templatedto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createNotificationTemplateV1(templatedtoV1: TemplatedtoV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TemplatedtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createNotificationTemplateV1(templatedtoV1, axiosOptions);
+        async createNotificationTemplateV1(templatedto: Templatedto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Templatedto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createNotificationTemplateV1(templatedto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NotificationsV1Api.createNotificationTemplateV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NotificationsApi.createNotificationTemplateV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Create a new sender email address and initiate verification process.
          * @summary Create verified from address
-         * @param {EmailstatusdtoV1} emailstatusdtoV1 
+         * @param {Emailstatusdto} emailstatusdto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createVerifiedFromAddressV1(emailstatusdtoV1: EmailstatusdtoV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EmailstatusdtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createVerifiedFromAddressV1(emailstatusdtoV1, axiosOptions);
+        async createVerifiedFromAddressV1(emailstatusdto: Emailstatusdto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Emailstatusdto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createVerifiedFromAddressV1(emailstatusdto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NotificationsV1Api.createVerifiedFromAddressV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NotificationsApi.createVerifiedFromAddressV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This lets you bulk delete templates that you previously created for your site.
          * @summary Bulk delete notification templates
-         * @param {Array<TemplatebulkdeletedtoV1>} templatebulkdeletedtoV1 
+         * @param {Array<Templatebulkdeletedto>} templatebulkdeletedto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteNotificationTemplatesInBulkV1(templatebulkdeletedtoV1: Array<TemplatebulkdeletedtoV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNotificationTemplatesInBulkV1(templatebulkdeletedtoV1, axiosOptions);
+        async deleteNotificationTemplatesInBulkV1(templatebulkdeletedto: Array<Templatebulkdeletedto>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNotificationTemplatesInBulkV1(templatebulkdeletedto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NotificationsV1Api.deleteNotificationTemplatesInBulkV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NotificationsApi.deleteNotificationTemplatesInBulkV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1869,7 +1869,7 @@ export const NotificationsV1ApiFp = function(configuration?: Configuration) {
         async deleteVerifiedFromAddressV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteVerifiedFromAddressV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NotificationsV1Api.deleteVerifiedFromAddressV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NotificationsApi.deleteVerifiedFromAddressV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1880,10 +1880,10 @@ export const NotificationsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getDkimAttributesV1(limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DkimattributesV1>>> {
+        async getDkimAttributesV1(limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Dkimattributes>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDkimAttributesV1(limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NotificationsV1Api.getDkimAttributesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NotificationsApi.getDkimAttributesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1893,10 +1893,10 @@ export const NotificationsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getMailFromAttributesV1(identity: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MailfromattributesV1>> {
+        async getMailFromAttributesV1(identity: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Mailfromattributes>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMailFromAttributesV1(identity, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NotificationsV1Api.getMailFromAttributesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NotificationsApi.getMailFromAttributesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1906,10 +1906,10 @@ export const NotificationsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNotificationPreferencesV1(key: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PreferencesdtoV1>> {
+        async getNotificationPreferencesV1(key: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Preferencesdto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNotificationPreferencesV1(key, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NotificationsV1Api.getNotificationPreferencesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NotificationsApi.getNotificationPreferencesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1919,25 +1919,25 @@ export const NotificationsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNotificationTemplateV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TemplatedtoV1>> {
+        async getNotificationTemplateV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Templatedto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNotificationTemplateV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NotificationsV1Api.getNotificationTemplateV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NotificationsApi.getNotificationTemplateV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Returns global variables and template-specific variables for a given notification template key and medium. Use these variable names in template content; they are replaced at send time with the corresponding values. Variable lists can be sorted by key, type, or description via the sorters query parameter (default ascending by key). 
          * @summary Get notification template variables
          * @param {string} key The notification template key. Valid keys (and key/medium pairs) are available from the list notification templates operation. 
-         * @param {GetNotificationTemplateVariablesV1MediumV1} medium The notification template medium (e.g. EMAIL, SLACK, TEAMS). Valid key/medium pairs are available from the list notification templates operation. 
+         * @param {GetNotificationTemplateVariablesV1MediumEnum} medium The notification template medium (e.g. EMAIL, SLACK, TEAMS). Valid key/medium pairs are available from the list notification templates operation. 
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, type, description**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNotificationTemplateVariablesV1(key: string, medium: GetNotificationTemplateVariablesV1MediumV1, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TemplatevariablesdtoV1>> {
+        async getNotificationTemplateVariablesV1(key: string, medium: GetNotificationTemplateVariablesV1MediumEnum, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Templatevariablesdto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNotificationTemplateVariablesV1(key, medium, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NotificationsV1Api.getNotificationTemplateVariablesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NotificationsApi.getNotificationTemplateVariablesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1946,10 +1946,10 @@ export const NotificationsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNotificationsTemplateContextV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NotificationtemplatecontextV1>> {
+        async getNotificationsTemplateContextV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notificationtemplatecontext>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNotificationsTemplateContextV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NotificationsV1Api.getNotificationsTemplateContextV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NotificationsApi.getNotificationsTemplateContextV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1963,10 +1963,10 @@ export const NotificationsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listFromAddressesV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EmailstatusdtoV1>>> {
+        async listFromAddressesV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Emailstatusdto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listFromAddressesV1(limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NotificationsV1Api.listFromAddressesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NotificationsApi.listFromAddressesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1978,10 +1978,10 @@ export const NotificationsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listNotificationTemplateDefaultsV1(limit?: number, offset?: number, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TemplatedtodefaultV1>>> {
+        async listNotificationTemplateDefaultsV1(limit?: number, offset?: number, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Templatedtodefault>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listNotificationTemplateDefaultsV1(limit, offset, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NotificationsV1Api.listNotificationTemplateDefaultsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NotificationsApi.listNotificationTemplateDefaultsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1994,146 +1994,146 @@ export const NotificationsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listNotificationTemplatesV1(limit?: number, offset?: number, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TemplatedtoV1>>> {
+        async listNotificationTemplatesV1(limit?: number, offset?: number, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Templatedto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listNotificationTemplatesV1(limit, offset, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NotificationsV1Api.listNotificationTemplatesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NotificationsApi.listNotificationTemplatesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Change the MAIL FROM domain of an AWS SES email identity and provide the MX and TXT records to be placed in the caller\'s DNS
          * @summary Change mail from domain
-         * @param {MailfromattributesdtoV1} mailfromattributesdtoV1 
+         * @param {Mailfromattributesdto} mailfromattributesdto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putMailFromAttributesV1(mailfromattributesdtoV1: MailfromattributesdtoV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MailfromattributesV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putMailFromAttributesV1(mailfromattributesdtoV1, axiosOptions);
+        async putMailFromAttributesV1(mailfromattributesdto: Mailfromattributesdto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Mailfromattributes>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putMailFromAttributesV1(mailfromattributesdto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NotificationsV1Api.putMailFromAttributesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NotificationsApi.putMailFromAttributesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Send a Test Notification
          * @summary Send test notification
-         * @param {SendtestnotificationrequestdtoV1} sendtestnotificationrequestdtoV1 
+         * @param {Sendtestnotificationrequestdto} sendtestnotificationrequestdto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async sendTestNotificationV1(sendtestnotificationrequestdtoV1: SendtestnotificationrequestdtoV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.sendTestNotificationV1(sendtestnotificationrequestdtoV1, axiosOptions);
+        async sendTestNotificationV1(sendtestnotificationrequestdto: Sendtestnotificationrequestdto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendTestNotificationV1(sendtestnotificationrequestdto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['NotificationsV1Api.sendTestNotificationV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['NotificationsApi.sendTestNotificationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * NotificationsV1Api - factory interface
+ * NotificationsApi - factory interface
  * @export
  */
-export const NotificationsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = NotificationsV1ApiFp(configuration)
+export const NotificationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = NotificationsApiFp(configuration)
     return {
         /**
          * Create a domain to be verified via DKIM (DomainKeys Identified Mail)
          * @summary Verify domain address via dkim
-         * @param {NotificationsV1ApiCreateDomainDkimV1Request} requestParameters Request parameters.
+         * @param {NotificationsApiCreateDomainDkimV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createDomainDkimV1(requestParameters: NotificationsV1ApiCreateDomainDkimV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<DomainstatusdtoV1> {
-            return localVarFp.createDomainDkimV1(requestParameters.domainaddressV1, axiosOptions).then((request) => request(axios, basePath));
+        createDomainDkimV1(requestParameters: NotificationsApiCreateDomainDkimV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Domainstatusdto> {
+            return localVarFp.createDomainDkimV1(requestParameters.domainaddress, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This will update notification templates that are available in your tenant.  Note that you cannot create new templates in your tenant, but you can use this to create custom notifications from existing templates.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready. 
          * @summary Create notification template
-         * @param {NotificationsV1ApiCreateNotificationTemplateV1Request} requestParameters Request parameters.
+         * @param {NotificationsApiCreateNotificationTemplateV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createNotificationTemplateV1(requestParameters: NotificationsV1ApiCreateNotificationTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TemplatedtoV1> {
-            return localVarFp.createNotificationTemplateV1(requestParameters.templatedtoV1, axiosOptions).then((request) => request(axios, basePath));
+        createNotificationTemplateV1(requestParameters: NotificationsApiCreateNotificationTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Templatedto> {
+            return localVarFp.createNotificationTemplateV1(requestParameters.templatedto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Create a new sender email address and initiate verification process.
          * @summary Create verified from address
-         * @param {NotificationsV1ApiCreateVerifiedFromAddressV1Request} requestParameters Request parameters.
+         * @param {NotificationsApiCreateVerifiedFromAddressV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createVerifiedFromAddressV1(requestParameters: NotificationsV1ApiCreateVerifiedFromAddressV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<EmailstatusdtoV1> {
-            return localVarFp.createVerifiedFromAddressV1(requestParameters.emailstatusdtoV1, axiosOptions).then((request) => request(axios, basePath));
+        createVerifiedFromAddressV1(requestParameters: NotificationsApiCreateVerifiedFromAddressV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Emailstatusdto> {
+            return localVarFp.createVerifiedFromAddressV1(requestParameters.emailstatusdto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This lets you bulk delete templates that you previously created for your site.
          * @summary Bulk delete notification templates
-         * @param {NotificationsV1ApiDeleteNotificationTemplatesInBulkV1Request} requestParameters Request parameters.
+         * @param {NotificationsApiDeleteNotificationTemplatesInBulkV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteNotificationTemplatesInBulkV1(requestParameters: NotificationsV1ApiDeleteNotificationTemplatesInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.deleteNotificationTemplatesInBulkV1(requestParameters.templatebulkdeletedtoV1, axiosOptions).then((request) => request(axios, basePath));
+        deleteNotificationTemplatesInBulkV1(requestParameters: NotificationsApiDeleteNotificationTemplatesInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteNotificationTemplatesInBulkV1(requestParameters.templatebulkdeletedto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Delete a verified sender email address
          * @summary Delete verified from address
-         * @param {NotificationsV1ApiDeleteVerifiedFromAddressV1Request} requestParameters Request parameters.
+         * @param {NotificationsApiDeleteVerifiedFromAddressV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteVerifiedFromAddressV1(requestParameters: NotificationsV1ApiDeleteVerifiedFromAddressV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteVerifiedFromAddressV1(requestParameters: NotificationsApiDeleteVerifiedFromAddressV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteVerifiedFromAddressV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Retrieve DKIM (DomainKeys Identified Mail) attributes for all your tenants\' AWS SES identities. Limits retrieval to 100 identities per call.
          * @summary Get dkim attributes
-         * @param {NotificationsV1ApiGetDkimAttributesV1Request} requestParameters Request parameters.
+         * @param {NotificationsApiGetDkimAttributesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getDkimAttributesV1(requestParameters: NotificationsV1ApiGetDkimAttributesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<DkimattributesV1>> {
+        getDkimAttributesV1(requestParameters: NotificationsApiGetDkimAttributesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Dkimattributes>> {
             return localVarFp.getDkimAttributesV1(requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Retrieve MAIL FROM attributes for a given AWS SES identity.
          * @summary Get mail from attributes
-         * @param {NotificationsV1ApiGetMailFromAttributesV1Request} requestParameters Request parameters.
+         * @param {NotificationsApiGetMailFromAttributesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getMailFromAttributesV1(requestParameters: NotificationsV1ApiGetMailFromAttributesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MailfromattributesV1> {
+        getMailFromAttributesV1(requestParameters: NotificationsApiGetMailFromAttributesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Mailfromattributes> {
             return localVarFp.getMailFromAttributesV1(requestParameters.identity, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Returns a list of notification preferences for tenant.
          * @summary List notification preferences for tenant.
-         * @param {NotificationsV1ApiGetNotificationPreferencesV1Request} requestParameters Request parameters.
+         * @param {NotificationsApiGetNotificationPreferencesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getNotificationPreferencesV1(requestParameters: NotificationsV1ApiGetNotificationPreferencesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PreferencesdtoV1> {
+        getNotificationPreferencesV1(requestParameters: NotificationsApiGetNotificationPreferencesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Preferencesdto> {
             return localVarFp.getNotificationPreferencesV1(requestParameters.key, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a template that you have modified for your site by Id.
          * @summary Get notification template by id
-         * @param {NotificationsV1ApiGetNotificationTemplateV1Request} requestParameters Request parameters.
+         * @param {NotificationsApiGetNotificationTemplateV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getNotificationTemplateV1(requestParameters: NotificationsV1ApiGetNotificationTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TemplatedtoV1> {
+        getNotificationTemplateV1(requestParameters: NotificationsApiGetNotificationTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Templatedto> {
             return localVarFp.getNotificationTemplateV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Returns global variables and template-specific variables for a given notification template key and medium. Use these variable names in template content; they are replaced at send time with the corresponding values. Variable lists can be sorted by key, type, or description via the sorters query parameter (default ascending by key). 
          * @summary Get notification template variables
-         * @param {NotificationsV1ApiGetNotificationTemplateVariablesV1Request} requestParameters Request parameters.
+         * @param {NotificationsApiGetNotificationTemplateVariablesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getNotificationTemplateVariablesV1(requestParameters: NotificationsV1ApiGetNotificationTemplateVariablesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TemplatevariablesdtoV1> {
+        getNotificationTemplateVariablesV1(requestParameters: NotificationsApiGetNotificationTemplateVariablesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Templatevariablesdto> {
             return localVarFp.getNotificationTemplateVariablesV1(requestParameters.key, requestParameters.medium, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2142,481 +2142,481 @@ export const NotificationsV1ApiFactory = function (configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getNotificationsTemplateContextV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NotificationtemplatecontextV1> {
+        getNotificationsTemplateContextV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Notificationtemplatecontext> {
             return localVarFp.getNotificationsTemplateContextV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Retrieve a list of sender email addresses and their verification statuses
          * @summary List from addresses
-         * @param {NotificationsV1ApiListFromAddressesV1Request} requestParameters Request parameters.
+         * @param {NotificationsApiListFromAddressesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listFromAddressesV1(requestParameters: NotificationsV1ApiListFromAddressesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<EmailstatusdtoV1>> {
+        listFromAddressesV1(requestParameters: NotificationsApiListFromAddressesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Emailstatusdto>> {
             return localVarFp.listFromAddressesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This lists the default templates used for notifications, such as emails from IdentityNow.
          * @summary List notification template defaults
-         * @param {NotificationsV1ApiListNotificationTemplateDefaultsV1Request} requestParameters Request parameters.
+         * @param {NotificationsApiListNotificationTemplateDefaultsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listNotificationTemplateDefaultsV1(requestParameters: NotificationsV1ApiListNotificationTemplateDefaultsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<TemplatedtodefaultV1>> {
+        listNotificationTemplateDefaultsV1(requestParameters: NotificationsApiListNotificationTemplateDefaultsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Templatedtodefault>> {
             return localVarFp.listNotificationTemplateDefaultsV1(requestParameters.limit, requestParameters.offset, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This lists the templates that you have modified for your site.
          * @summary List notification templates
-         * @param {NotificationsV1ApiListNotificationTemplatesV1Request} requestParameters Request parameters.
+         * @param {NotificationsApiListNotificationTemplatesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listNotificationTemplatesV1(requestParameters: NotificationsV1ApiListNotificationTemplatesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<TemplatedtoV1>> {
+        listNotificationTemplatesV1(requestParameters: NotificationsApiListNotificationTemplatesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Templatedto>> {
             return localVarFp.listNotificationTemplatesV1(requestParameters.limit, requestParameters.offset, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Change the MAIL FROM domain of an AWS SES email identity and provide the MX and TXT records to be placed in the caller\'s DNS
          * @summary Change mail from domain
-         * @param {NotificationsV1ApiPutMailFromAttributesV1Request} requestParameters Request parameters.
+         * @param {NotificationsApiPutMailFromAttributesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putMailFromAttributesV1(requestParameters: NotificationsV1ApiPutMailFromAttributesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MailfromattributesV1> {
-            return localVarFp.putMailFromAttributesV1(requestParameters.mailfromattributesdtoV1, axiosOptions).then((request) => request(axios, basePath));
+        putMailFromAttributesV1(requestParameters: NotificationsApiPutMailFromAttributesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Mailfromattributes> {
+            return localVarFp.putMailFromAttributesV1(requestParameters.mailfromattributesdto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Send a Test Notification
          * @summary Send test notification
-         * @param {NotificationsV1ApiSendTestNotificationV1Request} requestParameters Request parameters.
+         * @param {NotificationsApiSendTestNotificationV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        sendTestNotificationV1(requestParameters: NotificationsV1ApiSendTestNotificationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.sendTestNotificationV1(requestParameters.sendtestnotificationrequestdtoV1, axiosOptions).then((request) => request(axios, basePath));
+        sendTestNotificationV1(requestParameters: NotificationsApiSendTestNotificationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.sendTestNotificationV1(requestParameters.sendtestnotificationrequestdto, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createDomainDkimV1 operation in NotificationsV1Api.
+ * Request parameters for createDomainDkimV1 operation in NotificationsApi.
  * @export
- * @interface NotificationsV1ApiCreateDomainDkimV1Request
+ * @interface NotificationsApiCreateDomainDkimV1Request
  */
-export interface NotificationsV1ApiCreateDomainDkimV1Request {
+export interface NotificationsApiCreateDomainDkimV1Request {
     /**
      * 
-     * @type {DomainaddressV1}
-     * @memberof NotificationsV1ApiCreateDomainDkimV1
+     * @type {Domainaddress}
+     * @memberof NotificationsApiCreateDomainDkimV1
      */
-    readonly domainaddressV1: DomainaddressV1
+    readonly domainaddress: Domainaddress
 }
 
 /**
- * Request parameters for createNotificationTemplateV1 operation in NotificationsV1Api.
+ * Request parameters for createNotificationTemplateV1 operation in NotificationsApi.
  * @export
- * @interface NotificationsV1ApiCreateNotificationTemplateV1Request
+ * @interface NotificationsApiCreateNotificationTemplateV1Request
  */
-export interface NotificationsV1ApiCreateNotificationTemplateV1Request {
+export interface NotificationsApiCreateNotificationTemplateV1Request {
     /**
      * 
-     * @type {TemplatedtoV1}
-     * @memberof NotificationsV1ApiCreateNotificationTemplateV1
+     * @type {Templatedto}
+     * @memberof NotificationsApiCreateNotificationTemplateV1
      */
-    readonly templatedtoV1: TemplatedtoV1
+    readonly templatedto: Templatedto
 }
 
 /**
- * Request parameters for createVerifiedFromAddressV1 operation in NotificationsV1Api.
+ * Request parameters for createVerifiedFromAddressV1 operation in NotificationsApi.
  * @export
- * @interface NotificationsV1ApiCreateVerifiedFromAddressV1Request
+ * @interface NotificationsApiCreateVerifiedFromAddressV1Request
  */
-export interface NotificationsV1ApiCreateVerifiedFromAddressV1Request {
+export interface NotificationsApiCreateVerifiedFromAddressV1Request {
     /**
      * 
-     * @type {EmailstatusdtoV1}
-     * @memberof NotificationsV1ApiCreateVerifiedFromAddressV1
+     * @type {Emailstatusdto}
+     * @memberof NotificationsApiCreateVerifiedFromAddressV1
      */
-    readonly emailstatusdtoV1: EmailstatusdtoV1
+    readonly emailstatusdto: Emailstatusdto
 }
 
 /**
- * Request parameters for deleteNotificationTemplatesInBulkV1 operation in NotificationsV1Api.
+ * Request parameters for deleteNotificationTemplatesInBulkV1 operation in NotificationsApi.
  * @export
- * @interface NotificationsV1ApiDeleteNotificationTemplatesInBulkV1Request
+ * @interface NotificationsApiDeleteNotificationTemplatesInBulkV1Request
  */
-export interface NotificationsV1ApiDeleteNotificationTemplatesInBulkV1Request {
+export interface NotificationsApiDeleteNotificationTemplatesInBulkV1Request {
     /**
      * 
-     * @type {Array<TemplatebulkdeletedtoV1>}
-     * @memberof NotificationsV1ApiDeleteNotificationTemplatesInBulkV1
+     * @type {Array<Templatebulkdeletedto>}
+     * @memberof NotificationsApiDeleteNotificationTemplatesInBulkV1
      */
-    readonly templatebulkdeletedtoV1: Array<TemplatebulkdeletedtoV1>
+    readonly templatebulkdeletedto: Array<Templatebulkdeletedto>
 }
 
 /**
- * Request parameters for deleteVerifiedFromAddressV1 operation in NotificationsV1Api.
+ * Request parameters for deleteVerifiedFromAddressV1 operation in NotificationsApi.
  * @export
- * @interface NotificationsV1ApiDeleteVerifiedFromAddressV1Request
+ * @interface NotificationsApiDeleteVerifiedFromAddressV1Request
  */
-export interface NotificationsV1ApiDeleteVerifiedFromAddressV1Request {
+export interface NotificationsApiDeleteVerifiedFromAddressV1Request {
     /**
      * Unique identifier of the verified sender address to delete.
      * @type {string}
-     * @memberof NotificationsV1ApiDeleteVerifiedFromAddressV1
+     * @memberof NotificationsApiDeleteVerifiedFromAddressV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getDkimAttributesV1 operation in NotificationsV1Api.
+ * Request parameters for getDkimAttributesV1 operation in NotificationsApi.
  * @export
- * @interface NotificationsV1ApiGetDkimAttributesV1Request
+ * @interface NotificationsApiGetDkimAttributesV1Request
  */
-export interface NotificationsV1ApiGetDkimAttributesV1Request {
+export interface NotificationsApiGetDkimAttributesV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof NotificationsV1ApiGetDkimAttributesV1
+     * @memberof NotificationsApiGetDkimAttributesV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof NotificationsV1ApiGetDkimAttributesV1
+     * @memberof NotificationsApiGetDkimAttributesV1
      */
     readonly offset?: number
 }
 
 /**
- * Request parameters for getMailFromAttributesV1 operation in NotificationsV1Api.
+ * Request parameters for getMailFromAttributesV1 operation in NotificationsApi.
  * @export
- * @interface NotificationsV1ApiGetMailFromAttributesV1Request
+ * @interface NotificationsApiGetMailFromAttributesV1Request
  */
-export interface NotificationsV1ApiGetMailFromAttributesV1Request {
+export interface NotificationsApiGetMailFromAttributesV1Request {
     /**
      * Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
      * @type {string}
-     * @memberof NotificationsV1ApiGetMailFromAttributesV1
+     * @memberof NotificationsApiGetMailFromAttributesV1
      */
     readonly identity: string
 }
 
 /**
- * Request parameters for getNotificationPreferencesV1 operation in NotificationsV1Api.
+ * Request parameters for getNotificationPreferencesV1 operation in NotificationsApi.
  * @export
- * @interface NotificationsV1ApiGetNotificationPreferencesV1Request
+ * @interface NotificationsApiGetNotificationPreferencesV1Request
  */
-export interface NotificationsV1ApiGetNotificationPreferencesV1Request {
+export interface NotificationsApiGetNotificationPreferencesV1Request {
     /**
      * The key.
      * @type {string}
-     * @memberof NotificationsV1ApiGetNotificationPreferencesV1
+     * @memberof NotificationsApiGetNotificationPreferencesV1
      */
     readonly key: string
 }
 
 /**
- * Request parameters for getNotificationTemplateV1 operation in NotificationsV1Api.
+ * Request parameters for getNotificationTemplateV1 operation in NotificationsApi.
  * @export
- * @interface NotificationsV1ApiGetNotificationTemplateV1Request
+ * @interface NotificationsApiGetNotificationTemplateV1Request
  */
-export interface NotificationsV1ApiGetNotificationTemplateV1Request {
+export interface NotificationsApiGetNotificationTemplateV1Request {
     /**
      * Id of the Notification Template
      * @type {string}
-     * @memberof NotificationsV1ApiGetNotificationTemplateV1
+     * @memberof NotificationsApiGetNotificationTemplateV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getNotificationTemplateVariablesV1 operation in NotificationsV1Api.
+ * Request parameters for getNotificationTemplateVariablesV1 operation in NotificationsApi.
  * @export
- * @interface NotificationsV1ApiGetNotificationTemplateVariablesV1Request
+ * @interface NotificationsApiGetNotificationTemplateVariablesV1Request
  */
-export interface NotificationsV1ApiGetNotificationTemplateVariablesV1Request {
+export interface NotificationsApiGetNotificationTemplateVariablesV1Request {
     /**
      * The notification template key. Valid keys (and key/medium pairs) are available from the list notification templates operation. 
      * @type {string}
-     * @memberof NotificationsV1ApiGetNotificationTemplateVariablesV1
+     * @memberof NotificationsApiGetNotificationTemplateVariablesV1
      */
     readonly key: string
 
     /**
      * The notification template medium (e.g. EMAIL, SLACK, TEAMS). Valid key/medium pairs are available from the list notification templates operation. 
      * @type {'EMAIL' | 'SLACK' | 'TEAMS'}
-     * @memberof NotificationsV1ApiGetNotificationTemplateVariablesV1
+     * @memberof NotificationsApiGetNotificationTemplateVariablesV1
      */
-    readonly medium: GetNotificationTemplateVariablesV1MediumV1
+    readonly medium: GetNotificationTemplateVariablesV1MediumEnum
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, type, description**
      * @type {string}
-     * @memberof NotificationsV1ApiGetNotificationTemplateVariablesV1
+     * @memberof NotificationsApiGetNotificationTemplateVariablesV1
      */
     readonly sorters?: string
 }
 
 /**
- * Request parameters for listFromAddressesV1 operation in NotificationsV1Api.
+ * Request parameters for listFromAddressesV1 operation in NotificationsApi.
  * @export
- * @interface NotificationsV1ApiListFromAddressesV1Request
+ * @interface NotificationsApiListFromAddressesV1Request
  */
-export interface NotificationsV1ApiListFromAddressesV1Request {
+export interface NotificationsApiListFromAddressesV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof NotificationsV1ApiListFromAddressesV1
+     * @memberof NotificationsApiListFromAddressesV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof NotificationsV1ApiListFromAddressesV1
+     * @memberof NotificationsApiListFromAddressesV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof NotificationsV1ApiListFromAddressesV1
+     * @memberof NotificationsApiListFromAddressesV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, gt, lt*
      * @type {string}
-     * @memberof NotificationsV1ApiListFromAddressesV1
+     * @memberof NotificationsApiListFromAddressesV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email**
      * @type {string}
-     * @memberof NotificationsV1ApiListFromAddressesV1
+     * @memberof NotificationsApiListFromAddressesV1
      */
     readonly sorters?: string
 }
 
 /**
- * Request parameters for listNotificationTemplateDefaultsV1 operation in NotificationsV1Api.
+ * Request parameters for listNotificationTemplateDefaultsV1 operation in NotificationsApi.
  * @export
- * @interface NotificationsV1ApiListNotificationTemplateDefaultsV1Request
+ * @interface NotificationsApiListNotificationTemplateDefaultsV1Request
  */
-export interface NotificationsV1ApiListNotificationTemplateDefaultsV1Request {
+export interface NotificationsApiListNotificationTemplateDefaultsV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof NotificationsV1ApiListNotificationTemplateDefaultsV1
+     * @memberof NotificationsApiListNotificationTemplateDefaultsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof NotificationsV1ApiListNotificationTemplateDefaultsV1
+     * @memberof NotificationsApiListNotificationTemplateDefaultsV1
      */
     readonly offset?: number
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw*
      * @type {string}
-     * @memberof NotificationsV1ApiListNotificationTemplateDefaultsV1
+     * @memberof NotificationsApiListNotificationTemplateDefaultsV1
      */
     readonly filters?: string
 }
 
 /**
- * Request parameters for listNotificationTemplatesV1 operation in NotificationsV1Api.
+ * Request parameters for listNotificationTemplatesV1 operation in NotificationsApi.
  * @export
- * @interface NotificationsV1ApiListNotificationTemplatesV1Request
+ * @interface NotificationsApiListNotificationTemplatesV1Request
  */
-export interface NotificationsV1ApiListNotificationTemplatesV1Request {
+export interface NotificationsApiListNotificationTemplatesV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof NotificationsV1ApiListNotificationTemplatesV1
+     * @memberof NotificationsApiListNotificationTemplatesV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof NotificationsV1ApiListNotificationTemplatesV1
+     * @memberof NotificationsApiListNotificationTemplatesV1
      */
     readonly offset?: number
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw*
      * @type {string}
-     * @memberof NotificationsV1ApiListNotificationTemplatesV1
+     * @memberof NotificationsApiListNotificationTemplatesV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, name, medium**
      * @type {string}
-     * @memberof NotificationsV1ApiListNotificationTemplatesV1
+     * @memberof NotificationsApiListNotificationTemplatesV1
      */
     readonly sorters?: string
 }
 
 /**
- * Request parameters for putMailFromAttributesV1 operation in NotificationsV1Api.
+ * Request parameters for putMailFromAttributesV1 operation in NotificationsApi.
  * @export
- * @interface NotificationsV1ApiPutMailFromAttributesV1Request
+ * @interface NotificationsApiPutMailFromAttributesV1Request
  */
-export interface NotificationsV1ApiPutMailFromAttributesV1Request {
+export interface NotificationsApiPutMailFromAttributesV1Request {
     /**
      * 
-     * @type {MailfromattributesdtoV1}
-     * @memberof NotificationsV1ApiPutMailFromAttributesV1
+     * @type {Mailfromattributesdto}
+     * @memberof NotificationsApiPutMailFromAttributesV1
      */
-    readonly mailfromattributesdtoV1: MailfromattributesdtoV1
+    readonly mailfromattributesdto: Mailfromattributesdto
 }
 
 /**
- * Request parameters for sendTestNotificationV1 operation in NotificationsV1Api.
+ * Request parameters for sendTestNotificationV1 operation in NotificationsApi.
  * @export
- * @interface NotificationsV1ApiSendTestNotificationV1Request
+ * @interface NotificationsApiSendTestNotificationV1Request
  */
-export interface NotificationsV1ApiSendTestNotificationV1Request {
+export interface NotificationsApiSendTestNotificationV1Request {
     /**
      * 
-     * @type {SendtestnotificationrequestdtoV1}
-     * @memberof NotificationsV1ApiSendTestNotificationV1
+     * @type {Sendtestnotificationrequestdto}
+     * @memberof NotificationsApiSendTestNotificationV1
      */
-    readonly sendtestnotificationrequestdtoV1: SendtestnotificationrequestdtoV1
+    readonly sendtestnotificationrequestdto: Sendtestnotificationrequestdto
 }
 
 /**
- * NotificationsV1Api - object-oriented interface
+ * NotificationsApi - object-oriented interface
  * @export
- * @class NotificationsV1Api
+ * @class NotificationsApi
  * @extends {BaseAPI}
  */
-export class NotificationsV1Api extends BaseAPI {
+export class NotificationsApi extends BaseAPI {
     /**
      * Create a domain to be verified via DKIM (DomainKeys Identified Mail)
      * @summary Verify domain address via dkim
-     * @param {NotificationsV1ApiCreateDomainDkimV1Request} requestParameters Request parameters.
+     * @param {NotificationsApiCreateDomainDkimV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotificationsV1Api
+     * @memberof NotificationsApi
      */
-    public createDomainDkimV1(requestParameters: NotificationsV1ApiCreateDomainDkimV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NotificationsV1ApiFp(this.configuration).createDomainDkimV1(requestParameters.domainaddressV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createDomainDkimV1(requestParameters: NotificationsApiCreateDomainDkimV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NotificationsApiFp(this.configuration).createDomainDkimV1(requestParameters.domainaddress, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This will update notification templates that are available in your tenant.  Note that you cannot create new templates in your tenant, but you can use this to create custom notifications from existing templates.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready. 
      * @summary Create notification template
-     * @param {NotificationsV1ApiCreateNotificationTemplateV1Request} requestParameters Request parameters.
+     * @param {NotificationsApiCreateNotificationTemplateV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotificationsV1Api
+     * @memberof NotificationsApi
      */
-    public createNotificationTemplateV1(requestParameters: NotificationsV1ApiCreateNotificationTemplateV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NotificationsV1ApiFp(this.configuration).createNotificationTemplateV1(requestParameters.templatedtoV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createNotificationTemplateV1(requestParameters: NotificationsApiCreateNotificationTemplateV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NotificationsApiFp(this.configuration).createNotificationTemplateV1(requestParameters.templatedto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Create a new sender email address and initiate verification process.
      * @summary Create verified from address
-     * @param {NotificationsV1ApiCreateVerifiedFromAddressV1Request} requestParameters Request parameters.
+     * @param {NotificationsApiCreateVerifiedFromAddressV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotificationsV1Api
+     * @memberof NotificationsApi
      */
-    public createVerifiedFromAddressV1(requestParameters: NotificationsV1ApiCreateVerifiedFromAddressV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NotificationsV1ApiFp(this.configuration).createVerifiedFromAddressV1(requestParameters.emailstatusdtoV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createVerifiedFromAddressV1(requestParameters: NotificationsApiCreateVerifiedFromAddressV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NotificationsApiFp(this.configuration).createVerifiedFromAddressV1(requestParameters.emailstatusdto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This lets you bulk delete templates that you previously created for your site.
      * @summary Bulk delete notification templates
-     * @param {NotificationsV1ApiDeleteNotificationTemplatesInBulkV1Request} requestParameters Request parameters.
+     * @param {NotificationsApiDeleteNotificationTemplatesInBulkV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotificationsV1Api
+     * @memberof NotificationsApi
      */
-    public deleteNotificationTemplatesInBulkV1(requestParameters: NotificationsV1ApiDeleteNotificationTemplatesInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NotificationsV1ApiFp(this.configuration).deleteNotificationTemplatesInBulkV1(requestParameters.templatebulkdeletedtoV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteNotificationTemplatesInBulkV1(requestParameters: NotificationsApiDeleteNotificationTemplatesInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NotificationsApiFp(this.configuration).deleteNotificationTemplatesInBulkV1(requestParameters.templatebulkdeletedto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Delete a verified sender email address
      * @summary Delete verified from address
-     * @param {NotificationsV1ApiDeleteVerifiedFromAddressV1Request} requestParameters Request parameters.
+     * @param {NotificationsApiDeleteVerifiedFromAddressV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotificationsV1Api
+     * @memberof NotificationsApi
      */
-    public deleteVerifiedFromAddressV1(requestParameters: NotificationsV1ApiDeleteVerifiedFromAddressV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NotificationsV1ApiFp(this.configuration).deleteVerifiedFromAddressV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteVerifiedFromAddressV1(requestParameters: NotificationsApiDeleteVerifiedFromAddressV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NotificationsApiFp(this.configuration).deleteVerifiedFromAddressV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Retrieve DKIM (DomainKeys Identified Mail) attributes for all your tenants\' AWS SES identities. Limits retrieval to 100 identities per call.
      * @summary Get dkim attributes
-     * @param {NotificationsV1ApiGetDkimAttributesV1Request} requestParameters Request parameters.
+     * @param {NotificationsApiGetDkimAttributesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotificationsV1Api
+     * @memberof NotificationsApi
      */
-    public getDkimAttributesV1(requestParameters: NotificationsV1ApiGetDkimAttributesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return NotificationsV1ApiFp(this.configuration).getDkimAttributesV1(requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getDkimAttributesV1(requestParameters: NotificationsApiGetDkimAttributesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return NotificationsApiFp(this.configuration).getDkimAttributesV1(requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Retrieve MAIL FROM attributes for a given AWS SES identity.
      * @summary Get mail from attributes
-     * @param {NotificationsV1ApiGetMailFromAttributesV1Request} requestParameters Request parameters.
+     * @param {NotificationsApiGetMailFromAttributesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotificationsV1Api
+     * @memberof NotificationsApi
      */
-    public getMailFromAttributesV1(requestParameters: NotificationsV1ApiGetMailFromAttributesV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NotificationsV1ApiFp(this.configuration).getMailFromAttributesV1(requestParameters.identity, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getMailFromAttributesV1(requestParameters: NotificationsApiGetMailFromAttributesV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NotificationsApiFp(this.configuration).getMailFromAttributesV1(requestParameters.identity, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Returns a list of notification preferences for tenant.
      * @summary List notification preferences for tenant.
-     * @param {NotificationsV1ApiGetNotificationPreferencesV1Request} requestParameters Request parameters.
+     * @param {NotificationsApiGetNotificationPreferencesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotificationsV1Api
+     * @memberof NotificationsApi
      */
-    public getNotificationPreferencesV1(requestParameters: NotificationsV1ApiGetNotificationPreferencesV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NotificationsV1ApiFp(this.configuration).getNotificationPreferencesV1(requestParameters.key, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getNotificationPreferencesV1(requestParameters: NotificationsApiGetNotificationPreferencesV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NotificationsApiFp(this.configuration).getNotificationPreferencesV1(requestParameters.key, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a template that you have modified for your site by Id.
      * @summary Get notification template by id
-     * @param {NotificationsV1ApiGetNotificationTemplateV1Request} requestParameters Request parameters.
+     * @param {NotificationsApiGetNotificationTemplateV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotificationsV1Api
+     * @memberof NotificationsApi
      */
-    public getNotificationTemplateV1(requestParameters: NotificationsV1ApiGetNotificationTemplateV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NotificationsV1ApiFp(this.configuration).getNotificationTemplateV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getNotificationTemplateV1(requestParameters: NotificationsApiGetNotificationTemplateV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NotificationsApiFp(this.configuration).getNotificationTemplateV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Returns global variables and template-specific variables for a given notification template key and medium. Use these variable names in template content; they are replaced at send time with the corresponding values. Variable lists can be sorted by key, type, or description via the sorters query parameter (default ascending by key). 
      * @summary Get notification template variables
-     * @param {NotificationsV1ApiGetNotificationTemplateVariablesV1Request} requestParameters Request parameters.
+     * @param {NotificationsApiGetNotificationTemplateVariablesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotificationsV1Api
+     * @memberof NotificationsApi
      */
-    public getNotificationTemplateVariablesV1(requestParameters: NotificationsV1ApiGetNotificationTemplateVariablesV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NotificationsV1ApiFp(this.configuration).getNotificationTemplateVariablesV1(requestParameters.key, requestParameters.medium, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getNotificationTemplateVariablesV1(requestParameters: NotificationsApiGetNotificationTemplateVariablesV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NotificationsApiFp(this.configuration).getNotificationTemplateVariablesV1(requestParameters.key, requestParameters.medium, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2624,81 +2624,81 @@ export class NotificationsV1Api extends BaseAPI {
      * @summary Get notification template context
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotificationsV1Api
+     * @memberof NotificationsApi
      */
     public getNotificationsTemplateContextV1(axiosOptions?: RawAxiosRequestConfig) {
-        return NotificationsV1ApiFp(this.configuration).getNotificationsTemplateContextV1(axiosOptions).then((request) => request(this.axios, this.basePath));
+        return NotificationsApiFp(this.configuration).getNotificationsTemplateContextV1(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Retrieve a list of sender email addresses and their verification statuses
      * @summary List from addresses
-     * @param {NotificationsV1ApiListFromAddressesV1Request} requestParameters Request parameters.
+     * @param {NotificationsApiListFromAddressesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotificationsV1Api
+     * @memberof NotificationsApi
      */
-    public listFromAddressesV1(requestParameters: NotificationsV1ApiListFromAddressesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return NotificationsV1ApiFp(this.configuration).listFromAddressesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listFromAddressesV1(requestParameters: NotificationsApiListFromAddressesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return NotificationsApiFp(this.configuration).listFromAddressesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This lists the default templates used for notifications, such as emails from IdentityNow.
      * @summary List notification template defaults
-     * @param {NotificationsV1ApiListNotificationTemplateDefaultsV1Request} requestParameters Request parameters.
+     * @param {NotificationsApiListNotificationTemplateDefaultsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotificationsV1Api
+     * @memberof NotificationsApi
      */
-    public listNotificationTemplateDefaultsV1(requestParameters: NotificationsV1ApiListNotificationTemplateDefaultsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return NotificationsV1ApiFp(this.configuration).listNotificationTemplateDefaultsV1(requestParameters.limit, requestParameters.offset, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listNotificationTemplateDefaultsV1(requestParameters: NotificationsApiListNotificationTemplateDefaultsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return NotificationsApiFp(this.configuration).listNotificationTemplateDefaultsV1(requestParameters.limit, requestParameters.offset, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This lists the templates that you have modified for your site.
      * @summary List notification templates
-     * @param {NotificationsV1ApiListNotificationTemplatesV1Request} requestParameters Request parameters.
+     * @param {NotificationsApiListNotificationTemplatesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotificationsV1Api
+     * @memberof NotificationsApi
      */
-    public listNotificationTemplatesV1(requestParameters: NotificationsV1ApiListNotificationTemplatesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return NotificationsV1ApiFp(this.configuration).listNotificationTemplatesV1(requestParameters.limit, requestParameters.offset, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listNotificationTemplatesV1(requestParameters: NotificationsApiListNotificationTemplatesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return NotificationsApiFp(this.configuration).listNotificationTemplatesV1(requestParameters.limit, requestParameters.offset, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Change the MAIL FROM domain of an AWS SES email identity and provide the MX and TXT records to be placed in the caller\'s DNS
      * @summary Change mail from domain
-     * @param {NotificationsV1ApiPutMailFromAttributesV1Request} requestParameters Request parameters.
+     * @param {NotificationsApiPutMailFromAttributesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotificationsV1Api
+     * @memberof NotificationsApi
      */
-    public putMailFromAttributesV1(requestParameters: NotificationsV1ApiPutMailFromAttributesV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NotificationsV1ApiFp(this.configuration).putMailFromAttributesV1(requestParameters.mailfromattributesdtoV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putMailFromAttributesV1(requestParameters: NotificationsApiPutMailFromAttributesV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NotificationsApiFp(this.configuration).putMailFromAttributesV1(requestParameters.mailfromattributesdto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Send a Test Notification
      * @summary Send test notification
-     * @param {NotificationsV1ApiSendTestNotificationV1Request} requestParameters Request parameters.
+     * @param {NotificationsApiSendTestNotificationV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof NotificationsV1Api
+     * @memberof NotificationsApi
      */
-    public sendTestNotificationV1(requestParameters: NotificationsV1ApiSendTestNotificationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NotificationsV1ApiFp(this.configuration).sendTestNotificationV1(requestParameters.sendtestnotificationrequestdtoV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public sendTestNotificationV1(requestParameters: NotificationsApiSendTestNotificationV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NotificationsApiFp(this.configuration).sendTestNotificationV1(requestParameters.sendtestnotificationrequestdto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
 /**
  * @export
  */
-export const GetNotificationTemplateVariablesV1MediumV1 = {
+export const GetNotificationTemplateVariablesV1MediumEnum = {
     Email: 'EMAIL',
     Slack: 'SLACK',
     Teams: 'TEAMS'
 } as const;
-export type GetNotificationTemplateVariablesV1MediumV1 = typeof GetNotificationTemplateVariablesV1MediumV1[keyof typeof GetNotificationTemplateVariablesV1MediumV1];
+export type GetNotificationTemplateVariablesV1MediumEnum = typeof GetNotificationTemplateVariablesV1MediumEnum[keyof typeof GetNotificationTemplateVariablesV1MediumEnum];
 
 

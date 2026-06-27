@@ -1,15 +1,15 @@
 ---
-id: v1-activationworkflowstatus-v1
-title: ActivationworkflowstatusV1
-pagination_label: ActivationworkflowstatusV1
-sidebar_label: ActivationworkflowstatusV1
+id: v1-activationworkflowstatus
+title: Activationworkflowstatus
+pagination_label: Activationworkflowstatus
+sidebar_label: Activationworkflowstatus
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ActivationworkflowstatusV1', 'v1ActivationworkflowstatusV1']
-slug: /tools/sdk/typescript/jit_activations/models/activationworkflowstatus-v1
-tags: ['SDK', 'Software Development Kit', 'ActivationworkflowstatusV1', 'v1ActivationworkflowstatusV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Activationworkflowstatus', 'v1Activationworkflowstatus']
+slug: /tools/sdk/typescript/jit_activations/models/activationworkflowstatus
+tags: ['SDK', 'Software Development Kit', 'Activationworkflowstatus', 'v1Activationworkflowstatus']
 ---
 
-# ActivationworkflowstatusV1
+# Activationworkflowstatus
 
 ## Enum
 

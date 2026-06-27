@@ -1,19 +1,19 @@
 ---
-id: v1-list-tags-v1401-response-v1
-title: ListTagsV1401ResponseV1
-pagination_label: ListTagsV1401ResponseV1
-sidebar_label: ListTagsV1401ResponseV1
+id: v1-list-tags-v1401-response
+title: ListTagsV1401Response
+pagination_label: ListTagsV1401Response
+sidebar_label: ListTagsV1401Response
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ListTagsV1401ResponseV1', 'v1ListTagsV1401ResponseV1']
-slug: /tools/sdk/typescript/tags/models/list-tags-v1401-response-v1
-tags: ['SDK', 'Software Development Kit', 'ListTagsV1401ResponseV1', 'v1ListTagsV1401ResponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ListTagsV1401Response', 'v1ListTagsV1401Response']
+slug: /tools/sdk/typescript/tags/models/list-tags-v1401-response
+tags: ['SDK', 'Software Development Kit', 'ListTagsV1401Response', 'v1ListTagsV1401Response']
 ---
 
-# ListTagsV1401ResponseV1
+# ListTagsV1401Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**error** | **(optional)** **any** | A message describing the error | [default to undefined]
+**error** | **(optional)** `any` | A message describing the error | [default to undefined]
 

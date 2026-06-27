@@ -1,20 +1,20 @@
 ---
-id: v1-accountitemref-v1
-title: AccountitemrefV1
-pagination_label: AccountitemrefV1
-sidebar_label: AccountitemrefV1
+id: v1-accountitemref
+title: Accountitemref
+pagination_label: Accountitemref
+sidebar_label: Accountitemref
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccountitemrefV1', 'v1AccountitemrefV1']
-slug: /tools/sdk/typescript/access_requests/models/accountitemref-v1
-tags: ['SDK', 'Software Development Kit', 'AccountitemrefV1', 'v1AccountitemrefV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accountitemref', 'v1Accountitemref']
+slug: /tools/sdk/typescript/access_requests/models/accountitemref
+tags: ['SDK', 'Software Development Kit', 'Accountitemref', 'v1Accountitemref']
 ---
 
-# AccountitemrefV1
+# Accountitemref
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**accountUuid** | **(optional)** **string** | The uuid for the account, available under the \'objectguid\' attribute | [default to undefined]
-**nativeIdentity** | **(optional)** **string** | The \'distinguishedName\' attribute for the account | [default to undefined]
+**accountUuid** | **(optional)** `string` | The uuid for the account, available under the \'objectguid\' attribute | [default to undefined]
+**nativeIdentity** | **(optional)** `string` | The \'distinguishedName\' attribute for the account | [default to undefined]
 

@@ -1,22 +1,22 @@
 ---
-id: v1-accesssummary-v1
-title: AccesssummaryV1
-pagination_label: AccesssummaryV1
-sidebar_label: AccesssummaryV1
+id: v1-accesssummary
+title: Accesssummary
+pagination_label: Accesssummary
+sidebar_label: Accesssummary
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccesssummaryV1', 'v1AccesssummaryV1']
-slug: /tools/sdk/typescript/certifications/models/accesssummary-v1
-tags: ['SDK', 'Software Development Kit', 'AccesssummaryV1', 'v1AccesssummaryV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accesssummary', 'v1Accesssummary']
+slug: /tools/sdk/typescript/certifications/models/accesssummary
+tags: ['SDK', 'Software Development Kit', 'Accesssummary', 'v1Accesssummary']
 ---
 
-# AccesssummaryV1
+# Accesssummary
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**access** | **(optional)** **AccesssummaryAccessV1** |  | [default to undefined]
-**entitlement** | **(optional)** **ReviewableentitlementV1** |  | [default to undefined]
-**accessProfile** | **(optional)** **ReviewableaccessprofileV1** |  | [default to undefined]
-**role** | **(optional)** **ReviewableroleV1** |  | [default to undefined]
+**access** | **(optional)** `AccesssummaryAccess` |  | [default to undefined]
+**entitlement** | **(optional)** `Reviewableentitlement` |  | [default to undefined]
+**accessProfile** | **(optional)** `Reviewableaccessprofile` |  | [default to undefined]
+**role** | **(optional)** `Reviewablerole` |  | [default to undefined]
 

@@ -4,16 +4,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_peer_group_strategies/methods/iai-peer-group-strategies#get-peer-group-outliers-v1
       source: |
-        import { IAIPeerGroupStrategiesV1Api } from 'sailpoint-api-client';
+        import { IAIPeerGroupStrategiesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IAIPeerGroupStrategiesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new IAIPeerGroupStrategiesApi(configuration);
         const strategy: string = 'entitlement'; // 'entitlement' | The strategy used to create peer groups. Currently, \'entitlement\' is supported. (default to undefined)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.getPeerGroupOutliersV1(strategy);
+        const result = await apiInstance.getPeerGroupOutliersV1({ strategy: strategy });
         console.log(result);

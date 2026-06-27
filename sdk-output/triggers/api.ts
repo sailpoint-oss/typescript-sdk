@@ -26,2134 +26,2134 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * Identity who approved the access item request.
  * @export
- * @interface AccessitemapproverdtoV1
+ * @interface Accessitemapproverdto
  */
-export interface AccessitemapproverdtoV1 {
+export interface Accessitemapproverdto {
     /**
      * DTO type of identity who approved the access item request.
      * @type {string}
-     * @memberof AccessitemapproverdtoV1
+     * @memberof Accessitemapproverdto
      */
-    'type'?: AccessitemapproverdtoV1TypeV1;
+    'type'?: AccessitemapproverdtoTypeEnum;
     /**
      * ID of identity who approved the access item request.
      * @type {string}
-     * @memberof AccessitemapproverdtoV1
+     * @memberof Accessitemapproverdto
      */
     'id'?: string;
     /**
      * Human-readable display name of identity who approved the access item request.
      * @type {string}
-     * @memberof AccessitemapproverdtoV1
+     * @memberof Accessitemapproverdto
      */
     'name'?: string;
 }
 
-export const AccessitemapproverdtoV1TypeV1 = {
+export const AccessitemapproverdtoTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type AccessitemapproverdtoV1TypeV1 = typeof AccessitemapproverdtoV1TypeV1[keyof typeof AccessitemapproverdtoV1TypeV1];
+export type AccessitemapproverdtoTypeEnum = typeof AccessitemapproverdtoTypeEnum[keyof typeof AccessitemapproverdtoTypeEnum];
 
 /**
  * Identity the access item is requested for.
  * @export
- * @interface AccessitemrequestedfordtoV1
+ * @interface Accessitemrequestedfordto
  */
-export interface AccessitemrequestedfordtoV1 {
+export interface Accessitemrequestedfordto {
     /**
      * DTO type of identity the access item is requested for.
      * @type {string}
-     * @memberof AccessitemrequestedfordtoV1
+     * @memberof Accessitemrequestedfordto
      */
-    'type'?: AccessitemrequestedfordtoV1TypeV1;
+    'type'?: AccessitemrequestedfordtoTypeEnum;
     /**
      * ID of identity the access item is requested for.
      * @type {string}
-     * @memberof AccessitemrequestedfordtoV1
+     * @memberof Accessitemrequestedfordto
      */
     'id'?: string;
     /**
      * Human-readable display name of identity the access item is requested for.
      * @type {string}
-     * @memberof AccessitemrequestedfordtoV1
+     * @memberof Accessitemrequestedfordto
      */
     'name'?: string;
 }
 
-export const AccessitemrequestedfordtoV1TypeV1 = {
+export const AccessitemrequestedfordtoTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type AccessitemrequestedfordtoV1TypeV1 = typeof AccessitemrequestedfordtoV1TypeV1[keyof typeof AccessitemrequestedfordtoV1TypeV1];
+export type AccessitemrequestedfordtoTypeEnum = typeof AccessitemrequestedfordtoTypeEnum[keyof typeof AccessitemrequestedfordtoTypeEnum];
 
 /**
  * Access item requester\'s identity.
  * @export
- * @interface AccessitemrequesterdtoV1
+ * @interface Accessitemrequesterdto
  */
-export interface AccessitemrequesterdtoV1 {
+export interface Accessitemrequesterdto {
     /**
      * Access item requester\'s DTO type.
      * @type {string}
-     * @memberof AccessitemrequesterdtoV1
+     * @memberof Accessitemrequesterdto
      */
-    'type'?: AccessitemrequesterdtoV1TypeV1;
+    'type'?: AccessitemrequesterdtoTypeEnum;
     /**
      * Access item requester\'s identity ID.
      * @type {string}
-     * @memberof AccessitemrequesterdtoV1
+     * @memberof Accessitemrequesterdto
      */
     'id'?: string;
     /**
      * Access item owner\'s human-readable display name.
      * @type {string}
-     * @memberof AccessitemrequesterdtoV1
+     * @memberof Accessitemrequesterdto
      */
     'name'?: string;
 }
 
-export const AccessitemrequesterdtoV1TypeV1 = {
+export const AccessitemrequesterdtoTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type AccessitemrequesterdtoV1TypeV1 = typeof AccessitemrequesterdtoV1TypeV1[keyof typeof AccessitemrequesterdtoV1TypeV1];
+export type AccessitemrequesterdtoTypeEnum = typeof AccessitemrequesterdtoTypeEnum[keyof typeof AccessitemrequesterdtoTypeEnum];
 
 /**
  * 
  * @export
- * @interface Accessrequestdynamicapprover2V1
+ * @interface Accessrequestdynamicapprover
  */
-export interface Accessrequestdynamicapprover2V1 {
+export interface Accessrequestdynamicapprover {
+    /**
+     * The unique ID of the access request object. Can be used with the [access request status endpoint](https://developer.sailpoint.com/idn/api/beta/list-access-request-status) to get the status of the request. 
+     * @type {string}
+     * @memberof Accessrequestdynamicapprover
+     */
+    'accessRequestId': string;
+    /**
+     * Identities access was requested for.
+     * @type {Array<Accessitemrequestedfordto>}
+     * @memberof Accessrequestdynamicapprover
+     */
+    'requestedFor': Array<Accessitemrequestedfordto>;
+    /**
+     * The access items that are being requested.
+     * @type {Array<AccessrequestdynamicapproverRequestedItemsInner>}
+     * @memberof Accessrequestdynamicapprover
+     */
+    'requestedItems': Array<AccessrequestdynamicapproverRequestedItemsInner>;
+    /**
+     * 
+     * @type {Accessitemrequesterdto}
+     * @memberof Accessrequestdynamicapprover
+     */
+    'requestedBy': Accessitemrequesterdto;
+}
+/**
+ * 
+ * @export
+ * @interface Accessrequestdynamicapprover2
+ */
+export interface Accessrequestdynamicapprover2 {
     /**
      * The unique ID of the identity to add to the approver list for the access request.
      * @type {string}
-     * @memberof Accessrequestdynamicapprover2V1
+     * @memberof Accessrequestdynamicapprover2
      */
     'id': string;
     /**
      * The name of the identity to add to the approver list for the access request.
      * @type {string}
-     * @memberof Accessrequestdynamicapprover2V1
+     * @memberof Accessrequestdynamicapprover2
      */
     'name': string;
     /**
      * The type of object being referenced.
      * @type {string}
-     * @memberof Accessrequestdynamicapprover2V1
+     * @memberof Accessrequestdynamicapprover2
      */
-    'type': Accessrequestdynamicapprover2V1TypeV1;
+    'type': Accessrequestdynamicapprover2TypeEnum;
 }
 
-export const Accessrequestdynamicapprover2V1TypeV1 = {
+export const Accessrequestdynamicapprover2TypeEnum = {
     Identity: 'IDENTITY',
     GovernanceGroup: 'GOVERNANCE_GROUP'
 } as const;
 
-export type Accessrequestdynamicapprover2V1TypeV1 = typeof Accessrequestdynamicapprover2V1TypeV1[keyof typeof Accessrequestdynamicapprover2V1TypeV1];
+export type Accessrequestdynamicapprover2TypeEnum = typeof Accessrequestdynamicapprover2TypeEnum[keyof typeof Accessrequestdynamicapprover2TypeEnum];
 
 /**
  * 
  * @export
- * @interface AccessrequestdynamicapproverRequestedItemsInnerV1
+ * @interface AccessrequestdynamicapproverRequestedItemsInner
  */
-export interface AccessrequestdynamicapproverRequestedItemsInnerV1 {
+export interface AccessrequestdynamicapproverRequestedItemsInner {
     /**
      * The unique ID of the access item.
      * @type {string}
-     * @memberof AccessrequestdynamicapproverRequestedItemsInnerV1
+     * @memberof AccessrequestdynamicapproverRequestedItemsInner
      */
     'id': string;
     /**
      * Human friendly name of the access item.
      * @type {string}
-     * @memberof AccessrequestdynamicapproverRequestedItemsInnerV1
+     * @memberof AccessrequestdynamicapproverRequestedItemsInner
      */
     'name': string;
     /**
      * Extended description of the access item.
      * @type {string}
-     * @memberof AccessrequestdynamicapproverRequestedItemsInnerV1
+     * @memberof AccessrequestdynamicapproverRequestedItemsInner
      */
     'description'?: string | null;
     /**
      * The type of access item being requested.
      * @type {string}
-     * @memberof AccessrequestdynamicapproverRequestedItemsInnerV1
+     * @memberof AccessrequestdynamicapproverRequestedItemsInner
      */
-    'type': AccessrequestdynamicapproverRequestedItemsInnerV1TypeV1;
+    'type': AccessrequestdynamicapproverRequestedItemsInnerTypeEnum;
     /**
      * Grant or revoke the access item
      * @type {string}
-     * @memberof AccessrequestdynamicapproverRequestedItemsInnerV1
+     * @memberof AccessrequestdynamicapproverRequestedItemsInner
      */
-    'operation': AccessrequestdynamicapproverRequestedItemsInnerV1OperationV1;
+    'operation': AccessrequestdynamicapproverRequestedItemsInnerOperationEnum;
     /**
      * A comment from the requestor on why the access is needed.
      * @type {string}
-     * @memberof AccessrequestdynamicapproverRequestedItemsInnerV1
+     * @memberof AccessrequestdynamicapproverRequestedItemsInner
      */
     'comment'?: string | null;
 }
 
-export const AccessrequestdynamicapproverRequestedItemsInnerV1TypeV1 = {
+export const AccessrequestdynamicapproverRequestedItemsInnerTypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE',
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type AccessrequestdynamicapproverRequestedItemsInnerV1TypeV1 = typeof AccessrequestdynamicapproverRequestedItemsInnerV1TypeV1[keyof typeof AccessrequestdynamicapproverRequestedItemsInnerV1TypeV1];
-export const AccessrequestdynamicapproverRequestedItemsInnerV1OperationV1 = {
+export type AccessrequestdynamicapproverRequestedItemsInnerTypeEnum = typeof AccessrequestdynamicapproverRequestedItemsInnerTypeEnum[keyof typeof AccessrequestdynamicapproverRequestedItemsInnerTypeEnum];
+export const AccessrequestdynamicapproverRequestedItemsInnerOperationEnum = {
     Add: 'Add',
     Remove: 'Remove'
 } as const;
 
-export type AccessrequestdynamicapproverRequestedItemsInnerV1OperationV1 = typeof AccessrequestdynamicapproverRequestedItemsInnerV1OperationV1[keyof typeof AccessrequestdynamicapproverRequestedItemsInnerV1OperationV1];
+export type AccessrequestdynamicapproverRequestedItemsInnerOperationEnum = typeof AccessrequestdynamicapproverRequestedItemsInnerOperationEnum[keyof typeof AccessrequestdynamicapproverRequestedItemsInnerOperationEnum];
 
 /**
  * 
  * @export
- * @interface AccessrequestdynamicapproverV1
+ * @interface Accessrequestpostapproval
  */
-export interface AccessrequestdynamicapproverV1 {
+export interface Accessrequestpostapproval {
     /**
-     * The unique ID of the access request object. Can be used with the [access request status endpoint](https://developer.sailpoint.com/idn/api/beta/list-access-request-status) to get the status of the request. 
+     * The unique ID of the access request.
      * @type {string}
-     * @memberof AccessrequestdynamicapproverV1
+     * @memberof Accessrequestpostapproval
      */
     'accessRequestId': string;
     /**
      * Identities access was requested for.
-     * @type {Array<AccessitemrequestedfordtoV1>}
-     * @memberof AccessrequestdynamicapproverV1
+     * @type {Array<Accessitemrequestedfordto>}
+     * @memberof Accessrequestpostapproval
      */
-    'requestedFor': Array<AccessitemrequestedfordtoV1>;
+    'requestedFor': Array<Accessitemrequestedfordto>;
     /**
-     * The access items that are being requested.
-     * @type {Array<AccessrequestdynamicapproverRequestedItemsInnerV1>}
-     * @memberof AccessrequestdynamicapproverV1
+     * Details on the outcome of each access item.
+     * @type {Array<AccessrequestpostapprovalRequestedItemsStatusInner>}
+     * @memberof Accessrequestpostapproval
      */
-    'requestedItems': Array<AccessrequestdynamicapproverRequestedItemsInnerV1>;
+    'requestedItemsStatus': Array<AccessrequestpostapprovalRequestedItemsStatusInner>;
     /**
      * 
-     * @type {AccessitemrequesterdtoV1}
-     * @memberof AccessrequestdynamicapproverV1
+     * @type {Accessitemrequesterdto}
+     * @memberof Accessrequestpostapproval
      */
-    'requestedBy': AccessitemrequesterdtoV1;
+    'requestedBy': Accessitemrequesterdto;
 }
-/**
- * The identity of the approver.
- * @export
- * @interface AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApproverV1
- */
-export interface AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApproverV1 {
-    /**
-     * The type of object that is referenced
-     * @type {string}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApproverV1
-     */
-    'type': AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApproverV1TypeV1;
-    /**
-     * ID of identity who approved the access item request.
-     * @type {string}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApproverV1
-     */
-    'id': string;
-    /**
-     * Human-readable display name of identity who approved the access item request.
-     * @type {string}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApproverV1
-     */
-    'name': string;
-}
-
-export const AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApproverV1TypeV1 = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApproverV1TypeV1 = typeof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApproverV1TypeV1[keyof typeof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApproverV1TypeV1];
-
 /**
  * 
  * @export
- * @interface AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerV1
+ * @interface AccessrequestpostapprovalRequestedItemsStatusInner
  */
-export interface AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerV1 {
-    /**
-     * A comment left by the approver.
-     * @type {string}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerV1
-     */
-    'approvalComment'?: string | null;
-    /**
-     * The final decision of the approver.
-     * @type {string}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerV1
-     */
-    'approvalDecision': AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerV1ApprovalDecisionV1;
-    /**
-     * The name of the approver
-     * @type {string}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerV1
-     */
-    'approverName': string;
-    /**
-     * 
-     * @type {AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApproverV1}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerV1
-     */
-    'approver': AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApproverV1;
-}
-
-export const AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerV1ApprovalDecisionV1 = {
-    Approved: 'APPROVED',
-    Denied: 'DENIED'
-} as const;
-
-export type AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerV1ApprovalDecisionV1 = typeof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerV1ApprovalDecisionV1[keyof typeof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerV1ApprovalDecisionV1];
-
-/**
- * 
- * @export
- * @interface AccessrequestpostapprovalRequestedItemsStatusInnerV1
- */
-export interface AccessrequestpostapprovalRequestedItemsStatusInnerV1 {
+export interface AccessrequestpostapprovalRequestedItemsStatusInner {
     /**
      * The unique ID of the access item being requested.
      * @type {string}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerV1
+     * @memberof AccessrequestpostapprovalRequestedItemsStatusInner
      */
     'id': string;
     /**
      * The human friendly name of the access item.
      * @type {string}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerV1
+     * @memberof AccessrequestpostapprovalRequestedItemsStatusInner
      */
     'name': string;
     /**
      * Detailed description of the access item.
      * @type {string}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerV1
+     * @memberof AccessrequestpostapprovalRequestedItemsStatusInner
      */
     'description'?: string | null;
     /**
      * The type of access item.
      * @type {string}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerV1
+     * @memberof AccessrequestpostapprovalRequestedItemsStatusInner
      */
-    'type': AccessrequestpostapprovalRequestedItemsStatusInnerV1TypeV1;
+    'type': AccessrequestpostapprovalRequestedItemsStatusInnerTypeEnum;
     /**
      * The action to perform on the access item.
      * @type {string}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerV1
+     * @memberof AccessrequestpostapprovalRequestedItemsStatusInner
      */
-    'operation': AccessrequestpostapprovalRequestedItemsStatusInnerV1OperationV1;
+    'operation': AccessrequestpostapprovalRequestedItemsStatusInnerOperationEnum;
     /**
      * A comment from the identity requesting the access.
      * @type {string}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerV1
+     * @memberof AccessrequestpostapprovalRequestedItemsStatusInner
      */
     'comment'?: string | null;
     /**
      * Additional customer defined metadata about the access item.
      * @type {{ [key: string]: any; }}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerV1
+     * @memberof AccessrequestpostapprovalRequestedItemsStatusInner
      */
     'clientMetadata'?: { [key: string]: any; } | null;
     /**
      * A list of one or more approvers for the access request.
-     * @type {Array<AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerV1>}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerV1
+     * @type {Array<AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner>}
+     * @memberof AccessrequestpostapprovalRequestedItemsStatusInner
      */
-    'approvalInfo': Array<AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerV1>;
+    'approvalInfo': Array<AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner>;
 }
 
-export const AccessrequestpostapprovalRequestedItemsStatusInnerV1TypeV1 = {
+export const AccessrequestpostapprovalRequestedItemsStatusInnerTypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE',
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type AccessrequestpostapprovalRequestedItemsStatusInnerV1TypeV1 = typeof AccessrequestpostapprovalRequestedItemsStatusInnerV1TypeV1[keyof typeof AccessrequestpostapprovalRequestedItemsStatusInnerV1TypeV1];
-export const AccessrequestpostapprovalRequestedItemsStatusInnerV1OperationV1 = {
+export type AccessrequestpostapprovalRequestedItemsStatusInnerTypeEnum = typeof AccessrequestpostapprovalRequestedItemsStatusInnerTypeEnum[keyof typeof AccessrequestpostapprovalRequestedItemsStatusInnerTypeEnum];
+export const AccessrequestpostapprovalRequestedItemsStatusInnerOperationEnum = {
     Add: 'Add',
     Remove: 'Remove'
 } as const;
 
-export type AccessrequestpostapprovalRequestedItemsStatusInnerV1OperationV1 = typeof AccessrequestpostapprovalRequestedItemsStatusInnerV1OperationV1[keyof typeof AccessrequestpostapprovalRequestedItemsStatusInnerV1OperationV1];
+export type AccessrequestpostapprovalRequestedItemsStatusInnerOperationEnum = typeof AccessrequestpostapprovalRequestedItemsStatusInnerOperationEnum[keyof typeof AccessrequestpostapprovalRequestedItemsStatusInnerOperationEnum];
 
 /**
  * 
  * @export
- * @interface AccessrequestpostapprovalV1
+ * @interface AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner
  */
-export interface AccessrequestpostapprovalV1 {
+export interface AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner {
+    /**
+     * A comment left by the approver.
+     * @type {string}
+     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner
+     */
+    'approvalComment'?: string | null;
+    /**
+     * The final decision of the approver.
+     * @type {string}
+     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner
+     */
+    'approvalDecision': AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApprovalDecisionEnum;
+    /**
+     * The name of the approver
+     * @type {string}
+     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner
+     */
+    'approverName': string;
+    /**
+     * 
+     * @type {AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApprover}
+     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner
+     */
+    'approver': AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApprover;
+}
+
+export const AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApprovalDecisionEnum = {
+    Approved: 'APPROVED',
+    Denied: 'DENIED'
+} as const;
+
+export type AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApprovalDecisionEnum = typeof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApprovalDecisionEnum[keyof typeof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApprovalDecisionEnum];
+
+/**
+ * The identity of the approver.
+ * @export
+ * @interface AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApprover
+ */
+export interface AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApprover {
+    /**
+     * The type of object that is referenced
+     * @type {string}
+     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApprover
+     */
+    'type': AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApproverTypeEnum;
+    /**
+     * ID of identity who approved the access item request.
+     * @type {string}
+     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApprover
+     */
+    'id': string;
+    /**
+     * Human-readable display name of identity who approved the access item request.
+     * @type {string}
+     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApprover
+     */
+    'name': string;
+}
+
+export const AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApproverTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApproverTypeEnum = typeof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApproverTypeEnum[keyof typeof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApproverTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface Accessrequestpreapproval
+ */
+export interface Accessrequestpreapproval {
     /**
      * The unique ID of the access request.
      * @type {string}
-     * @memberof AccessrequestpostapprovalV1
+     * @memberof Accessrequestpreapproval
      */
     'accessRequestId': string;
     /**
      * Identities access was requested for.
-     * @type {Array<AccessitemrequestedfordtoV1>}
-     * @memberof AccessrequestpostapprovalV1
+     * @type {Array<Accessitemrequestedfordto>}
+     * @memberof Accessrequestpreapproval
      */
-    'requestedFor': Array<AccessitemrequestedfordtoV1>;
+    'requestedFor': Array<Accessitemrequestedfordto>;
     /**
-     * Details on the outcome of each access item.
-     * @type {Array<AccessrequestpostapprovalRequestedItemsStatusInnerV1>}
-     * @memberof AccessrequestpostapprovalV1
+     * Details of the access items being requested.
+     * @type {Array<AccessrequestpreapprovalRequestedItemsInner>}
+     * @memberof Accessrequestpreapproval
      */
-    'requestedItemsStatus': Array<AccessrequestpostapprovalRequestedItemsStatusInnerV1>;
+    'requestedItems': Array<AccessrequestpreapprovalRequestedItemsInner>;
     /**
      * 
-     * @type {AccessitemrequesterdtoV1}
-     * @memberof AccessrequestpostapprovalV1
+     * @type {Accessitemrequesterdto}
+     * @memberof Accessrequestpreapproval
      */
-    'requestedBy': AccessitemrequesterdtoV1;
+    'requestedBy': Accessitemrequesterdto;
 }
 /**
  * 
  * @export
- * @interface Accessrequestpreapproval2V1
+ * @interface Accessrequestpreapproval2
  */
-export interface Accessrequestpreapproval2V1 {
+export interface Accessrequestpreapproval2 {
     /**
      * Whether or not to approve the access request.
      * @type {boolean}
-     * @memberof Accessrequestpreapproval2V1
+     * @memberof Accessrequestpreapproval2
      */
     'approved': boolean;
     /**
      * A comment about the decision to approve or deny the request.
      * @type {string}
-     * @memberof Accessrequestpreapproval2V1
+     * @memberof Accessrequestpreapproval2
      */
     'comment': string;
     /**
      * The name of the entity that approved or denied the request.
      * @type {string}
-     * @memberof Accessrequestpreapproval2V1
+     * @memberof Accessrequestpreapproval2
      */
     'approver': string;
 }
 /**
  * 
  * @export
- * @interface AccessrequestpreapprovalRequestedItemsInnerV1
+ * @interface AccessrequestpreapprovalRequestedItemsInner
  */
-export interface AccessrequestpreapprovalRequestedItemsInnerV1 {
+export interface AccessrequestpreapprovalRequestedItemsInner {
     /**
      * The unique ID of the access item being requested.
      * @type {string}
-     * @memberof AccessrequestpreapprovalRequestedItemsInnerV1
+     * @memberof AccessrequestpreapprovalRequestedItemsInner
      */
     'id': string;
     /**
      * The human friendly name of the access item.
      * @type {string}
-     * @memberof AccessrequestpreapprovalRequestedItemsInnerV1
+     * @memberof AccessrequestpreapprovalRequestedItemsInner
      */
     'name': string;
     /**
      * Detailed description of the access item.
      * @type {string}
-     * @memberof AccessrequestpreapprovalRequestedItemsInnerV1
+     * @memberof AccessrequestpreapprovalRequestedItemsInner
      */
     'description'?: string | null;
     /**
      * The type of access item.
      * @type {string}
-     * @memberof AccessrequestpreapprovalRequestedItemsInnerV1
+     * @memberof AccessrequestpreapprovalRequestedItemsInner
      */
-    'type': AccessrequestpreapprovalRequestedItemsInnerV1TypeV1;
+    'type': AccessrequestpreapprovalRequestedItemsInnerTypeEnum;
     /**
      * The action to perform on the access item.
      * @type {string}
-     * @memberof AccessrequestpreapprovalRequestedItemsInnerV1
+     * @memberof AccessrequestpreapprovalRequestedItemsInner
      */
-    'operation': AccessrequestpreapprovalRequestedItemsInnerV1OperationV1;
+    'operation': AccessrequestpreapprovalRequestedItemsInnerOperationEnum;
     /**
      * A comment from the identity requesting the access.
      * @type {string}
-     * @memberof AccessrequestpreapprovalRequestedItemsInnerV1
+     * @memberof AccessrequestpreapprovalRequestedItemsInner
      */
     'comment'?: string | null;
 }
 
-export const AccessrequestpreapprovalRequestedItemsInnerV1TypeV1 = {
+export const AccessrequestpreapprovalRequestedItemsInnerTypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE',
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type AccessrequestpreapprovalRequestedItemsInnerV1TypeV1 = typeof AccessrequestpreapprovalRequestedItemsInnerV1TypeV1[keyof typeof AccessrequestpreapprovalRequestedItemsInnerV1TypeV1];
-export const AccessrequestpreapprovalRequestedItemsInnerV1OperationV1 = {
+export type AccessrequestpreapprovalRequestedItemsInnerTypeEnum = typeof AccessrequestpreapprovalRequestedItemsInnerTypeEnum[keyof typeof AccessrequestpreapprovalRequestedItemsInnerTypeEnum];
+export const AccessrequestpreapprovalRequestedItemsInnerOperationEnum = {
     Add: 'Add',
     Remove: 'Remove'
 } as const;
 
-export type AccessrequestpreapprovalRequestedItemsInnerV1OperationV1 = typeof AccessrequestpreapprovalRequestedItemsInnerV1OperationV1[keyof typeof AccessrequestpreapprovalRequestedItemsInnerV1OperationV1];
+export type AccessrequestpreapprovalRequestedItemsInnerOperationEnum = typeof AccessrequestpreapprovalRequestedItemsInnerOperationEnum[keyof typeof AccessrequestpreapprovalRequestedItemsInnerOperationEnum];
 
 /**
  * 
  * @export
- * @interface AccessrequestpreapprovalV1
+ * @interface Accountaggregationcompleted
  */
-export interface AccessrequestpreapprovalV1 {
-    /**
-     * The unique ID of the access request.
-     * @type {string}
-     * @memberof AccessrequestpreapprovalV1
-     */
-    'accessRequestId': string;
-    /**
-     * Identities access was requested for.
-     * @type {Array<AccessitemrequestedfordtoV1>}
-     * @memberof AccessrequestpreapprovalV1
-     */
-    'requestedFor': Array<AccessitemrequestedfordtoV1>;
-    /**
-     * Details of the access items being requested.
-     * @type {Array<AccessrequestpreapprovalRequestedItemsInnerV1>}
-     * @memberof AccessrequestpreapprovalV1
-     */
-    'requestedItems': Array<AccessrequestpreapprovalRequestedItemsInnerV1>;
+export interface Accountaggregationcompleted {
     /**
      * 
-     * @type {AccessitemrequesterdtoV1}
-     * @memberof AccessrequestpreapprovalV1
+     * @type {AccountaggregationcompletedSource}
+     * @memberof Accountaggregationcompleted
      */
-    'requestedBy': AccessitemrequesterdtoV1;
-}
-/**
- * The source the accounts are being aggregated from.
- * @export
- * @interface AccountaggregationcompletedSourceV1
- */
-export interface AccountaggregationcompletedSourceV1 {
-    /**
-     * The DTO type of the source the accounts are being aggregated from.
-     * @type {string}
-     * @memberof AccountaggregationcompletedSourceV1
-     */
-    'type': AccountaggregationcompletedSourceV1TypeV1;
-    /**
-     * The ID of the source the accounts are being aggregated from.
-     * @type {string}
-     * @memberof AccountaggregationcompletedSourceV1
-     */
-    'id': string;
-    /**
-     * Display name of the source the accounts are being aggregated from.
-     * @type {string}
-     * @memberof AccountaggregationcompletedSourceV1
-     */
-    'name': string;
-}
-
-export const AccountaggregationcompletedSourceV1TypeV1 = {
-    Source: 'SOURCE'
-} as const;
-
-export type AccountaggregationcompletedSourceV1TypeV1 = typeof AccountaggregationcompletedSourceV1TypeV1[keyof typeof AccountaggregationcompletedSourceV1TypeV1];
-
-/**
- * Overall statistics about the account aggregation.
- * @export
- * @interface AccountaggregationcompletedStatsV1
- */
-export interface AccountaggregationcompletedStatsV1 {
-    /**
-     * The number of accounts which were scanned / iterated over.
-     * @type {number}
-     * @memberof AccountaggregationcompletedStatsV1
-     */
-    'scanned': number;
-    /**
-     * The number of accounts which existed before, but had no changes.
-     * @type {number}
-     * @memberof AccountaggregationcompletedStatsV1
-     */
-    'unchanged': number;
-    /**
-     * The number of accounts which existed before, but had changes.
-     * @type {number}
-     * @memberof AccountaggregationcompletedStatsV1
-     */
-    'changed': number;
-    /**
-     * The number of accounts which are new - have not existed before.
-     * @type {number}
-     * @memberof AccountaggregationcompletedStatsV1
-     */
-    'added': number;
-    /**
-     * The number accounts which existed before, but no longer exist (thus getting removed).
-     * @type {number}
-     * @memberof AccountaggregationcompletedStatsV1
-     */
-    'removed': number;
-}
-/**
- * 
- * @export
- * @interface AccountaggregationcompletedV1
- */
-export interface AccountaggregationcompletedV1 {
-    /**
-     * 
-     * @type {AccountaggregationcompletedSourceV1}
-     * @memberof AccountaggregationcompletedV1
-     */
-    'source': AccountaggregationcompletedSourceV1;
+    'source': AccountaggregationcompletedSource;
     /**
      * The overall status of the aggregation.
      * @type {string}
-     * @memberof AccountaggregationcompletedV1
+     * @memberof Accountaggregationcompleted
      */
-    'status': AccountaggregationcompletedV1StatusV1;
+    'status': AccountaggregationcompletedStatusEnum;
     /**
      * The date and time when the account aggregation started.
      * @type {string}
-     * @memberof AccountaggregationcompletedV1
+     * @memberof Accountaggregationcompleted
      */
     'started': string;
     /**
      * The date and time when the account aggregation finished.
      * @type {string}
-     * @memberof AccountaggregationcompletedV1
+     * @memberof Accountaggregationcompleted
      */
     'completed': string;
     /**
      * A list of errors that occurred during the aggregation.
      * @type {Array<string>}
-     * @memberof AccountaggregationcompletedV1
+     * @memberof Accountaggregationcompleted
      */
     'errors': Array<string> | null;
     /**
      * A list of warnings that occurred during the aggregation.
      * @type {Array<string>}
-     * @memberof AccountaggregationcompletedV1
+     * @memberof Accountaggregationcompleted
      */
     'warnings': Array<string> | null;
     /**
      * 
-     * @type {AccountaggregationcompletedStatsV1}
-     * @memberof AccountaggregationcompletedV1
+     * @type {AccountaggregationcompletedStats}
+     * @memberof Accountaggregationcompleted
      */
-    'stats': AccountaggregationcompletedStatsV1;
+    'stats': AccountaggregationcompletedStats;
 }
 
-export const AccountaggregationcompletedV1StatusV1 = {
+export const AccountaggregationcompletedStatusEnum = {
     Success: 'Success',
     Failed: 'Failed',
     Terminated: 'Terminated'
 } as const;
 
-export type AccountaggregationcompletedV1StatusV1 = typeof AccountaggregationcompletedV1StatusV1[keyof typeof AccountaggregationcompletedV1StatusV1];
+export type AccountaggregationcompletedStatusEnum = typeof AccountaggregationcompletedStatusEnum[keyof typeof AccountaggregationcompletedStatusEnum];
 
 /**
- * Details of the account where the attributes changed.
+ * The source the accounts are being aggregated from.
  * @export
- * @interface AccountattributeschangedAccountV1
+ * @interface AccountaggregationcompletedSource
  */
-export interface AccountattributeschangedAccountV1 {
+export interface AccountaggregationcompletedSource {
     /**
-     * SailPoint generated unique identifier.
+     * The DTO type of the source the accounts are being aggregated from.
      * @type {string}
-     * @memberof AccountattributeschangedAccountV1
+     * @memberof AccountaggregationcompletedSource
+     */
+    'type': AccountaggregationcompletedSourceTypeEnum;
+    /**
+     * The ID of the source the accounts are being aggregated from.
+     * @type {string}
+     * @memberof AccountaggregationcompletedSource
      */
     'id': string;
     /**
-     * The source\'s unique identifier for the account. UUID is generated by the source system.
+     * Display name of the source the accounts are being aggregated from.
      * @type {string}
-     * @memberof AccountattributeschangedAccountV1
-     */
-    'uuid': string | null;
-    /**
-     * Name of the account.
-     * @type {string}
-     * @memberof AccountattributeschangedAccountV1
-     */
-    'name': string;
-    /**
-     * Unique ID of the account on the source.
-     * @type {string}
-     * @memberof AccountattributeschangedAccountV1
-     */
-    'nativeIdentity': string;
-    /**
-     * The type of the account
-     * @type {string}
-     * @memberof AccountattributeschangedAccountV1
-     */
-    'type': AccountattributeschangedAccountV1TypeV1;
-}
-
-export const AccountattributeschangedAccountV1TypeV1 = {
-    Account: 'ACCOUNT'
-} as const;
-
-export type AccountattributeschangedAccountV1TypeV1 = typeof AccountattributeschangedAccountV1TypeV1[keyof typeof AccountattributeschangedAccountV1TypeV1];
-
-/**
- * @type AccountattributeschangedChangesInnerNewValueV1
- * The new value of the attribute.
- * @export
- */
-export type AccountattributeschangedChangesInnerNewValueV1 = Array<string | null> | boolean | string;
-
-/**
- * @type AccountattributeschangedChangesInnerOldValueV1
- * The previous value of the attribute.
- * @export
- */
-export type AccountattributeschangedChangesInnerOldValueV1 = Array<string | null> | boolean | string;
-
-/**
- * 
- * @export
- * @interface AccountattributeschangedChangesInnerV1
- */
-export interface AccountattributeschangedChangesInnerV1 {
-    /**
-     * The name of the attribute.
-     * @type {string}
-     * @memberof AccountattributeschangedChangesInnerV1
-     */
-    'attribute': string;
-    /**
-     * 
-     * @type {AccountattributeschangedChangesInnerOldValueV1}
-     * @memberof AccountattributeschangedChangesInnerV1
-     */
-    'oldValue': AccountattributeschangedChangesInnerOldValueV1 | null;
-    /**
-     * 
-     * @type {AccountattributeschangedChangesInnerNewValueV1}
-     * @memberof AccountattributeschangedChangesInnerV1
-     */
-    'newValue': AccountattributeschangedChangesInnerNewValueV1 | null;
-}
-/**
- * The identity whose account attributes were updated.
- * @export
- * @interface AccountattributeschangedIdentityV1
- */
-export interface AccountattributeschangedIdentityV1 {
-    /**
-     * DTO type of the identity whose account attributes were updated.
-     * @type {string}
-     * @memberof AccountattributeschangedIdentityV1
-     */
-    'type': AccountattributeschangedIdentityV1TypeV1;
-    /**
-     * ID of the identity whose account attributes were updated.
-     * @type {string}
-     * @memberof AccountattributeschangedIdentityV1
-     */
-    'id': string;
-    /**
-     * Display name of the identity whose account attributes were updated.
-     * @type {string}
-     * @memberof AccountattributeschangedIdentityV1
+     * @memberof AccountaggregationcompletedSource
      */
     'name': string;
 }
 
-export const AccountattributeschangedIdentityV1TypeV1 = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type AccountattributeschangedIdentityV1TypeV1 = typeof AccountattributeschangedIdentityV1TypeV1[keyof typeof AccountattributeschangedIdentityV1TypeV1];
-
-/**
- * The source that contains the account.
- * @export
- * @interface AccountattributeschangedSourceV1
- */
-export interface AccountattributeschangedSourceV1 {
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof AccountattributeschangedSourceV1
-     */
-    'id': string;
-    /**
-     * The type of object that is referenced
-     * @type {string}
-     * @memberof AccountattributeschangedSourceV1
-     */
-    'type': AccountattributeschangedSourceV1TypeV1;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof AccountattributeschangedSourceV1
-     */
-    'name': string;
-}
-
-export const AccountattributeschangedSourceV1TypeV1 = {
+export const AccountaggregationcompletedSourceTypeEnum = {
     Source: 'SOURCE'
 } as const;
 
-export type AccountattributeschangedSourceV1TypeV1 = typeof AccountattributeschangedSourceV1TypeV1[keyof typeof AccountattributeschangedSourceV1TypeV1];
+export type AccountaggregationcompletedSourceTypeEnum = typeof AccountaggregationcompletedSourceTypeEnum[keyof typeof AccountaggregationcompletedSourceTypeEnum];
 
 /**
- * 
+ * Overall statistics about the account aggregation.
  * @export
- * @interface AccountattributeschangedV1
+ * @interface AccountaggregationcompletedStats
  */
-export interface AccountattributeschangedV1 {
-    /**
-     * 
-     * @type {AccountattributeschangedIdentityV1}
-     * @memberof AccountattributeschangedV1
-     */
-    'identity': AccountattributeschangedIdentityV1;
-    /**
-     * 
-     * @type {AccountattributeschangedSourceV1}
-     * @memberof AccountattributeschangedV1
-     */
-    'source': AccountattributeschangedSourceV1;
-    /**
-     * 
-     * @type {AccountattributeschangedAccountV1}
-     * @memberof AccountattributeschangedV1
-     */
-    'account': AccountattributeschangedAccountV1;
-    /**
-     * A list of attributes that changed.
-     * @type {Array<AccountattributeschangedChangesInnerV1>}
-     * @memberof AccountattributeschangedV1
-     */
-    'changes': Array<AccountattributeschangedChangesInnerV1>;
-}
-/**
- * The correlated account.
- * @export
- * @interface AccountcorrelatedAccountV1
- */
-export interface AccountcorrelatedAccountV1 {
-    /**
-     * The correlated account\'s DTO type.
-     * @type {string}
-     * @memberof AccountcorrelatedAccountV1
-     */
-    'type': AccountcorrelatedAccountV1TypeV1;
-    /**
-     * The correlated account\'s ID.
-     * @type {string}
-     * @memberof AccountcorrelatedAccountV1
-     */
-    'id': string;
-    /**
-     * The correlated account\'s display name.
-     * @type {string}
-     * @memberof AccountcorrelatedAccountV1
-     */
-    'name': string;
-    /**
-     * Unique ID of the account on the source.
-     * @type {string}
-     * @memberof AccountcorrelatedAccountV1
-     */
-    'nativeIdentity': string;
-    /**
-     * The source\'s unique identifier for the account. UUID is generated by the source system.
-     * @type {string}
-     * @memberof AccountcorrelatedAccountV1
-     */
-    'uuid'?: string | null;
-}
-
-export const AccountcorrelatedAccountV1TypeV1 = {
-    Account: 'ACCOUNT'
-} as const;
-
-export type AccountcorrelatedAccountV1TypeV1 = typeof AccountcorrelatedAccountV1TypeV1[keyof typeof AccountcorrelatedAccountV1TypeV1];
-
-/**
- * Identity the account is correlated with.
- * @export
- * @interface AccountcorrelatedIdentityV1
- */
-export interface AccountcorrelatedIdentityV1 {
-    /**
-     * DTO type of the identity the account is correlated with.
-     * @type {string}
-     * @memberof AccountcorrelatedIdentityV1
-     */
-    'type': AccountcorrelatedIdentityV1TypeV1;
-    /**
-     * ID of the identity the account is correlated with.
-     * @type {string}
-     * @memberof AccountcorrelatedIdentityV1
-     */
-    'id': string;
-    /**
-     * Display name of the identity the account is correlated with.
-     * @type {string}
-     * @memberof AccountcorrelatedIdentityV1
-     */
-    'name': string;
-}
-
-export const AccountcorrelatedIdentityV1TypeV1 = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type AccountcorrelatedIdentityV1TypeV1 = typeof AccountcorrelatedIdentityV1TypeV1[keyof typeof AccountcorrelatedIdentityV1TypeV1];
-
-/**
- * The source the accounts are being correlated from.
- * @export
- * @interface AccountcorrelatedSourceV1
- */
-export interface AccountcorrelatedSourceV1 {
-    /**
-     * The DTO type of the source the accounts are being correlated from.
-     * @type {string}
-     * @memberof AccountcorrelatedSourceV1
-     */
-    'type': AccountcorrelatedSourceV1TypeV1;
-    /**
-     * The ID of the source the accounts are being correlated from.
-     * @type {string}
-     * @memberof AccountcorrelatedSourceV1
-     */
-    'id': string;
-    /**
-     * Display name of the source the accounts are being correlated from.
-     * @type {string}
-     * @memberof AccountcorrelatedSourceV1
-     */
-    'name': string;
-}
-
-export const AccountcorrelatedSourceV1TypeV1 = {
-    Source: 'SOURCE'
-} as const;
-
-export type AccountcorrelatedSourceV1TypeV1 = typeof AccountcorrelatedSourceV1TypeV1[keyof typeof AccountcorrelatedSourceV1TypeV1];
-
-/**
- * 
- * @export
- * @interface AccountcorrelatedV1
- */
-export interface AccountcorrelatedV1 {
-    /**
-     * 
-     * @type {AccountcorrelatedIdentityV1}
-     * @memberof AccountcorrelatedV1
-     */
-    'identity': AccountcorrelatedIdentityV1;
-    /**
-     * 
-     * @type {AccountcorrelatedSourceV1}
-     * @memberof AccountcorrelatedV1
-     */
-    'source': AccountcorrelatedSourceV1;
-    /**
-     * 
-     * @type {AccountcorrelatedAccountV1}
-     * @memberof AccountcorrelatedV1
-     */
-    'account': AccountcorrelatedAccountV1;
-    /**
-     * The attributes associated with the account.  Attributes are unique per source.
-     * @type {{ [key: string]: any; }}
-     * @memberof AccountcorrelatedV1
-     */
-    'attributes': { [key: string]: any; };
-    /**
-     * The number of entitlements associated with this account.
-     * @type {number}
-     * @memberof AccountcorrelatedV1
-     */
-    'entitlementCount'?: number;
-}
-/**
- * Details about the event.
- * @export
- * @interface AccountcreatedEventV1
- */
-export interface AccountcreatedEventV1 {
-    /**
-     * The type of event.
-     * @type {string}
-     * @memberof AccountcreatedEventV1
-     */
-    'type': AccountcreatedEventV1TypeV1;
-    /**
-     * The cause of the event.
-     * @type {string}
-     * @memberof AccountcreatedEventV1
-     */
-    'cause': AccountcreatedEventV1CauseV1;
-}
-
-export const AccountcreatedEventV1TypeV1 = {
-    AccountCreatedV2: 'ACCOUNT_CREATED_V2'
-} as const;
-
-export type AccountcreatedEventV1TypeV1 = typeof AccountcreatedEventV1TypeV1[keyof typeof AccountcreatedEventV1TypeV1];
-export const AccountcreatedEventV1CauseV1 = {
-    Aggregation: 'AGGREGATION',
-    Provisioning: 'PROVISIONING'
-} as const;
-
-export type AccountcreatedEventV1CauseV1 = typeof AccountcreatedEventV1CauseV1[keyof typeof AccountcreatedEventV1CauseV1];
-
-/**
- * 
- * @export
- * @interface AccountcreatedV1
- */
-export interface AccountcreatedV1 {
-    /**
-     * 
-     * @type {AccountcreatedEventV1}
-     * @memberof AccountcreatedV1
-     */
-    'event': AccountcreatedEventV1;
-    /**
-     * 
-     * @type {AccountsourcereferenceV1}
-     * @memberof AccountcreatedV1
-     */
-    'source': AccountsourcereferenceV1;
-    /**
-     * 
-     * @type {AccountV2}
-     * @memberof AccountcreatedV1
-     */
-    'account': AccountV2;
-    /**
-     * 
-     * @type {Identityreference2V1}
-     * @memberof AccountcreatedV1
-     */
-    'identity': Identityreference2V1;
-}
-/**
- * Details about the event.
- * @export
- * @interface AccountdeletedEventV1
- */
-export interface AccountdeletedEventV1 {
-    /**
-     * The type of event.
-     * @type {string}
-     * @memberof AccountdeletedEventV1
-     */
-    'type': AccountdeletedEventV1TypeV1;
-    /**
-     * The cause of the event.
-     * @type {string}
-     * @memberof AccountdeletedEventV1
-     */
-    'cause': AccountdeletedEventV1CauseV1;
-}
-
-export const AccountdeletedEventV1TypeV1 = {
-    AccountDeletedV2: 'ACCOUNT_DELETED_V2'
-} as const;
-
-export type AccountdeletedEventV1TypeV1 = typeof AccountdeletedEventV1TypeV1[keyof typeof AccountdeletedEventV1TypeV1];
-export const AccountdeletedEventV1CauseV1 = {
-    Aggregation: 'AGGREGATION',
-    Provisioning: 'PROVISIONING'
-} as const;
-
-export type AccountdeletedEventV1CauseV1 = typeof AccountdeletedEventV1CauseV1[keyof typeof AccountdeletedEventV1CauseV1];
-
-/**
- * 
- * @export
- * @interface AccountdeletedV1
- */
-export interface AccountdeletedV1 {
-    /**
-     * 
-     * @type {AccountdeletedEventV1}
-     * @memberof AccountdeletedV1
-     */
-    'event': AccountdeletedEventV1;
-    /**
-     * 
-     * @type {AccountsourcereferenceV1}
-     * @memberof AccountdeletedV1
-     */
-    'source': AccountsourcereferenceV1;
-    /**
-     * 
-     * @type {AccountV2}
-     * @memberof AccountdeletedV1
-     */
-    'account': AccountV2;
-    /**
-     * 
-     * @type {Identityreference2V1}
-     * @memberof AccountdeletedV1
-     */
-    'identity': Identityreference2V1;
-}
-/**
- * Reference to the source that has been aggregated.
- * @export
- * @interface AccountscollectedforaggregationSourceV1
- */
-export interface AccountscollectedforaggregationSourceV1 {
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof AccountscollectedforaggregationSourceV1
-     */
-    'id': string;
-    /**
-     * The type of object that is referenced
-     * @type {string}
-     * @memberof AccountscollectedforaggregationSourceV1
-     */
-    'type': AccountscollectedforaggregationSourceV1TypeV1;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof AccountscollectedforaggregationSourceV1
-     */
-    'name': string;
-}
-
-export const AccountscollectedforaggregationSourceV1TypeV1 = {
-    Source: 'SOURCE'
-} as const;
-
-export type AccountscollectedforaggregationSourceV1TypeV1 = typeof AccountscollectedforaggregationSourceV1TypeV1[keyof typeof AccountscollectedforaggregationSourceV1TypeV1];
-
-/**
- * Overall statistics about the account collection.
- * @export
- * @interface AccountscollectedforaggregationStatsV1
- */
-export interface AccountscollectedforaggregationStatsV1 {
+export interface AccountaggregationcompletedStats {
     /**
      * The number of accounts which were scanned / iterated over.
      * @type {number}
-     * @memberof AccountscollectedforaggregationStatsV1
+     * @memberof AccountaggregationcompletedStats
      */
     'scanned': number;
     /**
      * The number of accounts which existed before, but had no changes.
      * @type {number}
-     * @memberof AccountscollectedforaggregationStatsV1
+     * @memberof AccountaggregationcompletedStats
      */
     'unchanged': number;
     /**
      * The number of accounts which existed before, but had changes.
      * @type {number}
-     * @memberof AccountscollectedforaggregationStatsV1
+     * @memberof AccountaggregationcompletedStats
      */
     'changed': number;
     /**
      * The number of accounts which are new - have not existed before.
      * @type {number}
-     * @memberof AccountscollectedforaggregationStatsV1
+     * @memberof AccountaggregationcompletedStats
      */
     'added': number;
     /**
      * The number accounts which existed before, but no longer exist (thus getting removed).
      * @type {number}
-     * @memberof AccountscollectedforaggregationStatsV1
+     * @memberof AccountaggregationcompletedStats
      */
     'removed': number;
 }
 /**
  * 
  * @export
- * @interface AccountscollectedforaggregationV1
+ * @interface Accountattributeschanged
  */
-export interface AccountscollectedforaggregationV1 {
+export interface Accountattributeschanged {
     /**
      * 
-     * @type {AccountscollectedforaggregationSourceV1}
-     * @memberof AccountscollectedforaggregationV1
+     * @type {AccountattributeschangedIdentity}
+     * @memberof Accountattributeschanged
      */
-    'source': AccountscollectedforaggregationSourceV1;
+    'identity': AccountattributeschangedIdentity;
+    /**
+     * 
+     * @type {AccountattributeschangedSource}
+     * @memberof Accountattributeschanged
+     */
+    'source': AccountattributeschangedSource;
+    /**
+     * 
+     * @type {AccountattributeschangedAccount}
+     * @memberof Accountattributeschanged
+     */
+    'account': AccountattributeschangedAccount;
+    /**
+     * A list of attributes that changed.
+     * @type {Array<AccountattributeschangedChangesInner>}
+     * @memberof Accountattributeschanged
+     */
+    'changes': Array<AccountattributeschangedChangesInner>;
+}
+/**
+ * Details of the account where the attributes changed.
+ * @export
+ * @interface AccountattributeschangedAccount
+ */
+export interface AccountattributeschangedAccount {
+    /**
+     * SailPoint generated unique identifier.
+     * @type {string}
+     * @memberof AccountattributeschangedAccount
+     */
+    'id': string;
+    /**
+     * The source\'s unique identifier for the account. UUID is generated by the source system.
+     * @type {string}
+     * @memberof AccountattributeschangedAccount
+     */
+    'uuid': string | null;
+    /**
+     * Name of the account.
+     * @type {string}
+     * @memberof AccountattributeschangedAccount
+     */
+    'name': string;
+    /**
+     * Unique ID of the account on the source.
+     * @type {string}
+     * @memberof AccountattributeschangedAccount
+     */
+    'nativeIdentity': string;
+    /**
+     * The type of the account
+     * @type {string}
+     * @memberof AccountattributeschangedAccount
+     */
+    'type': AccountattributeschangedAccountTypeEnum;
+}
+
+export const AccountattributeschangedAccountTypeEnum = {
+    Account: 'ACCOUNT'
+} as const;
+
+export type AccountattributeschangedAccountTypeEnum = typeof AccountattributeschangedAccountTypeEnum[keyof typeof AccountattributeschangedAccountTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface AccountattributeschangedChangesInner
+ */
+export interface AccountattributeschangedChangesInner {
+    /**
+     * The name of the attribute.
+     * @type {string}
+     * @memberof AccountattributeschangedChangesInner
+     */
+    'attribute': string;
+    /**
+     * 
+     * @type {AccountattributeschangedChangesInnerOldValue}
+     * @memberof AccountattributeschangedChangesInner
+     */
+    'oldValue': AccountattributeschangedChangesInnerOldValue | null;
+    /**
+     * 
+     * @type {AccountattributeschangedChangesInnerNewValue}
+     * @memberof AccountattributeschangedChangesInner
+     */
+    'newValue': AccountattributeschangedChangesInnerNewValue | null;
+}
+/**
+ * @type AccountattributeschangedChangesInnerNewValue
+ * The new value of the attribute.
+ * @export
+ */
+export type AccountattributeschangedChangesInnerNewValue = Array<string | null> | boolean | string;
+
+/**
+ * @type AccountattributeschangedChangesInnerOldValue
+ * The previous value of the attribute.
+ * @export
+ */
+export type AccountattributeschangedChangesInnerOldValue = Array<string | null> | boolean | string;
+
+/**
+ * The identity whose account attributes were updated.
+ * @export
+ * @interface AccountattributeschangedIdentity
+ */
+export interface AccountattributeschangedIdentity {
+    /**
+     * DTO type of the identity whose account attributes were updated.
+     * @type {string}
+     * @memberof AccountattributeschangedIdentity
+     */
+    'type': AccountattributeschangedIdentityTypeEnum;
+    /**
+     * ID of the identity whose account attributes were updated.
+     * @type {string}
+     * @memberof AccountattributeschangedIdentity
+     */
+    'id': string;
+    /**
+     * Display name of the identity whose account attributes were updated.
+     * @type {string}
+     * @memberof AccountattributeschangedIdentity
+     */
+    'name': string;
+}
+
+export const AccountattributeschangedIdentityTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccountattributeschangedIdentityTypeEnum = typeof AccountattributeschangedIdentityTypeEnum[keyof typeof AccountattributeschangedIdentityTypeEnum];
+
+/**
+ * The source that contains the account.
+ * @export
+ * @interface AccountattributeschangedSource
+ */
+export interface AccountattributeschangedSource {
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountattributeschangedSource
+     */
+    'id': string;
+    /**
+     * The type of object that is referenced
+     * @type {string}
+     * @memberof AccountattributeschangedSource
+     */
+    'type': AccountattributeschangedSourceTypeEnum;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountattributeschangedSource
+     */
+    'name': string;
+}
+
+export const AccountattributeschangedSourceTypeEnum = {
+    Source: 'SOURCE'
+} as const;
+
+export type AccountattributeschangedSourceTypeEnum = typeof AccountattributeschangedSourceTypeEnum[keyof typeof AccountattributeschangedSourceTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface Accountcorrelated
+ */
+export interface Accountcorrelated {
+    /**
+     * 
+     * @type {AccountcorrelatedIdentity}
+     * @memberof Accountcorrelated
+     */
+    'identity': AccountcorrelatedIdentity;
+    /**
+     * 
+     * @type {AccountcorrelatedSource}
+     * @memberof Accountcorrelated
+     */
+    'source': AccountcorrelatedSource;
+    /**
+     * 
+     * @type {AccountcorrelatedAccount}
+     * @memberof Accountcorrelated
+     */
+    'account': AccountcorrelatedAccount;
+    /**
+     * The attributes associated with the account.  Attributes are unique per source.
+     * @type {{ [key: string]: any; }}
+     * @memberof Accountcorrelated
+     */
+    'attributes': { [key: string]: any; };
+    /**
+     * The number of entitlements associated with this account.
+     * @type {number}
+     * @memberof Accountcorrelated
+     */
+    'entitlementCount'?: number;
+}
+/**
+ * The correlated account.
+ * @export
+ * @interface AccountcorrelatedAccount
+ */
+export interface AccountcorrelatedAccount {
+    /**
+     * The correlated account\'s DTO type.
+     * @type {string}
+     * @memberof AccountcorrelatedAccount
+     */
+    'type': AccountcorrelatedAccountTypeEnum;
+    /**
+     * The correlated account\'s ID.
+     * @type {string}
+     * @memberof AccountcorrelatedAccount
+     */
+    'id': string;
+    /**
+     * The correlated account\'s display name.
+     * @type {string}
+     * @memberof AccountcorrelatedAccount
+     */
+    'name': string;
+    /**
+     * Unique ID of the account on the source.
+     * @type {string}
+     * @memberof AccountcorrelatedAccount
+     */
+    'nativeIdentity': string;
+    /**
+     * The source\'s unique identifier for the account. UUID is generated by the source system.
+     * @type {string}
+     * @memberof AccountcorrelatedAccount
+     */
+    'uuid'?: string | null;
+}
+
+export const AccountcorrelatedAccountTypeEnum = {
+    Account: 'ACCOUNT'
+} as const;
+
+export type AccountcorrelatedAccountTypeEnum = typeof AccountcorrelatedAccountTypeEnum[keyof typeof AccountcorrelatedAccountTypeEnum];
+
+/**
+ * Identity the account is correlated with.
+ * @export
+ * @interface AccountcorrelatedIdentity
+ */
+export interface AccountcorrelatedIdentity {
+    /**
+     * DTO type of the identity the account is correlated with.
+     * @type {string}
+     * @memberof AccountcorrelatedIdentity
+     */
+    'type': AccountcorrelatedIdentityTypeEnum;
+    /**
+     * ID of the identity the account is correlated with.
+     * @type {string}
+     * @memberof AccountcorrelatedIdentity
+     */
+    'id': string;
+    /**
+     * Display name of the identity the account is correlated with.
+     * @type {string}
+     * @memberof AccountcorrelatedIdentity
+     */
+    'name': string;
+}
+
+export const AccountcorrelatedIdentityTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccountcorrelatedIdentityTypeEnum = typeof AccountcorrelatedIdentityTypeEnum[keyof typeof AccountcorrelatedIdentityTypeEnum];
+
+/**
+ * The source the accounts are being correlated from.
+ * @export
+ * @interface AccountcorrelatedSource
+ */
+export interface AccountcorrelatedSource {
+    /**
+     * The DTO type of the source the accounts are being correlated from.
+     * @type {string}
+     * @memberof AccountcorrelatedSource
+     */
+    'type': AccountcorrelatedSourceTypeEnum;
+    /**
+     * The ID of the source the accounts are being correlated from.
+     * @type {string}
+     * @memberof AccountcorrelatedSource
+     */
+    'id': string;
+    /**
+     * Display name of the source the accounts are being correlated from.
+     * @type {string}
+     * @memberof AccountcorrelatedSource
+     */
+    'name': string;
+}
+
+export const AccountcorrelatedSourceTypeEnum = {
+    Source: 'SOURCE'
+} as const;
+
+export type AccountcorrelatedSourceTypeEnum = typeof AccountcorrelatedSourceTypeEnum[keyof typeof AccountcorrelatedSourceTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface Accountcreated
+ */
+export interface Accountcreated {
+    /**
+     * 
+     * @type {AccountcreatedEvent}
+     * @memberof Accountcreated
+     */
+    'event': AccountcreatedEvent;
+    /**
+     * 
+     * @type {Accountsourcereference}
+     * @memberof Accountcreated
+     */
+    'source': Accountsourcereference;
+    /**
+     * 
+     * @type {Accountv2}
+     * @memberof Accountcreated
+     */
+    'account': Accountv2;
+    /**
+     * 
+     * @type {Identityreference2}
+     * @memberof Accountcreated
+     */
+    'identity': Identityreference2;
+}
+/**
+ * Details about the event.
+ * @export
+ * @interface AccountcreatedEvent
+ */
+export interface AccountcreatedEvent {
+    /**
+     * The type of event.
+     * @type {string}
+     * @memberof AccountcreatedEvent
+     */
+    'type': AccountcreatedEventTypeEnum;
+    /**
+     * The cause of the event.
+     * @type {string}
+     * @memberof AccountcreatedEvent
+     */
+    'cause': AccountcreatedEventCauseEnum;
+}
+
+export const AccountcreatedEventTypeEnum = {
+    AccountCreatedV2: 'ACCOUNT_CREATED_V2'
+} as const;
+
+export type AccountcreatedEventTypeEnum = typeof AccountcreatedEventTypeEnum[keyof typeof AccountcreatedEventTypeEnum];
+export const AccountcreatedEventCauseEnum = {
+    Aggregation: 'AGGREGATION',
+    Provisioning: 'PROVISIONING'
+} as const;
+
+export type AccountcreatedEventCauseEnum = typeof AccountcreatedEventCauseEnum[keyof typeof AccountcreatedEventCauseEnum];
+
+/**
+ * 
+ * @export
+ * @interface Accountdeleted
+ */
+export interface Accountdeleted {
+    /**
+     * 
+     * @type {AccountdeletedEvent}
+     * @memberof Accountdeleted
+     */
+    'event': AccountdeletedEvent;
+    /**
+     * 
+     * @type {Accountsourcereference}
+     * @memberof Accountdeleted
+     */
+    'source': Accountsourcereference;
+    /**
+     * 
+     * @type {Accountv2}
+     * @memberof Accountdeleted
+     */
+    'account': Accountv2;
+    /**
+     * 
+     * @type {Identityreference2}
+     * @memberof Accountdeleted
+     */
+    'identity': Identityreference2;
+}
+/**
+ * Details about the event.
+ * @export
+ * @interface AccountdeletedEvent
+ */
+export interface AccountdeletedEvent {
+    /**
+     * The type of event.
+     * @type {string}
+     * @memberof AccountdeletedEvent
+     */
+    'type': AccountdeletedEventTypeEnum;
+    /**
+     * The cause of the event.
+     * @type {string}
+     * @memberof AccountdeletedEvent
+     */
+    'cause': AccountdeletedEventCauseEnum;
+}
+
+export const AccountdeletedEventTypeEnum = {
+    AccountDeletedV2: 'ACCOUNT_DELETED_V2'
+} as const;
+
+export type AccountdeletedEventTypeEnum = typeof AccountdeletedEventTypeEnum[keyof typeof AccountdeletedEventTypeEnum];
+export const AccountdeletedEventCauseEnum = {
+    Aggregation: 'AGGREGATION',
+    Provisioning: 'PROVISIONING'
+} as const;
+
+export type AccountdeletedEventCauseEnum = typeof AccountdeletedEventCauseEnum[keyof typeof AccountdeletedEventCauseEnum];
+
+/**
+ * 
+ * @export
+ * @interface Accountscollectedforaggregation
+ */
+export interface Accountscollectedforaggregation {
+    /**
+     * 
+     * @type {AccountscollectedforaggregationSource}
+     * @memberof Accountscollectedforaggregation
+     */
+    'source': AccountscollectedforaggregationSource;
     /**
      * The overall status of the collection.
      * @type {string}
-     * @memberof AccountscollectedforaggregationV1
+     * @memberof Accountscollectedforaggregation
      */
-    'status': AccountscollectedforaggregationV1StatusV1;
+    'status': AccountscollectedforaggregationStatusEnum;
     /**
      * The date and time when the account collection started.
      * @type {string}
-     * @memberof AccountscollectedforaggregationV1
+     * @memberof Accountscollectedforaggregation
      */
     'started': string;
     /**
      * The date and time when the account collection finished.
      * @type {string}
-     * @memberof AccountscollectedforaggregationV1
+     * @memberof Accountscollectedforaggregation
      */
     'completed': string;
     /**
      * A list of errors that occurred during the collection.
      * @type {Array<string>}
-     * @memberof AccountscollectedforaggregationV1
+     * @memberof Accountscollectedforaggregation
      */
     'errors': Array<string> | null;
     /**
      * A list of warnings that occurred during the collection.
      * @type {Array<string>}
-     * @memberof AccountscollectedforaggregationV1
+     * @memberof Accountscollectedforaggregation
      */
     'warnings': Array<string> | null;
     /**
      * 
-     * @type {AccountscollectedforaggregationStatsV1}
-     * @memberof AccountscollectedforaggregationV1
+     * @type {AccountscollectedforaggregationStats}
+     * @memberof Accountscollectedforaggregation
      */
-    'stats': AccountscollectedforaggregationStatsV1;
+    'stats': AccountscollectedforaggregationStats;
 }
 
-export const AccountscollectedforaggregationV1StatusV1 = {
+export const AccountscollectedforaggregationStatusEnum = {
     Success: 'Success',
     Failed: 'Failed',
     Terminated: 'Terminated'
 } as const;
 
-export type AccountscollectedforaggregationV1StatusV1 = typeof AccountscollectedforaggregationV1StatusV1[keyof typeof AccountscollectedforaggregationV1StatusV1];
+export type AccountscollectedforaggregationStatusEnum = typeof AccountscollectedforaggregationStatusEnum[keyof typeof AccountscollectedforaggregationStatusEnum];
 
+/**
+ * Reference to the source that has been aggregated.
+ * @export
+ * @interface AccountscollectedforaggregationSource
+ */
+export interface AccountscollectedforaggregationSource {
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountscollectedforaggregationSource
+     */
+    'id': string;
+    /**
+     * The type of object that is referenced
+     * @type {string}
+     * @memberof AccountscollectedforaggregationSource
+     */
+    'type': AccountscollectedforaggregationSourceTypeEnum;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountscollectedforaggregationSource
+     */
+    'name': string;
+}
+
+export const AccountscollectedforaggregationSourceTypeEnum = {
+    Source: 'SOURCE'
+} as const;
+
+export type AccountscollectedforaggregationSourceTypeEnum = typeof AccountscollectedforaggregationSourceTypeEnum[keyof typeof AccountscollectedforaggregationSourceTypeEnum];
+
+/**
+ * Overall statistics about the account collection.
+ * @export
+ * @interface AccountscollectedforaggregationStats
+ */
+export interface AccountscollectedforaggregationStats {
+    /**
+     * The number of accounts which were scanned / iterated over.
+     * @type {number}
+     * @memberof AccountscollectedforaggregationStats
+     */
+    'scanned': number;
+    /**
+     * The number of accounts which existed before, but had no changes.
+     * @type {number}
+     * @memberof AccountscollectedforaggregationStats
+     */
+    'unchanged': number;
+    /**
+     * The number of accounts which existed before, but had changes.
+     * @type {number}
+     * @memberof AccountscollectedforaggregationStats
+     */
+    'changed': number;
+    /**
+     * The number of accounts which are new - have not existed before.
+     * @type {number}
+     * @memberof AccountscollectedforaggregationStats
+     */
+    'added': number;
+    /**
+     * The number accounts which existed before, but no longer exist (thus getting removed).
+     * @type {number}
+     * @memberof AccountscollectedforaggregationStats
+     */
+    'removed': number;
+}
+/**
+ * Details about the account source.
+ * @export
+ * @interface Accountsourcereference
+ */
+export interface Accountsourcereference {
+    /**
+     * The unique ID of the source.
+     * @type {string}
+     * @memberof Accountsourcereference
+     */
+    'id': string;
+    /**
+     * The name of the source.
+     * @type {string}
+     * @memberof Accountsourcereference
+     */
+    'name': string;
+    /**
+     * The alias of the source.
+     * @type {string}
+     * @memberof Accountsourcereference
+     */
+    'alias': string;
+    /**
+     * 
+     * @type {AccountsourcereferenceOwner}
+     * @memberof Accountsourcereference
+     */
+    'owner': AccountsourcereferenceOwner;
+    /**
+     * 
+     * @type {AccountsourcereferenceGovernanceGroup}
+     * @memberof Accountsourcereference
+     */
+    'governanceGroup': AccountsourcereferenceGovernanceGroup;
+}
 /**
  * Details about the governance group of the source.
  * @export
- * @interface AccountsourcereferenceGovernanceGroupV1
+ * @interface AccountsourcereferenceGovernanceGroup
  */
-export interface AccountsourcereferenceGovernanceGroupV1 {
+export interface AccountsourcereferenceGovernanceGroup {
     /**
      * ID of the governance group.
      * @type {string}
-     * @memberof AccountsourcereferenceGovernanceGroupV1
+     * @memberof AccountsourcereferenceGovernanceGroup
      */
     'id': string;
     /**
      * Name of the governance group.
      * @type {string}
-     * @memberof AccountsourcereferenceGovernanceGroupV1
+     * @memberof AccountsourcereferenceGovernanceGroup
      */
     'name': string;
 }
 /**
  * Details about the owner of the source.
  * @export
- * @interface AccountsourcereferenceOwnerV1
+ * @interface AccountsourcereferenceOwner
  */
-export interface AccountsourcereferenceOwnerV1 {
+export interface AccountsourcereferenceOwner {
     /**
      * ID of the source owner.
      * @type {string}
-     * @memberof AccountsourcereferenceOwnerV1
+     * @memberof AccountsourcereferenceOwner
      */
     'id': string;
     /**
      * Name of the source owner.
      * @type {string}
-     * @memberof AccountsourcereferenceOwnerV1
+     * @memberof AccountsourcereferenceOwner
      */
     'name': string;
 }
 /**
- * Details about the account source.
+ * 
  * @export
- * @interface AccountsourcereferenceV1
+ * @interface Accountuncorrelated
  */
-export interface AccountsourcereferenceV1 {
-    /**
-     * The unique ID of the source.
-     * @type {string}
-     * @memberof AccountsourcereferenceV1
-     */
-    'id': string;
-    /**
-     * The name of the source.
-     * @type {string}
-     * @memberof AccountsourcereferenceV1
-     */
-    'name': string;
-    /**
-     * The alias of the source.
-     * @type {string}
-     * @memberof AccountsourcereferenceV1
-     */
-    'alias': string;
+export interface Accountuncorrelated {
     /**
      * 
-     * @type {AccountsourcereferenceOwnerV1}
-     * @memberof AccountsourcereferenceV1
+     * @type {AccountuncorrelatedIdentity}
+     * @memberof Accountuncorrelated
      */
-    'owner': AccountsourcereferenceOwnerV1;
+    'identity': AccountuncorrelatedIdentity;
     /**
      * 
-     * @type {AccountsourcereferenceGovernanceGroupV1}
-     * @memberof AccountsourcereferenceV1
+     * @type {AccountuncorrelatedSource}
+     * @memberof Accountuncorrelated
      */
-    'governanceGroup': AccountsourcereferenceGovernanceGroupV1;
+    'source': AccountuncorrelatedSource;
+    /**
+     * 
+     * @type {AccountuncorrelatedAccount}
+     * @memberof Accountuncorrelated
+     */
+    'account': AccountuncorrelatedAccount;
+    /**
+     * The number of entitlements associated with this account.
+     * @type {number}
+     * @memberof Accountuncorrelated
+     */
+    'entitlementCount'?: number;
 }
 /**
  * Uncorrelated account.
  * @export
- * @interface AccountuncorrelatedAccountV1
+ * @interface AccountuncorrelatedAccount
  */
-export interface AccountuncorrelatedAccountV1 {
+export interface AccountuncorrelatedAccount {
     /**
      * Uncorrelated account\'s DTO type.
      * @type {string}
-     * @memberof AccountuncorrelatedAccountV1
+     * @memberof AccountuncorrelatedAccount
      */
-    'type': AccountuncorrelatedAccountV1TypeV1;
+    'type': AccountuncorrelatedAccountTypeEnum;
     /**
      * Uncorrelated account\'s ID.
      * @type {string}
-     * @memberof AccountuncorrelatedAccountV1
+     * @memberof AccountuncorrelatedAccount
      */
     'id': string;
     /**
      * Uncorrelated account\'s display name.
      * @type {string}
-     * @memberof AccountuncorrelatedAccountV1
+     * @memberof AccountuncorrelatedAccount
      */
     'name': string;
     /**
      * Unique ID of the account on the source.
      * @type {string}
-     * @memberof AccountuncorrelatedAccountV1
+     * @memberof AccountuncorrelatedAccount
      */
     'nativeIdentity': string;
     /**
      * The source\'s unique identifier for the account. UUID is generated by the source system.
      * @type {string}
-     * @memberof AccountuncorrelatedAccountV1
+     * @memberof AccountuncorrelatedAccount
      */
     'uuid'?: string | null;
 }
 
-export const AccountuncorrelatedAccountV1TypeV1 = {
+export const AccountuncorrelatedAccountTypeEnum = {
     Account: 'ACCOUNT'
 } as const;
 
-export type AccountuncorrelatedAccountV1TypeV1 = typeof AccountuncorrelatedAccountV1TypeV1[keyof typeof AccountuncorrelatedAccountV1TypeV1];
+export type AccountuncorrelatedAccountTypeEnum = typeof AccountuncorrelatedAccountTypeEnum[keyof typeof AccountuncorrelatedAccountTypeEnum];
 
 /**
  * Identity the account is uncorrelated with.
  * @export
- * @interface AccountuncorrelatedIdentityV1
+ * @interface AccountuncorrelatedIdentity
  */
-export interface AccountuncorrelatedIdentityV1 {
+export interface AccountuncorrelatedIdentity {
     /**
      * DTO type of the identity the account is uncorrelated with.
      * @type {string}
-     * @memberof AccountuncorrelatedIdentityV1
+     * @memberof AccountuncorrelatedIdentity
      */
-    'type': AccountuncorrelatedIdentityV1TypeV1;
+    'type': AccountuncorrelatedIdentityTypeEnum;
     /**
      * ID of the identity the account is uncorrelated with.
      * @type {string}
-     * @memberof AccountuncorrelatedIdentityV1
+     * @memberof AccountuncorrelatedIdentity
      */
     'id': string;
     /**
      * Display name of the identity the account is uncorrelated with.
      * @type {string}
-     * @memberof AccountuncorrelatedIdentityV1
+     * @memberof AccountuncorrelatedIdentity
      */
     'name': string;
 }
 
-export const AccountuncorrelatedIdentityV1TypeV1 = {
+export const AccountuncorrelatedIdentityTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type AccountuncorrelatedIdentityV1TypeV1 = typeof AccountuncorrelatedIdentityV1TypeV1[keyof typeof AccountuncorrelatedIdentityV1TypeV1];
+export type AccountuncorrelatedIdentityTypeEnum = typeof AccountuncorrelatedIdentityTypeEnum[keyof typeof AccountuncorrelatedIdentityTypeEnum];
 
 /**
  * The source the accounts are uncorrelated from.
  * @export
- * @interface AccountuncorrelatedSourceV1
+ * @interface AccountuncorrelatedSource
  */
-export interface AccountuncorrelatedSourceV1 {
+export interface AccountuncorrelatedSource {
     /**
      * The DTO type of the source the accounts are uncorrelated from.
      * @type {string}
-     * @memberof AccountuncorrelatedSourceV1
+     * @memberof AccountuncorrelatedSource
      */
-    'type': AccountuncorrelatedSourceV1TypeV1;
+    'type': AccountuncorrelatedSourceTypeEnum;
     /**
      * The ID of the source the accounts are uncorrelated from.
      * @type {string}
-     * @memberof AccountuncorrelatedSourceV1
+     * @memberof AccountuncorrelatedSource
      */
     'id': string;
     /**
      * Display name of the source the accounts are uncorrelated from.
      * @type {string}
-     * @memberof AccountuncorrelatedSourceV1
+     * @memberof AccountuncorrelatedSource
      */
     'name': string;
 }
 
-export const AccountuncorrelatedSourceV1TypeV1 = {
+export const AccountuncorrelatedSourceTypeEnum = {
     Source: 'SOURCE'
 } as const;
 
-export type AccountuncorrelatedSourceV1TypeV1 = typeof AccountuncorrelatedSourceV1TypeV1[keyof typeof AccountuncorrelatedSourceV1TypeV1];
+export type AccountuncorrelatedSourceTypeEnum = typeof AccountuncorrelatedSourceTypeEnum[keyof typeof AccountuncorrelatedSourceTypeEnum];
 
 /**
  * 
  * @export
- * @interface AccountuncorrelatedV1
+ * @interface Accountupdated
  */
-export interface AccountuncorrelatedV1 {
+export interface Accountupdated {
     /**
      * 
-     * @type {AccountuncorrelatedIdentityV1}
-     * @memberof AccountuncorrelatedV1
+     * @type {AccountupdatedEvent}
+     * @memberof Accountupdated
      */
-    'identity': AccountuncorrelatedIdentityV1;
+    'event': AccountupdatedEvent;
     /**
      * 
-     * @type {AccountuncorrelatedSourceV1}
-     * @memberof AccountuncorrelatedV1
+     * @type {Accountsourcereference}
+     * @memberof Accountupdated
      */
-    'source': AccountuncorrelatedSourceV1;
+    'source': Accountsourcereference;
     /**
      * 
-     * @type {AccountuncorrelatedAccountV1}
-     * @memberof AccountuncorrelatedV1
+     * @type {Accountv2}
+     * @memberof Accountupdated
      */
-    'account': AccountuncorrelatedAccountV1;
-    /**
-     * The number of entitlements associated with this account.
-     * @type {number}
-     * @memberof AccountuncorrelatedV1
-     */
-    'entitlementCount'?: number;
-}
-/**
- * The type of the entitlement.
- * @export
- * @interface AccountupdatedEntitlementChangesInnerAddedInnerOwnerV1
- */
-export interface AccountupdatedEntitlementChangesInnerAddedInnerOwnerV1 {
-    /**
-     * The unique identifier of the owner.
-     * @type {string}
-     * @memberof AccountupdatedEntitlementChangesInnerAddedInnerOwnerV1
-     */
-    'id'?: string;
-    /**
-     * The name of the owner.
-     * @type {string}
-     * @memberof AccountupdatedEntitlementChangesInnerAddedInnerOwnerV1
-     */
-    'name'?: string | null;
-    /**
-     * The type of the owner.
-     * @type {string}
-     * @memberof AccountupdatedEntitlementChangesInnerAddedInnerOwnerV1
-     */
-    'type'?: string;
-}
-/**
- * 
- * @export
- * @interface AccountupdatedEntitlementChangesInnerAddedInnerV1
- */
-export interface AccountupdatedEntitlementChangesInnerAddedInnerV1 {
-    /**
-     * The unique identifier of the entitlement.
-     * @type {string}
-     * @memberof AccountupdatedEntitlementChangesInnerAddedInnerV1
-     */
-    'id'?: string | null;
-    /**
-     * The name of the entitlement.
-     * @type {string}
-     * @memberof AccountupdatedEntitlementChangesInnerAddedInnerV1
-     */
-    'name'?: string | null;
+    'account': Accountv2;
     /**
      * 
-     * @type {AccountupdatedEntitlementChangesInnerAddedInnerOwnerV1}
-     * @memberof AccountupdatedEntitlementChangesInnerAddedInnerV1
+     * @type {Identityreference2}
+     * @memberof Accountupdated
      */
-    'owner'?: AccountupdatedEntitlementChangesInnerAddedInnerOwnerV1;
-    /**
-     * The value of the entitlement.
-     * @type {string}
-     * @memberof AccountupdatedEntitlementChangesInnerAddedInnerV1
-     */
-    'value'?: string;
-}
-/**
- * 
- * @export
- * @interface AccountupdatedEntitlementChangesInnerV1
- */
-export interface AccountupdatedEntitlementChangesInnerV1 {
-    /**
-     * The name of the entitlement attribute that was changed.
-     * @type {string}
-     * @memberof AccountupdatedEntitlementChangesInnerV1
-     */
-    'attributeName': string;
-    /**
-     * The entitlements that were added.
-     * @type {Array<AccountupdatedEntitlementChangesInnerAddedInnerV1>}
-     * @memberof AccountupdatedEntitlementChangesInnerV1
-     */
-    'added': Array<AccountupdatedEntitlementChangesInnerAddedInnerV1> | null;
-    /**
-     * The entitlements that were removed.
-     * @type {Array<AccountupdatedEntitlementChangesInnerAddedInnerV1>}
-     * @memberof AccountupdatedEntitlementChangesInnerV1
-     */
-    'removed': Array<AccountupdatedEntitlementChangesInnerAddedInnerV1> | null;
-}
-/**
- * Details about the event.
- * @export
- * @interface AccountupdatedEventV1
- */
-export interface AccountupdatedEventV1 {
-    /**
-     * The type of event.
-     * @type {string}
-     * @memberof AccountupdatedEventV1
-     */
-    'type': AccountupdatedEventV1TypeV1;
-    /**
-     * The cause of the event.
-     * @type {string}
-     * @memberof AccountupdatedEventV1
-     */
-    'cause': AccountupdatedEventV1CauseV1;
-}
-
-export const AccountupdatedEventV1TypeV1 = {
-    AccountUpdatedV2: 'ACCOUNT_UPDATED_V2'
-} as const;
-
-export type AccountupdatedEventV1TypeV1 = typeof AccountupdatedEventV1TypeV1[keyof typeof AccountupdatedEventV1TypeV1];
-export const AccountupdatedEventV1CauseV1 = {
-    Aggregation: 'AGGREGATION',
-    Provisioning: 'PROVISIONING',
-    PasswordChange: 'PASSWORD_CHANGE'
-} as const;
-
-export type AccountupdatedEventV1CauseV1 = typeof AccountupdatedEventV1CauseV1[keyof typeof AccountupdatedEventV1CauseV1];
-
-/**
- * @type AccountupdatedMultiValueAttributeChangesInnerAddedValuesInnerV1
- * @export
- */
-export type AccountupdatedMultiValueAttributeChangesInnerAddedValuesInnerV1 = Array<string> | boolean | number | string;
-
-/**
- * 
- * @export
- * @interface AccountupdatedMultiValueAttributeChangesInnerV1
- */
-export interface AccountupdatedMultiValueAttributeChangesInnerV1 {
-    /**
-     * The name of the attribute that was changed.
-     * @type {string}
-     * @memberof AccountupdatedMultiValueAttributeChangesInnerV1
-     */
-    'name': string;
-    /**
-     * The values that were added to the attribute.
-     * @type {Array<AccountupdatedMultiValueAttributeChangesInnerAddedValuesInnerV1>}
-     * @memberof AccountupdatedMultiValueAttributeChangesInnerV1
-     */
-    'addedValues': Array<AccountupdatedMultiValueAttributeChangesInnerAddedValuesInnerV1>;
-    /**
-     * The values that were removed from the attribute.
-     * @type {Array<AccountupdatedMultiValueAttributeChangesInnerAddedValuesInnerV1>}
-     * @memberof AccountupdatedMultiValueAttributeChangesInnerV1
-     */
-    'removedValues': Array<AccountupdatedMultiValueAttributeChangesInnerAddedValuesInnerV1>;
-}
-/**
- * @type AccountupdatedSingleValueAttributeChangesInnerNewValueV1
- * The new value of the attribute after the change.
- * @export
- */
-export type AccountupdatedSingleValueAttributeChangesInnerNewValueV1 = Array<string> | boolean | number | string;
-
-/**
- * @type AccountupdatedSingleValueAttributeChangesInnerOldValueV1
- * The old value of the attribute before the change.
- * @export
- */
-export type AccountupdatedSingleValueAttributeChangesInnerOldValueV1 = Array<string> | boolean | number | string;
-
-/**
- * 
- * @export
- * @interface AccountupdatedSingleValueAttributeChangesInnerV1
- */
-export interface AccountupdatedSingleValueAttributeChangesInnerV1 {
-    /**
-     * The name of the attribute that was changed.
-     * @type {string}
-     * @memberof AccountupdatedSingleValueAttributeChangesInnerV1
-     */
-    'name': string;
-    /**
-     * 
-     * @type {AccountupdatedSingleValueAttributeChangesInnerOldValueV1}
-     * @memberof AccountupdatedSingleValueAttributeChangesInnerV1
-     */
-    'oldValue': AccountupdatedSingleValueAttributeChangesInnerOldValueV1 | null;
-    /**
-     * 
-     * @type {AccountupdatedSingleValueAttributeChangesInnerNewValueV1}
-     * @memberof AccountupdatedSingleValueAttributeChangesInnerV1
-     */
-    'newValue': AccountupdatedSingleValueAttributeChangesInnerNewValueV1 | null;
-}
-/**
- * 
- * @export
- * @interface AccountupdatedV1
- */
-export interface AccountupdatedV1 {
-    /**
-     * 
-     * @type {AccountupdatedEventV1}
-     * @memberof AccountupdatedV1
-     */
-    'event': AccountupdatedEventV1;
-    /**
-     * 
-     * @type {AccountsourcereferenceV1}
-     * @memberof AccountupdatedV1
-     */
-    'source': AccountsourcereferenceV1;
-    /**
-     * 
-     * @type {AccountV2}
-     * @memberof AccountupdatedV1
-     */
-    'account': AccountV2;
-    /**
-     * 
-     * @type {Identityreference2V1}
-     * @memberof AccountupdatedV1
-     */
-    'identity': Identityreference2V1;
+    'identity': Identityreference2;
     /**
      * The types of changes that occurred to the account.
      * @type {Array<string>}
-     * @memberof AccountupdatedV1
+     * @memberof Accountupdated
      */
-    'accountChangeTypes': Array<AccountupdatedV1AccountChangeTypesV1>;
+    'accountChangeTypes': Array<AccountupdatedAccountChangeTypesEnum>;
     /**
      * Details about the single-value attribute changes that occurred to the account.
-     * @type {Array<AccountupdatedSingleValueAttributeChangesInnerV1>}
-     * @memberof AccountupdatedV1
+     * @type {Array<AccountupdatedSingleValueAttributeChangesInner>}
+     * @memberof Accountupdated
      */
-    'singleValueAttributeChanges': Array<AccountupdatedSingleValueAttributeChangesInnerV1> | null;
+    'singleValueAttributeChanges': Array<AccountupdatedSingleValueAttributeChangesInner> | null;
     /**
      * Details about the multi-value attribute changes that occurred to the account.
-     * @type {Array<AccountupdatedMultiValueAttributeChangesInnerV1>}
-     * @memberof AccountupdatedV1
+     * @type {Array<AccountupdatedMultiValueAttributeChangesInner>}
+     * @memberof Accountupdated
      */
-    'multiValueAttributeChanges': Array<AccountupdatedMultiValueAttributeChangesInnerV1> | null;
+    'multiValueAttributeChanges': Array<AccountupdatedMultiValueAttributeChangesInner> | null;
     /**
      * Details about the entitlement changes that occurred to the account.
-     * @type {Array<AccountupdatedEntitlementChangesInnerV1>}
-     * @memberof AccountupdatedV1
+     * @type {Array<AccountupdatedEntitlementChangesInner>}
+     * @memberof Accountupdated
      */
-    'entitlementChanges': Array<AccountupdatedEntitlementChangesInnerV1> | null;
+    'entitlementChanges': Array<AccountupdatedEntitlementChangesInner> | null;
 }
 
-export const AccountupdatedV1AccountChangeTypesV1 = {
+export const AccountupdatedAccountChangeTypesEnum = {
     AttributesChanged: 'ATTRIBUTES_CHANGED',
     EntitlementsAdded: 'ENTITLEMENTS_ADDED',
     EntitlementsRemoved: 'ENTITLEMENTS_REMOVED'
 } as const;
 
-export type AccountupdatedV1AccountChangeTypesV1 = typeof AccountupdatedV1AccountChangeTypesV1[keyof typeof AccountupdatedV1AccountChangeTypesV1];
+export type AccountupdatedAccountChangeTypesEnum = typeof AccountupdatedAccountChangeTypesEnum[keyof typeof AccountupdatedAccountChangeTypesEnum];
+
+/**
+ * 
+ * @export
+ * @interface AccountupdatedEntitlementChangesInner
+ */
+export interface AccountupdatedEntitlementChangesInner {
+    /**
+     * The name of the entitlement attribute that was changed.
+     * @type {string}
+     * @memberof AccountupdatedEntitlementChangesInner
+     */
+    'attributeName': string;
+    /**
+     * The entitlements that were added.
+     * @type {Array<AccountupdatedEntitlementChangesInnerAddedInner>}
+     * @memberof AccountupdatedEntitlementChangesInner
+     */
+    'added': Array<AccountupdatedEntitlementChangesInnerAddedInner> | null;
+    /**
+     * The entitlements that were removed.
+     * @type {Array<AccountupdatedEntitlementChangesInnerAddedInner>}
+     * @memberof AccountupdatedEntitlementChangesInner
+     */
+    'removed': Array<AccountupdatedEntitlementChangesInnerAddedInner> | null;
+}
+/**
+ * 
+ * @export
+ * @interface AccountupdatedEntitlementChangesInnerAddedInner
+ */
+export interface AccountupdatedEntitlementChangesInnerAddedInner {
+    /**
+     * The unique identifier of the entitlement.
+     * @type {string}
+     * @memberof AccountupdatedEntitlementChangesInnerAddedInner
+     */
+    'id'?: string | null;
+    /**
+     * The name of the entitlement.
+     * @type {string}
+     * @memberof AccountupdatedEntitlementChangesInnerAddedInner
+     */
+    'name'?: string | null;
+    /**
+     * 
+     * @type {AccountupdatedEntitlementChangesInnerAddedInnerOwner}
+     * @memberof AccountupdatedEntitlementChangesInnerAddedInner
+     */
+    'owner'?: AccountupdatedEntitlementChangesInnerAddedInnerOwner;
+    /**
+     * The value of the entitlement.
+     * @type {string}
+     * @memberof AccountupdatedEntitlementChangesInnerAddedInner
+     */
+    'value'?: string;
+}
+/**
+ * The type of the entitlement.
+ * @export
+ * @interface AccountupdatedEntitlementChangesInnerAddedInnerOwner
+ */
+export interface AccountupdatedEntitlementChangesInnerAddedInnerOwner {
+    /**
+     * The unique identifier of the owner.
+     * @type {string}
+     * @memberof AccountupdatedEntitlementChangesInnerAddedInnerOwner
+     */
+    'id'?: string;
+    /**
+     * The name of the owner.
+     * @type {string}
+     * @memberof AccountupdatedEntitlementChangesInnerAddedInnerOwner
+     */
+    'name'?: string | null;
+    /**
+     * The type of the owner.
+     * @type {string}
+     * @memberof AccountupdatedEntitlementChangesInnerAddedInnerOwner
+     */
+    'type'?: string;
+}
+/**
+ * Details about the event.
+ * @export
+ * @interface AccountupdatedEvent
+ */
+export interface AccountupdatedEvent {
+    /**
+     * The type of event.
+     * @type {string}
+     * @memberof AccountupdatedEvent
+     */
+    'type': AccountupdatedEventTypeEnum;
+    /**
+     * The cause of the event.
+     * @type {string}
+     * @memberof AccountupdatedEvent
+     */
+    'cause': AccountupdatedEventCauseEnum;
+}
+
+export const AccountupdatedEventTypeEnum = {
+    AccountUpdatedV2: 'ACCOUNT_UPDATED_V2'
+} as const;
+
+export type AccountupdatedEventTypeEnum = typeof AccountupdatedEventTypeEnum[keyof typeof AccountupdatedEventTypeEnum];
+export const AccountupdatedEventCauseEnum = {
+    Aggregation: 'AGGREGATION',
+    Provisioning: 'PROVISIONING',
+    PasswordChange: 'PASSWORD_CHANGE'
+} as const;
+
+export type AccountupdatedEventCauseEnum = typeof AccountupdatedEventCauseEnum[keyof typeof AccountupdatedEventCauseEnum];
+
+/**
+ * 
+ * @export
+ * @interface AccountupdatedMultiValueAttributeChangesInner
+ */
+export interface AccountupdatedMultiValueAttributeChangesInner {
+    /**
+     * The name of the attribute that was changed.
+     * @type {string}
+     * @memberof AccountupdatedMultiValueAttributeChangesInner
+     */
+    'name': string;
+    /**
+     * The values that were added to the attribute.
+     * @type {Array<AccountupdatedMultiValueAttributeChangesInnerAddedValuesInner>}
+     * @memberof AccountupdatedMultiValueAttributeChangesInner
+     */
+    'addedValues': Array<AccountupdatedMultiValueAttributeChangesInnerAddedValuesInner>;
+    /**
+     * The values that were removed from the attribute.
+     * @type {Array<AccountupdatedMultiValueAttributeChangesInnerAddedValuesInner>}
+     * @memberof AccountupdatedMultiValueAttributeChangesInner
+     */
+    'removedValues': Array<AccountupdatedMultiValueAttributeChangesInnerAddedValuesInner>;
+}
+/**
+ * @type AccountupdatedMultiValueAttributeChangesInnerAddedValuesInner
+ * @export
+ */
+export type AccountupdatedMultiValueAttributeChangesInnerAddedValuesInner = Array<string> | boolean | number | string;
+
+/**
+ * 
+ * @export
+ * @interface AccountupdatedSingleValueAttributeChangesInner
+ */
+export interface AccountupdatedSingleValueAttributeChangesInner {
+    /**
+     * The name of the attribute that was changed.
+     * @type {string}
+     * @memberof AccountupdatedSingleValueAttributeChangesInner
+     */
+    'name': string;
+    /**
+     * 
+     * @type {AccountupdatedSingleValueAttributeChangesInnerOldValue}
+     * @memberof AccountupdatedSingleValueAttributeChangesInner
+     */
+    'oldValue': AccountupdatedSingleValueAttributeChangesInnerOldValue | null;
+    /**
+     * 
+     * @type {AccountupdatedSingleValueAttributeChangesInnerNewValue}
+     * @memberof AccountupdatedSingleValueAttributeChangesInner
+     */
+    'newValue': AccountupdatedSingleValueAttributeChangesInnerNewValue | null;
+}
+/**
+ * @type AccountupdatedSingleValueAttributeChangesInnerNewValue
+ * The new value of the attribute after the change.
+ * @export
+ */
+export type AccountupdatedSingleValueAttributeChangesInnerNewValue = Array<string> | boolean | number | string;
+
+/**
+ * @type AccountupdatedSingleValueAttributeChangesInnerOldValue
+ * The old value of the attribute before the change.
+ * @export
+ */
+export type AccountupdatedSingleValueAttributeChangesInnerOldValue = Array<string> | boolean | number | string;
 
 /**
  * Details about the account.
  * @export
- * @interface AccountV2
+ * @interface Accountv2
  */
-export interface AccountV2 {
+export interface Accountv2 {
     /**
      * The unique identifier of the account.
      * @type {string}
-     * @memberof AccountV2
+     * @memberof Accountv2
      */
     'id': string;
     /**
      * The name of the account.
      * @type {string}
-     * @memberof AccountV2
+     * @memberof Accountv2
      */
     'name': string;
     /**
      * The unique ID of the account generated by the source system.
      * @type {string}
-     * @memberof AccountV2
+     * @memberof Accountv2
      */
     'nativeIdentity': string;
     /**
      * The unique ID associated with this account.
      * @type {string}
-     * @memberof AccountV2
+     * @memberof Accountv2
      */
     'uuid': string | null;
     /**
      * Indicates if the account is correlated to an identity.
      * @type {boolean}
-     * @memberof AccountV2
+     * @memberof Accountv2
      */
     'correlated': boolean;
     /**
      * Indicates if the account is a machine account.
      * @type {boolean}
-     * @memberof AccountV2
+     * @memberof Accountv2
      */
     'isMachine': boolean;
     /**
      * The origin of the account.
      * @type {string}
-     * @memberof AccountV2
+     * @memberof Accountv2
      */
     'origin': string | null;
     /**
      * The attributes of the account. The contents of attributes depends on the account schema for the source.
      * @type {{ [key: string]: any; }}
-     * @memberof AccountV2
+     * @memberof Accountv2
      */
     'attributes': { [key: string]: any; } | null;
 }
 /**
  * Config required if BASIC_AUTH is used.
  * @export
- * @interface BasicauthconfigV1
+ * @interface Basicauthconfig
  */
-export interface BasicauthconfigV1 {
+export interface Basicauthconfig {
     /**
      * The username to authenticate.
      * @type {string}
-     * @memberof BasicauthconfigV1
+     * @memberof Basicauthconfig
      */
     'userName'?: string;
     /**
      * The password to authenticate. On response, this field is set to null as to not return secrets.
      * @type {string}
-     * @memberof BasicauthconfigV1
+     * @memberof Basicauthconfig
      */
     'password'?: string | null;
 }
 /**
  * Config required if BEARER_TOKEN authentication is used. On response, this field is set to null as to not return secrets.
  * @export
- * @interface BearertokenauthconfigV1
+ * @interface Bearertokenauthconfig
  */
-export interface BearertokenauthconfigV1 {
+export interface Bearertokenauthconfig {
     /**
      * Bearer token
      * @type {string}
-     * @memberof BearertokenauthconfigV1
+     * @memberof Bearertokenauthconfig
      */
     'bearerToken'?: string | null;
 }
 /**
+ * 
+ * @export
+ * @interface Campaignactivated
+ */
+export interface Campaignactivated {
+    /**
+     * 
+     * @type {CampaignactivatedCampaign}
+     * @memberof Campaignactivated
+     */
+    'campaign': CampaignactivatedCampaign;
+}
+/**
+ * Details about the certification campaign that was activated.
+ * @export
+ * @interface CampaignactivatedCampaign
+ */
+export interface CampaignactivatedCampaign {
+    /**
+     * Unique ID for the campaign.
+     * @type {string}
+     * @memberof CampaignactivatedCampaign
+     */
+    'id': string;
+    /**
+     * The human friendly name of the campaign.
+     * @type {string}
+     * @memberof CampaignactivatedCampaign
+     */
+    'name': string;
+    /**
+     * Extended description of the campaign.
+     * @type {string}
+     * @memberof CampaignactivatedCampaign
+     */
+    'description': string;
+    /**
+     * The date and time the campaign was created.
+     * @type {string}
+     * @memberof CampaignactivatedCampaign
+     */
+    'created': string;
+    /**
+     * The date and time the campaign was last modified.
+     * @type {string}
+     * @memberof CampaignactivatedCampaign
+     */
+    'modified'?: string | null;
+    /**
+     * The date and time the campaign is due.
+     * @type {string}
+     * @memberof CampaignactivatedCampaign
+     */
+    'deadline': string;
+    /**
+     * The type of campaign.
+     * @type {string}
+     * @memberof CampaignactivatedCampaign
+     */
+    'type': CampaignactivatedCampaignTypeEnum;
+    /**
+     * 
+     * @type {CampaignactivatedCampaignCampaignOwner}
+     * @memberof CampaignactivatedCampaign
+     */
+    'campaignOwner': CampaignactivatedCampaignCampaignOwner;
+    /**
+     * The current status of the campaign.
+     * @type {string}
+     * @memberof CampaignactivatedCampaign
+     */
+    'status': CampaignactivatedCampaignStatusEnum;
+}
+
+export const CampaignactivatedCampaignTypeEnum = {
+    Manager: 'MANAGER',
+    SourceOwner: 'SOURCE_OWNER',
+    Search: 'SEARCH',
+    RoleComposition: 'ROLE_COMPOSITION'
+} as const;
+
+export type CampaignactivatedCampaignTypeEnum = typeof CampaignactivatedCampaignTypeEnum[keyof typeof CampaignactivatedCampaignTypeEnum];
+export const CampaignactivatedCampaignStatusEnum = {
+    Active: 'ACTIVE'
+} as const;
+
+export type CampaignactivatedCampaignStatusEnum = typeof CampaignactivatedCampaignStatusEnum[keyof typeof CampaignactivatedCampaignStatusEnum];
+
+/**
  * Details of the identity that owns the campaign.
  * @export
- * @interface CampaignactivatedCampaignCampaignOwnerV1
+ * @interface CampaignactivatedCampaignCampaignOwner
  */
-export interface CampaignactivatedCampaignCampaignOwnerV1 {
+export interface CampaignactivatedCampaignCampaignOwner {
     /**
      * The unique ID of the identity.
      * @type {string}
-     * @memberof CampaignactivatedCampaignCampaignOwnerV1
+     * @memberof CampaignactivatedCampaignCampaignOwner
      */
     'id': string;
     /**
      * The human friendly name of the identity.
      * @type {string}
-     * @memberof CampaignactivatedCampaignCampaignOwnerV1
+     * @memberof CampaignactivatedCampaignCampaignOwner
      */
     'displayName': string;
     /**
      * The primary email address of the identity.
      * @type {string}
-     * @memberof CampaignactivatedCampaignCampaignOwnerV1
+     * @memberof CampaignactivatedCampaignCampaignOwner
      */
     'email': string;
 }
 /**
- * Details about the certification campaign that was activated.
- * @export
- * @interface CampaignactivatedCampaignV1
- */
-export interface CampaignactivatedCampaignV1 {
-    /**
-     * Unique ID for the campaign.
-     * @type {string}
-     * @memberof CampaignactivatedCampaignV1
-     */
-    'id': string;
-    /**
-     * The human friendly name of the campaign.
-     * @type {string}
-     * @memberof CampaignactivatedCampaignV1
-     */
-    'name': string;
-    /**
-     * Extended description of the campaign.
-     * @type {string}
-     * @memberof CampaignactivatedCampaignV1
-     */
-    'description': string;
-    /**
-     * The date and time the campaign was created.
-     * @type {string}
-     * @memberof CampaignactivatedCampaignV1
-     */
-    'created': string;
-    /**
-     * The date and time the campaign was last modified.
-     * @type {string}
-     * @memberof CampaignactivatedCampaignV1
-     */
-    'modified'?: string | null;
-    /**
-     * The date and time the campaign is due.
-     * @type {string}
-     * @memberof CampaignactivatedCampaignV1
-     */
-    'deadline': string;
-    /**
-     * The type of campaign.
-     * @type {string}
-     * @memberof CampaignactivatedCampaignV1
-     */
-    'type': CampaignactivatedCampaignV1TypeV1;
-    /**
-     * 
-     * @type {CampaignactivatedCampaignCampaignOwnerV1}
-     * @memberof CampaignactivatedCampaignV1
-     */
-    'campaignOwner': CampaignactivatedCampaignCampaignOwnerV1;
-    /**
-     * The current status of the campaign.
-     * @type {string}
-     * @memberof CampaignactivatedCampaignV1
-     */
-    'status': CampaignactivatedCampaignV1StatusV1;
-}
-
-export const CampaignactivatedCampaignV1TypeV1 = {
-    Manager: 'MANAGER',
-    SourceOwner: 'SOURCE_OWNER',
-    Search: 'SEARCH',
-    RoleComposition: 'ROLE_COMPOSITION'
-} as const;
-
-export type CampaignactivatedCampaignV1TypeV1 = typeof CampaignactivatedCampaignV1TypeV1[keyof typeof CampaignactivatedCampaignV1TypeV1];
-export const CampaignactivatedCampaignV1StatusV1 = {
-    Active: 'ACTIVE'
-} as const;
-
-export type CampaignactivatedCampaignV1StatusV1 = typeof CampaignactivatedCampaignV1StatusV1[keyof typeof CampaignactivatedCampaignV1StatusV1];
-
-/**
  * 
  * @export
- * @interface CampaignactivatedV1
+ * @interface Campaignended
  */
-export interface CampaignactivatedV1 {
+export interface Campaignended {
     /**
      * 
-     * @type {CampaignactivatedCampaignV1}
-     * @memberof CampaignactivatedV1
+     * @type {CampaignendedCampaign}
+     * @memberof Campaignended
      */
-    'campaign': CampaignactivatedCampaignV1;
+    'campaign': CampaignendedCampaign;
 }
 /**
  * Details about the certification campaign that ended.
  * @export
- * @interface CampaignendedCampaignV1
+ * @interface CampaignendedCampaign
  */
-export interface CampaignendedCampaignV1 {
+export interface CampaignendedCampaign {
     /**
      * Unique ID for the campaign.
      * @type {string}
-     * @memberof CampaignendedCampaignV1
+     * @memberof CampaignendedCampaign
      */
     'id': string;
     /**
      * The human friendly name of the campaign.
      * @type {string}
-     * @memberof CampaignendedCampaignV1
+     * @memberof CampaignendedCampaign
      */
     'name': string;
     /**
      * Extended description of the campaign.
      * @type {string}
-     * @memberof CampaignendedCampaignV1
+     * @memberof CampaignendedCampaign
      */
     'description': string;
     /**
      * The date and time the campaign was created.
      * @type {string}
-     * @memberof CampaignendedCampaignV1
+     * @memberof CampaignendedCampaign
      */
     'created': string;
     /**
      * The date and time the campaign was last modified.
      * @type {string}
-     * @memberof CampaignendedCampaignV1
+     * @memberof CampaignendedCampaign
      */
     'modified'?: string | null;
     /**
      * The date and time the campaign is due.
      * @type {string}
-     * @memberof CampaignendedCampaignV1
+     * @memberof CampaignendedCampaign
      */
     'deadline': string;
     /**
      * The type of campaign.
      * @type {string}
-     * @memberof CampaignendedCampaignV1
+     * @memberof CampaignendedCampaign
      */
-    'type': CampaignendedCampaignV1TypeV1;
+    'type': CampaignendedCampaignTypeEnum;
     /**
      * 
-     * @type {CampaignactivatedCampaignCampaignOwnerV1}
-     * @memberof CampaignendedCampaignV1
+     * @type {CampaignactivatedCampaignCampaignOwner}
+     * @memberof CampaignendedCampaign
      */
-    'campaignOwner': CampaignactivatedCampaignCampaignOwnerV1;
+    'campaignOwner': CampaignactivatedCampaignCampaignOwner;
     /**
      * The current status of the campaign.
      * @type {string}
-     * @memberof CampaignendedCampaignV1
+     * @memberof CampaignendedCampaign
      */
-    'status': CampaignendedCampaignV1StatusV1;
+    'status': CampaignendedCampaignStatusEnum;
 }
 
-export const CampaignendedCampaignV1TypeV1 = {
+export const CampaignendedCampaignTypeEnum = {
     Manager: 'MANAGER',
     SourceOwner: 'SOURCE_OWNER',
     Search: 'SEARCH',
     RoleComposition: 'ROLE_COMPOSITION'
 } as const;
 
-export type CampaignendedCampaignV1TypeV1 = typeof CampaignendedCampaignV1TypeV1[keyof typeof CampaignendedCampaignV1TypeV1];
-export const CampaignendedCampaignV1StatusV1 = {
+export type CampaignendedCampaignTypeEnum = typeof CampaignendedCampaignTypeEnum[keyof typeof CampaignendedCampaignTypeEnum];
+export const CampaignendedCampaignStatusEnum = {
     Completed: 'COMPLETED'
 } as const;
 
-export type CampaignendedCampaignV1StatusV1 = typeof CampaignendedCampaignV1StatusV1[keyof typeof CampaignendedCampaignV1StatusV1];
+export type CampaignendedCampaignStatusEnum = typeof CampaignendedCampaignStatusEnum[keyof typeof CampaignendedCampaignStatusEnum];
 
 /**
  * 
  * @export
- * @interface CampaignendedV1
+ * @interface Campaigngenerated
  */
-export interface CampaignendedV1 {
+export interface Campaigngenerated {
     /**
      * 
-     * @type {CampaignendedCampaignV1}
-     * @memberof CampaignendedV1
+     * @type {CampaigngeneratedCampaign}
+     * @memberof Campaigngenerated
      */
-    'campaign': CampaignendedCampaignV1;
-}
-/**
- * The identity that owns the campaign.
- * @export
- * @interface CampaigngeneratedCampaignCampaignOwnerV1
- */
-export interface CampaigngeneratedCampaignCampaignOwnerV1 {
-    /**
-     * The unique ID of the identity.
-     * @type {string}
-     * @memberof CampaigngeneratedCampaignCampaignOwnerV1
-     */
-    'id': string;
-    /**
-     * The display name of the identity.
-     * @type {string}
-     * @memberof CampaigngeneratedCampaignCampaignOwnerV1
-     */
-    'displayName': string;
-    /**
-     * The primary email address of the identity.
-     * @type {string}
-     * @memberof CampaigngeneratedCampaignCampaignOwnerV1
-     */
-    'email': string;
+    'campaign': CampaigngeneratedCampaign;
 }
 /**
  * Details about the campaign that was generated.
  * @export
- * @interface CampaigngeneratedCampaignV1
+ * @interface CampaigngeneratedCampaign
  */
-export interface CampaigngeneratedCampaignV1 {
+export interface CampaigngeneratedCampaign {
     /**
      * The unique ID of the campaign.
      * @type {string}
-     * @memberof CampaigngeneratedCampaignV1
+     * @memberof CampaigngeneratedCampaign
      */
     'id': string;
     /**
      * Human friendly name of the campaign.
      * @type {string}
-     * @memberof CampaigngeneratedCampaignV1
+     * @memberof CampaigngeneratedCampaign
      */
     'name': string;
     /**
      * Extended description of the campaign.
      * @type {string}
-     * @memberof CampaigngeneratedCampaignV1
+     * @memberof CampaigngeneratedCampaign
      */
     'description': string;
     /**
      * The date and time the campaign was created.
      * @type {string}
-     * @memberof CampaigngeneratedCampaignV1
+     * @memberof CampaigngeneratedCampaign
      */
     'created': string;
     /**
      * The date and time the campaign was last modified.
      * @type {string}
-     * @memberof CampaigngeneratedCampaignV1
+     * @memberof CampaigngeneratedCampaign
      */
     'modified'?: string | null;
     /**
      * The date and time when the campaign must be finished by.
      * @type {string}
-     * @memberof CampaigngeneratedCampaignV1
+     * @memberof CampaigngeneratedCampaign
      */
     'deadline'?: string | null;
     /**
      * The type of campaign that was generated.
      * @type {string}
-     * @memberof CampaigngeneratedCampaignV1
+     * @memberof CampaigngeneratedCampaign
      */
-    'type': CampaigngeneratedCampaignV1TypeV1;
+    'type': CampaigngeneratedCampaignTypeEnum;
     /**
      * 
-     * @type {CampaigngeneratedCampaignCampaignOwnerV1}
-     * @memberof CampaigngeneratedCampaignV1
+     * @type {CampaigngeneratedCampaignCampaignOwner}
+     * @memberof CampaigngeneratedCampaign
      */
-    'campaignOwner': CampaigngeneratedCampaignCampaignOwnerV1;
+    'campaignOwner': CampaigngeneratedCampaignCampaignOwner;
     /**
      * The current status of the campaign.
      * @type {string}
-     * @memberof CampaigngeneratedCampaignV1
+     * @memberof CampaigngeneratedCampaign
      */
-    'status': CampaigngeneratedCampaignV1StatusV1;
+    'status': CampaigngeneratedCampaignStatusEnum;
 }
 
-export const CampaigngeneratedCampaignV1TypeV1 = {
+export const CampaigngeneratedCampaignTypeEnum = {
     Manager: 'MANAGER',
     SourceOwner: 'SOURCE_OWNER',
     Search: 'SEARCH',
     RoleComposition: 'ROLE_COMPOSITION'
 } as const;
 
-export type CampaigngeneratedCampaignV1TypeV1 = typeof CampaigngeneratedCampaignV1TypeV1[keyof typeof CampaigngeneratedCampaignV1TypeV1];
-export const CampaigngeneratedCampaignV1StatusV1 = {
+export type CampaigngeneratedCampaignTypeEnum = typeof CampaigngeneratedCampaignTypeEnum[keyof typeof CampaigngeneratedCampaignTypeEnum];
+export const CampaigngeneratedCampaignStatusEnum = {
     Staged: 'STAGED',
     Activating: 'ACTIVATING',
     Active: 'ACTIVE'
 } as const;
 
-export type CampaigngeneratedCampaignV1StatusV1 = typeof CampaigngeneratedCampaignV1StatusV1[keyof typeof CampaigngeneratedCampaignV1StatusV1];
+export type CampaigngeneratedCampaignStatusEnum = typeof CampaigngeneratedCampaignStatusEnum[keyof typeof CampaigngeneratedCampaignStatusEnum];
 
 /**
- * 
+ * The identity that owns the campaign.
  * @export
- * @interface CampaigngeneratedV1
+ * @interface CampaigngeneratedCampaignCampaignOwner
  */
-export interface CampaigngeneratedV1 {
+export interface CampaigngeneratedCampaignCampaignOwner {
     /**
-     * 
-     * @type {CampaigngeneratedCampaignV1}
-     * @memberof CampaigngeneratedV1
+     * The unique ID of the identity.
+     * @type {string}
+     * @memberof CampaigngeneratedCampaignCampaignOwner
      */
-    'campaign': CampaigngeneratedCampaignV1;
+    'id': string;
+    /**
+     * The display name of the identity.
+     * @type {string}
+     * @memberof CampaigngeneratedCampaignCampaignOwner
+     */
+    'displayName': string;
+    /**
+     * The primary email address of the identity.
+     * @type {string}
+     * @memberof CampaigngeneratedCampaignCampaignOwner
+     */
+    'email': string;
 }
 /**
  * 
  * @export
- * @interface CampaignreferenceV1
+ * @interface Campaignreference
  */
-export interface CampaignreferenceV1 {
+export interface Campaignreference {
     /**
      * The unique ID of the campaign.
      * @type {string}
-     * @memberof CampaignreferenceV1
+     * @memberof Campaignreference
      */
     'id': string;
     /**
      * The name of the campaign.
      * @type {string}
-     * @memberof CampaignreferenceV1
+     * @memberof Campaignreference
      */
     'name': string;
     /**
      * The type of object that is being referenced.
      * @type {string}
-     * @memberof CampaignreferenceV1
+     * @memberof Campaignreference
      */
-    'type': CampaignreferenceV1TypeV1;
+    'type': CampaignreferenceTypeEnum;
     /**
      * The type of the campaign.
      * @type {string}
-     * @memberof CampaignreferenceV1
+     * @memberof Campaignreference
      */
-    'campaignType': CampaignreferenceV1CampaignTypeV1;
+    'campaignType': CampaignreferenceCampaignTypeEnum;
     /**
      * The description of the campaign set by the admin who created it.
      * @type {string}
-     * @memberof CampaignreferenceV1
+     * @memberof Campaignreference
      */
     'description': string | null;
     /**
      * The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
      * @type {string}
-     * @memberof CampaignreferenceV1
+     * @memberof Campaignreference
      */
-    'correlatedStatus': CampaignreferenceV1CorrelatedStatusV1;
+    'correlatedStatus': CampaignreferenceCorrelatedStatusEnum;
     /**
      * Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions.
      * @type {string}
-     * @memberof CampaignreferenceV1
+     * @memberof Campaignreference
      */
-    'mandatoryCommentRequirement': CampaignreferenceV1MandatoryCommentRequirementV1;
+    'mandatoryCommentRequirement': CampaignreferenceMandatoryCommentRequirementEnum;
 }
 
-export const CampaignreferenceV1TypeV1 = {
+export const CampaignreferenceTypeEnum = {
     Campaign: 'CAMPAIGN'
 } as const;
 
-export type CampaignreferenceV1TypeV1 = typeof CampaignreferenceV1TypeV1[keyof typeof CampaignreferenceV1TypeV1];
-export const CampaignreferenceV1CampaignTypeV1 = {
+export type CampaignreferenceTypeEnum = typeof CampaignreferenceTypeEnum[keyof typeof CampaignreferenceTypeEnum];
+export const CampaignreferenceCampaignTypeEnum = {
     Manager: 'MANAGER',
     SourceOwner: 'SOURCE_OWNER',
     Search: 'SEARCH',
@@ -2161,103 +2161,103 @@ export const CampaignreferenceV1CampaignTypeV1 = {
     MachineAccount: 'MACHINE_ACCOUNT'
 } as const;
 
-export type CampaignreferenceV1CampaignTypeV1 = typeof CampaignreferenceV1CampaignTypeV1[keyof typeof CampaignreferenceV1CampaignTypeV1];
-export const CampaignreferenceV1CorrelatedStatusV1 = {
+export type CampaignreferenceCampaignTypeEnum = typeof CampaignreferenceCampaignTypeEnum[keyof typeof CampaignreferenceCampaignTypeEnum];
+export const CampaignreferenceCorrelatedStatusEnum = {
     Correlated: 'CORRELATED',
     Uncorrelated: 'UNCORRELATED'
 } as const;
 
-export type CampaignreferenceV1CorrelatedStatusV1 = typeof CampaignreferenceV1CorrelatedStatusV1[keyof typeof CampaignreferenceV1CorrelatedStatusV1];
-export const CampaignreferenceV1MandatoryCommentRequirementV1 = {
+export type CampaignreferenceCorrelatedStatusEnum = typeof CampaignreferenceCorrelatedStatusEnum[keyof typeof CampaignreferenceCorrelatedStatusEnum];
+export const CampaignreferenceMandatoryCommentRequirementEnum = {
     AllDecisions: 'ALL_DECISIONS',
     RevokeOnlyDecisions: 'REVOKE_ONLY_DECISIONS',
     NoDecisions: 'NO_DECISIONS'
 } as const;
 
-export type CampaignreferenceV1MandatoryCommentRequirementV1 = typeof CampaignreferenceV1MandatoryCommentRequirementV1[keyof typeof CampaignreferenceV1MandatoryCommentRequirementV1];
+export type CampaignreferenceMandatoryCommentRequirementEnum = typeof CampaignreferenceMandatoryCommentRequirementEnum[keyof typeof CampaignreferenceMandatoryCommentRequirementEnum];
 
 /**
  * 
  * @export
- * @interface CertificationdtoV1
+ * @interface Certificationdto
  */
-export interface CertificationdtoV1 {
+export interface Certificationdto {
     /**
      * 
-     * @type {CampaignreferenceV1}
-     * @memberof CertificationdtoV1
+     * @type {Campaignreference}
+     * @memberof Certificationdto
      */
-    'campaignRef': CampaignreferenceV1;
+    'campaignRef': Campaignreference;
     /**
      * 
-     * @type {CertificationphaseV1}
-     * @memberof CertificationdtoV1
+     * @type {Certificationphase}
+     * @memberof Certificationdto
      */
-    'phase': CertificationphaseV1;
+    'phase': Certificationphase;
     /**
      * The due date of the certification.
      * @type {string}
-     * @memberof CertificationdtoV1
+     * @memberof Certificationdto
      */
     'due': string;
     /**
      * The date the reviewer signed off on the certification.
      * @type {string}
-     * @memberof CertificationdtoV1
+     * @memberof Certificationdto
      */
     'signed': string;
     /**
      * 
-     * @type {ReviewerV1}
-     * @memberof CertificationdtoV1
+     * @type {Reviewer}
+     * @memberof Certificationdto
      */
-    'reviewer': ReviewerV1;
+    'reviewer': Reviewer;
     /**
      * 
-     * @type {ReassignmentV1}
-     * @memberof CertificationdtoV1
+     * @type {Reassignment}
+     * @memberof Certificationdto
      */
-    'reassignment'?: ReassignmentV1 | null;
+    'reassignment'?: Reassignment | null;
     /**
      * Indicates it the certification has any errors.
      * @type {boolean}
-     * @memberof CertificationdtoV1
+     * @memberof Certificationdto
      */
     'hasErrors': boolean;
     /**
      * A message indicating what the error is.
      * @type {string}
-     * @memberof CertificationdtoV1
+     * @memberof Certificationdto
      */
     'errorMessage'?: string | null;
     /**
      * Indicates if all certification decisions have been made.
      * @type {boolean}
-     * @memberof CertificationdtoV1
+     * @memberof Certificationdto
      */
     'completed': boolean;
     /**
      * The number of approve/revoke/acknowledge decisions that have been made by the reviewer.
      * @type {number}
-     * @memberof CertificationdtoV1
+     * @memberof Certificationdto
      */
     'decisionsMade': number;
     /**
      * The total number of approve/revoke/acknowledge decisions for the certification.
      * @type {number}
-     * @memberof CertificationdtoV1
+     * @memberof Certificationdto
      */
     'decisionsTotal': number;
     /**
      * The number of entities (identities, access profiles, roles, etc.) for which all decisions have been made and are complete.
      * @type {number}
-     * @memberof CertificationdtoV1
+     * @memberof Certificationdto
      */
     'entitiesCompleted': number;
     /**
      * The total number of entities (identities, access profiles, roles, etc.) in the certification, both complete and incomplete.
      * @type {number}
-     * @memberof CertificationdtoV1
+     * @memberof Certificationdto
      */
     'entitiesTotal': number;
 }
@@ -2269,159 +2269,172 @@ export interface CertificationdtoV1 {
  * @enum {string}
  */
 
-export const CertificationphaseV1 = {
+export const Certificationphase = {
     Staged: 'STAGED',
     Active: 'ACTIVE',
     Signed: 'SIGNED'
 } as const;
 
-export type CertificationphaseV1 = typeof CertificationphaseV1[keyof typeof CertificationphaseV1];
+export type Certificationphase = typeof Certificationphase[keyof typeof Certificationphase];
 
 
 /**
  * 
  * @export
- * @interface CertificationreferenceV1
+ * @interface Certificationreference
  */
-export interface CertificationreferenceV1 {
+export interface Certificationreference {
     /**
      * The id of the certification.
      * @type {string}
-     * @memberof CertificationreferenceV1
+     * @memberof Certificationreference
      */
     'id'?: string;
     /**
      * The name of the certification.
      * @type {string}
-     * @memberof CertificationreferenceV1
+     * @memberof Certificationreference
      */
     'name'?: string;
     /**
      * 
      * @type {string}
-     * @memberof CertificationreferenceV1
+     * @memberof Certificationreference
      */
-    'type'?: CertificationreferenceV1TypeV1;
+    'type'?: CertificationreferenceTypeEnum;
     /**
      * 
-     * @type {ReviewerV1}
-     * @memberof CertificationreferenceV1
+     * @type {Reviewer}
+     * @memberof Certificationreference
      */
-    'reviewer'?: ReviewerV1;
+    'reviewer'?: Reviewer;
 }
 
-export const CertificationreferenceV1TypeV1 = {
+export const CertificationreferenceTypeEnum = {
     Certification: 'CERTIFICATION'
 } as const;
 
-export type CertificationreferenceV1TypeV1 = typeof CertificationreferenceV1TypeV1[keyof typeof CertificationreferenceV1TypeV1];
+export type CertificationreferenceTypeEnum = typeof CertificationreferenceTypeEnum[keyof typeof CertificationreferenceTypeEnum];
 
+/**
+ * 
+ * @export
+ * @interface Certificationsignedoff
+ */
+export interface Certificationsignedoff {
+    /**
+     * 
+     * @type {CertificationsignedoffCertification}
+     * @memberof Certificationsignedoff
+     */
+    'certification': CertificationsignedoffCertification;
+}
 /**
  * The certification campaign that was signed off on.
  * @export
- * @interface CertificationsignedoffCertificationV1
+ * @interface CertificationsignedoffCertification
  */
-export interface CertificationsignedoffCertificationV1 {
+export interface CertificationsignedoffCertification {
     /**
      * Unique ID of the certification.
      * @type {string}
-     * @memberof CertificationsignedoffCertificationV1
+     * @memberof CertificationsignedoffCertification
      */
     'id': string;
     /**
      * The name of the certification.
      * @type {string}
-     * @memberof CertificationsignedoffCertificationV1
+     * @memberof CertificationsignedoffCertification
      */
     'name': string;
     /**
      * The date and time the certification was created.
      * @type {string}
-     * @memberof CertificationsignedoffCertificationV1
+     * @memberof CertificationsignedoffCertification
      */
     'created': string;
     /**
      * The date and time the certification was last modified.
      * @type {string}
-     * @memberof CertificationsignedoffCertificationV1
+     * @memberof CertificationsignedoffCertification
      */
     'modified'?: string | null;
     /**
      * 
-     * @type {CampaignreferenceV1}
-     * @memberof CertificationsignedoffCertificationV1
+     * @type {Campaignreference}
+     * @memberof CertificationsignedoffCertification
      */
-    'campaignRef': CampaignreferenceV1;
+    'campaignRef': Campaignreference;
     /**
      * 
-     * @type {CertificationphaseV1}
-     * @memberof CertificationsignedoffCertificationV1
+     * @type {Certificationphase}
+     * @memberof CertificationsignedoffCertification
      */
-    'phase': CertificationphaseV1;
+    'phase': Certificationphase;
     /**
      * The due date of the certification.
      * @type {string}
-     * @memberof CertificationsignedoffCertificationV1
+     * @memberof CertificationsignedoffCertification
      */
     'due': string;
     /**
      * The date the reviewer signed off on the certification.
      * @type {string}
-     * @memberof CertificationsignedoffCertificationV1
+     * @memberof CertificationsignedoffCertification
      */
     'signed': string;
     /**
      * 
-     * @type {ReviewerV1}
-     * @memberof CertificationsignedoffCertificationV1
+     * @type {Reviewer}
+     * @memberof CertificationsignedoffCertification
      */
-    'reviewer': ReviewerV1;
+    'reviewer': Reviewer;
     /**
      * 
-     * @type {ReassignmentV1}
-     * @memberof CertificationsignedoffCertificationV1
+     * @type {Reassignment}
+     * @memberof CertificationsignedoffCertification
      */
-    'reassignment'?: ReassignmentV1 | null;
+    'reassignment'?: Reassignment | null;
     /**
      * Indicates it the certification has any errors.
      * @type {boolean}
-     * @memberof CertificationsignedoffCertificationV1
+     * @memberof CertificationsignedoffCertification
      */
     'hasErrors': boolean;
     /**
      * A message indicating what the error is.
      * @type {string}
-     * @memberof CertificationsignedoffCertificationV1
+     * @memberof CertificationsignedoffCertification
      */
     'errorMessage'?: string | null;
     /**
      * Indicates if all certification decisions have been made.
      * @type {boolean}
-     * @memberof CertificationsignedoffCertificationV1
+     * @memberof CertificationsignedoffCertification
      */
     'completed': boolean;
     /**
      * The number of approve/revoke/acknowledge decisions that have been made by the reviewer.
      * @type {number}
-     * @memberof CertificationsignedoffCertificationV1
+     * @memberof CertificationsignedoffCertification
      */
     'decisionsMade': number;
     /**
      * The total number of approve/revoke/acknowledge decisions for the certification.
      * @type {number}
-     * @memberof CertificationsignedoffCertificationV1
+     * @memberof CertificationsignedoffCertification
      */
     'decisionsTotal': number;
     /**
      * The number of entities (identities, access profiles, roles, etc.) for which all decisions have been made and are complete.
      * @type {number}
-     * @memberof CertificationsignedoffCertificationV1
+     * @memberof CertificationsignedoffCertification
      */
     'entitiesCompleted': number;
     /**
      * The total number of entities (identities, access profiles, roles, etc.) in the certification, both complete and incomplete.
      * @type {number}
-     * @memberof CertificationsignedoffCertificationV1
+     * @memberof CertificationsignedoffCertification
      */
     'entitiesTotal': number;
 }
@@ -2430,82 +2443,69 @@ export interface CertificationsignedoffCertificationV1 {
 /**
  * 
  * @export
- * @interface CertificationsignedoffV1
+ * @interface Completeinvocation
  */
-export interface CertificationsignedoffV1 {
-    /**
-     * 
-     * @type {CertificationsignedoffCertificationV1}
-     * @memberof CertificationsignedoffV1
-     */
-    'certification': CertificationsignedoffCertificationV1;
-}
-/**
- * 
- * @export
- * @interface CompleteinvocationV1
- */
-export interface CompleteinvocationV1 {
+export interface Completeinvocation {
     /**
      * Unique invocation secret that was generated when the invocation was created. Required to authenticate to the endpoint.
      * @type {string}
-     * @memberof CompleteinvocationV1
+     * @memberof Completeinvocation
      */
     'secret': string;
     /**
      * The error message to indicate a failed invocation or error if any.
      * @type {string}
-     * @memberof CompleteinvocationV1
+     * @memberof Completeinvocation
      */
     'error'?: string;
     /**
      * Trigger output to complete the invocation. Its schema is defined in the trigger definition.
      * @type {object}
-     * @memberof CompleteinvocationV1
+     * @memberof Completeinvocation
      */
     'output': object;
 }
 /**
  * 
  * @export
- * @interface CompleteinvocationinputV1
+ * @interface Completeinvocationinput
  */
-export interface CompleteinvocationinputV1 {
+export interface Completeinvocationinput {
     /**
      * 
-     * @type {LocalizedmessageV1}
-     * @memberof CompleteinvocationinputV1
+     * @type {Localizedmessage}
+     * @memberof Completeinvocationinput
      */
-    'localizedError'?: LocalizedmessageV1 | null;
+    'localizedError'?: Localizedmessage | null;
     /**
      * Trigger output that completed the invocation. Its schema is defined in the trigger definition.
      * @type {object}
-     * @memberof CompleteinvocationinputV1
+     * @memberof Completeinvocationinput
      */
     'output'?: object | null;
 }
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -2514,50 +2514,50 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface EventbridgeconfigV1
+ * @interface Eventbridgeconfig
  */
-export interface EventbridgeconfigV1 {
+export interface Eventbridgeconfig {
     /**
      * AWS Account Number (12-digit number) that has the EventBridge Partner Event Source Resource.
      * @type {string}
-     * @memberof EventbridgeconfigV1
+     * @memberof Eventbridgeconfig
      */
     'awsAccount': string;
     /**
      * AWS Region that has the EventBridge Partner Event Source Resource. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a full list of available values.
      * @type {string}
-     * @memberof EventbridgeconfigV1
+     * @memberof Eventbridgeconfig
      */
     'awsRegion': string;
 }
@@ -2567,51 +2567,51 @@ export interface EventbridgeconfigV1 {
  * @enum {string}
  */
 
-export const HttpauthenticationtypeV1 = {
+export const Httpauthenticationtype = {
     NoAuth: 'NO_AUTH',
     BasicAuth: 'BASIC_AUTH',
     BearerToken: 'BEARER_TOKEN'
 } as const;
 
-export type HttpauthenticationtypeV1 = typeof HttpauthenticationtypeV1[keyof typeof HttpauthenticationtypeV1];
+export type Httpauthenticationtype = typeof Httpauthenticationtype[keyof typeof Httpauthenticationtype];
 
 
 /**
  * 
  * @export
- * @interface HttpconfigV1
+ * @interface Httpconfig
  */
-export interface HttpconfigV1 {
+export interface Httpconfig {
     /**
      * URL of the external/custom integration.
      * @type {string}
-     * @memberof HttpconfigV1
+     * @memberof Httpconfig
      */
     'url': string;
     /**
      * 
-     * @type {HttpdispatchmodeV1}
-     * @memberof HttpconfigV1
+     * @type {Httpdispatchmode}
+     * @memberof Httpconfig
      */
-    'httpDispatchMode': HttpdispatchmodeV1;
+    'httpDispatchMode': Httpdispatchmode;
     /**
      * 
-     * @type {HttpauthenticationtypeV1}
-     * @memberof HttpconfigV1
+     * @type {Httpauthenticationtype}
+     * @memberof Httpconfig
      */
-    'httpAuthenticationType'?: HttpauthenticationtypeV1;
+    'httpAuthenticationType'?: Httpauthenticationtype;
     /**
      * 
-     * @type {BasicauthconfigV1}
-     * @memberof HttpconfigV1
+     * @type {Basicauthconfig}
+     * @memberof Httpconfig
      */
-    'basicAuthConfig'?: BasicauthconfigV1 | null;
+    'basicAuthConfig'?: Basicauthconfig | null;
     /**
      * 
-     * @type {BearertokenauthconfigV1}
-     * @memberof HttpconfigV1
+     * @type {Bearertokenauthconfig}
+     * @memberof Httpconfig
      */
-    'bearerTokenAuthConfig'?: BearertokenauthconfigV1 | null;
+    'bearerTokenAuthConfig'?: Bearertokenauthconfig | null;
 }
 
 
@@ -2621,335 +2621,335 @@ export interface HttpconfigV1 {
  * @enum {string}
  */
 
-export const HttpdispatchmodeV1 = {
+export const Httpdispatchmode = {
     Sync: 'SYNC',
     Async: 'ASYNC',
     Dynamic: 'DYNAMIC'
 } as const;
 
-export type HttpdispatchmodeV1 = typeof HttpdispatchmodeV1[keyof typeof HttpdispatchmodeV1];
+export type Httpdispatchmode = typeof Httpdispatchmode[keyof typeof Httpdispatchmode];
 
-
-/**
- * @type IdentityattributeschangedChangesInnerNewValueV1
- * The value of the identity attribute after it changed.
- * @export
- */
-export type IdentityattributeschangedChangesInnerNewValueV1 = Array<string> | boolean | string | { [key: string]: IdentityattributeschangedChangesInnerOldValueOneOfValueV1; };
-
-/**
- * @type IdentityattributeschangedChangesInnerOldValueOneOfValueV1
- * @export
- */
-export type IdentityattributeschangedChangesInnerOldValueOneOfValueV1 = boolean | number | string;
-
-/**
- * @type IdentityattributeschangedChangesInnerOldValueV1
- * The value of the identity attribute before it changed.
- * @export
- */
-export type IdentityattributeschangedChangesInnerOldValueV1 = Array<string> | boolean | string | { [key: string]: IdentityattributeschangedChangesInnerOldValueOneOfValueV1; };
 
 /**
  * 
  * @export
- * @interface IdentityattributeschangedChangesInnerV1
+ * @interface Identityattributeschanged
  */
-export interface IdentityattributeschangedChangesInnerV1 {
+export interface Identityattributeschanged {
+    /**
+     * 
+     * @type {IdentityattributeschangedIdentity}
+     * @memberof Identityattributeschanged
+     */
+    'identity': IdentityattributeschangedIdentity;
+    /**
+     * A list of one or more identity attributes that changed on the identity.
+     * @type {Array<IdentityattributeschangedChangesInner>}
+     * @memberof Identityattributeschanged
+     */
+    'changes': Array<IdentityattributeschangedChangesInner>;
+}
+/**
+ * 
+ * @export
+ * @interface IdentityattributeschangedChangesInner
+ */
+export interface IdentityattributeschangedChangesInner {
     /**
      * The name of the identity attribute that changed.
      * @type {string}
-     * @memberof IdentityattributeschangedChangesInnerV1
+     * @memberof IdentityattributeschangedChangesInner
      */
     'attribute': string;
     /**
      * 
-     * @type {IdentityattributeschangedChangesInnerOldValueV1}
-     * @memberof IdentityattributeschangedChangesInnerV1
+     * @type {IdentityattributeschangedChangesInnerOldValue}
+     * @memberof IdentityattributeschangedChangesInner
      */
-    'oldValue'?: IdentityattributeschangedChangesInnerOldValueV1 | null;
+    'oldValue'?: IdentityattributeschangedChangesInnerOldValue | null;
     /**
      * 
-     * @type {IdentityattributeschangedChangesInnerNewValueV1}
-     * @memberof IdentityattributeschangedChangesInnerV1
+     * @type {IdentityattributeschangedChangesInnerNewValue}
+     * @memberof IdentityattributeschangedChangesInner
      */
-    'newValue'?: IdentityattributeschangedChangesInnerNewValueV1;
+    'newValue'?: IdentityattributeschangedChangesInnerNewValue;
 }
+/**
+ * @type IdentityattributeschangedChangesInnerNewValue
+ * The value of the identity attribute after it changed.
+ * @export
+ */
+export type IdentityattributeschangedChangesInnerNewValue = Array<string> | boolean | string | { [key: string]: IdentityattributeschangedChangesInnerOldValueOneOfValue; };
+
+/**
+ * @type IdentityattributeschangedChangesInnerOldValue
+ * The value of the identity attribute before it changed.
+ * @export
+ */
+export type IdentityattributeschangedChangesInnerOldValue = Array<string> | boolean | string | { [key: string]: IdentityattributeschangedChangesInnerOldValueOneOfValue; };
+
+/**
+ * @type IdentityattributeschangedChangesInnerOldValueOneOfValue
+ * @export
+ */
+export type IdentityattributeschangedChangesInnerOldValueOneOfValue = boolean | number | string;
+
 /**
  * Identity whose attributes changed.
  * @export
- * @interface IdentityattributeschangedIdentityV1
+ * @interface IdentityattributeschangedIdentity
  */
-export interface IdentityattributeschangedIdentityV1 {
+export interface IdentityattributeschangedIdentity {
     /**
      * DTO type of identity whose attributes changed.
      * @type {string}
-     * @memberof IdentityattributeschangedIdentityV1
+     * @memberof IdentityattributeschangedIdentity
      */
-    'type': IdentityattributeschangedIdentityV1TypeV1;
+    'type': IdentityattributeschangedIdentityTypeEnum;
     /**
      * ID of identity whose attributes changed.
      * @type {string}
-     * @memberof IdentityattributeschangedIdentityV1
+     * @memberof IdentityattributeschangedIdentity
      */
     'id': string;
     /**
      * Display name of identity whose attributes changed.
      * @type {string}
-     * @memberof IdentityattributeschangedIdentityV1
+     * @memberof IdentityattributeschangedIdentity
      */
     'name': string;
 }
 
-export const IdentityattributeschangedIdentityV1TypeV1 = {
+export const IdentityattributeschangedIdentityTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type IdentityattributeschangedIdentityV1TypeV1 = typeof IdentityattributeschangedIdentityV1TypeV1[keyof typeof IdentityattributeschangedIdentityV1TypeV1];
+export type IdentityattributeschangedIdentityTypeEnum = typeof IdentityattributeschangedIdentityTypeEnum[keyof typeof IdentityattributeschangedIdentityTypeEnum];
 
 /**
  * 
  * @export
- * @interface IdentityattributeschangedV1
+ * @interface Identitycreated
  */
-export interface IdentityattributeschangedV1 {
+export interface Identitycreated {
     /**
      * 
-     * @type {IdentityattributeschangedIdentityV1}
-     * @memberof IdentityattributeschangedV1
+     * @type {IdentitycreatedIdentity}
+     * @memberof Identitycreated
      */
-    'identity': IdentityattributeschangedIdentityV1;
+    'identity': IdentitycreatedIdentity;
     /**
-     * A list of one or more identity attributes that changed on the identity.
-     * @type {Array<IdentityattributeschangedChangesInnerV1>}
-     * @memberof IdentityattributeschangedV1
+     * The attributes assigned to the identity. Attributes are determined by the identity profile.
+     * @type {{ [key: string]: any; }}
+     * @memberof Identitycreated
      */
-    'changes': Array<IdentityattributeschangedChangesInnerV1>;
+    'attributes': { [key: string]: any; };
 }
 /**
  * Created identity.
  * @export
- * @interface IdentitycreatedIdentityV1
+ * @interface IdentitycreatedIdentity
  */
-export interface IdentitycreatedIdentityV1 {
+export interface IdentitycreatedIdentity {
     /**
      * Created identity\'s DTO type.
      * @type {string}
-     * @memberof IdentitycreatedIdentityV1
+     * @memberof IdentitycreatedIdentity
      */
-    'type': IdentitycreatedIdentityV1TypeV1;
+    'type': IdentitycreatedIdentityTypeEnum;
     /**
      * Created identity ID.
      * @type {string}
-     * @memberof IdentitycreatedIdentityV1
+     * @memberof IdentitycreatedIdentity
      */
     'id': string;
     /**
      * Created identity\'s display name.
      * @type {string}
-     * @memberof IdentitycreatedIdentityV1
+     * @memberof IdentitycreatedIdentity
      */
     'name': string;
 }
 
-export const IdentitycreatedIdentityV1TypeV1 = {
+export const IdentitycreatedIdentityTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type IdentitycreatedIdentityV1TypeV1 = typeof IdentitycreatedIdentityV1TypeV1[keyof typeof IdentitycreatedIdentityV1TypeV1];
+export type IdentitycreatedIdentityTypeEnum = typeof IdentitycreatedIdentityTypeEnum[keyof typeof IdentitycreatedIdentityTypeEnum];
 
 /**
  * 
  * @export
- * @interface IdentitycreatedV1
+ * @interface Identitydeleted
  */
-export interface IdentitycreatedV1 {
+export interface Identitydeleted {
     /**
      * 
-     * @type {IdentitycreatedIdentityV1}
-     * @memberof IdentitycreatedV1
+     * @type {IdentitydeletedIdentity}
+     * @memberof Identitydeleted
      */
-    'identity': IdentitycreatedIdentityV1;
+    'identity': IdentitydeletedIdentity;
     /**
      * The attributes assigned to the identity. Attributes are determined by the identity profile.
      * @type {{ [key: string]: any; }}
-     * @memberof IdentitycreatedV1
+     * @memberof Identitydeleted
      */
     'attributes': { [key: string]: any; };
 }
 /**
  * Deleted identity.
  * @export
- * @interface IdentitydeletedIdentityV1
+ * @interface IdentitydeletedIdentity
  */
-export interface IdentitydeletedIdentityV1 {
+export interface IdentitydeletedIdentity {
     /**
      * Deleted identity\'s DTO type.
      * @type {string}
-     * @memberof IdentitydeletedIdentityV1
+     * @memberof IdentitydeletedIdentity
      */
-    'type': IdentitydeletedIdentityV1TypeV1;
+    'type': IdentitydeletedIdentityTypeEnum;
     /**
      * Deleted identity ID.
      * @type {string}
-     * @memberof IdentitydeletedIdentityV1
+     * @memberof IdentitydeletedIdentity
      */
     'id': string;
     /**
      * Deleted identity\'s display name.
      * @type {string}
-     * @memberof IdentitydeletedIdentityV1
+     * @memberof IdentitydeletedIdentity
      */
     'name': string;
 }
 
-export const IdentitydeletedIdentityV1TypeV1 = {
+export const IdentitydeletedIdentityTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type IdentitydeletedIdentityV1TypeV1 = typeof IdentitydeletedIdentityV1TypeV1[keyof typeof IdentitydeletedIdentityV1TypeV1];
+export type IdentitydeletedIdentityTypeEnum = typeof IdentitydeletedIdentityTypeEnum[keyof typeof IdentitydeletedIdentityTypeEnum];
 
-/**
- * 
- * @export
- * @interface IdentitydeletedV1
- */
-export interface IdentitydeletedV1 {
-    /**
-     * 
-     * @type {IdentitydeletedIdentityV1}
-     * @memberof IdentitydeletedV1
-     */
-    'identity': IdentitydeletedIdentityV1;
-    /**
-     * The attributes assigned to the identity. Attributes are determined by the identity profile.
-     * @type {{ [key: string]: any; }}
-     * @memberof IdentitydeletedV1
-     */
-    'attributes': { [key: string]: any; };
-}
 /**
  * Details about the identity correlated with the account.
  * @export
- * @interface Identityreference2V1
+ * @interface Identityreference2
  */
-export interface Identityreference2V1 {
+export interface Identityreference2 {
     /**
      * The ID of the identity that is correlated with this account.
      * @type {string}
-     * @memberof Identityreference2V1
+     * @memberof Identityreference2
      */
     'id': string;
     /**
      * The name of the identity that is correlated with this account.
      * @type {string}
-     * @memberof Identityreference2V1
+     * @memberof Identityreference2
      */
     'name': string;
     /**
      * The alias of the identity.
      * @type {string}
-     * @memberof Identityreference2V1
+     * @memberof Identityreference2
      */
     'alias': string;
     /**
      * The email of the identity.
      * @type {string}
-     * @memberof Identityreference2V1
+     * @memberof Identityreference2
      */
     'email': string;
 }
 /**
  * 
  * @export
- * @interface InvocationV1
+ * @interface Invocation
  */
-export interface InvocationV1 {
+export interface Invocation {
     /**
      * Invocation ID
      * @type {string}
-     * @memberof InvocationV1
+     * @memberof Invocation
      */
     'id'?: string;
     /**
      * Trigger ID
      * @type {string}
-     * @memberof InvocationV1
+     * @memberof Invocation
      */
     'triggerId'?: string;
     /**
      * Unique invocation secret.
      * @type {string}
-     * @memberof InvocationV1
+     * @memberof Invocation
      */
     'secret'?: string;
     /**
      * JSON map of invocation metadata.
      * @type {object}
-     * @memberof InvocationV1
+     * @memberof Invocation
      */
     'contentJson'?: object;
 }
 /**
  * 
  * @export
- * @interface InvocationstatusV1
+ * @interface Invocationstatus
  */
-export interface InvocationstatusV1 {
+export interface Invocationstatus {
     /**
      * Invocation ID
      * @type {string}
-     * @memberof InvocationstatusV1
+     * @memberof Invocationstatus
      */
     'id': string;
     /**
      * Trigger ID
      * @type {string}
-     * @memberof InvocationstatusV1
+     * @memberof Invocationstatus
      */
     'triggerId': string;
     /**
      * Subscription name
      * @type {string}
-     * @memberof InvocationstatusV1
+     * @memberof Invocationstatus
      */
     'subscriptionName': string;
     /**
      * Subscription ID
      * @type {string}
-     * @memberof InvocationstatusV1
+     * @memberof Invocationstatus
      */
     'subscriptionId': string;
     /**
      * 
-     * @type {InvocationstatustypeV1}
-     * @memberof InvocationstatusV1
+     * @type {Invocationstatustype}
+     * @memberof Invocationstatus
      */
-    'type': InvocationstatustypeV1;
+    'type': Invocationstatustype;
     /**
      * Invocation created timestamp. ISO-8601 in UTC.
      * @type {string}
-     * @memberof InvocationstatusV1
+     * @memberof Invocationstatus
      */
     'created': string;
     /**
      * Invocation completed timestamp; empty fields imply invocation is in-flight or not completed. ISO-8601 in UTC.
      * @type {string}
-     * @memberof InvocationstatusV1
+     * @memberof Invocationstatus
      */
     'completed'?: string;
     /**
      * 
-     * @type {StartinvocationinputV1}
-     * @memberof InvocationstatusV1
+     * @type {Startinvocationinput}
+     * @memberof Invocationstatus
      */
-    'startInvocationInput': StartinvocationinputV1;
+    'startInvocationInput': Startinvocationinput;
     /**
      * 
-     * @type {CompleteinvocationinputV1}
-     * @memberof InvocationstatusV1
+     * @type {Completeinvocationinput}
+     * @memberof Invocationstatus
      */
-    'completeInvocationInput'?: CompleteinvocationinputV1;
+    'completeInvocationInput'?: Completeinvocationinput;
 }
 
 
@@ -2959,37 +2959,37 @@ export interface InvocationstatusV1 {
  * @enum {string}
  */
 
-export const InvocationstatustypeV1 = {
+export const Invocationstatustype = {
     Test: 'TEST',
     RealTime: 'REAL_TIME'
 } as const;
 
-export type InvocationstatustypeV1 = typeof InvocationstatustypeV1[keyof typeof InvocationstatustypeV1];
+export type Invocationstatustype = typeof Invocationstatustype[keyof typeof Invocationstatustype];
 
 
 /**
  * 
  * @export
- * @interface ListTriggersV1401ResponseV1
+ * @interface ListTriggersV1401Response
  */
-export interface ListTriggersV1401ResponseV1 {
+export interface ListTriggersV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListTriggersV1401ResponseV1
+     * @memberof ListTriggersV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ListTriggersV1429ResponseV1
+ * @interface ListTriggersV1429Response
  */
-export interface ListTriggersV1429ResponseV1 {
+export interface ListTriggersV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListTriggersV1429ResponseV1
+     * @memberof ListTriggersV1429Response
      */
     'message'?: any;
 }
@@ -2999,653 +2999,441 @@ export interface ListTriggersV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * Localized error message to indicate a failed invocation or error if any.
  * @export
- * @interface LocalizedmessageV1
+ * @interface Localizedmessage
  */
-export interface LocalizedmessageV1 {
+export interface Localizedmessage {
     /**
      * Message locale
      * @type {string}
-     * @memberof LocalizedmessageV1
+     * @memberof Localizedmessage
      */
     'locale': string;
     /**
      * Message text
      * @type {string}
-     * @memberof LocalizedmessageV1
+     * @memberof Localizedmessage
      */
     'message': string;
 }
 /**
+ * 
+ * @export
+ * @interface Machineidentitycreated
+ */
+export interface Machineidentitycreated {
+    /**
+     * Type of the event.
+     * @type {string}
+     * @memberof Machineidentitycreated
+     */
+    'eventType': MachineidentitycreatedEventTypeEnum;
+    /**
+     * 
+     * @type {MachineidentitycreatedMachineIdentity}
+     * @memberof Machineidentitycreated
+     */
+    'machineIdentity': MachineidentitycreatedMachineIdentity;
+}
+
+export const MachineidentitycreatedEventTypeEnum = {
+    MachineIdentityCreated: 'MACHINE_IDENTITY_CREATED'
+} as const;
+
+export type MachineidentitycreatedEventTypeEnum = typeof MachineidentitycreatedEventTypeEnum[keyof typeof MachineidentitycreatedEventTypeEnum];
+
+/**
  * Details of the created machine identity.
  * @export
- * @interface MachineidentitycreatedMachineIdentityV1
+ * @interface MachineidentitycreatedMachineIdentity
  */
-export interface MachineidentitycreatedMachineIdentityV1 {
+export interface MachineidentitycreatedMachineIdentity {
     /**
      * Unique identifier for the machine identity.
      * @type {string}
-     * @memberof MachineidentitycreatedMachineIdentityV1
+     * @memberof MachineidentitycreatedMachineIdentity
      */
     'id': string;
     /**
      * Name of the machine identity.
      * @type {string}
-     * @memberof MachineidentitycreatedMachineIdentityV1
+     * @memberof MachineidentitycreatedMachineIdentity
      */
     'name'?: string;
     /**
      * Creation timestamp.
      * @type {string}
-     * @memberof MachineidentitycreatedMachineIdentityV1
+     * @memberof MachineidentitycreatedMachineIdentity
      */
     'created': string;
     /**
      * Last modified timestamp.
      * @type {string}
-     * @memberof MachineidentitycreatedMachineIdentityV1
+     * @memberof MachineidentitycreatedMachineIdentity
      */
     'modified': string;
     /**
      * Associated business application.
      * @type {string}
-     * @memberof MachineidentitycreatedMachineIdentityV1
+     * @memberof MachineidentitycreatedMachineIdentity
      */
     'businessApplication'?: string;
     /**
      * Description of the machine identity.
      * @type {string}
-     * @memberof MachineidentitycreatedMachineIdentityV1
+     * @memberof MachineidentitycreatedMachineIdentity
      */
     'description'?: string;
     /**
      * The attributes assigned to the identity.
      * @type {{ [key: string]: any; }}
-     * @memberof MachineidentitycreatedMachineIdentityV1
+     * @memberof MachineidentitycreatedMachineIdentity
      */
     'attributes'?: { [key: string]: any; };
     /**
      * Subtype of the machine identity.
      * @type {string}
-     * @memberof MachineidentitycreatedMachineIdentityV1
+     * @memberof MachineidentitycreatedMachineIdentity
      */
-    'subtype': MachineidentitycreatedMachineIdentityV1SubtypeV1;
+    'subtype': MachineidentitycreatedMachineIdentitySubtypeEnum;
     /**
      * List of owners.
-     * @type {Array<MachineidentityownerreferenceV1>}
-     * @memberof MachineidentitycreatedMachineIdentityV1
+     * @type {Array<Machineidentityownerreference>}
+     * @memberof MachineidentitycreatedMachineIdentity
      */
-    'owners'?: Array<MachineidentityownerreferenceV1>;
+    'owners'?: Array<Machineidentityownerreference>;
     /**
      * Source identifier.
      * @type {string}
-     * @memberof MachineidentitycreatedMachineIdentityV1
+     * @memberof MachineidentitycreatedMachineIdentity
      */
     'sourceId'?: string;
     /**
      * UUID of the machine identity.
      * @type {string}
-     * @memberof MachineidentitycreatedMachineIdentityV1
+     * @memberof MachineidentitycreatedMachineIdentity
      */
     'uuid'?: string;
     /**
      * Native identity value.
      * @type {string}
-     * @memberof MachineidentitycreatedMachineIdentityV1
+     * @memberof MachineidentitycreatedMachineIdentity
      */
     'nativeIdentity'?: string;
     /**
      * Indicates if manually edited.
      * @type {boolean}
-     * @memberof MachineidentitycreatedMachineIdentityV1
+     * @memberof MachineidentitycreatedMachineIdentity
      */
     'manuallyEdited': boolean;
     /**
      * Indicates if manually created.
      * @type {boolean}
-     * @memberof MachineidentitycreatedMachineIdentityV1
+     * @memberof MachineidentitycreatedMachineIdentity
      */
     'manuallyCreated'?: boolean;
     /**
      * Dataset identifier.
      * @type {string}
-     * @memberof MachineidentitycreatedMachineIdentityV1
+     * @memberof MachineidentitycreatedMachineIdentity
      */
     'datasetId'?: string;
     /**
      * 
-     * @type {MachineidentitysourcereferenceV1}
-     * @memberof MachineidentitycreatedMachineIdentityV1
+     * @type {Machineidentitysourcereference}
+     * @memberof MachineidentitycreatedMachineIdentity
      */
-    'source'?: MachineidentitysourcereferenceV1;
+    'source'?: Machineidentitysourcereference;
     /**
      * List of user entitlements.
-     * @type {Array<MachineidentityuserentitlementsV1>}
-     * @memberof MachineidentitycreatedMachineIdentityV1
+     * @type {Array<Machineidentityuserentitlements>}
+     * @memberof MachineidentitycreatedMachineIdentity
      */
-    'userEntitlements'?: Array<MachineidentityuserentitlementsV1>;
+    'userEntitlements'?: Array<Machineidentityuserentitlements>;
     /**
      * Existence status on source.
      * @type {string}
-     * @memberof MachineidentitycreatedMachineIdentityV1
+     * @memberof MachineidentitycreatedMachineIdentity
      */
     'existsOnSource'?: string;
 }
 
-export const MachineidentitycreatedMachineIdentityV1SubtypeV1 = {
+export const MachineidentitycreatedMachineIdentitySubtypeEnum = {
     AiAgent: 'AI Agent',
     Application: 'Application'
 } as const;
 
-export type MachineidentitycreatedMachineIdentityV1SubtypeV1 = typeof MachineidentitycreatedMachineIdentityV1SubtypeV1[keyof typeof MachineidentitycreatedMachineIdentityV1SubtypeV1];
+export type MachineidentitycreatedMachineIdentitySubtypeEnum = typeof MachineidentitycreatedMachineIdentitySubtypeEnum[keyof typeof MachineidentitycreatedMachineIdentitySubtypeEnum];
 
 /**
  * 
  * @export
- * @interface MachineidentitycreatedV1
+ * @interface Machineidentitydeleted
  */
-export interface MachineidentitycreatedV1 {
+export interface Machineidentitydeleted {
     /**
      * Type of the event.
      * @type {string}
-     * @memberof MachineidentitycreatedV1
+     * @memberof Machineidentitydeleted
      */
-    'eventType': MachineidentitycreatedV1EventTypeV1;
+    'eventType': MachineidentitydeletedEventTypeEnum;
     /**
      * 
-     * @type {MachineidentitycreatedMachineIdentityV1}
-     * @memberof MachineidentitycreatedV1
+     * @type {MachineidentitydeletedMachineIdentity}
+     * @memberof Machineidentitydeleted
      */
-    'machineIdentity': MachineidentitycreatedMachineIdentityV1;
+    'machineIdentity': MachineidentitydeletedMachineIdentity;
 }
 
-export const MachineidentitycreatedV1EventTypeV1 = {
-    MachineIdentityCreated: 'MACHINE_IDENTITY_CREATED'
+export const MachineidentitydeletedEventTypeEnum = {
+    MachineIdentityDeleted: 'MACHINE_IDENTITY_DELETED'
 } as const;
 
-export type MachineidentitycreatedV1EventTypeV1 = typeof MachineidentitycreatedV1EventTypeV1[keyof typeof MachineidentitycreatedV1EventTypeV1];
+export type MachineidentitydeletedEventTypeEnum = typeof MachineidentitydeletedEventTypeEnum[keyof typeof MachineidentitydeletedEventTypeEnum];
 
 /**
  * Details of the deleted machine identity.
  * @export
- * @interface MachineidentitydeletedMachineIdentityV1
+ * @interface MachineidentitydeletedMachineIdentity
  */
-export interface MachineidentitydeletedMachineIdentityV1 {
+export interface MachineidentitydeletedMachineIdentity {
     /**
      * Unique identifier for the machine identity.
      * @type {string}
-     * @memberof MachineidentitydeletedMachineIdentityV1
+     * @memberof MachineidentitydeletedMachineIdentity
      */
     'id': string;
     /**
      * Name of the machine identity.
      * @type {string}
-     * @memberof MachineidentitydeletedMachineIdentityV1
+     * @memberof MachineidentitydeletedMachineIdentity
      */
     'name'?: string;
     /**
      * Creation timestamp.
      * @type {string}
-     * @memberof MachineidentitydeletedMachineIdentityV1
+     * @memberof MachineidentitydeletedMachineIdentity
      */
     'created': string;
     /**
      * Last modified timestamp.
      * @type {string}
-     * @memberof MachineidentitydeletedMachineIdentityV1
+     * @memberof MachineidentitydeletedMachineIdentity
      */
     'modified': string;
     /**
      * Associated business application.
      * @type {string}
-     * @memberof MachineidentitydeletedMachineIdentityV1
+     * @memberof MachineidentitydeletedMachineIdentity
      */
     'businessApplication'?: string;
     /**
      * Description of the machine identity.
      * @type {string}
-     * @memberof MachineidentitydeletedMachineIdentityV1
+     * @memberof MachineidentitydeletedMachineIdentity
      */
     'description'?: string;
     /**
      * The attributes assigned to the identity.
      * @type {{ [key: string]: any; }}
-     * @memberof MachineidentitydeletedMachineIdentityV1
+     * @memberof MachineidentitydeletedMachineIdentity
      */
     'attributes'?: { [key: string]: any; };
     /**
      * Subtype of the machine identity.
      * @type {string}
-     * @memberof MachineidentitydeletedMachineIdentityV1
+     * @memberof MachineidentitydeletedMachineIdentity
      */
-    'subtype': MachineidentitydeletedMachineIdentityV1SubtypeV1;
+    'subtype': MachineidentitydeletedMachineIdentitySubtypeEnum;
     /**
      * List of owners.
-     * @type {Array<MachineidentityownerreferenceV1>}
-     * @memberof MachineidentitydeletedMachineIdentityV1
+     * @type {Array<Machineidentityownerreference>}
+     * @memberof MachineidentitydeletedMachineIdentity
      */
-    'owners'?: Array<MachineidentityownerreferenceV1>;
+    'owners'?: Array<Machineidentityownerreference>;
     /**
      * Source identifier.
      * @type {string}
-     * @memberof MachineidentitydeletedMachineIdentityV1
+     * @memberof MachineidentitydeletedMachineIdentity
      */
     'sourceId'?: string;
     /**
      * UUID of the machine identity.
      * @type {string}
-     * @memberof MachineidentitydeletedMachineIdentityV1
+     * @memberof MachineidentitydeletedMachineIdentity
      */
     'uuid'?: string;
     /**
      * Native identity value.
      * @type {string}
-     * @memberof MachineidentitydeletedMachineIdentityV1
+     * @memberof MachineidentitydeletedMachineIdentity
      */
     'nativeIdentity'?: string;
     /**
      * Indicates if manually edited.
      * @type {boolean}
-     * @memberof MachineidentitydeletedMachineIdentityV1
+     * @memberof MachineidentitydeletedMachineIdentity
      */
     'manuallyEdited': boolean;
     /**
      * Indicates if manually created.
      * @type {boolean}
-     * @memberof MachineidentitydeletedMachineIdentityV1
+     * @memberof MachineidentitydeletedMachineIdentity
      */
     'manuallyCreated'?: boolean;
     /**
      * Dataset identifier.
      * @type {string}
-     * @memberof MachineidentitydeletedMachineIdentityV1
+     * @memberof MachineidentitydeletedMachineIdentity
      */
     'datasetId'?: string;
     /**
      * 
-     * @type {MachineidentitysourcereferenceV1}
-     * @memberof MachineidentitydeletedMachineIdentityV1
+     * @type {Machineidentitysourcereference}
+     * @memberof MachineidentitydeletedMachineIdentity
      */
-    'source'?: MachineidentitysourcereferenceV1;
+    'source'?: Machineidentitysourcereference;
     /**
      * List of user entitlements.
-     * @type {Array<MachineidentityuserentitlementsV1>}
-     * @memberof MachineidentitydeletedMachineIdentityV1
+     * @type {Array<Machineidentityuserentitlements>}
+     * @memberof MachineidentitydeletedMachineIdentity
      */
-    'userEntitlements'?: Array<MachineidentityuserentitlementsV1>;
+    'userEntitlements'?: Array<Machineidentityuserentitlements>;
     /**
      * Existence status on source.
      * @type {string}
-     * @memberof MachineidentitydeletedMachineIdentityV1
+     * @memberof MachineidentitydeletedMachineIdentity
      */
     'existsOnSource'?: string;
 }
 
-export const MachineidentitydeletedMachineIdentityV1SubtypeV1 = {
+export const MachineidentitydeletedMachineIdentitySubtypeEnum = {
     AiAgent: 'AI Agent',
     Application: 'Application'
 } as const;
 
-export type MachineidentitydeletedMachineIdentityV1SubtypeV1 = typeof MachineidentitydeletedMachineIdentityV1SubtypeV1[keyof typeof MachineidentitydeletedMachineIdentityV1SubtypeV1];
-
-/**
- * 
- * @export
- * @interface MachineidentitydeletedV1
- */
-export interface MachineidentitydeletedV1 {
-    /**
-     * Type of the event.
-     * @type {string}
-     * @memberof MachineidentitydeletedV1
-     */
-    'eventType': MachineidentitydeletedV1EventTypeV1;
-    /**
-     * 
-     * @type {MachineidentitydeletedMachineIdentityV1}
-     * @memberof MachineidentitydeletedV1
-     */
-    'machineIdentity': MachineidentitydeletedMachineIdentityV1;
-}
-
-export const MachineidentitydeletedV1EventTypeV1 = {
-    MachineIdentityDeleted: 'MACHINE_IDENTITY_DELETED'
-} as const;
-
-export type MachineidentitydeletedV1EventTypeV1 = typeof MachineidentitydeletedV1EventTypeV1[keyof typeof MachineidentitydeletedV1EventTypeV1];
+export type MachineidentitydeletedMachineIdentitySubtypeEnum = typeof MachineidentitydeletedMachineIdentitySubtypeEnum[keyof typeof MachineidentitydeletedMachineIdentitySubtypeEnum];
 
 /**
  * Reference to an owner of the machine identity.
  * @export
- * @interface MachineidentityownerreferenceV1
+ * @interface Machineidentityownerreference
  */
-export interface MachineidentityownerreferenceV1 {
+export interface Machineidentityownerreference {
     [key: string]: any;
 
     /**
      * Owner\'s type.
      * @type {string}
-     * @memberof MachineidentityownerreferenceV1
+     * @memberof Machineidentityownerreference
      */
     'type': string;
     /**
      * Owner ID.
      * @type {string}
-     * @memberof MachineidentityownerreferenceV1
+     * @memberof Machineidentityownerreference
      */
     'id': string;
     /**
      * Owner\'s display name.
      * @type {string}
-     * @memberof MachineidentityownerreferenceV1
+     * @memberof Machineidentityownerreference
      */
     'name': string;
     /**
      * Indicates if this owner is the primary owner.
      * @type {boolean}
-     * @memberof MachineidentityownerreferenceV1
+     * @memberof Machineidentityownerreference
      */
     'isPrimary'?: boolean;
 }
 /**
  * Reference to a source of entity.
  * @export
- * @interface MachineidentitysourcereferenceV1
+ * @interface Machineidentitysourcereference
  */
-export interface MachineidentitysourcereferenceV1 {
+export interface Machineidentitysourcereference {
     [key: string]: any;
 
     /**
      * Source Type.
      * @type {string}
-     * @memberof MachineidentitysourcereferenceV1
+     * @memberof Machineidentitysourcereference
      */
     'type': string;
     /**
      * Unique identifier.
      * @type {string}
-     * @memberof MachineidentitysourcereferenceV1
+     * @memberof Machineidentitysourcereference
      */
     'id': string;
     /**
      * Display name.
      * @type {string}
-     * @memberof MachineidentitysourcereferenceV1
+     * @memberof Machineidentitysourcereference
      */
     'name': string;
 }
 /**
- * Details of the updated machine identity.
- * @export
- * @interface MachineidentityupdatedMachineIdentityV1
- */
-export interface MachineidentityupdatedMachineIdentityV1 {
-    /**
-     * Unique identifier for the machine identity.
-     * @type {string}
-     * @memberof MachineidentityupdatedMachineIdentityV1
-     */
-    'id': string;
-    /**
-     * Name of the machine identity.
-     * @type {string}
-     * @memberof MachineidentityupdatedMachineIdentityV1
-     */
-    'name'?: string;
-    /**
-     * Creation timestamp.
-     * @type {string}
-     * @memberof MachineidentityupdatedMachineIdentityV1
-     */
-    'created': string;
-    /**
-     * Last modified timestamp.
-     * @type {string}
-     * @memberof MachineidentityupdatedMachineIdentityV1
-     */
-    'modified': string;
-    /**
-     * Associated business application.
-     * @type {string}
-     * @memberof MachineidentityupdatedMachineIdentityV1
-     */
-    'businessApplication'?: string;
-    /**
-     * Description of the machine identity.
-     * @type {string}
-     * @memberof MachineidentityupdatedMachineIdentityV1
-     */
-    'description'?: string;
-    /**
-     * The attributes assigned to the identity.
-     * @type {{ [key: string]: any; }}
-     * @memberof MachineidentityupdatedMachineIdentityV1
-     */
-    'attributes'?: { [key: string]: any; };
-    /**
-     * Subtype of the machine identity.
-     * @type {string}
-     * @memberof MachineidentityupdatedMachineIdentityV1
-     */
-    'subtype': MachineidentityupdatedMachineIdentityV1SubtypeV1;
-    /**
-     * List of owners.
-     * @type {Array<MachineidentityownerreferenceV1>}
-     * @memberof MachineidentityupdatedMachineIdentityV1
-     */
-    'owners'?: Array<MachineidentityownerreferenceV1>;
-    /**
-     * Source identifier.
-     * @type {string}
-     * @memberof MachineidentityupdatedMachineIdentityV1
-     */
-    'sourceId'?: string;
-    /**
-     * UUID of the machine identity.
-     * @type {string}
-     * @memberof MachineidentityupdatedMachineIdentityV1
-     */
-    'uuid'?: string;
-    /**
-     * Native identity value.
-     * @type {string}
-     * @memberof MachineidentityupdatedMachineIdentityV1
-     */
-    'nativeIdentity'?: string;
-    /**
-     * Indicates if manually edited.
-     * @type {boolean}
-     * @memberof MachineidentityupdatedMachineIdentityV1
-     */
-    'manuallyEdited': boolean;
-    /**
-     * Indicates if manually created.
-     * @type {boolean}
-     * @memberof MachineidentityupdatedMachineIdentityV1
-     */
-    'manuallyCreated'?: boolean;
-    /**
-     * Dataset identifier.
-     * @type {string}
-     * @memberof MachineidentityupdatedMachineIdentityV1
-     */
-    'datasetId'?: string;
-    /**
-     * 
-     * @type {MachineidentitysourcereferenceV1}
-     * @memberof MachineidentityupdatedMachineIdentityV1
-     */
-    'source'?: MachineidentitysourcereferenceV1;
-    /**
-     * List of user entitlements.
-     * @type {Array<MachineidentityuserentitlementsV1>}
-     * @memberof MachineidentityupdatedMachineIdentityV1
-     */
-    'userEntitlements'?: Array<MachineidentityuserentitlementsV1>;
-    /**
-     * Existence status on source.
-     * @type {string}
-     * @memberof MachineidentityupdatedMachineIdentityV1
-     */
-    'existsOnSource'?: string;
-}
-
-export const MachineidentityupdatedMachineIdentityV1SubtypeV1 = {
-    AiAgent: 'AI Agent',
-    Application: 'Application'
-} as const;
-
-export type MachineidentityupdatedMachineIdentityV1SubtypeV1 = typeof MachineidentityupdatedMachineIdentityV1SubtypeV1[keyof typeof MachineidentityupdatedMachineIdentityV1SubtypeV1];
-
-/**
- * Changes to owners.
- * @export
- * @interface MachineidentityupdatedOwnerChangesV1
- */
-export interface MachineidentityupdatedOwnerChangesV1 {
-    /**
-     * Name of the attribute that changed.
-     * @type {string}
-     * @memberof MachineidentityupdatedOwnerChangesV1
-     */
-    'attributeName'?: string;
-    /**
-     * Owners that were added.
-     * @type {Array<MachineidentityownerreferenceV1>}
-     * @memberof MachineidentityupdatedOwnerChangesV1
-     */
-    'added'?: Array<MachineidentityownerreferenceV1>;
-    /**
-     * Owners that were removed.
-     * @type {Array<MachineidentityownerreferenceV1>}
-     * @memberof MachineidentityupdatedOwnerChangesV1
-     */
-    'removed'?: Array<MachineidentityownerreferenceV1>;
-}
-/**
- * @type MachineidentityupdatedSingleValueAttributeChangesInnerNewValueV1
- * The new value of the attribute after the change.
- * @export
- */
-export type MachineidentityupdatedSingleValueAttributeChangesInnerNewValueV1 = Array<string> | boolean | number | string;
-
-/**
- * @type MachineidentityupdatedSingleValueAttributeChangesInnerOldValueV1
- * The old value of the attribute before the change.
- * @export
- */
-export type MachineidentityupdatedSingleValueAttributeChangesInnerOldValueV1 = Array<string> | boolean | number | string;
-
-/**
  * 
  * @export
- * @interface MachineidentityupdatedSingleValueAttributeChangesInnerV1
+ * @interface Machineidentityupdated
  */
-export interface MachineidentityupdatedSingleValueAttributeChangesInnerV1 {
-    /**
-     * The name of the attribute that was changed.
-     * @type {string}
-     * @memberof MachineidentityupdatedSingleValueAttributeChangesInnerV1
-     */
-    'name': string;
-    /**
-     * 
-     * @type {MachineidentityupdatedSingleValueAttributeChangesInnerOldValueV1}
-     * @memberof MachineidentityupdatedSingleValueAttributeChangesInnerV1
-     */
-    'oldValue': MachineidentityupdatedSingleValueAttributeChangesInnerOldValueV1 | null;
-    /**
-     * 
-     * @type {MachineidentityupdatedSingleValueAttributeChangesInnerNewValueV1}
-     * @memberof MachineidentityupdatedSingleValueAttributeChangesInnerV1
-     */
-    'newValue': MachineidentityupdatedSingleValueAttributeChangesInnerNewValueV1 | null;
-}
-/**
- * Changes to user entitlements.
- * @export
- * @interface MachineidentityupdatedUserEntitlementChangesV1
- */
-export interface MachineidentityupdatedUserEntitlementChangesV1 {
-    /**
-     * Name of the attribute that changed.
-     * @type {string}
-     * @memberof MachineidentityupdatedUserEntitlementChangesV1
-     */
-    'attributeName'?: string;
-    /**
-     * User entitlements that were added.
-     * @type {Array<MachineidentityuserentitlementsV1>}
-     * @memberof MachineidentityupdatedUserEntitlementChangesV1
-     */
-    'added'?: Array<MachineidentityuserentitlementsV1>;
-    /**
-     * User entitlements that were removed.
-     * @type {Array<MachineidentityuserentitlementsV1>}
-     * @memberof MachineidentityupdatedUserEntitlementChangesV1
-     */
-    'removed'?: Array<MachineidentityuserentitlementsV1>;
-}
-/**
- * 
- * @export
- * @interface MachineidentityupdatedV1
- */
-export interface MachineidentityupdatedV1 {
+export interface Machineidentityupdated {
     /**
      * Type of the event.
      * @type {string}
-     * @memberof MachineidentityupdatedV1
+     * @memberof Machineidentityupdated
      */
-    'eventType': MachineidentityupdatedV1EventTypeV1;
+    'eventType': MachineidentityupdatedEventTypeEnum;
     /**
      * 
-     * @type {MachineidentityupdatedMachineIdentityV1}
-     * @memberof MachineidentityupdatedV1
+     * @type {MachineidentityupdatedMachineIdentity}
+     * @memberof Machineidentityupdated
      */
-    'machineIdentity': MachineidentityupdatedMachineIdentityV1;
+    'machineIdentity': MachineidentityupdatedMachineIdentity;
     /**
      * Types of changes that occurred to the machine identity.
      * @type {Array<string>}
-     * @memberof MachineidentityupdatedV1
+     * @memberof Machineidentityupdated
      */
-    'machineIdentityChangeTypes': Array<MachineidentityupdatedV1MachineIdentityChangeTypesV1>;
+    'machineIdentityChangeTypes': Array<MachineidentityupdatedMachineIdentityChangeTypesEnum>;
     /**
      * 
-     * @type {MachineidentityupdatedUserEntitlementChangesV1}
-     * @memberof MachineidentityupdatedV1
+     * @type {MachineidentityupdatedUserEntitlementChanges}
+     * @memberof Machineidentityupdated
      */
-    'userEntitlementChanges': MachineidentityupdatedUserEntitlementChangesV1;
+    'userEntitlementChanges': MachineidentityupdatedUserEntitlementChanges;
     /**
      * 
-     * @type {MachineidentityupdatedOwnerChangesV1}
-     * @memberof MachineidentityupdatedV1
+     * @type {MachineidentityupdatedOwnerChanges}
+     * @memberof Machineidentityupdated
      */
-    'ownerChanges': MachineidentityupdatedOwnerChangesV1;
+    'ownerChanges': MachineidentityupdatedOwnerChanges;
     /**
      * Details about the single-value attribute changes that occurred.
-     * @type {Array<MachineidentityupdatedSingleValueAttributeChangesInnerV1>}
-     * @memberof MachineidentityupdatedV1
+     * @type {Array<MachineidentityupdatedSingleValueAttributeChangesInner>}
+     * @memberof Machineidentityupdated
      */
-    'singleValueAttributeChanges': Array<MachineidentityupdatedSingleValueAttributeChangesInnerV1> | null;
+    'singleValueAttributeChanges': Array<MachineidentityupdatedSingleValueAttributeChangesInner> | null;
 }
 
-export const MachineidentityupdatedV1EventTypeV1 = {
+export const MachineidentityupdatedEventTypeEnum = {
     MachineIdentityUpdated: 'MACHINE_IDENTITY_UPDATED'
 } as const;
 
-export type MachineidentityupdatedV1EventTypeV1 = typeof MachineidentityupdatedV1EventTypeV1[keyof typeof MachineidentityupdatedV1EventTypeV1];
-export const MachineidentityupdatedV1MachineIdentityChangeTypesV1 = {
+export type MachineidentityupdatedEventTypeEnum = typeof MachineidentityupdatedEventTypeEnum[keyof typeof MachineidentityupdatedEventTypeEnum];
+export const MachineidentityupdatedMachineIdentityChangeTypesEnum = {
     AttributesChanged: 'ATTRIBUTES_CHANGED',
     UserEntitlementsAdded: 'USER_ENTITLEMENTS_ADDED',
     UserEntitlementsRemoved: 'USER_ENTITLEMENTS_REMOVED',
@@ -3653,982 +3441,1194 @@ export const MachineidentityupdatedV1MachineIdentityChangeTypesV1 = {
     OwnersRemoved: 'OWNERS_REMOVED'
 } as const;
 
-export type MachineidentityupdatedV1MachineIdentityChangeTypesV1 = typeof MachineidentityupdatedV1MachineIdentityChangeTypesV1[keyof typeof MachineidentityupdatedV1MachineIdentityChangeTypesV1];
+export type MachineidentityupdatedMachineIdentityChangeTypesEnum = typeof MachineidentityupdatedMachineIdentityChangeTypesEnum[keyof typeof MachineidentityupdatedMachineIdentityChangeTypesEnum];
 
+/**
+ * Details of the updated machine identity.
+ * @export
+ * @interface MachineidentityupdatedMachineIdentity
+ */
+export interface MachineidentityupdatedMachineIdentity {
+    /**
+     * Unique identifier for the machine identity.
+     * @type {string}
+     * @memberof MachineidentityupdatedMachineIdentity
+     */
+    'id': string;
+    /**
+     * Name of the machine identity.
+     * @type {string}
+     * @memberof MachineidentityupdatedMachineIdentity
+     */
+    'name'?: string;
+    /**
+     * Creation timestamp.
+     * @type {string}
+     * @memberof MachineidentityupdatedMachineIdentity
+     */
+    'created': string;
+    /**
+     * Last modified timestamp.
+     * @type {string}
+     * @memberof MachineidentityupdatedMachineIdentity
+     */
+    'modified': string;
+    /**
+     * Associated business application.
+     * @type {string}
+     * @memberof MachineidentityupdatedMachineIdentity
+     */
+    'businessApplication'?: string;
+    /**
+     * Description of the machine identity.
+     * @type {string}
+     * @memberof MachineidentityupdatedMachineIdentity
+     */
+    'description'?: string;
+    /**
+     * The attributes assigned to the identity.
+     * @type {{ [key: string]: any; }}
+     * @memberof MachineidentityupdatedMachineIdentity
+     */
+    'attributes'?: { [key: string]: any; };
+    /**
+     * Subtype of the machine identity.
+     * @type {string}
+     * @memberof MachineidentityupdatedMachineIdentity
+     */
+    'subtype': MachineidentityupdatedMachineIdentitySubtypeEnum;
+    /**
+     * List of owners.
+     * @type {Array<Machineidentityownerreference>}
+     * @memberof MachineidentityupdatedMachineIdentity
+     */
+    'owners'?: Array<Machineidentityownerreference>;
+    /**
+     * Source identifier.
+     * @type {string}
+     * @memberof MachineidentityupdatedMachineIdentity
+     */
+    'sourceId'?: string;
+    /**
+     * UUID of the machine identity.
+     * @type {string}
+     * @memberof MachineidentityupdatedMachineIdentity
+     */
+    'uuid'?: string;
+    /**
+     * Native identity value.
+     * @type {string}
+     * @memberof MachineidentityupdatedMachineIdentity
+     */
+    'nativeIdentity'?: string;
+    /**
+     * Indicates if manually edited.
+     * @type {boolean}
+     * @memberof MachineidentityupdatedMachineIdentity
+     */
+    'manuallyEdited': boolean;
+    /**
+     * Indicates if manually created.
+     * @type {boolean}
+     * @memberof MachineidentityupdatedMachineIdentity
+     */
+    'manuallyCreated'?: boolean;
+    /**
+     * Dataset identifier.
+     * @type {string}
+     * @memberof MachineidentityupdatedMachineIdentity
+     */
+    'datasetId'?: string;
+    /**
+     * 
+     * @type {Machineidentitysourcereference}
+     * @memberof MachineidentityupdatedMachineIdentity
+     */
+    'source'?: Machineidentitysourcereference;
+    /**
+     * List of user entitlements.
+     * @type {Array<Machineidentityuserentitlements>}
+     * @memberof MachineidentityupdatedMachineIdentity
+     */
+    'userEntitlements'?: Array<Machineidentityuserentitlements>;
+    /**
+     * Existence status on source.
+     * @type {string}
+     * @memberof MachineidentityupdatedMachineIdentity
+     */
+    'existsOnSource'?: string;
+}
+
+export const MachineidentityupdatedMachineIdentitySubtypeEnum = {
+    AiAgent: 'AI Agent',
+    Application: 'Application'
+} as const;
+
+export type MachineidentityupdatedMachineIdentitySubtypeEnum = typeof MachineidentityupdatedMachineIdentitySubtypeEnum[keyof typeof MachineidentityupdatedMachineIdentitySubtypeEnum];
+
+/**
+ * Changes to owners.
+ * @export
+ * @interface MachineidentityupdatedOwnerChanges
+ */
+export interface MachineidentityupdatedOwnerChanges {
+    /**
+     * Name of the attribute that changed.
+     * @type {string}
+     * @memberof MachineidentityupdatedOwnerChanges
+     */
+    'attributeName'?: string;
+    /**
+     * Owners that were added.
+     * @type {Array<Machineidentityownerreference>}
+     * @memberof MachineidentityupdatedOwnerChanges
+     */
+    'added'?: Array<Machineidentityownerreference>;
+    /**
+     * Owners that were removed.
+     * @type {Array<Machineidentityownerreference>}
+     * @memberof MachineidentityupdatedOwnerChanges
+     */
+    'removed'?: Array<Machineidentityownerreference>;
+}
+/**
+ * 
+ * @export
+ * @interface MachineidentityupdatedSingleValueAttributeChangesInner
+ */
+export interface MachineidentityupdatedSingleValueAttributeChangesInner {
+    /**
+     * The name of the attribute that was changed.
+     * @type {string}
+     * @memberof MachineidentityupdatedSingleValueAttributeChangesInner
+     */
+    'name': string;
+    /**
+     * 
+     * @type {MachineidentityupdatedSingleValueAttributeChangesInnerOldValue}
+     * @memberof MachineidentityupdatedSingleValueAttributeChangesInner
+     */
+    'oldValue': MachineidentityupdatedSingleValueAttributeChangesInnerOldValue | null;
+    /**
+     * 
+     * @type {MachineidentityupdatedSingleValueAttributeChangesInnerNewValue}
+     * @memberof MachineidentityupdatedSingleValueAttributeChangesInner
+     */
+    'newValue': MachineidentityupdatedSingleValueAttributeChangesInnerNewValue | null;
+}
+/**
+ * @type MachineidentityupdatedSingleValueAttributeChangesInnerNewValue
+ * The new value of the attribute after the change.
+ * @export
+ */
+export type MachineidentityupdatedSingleValueAttributeChangesInnerNewValue = Array<string> | boolean | number | string;
+
+/**
+ * @type MachineidentityupdatedSingleValueAttributeChangesInnerOldValue
+ * The old value of the attribute before the change.
+ * @export
+ */
+export type MachineidentityupdatedSingleValueAttributeChangesInnerOldValue = Array<string> | boolean | number | string;
+
+/**
+ * Changes to user entitlements.
+ * @export
+ * @interface MachineidentityupdatedUserEntitlementChanges
+ */
+export interface MachineidentityupdatedUserEntitlementChanges {
+    /**
+     * Name of the attribute that changed.
+     * @type {string}
+     * @memberof MachineidentityupdatedUserEntitlementChanges
+     */
+    'attributeName'?: string;
+    /**
+     * User entitlements that were added.
+     * @type {Array<Machineidentityuserentitlements>}
+     * @memberof MachineidentityupdatedUserEntitlementChanges
+     */
+    'added'?: Array<Machineidentityuserentitlements>;
+    /**
+     * User entitlements that were removed.
+     * @type {Array<Machineidentityuserentitlements>}
+     * @memberof MachineidentityupdatedUserEntitlementChanges
+     */
+    'removed'?: Array<Machineidentityuserentitlements>;
+}
 /**
  * Reference to a user entitlement.
  * @export
- * @interface MachineidentityuserentitlementsV1
+ * @interface Machineidentityuserentitlements
  */
-export interface MachineidentityuserentitlementsV1 {
+export interface Machineidentityuserentitlements {
     [key: string]: any;
 
     /**
      * Entitlement identifier.
      * @type {string}
-     * @memberof MachineidentityuserentitlementsV1
+     * @memberof Machineidentityuserentitlements
      */
     'entitlementId': string;
     /**
      * Display name of the entitlement.
      * @type {string}
-     * @memberof MachineidentityuserentitlementsV1
+     * @memberof Machineidentityuserentitlements
      */
     'displayName': string;
     /**
      * 
-     * @type {MachineidentitysourcereferenceV1}
-     * @memberof MachineidentityuserentitlementsV1
+     * @type {Machineidentitysourcereference}
+     * @memberof Machineidentityuserentitlements
      */
-    'source': MachineidentitysourcereferenceV1;
+    'source': Machineidentitysourcereference;
 }
 /**
  * 
  * @export
- * @interface ProvisioningcompletedAccountRequestsInnerAttributeRequestsInnerV1
+ * @interface Provisioningcompleted
  */
-export interface ProvisioningcompletedAccountRequestsInnerAttributeRequestsInnerV1 {
-    /**
-     * The name of the attribute being provisioned.
-     * @type {string}
-     * @memberof ProvisioningcompletedAccountRequestsInnerAttributeRequestsInnerV1
-     */
-    'attributeName': string;
-    /**
-     * The value of the attribute being provisioned.
-     * @type {string}
-     * @memberof ProvisioningcompletedAccountRequestsInnerAttributeRequestsInnerV1
-     */
-    'attributeValue'?: string | null;
-    /**
-     * The operation to handle the attribute.
-     * @type {string}
-     * @memberof ProvisioningcompletedAccountRequestsInnerAttributeRequestsInnerV1
-     */
-    'operation': ProvisioningcompletedAccountRequestsInnerAttributeRequestsInnerV1OperationV1;
-}
-
-export const ProvisioningcompletedAccountRequestsInnerAttributeRequestsInnerV1OperationV1 = {
-    Add: 'Add',
-    Set: 'Set',
-    Remove: 'Remove'
-} as const;
-
-export type ProvisioningcompletedAccountRequestsInnerAttributeRequestsInnerV1OperationV1 = typeof ProvisioningcompletedAccountRequestsInnerAttributeRequestsInnerV1OperationV1[keyof typeof ProvisioningcompletedAccountRequestsInnerAttributeRequestsInnerV1OperationV1];
-
-/**
- * Reference to the source being provisioned against.
- * @export
- * @interface ProvisioningcompletedAccountRequestsInnerSourceV1
- */
-export interface ProvisioningcompletedAccountRequestsInnerSourceV1 {
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof ProvisioningcompletedAccountRequestsInnerSourceV1
-     */
-    'id': string;
-    /**
-     * The type of object that is referenced
-     * @type {string}
-     * @memberof ProvisioningcompletedAccountRequestsInnerSourceV1
-     */
-    'type': ProvisioningcompletedAccountRequestsInnerSourceV1TypeV1;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof ProvisioningcompletedAccountRequestsInnerSourceV1
-     */
-    'name': string;
-}
-
-export const ProvisioningcompletedAccountRequestsInnerSourceV1TypeV1 = {
-    Source: 'SOURCE'
-} as const;
-
-export type ProvisioningcompletedAccountRequestsInnerSourceV1TypeV1 = typeof ProvisioningcompletedAccountRequestsInnerSourceV1TypeV1[keyof typeof ProvisioningcompletedAccountRequestsInnerSourceV1TypeV1];
-
-/**
- * 
- * @export
- * @interface ProvisioningcompletedAccountRequestsInnerV1
- */
-export interface ProvisioningcompletedAccountRequestsInnerV1 {
-    /**
-     * 
-     * @type {ProvisioningcompletedAccountRequestsInnerSourceV1}
-     * @memberof ProvisioningcompletedAccountRequestsInnerV1
-     */
-    'source': ProvisioningcompletedAccountRequestsInnerSourceV1;
-    /**
-     * The unique idenfier of the account being provisioned.
-     * @type {string}
-     * @memberof ProvisioningcompletedAccountRequestsInnerV1
-     */
-    'accountId'?: string;
-    /**
-     * The provisioning operation; typically Create, Modify, Enable, Disable, Unlock, or Delete.
-     * @type {string}
-     * @memberof ProvisioningcompletedAccountRequestsInnerV1
-     */
-    'accountOperation': string;
-    /**
-     * The overall result of the provisioning transaction; this could be success, pending, failed, etc.
-     * @type {string}
-     * @memberof ProvisioningcompletedAccountRequestsInnerV1
-     */
-    'provisioningResult': ProvisioningcompletedAccountRequestsInnerV1ProvisioningResultV1;
-    /**
-     * The name of the provisioning channel selected; this could be the same as the source, or could be a Service Desk Integration Module (SDIM).
-     * @type {string}
-     * @memberof ProvisioningcompletedAccountRequestsInnerV1
-     */
-    'provisioningTarget': string;
-    /**
-     * A reference to a tracking number, if this is sent to a Service Desk Integration Module (SDIM).
-     * @type {string}
-     * @memberof ProvisioningcompletedAccountRequestsInnerV1
-     */
-    'ticketId'?: string | null;
-    /**
-     * A list of attributes as part of the provisioning transaction.
-     * @type {Array<ProvisioningcompletedAccountRequestsInnerAttributeRequestsInnerV1>}
-     * @memberof ProvisioningcompletedAccountRequestsInnerV1
-     */
-    'attributeRequests'?: Array<ProvisioningcompletedAccountRequestsInnerAttributeRequestsInnerV1> | null;
-}
-
-export const ProvisioningcompletedAccountRequestsInnerV1ProvisioningResultV1 = {
-    Success: 'SUCCESS',
-    Pending: 'PENDING',
-    Failed: 'FAILED'
-} as const;
-
-export type ProvisioningcompletedAccountRequestsInnerV1ProvisioningResultV1 = typeof ProvisioningcompletedAccountRequestsInnerV1ProvisioningResultV1[keyof typeof ProvisioningcompletedAccountRequestsInnerV1ProvisioningResultV1];
-
-/**
- * Provisioning recpient.
- * @export
- * @interface ProvisioningcompletedRecipientV1
- */
-export interface ProvisioningcompletedRecipientV1 {
-    /**
-     * Provisioning recipient DTO type.
-     * @type {string}
-     * @memberof ProvisioningcompletedRecipientV1
-     */
-    'type': ProvisioningcompletedRecipientV1TypeV1;
-    /**
-     * Provisioning recipient\'s identity ID.
-     * @type {string}
-     * @memberof ProvisioningcompletedRecipientV1
-     */
-    'id': string;
-    /**
-     * Provisioning recipient\'s display name.
-     * @type {string}
-     * @memberof ProvisioningcompletedRecipientV1
-     */
-    'name': string;
-}
-
-export const ProvisioningcompletedRecipientV1TypeV1 = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type ProvisioningcompletedRecipientV1TypeV1 = typeof ProvisioningcompletedRecipientV1TypeV1[keyof typeof ProvisioningcompletedRecipientV1TypeV1];
-
-/**
- * Provisioning requester\'s identity.
- * @export
- * @interface ProvisioningcompletedRequesterV1
- */
-export interface ProvisioningcompletedRequesterV1 {
-    /**
-     * Provisioning requester\'s DTO type.
-     * @type {string}
-     * @memberof ProvisioningcompletedRequesterV1
-     */
-    'type': ProvisioningcompletedRequesterV1TypeV1;
-    /**
-     * Provisioning requester\'s identity ID.
-     * @type {string}
-     * @memberof ProvisioningcompletedRequesterV1
-     */
-    'id': string;
-    /**
-     * Provisioning owner\'s human-readable display name.
-     * @type {string}
-     * @memberof ProvisioningcompletedRequesterV1
-     */
-    'name': string;
-}
-
-export const ProvisioningcompletedRequesterV1TypeV1 = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type ProvisioningcompletedRequesterV1TypeV1 = typeof ProvisioningcompletedRequesterV1TypeV1[keyof typeof ProvisioningcompletedRequesterV1TypeV1];
-
-/**
- * 
- * @export
- * @interface ProvisioningcompletedV1
- */
-export interface ProvisioningcompletedV1 {
+export interface Provisioningcompleted {
     /**
      * The reference number of the provisioning request. Useful for tracking status in the Account Activity search interface.
      * @type {string}
-     * @memberof ProvisioningcompletedV1
+     * @memberof Provisioningcompleted
      */
     'trackingNumber': string;
     /**
      * One or more sources that the provisioning transaction(s) were done against.  Sources are comma separated.
      * @type {string}
-     * @memberof ProvisioningcompletedV1
+     * @memberof Provisioningcompleted
      */
     'sources': string;
     /**
      * Origin of where the provisioning request came from.
      * @type {string}
-     * @memberof ProvisioningcompletedV1
+     * @memberof Provisioningcompleted
      */
     'action'?: string | null;
     /**
      * A list of any accumulated error messages that occurred during provisioning.
      * @type {Array<string>}
-     * @memberof ProvisioningcompletedV1
+     * @memberof Provisioningcompleted
      */
     'errors'?: Array<string> | null;
     /**
      * A list of any accumulated warning messages that occurred during provisioning.
      * @type {Array<string>}
-     * @memberof ProvisioningcompletedV1
+     * @memberof Provisioningcompleted
      */
     'warnings'?: Array<string> | null;
     /**
      * 
-     * @type {ProvisioningcompletedRecipientV1}
-     * @memberof ProvisioningcompletedV1
+     * @type {ProvisioningcompletedRecipient}
+     * @memberof Provisioningcompleted
      */
-    'recipient': ProvisioningcompletedRecipientV1;
+    'recipient': ProvisioningcompletedRecipient;
     /**
      * 
-     * @type {ProvisioningcompletedRequesterV1}
-     * @memberof ProvisioningcompletedV1
+     * @type {ProvisioningcompletedRequester}
+     * @memberof Provisioningcompleted
      */
-    'requester'?: ProvisioningcompletedRequesterV1 | null;
+    'requester'?: ProvisioningcompletedRequester | null;
     /**
      * A list of provisioning instructions to be executed on a per-account basis. The order in which operations are executed may not always be predictable.
-     * @type {Array<ProvisioningcompletedAccountRequestsInnerV1>}
-     * @memberof ProvisioningcompletedV1
+     * @type {Array<ProvisioningcompletedAccountRequestsInner>}
+     * @memberof Provisioningcompleted
      */
-    'accountRequests': Array<ProvisioningcompletedAccountRequestsInnerV1>;
+    'accountRequests': Array<ProvisioningcompletedAccountRequestsInner>;
 }
 /**
  * 
  * @export
- * @interface ReassignmentV1
+ * @interface ProvisioningcompletedAccountRequestsInner
  */
-export interface ReassignmentV1 {
+export interface ProvisioningcompletedAccountRequestsInner {
     /**
      * 
-     * @type {CertificationreferenceV1}
-     * @memberof ReassignmentV1
+     * @type {ProvisioningcompletedAccountRequestsInnerSource}
+     * @memberof ProvisioningcompletedAccountRequestsInner
      */
-    'from'?: CertificationreferenceV1;
+    'source': ProvisioningcompletedAccountRequestsInnerSource;
+    /**
+     * The unique idenfier of the account being provisioned.
+     * @type {string}
+     * @memberof ProvisioningcompletedAccountRequestsInner
+     */
+    'accountId'?: string;
+    /**
+     * The provisioning operation; typically Create, Modify, Enable, Disable, Unlock, or Delete.
+     * @type {string}
+     * @memberof ProvisioningcompletedAccountRequestsInner
+     */
+    'accountOperation': string;
+    /**
+     * The overall result of the provisioning transaction; this could be success, pending, failed, etc.
+     * @type {string}
+     * @memberof ProvisioningcompletedAccountRequestsInner
+     */
+    'provisioningResult': ProvisioningcompletedAccountRequestsInnerProvisioningResultEnum;
+    /**
+     * The name of the provisioning channel selected; this could be the same as the source, or could be a Service Desk Integration Module (SDIM).
+     * @type {string}
+     * @memberof ProvisioningcompletedAccountRequestsInner
+     */
+    'provisioningTarget': string;
+    /**
+     * A reference to a tracking number, if this is sent to a Service Desk Integration Module (SDIM).
+     * @type {string}
+     * @memberof ProvisioningcompletedAccountRequestsInner
+     */
+    'ticketId'?: string | null;
+    /**
+     * A list of attributes as part of the provisioning transaction.
+     * @type {Array<ProvisioningcompletedAccountRequestsInnerAttributeRequestsInner>}
+     * @memberof ProvisioningcompletedAccountRequestsInner
+     */
+    'attributeRequests'?: Array<ProvisioningcompletedAccountRequestsInnerAttributeRequestsInner> | null;
+}
+
+export const ProvisioningcompletedAccountRequestsInnerProvisioningResultEnum = {
+    Success: 'SUCCESS',
+    Pending: 'PENDING',
+    Failed: 'FAILED'
+} as const;
+
+export type ProvisioningcompletedAccountRequestsInnerProvisioningResultEnum = typeof ProvisioningcompletedAccountRequestsInnerProvisioningResultEnum[keyof typeof ProvisioningcompletedAccountRequestsInnerProvisioningResultEnum];
+
+/**
+ * 
+ * @export
+ * @interface ProvisioningcompletedAccountRequestsInnerAttributeRequestsInner
+ */
+export interface ProvisioningcompletedAccountRequestsInnerAttributeRequestsInner {
+    /**
+     * The name of the attribute being provisioned.
+     * @type {string}
+     * @memberof ProvisioningcompletedAccountRequestsInnerAttributeRequestsInner
+     */
+    'attributeName': string;
+    /**
+     * The value of the attribute being provisioned.
+     * @type {string}
+     * @memberof ProvisioningcompletedAccountRequestsInnerAttributeRequestsInner
+     */
+    'attributeValue'?: string | null;
+    /**
+     * The operation to handle the attribute.
+     * @type {string}
+     * @memberof ProvisioningcompletedAccountRequestsInnerAttributeRequestsInner
+     */
+    'operation': ProvisioningcompletedAccountRequestsInnerAttributeRequestsInnerOperationEnum;
+}
+
+export const ProvisioningcompletedAccountRequestsInnerAttributeRequestsInnerOperationEnum = {
+    Add: 'Add',
+    Set: 'Set',
+    Remove: 'Remove'
+} as const;
+
+export type ProvisioningcompletedAccountRequestsInnerAttributeRequestsInnerOperationEnum = typeof ProvisioningcompletedAccountRequestsInnerAttributeRequestsInnerOperationEnum[keyof typeof ProvisioningcompletedAccountRequestsInnerAttributeRequestsInnerOperationEnum];
+
+/**
+ * Reference to the source being provisioned against.
+ * @export
+ * @interface ProvisioningcompletedAccountRequestsInnerSource
+ */
+export interface ProvisioningcompletedAccountRequestsInnerSource {
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof ProvisioningcompletedAccountRequestsInnerSource
+     */
+    'id': string;
+    /**
+     * The type of object that is referenced
+     * @type {string}
+     * @memberof ProvisioningcompletedAccountRequestsInnerSource
+     */
+    'type': ProvisioningcompletedAccountRequestsInnerSourceTypeEnum;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof ProvisioningcompletedAccountRequestsInnerSource
+     */
+    'name': string;
+}
+
+export const ProvisioningcompletedAccountRequestsInnerSourceTypeEnum = {
+    Source: 'SOURCE'
+} as const;
+
+export type ProvisioningcompletedAccountRequestsInnerSourceTypeEnum = typeof ProvisioningcompletedAccountRequestsInnerSourceTypeEnum[keyof typeof ProvisioningcompletedAccountRequestsInnerSourceTypeEnum];
+
+/**
+ * Provisioning recpient.
+ * @export
+ * @interface ProvisioningcompletedRecipient
+ */
+export interface ProvisioningcompletedRecipient {
+    /**
+     * Provisioning recipient DTO type.
+     * @type {string}
+     * @memberof ProvisioningcompletedRecipient
+     */
+    'type': ProvisioningcompletedRecipientTypeEnum;
+    /**
+     * Provisioning recipient\'s identity ID.
+     * @type {string}
+     * @memberof ProvisioningcompletedRecipient
+     */
+    'id': string;
+    /**
+     * Provisioning recipient\'s display name.
+     * @type {string}
+     * @memberof ProvisioningcompletedRecipient
+     */
+    'name': string;
+}
+
+export const ProvisioningcompletedRecipientTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type ProvisioningcompletedRecipientTypeEnum = typeof ProvisioningcompletedRecipientTypeEnum[keyof typeof ProvisioningcompletedRecipientTypeEnum];
+
+/**
+ * Provisioning requester\'s identity.
+ * @export
+ * @interface ProvisioningcompletedRequester
+ */
+export interface ProvisioningcompletedRequester {
+    /**
+     * Provisioning requester\'s DTO type.
+     * @type {string}
+     * @memberof ProvisioningcompletedRequester
+     */
+    'type': ProvisioningcompletedRequesterTypeEnum;
+    /**
+     * Provisioning requester\'s identity ID.
+     * @type {string}
+     * @memberof ProvisioningcompletedRequester
+     */
+    'id': string;
+    /**
+     * Provisioning owner\'s human-readable display name.
+     * @type {string}
+     * @memberof ProvisioningcompletedRequester
+     */
+    'name': string;
+}
+
+export const ProvisioningcompletedRequesterTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type ProvisioningcompletedRequesterTypeEnum = typeof ProvisioningcompletedRequesterTypeEnum[keyof typeof ProvisioningcompletedRequesterTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface Reassignment
+ */
+export interface Reassignment {
+    /**
+     * 
+     * @type {Certificationreference}
+     * @memberof Reassignment
+     */
+    'from'?: Certificationreference;
     /**
      * The comment entered when the Certification was reassigned
      * @type {string}
-     * @memberof ReassignmentV1
+     * @memberof Reassignment
      */
     'comment'?: string;
 }
 /**
  * 
  * @export
- * @interface ReviewerV1
+ * @interface Reviewer
  */
-export interface ReviewerV1 {
+export interface Reviewer {
     /**
      * The id of the reviewer.
      * @type {string}
-     * @memberof ReviewerV1
+     * @memberof Reviewer
      */
     'id'?: string;
     /**
      * The name of the reviewer.
      * @type {string}
-     * @memberof ReviewerV1
+     * @memberof Reviewer
      */
     'name'?: string;
     /**
      * The email of the reviewing identity. This is only applicable to reviewers of the `IDENTITY` type.
      * @type {string}
-     * @memberof ReviewerV1
+     * @memberof Reviewer
      */
     'email'?: string | null;
     /**
      * The type of the reviewing identity.
      * @type {string}
-     * @memberof ReviewerV1
+     * @memberof Reviewer
      */
-    'type'?: ReviewerV1TypeV1;
+    'type'?: ReviewerTypeEnum;
     /**
      * The created date of the reviewing identity.
      * @type {string}
-     * @memberof ReviewerV1
+     * @memberof Reviewer
      */
     'created'?: string | null;
     /**
      * The modified date of the reviewing identity.
      * @type {string}
-     * @memberof ReviewerV1
+     * @memberof Reviewer
      */
     'modified'?: string | null;
 }
 
-export const ReviewerV1TypeV1 = {
+export const ReviewerTypeEnum = {
     Identity: 'IDENTITY',
     GovernanceGroup: 'GOVERNANCE_GROUP'
 } as const;
 
-export type ReviewerV1TypeV1 = typeof ReviewerV1TypeV1[keyof typeof ReviewerV1TypeV1];
+export type ReviewerTypeEnum = typeof ReviewerTypeEnum[keyof typeof ReviewerTypeEnum];
 
+/**
+ * 
+ * @export
+ * @interface Savedsearchcomplete
+ */
+export interface Savedsearchcomplete {
+    /**
+     * A name for the report file.
+     * @type {string}
+     * @memberof Savedsearchcomplete
+     */
+    'fileName': string;
+    /**
+     * The email address of the identity that owns the saved search.
+     * @type {string}
+     * @memberof Savedsearchcomplete
+     */
+    'ownerEmail': string;
+    /**
+     * The name of the identity that owns the saved search.
+     * @type {string}
+     * @memberof Savedsearchcomplete
+     */
+    'ownerName': string;
+    /**
+     * The search query that was used to generate the report.
+     * @type {string}
+     * @memberof Savedsearchcomplete
+     */
+    'query': string;
+    /**
+     * The name of the saved search.
+     * @type {string}
+     * @memberof Savedsearchcomplete
+     */
+    'searchName': string;
+    /**
+     * 
+     * @type {SavedsearchcompleteSearchResults}
+     * @memberof Savedsearchcomplete
+     */
+    'searchResults': SavedsearchcompleteSearchResults;
+    /**
+     * The Amazon S3 URL to download the report from.
+     * @type {string}
+     * @memberof Savedsearchcomplete
+     */
+    'signedS3Url': string;
+}
+/**
+ * A preview of the search results for each object type. This includes a count as well as headers, and the first several rows of data, per object type.
+ * @export
+ * @interface SavedsearchcompleteSearchResults
+ */
+export interface SavedsearchcompleteSearchResults {
+    /**
+     * 
+     * @type {SavedsearchcompleteSearchResultsAccount}
+     * @memberof SavedsearchcompleteSearchResults
+     */
+    'Account'?: SavedsearchcompleteSearchResultsAccount | null;
+    /**
+     * 
+     * @type {SavedsearchcompleteSearchResultsEntitlement}
+     * @memberof SavedsearchcompleteSearchResults
+     */
+    'Entitlement'?: SavedsearchcompleteSearchResultsEntitlement | null;
+    /**
+     * 
+     * @type {SavedsearchcompleteSearchResultsIdentity}
+     * @memberof SavedsearchcompleteSearchResults
+     */
+    'Identity'?: SavedsearchcompleteSearchResultsIdentity | null;
+}
 /**
  * A table of accounts that match the search criteria.
  * @export
- * @interface SavedsearchcompleteSearchResultsAccountV1
+ * @interface SavedsearchcompleteSearchResultsAccount
  */
-export interface SavedsearchcompleteSearchResultsAccountV1 {
+export interface SavedsearchcompleteSearchResultsAccount {
     /**
      * The number of rows in the table.
      * @type {string}
-     * @memberof SavedsearchcompleteSearchResultsAccountV1
+     * @memberof SavedsearchcompleteSearchResultsAccount
      */
     'count': string;
     /**
      * The type of object represented in the table.
      * @type {string}
-     * @memberof SavedsearchcompleteSearchResultsAccountV1
+     * @memberof SavedsearchcompleteSearchResultsAccount
      */
     'noun': string;
     /**
      * A sample of the data in the table.
      * @type {Array<Array<string>>}
-     * @memberof SavedsearchcompleteSearchResultsAccountV1
+     * @memberof SavedsearchcompleteSearchResultsAccount
      */
     'preview': Array<Array<string>>;
 }
 /**
  * A table of entitlements that match the search criteria.
  * @export
- * @interface SavedsearchcompleteSearchResultsEntitlementV1
+ * @interface SavedsearchcompleteSearchResultsEntitlement
  */
-export interface SavedsearchcompleteSearchResultsEntitlementV1 {
+export interface SavedsearchcompleteSearchResultsEntitlement {
     /**
      * The number of rows in the table.
      * @type {string}
-     * @memberof SavedsearchcompleteSearchResultsEntitlementV1
+     * @memberof SavedsearchcompleteSearchResultsEntitlement
      */
     'count': string;
     /**
      * The type of object represented in the table.
      * @type {string}
-     * @memberof SavedsearchcompleteSearchResultsEntitlementV1
+     * @memberof SavedsearchcompleteSearchResultsEntitlement
      */
     'noun': string;
     /**
      * A sample of the data in the table.
      * @type {Array<Array<string>>}
-     * @memberof SavedsearchcompleteSearchResultsEntitlementV1
+     * @memberof SavedsearchcompleteSearchResultsEntitlement
      */
     'preview': Array<Array<string>>;
 }
 /**
  * A table of identities that match the search criteria.
  * @export
- * @interface SavedsearchcompleteSearchResultsIdentityV1
+ * @interface SavedsearchcompleteSearchResultsIdentity
  */
-export interface SavedsearchcompleteSearchResultsIdentityV1 {
+export interface SavedsearchcompleteSearchResultsIdentity {
     /**
      * The number of rows in the table.
      * @type {string}
-     * @memberof SavedsearchcompleteSearchResultsIdentityV1
+     * @memberof SavedsearchcompleteSearchResultsIdentity
      */
     'count': string;
     /**
      * The type of object represented in the table.
      * @type {string}
-     * @memberof SavedsearchcompleteSearchResultsIdentityV1
+     * @memberof SavedsearchcompleteSearchResultsIdentity
      */
     'noun': string;
     /**
      * A sample of the data in the table.
      * @type {Array<Array<string>>}
-     * @memberof SavedsearchcompleteSearchResultsIdentityV1
+     * @memberof SavedsearchcompleteSearchResultsIdentity
      */
     'preview': Array<Array<string>>;
 }
 /**
- * A preview of the search results for each object type. This includes a count as well as headers, and the first several rows of data, per object type.
- * @export
- * @interface SavedsearchcompleteSearchResultsV1
- */
-export interface SavedsearchcompleteSearchResultsV1 {
-    /**
-     * 
-     * @type {SavedsearchcompleteSearchResultsAccountV1}
-     * @memberof SavedsearchcompleteSearchResultsV1
-     */
-    'Account'?: SavedsearchcompleteSearchResultsAccountV1 | null;
-    /**
-     * 
-     * @type {SavedsearchcompleteSearchResultsEntitlementV1}
-     * @memberof SavedsearchcompleteSearchResultsV1
-     */
-    'Entitlement'?: SavedsearchcompleteSearchResultsEntitlementV1 | null;
-    /**
-     * 
-     * @type {SavedsearchcompleteSearchResultsIdentityV1}
-     * @memberof SavedsearchcompleteSearchResultsV1
-     */
-    'Identity'?: SavedsearchcompleteSearchResultsIdentityV1 | null;
-}
-/**
  * 
  * @export
- * @interface SavedsearchcompleteV1
+ * @interface Sourceaccountcreated
  */
-export interface SavedsearchcompleteV1 {
-    /**
-     * A name for the report file.
-     * @type {string}
-     * @memberof SavedsearchcompleteV1
-     */
-    'fileName': string;
-    /**
-     * The email address of the identity that owns the saved search.
-     * @type {string}
-     * @memberof SavedsearchcompleteV1
-     */
-    'ownerEmail': string;
-    /**
-     * The name of the identity that owns the saved search.
-     * @type {string}
-     * @memberof SavedsearchcompleteV1
-     */
-    'ownerName': string;
-    /**
-     * The search query that was used to generate the report.
-     * @type {string}
-     * @memberof SavedsearchcompleteV1
-     */
-    'query': string;
-    /**
-     * The name of the saved search.
-     * @type {string}
-     * @memberof SavedsearchcompleteV1
-     */
-    'searchName': string;
-    /**
-     * 
-     * @type {SavedsearchcompleteSearchResultsV1}
-     * @memberof SavedsearchcompleteV1
-     */
-    'searchResults': SavedsearchcompleteSearchResultsV1;
-    /**
-     * The Amazon S3 URL to download the report from.
-     * @type {string}
-     * @memberof SavedsearchcompleteV1
-     */
-    'signedS3Url': string;
-}
-/**
- * 
- * @export
- * @interface SourceaccountcreatedV1
- */
-export interface SourceaccountcreatedV1 {
+export interface Sourceaccountcreated {
     /**
      * Source unique identifier for the identity. UUID is generated by the source system.
      * @type {string}
-     * @memberof SourceaccountcreatedV1
+     * @memberof Sourceaccountcreated
      */
     'uuid'?: string;
     /**
      * SailPoint generated unique identifier.
      * @type {string}
-     * @memberof SourceaccountcreatedV1
+     * @memberof Sourceaccountcreated
      */
     'id': string;
     /**
      * Unique ID of the account on the source.
      * @type {string}
-     * @memberof SourceaccountcreatedV1
+     * @memberof Sourceaccountcreated
      */
     'nativeIdentifier': string;
     /**
      * The ID of the source.
      * @type {string}
-     * @memberof SourceaccountcreatedV1
+     * @memberof Sourceaccountcreated
      */
     'sourceId': string;
     /**
      * The name of the source.
      * @type {string}
-     * @memberof SourceaccountcreatedV1
+     * @memberof Sourceaccountcreated
      */
     'sourceName': string;
     /**
      * The ID of the identity that is correlated with this account.
      * @type {string}
-     * @memberof SourceaccountcreatedV1
+     * @memberof Sourceaccountcreated
      */
     'identityId': string;
     /**
      * The name of the identity that is correlated with this account.
      * @type {string}
-     * @memberof SourceaccountcreatedV1
+     * @memberof Sourceaccountcreated
      */
     'identityName': string;
     /**
      * The attributes of the account. The contents of attributes depends on the account schema for the source.
      * @type {{ [key: string]: any; }}
-     * @memberof SourceaccountcreatedV1
+     * @memberof Sourceaccountcreated
      */
     'attributes': { [key: string]: any; };
 }
 /**
  * 
  * @export
- * @interface SourceaccountdeletedV1
+ * @interface Sourceaccountdeleted
  */
-export interface SourceaccountdeletedV1 {
+export interface Sourceaccountdeleted {
     /**
      * Source unique identifier for the identity. UUID is generated by the source system.
      * @type {string}
-     * @memberof SourceaccountdeletedV1
+     * @memberof Sourceaccountdeleted
      */
     'uuid'?: string;
     /**
      * SailPoint generated unique identifier.
      * @type {string}
-     * @memberof SourceaccountdeletedV1
+     * @memberof Sourceaccountdeleted
      */
     'id': string;
     /**
      * Unique ID of the account on the source.
      * @type {string}
-     * @memberof SourceaccountdeletedV1
+     * @memberof Sourceaccountdeleted
      */
     'nativeIdentifier': string;
     /**
      * The ID of the source.
      * @type {string}
-     * @memberof SourceaccountdeletedV1
+     * @memberof Sourceaccountdeleted
      */
     'sourceId': string;
     /**
      * The name of the source.
      * @type {string}
-     * @memberof SourceaccountdeletedV1
+     * @memberof Sourceaccountdeleted
      */
     'sourceName': string;
     /**
      * The ID of the identity that is correlated with this account.
      * @type {string}
-     * @memberof SourceaccountdeletedV1
+     * @memberof Sourceaccountdeleted
      */
     'identityId': string;
     /**
      * The name of the identity that is correlated with this account.
      * @type {string}
-     * @memberof SourceaccountdeletedV1
+     * @memberof Sourceaccountdeleted
      */
     'identityName': string;
     /**
      * The attributes of the account. The contents of attributes depends on the account schema for the source.
      * @type {{ [key: string]: any; }}
-     * @memberof SourceaccountdeletedV1
+     * @memberof Sourceaccountdeleted
      */
     'attributes': { [key: string]: any; };
 }
 /**
  * 
  * @export
- * @interface SourceaccountupdatedV1
+ * @interface Sourceaccountupdated
  */
-export interface SourceaccountupdatedV1 {
+export interface Sourceaccountupdated {
     /**
      * Source unique identifier for the identity. UUID is generated by the source system.
      * @type {string}
-     * @memberof SourceaccountupdatedV1
+     * @memberof Sourceaccountupdated
      */
     'uuid'?: string;
     /**
      * SailPoint generated unique identifier.
      * @type {string}
-     * @memberof SourceaccountupdatedV1
+     * @memberof Sourceaccountupdated
      */
     'id': string;
     /**
      * Unique ID of the account on the source.
      * @type {string}
-     * @memberof SourceaccountupdatedV1
+     * @memberof Sourceaccountupdated
      */
     'nativeIdentifier': string;
     /**
      * The ID of the source.
      * @type {string}
-     * @memberof SourceaccountupdatedV1
+     * @memberof Sourceaccountupdated
      */
     'sourceId': string;
     /**
      * The name of the source.
      * @type {string}
-     * @memberof SourceaccountupdatedV1
+     * @memberof Sourceaccountupdated
      */
     'sourceName': string;
     /**
      * The ID of the identity that is correlated with this account.
      * @type {string}
-     * @memberof SourceaccountupdatedV1
+     * @memberof Sourceaccountupdated
      */
     'identityId': string;
     /**
      * The name of the identity that is correlated with this account.
      * @type {string}
-     * @memberof SourceaccountupdatedV1
+     * @memberof Sourceaccountupdated
      */
     'identityName': string;
     /**
      * The attributes of the account. The contents of attributes depends on the account schema for the source.
      * @type {{ [key: string]: any; }}
-     * @memberof SourceaccountupdatedV1
+     * @memberof Sourceaccountupdated
      */
     'attributes': { [key: string]: any; };
 }
 /**
- * Identity who created the source.
- * @export
- * @interface SourcecreatedActorV1
- */
-export interface SourcecreatedActorV1 {
-    /**
-     * DTO type of identity who created the source.
-     * @type {string}
-     * @memberof SourcecreatedActorV1
-     */
-    'type': SourcecreatedActorV1TypeV1;
-    /**
-     * ID of identity who created the source.
-     * @type {string}
-     * @memberof SourcecreatedActorV1
-     */
-    'id': string;
-    /**
-     * Display name of identity who created the source.
-     * @type {string}
-     * @memberof SourcecreatedActorV1
-     */
-    'name': string;
-}
-
-export const SourcecreatedActorV1TypeV1 = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type SourcecreatedActorV1TypeV1 = typeof SourcecreatedActorV1TypeV1[keyof typeof SourcecreatedActorV1TypeV1];
-
-/**
  * 
  * @export
- * @interface SourcecreatedV1
+ * @interface Sourcecreated
  */
-export interface SourcecreatedV1 {
+export interface Sourcecreated {
     /**
      * The unique ID of the source.
      * @type {string}
-     * @memberof SourcecreatedV1
+     * @memberof Sourcecreated
      */
     'id': string;
     /**
      * Human friendly name of the source.
      * @type {string}
-     * @memberof SourcecreatedV1
+     * @memberof Sourcecreated
      */
     'name': string;
     /**
      * The connection type.
      * @type {string}
-     * @memberof SourcecreatedV1
+     * @memberof Sourcecreated
      */
     'type': string;
     /**
      * The date and time the source was created.
      * @type {string}
-     * @memberof SourcecreatedV1
+     * @memberof Sourcecreated
      */
     'created': string;
     /**
      * The connector type used to connect to the source.
      * @type {string}
-     * @memberof SourcecreatedV1
+     * @memberof Sourcecreated
      */
     'connector': string;
     /**
      * 
-     * @type {SourcecreatedActorV1}
-     * @memberof SourcecreatedV1
+     * @type {SourcecreatedActor}
+     * @memberof Sourcecreated
      */
-    'actor': SourcecreatedActorV1;
+    'actor': SourcecreatedActor;
 }
 /**
- * Identity who deleted the source.
+ * Identity who created the source.
  * @export
- * @interface SourcedeletedActorV1
+ * @interface SourcecreatedActor
  */
-export interface SourcedeletedActorV1 {
+export interface SourcecreatedActor {
     /**
-     * DTO type of identity who deleted the source.
+     * DTO type of identity who created the source.
      * @type {string}
-     * @memberof SourcedeletedActorV1
+     * @memberof SourcecreatedActor
      */
-    'type': SourcedeletedActorV1TypeV1;
+    'type': SourcecreatedActorTypeEnum;
     /**
-     * ID of identity who deleted the source.
+     * ID of identity who created the source.
      * @type {string}
-     * @memberof SourcedeletedActorV1
+     * @memberof SourcecreatedActor
      */
     'id': string;
     /**
-     * Display name of identity who deleted the source.
+     * Display name of identity who created the source.
      * @type {string}
-     * @memberof SourcedeletedActorV1
+     * @memberof SourcecreatedActor
      */
     'name': string;
 }
 
-export const SourcedeletedActorV1TypeV1 = {
+export const SourcecreatedActorTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type SourcedeletedActorV1TypeV1 = typeof SourcedeletedActorV1TypeV1[keyof typeof SourcedeletedActorV1TypeV1];
+export type SourcecreatedActorTypeEnum = typeof SourcecreatedActorTypeEnum[keyof typeof SourcecreatedActorTypeEnum];
 
 /**
  * 
  * @export
- * @interface SourcedeletedV1
+ * @interface Sourcedeleted
  */
-export interface SourcedeletedV1 {
+export interface Sourcedeleted {
     /**
      * The unique ID of the source.
      * @type {string}
-     * @memberof SourcedeletedV1
+     * @memberof Sourcedeleted
      */
     'id': string;
     /**
      * Human friendly name of the source.
      * @type {string}
-     * @memberof SourcedeletedV1
+     * @memberof Sourcedeleted
      */
     'name': string;
     /**
      * The connection type.
      * @type {string}
-     * @memberof SourcedeletedV1
+     * @memberof Sourcedeleted
      */
     'type': string;
     /**
      * The date and time the source was deleted.
      * @type {string}
-     * @memberof SourcedeletedV1
+     * @memberof Sourcedeleted
      */
     'deleted': string;
     /**
      * The connector type used to connect to the source.
      * @type {string}
-     * @memberof SourcedeletedV1
+     * @memberof Sourcedeleted
      */
     'connector': string;
     /**
      * 
-     * @type {SourcedeletedActorV1}
-     * @memberof SourcedeletedV1
+     * @type {SourcedeletedActor}
+     * @memberof Sourcedeleted
      */
-    'actor': SourcedeletedActorV1;
+    'actor': SourcedeletedActor;
 }
 /**
- * Identity who updated the source.
+ * Identity who deleted the source.
  * @export
- * @interface SourceupdatedActorV1
+ * @interface SourcedeletedActor
  */
-export interface SourceupdatedActorV1 {
+export interface SourcedeletedActor {
     /**
-     * DTO type of identity who updated the source.
+     * DTO type of identity who deleted the source.
      * @type {string}
-     * @memberof SourceupdatedActorV1
+     * @memberof SourcedeletedActor
      */
-    'type': SourceupdatedActorV1TypeV1;
+    'type': SourcedeletedActorTypeEnum;
     /**
-     * ID of identity who updated the source.
+     * ID of identity who deleted the source.
      * @type {string}
-     * @memberof SourceupdatedActorV1
+     * @memberof SourcedeletedActor
      */
-    'id'?: string;
+    'id': string;
     /**
-     * Display name of identity who updated the source.
+     * Display name of identity who deleted the source.
      * @type {string}
-     * @memberof SourceupdatedActorV1
+     * @memberof SourcedeletedActor
      */
     'name': string;
 }
 
-export const SourceupdatedActorV1TypeV1 = {
+export const SourcedeletedActorTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type SourceupdatedActorV1TypeV1 = typeof SourceupdatedActorV1TypeV1[keyof typeof SourceupdatedActorV1TypeV1];
+export type SourcedeletedActorTypeEnum = typeof SourcedeletedActorTypeEnum[keyof typeof SourcedeletedActorTypeEnum];
 
 /**
  * 
  * @export
- * @interface SourceupdatedV1
+ * @interface Sourceupdated
  */
-export interface SourceupdatedV1 {
+export interface Sourceupdated {
     /**
      * The unique ID of the source.
      * @type {string}
-     * @memberof SourceupdatedV1
+     * @memberof Sourceupdated
      */
     'id': string;
     /**
      * The user friendly name of the source.
      * @type {string}
-     * @memberof SourceupdatedV1
+     * @memberof Sourceupdated
      */
     'name': string;
     /**
      * The connection type of the source.
      * @type {string}
-     * @memberof SourceupdatedV1
+     * @memberof Sourceupdated
      */
     'type': string;
     /**
      * The date and time the source was modified.
      * @type {string}
-     * @memberof SourceupdatedV1
+     * @memberof Sourceupdated
      */
     'modified': string;
     /**
      * The connector type used to connect to the source.
      * @type {string}
-     * @memberof SourceupdatedV1
+     * @memberof Sourceupdated
      */
     'connector': string;
     /**
      * 
-     * @type {SourceupdatedActorV1}
-     * @memberof SourceupdatedV1
+     * @type {SourceupdatedActor}
+     * @memberof Sourceupdated
      */
-    'actor': SourceupdatedActorV1;
+    'actor': SourceupdatedActor;
 }
+/**
+ * Identity who updated the source.
+ * @export
+ * @interface SourceupdatedActor
+ */
+export interface SourceupdatedActor {
+    /**
+     * DTO type of identity who updated the source.
+     * @type {string}
+     * @memberof SourceupdatedActor
+     */
+    'type': SourceupdatedActorTypeEnum;
+    /**
+     * ID of identity who updated the source.
+     * @type {string}
+     * @memberof SourceupdatedActor
+     */
+    'id'?: string;
+    /**
+     * Display name of identity who updated the source.
+     * @type {string}
+     * @memberof SourceupdatedActor
+     */
+    'name': string;
+}
+
+export const SourceupdatedActorTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type SourceupdatedActorTypeEnum = typeof SourceupdatedActorTypeEnum[keyof typeof SourceupdatedActorTypeEnum];
+
 /**
  * 
  * @export
- * @interface StartinvocationinputV1
+ * @interface Startinvocationinput
  */
-export interface StartinvocationinputV1 {
+export interface Startinvocationinput {
     /**
      * Trigger ID
      * @type {string}
-     * @memberof StartinvocationinputV1
+     * @memberof Startinvocationinput
      */
     'triggerId'?: string;
     /**
      * Trigger input payload. Its schema is defined in the trigger definition.
      * @type {object}
-     * @memberof StartinvocationinputV1
+     * @memberof Startinvocationinput
      */
     'input'?: object;
     /**
      * JSON map of invocation metadata
      * @type {object}
-     * @memberof StartinvocationinputV1
+     * @memberof Startinvocationinput
      */
     'contentJson'?: object;
 }
 /**
  * 
  * @export
- * @interface SubscriptionV1
+ * @interface Subscription
  */
-export interface SubscriptionV1 {
+export interface Subscription {
     /**
      * Subscription ID.
      * @type {string}
-     * @memberof SubscriptionV1
+     * @memberof Subscription
      */
     'id': string;
     /**
      * Subscription name.
      * @type {string}
-     * @memberof SubscriptionV1
+     * @memberof Subscription
      */
     'name': string;
     /**
      * Subscription description.
      * @type {string}
-     * @memberof SubscriptionV1
+     * @memberof Subscription
      */
     'description'?: string;
     /**
      * ID of trigger subscribed to.
      * @type {string}
-     * @memberof SubscriptionV1
+     * @memberof Subscription
      */
     'triggerId': string;
     /**
      * Trigger name of trigger subscribed to.
      * @type {string}
-     * @memberof SubscriptionV1
+     * @memberof Subscription
      */
     'triggerName': string;
     /**
      * 
-     * @type {SubscriptiontypeV1}
-     * @memberof SubscriptionV1
+     * @type {Subscriptiontype}
+     * @memberof Subscription
      */
-    'type': SubscriptiontypeV1;
+    'type': Subscriptiontype;
     /**
      * Deadline for completing REQUEST_RESPONSE trigger invocation, represented in ISO-8601 duration format.
      * @type {string}
-     * @memberof SubscriptionV1
+     * @memberof Subscription
      */
     'responseDeadline'?: string;
     /**
      * 
-     * @type {HttpconfigV1}
-     * @memberof SubscriptionV1
+     * @type {Httpconfig}
+     * @memberof Subscription
      */
-    'httpConfig'?: HttpconfigV1;
+    'httpConfig'?: Httpconfig;
     /**
      * 
-     * @type {EventbridgeconfigV1}
-     * @memberof SubscriptionV1
+     * @type {Eventbridgeconfig}
+     * @memberof Subscription
      */
-    'eventBridgeConfig'?: EventbridgeconfigV1;
+    'eventBridgeConfig'?: Eventbridgeconfig;
     /**
      * Whether subscription should receive real-time trigger invocations or not. Test trigger invocations are always enabled regardless of this option.
      * @type {boolean}
-     * @memberof SubscriptionV1
+     * @memberof Subscription
      */
     'enabled': boolean;
     /**
      * JSONPath filter to conditionally invoke trigger when expression evaluates to true.
      * @type {string}
-     * @memberof SubscriptionV1
+     * @memberof Subscription
      */
     'filter'?: string;
 }
@@ -4637,30 +4637,30 @@ export interface SubscriptionV1 {
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface SubscriptionpatchrequestInnerV1
+ * @interface SubscriptionpatchrequestInner
  */
-export interface SubscriptionpatchrequestInnerV1 {
+export interface SubscriptionpatchrequestInner {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof SubscriptionpatchrequestInnerV1
+     * @memberof SubscriptionpatchrequestInner
      */
-    'op': SubscriptionpatchrequestInnerV1OpV1;
+    'op': SubscriptionpatchrequestInnerOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof SubscriptionpatchrequestInnerV1
+     * @memberof SubscriptionpatchrequestInner
      */
     'path': string;
     /**
      * 
-     * @type {SubscriptionpatchrequestInnerValueV1}
-     * @memberof SubscriptionpatchrequestInnerV1
+     * @type {SubscriptionpatchrequestInnerValue}
+     * @memberof SubscriptionpatchrequestInner
      */
-    'value'?: SubscriptionpatchrequestInnerValueV1;
+    'value'?: SubscriptionpatchrequestInnerValue;
 }
 
-export const SubscriptionpatchrequestInnerV1OpV1 = {
+export const SubscriptionpatchrequestInnerOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -4668,80 +4668,80 @@ export const SubscriptionpatchrequestInnerV1OpV1 = {
     Copy: 'copy'
 } as const;
 
-export type SubscriptionpatchrequestInnerV1OpV1 = typeof SubscriptionpatchrequestInnerV1OpV1[keyof typeof SubscriptionpatchrequestInnerV1OpV1];
+export type SubscriptionpatchrequestInnerOpEnum = typeof SubscriptionpatchrequestInnerOpEnum[keyof typeof SubscriptionpatchrequestInnerOpEnum];
 
-/**
- * 
- * @export
- * @interface SubscriptionpatchrequestInnerValueAnyOfInnerV1
- */
-export interface SubscriptionpatchrequestInnerValueAnyOfInnerV1 {
-}
 /**
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
- * @interface SubscriptionpatchrequestInnerValueV1
+ * @interface SubscriptionpatchrequestInnerValue
  */
-export interface SubscriptionpatchrequestInnerValueV1 {
+export interface SubscriptionpatchrequestInnerValue {
 }
 /**
  * 
  * @export
- * @interface SubscriptionpostrequestV1
+ * @interface SubscriptionpatchrequestInnerValueAnyOfInner
  */
-export interface SubscriptionpostrequestV1 {
+export interface SubscriptionpatchrequestInnerValueAnyOfInner {
+}
+/**
+ * 
+ * @export
+ * @interface Subscriptionpostrequest
+ */
+export interface Subscriptionpostrequest {
     /**
      * Subscription name.
      * @type {string}
-     * @memberof SubscriptionpostrequestV1
+     * @memberof Subscriptionpostrequest
      */
     'name': string;
     /**
      * Subscription description.
      * @type {string}
-     * @memberof SubscriptionpostrequestV1
+     * @memberof Subscriptionpostrequest
      */
     'description'?: string;
     /**
      * ID of trigger subscribed to.
      * @type {string}
-     * @memberof SubscriptionpostrequestV1
+     * @memberof Subscriptionpostrequest
      */
     'triggerId': string;
     /**
      * 
-     * @type {SubscriptiontypeV1}
-     * @memberof SubscriptionpostrequestV1
+     * @type {Subscriptiontype}
+     * @memberof Subscriptionpostrequest
      */
-    'type': SubscriptiontypeV1;
+    'type': Subscriptiontype;
     /**
      * Deadline for completing REQUEST_RESPONSE trigger invocation, represented in ISO-8601 duration format.
      * @type {string}
-     * @memberof SubscriptionpostrequestV1
+     * @memberof Subscriptionpostrequest
      */
     'responseDeadline'?: string;
     /**
      * 
-     * @type {HttpconfigV1}
-     * @memberof SubscriptionpostrequestV1
+     * @type {Httpconfig}
+     * @memberof Subscriptionpostrequest
      */
-    'httpConfig'?: HttpconfigV1;
+    'httpConfig'?: Httpconfig;
     /**
      * 
-     * @type {EventbridgeconfigV1}
-     * @memberof SubscriptionpostrequestV1
+     * @type {Eventbridgeconfig}
+     * @memberof Subscriptionpostrequest
      */
-    'eventBridgeConfig'?: EventbridgeconfigV1;
+    'eventBridgeConfig'?: Eventbridgeconfig;
     /**
      * Whether subscription should receive real-time trigger invocations or not.  Test trigger invocations are always enabled regardless of this option.
      * @type {boolean}
-     * @memberof SubscriptionpostrequestV1
+     * @memberof Subscriptionpostrequest
      */
     'enabled'?: boolean;
     /**
      * JSONPath filter to conditionally invoke trigger when expression evaluates to true.
      * @type {string}
-     * @memberof SubscriptionpostrequestV1
+     * @memberof Subscriptionpostrequest
      */
     'filter'?: string;
 }
@@ -4750,55 +4750,55 @@ export interface SubscriptionpostrequestV1 {
 /**
  * 
  * @export
- * @interface SubscriptionputrequestV1
+ * @interface Subscriptionputrequest
  */
-export interface SubscriptionputrequestV1 {
+export interface Subscriptionputrequest {
     /**
      * Subscription name.
      * @type {string}
-     * @memberof SubscriptionputrequestV1
+     * @memberof Subscriptionputrequest
      */
     'name'?: string;
     /**
      * Subscription description.
      * @type {string}
-     * @memberof SubscriptionputrequestV1
+     * @memberof Subscriptionputrequest
      */
     'description'?: string;
     /**
      * 
-     * @type {SubscriptiontypeV1}
-     * @memberof SubscriptionputrequestV1
+     * @type {Subscriptiontype}
+     * @memberof Subscriptionputrequest
      */
-    'type'?: SubscriptiontypeV1;
+    'type'?: Subscriptiontype;
     /**
      * Deadline for completing REQUEST_RESPONSE trigger invocation, represented in ISO-8601 duration format.
      * @type {string}
-     * @memberof SubscriptionputrequestV1
+     * @memberof Subscriptionputrequest
      */
     'responseDeadline'?: string;
     /**
      * 
-     * @type {HttpconfigV1}
-     * @memberof SubscriptionputrequestV1
+     * @type {Httpconfig}
+     * @memberof Subscriptionputrequest
      */
-    'httpConfig'?: HttpconfigV1;
+    'httpConfig'?: Httpconfig;
     /**
      * 
-     * @type {EventbridgeconfigV1}
-     * @memberof SubscriptionputrequestV1
+     * @type {Eventbridgeconfig}
+     * @memberof Subscriptionputrequest
      */
-    'eventBridgeConfig'?: EventbridgeconfigV1;
+    'eventBridgeConfig'?: Eventbridgeconfig;
     /**
      * Whether subscription should receive real-time trigger invocations or not.  Test trigger invocations are always enabled regardless of this option.
      * @type {boolean}
-     * @memberof SubscriptionputrequestV1
+     * @memberof Subscriptionputrequest
      */
     'enabled'?: boolean;
     /**
      * JSONPath filter to conditionally invoke trigger when expression evaluates to true.
      * @type {string}
-     * @memberof SubscriptionputrequestV1
+     * @memberof Subscriptionputrequest
      */
     'filter'?: string;
 }
@@ -4810,7 +4810,7 @@ export interface SubscriptionputrequestV1 {
  * @enum {string}
  */
 
-export const SubscriptiontypeV1 = {
+export const Subscriptiontype = {
     Http: 'HTTP',
     Eventbridge: 'EVENTBRIDGE',
     Inline: 'INLINE',
@@ -4818,110 +4818,110 @@ export const SubscriptiontypeV1 = {
     Workflow: 'WORKFLOW'
 } as const;
 
-export type SubscriptiontypeV1 = typeof SubscriptiontypeV1[keyof typeof SubscriptiontypeV1];
+export type Subscriptiontype = typeof Subscriptiontype[keyof typeof Subscriptiontype];
 
 
 /**
  * 
  * @export
- * @interface TestinvocationV1
+ * @interface Testinvocation
  */
-export interface TestinvocationV1 {
+export interface Testinvocation {
     /**
      * Trigger ID
      * @type {string}
-     * @memberof TestinvocationV1
+     * @memberof Testinvocation
      */
     'triggerId': string;
     /**
      * Mock input to use for test invocation.  This must adhere to the input schema defined in the trigger being invoked.  If this property is omitted, then the default trigger sample payload will be sent.
      * @type {object}
-     * @memberof TestinvocationV1
+     * @memberof Testinvocation
      */
     'input'?: object;
     /**
      * JSON map of invocation metadata.
      * @type {object}
-     * @memberof TestinvocationV1
+     * @memberof Testinvocation
      */
     'contentJson': object;
     /**
      * Only send the test event to the subscription IDs listed.  If omitted, the test event will be sent to all subscribers.
      * @type {Array<string>}
-     * @memberof TestinvocationV1
+     * @memberof Testinvocation
      */
     'subscriptionIds'?: Array<string>;
 }
 /**
- * @type TriggerExampleInputV1
- * An example of the JSON payload that will be sent by the trigger to the subscribed service.
- * @export
- */
-export type TriggerExampleInputV1 = AccessrequestdynamicapproverV1 | AccessrequestpostapprovalV1 | AccessrequestpreapprovalV1 | AccountaggregationcompletedV1 | AccountattributeschangedV1 | AccountcorrelatedV1 | AccountcreatedV1 | AccountdeletedV1 | AccountscollectedforaggregationV1 | AccountuncorrelatedV1 | AccountupdatedV1 | CampaignactivatedV1 | CampaignendedV1 | CampaigngeneratedV1 | CertificationsignedoffV1 | IdentityattributeschangedV1 | IdentitycreatedV1 | IdentitydeletedV1 | MachineidentitycreatedV1 | MachineidentitydeletedV1 | MachineidentityupdatedV1 | ProvisioningcompletedV1 | SavedsearchcompleteV1 | SourceaccountcreatedV1 | SourceaccountdeletedV1 | SourceaccountupdatedV1 | SourcecreatedV1 | SourcedeletedV1 | SourceupdatedV1 | VaclusterstatuschangeeventV1;
-
-/**
- * @type TriggerExampleOutputV1
- * An example of the JSON payload that will be sent by the subscribed service to the trigger in response to an event.
- * @export
- */
-export type TriggerExampleOutputV1 = Accessrequestdynamicapprover2V1 | Accessrequestpreapproval2V1;
-
-/**
  * 
  * @export
- * @interface TriggerV1
+ * @interface Trigger
  */
-export interface TriggerV1 {
+export interface Trigger {
     /**
      * Unique identifier of the trigger.
      * @type {string}
-     * @memberof TriggerV1
+     * @memberof Trigger
      */
     'id': string;
     /**
      * Trigger Name.
      * @type {string}
-     * @memberof TriggerV1
+     * @memberof Trigger
      */
     'name': string;
     /**
      * 
-     * @type {TriggertypeV1}
-     * @memberof TriggerV1
+     * @type {Triggertype}
+     * @memberof Trigger
      */
-    'type': TriggertypeV1;
+    'type': Triggertype;
     /**
      * Trigger Description.
      * @type {string}
-     * @memberof TriggerV1
+     * @memberof Trigger
      */
     'description'?: string;
     /**
      * The JSON schema of the payload that will be sent by the trigger to the subscribed service.
      * @type {string}
-     * @memberof TriggerV1
+     * @memberof Trigger
      */
     'inputSchema': string;
     /**
      * 
-     * @type {TriggerExampleInputV1}
-     * @memberof TriggerV1
+     * @type {TriggerExampleInput}
+     * @memberof Trigger
      */
-    'exampleInput': TriggerExampleInputV1;
+    'exampleInput': TriggerExampleInput;
     /**
      * The JSON schema of the response that will be sent by the subscribed service to the trigger in response to an event.  This only applies to a trigger type of `REQUEST_RESPONSE`.
      * @type {string}
-     * @memberof TriggerV1
+     * @memberof Trigger
      */
     'outputSchema'?: string | null;
     /**
      * 
-     * @type {TriggerExampleOutputV1}
-     * @memberof TriggerV1
+     * @type {TriggerExampleOutput}
+     * @memberof Trigger
      */
-    'exampleOutput'?: TriggerExampleOutputV1 | null;
+    'exampleOutput'?: TriggerExampleOutput | null;
 }
 
+
+/**
+ * @type TriggerExampleInput
+ * An example of the JSON payload that will be sent by the trigger to the subscribed service.
+ * @export
+ */
+export type TriggerExampleInput = Accessrequestdynamicapprover | Accessrequestpostapproval | Accessrequestpreapproval | Accountaggregationcompleted | Accountattributeschanged | Accountcorrelated | Accountcreated | Accountdeleted | Accountscollectedforaggregation | Accountuncorrelated | Accountupdated | Campaignactivated | Campaignended | Campaigngenerated | Certificationsignedoff | Identityattributeschanged | Identitycreated | Identitydeleted | Machineidentitycreated | Machineidentitydeleted | Machineidentityupdated | Provisioningcompleted | Savedsearchcomplete | Sourceaccountcreated | Sourceaccountdeleted | Sourceaccountupdated | Sourcecreated | Sourcedeleted | Sourceupdated | Vaclusterstatuschangeevent;
+
+/**
+ * @type TriggerExampleOutput
+ * An example of the JSON payload that will be sent by the subscribed service to the trigger in response to an event.
+ * @export
+ */
+export type TriggerExampleOutput = Accessrequestdynamicapprover2 | Accessrequestpreapproval2;
 
 /**
  * The type of trigger.
@@ -4929,214 +4929,214 @@ export interface TriggerV1 {
  * @enum {string}
  */
 
-export const TriggertypeV1 = {
+export const Triggertype = {
     RequestResponse: 'REQUEST_RESPONSE',
     FireAndForget: 'FIRE_AND_FORGET'
 } as const;
 
-export type TriggertypeV1 = typeof TriggertypeV1[keyof typeof TriggertypeV1];
+export type Triggertype = typeof Triggertype[keyof typeof Triggertype];
 
+
+/**
+ * 
+ * @export
+ * @interface Vaclusterstatuschangeevent
+ */
+export interface Vaclusterstatuschangeevent {
+    /**
+     * The date and time the status change occurred.
+     * @type {string}
+     * @memberof Vaclusterstatuschangeevent
+     */
+    'created': string;
+    /**
+     * The type of the object that initiated this event.
+     * @type {string}
+     * @memberof Vaclusterstatuschangeevent
+     */
+    'type': VaclusterstatuschangeeventTypeEnum;
+    /**
+     * 
+     * @type {VaclusterstatuschangeeventApplication}
+     * @memberof Vaclusterstatuschangeevent
+     */
+    'application': VaclusterstatuschangeeventApplication;
+    /**
+     * 
+     * @type {VaclusterstatuschangeeventHealthCheckResult}
+     * @memberof Vaclusterstatuschangeevent
+     */
+    'healthCheckResult': VaclusterstatuschangeeventHealthCheckResult;
+    /**
+     * 
+     * @type {VaclusterstatuschangeeventPreviousHealthCheckResult}
+     * @memberof Vaclusterstatuschangeevent
+     */
+    'previousHealthCheckResult': VaclusterstatuschangeeventPreviousHealthCheckResult;
+}
+
+export const VaclusterstatuschangeeventTypeEnum = {
+    Source: 'SOURCE',
+    Cluster: 'CLUSTER'
+} as const;
+
+export type VaclusterstatuschangeeventTypeEnum = typeof VaclusterstatuschangeeventTypeEnum[keyof typeof VaclusterstatuschangeeventTypeEnum];
 
 /**
  * Details about the `CLUSTER` or `SOURCE` that initiated this event.
  * @export
- * @interface VaclusterstatuschangeeventApplicationV1
+ * @interface VaclusterstatuschangeeventApplication
  */
-export interface VaclusterstatuschangeeventApplicationV1 {
+export interface VaclusterstatuschangeeventApplication {
     /**
      * The GUID of the application
      * @type {string}
-     * @memberof VaclusterstatuschangeeventApplicationV1
+     * @memberof VaclusterstatuschangeeventApplication
      */
     'id': string;
     /**
      * The name of the application
      * @type {string}
-     * @memberof VaclusterstatuschangeeventApplicationV1
+     * @memberof VaclusterstatuschangeeventApplication
      */
     'name': string;
     /**
      * Custom map of attributes for a source.  This will only be populated if type is `SOURCE` and the source has a proxy.
      * @type {{ [key: string]: any; }}
-     * @memberof VaclusterstatuschangeeventApplicationV1
+     * @memberof VaclusterstatuschangeeventApplication
      */
     'attributes': { [key: string]: any; } | null;
 }
 /**
  * The results of the most recent health check.
  * @export
- * @interface VaclusterstatuschangeeventHealthCheckResultV1
+ * @interface VaclusterstatuschangeeventHealthCheckResult
  */
-export interface VaclusterstatuschangeeventHealthCheckResultV1 {
+export interface VaclusterstatuschangeeventHealthCheckResult {
     /**
      * Detailed message of the result of the health check.
      * @type {string}
-     * @memberof VaclusterstatuschangeeventHealthCheckResultV1
+     * @memberof VaclusterstatuschangeeventHealthCheckResult
      */
     'message': string;
     /**
      * The type of the health check result.
      * @type {string}
-     * @memberof VaclusterstatuschangeeventHealthCheckResultV1
+     * @memberof VaclusterstatuschangeeventHealthCheckResult
      */
     'resultType': string;
     /**
      * The status of the health check.
      * @type {string}
-     * @memberof VaclusterstatuschangeeventHealthCheckResultV1
+     * @memberof VaclusterstatuschangeeventHealthCheckResult
      */
-    'status': VaclusterstatuschangeeventHealthCheckResultV1StatusV1;
+    'status': VaclusterstatuschangeeventHealthCheckResultStatusEnum;
 }
 
-export const VaclusterstatuschangeeventHealthCheckResultV1StatusV1 = {
+export const VaclusterstatuschangeeventHealthCheckResultStatusEnum = {
     Succeeded: 'Succeeded',
     Failed: 'Failed'
 } as const;
 
-export type VaclusterstatuschangeeventHealthCheckResultV1StatusV1 = typeof VaclusterstatuschangeeventHealthCheckResultV1StatusV1[keyof typeof VaclusterstatuschangeeventHealthCheckResultV1StatusV1];
+export type VaclusterstatuschangeeventHealthCheckResultStatusEnum = typeof VaclusterstatuschangeeventHealthCheckResultStatusEnum[keyof typeof VaclusterstatuschangeeventHealthCheckResultStatusEnum];
 
 /**
  * The results of the last health check.
  * @export
- * @interface VaclusterstatuschangeeventPreviousHealthCheckResultV1
+ * @interface VaclusterstatuschangeeventPreviousHealthCheckResult
  */
-export interface VaclusterstatuschangeeventPreviousHealthCheckResultV1 {
+export interface VaclusterstatuschangeeventPreviousHealthCheckResult {
     /**
      * Detailed message of the result of the health check.
      * @type {string}
-     * @memberof VaclusterstatuschangeeventPreviousHealthCheckResultV1
+     * @memberof VaclusterstatuschangeeventPreviousHealthCheckResult
      */
     'message': string;
     /**
      * The type of the health check result.
      * @type {string}
-     * @memberof VaclusterstatuschangeeventPreviousHealthCheckResultV1
+     * @memberof VaclusterstatuschangeeventPreviousHealthCheckResult
      */
     'resultType': string;
     /**
      * The status of the health check.
      * @type {string}
-     * @memberof VaclusterstatuschangeeventPreviousHealthCheckResultV1
+     * @memberof VaclusterstatuschangeeventPreviousHealthCheckResult
      */
-    'status': VaclusterstatuschangeeventPreviousHealthCheckResultV1StatusV1;
+    'status': VaclusterstatuschangeeventPreviousHealthCheckResultStatusEnum;
 }
 
-export const VaclusterstatuschangeeventPreviousHealthCheckResultV1StatusV1 = {
+export const VaclusterstatuschangeeventPreviousHealthCheckResultStatusEnum = {
     Succeeded: 'Succeeded',
     Failed: 'Failed'
 } as const;
 
-export type VaclusterstatuschangeeventPreviousHealthCheckResultV1StatusV1 = typeof VaclusterstatuschangeeventPreviousHealthCheckResultV1StatusV1[keyof typeof VaclusterstatuschangeeventPreviousHealthCheckResultV1StatusV1];
+export type VaclusterstatuschangeeventPreviousHealthCheckResultStatusEnum = typeof VaclusterstatuschangeeventPreviousHealthCheckResultStatusEnum[keyof typeof VaclusterstatuschangeeventPreviousHealthCheckResultStatusEnum];
 
 /**
  * 
  * @export
- * @interface VaclusterstatuschangeeventV1
+ * @interface Validatefilterinputdto
  */
-export interface VaclusterstatuschangeeventV1 {
-    /**
-     * The date and time the status change occurred.
-     * @type {string}
-     * @memberof VaclusterstatuschangeeventV1
-     */
-    'created': string;
-    /**
-     * The type of the object that initiated this event.
-     * @type {string}
-     * @memberof VaclusterstatuschangeeventV1
-     */
-    'type': VaclusterstatuschangeeventV1TypeV1;
-    /**
-     * 
-     * @type {VaclusterstatuschangeeventApplicationV1}
-     * @memberof VaclusterstatuschangeeventV1
-     */
-    'application': VaclusterstatuschangeeventApplicationV1;
-    /**
-     * 
-     * @type {VaclusterstatuschangeeventHealthCheckResultV1}
-     * @memberof VaclusterstatuschangeeventV1
-     */
-    'healthCheckResult': VaclusterstatuschangeeventHealthCheckResultV1;
-    /**
-     * 
-     * @type {VaclusterstatuschangeeventPreviousHealthCheckResultV1}
-     * @memberof VaclusterstatuschangeeventV1
-     */
-    'previousHealthCheckResult': VaclusterstatuschangeeventPreviousHealthCheckResultV1;
-}
-
-export const VaclusterstatuschangeeventV1TypeV1 = {
-    Source: 'SOURCE',
-    Cluster: 'CLUSTER'
-} as const;
-
-export type VaclusterstatuschangeeventV1TypeV1 = typeof VaclusterstatuschangeeventV1TypeV1[keyof typeof VaclusterstatuschangeeventV1TypeV1];
-
-/**
- * 
- * @export
- * @interface ValidatefilterinputdtoV1
- */
-export interface ValidatefilterinputdtoV1 {
+export interface Validatefilterinputdto {
     /**
      * Mock input to evaluate filter expression against.
      * @type {object}
-     * @memberof ValidatefilterinputdtoV1
+     * @memberof Validatefilterinputdto
      */
     'input': object;
     /**
      * JSONPath filter to conditionally invoke trigger when expression evaluates to true.
      * @type {string}
-     * @memberof ValidatefilterinputdtoV1
+     * @memberof Validatefilterinputdto
      */
     'filter': string;
 }
 /**
  * 
  * @export
- * @interface ValidatefilteroutputdtoV1
+ * @interface Validatefilteroutputdto
  */
-export interface ValidatefilteroutputdtoV1 {
+export interface Validatefilteroutputdto {
     /**
      * When this field is true, the filter expression is valid against the input.
      * @type {boolean}
-     * @memberof ValidatefilteroutputdtoV1
+     * @memberof Validatefilteroutputdto
      */
     'isValid'?: boolean;
     /**
      * When this field is true, the filter expression is using a valid JSON path.
      * @type {boolean}
-     * @memberof ValidatefilteroutputdtoV1
+     * @memberof Validatefilteroutputdto
      */
     'isValidJSONPath'?: boolean;
     /**
      * When this field is true, the filter expression is using an existing path.
      * @type {boolean}
-     * @memberof ValidatefilteroutputdtoV1
+     * @memberof Validatefilteroutputdto
      */
     'isPathExist'?: boolean;
 }
 
 /**
- * TriggersV1Api - axios parameter creator
+ * TriggersApi - axios parameter creator
  * @export
  */
-export const TriggersV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const TriggersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Completes an invocation to a REQUEST_RESPONSE type trigger.
          * @summary Complete trigger invocation
          * @param {string} id The ID of the invocation to complete.
-         * @param {CompleteinvocationV1} completeinvocationV1 
+         * @param {Completeinvocation} completeinvocation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        completeTriggerInvocationV1: async (id: string, completeinvocationV1: CompleteinvocationV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        completeTriggerInvocationV1: async (id: string, completeinvocation: Completeinvocation, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('completeTriggerInvocationV1', 'id', id)
-            // verify required parameter 'completeinvocationV1' is not null or undefined
-            assertParamExists('completeTriggerInvocationV1', 'completeinvocationV1', completeinvocationV1)
+            // verify required parameter 'completeinvocation' is not null or undefined
+            assertParamExists('completeTriggerInvocationV1', 'completeinvocation', completeinvocation)
             const localVarPath = `/trigger-invocations/v1/{id}/complete`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -5157,7 +5157,7 @@ export const TriggersV1ApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(completeinvocationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(completeinvocation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5167,13 +5167,13 @@ export const TriggersV1ApiAxiosParamCreator = function (configuration?: Configur
         /**
          * This API creates a new subscription to a trigger and defines trigger invocation details. The type of subscription determines which config object is required: * HTTP subscriptions require httpConfig * EventBridge subscriptions require eventBridgeConfig
          * @summary Create a subscription
-         * @param {SubscriptionpostrequestV1} subscriptionpostrequestV1 
+         * @param {Subscriptionpostrequest} subscriptionpostrequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createSubscriptionV1: async (subscriptionpostrequestV1: SubscriptionpostrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'subscriptionpostrequestV1' is not null or undefined
-            assertParamExists('createSubscriptionV1', 'subscriptionpostrequestV1', subscriptionpostrequestV1)
+        createSubscriptionV1: async (subscriptionpostrequest: Subscriptionpostrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'subscriptionpostrequest' is not null or undefined
+            assertParamExists('createSubscriptionV1', 'subscriptionpostrequest', subscriptionpostrequest)
             const localVarPath = `/trigger-subscriptions/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -5193,7 +5193,7 @@ export const TriggersV1ApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(subscriptionpostrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(subscriptionpostrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5403,15 +5403,15 @@ export const TriggersV1ApiAxiosParamCreator = function (configuration?: Configur
          * This API updates a trigger subscription in IdentityNow, using a set of instructions to modify a subscription partially. The following fields are patchable:  **name**, **description**, **enabled**, **type**, **filter**, **responseDeadline**, **httpConfig**, **eventBridgeConfig**, **workflowConfig**
          * @summary Patch a subscription
          * @param {string} id ID of the Subscription to patch
-         * @param {Array<SubscriptionpatchrequestInnerV1>} subscriptionpatchrequestInnerV1 
+         * @param {Array<SubscriptionpatchrequestInner>} subscriptionpatchrequestInner 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchSubscriptionV1: async (id: string, subscriptionpatchrequestInnerV1: Array<SubscriptionpatchrequestInnerV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchSubscriptionV1: async (id: string, subscriptionpatchrequestInner: Array<SubscriptionpatchrequestInner>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchSubscriptionV1', 'id', id)
-            // verify required parameter 'subscriptionpatchrequestInnerV1' is not null or undefined
-            assertParamExists('patchSubscriptionV1', 'subscriptionpatchrequestInnerV1', subscriptionpatchrequestInnerV1)
+            // verify required parameter 'subscriptionpatchrequestInner' is not null or undefined
+            assertParamExists('patchSubscriptionV1', 'subscriptionpatchrequestInner', subscriptionpatchrequestInner)
             const localVarPath = `/trigger-subscriptions/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -5432,7 +5432,7 @@ export const TriggersV1ApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(subscriptionpatchrequestInnerV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(subscriptionpatchrequestInner, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5442,13 +5442,13 @@ export const TriggersV1ApiAxiosParamCreator = function (configuration?: Configur
         /**
          * Initiate a test event for all subscribers of the specified event trigger.  If there are no subscribers to the specified trigger in the tenant, then no test event will be sent.
          * @summary Start a test invocation
-         * @param {TestinvocationV1} testinvocationV1 
+         * @param {Testinvocation} testinvocation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startTestTriggerInvocationV1: async (testinvocationV1: TestinvocationV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'testinvocationV1' is not null or undefined
-            assertParamExists('startTestTriggerInvocationV1', 'testinvocationV1', testinvocationV1)
+        startTestTriggerInvocationV1: async (testinvocation: Testinvocation, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'testinvocation' is not null or undefined
+            assertParamExists('startTestTriggerInvocationV1', 'testinvocation', testinvocation)
             const localVarPath = `/trigger-invocations/v1/test`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -5468,7 +5468,7 @@ export const TriggersV1ApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(testinvocationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(testinvocation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5478,13 +5478,13 @@ export const TriggersV1ApiAxiosParamCreator = function (configuration?: Configur
         /**
          * Validates a JSONPath filter expression against a provided mock input. Request requires a security scope of: 
          * @summary Validate a subscription filter
-         * @param {ValidatefilterinputdtoV1} validatefilterinputdtoV1 
+         * @param {Validatefilterinputdto} validatefilterinputdto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        testSubscriptionFilterV1: async (validatefilterinputdtoV1: ValidatefilterinputdtoV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'validatefilterinputdtoV1' is not null or undefined
-            assertParamExists('testSubscriptionFilterV1', 'validatefilterinputdtoV1', validatefilterinputdtoV1)
+        testSubscriptionFilterV1: async (validatefilterinputdto: Validatefilterinputdto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'validatefilterinputdto' is not null or undefined
+            assertParamExists('testSubscriptionFilterV1', 'validatefilterinputdto', validatefilterinputdto)
             const localVarPath = `/trigger-subscriptions/v1/validate-filter`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -5504,7 +5504,7 @@ export const TriggersV1ApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(validatefilterinputdtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(validatefilterinputdto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5515,15 +5515,15 @@ export const TriggersV1ApiAxiosParamCreator = function (configuration?: Configur
          * This API updates a trigger subscription in IdentityNow, using a full object representation. In other words, the existing   Subscription is completely replaced. The following fields are immutable:     * id    * triggerId     Attempts to modify these fields result in 400.
          * @summary Update a subscription
          * @param {string} id Subscription ID
-         * @param {SubscriptionputrequestV1} subscriptionputrequestV1 
+         * @param {Subscriptionputrequest} subscriptionputrequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateSubscriptionV1: async (id: string, subscriptionputrequestV1: SubscriptionputrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateSubscriptionV1: async (id: string, subscriptionputrequest: Subscriptionputrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateSubscriptionV1', 'id', id)
-            // verify required parameter 'subscriptionputrequestV1' is not null or undefined
-            assertParamExists('updateSubscriptionV1', 'subscriptionputrequestV1', subscriptionputrequestV1)
+            // verify required parameter 'subscriptionputrequest' is not null or undefined
+            assertParamExists('updateSubscriptionV1', 'subscriptionputrequest', subscriptionputrequest)
             const localVarPath = `/trigger-subscriptions/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -5544,7 +5544,7 @@ export const TriggersV1ApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(subscriptionputrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(subscriptionputrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5555,37 +5555,37 @@ export const TriggersV1ApiAxiosParamCreator = function (configuration?: Configur
 };
 
 /**
- * TriggersV1Api - functional programming interface
+ * TriggersApi - functional programming interface
  * @export
  */
-export const TriggersV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = TriggersV1ApiAxiosParamCreator(configuration)
+export const TriggersApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = TriggersApiAxiosParamCreator(configuration)
     return {
         /**
          * Completes an invocation to a REQUEST_RESPONSE type trigger.
          * @summary Complete trigger invocation
          * @param {string} id The ID of the invocation to complete.
-         * @param {CompleteinvocationV1} completeinvocationV1 
+         * @param {Completeinvocation} completeinvocation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async completeTriggerInvocationV1(id: string, completeinvocationV1: CompleteinvocationV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.completeTriggerInvocationV1(id, completeinvocationV1, axiosOptions);
+        async completeTriggerInvocationV1(id: string, completeinvocation: Completeinvocation, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.completeTriggerInvocationV1(id, completeinvocation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TriggersV1Api.completeTriggerInvocationV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TriggersApi.completeTriggerInvocationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API creates a new subscription to a trigger and defines trigger invocation details. The type of subscription determines which config object is required: * HTTP subscriptions require httpConfig * EventBridge subscriptions require eventBridgeConfig
          * @summary Create a subscription
-         * @param {SubscriptionpostrequestV1} subscriptionpostrequestV1 
+         * @param {Subscriptionpostrequest} subscriptionpostrequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSubscriptionV1(subscriptionpostrequestV1: SubscriptionpostrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubscriptionV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSubscriptionV1(subscriptionpostrequestV1, axiosOptions);
+        async createSubscriptionV1(subscriptionpostrequest: Subscriptionpostrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Subscription>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSubscriptionV1(subscriptionpostrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TriggersV1Api.createSubscriptionV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TriggersApi.createSubscriptionV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -5598,7 +5598,7 @@ export const TriggersV1ApiFp = function(configuration?: Configuration) {
         async deleteSubscriptionV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSubscriptionV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TriggersV1Api.deleteSubscriptionV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TriggersApi.deleteSubscriptionV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -5612,10 +5612,10 @@ export const TriggersV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listSubscriptionsV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SubscriptionV1>>> {
+        async listSubscriptionsV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Subscription>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listSubscriptionsV1(limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TriggersV1Api.listSubscriptionsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TriggersApi.listSubscriptionsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -5629,10 +5629,10 @@ export const TriggersV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listTriggerInvocationStatusV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InvocationstatusV1>>> {
+        async listTriggerInvocationStatusV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Invocationstatus>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listTriggerInvocationStatusV1(limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TriggersV1Api.listTriggerInvocationStatusV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TriggersApi.listTriggerInvocationStatusV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -5646,549 +5646,549 @@ export const TriggersV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listTriggersV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TriggerV1>>> {
+        async listTriggersV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Trigger>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listTriggersV1(limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TriggersV1Api.listTriggersV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TriggersApi.listTriggersV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API updates a trigger subscription in IdentityNow, using a set of instructions to modify a subscription partially. The following fields are patchable:  **name**, **description**, **enabled**, **type**, **filter**, **responseDeadline**, **httpConfig**, **eventBridgeConfig**, **workflowConfig**
          * @summary Patch a subscription
          * @param {string} id ID of the Subscription to patch
-         * @param {Array<SubscriptionpatchrequestInnerV1>} subscriptionpatchrequestInnerV1 
+         * @param {Array<SubscriptionpatchrequestInner>} subscriptionpatchrequestInner 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchSubscriptionV1(id: string, subscriptionpatchrequestInnerV1: Array<SubscriptionpatchrequestInnerV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubscriptionV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSubscriptionV1(id, subscriptionpatchrequestInnerV1, axiosOptions);
+        async patchSubscriptionV1(id: string, subscriptionpatchrequestInner: Array<SubscriptionpatchrequestInner>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Subscription>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSubscriptionV1(id, subscriptionpatchrequestInner, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TriggersV1Api.patchSubscriptionV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TriggersApi.patchSubscriptionV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Initiate a test event for all subscribers of the specified event trigger.  If there are no subscribers to the specified trigger in the tenant, then no test event will be sent.
          * @summary Start a test invocation
-         * @param {TestinvocationV1} testinvocationV1 
+         * @param {Testinvocation} testinvocation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startTestTriggerInvocationV1(testinvocationV1: TestinvocationV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InvocationV1>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startTestTriggerInvocationV1(testinvocationV1, axiosOptions);
+        async startTestTriggerInvocationV1(testinvocation: Testinvocation, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Invocation>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startTestTriggerInvocationV1(testinvocation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TriggersV1Api.startTestTriggerInvocationV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TriggersApi.startTestTriggerInvocationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Validates a JSONPath filter expression against a provided mock input. Request requires a security scope of: 
          * @summary Validate a subscription filter
-         * @param {ValidatefilterinputdtoV1} validatefilterinputdtoV1 
+         * @param {Validatefilterinputdto} validatefilterinputdto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async testSubscriptionFilterV1(validatefilterinputdtoV1: ValidatefilterinputdtoV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ValidatefilteroutputdtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.testSubscriptionFilterV1(validatefilterinputdtoV1, axiosOptions);
+        async testSubscriptionFilterV1(validatefilterinputdto: Validatefilterinputdto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Validatefilteroutputdto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.testSubscriptionFilterV1(validatefilterinputdto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TriggersV1Api.testSubscriptionFilterV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TriggersApi.testSubscriptionFilterV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API updates a trigger subscription in IdentityNow, using a full object representation. In other words, the existing   Subscription is completely replaced. The following fields are immutable:     * id    * triggerId     Attempts to modify these fields result in 400.
          * @summary Update a subscription
          * @param {string} id Subscription ID
-         * @param {SubscriptionputrequestV1} subscriptionputrequestV1 
+         * @param {Subscriptionputrequest} subscriptionputrequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateSubscriptionV1(id: string, subscriptionputrequestV1: SubscriptionputrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubscriptionV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSubscriptionV1(id, subscriptionputrequestV1, axiosOptions);
+        async updateSubscriptionV1(id: string, subscriptionputrequest: Subscriptionputrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Subscription>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSubscriptionV1(id, subscriptionputrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TriggersV1Api.updateSubscriptionV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TriggersApi.updateSubscriptionV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * TriggersV1Api - factory interface
+ * TriggersApi - factory interface
  * @export
  */
-export const TriggersV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = TriggersV1ApiFp(configuration)
+export const TriggersApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = TriggersApiFp(configuration)
     return {
         /**
          * Completes an invocation to a REQUEST_RESPONSE type trigger.
          * @summary Complete trigger invocation
-         * @param {TriggersV1ApiCompleteTriggerInvocationV1Request} requestParameters Request parameters.
+         * @param {TriggersApiCompleteTriggerInvocationV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        completeTriggerInvocationV1(requestParameters: TriggersV1ApiCompleteTriggerInvocationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.completeTriggerInvocationV1(requestParameters.id, requestParameters.completeinvocationV1, axiosOptions).then((request) => request(axios, basePath));
+        completeTriggerInvocationV1(requestParameters: TriggersApiCompleteTriggerInvocationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.completeTriggerInvocationV1(requestParameters.id, requestParameters.completeinvocation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API creates a new subscription to a trigger and defines trigger invocation details. The type of subscription determines which config object is required: * HTTP subscriptions require httpConfig * EventBridge subscriptions require eventBridgeConfig
          * @summary Create a subscription
-         * @param {TriggersV1ApiCreateSubscriptionV1Request} requestParameters Request parameters.
+         * @param {TriggersApiCreateSubscriptionV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createSubscriptionV1(requestParameters: TriggersV1ApiCreateSubscriptionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SubscriptionV1> {
-            return localVarFp.createSubscriptionV1(requestParameters.subscriptionpostrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        createSubscriptionV1(requestParameters: TriggersApiCreateSubscriptionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Subscription> {
+            return localVarFp.createSubscriptionV1(requestParameters.subscriptionpostrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Deletes an existing subscription to a trigger.
          * @summary Delete a subscription
-         * @param {TriggersV1ApiDeleteSubscriptionV1Request} requestParameters Request parameters.
+         * @param {TriggersApiDeleteSubscriptionV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteSubscriptionV1(requestParameters: TriggersV1ApiDeleteSubscriptionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteSubscriptionV1(requestParameters: TriggersApiDeleteSubscriptionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteSubscriptionV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Gets a list of all trigger subscriptions.
          * @summary List subscriptions
-         * @param {TriggersV1ApiListSubscriptionsV1Request} requestParameters Request parameters.
+         * @param {TriggersApiListSubscriptionsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listSubscriptionsV1(requestParameters: TriggersV1ApiListSubscriptionsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SubscriptionV1>> {
+        listSubscriptionsV1(requestParameters: TriggersApiListSubscriptionsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Subscription>> {
             return localVarFp.listSubscriptionsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Gets a list of latest invocation statuses. Statuses of successful invocations are available for up to 24 hours. Statuses of failed invocations are available for up to 48 hours. This endpoint may only fetch up to 2000 invocations, and should not be treated as a representation of the full history of invocations.
          * @summary List latest invocation statuses
-         * @param {TriggersV1ApiListTriggerInvocationStatusV1Request} requestParameters Request parameters.
+         * @param {TriggersApiListTriggerInvocationStatusV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listTriggerInvocationStatusV1(requestParameters: TriggersV1ApiListTriggerInvocationStatusV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<InvocationstatusV1>> {
+        listTriggerInvocationStatusV1(requestParameters: TriggersApiListTriggerInvocationStatusV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Invocationstatus>> {
             return localVarFp.listTriggerInvocationStatusV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Gets a list of triggers that are available in the tenant.
          * @summary List triggers
-         * @param {TriggersV1ApiListTriggersV1Request} requestParameters Request parameters.
+         * @param {TriggersApiListTriggersV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listTriggersV1(requestParameters: TriggersV1ApiListTriggersV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<TriggerV1>> {
+        listTriggersV1(requestParameters: TriggersApiListTriggersV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Trigger>> {
             return localVarFp.listTriggersV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API updates a trigger subscription in IdentityNow, using a set of instructions to modify a subscription partially. The following fields are patchable:  **name**, **description**, **enabled**, **type**, **filter**, **responseDeadline**, **httpConfig**, **eventBridgeConfig**, **workflowConfig**
          * @summary Patch a subscription
-         * @param {TriggersV1ApiPatchSubscriptionV1Request} requestParameters Request parameters.
+         * @param {TriggersApiPatchSubscriptionV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchSubscriptionV1(requestParameters: TriggersV1ApiPatchSubscriptionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SubscriptionV1> {
-            return localVarFp.patchSubscriptionV1(requestParameters.id, requestParameters.subscriptionpatchrequestInnerV1, axiosOptions).then((request) => request(axios, basePath));
+        patchSubscriptionV1(requestParameters: TriggersApiPatchSubscriptionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Subscription> {
+            return localVarFp.patchSubscriptionV1(requestParameters.id, requestParameters.subscriptionpatchrequestInner, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Initiate a test event for all subscribers of the specified event trigger.  If there are no subscribers to the specified trigger in the tenant, then no test event will be sent.
          * @summary Start a test invocation
-         * @param {TriggersV1ApiStartTestTriggerInvocationV1Request} requestParameters Request parameters.
+         * @param {TriggersApiStartTestTriggerInvocationV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startTestTriggerInvocationV1(requestParameters: TriggersV1ApiStartTestTriggerInvocationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<InvocationV1>> {
-            return localVarFp.startTestTriggerInvocationV1(requestParameters.testinvocationV1, axiosOptions).then((request) => request(axios, basePath));
+        startTestTriggerInvocationV1(requestParameters: TriggersApiStartTestTriggerInvocationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Invocation>> {
+            return localVarFp.startTestTriggerInvocationV1(requestParameters.testinvocation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Validates a JSONPath filter expression against a provided mock input. Request requires a security scope of: 
          * @summary Validate a subscription filter
-         * @param {TriggersV1ApiTestSubscriptionFilterV1Request} requestParameters Request parameters.
+         * @param {TriggersApiTestSubscriptionFilterV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        testSubscriptionFilterV1(requestParameters: TriggersV1ApiTestSubscriptionFilterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ValidatefilteroutputdtoV1> {
-            return localVarFp.testSubscriptionFilterV1(requestParameters.validatefilterinputdtoV1, axiosOptions).then((request) => request(axios, basePath));
+        testSubscriptionFilterV1(requestParameters: TriggersApiTestSubscriptionFilterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Validatefilteroutputdto> {
+            return localVarFp.testSubscriptionFilterV1(requestParameters.validatefilterinputdto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API updates a trigger subscription in IdentityNow, using a full object representation. In other words, the existing   Subscription is completely replaced. The following fields are immutable:     * id    * triggerId     Attempts to modify these fields result in 400.
          * @summary Update a subscription
-         * @param {TriggersV1ApiUpdateSubscriptionV1Request} requestParameters Request parameters.
+         * @param {TriggersApiUpdateSubscriptionV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateSubscriptionV1(requestParameters: TriggersV1ApiUpdateSubscriptionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SubscriptionV1> {
-            return localVarFp.updateSubscriptionV1(requestParameters.id, requestParameters.subscriptionputrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        updateSubscriptionV1(requestParameters: TriggersApiUpdateSubscriptionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Subscription> {
+            return localVarFp.updateSubscriptionV1(requestParameters.id, requestParameters.subscriptionputrequest, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for completeTriggerInvocationV1 operation in TriggersV1Api.
+ * Request parameters for completeTriggerInvocationV1 operation in TriggersApi.
  * @export
- * @interface TriggersV1ApiCompleteTriggerInvocationV1Request
+ * @interface TriggersApiCompleteTriggerInvocationV1Request
  */
-export interface TriggersV1ApiCompleteTriggerInvocationV1Request {
+export interface TriggersApiCompleteTriggerInvocationV1Request {
     /**
      * The ID of the invocation to complete.
      * @type {string}
-     * @memberof TriggersV1ApiCompleteTriggerInvocationV1
+     * @memberof TriggersApiCompleteTriggerInvocationV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {CompleteinvocationV1}
-     * @memberof TriggersV1ApiCompleteTriggerInvocationV1
+     * @type {Completeinvocation}
+     * @memberof TriggersApiCompleteTriggerInvocationV1
      */
-    readonly completeinvocationV1: CompleteinvocationV1
+    readonly completeinvocation: Completeinvocation
 }
 
 /**
- * Request parameters for createSubscriptionV1 operation in TriggersV1Api.
+ * Request parameters for createSubscriptionV1 operation in TriggersApi.
  * @export
- * @interface TriggersV1ApiCreateSubscriptionV1Request
+ * @interface TriggersApiCreateSubscriptionV1Request
  */
-export interface TriggersV1ApiCreateSubscriptionV1Request {
+export interface TriggersApiCreateSubscriptionV1Request {
     /**
      * 
-     * @type {SubscriptionpostrequestV1}
-     * @memberof TriggersV1ApiCreateSubscriptionV1
+     * @type {Subscriptionpostrequest}
+     * @memberof TriggersApiCreateSubscriptionV1
      */
-    readonly subscriptionpostrequestV1: SubscriptionpostrequestV1
+    readonly subscriptionpostrequest: Subscriptionpostrequest
 }
 
 /**
- * Request parameters for deleteSubscriptionV1 operation in TriggersV1Api.
+ * Request parameters for deleteSubscriptionV1 operation in TriggersApi.
  * @export
- * @interface TriggersV1ApiDeleteSubscriptionV1Request
+ * @interface TriggersApiDeleteSubscriptionV1Request
  */
-export interface TriggersV1ApiDeleteSubscriptionV1Request {
+export interface TriggersApiDeleteSubscriptionV1Request {
     /**
      * Subscription ID
      * @type {string}
-     * @memberof TriggersV1ApiDeleteSubscriptionV1
+     * @memberof TriggersApiDeleteSubscriptionV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for listSubscriptionsV1 operation in TriggersV1Api.
+ * Request parameters for listSubscriptionsV1 operation in TriggersApi.
  * @export
- * @interface TriggersV1ApiListSubscriptionsV1Request
+ * @interface TriggersApiListSubscriptionsV1Request
  */
-export interface TriggersV1ApiListSubscriptionsV1Request {
+export interface TriggersApiListSubscriptionsV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof TriggersV1ApiListSubscriptionsV1
+     * @memberof TriggersApiListSubscriptionsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof TriggersV1ApiListSubscriptionsV1
+     * @memberof TriggersApiListSubscriptionsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof TriggersV1ApiListSubscriptionsV1
+     * @memberof TriggersApiListSubscriptionsV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **triggerId**: *eq*  **type**: *eq, le*
      * @type {string}
-     * @memberof TriggersV1ApiListSubscriptionsV1
+     * @memberof TriggersApiListSubscriptionsV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **triggerId, triggerName**
      * @type {string}
-     * @memberof TriggersV1ApiListSubscriptionsV1
+     * @memberof TriggersApiListSubscriptionsV1
      */
     readonly sorters?: string
 }
 
 /**
- * Request parameters for listTriggerInvocationStatusV1 operation in TriggersV1Api.
+ * Request parameters for listTriggerInvocationStatusV1 operation in TriggersApi.
  * @export
- * @interface TriggersV1ApiListTriggerInvocationStatusV1Request
+ * @interface TriggersApiListTriggerInvocationStatusV1Request
  */
-export interface TriggersV1ApiListTriggerInvocationStatusV1Request {
+export interface TriggersApiListTriggerInvocationStatusV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof TriggersV1ApiListTriggerInvocationStatusV1
+     * @memberof TriggersApiListTriggerInvocationStatusV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof TriggersV1ApiListTriggerInvocationStatusV1
+     * @memberof TriggersApiListTriggerInvocationStatusV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof TriggersV1ApiListTriggerInvocationStatusV1
+     * @memberof TriggersApiListTriggerInvocationStatusV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **triggerId**: *eq*  **subscriptionId**: *eq*
      * @type {string}
-     * @memberof TriggersV1ApiListTriggerInvocationStatusV1
+     * @memberof TriggersApiListTriggerInvocationStatusV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **triggerId, subscriptionName, created, completed**
      * @type {string}
-     * @memberof TriggersV1ApiListTriggerInvocationStatusV1
+     * @memberof TriggersApiListTriggerInvocationStatusV1
      */
     readonly sorters?: string
 }
 
 /**
- * Request parameters for listTriggersV1 operation in TriggersV1Api.
+ * Request parameters for listTriggersV1 operation in TriggersApi.
  * @export
- * @interface TriggersV1ApiListTriggersV1Request
+ * @interface TriggersApiListTriggersV1Request
  */
-export interface TriggersV1ApiListTriggersV1Request {
+export interface TriggersApiListTriggersV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof TriggersV1ApiListTriggersV1
+     * @memberof TriggersApiListTriggersV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof TriggersV1ApiListTriggersV1
+     * @memberof TriggersApiListTriggersV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof TriggersV1ApiListTriggersV1
+     * @memberof TriggersApiListTriggersV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ge, le*
      * @type {string}
-     * @memberof TriggersV1ApiListTriggersV1
+     * @memberof TriggersApiListTriggersV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name**
      * @type {string}
-     * @memberof TriggersV1ApiListTriggersV1
+     * @memberof TriggersApiListTriggersV1
      */
     readonly sorters?: string
 }
 
 /**
- * Request parameters for patchSubscriptionV1 operation in TriggersV1Api.
+ * Request parameters for patchSubscriptionV1 operation in TriggersApi.
  * @export
- * @interface TriggersV1ApiPatchSubscriptionV1Request
+ * @interface TriggersApiPatchSubscriptionV1Request
  */
-export interface TriggersV1ApiPatchSubscriptionV1Request {
+export interface TriggersApiPatchSubscriptionV1Request {
     /**
      * ID of the Subscription to patch
      * @type {string}
-     * @memberof TriggersV1ApiPatchSubscriptionV1
+     * @memberof TriggersApiPatchSubscriptionV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {Array<SubscriptionpatchrequestInnerV1>}
-     * @memberof TriggersV1ApiPatchSubscriptionV1
+     * @type {Array<SubscriptionpatchrequestInner>}
+     * @memberof TriggersApiPatchSubscriptionV1
      */
-    readonly subscriptionpatchrequestInnerV1: Array<SubscriptionpatchrequestInnerV1>
+    readonly subscriptionpatchrequestInner: Array<SubscriptionpatchrequestInner>
 }
 
 /**
- * Request parameters for startTestTriggerInvocationV1 operation in TriggersV1Api.
+ * Request parameters for startTestTriggerInvocationV1 operation in TriggersApi.
  * @export
- * @interface TriggersV1ApiStartTestTriggerInvocationV1Request
+ * @interface TriggersApiStartTestTriggerInvocationV1Request
  */
-export interface TriggersV1ApiStartTestTriggerInvocationV1Request {
+export interface TriggersApiStartTestTriggerInvocationV1Request {
     /**
      * 
-     * @type {TestinvocationV1}
-     * @memberof TriggersV1ApiStartTestTriggerInvocationV1
+     * @type {Testinvocation}
+     * @memberof TriggersApiStartTestTriggerInvocationV1
      */
-    readonly testinvocationV1: TestinvocationV1
+    readonly testinvocation: Testinvocation
 }
 
 /**
- * Request parameters for testSubscriptionFilterV1 operation in TriggersV1Api.
+ * Request parameters for testSubscriptionFilterV1 operation in TriggersApi.
  * @export
- * @interface TriggersV1ApiTestSubscriptionFilterV1Request
+ * @interface TriggersApiTestSubscriptionFilterV1Request
  */
-export interface TriggersV1ApiTestSubscriptionFilterV1Request {
+export interface TriggersApiTestSubscriptionFilterV1Request {
     /**
      * 
-     * @type {ValidatefilterinputdtoV1}
-     * @memberof TriggersV1ApiTestSubscriptionFilterV1
+     * @type {Validatefilterinputdto}
+     * @memberof TriggersApiTestSubscriptionFilterV1
      */
-    readonly validatefilterinputdtoV1: ValidatefilterinputdtoV1
+    readonly validatefilterinputdto: Validatefilterinputdto
 }
 
 /**
- * Request parameters for updateSubscriptionV1 operation in TriggersV1Api.
+ * Request parameters for updateSubscriptionV1 operation in TriggersApi.
  * @export
- * @interface TriggersV1ApiUpdateSubscriptionV1Request
+ * @interface TriggersApiUpdateSubscriptionV1Request
  */
-export interface TriggersV1ApiUpdateSubscriptionV1Request {
+export interface TriggersApiUpdateSubscriptionV1Request {
     /**
      * Subscription ID
      * @type {string}
-     * @memberof TriggersV1ApiUpdateSubscriptionV1
+     * @memberof TriggersApiUpdateSubscriptionV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {SubscriptionputrequestV1}
-     * @memberof TriggersV1ApiUpdateSubscriptionV1
+     * @type {Subscriptionputrequest}
+     * @memberof TriggersApiUpdateSubscriptionV1
      */
-    readonly subscriptionputrequestV1: SubscriptionputrequestV1
+    readonly subscriptionputrequest: Subscriptionputrequest
 }
 
 /**
- * TriggersV1Api - object-oriented interface
+ * TriggersApi - object-oriented interface
  * @export
- * @class TriggersV1Api
+ * @class TriggersApi
  * @extends {BaseAPI}
  */
-export class TriggersV1Api extends BaseAPI {
+export class TriggersApi extends BaseAPI {
     /**
      * Completes an invocation to a REQUEST_RESPONSE type trigger.
      * @summary Complete trigger invocation
-     * @param {TriggersV1ApiCompleteTriggerInvocationV1Request} requestParameters Request parameters.
+     * @param {TriggersApiCompleteTriggerInvocationV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TriggersV1Api
+     * @memberof TriggersApi
      */
-    public completeTriggerInvocationV1(requestParameters: TriggersV1ApiCompleteTriggerInvocationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TriggersV1ApiFp(this.configuration).completeTriggerInvocationV1(requestParameters.id, requestParameters.completeinvocationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public completeTriggerInvocationV1(requestParameters: TriggersApiCompleteTriggerInvocationV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return TriggersApiFp(this.configuration).completeTriggerInvocationV1(requestParameters.id, requestParameters.completeinvocation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API creates a new subscription to a trigger and defines trigger invocation details. The type of subscription determines which config object is required: * HTTP subscriptions require httpConfig * EventBridge subscriptions require eventBridgeConfig
      * @summary Create a subscription
-     * @param {TriggersV1ApiCreateSubscriptionV1Request} requestParameters Request parameters.
+     * @param {TriggersApiCreateSubscriptionV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TriggersV1Api
+     * @memberof TriggersApi
      */
-    public createSubscriptionV1(requestParameters: TriggersV1ApiCreateSubscriptionV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TriggersV1ApiFp(this.configuration).createSubscriptionV1(requestParameters.subscriptionpostrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createSubscriptionV1(requestParameters: TriggersApiCreateSubscriptionV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return TriggersApiFp(this.configuration).createSubscriptionV1(requestParameters.subscriptionpostrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Deletes an existing subscription to a trigger.
      * @summary Delete a subscription
-     * @param {TriggersV1ApiDeleteSubscriptionV1Request} requestParameters Request parameters.
+     * @param {TriggersApiDeleteSubscriptionV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TriggersV1Api
+     * @memberof TriggersApi
      */
-    public deleteSubscriptionV1(requestParameters: TriggersV1ApiDeleteSubscriptionV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TriggersV1ApiFp(this.configuration).deleteSubscriptionV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteSubscriptionV1(requestParameters: TriggersApiDeleteSubscriptionV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return TriggersApiFp(this.configuration).deleteSubscriptionV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Gets a list of all trigger subscriptions.
      * @summary List subscriptions
-     * @param {TriggersV1ApiListSubscriptionsV1Request} requestParameters Request parameters.
+     * @param {TriggersApiListSubscriptionsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TriggersV1Api
+     * @memberof TriggersApi
      */
-    public listSubscriptionsV1(requestParameters: TriggersV1ApiListSubscriptionsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return TriggersV1ApiFp(this.configuration).listSubscriptionsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listSubscriptionsV1(requestParameters: TriggersApiListSubscriptionsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return TriggersApiFp(this.configuration).listSubscriptionsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Gets a list of latest invocation statuses. Statuses of successful invocations are available for up to 24 hours. Statuses of failed invocations are available for up to 48 hours. This endpoint may only fetch up to 2000 invocations, and should not be treated as a representation of the full history of invocations.
      * @summary List latest invocation statuses
-     * @param {TriggersV1ApiListTriggerInvocationStatusV1Request} requestParameters Request parameters.
+     * @param {TriggersApiListTriggerInvocationStatusV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TriggersV1Api
+     * @memberof TriggersApi
      */
-    public listTriggerInvocationStatusV1(requestParameters: TriggersV1ApiListTriggerInvocationStatusV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return TriggersV1ApiFp(this.configuration).listTriggerInvocationStatusV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listTriggerInvocationStatusV1(requestParameters: TriggersApiListTriggerInvocationStatusV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return TriggersApiFp(this.configuration).listTriggerInvocationStatusV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Gets a list of triggers that are available in the tenant.
      * @summary List triggers
-     * @param {TriggersV1ApiListTriggersV1Request} requestParameters Request parameters.
+     * @param {TriggersApiListTriggersV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TriggersV1Api
+     * @memberof TriggersApi
      */
-    public listTriggersV1(requestParameters: TriggersV1ApiListTriggersV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return TriggersV1ApiFp(this.configuration).listTriggersV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listTriggersV1(requestParameters: TriggersApiListTriggersV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return TriggersApiFp(this.configuration).listTriggersV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API updates a trigger subscription in IdentityNow, using a set of instructions to modify a subscription partially. The following fields are patchable:  **name**, **description**, **enabled**, **type**, **filter**, **responseDeadline**, **httpConfig**, **eventBridgeConfig**, **workflowConfig**
      * @summary Patch a subscription
-     * @param {TriggersV1ApiPatchSubscriptionV1Request} requestParameters Request parameters.
+     * @param {TriggersApiPatchSubscriptionV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TriggersV1Api
+     * @memberof TriggersApi
      */
-    public patchSubscriptionV1(requestParameters: TriggersV1ApiPatchSubscriptionV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TriggersV1ApiFp(this.configuration).patchSubscriptionV1(requestParameters.id, requestParameters.subscriptionpatchrequestInnerV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchSubscriptionV1(requestParameters: TriggersApiPatchSubscriptionV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return TriggersApiFp(this.configuration).patchSubscriptionV1(requestParameters.id, requestParameters.subscriptionpatchrequestInner, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Initiate a test event for all subscribers of the specified event trigger.  If there are no subscribers to the specified trigger in the tenant, then no test event will be sent.
      * @summary Start a test invocation
-     * @param {TriggersV1ApiStartTestTriggerInvocationV1Request} requestParameters Request parameters.
+     * @param {TriggersApiStartTestTriggerInvocationV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TriggersV1Api
+     * @memberof TriggersApi
      */
-    public startTestTriggerInvocationV1(requestParameters: TriggersV1ApiStartTestTriggerInvocationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TriggersV1ApiFp(this.configuration).startTestTriggerInvocationV1(requestParameters.testinvocationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public startTestTriggerInvocationV1(requestParameters: TriggersApiStartTestTriggerInvocationV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return TriggersApiFp(this.configuration).startTestTriggerInvocationV1(requestParameters.testinvocation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Validates a JSONPath filter expression against a provided mock input. Request requires a security scope of: 
      * @summary Validate a subscription filter
-     * @param {TriggersV1ApiTestSubscriptionFilterV1Request} requestParameters Request parameters.
+     * @param {TriggersApiTestSubscriptionFilterV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TriggersV1Api
+     * @memberof TriggersApi
      */
-    public testSubscriptionFilterV1(requestParameters: TriggersV1ApiTestSubscriptionFilterV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TriggersV1ApiFp(this.configuration).testSubscriptionFilterV1(requestParameters.validatefilterinputdtoV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public testSubscriptionFilterV1(requestParameters: TriggersApiTestSubscriptionFilterV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return TriggersApiFp(this.configuration).testSubscriptionFilterV1(requestParameters.validatefilterinputdto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API updates a trigger subscription in IdentityNow, using a full object representation. In other words, the existing   Subscription is completely replaced. The following fields are immutable:     * id    * triggerId     Attempts to modify these fields result in 400.
      * @summary Update a subscription
-     * @param {TriggersV1ApiUpdateSubscriptionV1Request} requestParameters Request parameters.
+     * @param {TriggersApiUpdateSubscriptionV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TriggersV1Api
+     * @memberof TriggersApi
      */
-    public updateSubscriptionV1(requestParameters: TriggersV1ApiUpdateSubscriptionV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TriggersV1ApiFp(this.configuration).updateSubscriptionV1(requestParameters.id, requestParameters.subscriptionputrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateSubscriptionV1(requestParameters: TriggersApiUpdateSubscriptionV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return TriggersApiFp(this.configuration).updateSubscriptionV1(requestParameters.id, requestParameters.subscriptionputrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

@@ -1,19 +1,19 @@
 ---
-id: v1-tenantconfigurationrequest-v1
-title: TenantconfigurationrequestV1
-pagination_label: TenantconfigurationrequestV1
-sidebar_label: TenantconfigurationrequestV1
+id: v1-tenantconfigurationrequest
+title: Tenantconfigurationrequest
+pagination_label: Tenantconfigurationrequest
+sidebar_label: Tenantconfigurationrequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'TenantconfigurationrequestV1', 'v1TenantconfigurationrequestV1']
-slug: /tools/sdk/typescript/work_reassignment/models/tenantconfigurationrequest-v1
-tags: ['SDK', 'Software Development Kit', 'TenantconfigurationrequestV1', 'v1TenantconfigurationrequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Tenantconfigurationrequest', 'v1Tenantconfigurationrequest']
+slug: /tools/sdk/typescript/work_reassignment/models/tenantconfigurationrequest
+tags: ['SDK', 'Software Development Kit', 'Tenantconfigurationrequest', 'v1Tenantconfigurationrequest']
 ---
 
-# TenantconfigurationrequestV1
+# Tenantconfigurationrequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**configDetails** | **(optional)** **TenantconfigurationdetailsV1** |  | [default to undefined]
+**configDetails** | **(optional)** `Tenantconfigurationdetails` |  | [default to undefined]
 

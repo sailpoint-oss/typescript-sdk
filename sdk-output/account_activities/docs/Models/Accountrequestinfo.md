@@ -1,21 +1,21 @@
 ---
-id: v1-accountrequestinfo-v1
-title: AccountrequestinfoV1
-pagination_label: AccountrequestinfoV1
-sidebar_label: AccountrequestinfoV1
+id: v1-accountrequestinfo
+title: Accountrequestinfo
+pagination_label: Accountrequestinfo
+sidebar_label: Accountrequestinfo
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccountrequestinfoV1', 'v1AccountrequestinfoV1']
-slug: /tools/sdk/typescript/account_activities/models/accountrequestinfo-v1
-tags: ['SDK', 'Software Development Kit', 'AccountrequestinfoV1', 'v1AccountrequestinfoV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accountrequestinfo', 'v1Accountrequestinfo']
+slug: /tools/sdk/typescript/account_activities/models/accountrequestinfo
+tags: ['SDK', 'Software Development Kit', 'Accountrequestinfo', 'v1Accountrequestinfo']
 ---
 
-# AccountrequestinfoV1
+# Accountrequestinfo
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**requestedObjectId** | **(optional)** **string** | Id of requested object | [default to undefined]
-**requestedObjectName** | **(optional)** **string** | Human-readable name of requested object | [default to undefined]
-**requestedObjectType** | **(optional)** **RequestableobjecttypeV1** |  | [default to undefined]
+**requestedObjectId** | **(optional)** `string` | Id of requested object | [default to undefined]
+**requestedObjectName** | **(optional)** `string` | Human-readable name of requested object | [default to undefined]
+**requestedObjectType** | **(optional)** `Requestableobjecttype` |  | [default to undefined]
 

@@ -1,19 +1,19 @@
 ---
-id: v1-identityownershipassociationdetails-v1
-title: IdentityownershipassociationdetailsV1
-pagination_label: IdentityownershipassociationdetailsV1
-sidebar_label: IdentityownershipassociationdetailsV1
+id: v1-identityownershipassociationdetails
+title: Identityownershipassociationdetails
+pagination_label: Identityownershipassociationdetails
+sidebar_label: Identityownershipassociationdetails
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'IdentityownershipassociationdetailsV1', 'v1IdentityownershipassociationdetailsV1']
-slug: /tools/sdk/typescript/identities/models/identityownershipassociationdetails-v1
-tags: ['SDK', 'Software Development Kit', 'IdentityownershipassociationdetailsV1', 'v1IdentityownershipassociationdetailsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Identityownershipassociationdetails', 'v1Identityownershipassociationdetails']
+slug: /tools/sdk/typescript/identities/models/identityownershipassociationdetails
+tags: ['SDK', 'Software Development Kit', 'Identityownershipassociationdetails', 'v1Identityownershipassociationdetails']
 ---
 
-# IdentityownershipassociationdetailsV1
+# Identityownershipassociationdetails
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**associationDetails** | **(optional)** **Array&lt;IdentityownershipassociationdetailsAssociationDetailsInnerV1&gt;** | list of all the resource associations for the identity | [default to undefined]
+**associationDetails** | **(optional)** `Array<IdentityownershipassociationdetailsAssociationDetailsInner>` | list of all the resource associations for the identity | [default to undefined]
 

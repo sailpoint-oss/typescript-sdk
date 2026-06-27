@@ -1,19 +1,19 @@
 ---
-id: v1-objectexportimportnames-v1
-title: ObjectexportimportnamesV1
-pagination_label: ObjectexportimportnamesV1
-sidebar_label: ObjectexportimportnamesV1
+id: v1-objectexportimportnames
+title: Objectexportimportnames
+pagination_label: Objectexportimportnames
+sidebar_label: Objectexportimportnames
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ObjectexportimportnamesV1', 'v1ObjectexportimportnamesV1']
-slug: /tools/sdk/typescript/configuration_hub/models/objectexportimportnames-v1
-tags: ['SDK', 'Software Development Kit', 'ObjectexportimportnamesV1', 'v1ObjectexportimportnamesV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Objectexportimportnames', 'v1Objectexportimportnames']
+slug: /tools/sdk/typescript/configuration_hub/models/objectexportimportnames
+tags: ['SDK', 'Software Development Kit', 'Objectexportimportnames', 'v1Objectexportimportnames']
 ---
 
-# ObjectexportimportnamesV1
+# Objectexportimportnames
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**includedNames** | **(optional)** **Array&lt;string&gt;** | Object names to be included in a backup. | [default to undefined]
+**includedNames** | **(optional)** `Array<string>` | Object names to be included in a backup. | [default to undefined]
 

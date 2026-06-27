@@ -1,21 +1,21 @@
 ---
-id: v1-violationownerassignmentconfig-owner-ref-v1
-title: ViolationownerassignmentconfigOwnerRefV1
-pagination_label: ViolationownerassignmentconfigOwnerRefV1
-sidebar_label: ViolationownerassignmentconfigOwnerRefV1
+id: v1-violationownerassignmentconfig-owner-ref
+title: ViolationownerassignmentconfigOwnerRef
+pagination_label: ViolationownerassignmentconfigOwnerRef
+sidebar_label: ViolationownerassignmentconfigOwnerRef
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ViolationownerassignmentconfigOwnerRefV1', 'v1ViolationownerassignmentconfigOwnerRefV1']
-slug: /tools/sdk/typescript/sod_policies/models/violationownerassignmentconfig-owner-ref-v1
-tags: ['SDK', 'Software Development Kit', 'ViolationownerassignmentconfigOwnerRefV1', 'v1ViolationownerassignmentconfigOwnerRefV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ViolationownerassignmentconfigOwnerRef', 'v1ViolationownerassignmentconfigOwnerRef']
+slug: /tools/sdk/typescript/sod_policies/models/violationownerassignmentconfig-owner-ref
+tags: ['SDK', 'Software Development Kit', 'ViolationownerassignmentconfigOwnerRef', 'v1ViolationownerassignmentconfigOwnerRef']
 ---
 
-# ViolationownerassignmentconfigOwnerRefV1
+# ViolationownerassignmentconfigOwnerRef
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | Owner type. | [default to undefined]
-**id** | **(optional)** **string** | Owner\'s ID. | [default to undefined]
-**name** | **(optional)** **string** | Owner\'s name. | [default to undefined]
+**type** | **(optional)** `string` | Owner type. | [default to undefined]
+**id** | **(optional)** `string` | Owner\'s ID. | [default to undefined]
+**name** | **(optional)** `string` | Owner\'s name. | [default to undefined]
 

@@ -4,15 +4,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#approve-non-employee-request-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const id: string = 'e136567de87e4d029e60b3c3c55db56d'; // string | Non-Employee approval item id (UUID) (default to undefined)
-        const nonemployeeapprovaldecisionV1: NonemployeeapprovaldecisionV1 = ; // NonemployeeapprovaldecisionV1 | 
-        const result = await apiInstance.approveNonEmployeeRequestV1(id, nonemployeeapprovaldecisionV1);
+        const nonemployeeapprovaldecision: Nonemployeeapprovaldecision = ; // Nonemployeeapprovaldecision | 
+        const result = await apiInstance.approveNonEmployeeRequestV1({ id: id, nonemployeeapprovaldecision: nonemployeeapprovaldecision });
         console.log(result);
 - path: /non-employee-records/v1
   method: POST
@@ -20,14 +19,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#create-non-employee-record-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
-        const nonemployeerequestbodyV1: NonemployeerequestbodyV1 = ; // NonemployeerequestbodyV1 | Non-Employee record creation request body.
-        const result = await apiInstance.createNonEmployeeRecordV1(nonemployeerequestbodyV1);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
+        const nonemployeerequestbody: Nonemployeerequestbody = ; // Nonemployeerequestbody | Non-Employee record creation request body.
+        const result = await apiInstance.createNonEmployeeRecordV1({ nonemployeerequestbody: nonemployeerequestbody });
         console.log(result);
 - path: /non-employee-requests/v1
   method: POST
@@ -35,14 +33,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#create-non-employee-request-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
-        const nonemployeerequestbodyV1: NonemployeerequestbodyV1 = ; // NonemployeerequestbodyV1 | Non-Employee creation request body
-        const result = await apiInstance.createNonEmployeeRequestV1(nonemployeerequestbodyV1);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
+        const nonemployeerequestbody: Nonemployeerequestbody = ; // Nonemployeerequestbody | Non-Employee creation request body
+        const result = await apiInstance.createNonEmployeeRequestV1({ nonemployeerequestbody: nonemployeerequestbody });
         console.log(result);
 - path: /non-employee-sources/v1/{sourceId}/schema-attributes
   method: POST
@@ -50,15 +47,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#create-non-employee-source-schema-attributes-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const sourceId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The Source id (default to undefined)
-        const nonemployeeschemaattributebodyV1: NonemployeeschemaattributebodyV1 = ; // NonemployeeschemaattributebodyV1 | 
-        const result = await apiInstance.createNonEmployeeSourceSchemaAttributesV1(sourceId, nonemployeeschemaattributebodyV1);
+        const nonemployeeschemaattributebody: Nonemployeeschemaattributebody = ; // Nonemployeeschemaattributebody | 
+        const result = await apiInstance.createNonEmployeeSourceSchemaAttributesV1({ sourceId: sourceId, nonemployeeschemaattributebody: nonemployeeschemaattributebody });
         console.log(result);
 - path: /non-employee-sources/v1
   method: POST
@@ -66,14 +62,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#create-non-employee-source-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
-        const nonemployeesourcerequestbodyV1: NonemployeesourcerequestbodyV1 = ; // NonemployeesourcerequestbodyV1 | Non-Employee source creation request body.
-        const result = await apiInstance.createNonEmployeeSourceV1(nonemployeesourcerequestbodyV1);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
+        const nonemployeesourcerequestbody: Nonemployeesourcerequestbody = ; // Nonemployeesourcerequestbody | Non-Employee source creation request body.
+        const result = await apiInstance.createNonEmployeeSourceV1({ nonemployeesourcerequestbody: nonemployeesourcerequestbody });
         console.log(result);
 - path: /non-employee-records/v1/{id}
   method: DELETE
@@ -81,14 +76,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#delete-non-employee-record-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Non-Employee record id (UUID) (default to undefined)
-        const result = await apiInstance.deleteNonEmployeeRecordV1(id);
+        const result = await apiInstance.deleteNonEmployeeRecordV1({ id: id });
         console.log(result);
 - path: /non-employee-records/v1/bulk-delete
   method: POST
@@ -96,14 +90,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#delete-non-employee-records-in-bulk-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
-        const deleteNonEmployeeRecordsInBulkV1RequestV1: DeleteNonEmployeeRecordsInBulkV1RequestV1 = ; // DeleteNonEmployeeRecordsInBulkV1RequestV1 | Non-Employee bulk delete request body.
-        const result = await apiInstance.deleteNonEmployeeRecordsInBulkV1(deleteNonEmployeeRecordsInBulkV1RequestV1);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
+        const deleteNonEmployeeRecordsInBulkV1Request: DeleteNonEmployeeRecordsInBulkV1Request = ; // DeleteNonEmployeeRecordsInBulkV1Request | Non-Employee bulk delete request body.
+        const result = await apiInstance.deleteNonEmployeeRecordsInBulkV1({ deleteNonEmployeeRecordsInBulkV1Request: deleteNonEmployeeRecordsInBulkV1Request });
         console.log(result);
 - path: /non-employee-requests/v1/{id}
   method: DELETE
@@ -111,14 +104,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#delete-non-employee-request-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const id: string = 'ac110005-7156-1150-8171-5b292e3e0084'; // string | Non-Employee request id in the UUID format (default to undefined)
-        const result = await apiInstance.deleteNonEmployeeRequestV1(id);
+        const result = await apiInstance.deleteNonEmployeeRequestV1({ id: id });
         console.log(result);
 - path: /non-employee-sources/v1/{sourceId}/schema-attributes/{attributeId}
   method: DELETE
@@ -126,15 +118,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#delete-non-employee-schema-attribute-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const attributeId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The Schema Attribute Id (UUID) (default to undefined)
         const sourceId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The Source id (default to undefined)
-        const result = await apiInstance.deleteNonEmployeeSchemaAttributeV1(attributeId, sourceId);
+        const result = await apiInstance.deleteNonEmployeeSchemaAttributeV1({ attributeId: attributeId, sourceId: sourceId });
         console.log(result);
 - path: /non-employee-sources/v1/{sourceId}/schema-attributes
   method: DELETE
@@ -142,14 +133,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#delete-non-employee-source-schema-attributes-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const sourceId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The Source id (default to undefined)
-        const result = await apiInstance.deleteNonEmployeeSourceSchemaAttributesV1(sourceId);
+        const result = await apiInstance.deleteNonEmployeeSourceSchemaAttributesV1({ sourceId: sourceId });
         console.log(result);
 - path: /non-employee-sources/v1/{sourceId}
   method: DELETE
@@ -157,14 +147,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#delete-non-employee-source-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const sourceId: string = 'e136567de87e4d029e60b3c3c55db56d'; // string | Source Id (default to undefined)
-        const result = await apiInstance.deleteNonEmployeeSourceV1(sourceId);
+        const result = await apiInstance.deleteNonEmployeeSourceV1({ sourceId: sourceId });
         console.log(result);
 - path: /non-employee-sources/v1/{id}/non-employees/download
   method: GET
@@ -172,14 +161,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#export-non-employee-records-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const id: string = 'e136567de87e4d029e60b3c3c55db56d'; // string | Source Id (UUID) (default to undefined)
-        const result = await apiInstance.exportNonEmployeeRecordsV1(id);
+        const result = await apiInstance.exportNonEmployeeRecordsV1({ id: id });
         console.log(result);
 - path: /non-employee-sources/v1/{id}/schema-attributes-template/download
   method: GET
@@ -187,14 +175,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#export-non-employee-source-schema-template-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Source Id (UUID) (default to undefined)
-        const result = await apiInstance.exportNonEmployeeSourceSchemaTemplateV1(id);
+        const result = await apiInstance.exportNonEmployeeSourceSchemaTemplateV1({ id: id });
         console.log(result);
 - path: /non-employee-approvals/v1/summary/{requested-for}
   method: GET
@@ -202,14 +189,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#get-non-employee-approval-summary-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const requestedFor: string = '2c91808280430dfb0180431a59440460'; // string | The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use \"me\" instead to indicate the current user. (default to undefined)
-        const result = await apiInstance.getNonEmployeeApprovalSummaryV1(requestedFor);
+        const result = await apiInstance.getNonEmployeeApprovalSummaryV1({ requestedFor: requestedFor });
         console.log(result);
 - path: /non-employee-approvals/v1/{id}
   method: GET
@@ -217,15 +203,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#get-non-employee-approval-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const id: string = 'e136567de87e4d029e60b3c3c55db56d'; // string | Non-Employee approval item id (UUID) (default to undefined)
         const includeDetail: boolean = true; // boolean | The object nonEmployeeRequest will not be included detail when set to false. *Default value is true* (optional) (default to undefined)
-        const result = await apiInstance.getNonEmployeeApprovalV1(id);
+        const result = await apiInstance.getNonEmployeeApprovalV1({ id: id });
         console.log(result);
 - path: /non-employee-sources/v1/{id}/non-employee-bulk-upload/status
   method: GET
@@ -233,14 +218,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#get-non-employee-bulk-upload-status-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const id: string = 'e136567de87e4d029e60b3c3c55db56d'; // string | Source ID (UUID) (default to undefined)
-        const result = await apiInstance.getNonEmployeeBulkUploadStatusV1(id);
+        const result = await apiInstance.getNonEmployeeBulkUploadStatusV1({ id: id });
         console.log(result);
 - path: /non-employee-records/v1/{id}
   method: GET
@@ -248,14 +232,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#get-non-employee-record-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Non-Employee record id (UUID) (default to undefined)
-        const result = await apiInstance.getNonEmployeeRecordV1(id);
+        const result = await apiInstance.getNonEmployeeRecordV1({ id: id });
         console.log(result);
 - path: /non-employee-requests/v1/summary/{requested-for}
   method: GET
@@ -263,14 +246,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#get-non-employee-request-summary-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const requestedFor: string = '2c91808280430dfb0180431a59440460'; // string | The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use \"me\" instead to indicate the current user. (default to undefined)
-        const result = await apiInstance.getNonEmployeeRequestSummaryV1(requestedFor);
+        const result = await apiInstance.getNonEmployeeRequestSummaryV1({ requestedFor: requestedFor });
         console.log(result);
 - path: /non-employee-requests/v1/{id}
   method: GET
@@ -278,14 +260,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#get-non-employee-request-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const id: string = 'ac110005-7156-1150-8171-5b292e3e0084'; // string | Non-Employee request id (UUID) (default to undefined)
-        const result = await apiInstance.getNonEmployeeRequestV1(id);
+        const result = await apiInstance.getNonEmployeeRequestV1({ id: id });
         console.log(result);
 - path: /non-employee-sources/v1/{sourceId}/schema-attributes/{attributeId}
   method: GET
@@ -293,15 +274,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#get-non-employee-schema-attribute-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const attributeId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The Schema Attribute Id (UUID) (default to undefined)
         const sourceId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The Source id (default to undefined)
-        const result = await apiInstance.getNonEmployeeSchemaAttributeV1(attributeId, sourceId);
+        const result = await apiInstance.getNonEmployeeSchemaAttributeV1({ attributeId: attributeId, sourceId: sourceId });
         console.log(result);
 - path: /non-employee-sources/v1/{sourceId}/schema-attributes
   method: GET
@@ -309,14 +289,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#get-non-employee-source-schema-attributes-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const sourceId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The Source id (default to undefined)
-        const result = await apiInstance.getNonEmployeeSourceSchemaAttributesV1(sourceId);
+        const result = await apiInstance.getNonEmployeeSourceSchemaAttributesV1({ sourceId: sourceId });
         console.log(result);
 - path: /non-employee-sources/v1/{sourceId}
   method: GET
@@ -324,14 +303,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#get-non-employee-source-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const sourceId: string = '2c91808b7c28b350017c2a2ec5790aa1'; // string | Source Id (default to undefined)
-        const result = await apiInstance.getNonEmployeeSourceV1(sourceId);
+        const result = await apiInstance.getNonEmployeeSourceV1({ sourceId: sourceId });
         console.log(result);
 - path: /non-employee-sources/v1/{id}/non-employee-bulk-upload
   method: POST
@@ -339,15 +317,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#import-non-employee-records-in-bulk-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const id: string = 'e136567de87e4d029e60b3c3c55db56d'; // string | Source Id (UUID) (default to undefined)
         const data: File = BINARY_DATA_HERE; // File |  (default to undefined)
-        const result = await apiInstance.importNonEmployeeRecordsInBulkV1(id, data);
+        const result = await apiInstance.importNonEmployeeRecordsInBulkV1({ id: id, data: data });
         console.log(result);
 - path: /non-employee-approvals/v1
   method: GET
@@ -355,19 +332,18 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#list-non-employee-approvals-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const requestedFor: string = '2c91808280430dfb0180431a59440460'; // string | The identity for whom the request was made. *me* indicates the current user. (optional) (default to undefined)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const filters: string = 'approvalStatus eq "Pending"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **approvalStatus**: *eq* (optional) (default to undefined)
         const sorters: string = 'created'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional) (default to undefined)
-        const result = await apiInstance.listNonEmployeeApprovalsV1();
+        const result = await apiInstance.listNonEmployeeApprovalsV1({  });
         console.log(result);
 - path: /non-employee-records/v1
   method: GET
@@ -375,18 +351,17 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#list-non-employee-records-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const sorters: string = 'accountName,sourceId'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, accountName, sourceId, manager, firstName, lastName, email, phone, startDate, endDate, created, modified** (optional) (default to undefined)
         const filters: string = 'sourceId eq "2c91808568c529c60168cca6f90c1313"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq* (optional) (default to undefined)
-        const result = await apiInstance.listNonEmployeeRecordsV1();
+        const result = await apiInstance.listNonEmployeeRecordsV1({  });
         console.log(result);
 - path: /non-employee-requests/v1
   method: GET
@@ -394,19 +369,18 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#list-non-employee-requests-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const requestedFor: string = 'e136567de87e4d029e60b3c3c55db56d'; // string | The identity for whom the request was made. *me* indicates the current user. (default to undefined)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const sorters: string = 'created,approvalStatus'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, approvalStatus, firstName, lastName, email, phone, accountName, startDate, endDate** (optional) (default to undefined)
         const filters: string = 'sourceId eq "2c91808568c529c60168cca6f90c1313"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  (optional) (default to undefined)
-        const result = await apiInstance.listNonEmployeeRequestsV1(requestedFor);
+        const result = await apiInstance.listNonEmployeeRequestsV1({ requestedFor: requestedFor });
         console.log(result);
 - path: /non-employee-sources/v1
   method: GET
@@ -414,19 +388,18 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#list-non-employee-sources-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const requestedFor: string = 'me'; // string | Identity the request was made for. Use \'me\' to indicate the current user. (optional) (default to undefined)
         const nonEmployeeCount: boolean = true; // boolean | Flag that determines whether the API will return a non-employee count associated with the source. (optional) (default to false)
         const sorters: string = 'name,created'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId** (optional) (default to undefined)
-        const result = await apiInstance.listNonEmployeeSourcesV1();
+        const result = await apiInstance.listNonEmployeeSourcesV1({  });
         console.log(result);
 - path: /non-employee-records/v1/{id}
   method: PATCH
@@ -434,15 +407,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#patch-non-employee-record-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Non-employee record id (UUID) (default to undefined)
-        const jsonpatchoperationV1: Array&lt;JsonpatchoperationV1&gt; = [{"op":"replace","path":"/endDate","value":"2019-08-23T18:40:35.772Z"}]; // Array<JsonpatchoperationV1> | A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
-        const result = await apiInstance.patchNonEmployeeRecordV1(id, jsonpatchoperationV1);
+        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/endDate","value":"2019-08-23T18:40:35.772Z"}]; // Array<Jsonpatchoperation> | A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+        const result = await apiInstance.patchNonEmployeeRecordV1({ id: id, jsonpatchoperation: jsonpatchoperation });
         console.log(result);
 - path: /non-employee-sources/v1/{sourceId}/schema-attributes/{attributeId}
   method: PATCH
@@ -450,16 +422,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#patch-non-employee-schema-attribute-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const attributeId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The Schema Attribute Id (UUID) (default to undefined)
         const sourceId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The Source id (default to undefined)
-        const jsonpatchoperationV1: Array&lt;JsonpatchoperationV1&gt; = [{"op":"replace","path":"/label","value":{"new attribute label":null}}]; // Array<JsonpatchoperationV1> | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update \':\' \'label\', \'helpText\', \'placeholder\', \'required\'.
-        const result = await apiInstance.patchNonEmployeeSchemaAttributeV1(attributeId, sourceId, jsonpatchoperationV1);
+        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/label","value":{"new attribute label":null}}]; // Array<Jsonpatchoperation> | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update \':\' \'label\', \'helpText\', \'placeholder\', \'required\'.
+        const result = await apiInstance.patchNonEmployeeSchemaAttributeV1({ attributeId: attributeId, sourceId: sourceId, jsonpatchoperation: jsonpatchoperation });
         console.log(result);
 - path: /non-employee-sources/v1/{sourceId}
   method: PATCH
@@ -467,15 +438,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#patch-non-employee-source-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const sourceId: string = 'e136567de87e4d029e60b3c3c55db56d'; // string | Source Id (default to undefined)
-        const jsonpatchoperationV1: Array&lt;JsonpatchoperationV1&gt; = [{"op":"replace","path":"/name","value":{"new name":null}},{"op":"replace","path":"/approvers","value":["2c91809f703bb37a017040a2fe8748c7","48b1f463c9e8427db5a5071bd81914b8"]}]; // Array<JsonpatchoperationV1> | A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-        const result = await apiInstance.patchNonEmployeeSourceV1(sourceId, jsonpatchoperationV1);
+        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/name","value":{"new name":null}},{"op":"replace","path":"/approvers","value":["2c91809f703bb37a017040a2fe8748c7","48b1f463c9e8427db5a5071bd81914b8"]}]; // Array<Jsonpatchoperation> | A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        const result = await apiInstance.patchNonEmployeeSourceV1({ sourceId: sourceId, jsonpatchoperation: jsonpatchoperation });
         console.log(result);
 - path: /non-employee-approvals/v1/{id}/reject
   method: POST
@@ -483,15 +453,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#reject-non-employee-request-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const id: string = 'e136567de87e4d029e60b3c3c55db56d'; // string | Non-Employee approval item id (UUID) (default to undefined)
-        const nonemployeerejectapprovaldecisionV1: NonemployeerejectapprovaldecisionV1 = ; // NonemployeerejectapprovaldecisionV1 | 
-        const result = await apiInstance.rejectNonEmployeeRequestV1(id, nonemployeerejectapprovaldecisionV1);
+        const nonemployeerejectapprovaldecision: Nonemployeerejectapprovaldecision = ; // Nonemployeerejectapprovaldecision | 
+        const result = await apiInstance.rejectNonEmployeeRequestV1({ id: id, nonemployeerejectapprovaldecision: nonemployeerejectapprovaldecision });
         console.log(result);
 - path: /non-employee-records/v1/{id}
   method: PUT
@@ -499,13 +468,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#update-non-employee-record-v1
       source: |
-        import { NonEmployeeLifecycleManagementV1Api } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NonEmployeeLifecycleManagementV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Non-employee record id (UUID) (default to undefined)
-        const nonemployeerequestbodyV1: NonemployeerequestbodyV1 = ; // NonemployeerequestbodyV1 | Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
-        const result = await apiInstance.updateNonEmployeeRecordV1(id, nonemployeerequestbodyV1);
+        const nonemployeerequestbody: Nonemployeerequestbody = ; // Nonemployeerequestbody | Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+        const result = await apiInstance.updateNonEmployeeRecordV1({ id: id, nonemployeerequestbody: nonemployeerequestbody });
         console.log(result);

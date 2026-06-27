@@ -1,20 +1,20 @@
 ---
-id: v1-permissiondto-v1
-title: PermissiondtoV1
-pagination_label: PermissiondtoV1
-sidebar_label: PermissiondtoV1
+id: v1-permissiondto
+title: Permissiondto
+pagination_label: Permissiondto
+sidebar_label: Permissiondto
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'PermissiondtoV1', 'v1PermissiondtoV1']
-slug: /tools/sdk/typescript/certifications/models/permissiondto-v1
-tags: ['SDK', 'Software Development Kit', 'PermissiondtoV1', 'v1PermissiondtoV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Permissiondto', 'v1Permissiondto']
+slug: /tools/sdk/typescript/certifications/models/permissiondto
+tags: ['SDK', 'Software Development Kit', 'Permissiondto', 'v1Permissiondto']
 ---
 
-# PermissiondtoV1
+# Permissiondto
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**rights** | **(optional)** **Array&lt;string&gt;** | All the rights (e.g. actions) that this permission allows on the target | [readonly] [default to undefined]
-**target** | **(optional)** **string** | The target the permission would grants rights on. | [readonly] [default to undefined]
+**rights** | **(optional)** `Array<string>` | All the rights (e.g. actions) that this permission allows on the target | [readonly] [default to undefined]
+**target** | **(optional)** `string` | The target the permission would grants rights on. | [readonly] [default to undefined]
 

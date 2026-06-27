@@ -1,21 +1,21 @@
 ---
-id: v1-errormessagedto-v1
-title: ErrormessagedtoV1
-pagination_label: ErrormessagedtoV1
-sidebar_label: ErrormessagedtoV1
+id: v1-errormessagedto
+title: Errormessagedto
+pagination_label: Errormessagedto
+sidebar_label: Errormessagedto
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ErrormessagedtoV1', 'v1ErrormessagedtoV1']
-slug: /tools/sdk/typescript/global_tenant_security_settings/models/errormessagedto-v1
-tags: ['SDK', 'Software Development Kit', 'ErrormessagedtoV1', 'v1ErrormessagedtoV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Errormessagedto', 'v1Errormessagedto']
+slug: /tools/sdk/typescript/global_tenant_security_settings/models/errormessagedto
+tags: ['SDK', 'Software Development Kit', 'Errormessagedto', 'v1Errormessagedto']
 ---
 
-# ErrormessagedtoV1
+# Errormessagedto
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**locale** | **(optional)** **string** | The locale for the message text, a BCP 47 language tag. | [default to undefined]
-**localeOrigin** | **(optional)** **LocaleoriginV1** |  | [default to undefined]
-**text** | **(optional)** **string** | Actual text of the error message in the indicated locale. | [default to undefined]
+**locale** | **(optional)** `string` | The locale for the message text, a BCP 47 language tag. | [default to undefined]
+**localeOrigin** | **(optional)** `Localeorigin` |  | [default to undefined]
+**text** | **(optional)** `string` | Actual text of the error message in the indicated locale. | [default to undefined]
 

@@ -1,21 +1,21 @@
 ---
-id: v1-requesteditemstatus-requester-comment-v1
-title: RequesteditemstatusRequesterCommentV1
-pagination_label: RequesteditemstatusRequesterCommentV1
-sidebar_label: RequesteditemstatusRequesterCommentV1
+id: v1-requesteditemstatus-requester-comment
+title: RequesteditemstatusRequesterComment
+pagination_label: RequesteditemstatusRequesterComment
+sidebar_label: RequesteditemstatusRequesterComment
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RequesteditemstatusRequesterCommentV1', 'v1RequesteditemstatusRequesterCommentV1']
-slug: /tools/sdk/typescript/access_requests/models/requesteditemstatus-requester-comment-v1
-tags: ['SDK', 'Software Development Kit', 'RequesteditemstatusRequesterCommentV1', 'v1RequesteditemstatusRequesterCommentV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'RequesteditemstatusRequesterComment', 'v1RequesteditemstatusRequesterComment']
+slug: /tools/sdk/typescript/access_requests/models/requesteditemstatus-requester-comment
+tags: ['SDK', 'Software Development Kit', 'RequesteditemstatusRequesterComment', 'v1RequesteditemstatusRequesterComment']
 ---
 
-# RequesteditemstatusRequesterCommentV1
+# RequesteditemstatusRequesterComment
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**comment** | **(optional)** **string** | Comment content. | [default to undefined]
-**created** | **(optional)** **string** | Date and time comment was created. | [default to undefined]
-**author** | **(optional)** **CommentdtoAuthorV1** |  | [default to undefined]
+**comment** | **(optional)** `string` | Comment content. | [default to undefined]
+**created** | **(optional)** `string` | Date and time comment was created. | [default to undefined]
+**author** | **(optional)** `CommentdtoAuthor` |  | [default to undefined]
 

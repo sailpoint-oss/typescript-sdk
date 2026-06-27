@@ -1,15 +1,15 @@
 ---
-id: v1-identitycompareresponse-v1
-title: IdentitycompareresponseV1
-pagination_label: IdentitycompareresponseV1
-sidebar_label: IdentitycompareresponseV1
+id: v1-identitycompareresponse
+title: Identitycompareresponse
+pagination_label: Identitycompareresponse
+sidebar_label: Identitycompareresponse
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'IdentitycompareresponseV1', 'v1IdentitycompareresponseV1']
-slug: /tools/sdk/typescript/identity_history/models/identitycompareresponse-v1
-tags: ['SDK', 'Software Development Kit', 'IdentitycompareresponseV1', 'v1IdentitycompareresponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Identitycompareresponse', 'v1Identitycompareresponse']
+slug: /tools/sdk/typescript/identity_history/models/identitycompareresponse
+tags: ['SDK', 'Software Development Kit', 'Identitycompareresponse', 'v1Identitycompareresponse']
 ---
 
-# IdentitycompareresponseV1
+# Identitycompareresponse
 
 ## Properties
 

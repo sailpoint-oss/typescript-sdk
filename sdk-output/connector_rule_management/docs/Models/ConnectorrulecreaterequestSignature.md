@@ -1,20 +1,20 @@
 ---
-id: v1-connectorrulecreaterequest-signature-v1
-title: ConnectorrulecreaterequestSignatureV1
-pagination_label: ConnectorrulecreaterequestSignatureV1
-sidebar_label: ConnectorrulecreaterequestSignatureV1
+id: v1-connectorrulecreaterequest-signature
+title: ConnectorrulecreaterequestSignature
+pagination_label: ConnectorrulecreaterequestSignature
+sidebar_label: ConnectorrulecreaterequestSignature
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ConnectorrulecreaterequestSignatureV1', 'v1ConnectorrulecreaterequestSignatureV1']
-slug: /tools/sdk/typescript/connector_rule_management/models/connectorrulecreaterequest-signature-v1
-tags: ['SDK', 'Software Development Kit', 'ConnectorrulecreaterequestSignatureV1', 'v1ConnectorrulecreaterequestSignatureV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ConnectorrulecreaterequestSignature', 'v1ConnectorrulecreaterequestSignature']
+slug: /tools/sdk/typescript/connector_rule_management/models/connectorrulecreaterequest-signature
+tags: ['SDK', 'Software Development Kit', 'ConnectorrulecreaterequestSignature', 'v1ConnectorrulecreaterequestSignature']
 ---
 
-# ConnectorrulecreaterequestSignatureV1
+# ConnectorrulecreaterequestSignature
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**input** | **Array&lt;ArgumentV1&gt;** |  | [default to undefined]
-**output** | **(optional)** **ArgumentV1** |  | [default to undefined]
+**input** | `Array<Argument>` |  | [default to undefined]
+**output** | **(optional)** `Argument` |  | [default to undefined]
 

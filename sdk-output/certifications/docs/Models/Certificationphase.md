@@ -1,15 +1,15 @@
 ---
-id: v1-certificationphase-v1
-title: CertificationphaseV1
-pagination_label: CertificationphaseV1
-sidebar_label: CertificationphaseV1
+id: v1-certificationphase
+title: Certificationphase
+pagination_label: Certificationphase
+sidebar_label: Certificationphase
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'CertificationphaseV1', 'v1CertificationphaseV1']
-slug: /tools/sdk/typescript/certifications/models/certificationphase-v1
-tags: ['SDK', 'Software Development Kit', 'CertificationphaseV1', 'v1CertificationphaseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Certificationphase', 'v1Certificationphase']
+slug: /tools/sdk/typescript/certifications/models/certificationphase
+tags: ['SDK', 'Software Development Kit', 'Certificationphase', 'v1Certificationphase']
 ---
 
-# CertificationphaseV1
+# Certificationphase
 
 ## Enum
 

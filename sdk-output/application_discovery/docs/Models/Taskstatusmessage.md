@@ -1,22 +1,22 @@
 ---
-id: v1-taskstatusmessage-v1
-title: TaskstatusmessageV1
-pagination_label: TaskstatusmessageV1
-sidebar_label: TaskstatusmessageV1
+id: v1-taskstatusmessage
+title: Taskstatusmessage
+pagination_label: Taskstatusmessage
+sidebar_label: Taskstatusmessage
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'TaskstatusmessageV1', 'v1TaskstatusmessageV1']
-slug: /tools/sdk/typescript/application_discovery/models/taskstatusmessage-v1
-tags: ['SDK', 'Software Development Kit', 'TaskstatusmessageV1', 'v1TaskstatusmessageV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Taskstatusmessage', 'v1Taskstatusmessage']
+slug: /tools/sdk/typescript/application_discovery/models/taskstatusmessage
+tags: ['SDK', 'Software Development Kit', 'Taskstatusmessage', 'v1Taskstatusmessage']
 ---
 
-# TaskstatusmessageV1
+# Taskstatusmessage
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **string** | Type of the message | [default to undefined]
-**localizedText** | **LocalizedmessageV1** |  | [default to undefined]
-**key** | **string** | Key of the message | [default to undefined]
-**parameters** | **Array&lt;TaskstatusmessageParametersInnerV1&gt;** | Message parameters for internationalization | [default to undefined]
+**type** | `string` | Type of the message | [default to undefined]
+**localizedText** | `Localizedmessage` |  | [default to undefined]
+**key** | `string` | Key of the message | [default to undefined]
+**parameters** | `Array<TaskstatusmessageParametersInner>` | Message parameters for internationalization | [default to undefined]
 

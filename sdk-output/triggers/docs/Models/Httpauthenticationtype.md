@@ -1,15 +1,15 @@
 ---
-id: v1-httpauthenticationtype-v1
-title: HttpauthenticationtypeV1
-pagination_label: HttpauthenticationtypeV1
-sidebar_label: HttpauthenticationtypeV1
+id: v1-httpauthenticationtype
+title: Httpauthenticationtype
+pagination_label: Httpauthenticationtype
+sidebar_label: Httpauthenticationtype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'HttpauthenticationtypeV1', 'v1HttpauthenticationtypeV1']
-slug: /tools/sdk/typescript/triggers/models/httpauthenticationtype-v1
-tags: ['SDK', 'Software Development Kit', 'HttpauthenticationtypeV1', 'v1HttpauthenticationtypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Httpauthenticationtype', 'v1Httpauthenticationtype']
+slug: /tools/sdk/typescript/triggers/models/httpauthenticationtype
+tags: ['SDK', 'Software Development Kit', 'Httpauthenticationtype', 'v1Httpauthenticationtype']
 ---
 
-# HttpauthenticationtypeV1
+# Httpauthenticationtype
 
 ## Enum
 

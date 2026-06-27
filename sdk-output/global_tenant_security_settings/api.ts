@@ -26,32 +26,32 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ArrayInnerV1
+ * @interface ArrayInner
  */
-export interface ArrayInnerV1 {
+export interface ArrayInner {
 }
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -60,238 +60,238 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface FederationprotocoldetailsV1
+ * @interface Federationprotocoldetails
  */
-export interface FederationprotocoldetailsV1 {
+export interface Federationprotocoldetails {
     /**
      * Federation protocol role
      * @type {string}
-     * @memberof FederationprotocoldetailsV1
+     * @memberof Federationprotocoldetails
      */
-    'role'?: FederationprotocoldetailsV1RoleV1;
+    'role'?: FederationprotocoldetailsRoleEnum;
     /**
      * An entity ID is a globally unique name for a SAML entity, either an Identity Provider (IDP) or a Service Provider (SP).
      * @type {string}
-     * @memberof FederationprotocoldetailsV1
+     * @memberof Federationprotocoldetails
      */
     'entityId'?: string;
 }
 
-export const FederationprotocoldetailsV1RoleV1 = {
+export const FederationprotocoldetailsRoleEnum = {
     SamlIdp: 'SAML_IDP',
     SamlSp: 'SAML_SP'
 } as const;
 
-export type FederationprotocoldetailsV1RoleV1 = typeof FederationprotocoldetailsV1RoleV1[keyof typeof FederationprotocoldetailsV1RoleV1];
+export type FederationprotocoldetailsRoleEnum = typeof FederationprotocoldetailsRoleEnum[keyof typeof FederationprotocoldetailsRoleEnum];
 
 /**
  * 
  * @export
- * @interface GetAuthOrgNetworkConfigV1401ResponseV1
+ * @interface GetAuthOrgNetworkConfigV1401Response
  */
-export interface GetAuthOrgNetworkConfigV1401ResponseV1 {
+export interface GetAuthOrgNetworkConfigV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetAuthOrgNetworkConfigV1401ResponseV1
+     * @memberof GetAuthOrgNetworkConfigV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetAuthOrgNetworkConfigV1429ResponseV1
+ * @interface GetAuthOrgNetworkConfigV1429Response
  */
-export interface GetAuthOrgNetworkConfigV1429ResponseV1 {
+export interface GetAuthOrgNetworkConfigV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetAuthOrgNetworkConfigV1429ResponseV1
+     * @memberof GetAuthOrgNetworkConfigV1429Response
      */
     'message'?: any;
 }
 /**
  * 
  * @export
- * @interface IdpdetailsV1
+ * @interface Idpdetails
  */
-export interface IdpdetailsV1 {
+export interface Idpdetails {
     /**
      * Federation protocol role
      * @type {string}
-     * @memberof IdpdetailsV1
+     * @memberof Idpdetails
      */
-    'role'?: IdpdetailsV1RoleV1;
+    'role'?: IdpdetailsRoleEnum;
     /**
      * An entity ID is a globally unique name for a SAML entity, either an Identity Provider (IDP) or a Service Provider (SP).
      * @type {string}
-     * @memberof IdpdetailsV1
+     * @memberof Idpdetails
      */
     'entityId'?: string;
     /**
      * Defines the binding used for the SAML flow. Used with IDP configurations.
      * @type {string}
-     * @memberof IdpdetailsV1
+     * @memberof Idpdetails
      */
     'binding'?: string;
     /**
      * Specifies the SAML authentication method to use. Used with IDP configurations.
      * @type {string}
-     * @memberof IdpdetailsV1
+     * @memberof Idpdetails
      */
     'authnContext'?: string;
     /**
      * The IDP logout URL. Used with IDP configurations.
      * @type {string}
-     * @memberof IdpdetailsV1
+     * @memberof Idpdetails
      */
     'logoutUrl'?: string;
     /**
      * Determines if the configured AuthnContext should be used or the default. Used with IDP configurations.
      * @type {boolean}
-     * @memberof IdpdetailsV1
+     * @memberof Idpdetails
      */
     'includeAuthnContext'?: boolean;
     /**
      * The name id format to use. Used with IDP configurations.
      * @type {string}
-     * @memberof IdpdetailsV1
+     * @memberof Idpdetails
      */
     'nameId'?: string;
     /**
      * 
-     * @type {JitconfigurationV1}
-     * @memberof IdpdetailsV1
+     * @type {Jitconfiguration}
+     * @memberof Idpdetails
      */
-    'jitConfiguration'?: JitconfigurationV1;
+    'jitConfiguration'?: Jitconfiguration;
     /**
      * The Base64-encoded certificate used by the IDP. Used with IDP configurations.
      * @type {string}
-     * @memberof IdpdetailsV1
+     * @memberof Idpdetails
      */
     'cert'?: string;
     /**
      * The IDP POST URL, used with IDP HTTP-POST bindings for IDP-initiated logins. Used with IDP configurations.
      * @type {string}
-     * @memberof IdpdetailsV1
+     * @memberof Idpdetails
      */
     'loginUrlPost'?: string;
     /**
      * The IDP Redirect URL. Used with IDP configurations.
      * @type {string}
-     * @memberof IdpdetailsV1
+     * @memberof Idpdetails
      */
     'loginUrlRedirect'?: string;
     /**
      * Return the saml Id for the given user, based on the IDN as SP settings of the org. Used with IDP configurations.
      * @type {string}
-     * @memberof IdpdetailsV1
+     * @memberof Idpdetails
      */
     'mappingAttribute': string;
     /**
      * The expiration date extracted from the certificate.
      * @type {string}
-     * @memberof IdpdetailsV1
+     * @memberof Idpdetails
      */
     'certificateExpirationDate'?: string;
     /**
      * The name extracted from the certificate.
      * @type {string}
-     * @memberof IdpdetailsV1
+     * @memberof Idpdetails
      */
     'certificateName'?: string;
 }
 
-export const IdpdetailsV1RoleV1 = {
+export const IdpdetailsRoleEnum = {
     SamlIdp: 'SAML_IDP',
     SamlSp: 'SAML_SP'
 } as const;
 
-export type IdpdetailsV1RoleV1 = typeof IdpdetailsV1RoleV1[keyof typeof IdpdetailsV1RoleV1];
+export type IdpdetailsRoleEnum = typeof IdpdetailsRoleEnum[keyof typeof IdpdetailsRoleEnum];
 
 /**
  * 
  * @export
- * @interface JitconfigurationV1
+ * @interface Jitconfiguration
  */
-export interface JitconfigurationV1 {
+export interface Jitconfiguration {
     /**
      * The indicator for just-in-time provisioning enabled
      * @type {boolean}
-     * @memberof JitconfigurationV1
+     * @memberof Jitconfiguration
      */
     'enabled'?: boolean;
     /**
      * the sourceId that mapped to just-in-time provisioning configuration
      * @type {string}
-     * @memberof JitconfigurationV1
+     * @memberof Jitconfiguration
      */
     'sourceId'?: string;
     /**
      * A mapping of identity profile attribute names to SAML assertion attribute names
      * @type {{ [key: string]: string; }}
-     * @memberof JitconfigurationV1
+     * @memberof Jitconfiguration
      */
     'sourceAttributeMappings'?: { [key: string]: string; };
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface JsonpatchoperationV1
+ * @interface Jsonpatchoperation
  */
-export interface JsonpatchoperationV1 {
+export interface Jsonpatchoperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
-    'op': JsonpatchoperationV1OpV1;
+    'op': JsonpatchoperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValueV1}
-     * @memberof JsonpatchoperationV1
+     * @type {JsonpatchoperationValue}
+     * @memberof Jsonpatchoperation
      */
-    'value'?: JsonpatchoperationValueV1;
+    'value'?: JsonpatchoperationValue;
 }
 
-export const JsonpatchoperationV1OpV1 = {
+export const JsonpatchoperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -300,14 +300,14 @@ export const JsonpatchoperationV1OpV1 = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationV1OpV1 = typeof JsonpatchoperationV1OpV1[keyof typeof JsonpatchoperationV1OpV1];
+export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
 
 /**
- * @type JsonpatchoperationValueV1
+ * @type JsonpatchoperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number | object | string;
+export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -315,299 +315,299 @@ export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number |
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface LockoutconfigurationV1
+ * @interface Lockoutconfiguration
  */
-export interface LockoutconfigurationV1 {
+export interface Lockoutconfiguration {
     /**
      * The maximum attempts allowed before lockout occurs.
      * @type {number}
-     * @memberof LockoutconfigurationV1
+     * @memberof Lockoutconfiguration
      */
     'maximumAttempts'?: number;
     /**
      * The total time in minutes a user will be locked out.
      * @type {number}
-     * @memberof LockoutconfigurationV1
+     * @memberof Lockoutconfiguration
      */
     'lockoutDuration'?: number;
     /**
      * A rolling window where authentication attempts in a series count towards the maximum before lockout occurs.
      * @type {number}
-     * @memberof LockoutconfigurationV1
+     * @memberof Lockoutconfiguration
      */
     'lockoutWindow'?: number;
 }
 /**
  * 
  * @export
- * @interface NetworkconfigurationV1
+ * @interface Networkconfiguration
  */
-export interface NetworkconfigurationV1 {
+export interface Networkconfiguration {
     /**
      * The collection of ip ranges.
      * @type {Array<string>}
-     * @memberof NetworkconfigurationV1
+     * @memberof Networkconfiguration
      */
     'range'?: Array<string> | null;
     /**
      * The collection of country codes.
      * @type {Array<string>}
-     * @memberof NetworkconfigurationV1
+     * @memberof Networkconfiguration
      */
     'geolocation'?: Array<string> | null;
     /**
      * Denotes whether the provided lists are whitelisted or blacklisted for geo location.
      * @type {boolean}
-     * @memberof NetworkconfigurationV1
+     * @memberof Networkconfiguration
      */
     'whitelisted'?: boolean;
 }
 /**
- * 
- * @export
- * @interface ServiceproviderconfigurationFederationProtocolDetailsInnerV1
- */
-export interface ServiceproviderconfigurationFederationProtocolDetailsInnerV1 {
-    /**
-     * Federation protocol role
-     * @type {string}
-     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInnerV1
-     */
-    'role'?: ServiceproviderconfigurationFederationProtocolDetailsInnerV1RoleV1;
-    /**
-     * An entity ID is a globally unique name for a SAML entity, either an Identity Provider (IDP) or a Service Provider (SP).
-     * @type {string}
-     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInnerV1
-     */
-    'entityId'?: string;
-    /**
-     * Defines the binding used for the SAML flow. Used with IDP configurations.
-     * @type {string}
-     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInnerV1
-     */
-    'binding'?: string;
-    /**
-     * Specifies the SAML authentication method to use. Used with IDP configurations.
-     * @type {string}
-     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInnerV1
-     */
-    'authnContext'?: string;
-    /**
-     * The IDP logout URL. Used with IDP configurations.
-     * @type {string}
-     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInnerV1
-     */
-    'logoutUrl'?: string;
-    /**
-     * Determines if the configured AuthnContext should be used or the default. Used with IDP configurations.
-     * @type {boolean}
-     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInnerV1
-     */
-    'includeAuthnContext'?: boolean;
-    /**
-     * The name id format to use. Used with IDP configurations.
-     * @type {string}
-     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInnerV1
-     */
-    'nameId'?: string;
-    /**
-     * 
-     * @type {JitconfigurationV1}
-     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInnerV1
-     */
-    'jitConfiguration'?: JitconfigurationV1;
-    /**
-     * The Base64-encoded certificate used by the IDP. Used with IDP configurations.
-     * @type {string}
-     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInnerV1
-     */
-    'cert'?: string;
-    /**
-     * The IDP POST URL, used with IDP HTTP-POST bindings for IDP-initiated logins. Used with IDP configurations.
-     * @type {string}
-     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInnerV1
-     */
-    'loginUrlPost'?: string;
-    /**
-     * The IDP Redirect URL. Used with IDP configurations.
-     * @type {string}
-     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInnerV1
-     */
-    'loginUrlRedirect'?: string;
-    /**
-     * Return the saml Id for the given user, based on the IDN as SP settings of the org. Used with IDP configurations.
-     * @type {string}
-     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInnerV1
-     */
-    'mappingAttribute': string;
-    /**
-     * The expiration date extracted from the certificate.
-     * @type {string}
-     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInnerV1
-     */
-    'certificateExpirationDate'?: string;
-    /**
-     * The name extracted from the certificate.
-     * @type {string}
-     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInnerV1
-     */
-    'certificateName'?: string;
-    /**
-     * Unique alias used to identify the selected local service provider based on used URL. Used with SP configurations.
-     * @type {string}
-     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInnerV1
-     */
-    'alias'?: string;
-    /**
-     * The allowed callback URL where users will be redirected to after authentication. Used with SP configurations.
-     * @type {string}
-     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInnerV1
-     */
-    'callbackUrl': string;
-    /**
-     * The legacy ACS URL used for SAML authentication. Used with SP configurations.
-     * @type {string}
-     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInnerV1
-     */
-    'legacyAcsUrl'?: string;
-}
-
-export const ServiceproviderconfigurationFederationProtocolDetailsInnerV1RoleV1 = {
-    SamlIdp: 'SAML_IDP',
-    SamlSp: 'SAML_SP'
-} as const;
-
-export type ServiceproviderconfigurationFederationProtocolDetailsInnerV1RoleV1 = typeof ServiceproviderconfigurationFederationProtocolDetailsInnerV1RoleV1[keyof typeof ServiceproviderconfigurationFederationProtocolDetailsInnerV1RoleV1];
-
-/**
  * Represents the IdentityNow as Service Provider Configuration allowing customers to log into IDN via an Identity Provider
  * @export
- * @interface ServiceproviderconfigurationV1
+ * @interface Serviceproviderconfiguration
  */
-export interface ServiceproviderconfigurationV1 {
+export interface Serviceproviderconfiguration {
     /**
      * This determines whether or not the SAML authentication flow is enabled for an org
      * @type {boolean}
-     * @memberof ServiceproviderconfigurationV1
+     * @memberof Serviceproviderconfiguration
      */
     'enabled'?: boolean;
     /**
      * This allows basic login with the parameter prompt=true. This is often toggled on when debugging SAML authentication setup. When false, only org admins with MFA-enabled can bypass the IDP.
      * @type {boolean}
-     * @memberof ServiceproviderconfigurationV1
+     * @memberof Serviceproviderconfiguration
      */
     'bypassIdp'?: boolean;
     /**
      * This indicates whether or not the SAML configuration is valid.
      * @type {boolean}
-     * @memberof ServiceproviderconfigurationV1
+     * @memberof Serviceproviderconfiguration
      */
     'samlConfigurationValid'?: boolean;
     /**
      * A list of the abstract implementations of the Federation Protocol details. Typically, this will include on SpDetails object and one IdpDetails object used in tandem to define a SAML integration between a customer\'s identity provider and a customer\'s SailPoint instance (i.e., the service provider).
-     * @type {Array<ServiceproviderconfigurationFederationProtocolDetailsInnerV1>}
-     * @memberof ServiceproviderconfigurationV1
+     * @type {Array<ServiceproviderconfigurationFederationProtocolDetailsInner>}
+     * @memberof Serviceproviderconfiguration
      */
-    'federationProtocolDetails'?: Array<ServiceproviderconfigurationFederationProtocolDetailsInnerV1>;
+    'federationProtocolDetails'?: Array<ServiceproviderconfigurationFederationProtocolDetailsInner>;
 }
 /**
  * 
  * @export
- * @interface SessionconfigurationV1
+ * @interface ServiceproviderconfigurationFederationProtocolDetailsInner
  */
-export interface SessionconfigurationV1 {
+export interface ServiceproviderconfigurationFederationProtocolDetailsInner {
+    /**
+     * Federation protocol role
+     * @type {string}
+     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInner
+     */
+    'role'?: ServiceproviderconfigurationFederationProtocolDetailsInnerRoleEnum;
+    /**
+     * An entity ID is a globally unique name for a SAML entity, either an Identity Provider (IDP) or a Service Provider (SP).
+     * @type {string}
+     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInner
+     */
+    'entityId'?: string;
+    /**
+     * Defines the binding used for the SAML flow. Used with IDP configurations.
+     * @type {string}
+     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInner
+     */
+    'binding'?: string;
+    /**
+     * Specifies the SAML authentication method to use. Used with IDP configurations.
+     * @type {string}
+     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInner
+     */
+    'authnContext'?: string;
+    /**
+     * The IDP logout URL. Used with IDP configurations.
+     * @type {string}
+     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInner
+     */
+    'logoutUrl'?: string;
+    /**
+     * Determines if the configured AuthnContext should be used or the default. Used with IDP configurations.
+     * @type {boolean}
+     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInner
+     */
+    'includeAuthnContext'?: boolean;
+    /**
+     * The name id format to use. Used with IDP configurations.
+     * @type {string}
+     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInner
+     */
+    'nameId'?: string;
+    /**
+     * 
+     * @type {Jitconfiguration}
+     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInner
+     */
+    'jitConfiguration'?: Jitconfiguration;
+    /**
+     * The Base64-encoded certificate used by the IDP. Used with IDP configurations.
+     * @type {string}
+     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInner
+     */
+    'cert'?: string;
+    /**
+     * The IDP POST URL, used with IDP HTTP-POST bindings for IDP-initiated logins. Used with IDP configurations.
+     * @type {string}
+     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInner
+     */
+    'loginUrlPost'?: string;
+    /**
+     * The IDP Redirect URL. Used with IDP configurations.
+     * @type {string}
+     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInner
+     */
+    'loginUrlRedirect'?: string;
+    /**
+     * Return the saml Id for the given user, based on the IDN as SP settings of the org. Used with IDP configurations.
+     * @type {string}
+     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInner
+     */
+    'mappingAttribute': string;
+    /**
+     * The expiration date extracted from the certificate.
+     * @type {string}
+     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInner
+     */
+    'certificateExpirationDate'?: string;
+    /**
+     * The name extracted from the certificate.
+     * @type {string}
+     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInner
+     */
+    'certificateName'?: string;
+    /**
+     * Unique alias used to identify the selected local service provider based on used URL. Used with SP configurations.
+     * @type {string}
+     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInner
+     */
+    'alias'?: string;
+    /**
+     * The allowed callback URL where users will be redirected to after authentication. Used with SP configurations.
+     * @type {string}
+     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInner
+     */
+    'callbackUrl': string;
+    /**
+     * The legacy ACS URL used for SAML authentication. Used with SP configurations.
+     * @type {string}
+     * @memberof ServiceproviderconfigurationFederationProtocolDetailsInner
+     */
+    'legacyAcsUrl'?: string;
+}
+
+export const ServiceproviderconfigurationFederationProtocolDetailsInnerRoleEnum = {
+    SamlIdp: 'SAML_IDP',
+    SamlSp: 'SAML_SP'
+} as const;
+
+export type ServiceproviderconfigurationFederationProtocolDetailsInnerRoleEnum = typeof ServiceproviderconfigurationFederationProtocolDetailsInnerRoleEnum[keyof typeof ServiceproviderconfigurationFederationProtocolDetailsInnerRoleEnum];
+
+/**
+ * 
+ * @export
+ * @interface Sessionconfiguration
+ */
+export interface Sessionconfiguration {
     /**
      * The maximum time in minutes a session can be idle.
      * @type {number}
-     * @memberof SessionconfigurationV1
+     * @memberof Sessionconfiguration
      */
     'maxIdleTime'?: number;
     /**
      * Denotes if \'remember me\' is enabled.
      * @type {boolean}
-     * @memberof SessionconfigurationV1
+     * @memberof Sessionconfiguration
      */
     'rememberMe'?: boolean;
     /**
      * The maximum allowable session time in minutes.
      * @type {number}
-     * @memberof SessionconfigurationV1
+     * @memberof Sessionconfiguration
      */
     'maxSessionTime'?: number;
 }
 /**
  * 
  * @export
- * @interface SpdetailsV1
+ * @interface Spdetails
  */
-export interface SpdetailsV1 {
+export interface Spdetails {
     /**
      * Federation protocol role
      * @type {string}
-     * @memberof SpdetailsV1
+     * @memberof Spdetails
      */
-    'role'?: SpdetailsV1RoleV1;
+    'role'?: SpdetailsRoleEnum;
     /**
      * An entity ID is a globally unique name for a SAML entity, either an Identity Provider (IDP) or a Service Provider (SP).
      * @type {string}
-     * @memberof SpdetailsV1
+     * @memberof Spdetails
      */
     'entityId'?: string;
     /**
      * Unique alias used to identify the selected local service provider based on used URL. Used with SP configurations.
      * @type {string}
-     * @memberof SpdetailsV1
+     * @memberof Spdetails
      */
     'alias'?: string;
     /**
      * The allowed callback URL where users will be redirected to after authentication. Used with SP configurations.
      * @type {string}
-     * @memberof SpdetailsV1
+     * @memberof Spdetails
      */
     'callbackUrl': string;
     /**
      * The legacy ACS URL used for SAML authentication. Used with SP configurations.
      * @type {string}
-     * @memberof SpdetailsV1
+     * @memberof Spdetails
      */
     'legacyAcsUrl'?: string;
 }
 
-export const SpdetailsV1RoleV1 = {
+export const SpdetailsRoleEnum = {
     SamlIdp: 'SAML_IDP',
     SamlSp: 'SAML_SP'
 } as const;
 
-export type SpdetailsV1RoleV1 = typeof SpdetailsV1RoleV1[keyof typeof SpdetailsV1RoleV1];
+export type SpdetailsRoleEnum = typeof SpdetailsRoleEnum[keyof typeof SpdetailsRoleEnum];
 
 
 /**
- * GlobalTenantSecuritySettingsV1Api - axios parameter creator
+ * GlobalTenantSecuritySettingsApi - axios parameter creator
  * @export
  */
-export const GlobalTenantSecuritySettingsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const GlobalTenantSecuritySettingsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This API returns the details of an org\'s network auth configuration. Requires security scope of: \'sp:auth-org:manage\'
          * @summary Create security network configuration.
-         * @param {NetworkconfigurationV1} networkconfigurationV1 Network configuration creation request body.   The following constraints ensure the request body conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
+         * @param {Networkconfiguration} networkconfiguration Network configuration creation request body.   The following constraints ensure the request body conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createAuthOrgNetworkConfigV1: async (networkconfigurationV1: NetworkconfigurationV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'networkconfigurationV1' is not null or undefined
-            assertParamExists('createAuthOrgNetworkConfigV1', 'networkconfigurationV1', networkconfigurationV1)
+        createAuthOrgNetworkConfigV1: async (networkconfiguration: Networkconfiguration, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'networkconfiguration' is not null or undefined
+            assertParamExists('createAuthOrgNetworkConfigV1', 'networkconfiguration', networkconfiguration)
             const localVarPath = `/auth-org/v1/network-config`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -627,7 +627,7 @@ export const GlobalTenantSecuritySettingsV1ApiAxiosParamCreator = function (conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(networkconfigurationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(networkconfiguration, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -757,13 +757,13 @@ export const GlobalTenantSecuritySettingsV1ApiAxiosParamCreator = function (conf
         /**
          * This API updates an existing lockout configuration for an org using PATCH 
          * @summary Update auth org lockout configuration
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of auth org lockout configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Lockout Config conforms to certain logical guidelines, which are:   &#x60;1. maximumAttempts &gt;&#x3D; 1 &amp;&amp; maximumAttempts &lt;&#x3D; 15   2. lockoutDuration &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60   3. lockoutWindow &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60&#x60;
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of auth org lockout configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Lockout Config conforms to certain logical guidelines, which are:   &#x60;1. maximumAttempts &gt;&#x3D; 1 &amp;&amp; maximumAttempts &lt;&#x3D; 15   2. lockoutDuration &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60   3. lockoutWindow &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60&#x60;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchAuthOrgLockoutConfigV1: async (jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('patchAuthOrgLockoutConfigV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+        patchAuthOrgLockoutConfigV1: async (jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('patchAuthOrgLockoutConfigV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/auth-org/v1/lockout-config`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -783,7 +783,7 @@ export const GlobalTenantSecuritySettingsV1ApiAxiosParamCreator = function (conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -793,13 +793,13 @@ export const GlobalTenantSecuritySettingsV1ApiAxiosParamCreator = function (conf
         /**
          * This API updates an existing network configuration for an org using PATCH  Requires security scope of:  \'sp:auth-org:manage\'
          * @summary Update security network configuration.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of auth org network configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Network Config conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of auth org network configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Network Config conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchAuthOrgNetworkConfigV1: async (jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('patchAuthOrgNetworkConfigV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+        patchAuthOrgNetworkConfigV1: async (jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('patchAuthOrgNetworkConfigV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/auth-org/v1/network-config`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -819,7 +819,7 @@ export const GlobalTenantSecuritySettingsV1ApiAxiosParamCreator = function (conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -829,13 +829,13 @@ export const GlobalTenantSecuritySettingsV1ApiAxiosParamCreator = function (conf
         /**
          * This API updates an existing service provider configuration for an org using PATCH.
          * @summary Update service provider configuration
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of auth org service provider configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Note: /federationProtocolDetails/0 is IdpDetails /federationProtocolDetails/1 is SpDetails Ensures that the patched ServiceProviderConfig conforms to certain logical guidelines, which are:   1. Do not add or remove any elements in the federation protocol details in the service provider configuration.   2. Do not modify, add, or delete the service provider details element in the federation protocol details.   3. If this is the first time the patched ServiceProviderConfig enables Remote IDP sign-in, it must also include IDPDetails.   4. If the patch enables Remote IDP sign in, the entityID in the IDPDetails cannot be null. IDPDetails must include an entityID.   5. Any JIT configuration update must be valid.  Just in time configuration update must be valid when enabled. This includes:   - A Source ID   - Source attribute mappings   - Source attribute maps have all the required key values (firstName, lastName, email)
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of auth org service provider configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Note: /federationProtocolDetails/0 is IdpDetails /federationProtocolDetails/1 is SpDetails Ensures that the patched ServiceProviderConfig conforms to certain logical guidelines, which are:   1. Do not add or remove any elements in the federation protocol details in the service provider configuration.   2. Do not modify, add, or delete the service provider details element in the federation protocol details.   3. If this is the first time the patched ServiceProviderConfig enables Remote IDP sign-in, it must also include IDPDetails.   4. If the patch enables Remote IDP sign in, the entityID in the IDPDetails cannot be null. IDPDetails must include an entityID.   5. Any JIT configuration update must be valid.  Just in time configuration update must be valid when enabled. This includes:   - A Source ID   - Source attribute mappings   - Source attribute maps have all the required key values (firstName, lastName, email)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchAuthOrgServiceProviderConfigV1: async (jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('patchAuthOrgServiceProviderConfigV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+        patchAuthOrgServiceProviderConfigV1: async (jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('patchAuthOrgServiceProviderConfigV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/auth-org/v1/service-provider-config`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -855,7 +855,7 @@ export const GlobalTenantSecuritySettingsV1ApiAxiosParamCreator = function (conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -865,13 +865,13 @@ export const GlobalTenantSecuritySettingsV1ApiAxiosParamCreator = function (conf
         /**
          * This API updates an existing session configuration for an org using PATCH.
          * @summary Update auth org session configuration
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of auth org session configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Ensures that the patched Session Config conforms to certain logical guidelines, which are:   &#x60;1. maxSessionTime &gt;&#x3D; 1 &amp;&amp; maxSessionTime &lt;&#x3D; 10080 (1 week)   2. maxIdleTime &gt;&#x3D; 1 &amp;&amp; maxIdleTime &lt;&#x3D; 1440 (1 day)   3. maxSessionTime must have a greater duration than maxIdleTime.&#x60; 
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of auth org session configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Ensures that the patched Session Config conforms to certain logical guidelines, which are:   &#x60;1. maxSessionTime &gt;&#x3D; 1 &amp;&amp; maxSessionTime &lt;&#x3D; 10080 (1 week)   2. maxIdleTime &gt;&#x3D; 1 &amp;&amp; maxIdleTime &lt;&#x3D; 1440 (1 day)   3. maxSessionTime must have a greater duration than maxIdleTime.&#x60; 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchAuthOrgSessionConfigV1: async (jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('patchAuthOrgSessionConfigV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+        patchAuthOrgSessionConfigV1: async (jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('patchAuthOrgSessionConfigV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/auth-org/v1/session-config`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -891,7 +891,7 @@ export const GlobalTenantSecuritySettingsV1ApiAxiosParamCreator = function (conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -902,23 +902,23 @@ export const GlobalTenantSecuritySettingsV1ApiAxiosParamCreator = function (conf
 };
 
 /**
- * GlobalTenantSecuritySettingsV1Api - functional programming interface
+ * GlobalTenantSecuritySettingsApi - functional programming interface
  * @export
  */
-export const GlobalTenantSecuritySettingsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = GlobalTenantSecuritySettingsV1ApiAxiosParamCreator(configuration)
+export const GlobalTenantSecuritySettingsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = GlobalTenantSecuritySettingsApiAxiosParamCreator(configuration)
     return {
         /**
          * This API returns the details of an org\'s network auth configuration. Requires security scope of: \'sp:auth-org:manage\'
          * @summary Create security network configuration.
-         * @param {NetworkconfigurationV1} networkconfigurationV1 Network configuration creation request body.   The following constraints ensure the request body conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
+         * @param {Networkconfiguration} networkconfiguration Network configuration creation request body.   The following constraints ensure the request body conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createAuthOrgNetworkConfigV1(networkconfigurationV1: NetworkconfigurationV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NetworkconfigurationV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createAuthOrgNetworkConfigV1(networkconfigurationV1, axiosOptions);
+        async createAuthOrgNetworkConfigV1(networkconfiguration: Networkconfiguration, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Networkconfiguration>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createAuthOrgNetworkConfigV1(networkconfiguration, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['GlobalTenantSecuritySettingsV1Api.createAuthOrgNetworkConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['GlobalTenantSecuritySettingsApi.createAuthOrgNetworkConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -927,10 +927,10 @@ export const GlobalTenantSecuritySettingsV1ApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAuthOrgLockoutConfigV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LockoutconfigurationV1>> {
+        async getAuthOrgLockoutConfigV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Lockoutconfiguration>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAuthOrgLockoutConfigV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['GlobalTenantSecuritySettingsV1Api.getAuthOrgLockoutConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['GlobalTenantSecuritySettingsApi.getAuthOrgLockoutConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -939,10 +939,10 @@ export const GlobalTenantSecuritySettingsV1ApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAuthOrgNetworkConfigV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NetworkconfigurationV1>> {
+        async getAuthOrgNetworkConfigV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Networkconfiguration>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAuthOrgNetworkConfigV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['GlobalTenantSecuritySettingsV1Api.getAuthOrgNetworkConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['GlobalTenantSecuritySettingsApi.getAuthOrgNetworkConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -951,10 +951,10 @@ export const GlobalTenantSecuritySettingsV1ApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAuthOrgServiceProviderConfigV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceproviderconfigurationV1>> {
+        async getAuthOrgServiceProviderConfigV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Serviceproviderconfiguration>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAuthOrgServiceProviderConfigV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['GlobalTenantSecuritySettingsV1Api.getAuthOrgServiceProviderConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['GlobalTenantSecuritySettingsApi.getAuthOrgServiceProviderConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -963,83 +963,83 @@ export const GlobalTenantSecuritySettingsV1ApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAuthOrgSessionConfigV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SessionconfigurationV1>> {
+        async getAuthOrgSessionConfigV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sessionconfiguration>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAuthOrgSessionConfigV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['GlobalTenantSecuritySettingsV1Api.getAuthOrgSessionConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['GlobalTenantSecuritySettingsApi.getAuthOrgSessionConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API updates an existing lockout configuration for an org using PATCH 
          * @summary Update auth org lockout configuration
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of auth org lockout configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Lockout Config conforms to certain logical guidelines, which are:   &#x60;1. maximumAttempts &gt;&#x3D; 1 &amp;&amp; maximumAttempts &lt;&#x3D; 15   2. lockoutDuration &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60   3. lockoutWindow &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60&#x60;
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of auth org lockout configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Lockout Config conforms to certain logical guidelines, which are:   &#x60;1. maximumAttempts &gt;&#x3D; 1 &amp;&amp; maximumAttempts &lt;&#x3D; 15   2. lockoutDuration &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60   3. lockoutWindow &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60&#x60;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchAuthOrgLockoutConfigV1(jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LockoutconfigurationV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchAuthOrgLockoutConfigV1(jsonpatchoperationV1, axiosOptions);
+        async patchAuthOrgLockoutConfigV1(jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Lockoutconfiguration>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchAuthOrgLockoutConfigV1(jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['GlobalTenantSecuritySettingsV1Api.patchAuthOrgLockoutConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['GlobalTenantSecuritySettingsApi.patchAuthOrgLockoutConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API updates an existing network configuration for an org using PATCH  Requires security scope of:  \'sp:auth-org:manage\'
          * @summary Update security network configuration.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of auth org network configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Network Config conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of auth org network configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Network Config conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchAuthOrgNetworkConfigV1(jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NetworkconfigurationV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchAuthOrgNetworkConfigV1(jsonpatchoperationV1, axiosOptions);
+        async patchAuthOrgNetworkConfigV1(jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Networkconfiguration>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchAuthOrgNetworkConfigV1(jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['GlobalTenantSecuritySettingsV1Api.patchAuthOrgNetworkConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['GlobalTenantSecuritySettingsApi.patchAuthOrgNetworkConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API updates an existing service provider configuration for an org using PATCH.
          * @summary Update service provider configuration
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of auth org service provider configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Note: /federationProtocolDetails/0 is IdpDetails /federationProtocolDetails/1 is SpDetails Ensures that the patched ServiceProviderConfig conforms to certain logical guidelines, which are:   1. Do not add or remove any elements in the federation protocol details in the service provider configuration.   2. Do not modify, add, or delete the service provider details element in the federation protocol details.   3. If this is the first time the patched ServiceProviderConfig enables Remote IDP sign-in, it must also include IDPDetails.   4. If the patch enables Remote IDP sign in, the entityID in the IDPDetails cannot be null. IDPDetails must include an entityID.   5. Any JIT configuration update must be valid.  Just in time configuration update must be valid when enabled. This includes:   - A Source ID   - Source attribute mappings   - Source attribute maps have all the required key values (firstName, lastName, email)
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of auth org service provider configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Note: /federationProtocolDetails/0 is IdpDetails /federationProtocolDetails/1 is SpDetails Ensures that the patched ServiceProviderConfig conforms to certain logical guidelines, which are:   1. Do not add or remove any elements in the federation protocol details in the service provider configuration.   2. Do not modify, add, or delete the service provider details element in the federation protocol details.   3. If this is the first time the patched ServiceProviderConfig enables Remote IDP sign-in, it must also include IDPDetails.   4. If the patch enables Remote IDP sign in, the entityID in the IDPDetails cannot be null. IDPDetails must include an entityID.   5. Any JIT configuration update must be valid.  Just in time configuration update must be valid when enabled. This includes:   - A Source ID   - Source attribute mappings   - Source attribute maps have all the required key values (firstName, lastName, email)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchAuthOrgServiceProviderConfigV1(jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceproviderconfigurationV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchAuthOrgServiceProviderConfigV1(jsonpatchoperationV1, axiosOptions);
+        async patchAuthOrgServiceProviderConfigV1(jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Serviceproviderconfiguration>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchAuthOrgServiceProviderConfigV1(jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['GlobalTenantSecuritySettingsV1Api.patchAuthOrgServiceProviderConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['GlobalTenantSecuritySettingsApi.patchAuthOrgServiceProviderConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API updates an existing session configuration for an org using PATCH.
          * @summary Update auth org session configuration
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of auth org session configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Ensures that the patched Session Config conforms to certain logical guidelines, which are:   &#x60;1. maxSessionTime &gt;&#x3D; 1 &amp;&amp; maxSessionTime &lt;&#x3D; 10080 (1 week)   2. maxIdleTime &gt;&#x3D; 1 &amp;&amp; maxIdleTime &lt;&#x3D; 1440 (1 day)   3. maxSessionTime must have a greater duration than maxIdleTime.&#x60; 
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of auth org session configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Ensures that the patched Session Config conforms to certain logical guidelines, which are:   &#x60;1. maxSessionTime &gt;&#x3D; 1 &amp;&amp; maxSessionTime &lt;&#x3D; 10080 (1 week)   2. maxIdleTime &gt;&#x3D; 1 &amp;&amp; maxIdleTime &lt;&#x3D; 1440 (1 day)   3. maxSessionTime must have a greater duration than maxIdleTime.&#x60; 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchAuthOrgSessionConfigV1(jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SessionconfigurationV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchAuthOrgSessionConfigV1(jsonpatchoperationV1, axiosOptions);
+        async patchAuthOrgSessionConfigV1(jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sessionconfiguration>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchAuthOrgSessionConfigV1(jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['GlobalTenantSecuritySettingsV1Api.patchAuthOrgSessionConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['GlobalTenantSecuritySettingsApi.patchAuthOrgSessionConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * GlobalTenantSecuritySettingsV1Api - factory interface
+ * GlobalTenantSecuritySettingsApi - factory interface
  * @export
  */
-export const GlobalTenantSecuritySettingsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = GlobalTenantSecuritySettingsV1ApiFp(configuration)
+export const GlobalTenantSecuritySettingsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = GlobalTenantSecuritySettingsApiFp(configuration)
     return {
         /**
          * This API returns the details of an org\'s network auth configuration. Requires security scope of: \'sp:auth-org:manage\'
          * @summary Create security network configuration.
-         * @param {GlobalTenantSecuritySettingsV1ApiCreateAuthOrgNetworkConfigV1Request} requestParameters Request parameters.
+         * @param {GlobalTenantSecuritySettingsApiCreateAuthOrgNetworkConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createAuthOrgNetworkConfigV1(requestParameters: GlobalTenantSecuritySettingsV1ApiCreateAuthOrgNetworkConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NetworkconfigurationV1> {
-            return localVarFp.createAuthOrgNetworkConfigV1(requestParameters.networkconfigurationV1, axiosOptions).then((request) => request(axios, basePath));
+        createAuthOrgNetworkConfigV1(requestParameters: GlobalTenantSecuritySettingsApiCreateAuthOrgNetworkConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Networkconfiguration> {
+            return localVarFp.createAuthOrgNetworkConfigV1(requestParameters.networkconfiguration, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the details of an org\'s lockout auth configuration.
@@ -1047,7 +1047,7 @@ export const GlobalTenantSecuritySettingsV1ApiFactory = function (configuration?
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthOrgLockoutConfigV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<LockoutconfigurationV1> {
+        getAuthOrgLockoutConfigV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Lockoutconfiguration> {
             return localVarFp.getAuthOrgLockoutConfigV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1056,7 +1056,7 @@ export const GlobalTenantSecuritySettingsV1ApiFactory = function (configuration?
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthOrgNetworkConfigV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NetworkconfigurationV1> {
+        getAuthOrgNetworkConfigV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Networkconfiguration> {
             return localVarFp.getAuthOrgNetworkConfigV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1065,7 +1065,7 @@ export const GlobalTenantSecuritySettingsV1ApiFactory = function (configuration?
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthOrgServiceProviderConfigV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ServiceproviderconfigurationV1> {
+        getAuthOrgServiceProviderConfigV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Serviceproviderconfiguration> {
             return localVarFp.getAuthOrgServiceProviderConfigV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1074,139 +1074,139 @@ export const GlobalTenantSecuritySettingsV1ApiFactory = function (configuration?
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthOrgSessionConfigV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SessionconfigurationV1> {
+        getAuthOrgSessionConfigV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sessionconfiguration> {
             return localVarFp.getAuthOrgSessionConfigV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API updates an existing lockout configuration for an org using PATCH 
          * @summary Update auth org lockout configuration
-         * @param {GlobalTenantSecuritySettingsV1ApiPatchAuthOrgLockoutConfigV1Request} requestParameters Request parameters.
+         * @param {GlobalTenantSecuritySettingsApiPatchAuthOrgLockoutConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchAuthOrgLockoutConfigV1(requestParameters: GlobalTenantSecuritySettingsV1ApiPatchAuthOrgLockoutConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<LockoutconfigurationV1> {
-            return localVarFp.patchAuthOrgLockoutConfigV1(requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        patchAuthOrgLockoutConfigV1(requestParameters: GlobalTenantSecuritySettingsApiPatchAuthOrgLockoutConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Lockoutconfiguration> {
+            return localVarFp.patchAuthOrgLockoutConfigV1(requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API updates an existing network configuration for an org using PATCH  Requires security scope of:  \'sp:auth-org:manage\'
          * @summary Update security network configuration.
-         * @param {GlobalTenantSecuritySettingsV1ApiPatchAuthOrgNetworkConfigV1Request} requestParameters Request parameters.
+         * @param {GlobalTenantSecuritySettingsApiPatchAuthOrgNetworkConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchAuthOrgNetworkConfigV1(requestParameters: GlobalTenantSecuritySettingsV1ApiPatchAuthOrgNetworkConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NetworkconfigurationV1> {
-            return localVarFp.patchAuthOrgNetworkConfigV1(requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        patchAuthOrgNetworkConfigV1(requestParameters: GlobalTenantSecuritySettingsApiPatchAuthOrgNetworkConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Networkconfiguration> {
+            return localVarFp.patchAuthOrgNetworkConfigV1(requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API updates an existing service provider configuration for an org using PATCH.
          * @summary Update service provider configuration
-         * @param {GlobalTenantSecuritySettingsV1ApiPatchAuthOrgServiceProviderConfigV1Request} requestParameters Request parameters.
+         * @param {GlobalTenantSecuritySettingsApiPatchAuthOrgServiceProviderConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchAuthOrgServiceProviderConfigV1(requestParameters: GlobalTenantSecuritySettingsV1ApiPatchAuthOrgServiceProviderConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ServiceproviderconfigurationV1> {
-            return localVarFp.patchAuthOrgServiceProviderConfigV1(requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        patchAuthOrgServiceProviderConfigV1(requestParameters: GlobalTenantSecuritySettingsApiPatchAuthOrgServiceProviderConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Serviceproviderconfiguration> {
+            return localVarFp.patchAuthOrgServiceProviderConfigV1(requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API updates an existing session configuration for an org using PATCH.
          * @summary Update auth org session configuration
-         * @param {GlobalTenantSecuritySettingsV1ApiPatchAuthOrgSessionConfigV1Request} requestParameters Request parameters.
+         * @param {GlobalTenantSecuritySettingsApiPatchAuthOrgSessionConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchAuthOrgSessionConfigV1(requestParameters: GlobalTenantSecuritySettingsV1ApiPatchAuthOrgSessionConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SessionconfigurationV1> {
-            return localVarFp.patchAuthOrgSessionConfigV1(requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        patchAuthOrgSessionConfigV1(requestParameters: GlobalTenantSecuritySettingsApiPatchAuthOrgSessionConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sessionconfiguration> {
+            return localVarFp.patchAuthOrgSessionConfigV1(requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createAuthOrgNetworkConfigV1 operation in GlobalTenantSecuritySettingsV1Api.
+ * Request parameters for createAuthOrgNetworkConfigV1 operation in GlobalTenantSecuritySettingsApi.
  * @export
- * @interface GlobalTenantSecuritySettingsV1ApiCreateAuthOrgNetworkConfigV1Request
+ * @interface GlobalTenantSecuritySettingsApiCreateAuthOrgNetworkConfigV1Request
  */
-export interface GlobalTenantSecuritySettingsV1ApiCreateAuthOrgNetworkConfigV1Request {
+export interface GlobalTenantSecuritySettingsApiCreateAuthOrgNetworkConfigV1Request {
     /**
      * Network configuration creation request body.   The following constraints ensure the request body conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
-     * @type {NetworkconfigurationV1}
-     * @memberof GlobalTenantSecuritySettingsV1ApiCreateAuthOrgNetworkConfigV1
+     * @type {Networkconfiguration}
+     * @memberof GlobalTenantSecuritySettingsApiCreateAuthOrgNetworkConfigV1
      */
-    readonly networkconfigurationV1: NetworkconfigurationV1
+    readonly networkconfiguration: Networkconfiguration
 }
 
 /**
- * Request parameters for patchAuthOrgLockoutConfigV1 operation in GlobalTenantSecuritySettingsV1Api.
+ * Request parameters for patchAuthOrgLockoutConfigV1 operation in GlobalTenantSecuritySettingsApi.
  * @export
- * @interface GlobalTenantSecuritySettingsV1ApiPatchAuthOrgLockoutConfigV1Request
+ * @interface GlobalTenantSecuritySettingsApiPatchAuthOrgLockoutConfigV1Request
  */
-export interface GlobalTenantSecuritySettingsV1ApiPatchAuthOrgLockoutConfigV1Request {
+export interface GlobalTenantSecuritySettingsApiPatchAuthOrgLockoutConfigV1Request {
     /**
      * A list of auth org lockout configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Lockout Config conforms to certain logical guidelines, which are:   &#x60;1. maximumAttempts &gt;&#x3D; 1 &amp;&amp; maximumAttempts &lt;&#x3D; 15   2. lockoutDuration &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60   3. lockoutWindow &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60&#x60;
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof GlobalTenantSecuritySettingsV1ApiPatchAuthOrgLockoutConfigV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof GlobalTenantSecuritySettingsApiPatchAuthOrgLockoutConfigV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * Request parameters for patchAuthOrgNetworkConfigV1 operation in GlobalTenantSecuritySettingsV1Api.
+ * Request parameters for patchAuthOrgNetworkConfigV1 operation in GlobalTenantSecuritySettingsApi.
  * @export
- * @interface GlobalTenantSecuritySettingsV1ApiPatchAuthOrgNetworkConfigV1Request
+ * @interface GlobalTenantSecuritySettingsApiPatchAuthOrgNetworkConfigV1Request
  */
-export interface GlobalTenantSecuritySettingsV1ApiPatchAuthOrgNetworkConfigV1Request {
+export interface GlobalTenantSecuritySettingsApiPatchAuthOrgNetworkConfigV1Request {
     /**
      * A list of auth org network configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Network Config conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof GlobalTenantSecuritySettingsV1ApiPatchAuthOrgNetworkConfigV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof GlobalTenantSecuritySettingsApiPatchAuthOrgNetworkConfigV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * Request parameters for patchAuthOrgServiceProviderConfigV1 operation in GlobalTenantSecuritySettingsV1Api.
+ * Request parameters for patchAuthOrgServiceProviderConfigV1 operation in GlobalTenantSecuritySettingsApi.
  * @export
- * @interface GlobalTenantSecuritySettingsV1ApiPatchAuthOrgServiceProviderConfigV1Request
+ * @interface GlobalTenantSecuritySettingsApiPatchAuthOrgServiceProviderConfigV1Request
  */
-export interface GlobalTenantSecuritySettingsV1ApiPatchAuthOrgServiceProviderConfigV1Request {
+export interface GlobalTenantSecuritySettingsApiPatchAuthOrgServiceProviderConfigV1Request {
     /**
      * A list of auth org service provider configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Note: /federationProtocolDetails/0 is IdpDetails /federationProtocolDetails/1 is SpDetails Ensures that the patched ServiceProviderConfig conforms to certain logical guidelines, which are:   1. Do not add or remove any elements in the federation protocol details in the service provider configuration.   2. Do not modify, add, or delete the service provider details element in the federation protocol details.   3. If this is the first time the patched ServiceProviderConfig enables Remote IDP sign-in, it must also include IDPDetails.   4. If the patch enables Remote IDP sign in, the entityID in the IDPDetails cannot be null. IDPDetails must include an entityID.   5. Any JIT configuration update must be valid.  Just in time configuration update must be valid when enabled. This includes:   - A Source ID   - Source attribute mappings   - Source attribute maps have all the required key values (firstName, lastName, email)
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof GlobalTenantSecuritySettingsV1ApiPatchAuthOrgServiceProviderConfigV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof GlobalTenantSecuritySettingsApiPatchAuthOrgServiceProviderConfigV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * Request parameters for patchAuthOrgSessionConfigV1 operation in GlobalTenantSecuritySettingsV1Api.
+ * Request parameters for patchAuthOrgSessionConfigV1 operation in GlobalTenantSecuritySettingsApi.
  * @export
- * @interface GlobalTenantSecuritySettingsV1ApiPatchAuthOrgSessionConfigV1Request
+ * @interface GlobalTenantSecuritySettingsApiPatchAuthOrgSessionConfigV1Request
  */
-export interface GlobalTenantSecuritySettingsV1ApiPatchAuthOrgSessionConfigV1Request {
+export interface GlobalTenantSecuritySettingsApiPatchAuthOrgSessionConfigV1Request {
     /**
      * A list of auth org session configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Ensures that the patched Session Config conforms to certain logical guidelines, which are:   &#x60;1. maxSessionTime &gt;&#x3D; 1 &amp;&amp; maxSessionTime &lt;&#x3D; 10080 (1 week)   2. maxIdleTime &gt;&#x3D; 1 &amp;&amp; maxIdleTime &lt;&#x3D; 1440 (1 day)   3. maxSessionTime must have a greater duration than maxIdleTime.&#x60; 
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof GlobalTenantSecuritySettingsV1ApiPatchAuthOrgSessionConfigV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof GlobalTenantSecuritySettingsApiPatchAuthOrgSessionConfigV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * GlobalTenantSecuritySettingsV1Api - object-oriented interface
+ * GlobalTenantSecuritySettingsApi - object-oriented interface
  * @export
- * @class GlobalTenantSecuritySettingsV1Api
+ * @class GlobalTenantSecuritySettingsApi
  * @extends {BaseAPI}
  */
-export class GlobalTenantSecuritySettingsV1Api extends BaseAPI {
+export class GlobalTenantSecuritySettingsApi extends BaseAPI {
     /**
      * This API returns the details of an org\'s network auth configuration. Requires security scope of: \'sp:auth-org:manage\'
      * @summary Create security network configuration.
-     * @param {GlobalTenantSecuritySettingsV1ApiCreateAuthOrgNetworkConfigV1Request} requestParameters Request parameters.
+     * @param {GlobalTenantSecuritySettingsApiCreateAuthOrgNetworkConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof GlobalTenantSecuritySettingsV1Api
+     * @memberof GlobalTenantSecuritySettingsApi
      */
-    public createAuthOrgNetworkConfigV1(requestParameters: GlobalTenantSecuritySettingsV1ApiCreateAuthOrgNetworkConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return GlobalTenantSecuritySettingsV1ApiFp(this.configuration).createAuthOrgNetworkConfigV1(requestParameters.networkconfigurationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createAuthOrgNetworkConfigV1(requestParameters: GlobalTenantSecuritySettingsApiCreateAuthOrgNetworkConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return GlobalTenantSecuritySettingsApiFp(this.configuration).createAuthOrgNetworkConfigV1(requestParameters.networkconfiguration, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1214,10 +1214,10 @@ export class GlobalTenantSecuritySettingsV1Api extends BaseAPI {
      * @summary Get auth org lockout configuration.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof GlobalTenantSecuritySettingsV1Api
+     * @memberof GlobalTenantSecuritySettingsApi
      */
     public getAuthOrgLockoutConfigV1(axiosOptions?: RawAxiosRequestConfig) {
-        return GlobalTenantSecuritySettingsV1ApiFp(this.configuration).getAuthOrgLockoutConfigV1(axiosOptions).then((request) => request(this.axios, this.basePath));
+        return GlobalTenantSecuritySettingsApiFp(this.configuration).getAuthOrgLockoutConfigV1(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1225,10 +1225,10 @@ export class GlobalTenantSecuritySettingsV1Api extends BaseAPI {
      * @summary Get security network configuration.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof GlobalTenantSecuritySettingsV1Api
+     * @memberof GlobalTenantSecuritySettingsApi
      */
     public getAuthOrgNetworkConfigV1(axiosOptions?: RawAxiosRequestConfig) {
-        return GlobalTenantSecuritySettingsV1ApiFp(this.configuration).getAuthOrgNetworkConfigV1(axiosOptions).then((request) => request(this.axios, this.basePath));
+        return GlobalTenantSecuritySettingsApiFp(this.configuration).getAuthOrgNetworkConfigV1(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1236,10 +1236,10 @@ export class GlobalTenantSecuritySettingsV1Api extends BaseAPI {
      * @summary Get service provider configuration.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof GlobalTenantSecuritySettingsV1Api
+     * @memberof GlobalTenantSecuritySettingsApi
      */
     public getAuthOrgServiceProviderConfigV1(axiosOptions?: RawAxiosRequestConfig) {
-        return GlobalTenantSecuritySettingsV1ApiFp(this.configuration).getAuthOrgServiceProviderConfigV1(axiosOptions).then((request) => request(this.axios, this.basePath));
+        return GlobalTenantSecuritySettingsApiFp(this.configuration).getAuthOrgServiceProviderConfigV1(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1247,58 +1247,58 @@ export class GlobalTenantSecuritySettingsV1Api extends BaseAPI {
      * @summary Get auth org session configuration.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof GlobalTenantSecuritySettingsV1Api
+     * @memberof GlobalTenantSecuritySettingsApi
      */
     public getAuthOrgSessionConfigV1(axiosOptions?: RawAxiosRequestConfig) {
-        return GlobalTenantSecuritySettingsV1ApiFp(this.configuration).getAuthOrgSessionConfigV1(axiosOptions).then((request) => request(this.axios, this.basePath));
+        return GlobalTenantSecuritySettingsApiFp(this.configuration).getAuthOrgSessionConfigV1(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API updates an existing lockout configuration for an org using PATCH 
      * @summary Update auth org lockout configuration
-     * @param {GlobalTenantSecuritySettingsV1ApiPatchAuthOrgLockoutConfigV1Request} requestParameters Request parameters.
+     * @param {GlobalTenantSecuritySettingsApiPatchAuthOrgLockoutConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof GlobalTenantSecuritySettingsV1Api
+     * @memberof GlobalTenantSecuritySettingsApi
      */
-    public patchAuthOrgLockoutConfigV1(requestParameters: GlobalTenantSecuritySettingsV1ApiPatchAuthOrgLockoutConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return GlobalTenantSecuritySettingsV1ApiFp(this.configuration).patchAuthOrgLockoutConfigV1(requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchAuthOrgLockoutConfigV1(requestParameters: GlobalTenantSecuritySettingsApiPatchAuthOrgLockoutConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return GlobalTenantSecuritySettingsApiFp(this.configuration).patchAuthOrgLockoutConfigV1(requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API updates an existing network configuration for an org using PATCH  Requires security scope of:  \'sp:auth-org:manage\'
      * @summary Update security network configuration.
-     * @param {GlobalTenantSecuritySettingsV1ApiPatchAuthOrgNetworkConfigV1Request} requestParameters Request parameters.
+     * @param {GlobalTenantSecuritySettingsApiPatchAuthOrgNetworkConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof GlobalTenantSecuritySettingsV1Api
+     * @memberof GlobalTenantSecuritySettingsApi
      */
-    public patchAuthOrgNetworkConfigV1(requestParameters: GlobalTenantSecuritySettingsV1ApiPatchAuthOrgNetworkConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return GlobalTenantSecuritySettingsV1ApiFp(this.configuration).patchAuthOrgNetworkConfigV1(requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchAuthOrgNetworkConfigV1(requestParameters: GlobalTenantSecuritySettingsApiPatchAuthOrgNetworkConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return GlobalTenantSecuritySettingsApiFp(this.configuration).patchAuthOrgNetworkConfigV1(requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API updates an existing service provider configuration for an org using PATCH.
      * @summary Update service provider configuration
-     * @param {GlobalTenantSecuritySettingsV1ApiPatchAuthOrgServiceProviderConfigV1Request} requestParameters Request parameters.
+     * @param {GlobalTenantSecuritySettingsApiPatchAuthOrgServiceProviderConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof GlobalTenantSecuritySettingsV1Api
+     * @memberof GlobalTenantSecuritySettingsApi
      */
-    public patchAuthOrgServiceProviderConfigV1(requestParameters: GlobalTenantSecuritySettingsV1ApiPatchAuthOrgServiceProviderConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return GlobalTenantSecuritySettingsV1ApiFp(this.configuration).patchAuthOrgServiceProviderConfigV1(requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchAuthOrgServiceProviderConfigV1(requestParameters: GlobalTenantSecuritySettingsApiPatchAuthOrgServiceProviderConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return GlobalTenantSecuritySettingsApiFp(this.configuration).patchAuthOrgServiceProviderConfigV1(requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API updates an existing session configuration for an org using PATCH.
      * @summary Update auth org session configuration
-     * @param {GlobalTenantSecuritySettingsV1ApiPatchAuthOrgSessionConfigV1Request} requestParameters Request parameters.
+     * @param {GlobalTenantSecuritySettingsApiPatchAuthOrgSessionConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof GlobalTenantSecuritySettingsV1Api
+     * @memberof GlobalTenantSecuritySettingsApi
      */
-    public patchAuthOrgSessionConfigV1(requestParameters: GlobalTenantSecuritySettingsV1ApiPatchAuthOrgSessionConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return GlobalTenantSecuritySettingsV1ApiFp(this.configuration).patchAuthOrgSessionConfigV1(requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchAuthOrgSessionConfigV1(requestParameters: GlobalTenantSecuritySettingsApiPatchAuthOrgSessionConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return GlobalTenantSecuritySettingsApiFp(this.configuration).patchAuthOrgSessionConfigV1(requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

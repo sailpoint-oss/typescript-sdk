@@ -1,21 +1,21 @@
 ---
-id: v1-sourceclusterdto-v1
-title: SourceclusterdtoV1
-pagination_label: SourceclusterdtoV1
-sidebar_label: SourceclusterdtoV1
+id: v1-sourceclusterdto
+title: Sourceclusterdto
+pagination_label: Sourceclusterdto
+sidebar_label: Sourceclusterdto
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SourceclusterdtoV1', 'v1SourceclusterdtoV1']
-slug: /tools/sdk/typescript/sim_integrations/models/sourceclusterdto-v1
-tags: ['SDK', 'Software Development Kit', 'SourceclusterdtoV1', 'v1SourceclusterdtoV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Sourceclusterdto', 'v1Sourceclusterdto']
+slug: /tools/sdk/typescript/sim_integrations/models/sourceclusterdto
+tags: ['SDK', 'Software Development Kit', 'Sourceclusterdto', 'v1Sourceclusterdto']
 ---
 
-# SourceclusterdtoV1
+# Sourceclusterdto
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | Source cluster DTO type. | [default to undefined]
-**id** | **(optional)** **string** | Source cluster ID. | [default to undefined]
-**name** | **(optional)** **string** | Source cluster display name. | [default to undefined]
+**type** | **(optional)** `string` | Source cluster DTO type. | [default to undefined]
+**id** | **(optional)** `string` | Source cluster ID. | [default to undefined]
+**name** | **(optional)** `string` | Source cluster display name. | [default to undefined]
 

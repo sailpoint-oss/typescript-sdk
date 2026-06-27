@@ -4,14 +4,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/saved_search/methods/saved-search#create-saved-search-v1
       source: |
-        import { SavedSearchV1Api } from 'sailpoint-api-client';
+        import { SavedSearchApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SavedSearchV1Api(configuration);
-        const createSavedSearchV1RequestV1: CreateSavedSearchV1RequestV1 = ; // CreateSavedSearchV1RequestV1 | The saved search to persist.
-        const result = await apiInstance.createSavedSearchV1(createSavedSearchV1RequestV1);
+        const configuration = new Configuration();
+        const apiInstance = new SavedSearchApi(configuration);
+        const createSavedSearchV1Request: CreateSavedSearchV1Request = ; // CreateSavedSearchV1Request | The saved search to persist.
+        const result = await apiInstance.createSavedSearchV1({ createSavedSearchV1Request: createSavedSearchV1Request });
         console.log(result);
 - path: /saved-searches/v1/{id}
   method: DELETE
@@ -19,14 +18,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/saved_search/methods/saved-search#delete-saved-search-v1
       source: |
-        import { SavedSearchV1Api } from 'sailpoint-api-client';
+        import { SavedSearchApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SavedSearchV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SavedSearchApi(configuration);
         const id: string = '2c91808568c529c60168cca6f90c1313'; // string | ID of the requested document. (default to undefined)
-        const result = await apiInstance.deleteSavedSearchV1(id);
+        const result = await apiInstance.deleteSavedSearchV1({ id: id });
         console.log(result);
 - path: /saved-searches/v1/{id}/execute
   method: POST
@@ -34,15 +32,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/saved_search/methods/saved-search#execute-saved-search-v1
       source: |
-        import { SavedSearchV1Api } from 'sailpoint-api-client';
+        import { SavedSearchApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SavedSearchV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SavedSearchApi(configuration);
         const id: string = '2c91808568c529c60168cca6f90c1313'; // string | ID of the requested document. (default to undefined)
-        const searchargumentsV1: SearchargumentsV1 = ; // SearchargumentsV1 | When saved search execution is triggered by a scheduled search, *scheduleId* will specify the ID of the triggering scheduled search.  If *scheduleId* is not specified (when execution is triggered by a UI test), the *owner* and *recipients* arguments must be provided. 
-        const result = await apiInstance.executeSavedSearchV1(id, searchargumentsV1);
+        const searcharguments: Searcharguments = ; // Searcharguments | When saved search execution is triggered by a scheduled search, *scheduleId* will specify the ID of the triggering scheduled search.  If *scheduleId* is not specified (when execution is triggered by a UI test), the *owner* and *recipients* arguments must be provided. 
+        const result = await apiInstance.executeSavedSearchV1({ id: id, searcharguments: searcharguments });
         console.log(result);
 - path: /saved-searches/v1/{id}
   method: GET
@@ -50,14 +47,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/saved_search/methods/saved-search#get-saved-search-v1
       source: |
-        import { SavedSearchV1Api } from 'sailpoint-api-client';
+        import { SavedSearchApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SavedSearchV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SavedSearchApi(configuration);
         const id: string = '2c91808568c529c60168cca6f90c1313'; // string | ID of the requested document. (default to undefined)
-        const result = await apiInstance.getSavedSearchV1(id);
+        const result = await apiInstance.getSavedSearchV1({ id: id });
         console.log(result);
 - path: /saved-searches/v1
   method: GET
@@ -65,17 +61,16 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/saved_search/methods/saved-search#list-saved-searches-v1
       source: |
-        import { SavedSearchV1Api } from 'sailpoint-api-client';
+        import { SavedSearchApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SavedSearchV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SavedSearchApi(configuration);
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const filters: string = 'owner.id eq "7a724640-0c17-4ce9-a8c3-4a89738459c8"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq* (optional) (default to undefined)
-        const result = await apiInstance.listSavedSearchesV1();
+        const result = await apiInstance.listSavedSearchesV1({  });
         console.log(result);
 - path: /saved-searches/v1/{id}
   method: PUT
@@ -83,13 +78,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/saved_search/methods/saved-search#put-saved-search-v1
       source: |
-        import { SavedSearchV1Api } from 'sailpoint-api-client';
+        import { SavedSearchApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SavedSearchV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SavedSearchApi(configuration);
         const id: string = '2c91808568c529c60168cca6f90c1313'; // string | ID of the requested document. (default to undefined)
-        const savedsearchV1: SavedsearchV1 = ; // SavedsearchV1 | The saved search to persist.
-        const result = await apiInstance.putSavedSearchV1(id, savedsearchV1);
+        const savedsearch: Savedsearch = ; // Savedsearch | The saved search to persist.
+        const result = await apiInstance.putSavedSearchV1({ id: id, savedsearch: savedsearch });
         console.log(result);

@@ -11,8 +11,8 @@ Jsonpatch.md
 Jsonpatchoperation.md
 JsonpatchoperationValue.md
 Localeorigin.md
-ManagedClusterTypesV1Api.md
-ManagedClusterTypesV1ApideveloperSite_code_examples.yaml
+ManagedClusterTypesApi.md
+ManagedClusterTypesApideveloperSite_code_examples.yaml
 Managedclustertype.md
 README.md
 api.ts

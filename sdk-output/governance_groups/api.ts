@@ -26,70 +26,70 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ArrayInnerV1
+ * @interface ArrayInner
  */
-export interface ArrayInnerV1 {
+export interface ArrayInner {
 }
 /**
  * Identity\'s basic details.
  * @export
- * @interface BulkworkgroupmembersrequestInnerV1
+ * @interface BulkworkgroupmembersrequestInner
  */
-export interface BulkworkgroupmembersrequestInnerV1 {
+export interface BulkworkgroupmembersrequestInner {
     /**
      * Identity\'s DTO type.
      * @type {string}
-     * @memberof BulkworkgroupmembersrequestInnerV1
+     * @memberof BulkworkgroupmembersrequestInner
      */
-    'type'?: BulkworkgroupmembersrequestInnerV1TypeV1;
+    'type'?: BulkworkgroupmembersrequestInnerTypeEnum;
     /**
      * Identity ID.
      * @type {string}
-     * @memberof BulkworkgroupmembersrequestInnerV1
+     * @memberof BulkworkgroupmembersrequestInner
      */
     'id'?: string;
     /**
      * Identity\'s display name.
      * @type {string}
-     * @memberof BulkworkgroupmembersrequestInnerV1
+     * @memberof BulkworkgroupmembersrequestInner
      */
     'name'?: string;
 }
 
-export const BulkworkgroupmembersrequestInnerV1TypeV1 = {
+export const BulkworkgroupmembersrequestInnerTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type BulkworkgroupmembersrequestInnerV1TypeV1 = typeof BulkworkgroupmembersrequestInnerV1TypeV1[keyof typeof BulkworkgroupmembersrequestInnerV1TypeV1];
+export type BulkworkgroupmembersrequestInnerTypeEnum = typeof BulkworkgroupmembersrequestInnerTypeEnum[keyof typeof BulkworkgroupmembersrequestInnerTypeEnum];
 
 /**
  * 
  * @export
- * @interface ConnectedobjectV1
+ * @interface Connectedobject
  */
-export interface ConnectedobjectV1 {
+export interface Connectedobject {
     /**
      * 
-     * @type {ConnectedobjecttypeV1}
-     * @memberof ConnectedobjectV1
+     * @type {Connectedobjecttype}
+     * @memberof Connectedobject
      */
-    'type'?: ConnectedobjecttypeV1;
+    'type'?: Connectedobjecttype;
     /**
      * ID of the object to which this reference applies
      * @type {string}
-     * @memberof ConnectedobjectV1
+     * @memberof Connectedobject
      */
     'id'?: string;
     /**
      * Human-readable name of Connected object
      * @type {string}
-     * @memberof ConnectedobjectV1
+     * @memberof Connectedobject
      */
     'name'?: string;
     /**
      * Description of the Connected object.
      * @type {string}
-     * @memberof ConnectedobjectV1
+     * @memberof Connectedobject
      */
     'description'?: string | null;
 }
@@ -99,38 +99,38 @@ export interface ConnectedobjectV1 {
  * @enum {string}
  */
 
-export const ConnectedobjecttypeV1 = {
+export const Connectedobjecttype = {
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE',
     SodPolicy: 'SOD_POLICY',
     Source: 'SOURCE'
 } as const;
 
-export type ConnectedobjecttypeV1 = typeof ConnectedobjecttypeV1[keyof typeof ConnectedobjecttypeV1];
+export type Connectedobjecttype = typeof Connectedobjecttype[keyof typeof Connectedobjecttype];
 
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -139,61 +139,61 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface JsonpatchoperationV1
+ * @interface Jsonpatchoperation
  */
-export interface JsonpatchoperationV1 {
+export interface Jsonpatchoperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
-    'op': JsonpatchoperationV1OpV1;
+    'op': JsonpatchoperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValueV1}
-     * @memberof JsonpatchoperationV1
+     * @type {JsonpatchoperationValue}
+     * @memberof Jsonpatchoperation
      */
-    'value'?: JsonpatchoperationValueV1;
+    'value'?: JsonpatchoperationValue;
 }
 
-export const JsonpatchoperationV1OpV1 = {
+export const JsonpatchoperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -202,76 +202,76 @@ export const JsonpatchoperationV1OpV1 = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationV1OpV1 = typeof JsonpatchoperationV1OpV1[keyof typeof JsonpatchoperationV1OpV1];
+export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
 
 /**
- * @type JsonpatchoperationValueV1
+ * @type JsonpatchoperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number | object | string;
+export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * Identity of workgroup member.
  * @export
- * @interface ListWorkgroupMembersV1200ResponseInnerV1
+ * @interface ListWorkgroupMembersV1200ResponseInner
  */
-export interface ListWorkgroupMembersV1200ResponseInnerV1 {
+export interface ListWorkgroupMembersV1200ResponseInner {
     /**
      * Workgroup member identity DTO type.
      * @type {string}
-     * @memberof ListWorkgroupMembersV1200ResponseInnerV1
+     * @memberof ListWorkgroupMembersV1200ResponseInner
      */
-    'type'?: ListWorkgroupMembersV1200ResponseInnerV1TypeV1;
+    'type'?: ListWorkgroupMembersV1200ResponseInnerTypeEnum;
     /**
      * Workgroup member identity ID.
      * @type {string}
-     * @memberof ListWorkgroupMembersV1200ResponseInnerV1
+     * @memberof ListWorkgroupMembersV1200ResponseInner
      */
     'id'?: string;
     /**
      * Workgroup member identity display name.
      * @type {string}
-     * @memberof ListWorkgroupMembersV1200ResponseInnerV1
+     * @memberof ListWorkgroupMembersV1200ResponseInner
      */
     'name'?: string;
     /**
      * Workgroup member identity email.
      * @type {string}
-     * @memberof ListWorkgroupMembersV1200ResponseInnerV1
+     * @memberof ListWorkgroupMembersV1200ResponseInner
      */
     'email'?: string;
 }
 
-export const ListWorkgroupMembersV1200ResponseInnerV1TypeV1 = {
+export const ListWorkgroupMembersV1200ResponseInnerTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type ListWorkgroupMembersV1200ResponseInnerV1TypeV1 = typeof ListWorkgroupMembersV1200ResponseInnerV1TypeV1[keyof typeof ListWorkgroupMembersV1200ResponseInnerV1TypeV1];
+export type ListWorkgroupMembersV1200ResponseInnerTypeEnum = typeof ListWorkgroupMembersV1200ResponseInnerTypeEnum[keyof typeof ListWorkgroupMembersV1200ResponseInnerTypeEnum];
 
 /**
  * 
  * @export
- * @interface ListWorkgroupsV1401ResponseV1
+ * @interface ListWorkgroupsV1401Response
  */
-export interface ListWorkgroupsV1401ResponseV1 {
+export interface ListWorkgroupsV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListWorkgroupsV1401ResponseV1
+     * @memberof ListWorkgroupsV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ListWorkgroupsV1429ResponseV1
+ * @interface ListWorkgroupsV1429Response
  */
-export interface ListWorkgroupsV1429ResponseV1 {
+export interface ListWorkgroupsV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListWorkgroupsV1429ResponseV1
+     * @memberof ListWorkgroupsV1429Response
      */
     'message'?: any;
 }
@@ -281,309 +281,309 @@ export interface ListWorkgroupsV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * Owner\'s identity.
  * @export
- * @interface OwnerdtoV1
+ * @interface Ownerdto
  */
-export interface OwnerdtoV1 {
+export interface Ownerdto {
     /**
      * Owner\'s DTO type.
      * @type {string}
-     * @memberof OwnerdtoV1
+     * @memberof Ownerdto
      */
-    'type'?: OwnerdtoV1TypeV1;
+    'type'?: OwnerdtoTypeEnum;
     /**
      * Owner\'s identity ID.
      * @type {string}
-     * @memberof OwnerdtoV1
+     * @memberof Ownerdto
      */
     'id'?: string;
     /**
      * Owner\'s name.
      * @type {string}
-     * @memberof OwnerdtoV1
+     * @memberof Ownerdto
      */
     'name'?: string;
 }
 
-export const OwnerdtoV1TypeV1 = {
+export const OwnerdtoTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type OwnerdtoV1TypeV1 = typeof OwnerdtoV1TypeV1[keyof typeof OwnerdtoV1TypeV1];
+export type OwnerdtoTypeEnum = typeof OwnerdtoTypeEnum[keyof typeof OwnerdtoTypeEnum];
 
 /**
  * 
  * @export
- * @interface WorkgroupbulkdeleterequestV1
+ * @interface Workgroupbulkdeleterequest
  */
-export interface WorkgroupbulkdeleterequestV1 {
+export interface Workgroupbulkdeleterequest {
     /**
      * List of IDs of Governance Groups to be deleted.
      * @type {Array<string>}
-     * @memberof WorkgroupbulkdeleterequestV1
+     * @memberof Workgroupbulkdeleterequest
      */
     'ids'?: Array<string>;
 }
 /**
  * 
  * @export
- * @interface WorkgroupconnectiondtoObjectV1
+ * @interface Workgroupconnectiondto
  */
-export interface WorkgroupconnectiondtoObjectV1 {
+export interface Workgroupconnectiondto {
     /**
      * 
-     * @type {ConnectedobjecttypeV1 & object}
-     * @memberof WorkgroupconnectiondtoObjectV1
+     * @type {WorkgroupconnectiondtoObject}
+     * @memberof Workgroupconnectiondto
      */
-    'type'?: ConnectedobjecttypeV1 & object;
+    'object'?: WorkgroupconnectiondtoObject;
+    /**
+     * Connection Type.
+     * @type {string}
+     * @memberof Workgroupconnectiondto
+     */
+    'connectionType'?: WorkgroupconnectiondtoConnectionTypeEnum;
+}
+
+export const WorkgroupconnectiondtoConnectionTypeEnum = {
+    AccessRequestReviewer: 'AccessRequestReviewer',
+    Owner: 'Owner',
+    ManagementWorkgroup: 'ManagementWorkgroup'
+} as const;
+
+export type WorkgroupconnectiondtoConnectionTypeEnum = typeof WorkgroupconnectiondtoConnectionTypeEnum[keyof typeof WorkgroupconnectiondtoConnectionTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface WorkgroupconnectiondtoObject
+ */
+export interface WorkgroupconnectiondtoObject {
+    /**
+     * 
+     * @type {Connectedobjecttype & object}
+     * @memberof WorkgroupconnectiondtoObject
+     */
+    'type'?: Connectedobjecttype & object;
     /**
      * ID of the object to which this reference applies
      * @type {string}
-     * @memberof WorkgroupconnectiondtoObjectV1
+     * @memberof WorkgroupconnectiondtoObject
      */
     'id'?: string;
     /**
      * Human-readable name of Connected object
      * @type {string}
-     * @memberof WorkgroupconnectiondtoObjectV1
+     * @memberof WorkgroupconnectiondtoObject
      */
     'name'?: string;
     /**
      * Description of the Connected object.
      * @type {string}
-     * @memberof WorkgroupconnectiondtoObjectV1
+     * @memberof WorkgroupconnectiondtoObject
      */
     'description'?: string | null;
 }
 /**
  * 
  * @export
- * @interface WorkgroupconnectiondtoV1
+ * @interface Workgroupdeleteitem
  */
-export interface WorkgroupconnectiondtoV1 {
-    /**
-     * 
-     * @type {WorkgroupconnectiondtoObjectV1}
-     * @memberof WorkgroupconnectiondtoV1
-     */
-    'object'?: WorkgroupconnectiondtoObjectV1;
-    /**
-     * Connection Type.
-     * @type {string}
-     * @memberof WorkgroupconnectiondtoV1
-     */
-    'connectionType'?: WorkgroupconnectiondtoV1ConnectionTypeV1;
-}
-
-export const WorkgroupconnectiondtoV1ConnectionTypeV1 = {
-    AccessRequestReviewer: 'AccessRequestReviewer',
-    Owner: 'Owner',
-    ManagementWorkgroup: 'ManagementWorkgroup'
-} as const;
-
-export type WorkgroupconnectiondtoV1ConnectionTypeV1 = typeof WorkgroupconnectiondtoV1ConnectionTypeV1[keyof typeof WorkgroupconnectiondtoV1ConnectionTypeV1];
-
-/**
- * 
- * @export
- * @interface WorkgroupdeleteitemV1
- */
-export interface WorkgroupdeleteitemV1 {
+export interface Workgroupdeleteitem {
     /**
      * Id of the Governance Group.
      * @type {string}
-     * @memberof WorkgroupdeleteitemV1
+     * @memberof Workgroupdeleteitem
      */
     'id': string;
     /**
      *  The HTTP response status code returned for an individual Governance Group that is requested for deletion during a bulk delete operation.  > 204   -  Governance Group deleted successfully.  > 409   - Governance Group is in use,hence can not be deleted.  > 404   - Governance Group not found. 
      * @type {number}
-     * @memberof WorkgroupdeleteitemV1
+     * @memberof Workgroupdeleteitem
      */
     'status': number;
     /**
      * Human readable status description and containing additional context information about success or failures etc. 
      * @type {string}
-     * @memberof WorkgroupdeleteitemV1
+     * @memberof Workgroupdeleteitem
      */
     'description'?: string;
 }
 /**
  * 
  * @export
- * @interface WorkgroupdtoOwnerV1
+ * @interface Workgroupdto
  */
-export interface WorkgroupdtoOwnerV1 {
-    /**
-     * Owner\'s DTO type.
-     * @type {string}
-     * @memberof WorkgroupdtoOwnerV1
-     */
-    'type'?: WorkgroupdtoOwnerV1TypeV1;
-    /**
-     * Owner\'s identity ID.
-     * @type {string}
-     * @memberof WorkgroupdtoOwnerV1
-     */
-    'id'?: string;
-    /**
-     * Owner\'s name.
-     * @type {string}
-     * @memberof WorkgroupdtoOwnerV1
-     */
-    'name'?: string;
-    /**
-     * The display name of the identity
-     * @type {string}
-     * @memberof WorkgroupdtoOwnerV1
-     */
-    'displayName'?: string;
-    /**
-     * The primary email address of the identity
-     * @type {string}
-     * @memberof WorkgroupdtoOwnerV1
-     */
-    'emailAddress'?: string;
-}
-
-export const WorkgroupdtoOwnerV1TypeV1 = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type WorkgroupdtoOwnerV1TypeV1 = typeof WorkgroupdtoOwnerV1TypeV1[keyof typeof WorkgroupdtoOwnerV1TypeV1];
-
-/**
- * 
- * @export
- * @interface WorkgroupdtoV1
- */
-export interface WorkgroupdtoV1 {
+export interface Workgroupdto {
     /**
      * 
-     * @type {WorkgroupdtoOwnerV1}
-     * @memberof WorkgroupdtoV1
+     * @type {WorkgroupdtoOwner}
+     * @memberof Workgroupdto
      */
-    'owner'?: WorkgroupdtoOwnerV1;
+    'owner'?: WorkgroupdtoOwner;
     /**
      * Governance group ID.
      * @type {string}
-     * @memberof WorkgroupdtoV1
+     * @memberof Workgroupdto
      */
     'id'?: string;
     /**
      * Governance group name.
      * @type {string}
-     * @memberof WorkgroupdtoV1
+     * @memberof Workgroupdto
      */
     'name'?: string;
     /**
      * Governance group description.
      * @type {string}
-     * @memberof WorkgroupdtoV1
+     * @memberof Workgroupdto
      */
     'description'?: string;
     /**
      * Number of members in the governance group.
      * @type {number}
-     * @memberof WorkgroupdtoV1
+     * @memberof Workgroupdto
      */
     'memberCount'?: number;
     /**
      * Number of connections in the governance group.
      * @type {number}
-     * @memberof WorkgroupdtoV1
+     * @memberof Workgroupdto
      */
     'connectionCount'?: number;
     /**
      * 
      * @type {string}
-     * @memberof WorkgroupdtoV1
+     * @memberof Workgroupdto
      */
     'created'?: string;
     /**
      * 
      * @type {string}
-     * @memberof WorkgroupdtoV1
+     * @memberof Workgroupdto
      */
     'modified'?: string;
 }
 /**
  * 
  * @export
- * @interface WorkgroupmemberadditemV1
+ * @interface WorkgroupdtoOwner
  */
-export interface WorkgroupmemberadditemV1 {
+export interface WorkgroupdtoOwner {
+    /**
+     * Owner\'s DTO type.
+     * @type {string}
+     * @memberof WorkgroupdtoOwner
+     */
+    'type'?: WorkgroupdtoOwnerTypeEnum;
+    /**
+     * Owner\'s identity ID.
+     * @type {string}
+     * @memberof WorkgroupdtoOwner
+     */
+    'id'?: string;
+    /**
+     * Owner\'s name.
+     * @type {string}
+     * @memberof WorkgroupdtoOwner
+     */
+    'name'?: string;
+    /**
+     * The display name of the identity
+     * @type {string}
+     * @memberof WorkgroupdtoOwner
+     */
+    'displayName'?: string;
+    /**
+     * The primary email address of the identity
+     * @type {string}
+     * @memberof WorkgroupdtoOwner
+     */
+    'emailAddress'?: string;
+}
+
+export const WorkgroupdtoOwnerTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type WorkgroupdtoOwnerTypeEnum = typeof WorkgroupdtoOwnerTypeEnum[keyof typeof WorkgroupdtoOwnerTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface Workgroupmemberadditem
+ */
+export interface Workgroupmemberadditem {
     /**
      * Identifier of identity in bulk member add request.
      * @type {string}
-     * @memberof WorkgroupmemberadditemV1
+     * @memberof Workgroupmemberadditem
      */
     'id': string;
     /**
      *  The HTTP response status code returned for an individual member that is requested for addition during a bulk add operation. The HTTP response status code returned for an individual Governance Group is requested for deletion.  > 201   - Identity is added into Governance Group members list.  > 409   - Identity is already member of  Governance Group. 
      * @type {number}
-     * @memberof WorkgroupmemberadditemV1
+     * @memberof Workgroupmemberadditem
      */
     'status': number;
     /**
      * Human readable status description and containing additional context information about success or failures etc. 
      * @type {string}
-     * @memberof WorkgroupmemberadditemV1
+     * @memberof Workgroupmemberadditem
      */
     'description'?: string;
 }
 /**
  * 
  * @export
- * @interface WorkgroupmemberdeleteitemV1
+ * @interface Workgroupmemberdeleteitem
  */
-export interface WorkgroupmemberdeleteitemV1 {
+export interface Workgroupmemberdeleteitem {
     /**
      * Identifier of identity in bulk member add /remove request.
      * @type {string}
-     * @memberof WorkgroupmemberdeleteitemV1
+     * @memberof Workgroupmemberdeleteitem
      */
     'id': string;
     /**
      * The HTTP response status code returned for an individual  member that is requested for deletion during a bulk delete operation.  > 204   - Identity is removed from Governance Group members list.  > 404   - Identity is not member of Governance Group. 
      * @type {number}
-     * @memberof WorkgroupmemberdeleteitemV1
+     * @memberof Workgroupmemberdeleteitem
      */
     'status': number;
     /**
      * Human readable status description and containing additional context information about success or failures etc. 
      * @type {string}
-     * @memberof WorkgroupmemberdeleteitemV1
+     * @memberof Workgroupmemberdeleteitem
      */
     'description'?: string;
 }
 
 /**
- * GovernanceGroupsV1Api - axios parameter creator
+ * GovernanceGroupsApi - axios parameter creator
  * @export
  */
-export const GovernanceGroupsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const GovernanceGroupsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This API creates a new Governance Group.
          * @summary Create a new governance group.
-         * @param {WorkgroupdtoV1} workgroupdtoV1 
+         * @param {Workgroupdto} workgroupdto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createWorkgroupV1: async (workgroupdtoV1: WorkgroupdtoV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'workgroupdtoV1' is not null or undefined
-            assertParamExists('createWorkgroupV1', 'workgroupdtoV1', workgroupdtoV1)
+        createWorkgroupV1: async (workgroupdto: Workgroupdto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'workgroupdto' is not null or undefined
+            assertParamExists('createWorkgroupV1', 'workgroupdto', workgroupdto)
             const localVarPath = `/workgroups/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -603,7 +603,7 @@ export const GovernanceGroupsV1ApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(workgroupdtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(workgroupdto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -614,15 +614,15 @@ export const GovernanceGroupsV1ApiAxiosParamCreator = function (configuration?: 
          * This API removes one or more  members from a Governance Group.  A >  **Following field of Identity is an optional field in the request.**  >  **name**
          * @summary Remove members from governance group
          * @param {string} workgroupId ID of the Governance Group.
-         * @param {Array<BulkworkgroupmembersrequestInnerV1>} bulkworkgroupmembersrequestInnerV1 List of identities to be removed from  a Governance Group members list.
+         * @param {Array<BulkworkgroupmembersrequestInner>} bulkworkgroupmembersrequestInner List of identities to be removed from  a Governance Group members list.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteWorkgroupMembersV1: async (workgroupId: string, bulkworkgroupmembersrequestInnerV1: Array<BulkworkgroupmembersrequestInnerV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteWorkgroupMembersV1: async (workgroupId: string, bulkworkgroupmembersrequestInner: Array<BulkworkgroupmembersrequestInner>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workgroupId' is not null or undefined
             assertParamExists('deleteWorkgroupMembersV1', 'workgroupId', workgroupId)
-            // verify required parameter 'bulkworkgroupmembersrequestInnerV1' is not null or undefined
-            assertParamExists('deleteWorkgroupMembersV1', 'bulkworkgroupmembersrequestInnerV1', bulkworkgroupmembersrequestInnerV1)
+            // verify required parameter 'bulkworkgroupmembersrequestInner' is not null or undefined
+            assertParamExists('deleteWorkgroupMembersV1', 'bulkworkgroupmembersrequestInner', bulkworkgroupmembersrequestInner)
             const localVarPath = `/workgroups/v1/{workgroupId}/members/bulk-delete`
                 .replace(`{${"workgroupId"}}`, encodeURIComponent(String(workgroupId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -643,7 +643,7 @@ export const GovernanceGroupsV1ApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(bulkworkgroupmembersrequestInnerV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(bulkworkgroupmembersrequestInner, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -687,13 +687,13 @@ export const GovernanceGroupsV1ApiAxiosParamCreator = function (configuration?: 
         /**
          *  This API initiates a bulk deletion of one or more Governance Groups.  >  If any of the indicated Governance Groups have one or more connections associated with it,then those Governance Groups will be added in  **inUse** list of the response. Governance Group(s) marked as **inUse** can not be deleted.  >  If any of the indicated Governance Groups is not does not exists in Organization,then those Governance Groups will be added in **notFound** list of the response. Governance Groups marked as **notFound** will not be deleted.  >  If any of the indicated Governance Groups does not have any connections associated with it,then those Governance Groups will be added in **deleted** list of the response. A Governance Group marked as **deleted** will be deleted from current Organization.  >  If the request contains any **inUse** or **notFound** Governance Group IDs then it skips only these Governance Groups for deletion and deletes the rest of Governance Groups which have no connections associated with it.   >  **This API has limit number of Governance Groups can be deleted at one time. If the request contains more then 100 Governance Groups IDs to be deleted then the API will throw an exception.**
          * @summary Delete governance group(s)
-         * @param {WorkgroupbulkdeleterequestV1} workgroupbulkdeleterequestV1 
+         * @param {Workgroupbulkdeleterequest} workgroupbulkdeleterequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteWorkgroupsInBulkV1: async (workgroupbulkdeleterequestV1: WorkgroupbulkdeleterequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'workgroupbulkdeleterequestV1' is not null or undefined
-            assertParamExists('deleteWorkgroupsInBulkV1', 'workgroupbulkdeleterequestV1', workgroupbulkdeleterequestV1)
+        deleteWorkgroupsInBulkV1: async (workgroupbulkdeleterequest: Workgroupbulkdeleterequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'workgroupbulkdeleterequest' is not null or undefined
+            assertParamExists('deleteWorkgroupsInBulkV1', 'workgroupbulkdeleterequest', workgroupbulkdeleterequest)
             const localVarPath = `/workgroups/v1/bulk-delete`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -713,7 +713,7 @@ export const GovernanceGroupsV1ApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(workgroupbulkdeleterequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(workgroupbulkdeleterequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -921,11 +921,11 @@ export const GovernanceGroupsV1ApiAxiosParamCreator = function (configuration?: 
          * This API updates an existing governance group by ID. The following fields and objects are patchable: * name * description * owner
          * @summary Patch a governance group
          * @param {string} id ID of the Governance Group
-         * @param {Array<JsonpatchoperationV1>} [jsonpatchoperationV1] 
+         * @param {Array<Jsonpatchoperation>} [jsonpatchoperation] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchWorkgroupV1: async (id: string, jsonpatchoperationV1?: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchWorkgroupV1: async (id: string, jsonpatchoperation?: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchWorkgroupV1', 'id', id)
             const localVarPath = `/workgroups/v1/{id}`
@@ -948,7 +948,7 @@ export const GovernanceGroupsV1ApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -959,15 +959,15 @@ export const GovernanceGroupsV1ApiAxiosParamCreator = function (configuration?: 
          * This API adds one or more members to a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
          * @summary Add members to governance group
          * @param {string} workgroupId ID of the Governance Group.
-         * @param {Array<BulkworkgroupmembersrequestInnerV1>} bulkworkgroupmembersrequestInnerV1 List of identities to be added to a Governance Group members list.
+         * @param {Array<BulkworkgroupmembersrequestInner>} bulkworkgroupmembersrequestInner List of identities to be added to a Governance Group members list.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateWorkgroupMembersV1: async (workgroupId: string, bulkworkgroupmembersrequestInnerV1: Array<BulkworkgroupmembersrequestInnerV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateWorkgroupMembersV1: async (workgroupId: string, bulkworkgroupmembersrequestInner: Array<BulkworkgroupmembersrequestInner>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workgroupId' is not null or undefined
             assertParamExists('updateWorkgroupMembersV1', 'workgroupId', workgroupId)
-            // verify required parameter 'bulkworkgroupmembersrequestInnerV1' is not null or undefined
-            assertParamExists('updateWorkgroupMembersV1', 'bulkworkgroupmembersrequestInnerV1', bulkworkgroupmembersrequestInnerV1)
+            // verify required parameter 'bulkworkgroupmembersrequestInner' is not null or undefined
+            assertParamExists('updateWorkgroupMembersV1', 'bulkworkgroupmembersrequestInner', bulkworkgroupmembersrequestInner)
             const localVarPath = `/workgroups/v1/{workgroupId}/members/bulk-add`
                 .replace(`{${"workgroupId"}}`, encodeURIComponent(String(workgroupId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -988,7 +988,7 @@ export const GovernanceGroupsV1ApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(bulkworkgroupmembersrequestInnerV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(bulkworkgroupmembersrequestInner, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -999,37 +999,37 @@ export const GovernanceGroupsV1ApiAxiosParamCreator = function (configuration?: 
 };
 
 /**
- * GovernanceGroupsV1Api - functional programming interface
+ * GovernanceGroupsApi - functional programming interface
  * @export
  */
-export const GovernanceGroupsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = GovernanceGroupsV1ApiAxiosParamCreator(configuration)
+export const GovernanceGroupsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = GovernanceGroupsApiAxiosParamCreator(configuration)
     return {
         /**
          * This API creates a new Governance Group.
          * @summary Create a new governance group.
-         * @param {WorkgroupdtoV1} workgroupdtoV1 
+         * @param {Workgroupdto} workgroupdto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createWorkgroupV1(workgroupdtoV1: WorkgroupdtoV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkgroupdtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createWorkgroupV1(workgroupdtoV1, axiosOptions);
+        async createWorkgroupV1(workgroupdto: Workgroupdto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workgroupdto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createWorkgroupV1(workgroupdto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['GovernanceGroupsV1Api.createWorkgroupV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['GovernanceGroupsApi.createWorkgroupV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API removes one or more  members from a Governance Group.  A >  **Following field of Identity is an optional field in the request.**  >  **name**
          * @summary Remove members from governance group
          * @param {string} workgroupId ID of the Governance Group.
-         * @param {Array<BulkworkgroupmembersrequestInnerV1>} bulkworkgroupmembersrequestInnerV1 List of identities to be removed from  a Governance Group members list.
+         * @param {Array<BulkworkgroupmembersrequestInner>} bulkworkgroupmembersrequestInner List of identities to be removed from  a Governance Group members list.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteWorkgroupMembersV1(workgroupId: string, bulkworkgroupmembersrequestInnerV1: Array<BulkworkgroupmembersrequestInnerV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupmemberdeleteitemV1>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkgroupMembersV1(workgroupId, bulkworkgroupmembersrequestInnerV1, axiosOptions);
+        async deleteWorkgroupMembersV1(workgroupId: string, bulkworkgroupmembersrequestInner: Array<BulkworkgroupmembersrequestInner>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workgroupmemberdeleteitem>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkgroupMembersV1(workgroupId, bulkworkgroupmembersrequestInner, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['GovernanceGroupsV1Api.deleteWorkgroupMembersV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['GovernanceGroupsApi.deleteWorkgroupMembersV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1042,20 +1042,20 @@ export const GovernanceGroupsV1ApiFp = function(configuration?: Configuration) {
         async deleteWorkgroupV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkgroupV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['GovernanceGroupsV1Api.deleteWorkgroupV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['GovernanceGroupsApi.deleteWorkgroupV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          *  This API initiates a bulk deletion of one or more Governance Groups.  >  If any of the indicated Governance Groups have one or more connections associated with it,then those Governance Groups will be added in  **inUse** list of the response. Governance Group(s) marked as **inUse** can not be deleted.  >  If any of the indicated Governance Groups is not does not exists in Organization,then those Governance Groups will be added in **notFound** list of the response. Governance Groups marked as **notFound** will not be deleted.  >  If any of the indicated Governance Groups does not have any connections associated with it,then those Governance Groups will be added in **deleted** list of the response. A Governance Group marked as **deleted** will be deleted from current Organization.  >  If the request contains any **inUse** or **notFound** Governance Group IDs then it skips only these Governance Groups for deletion and deletes the rest of Governance Groups which have no connections associated with it.   >  **This API has limit number of Governance Groups can be deleted at one time. If the request contains more then 100 Governance Groups IDs to be deleted then the API will throw an exception.**
          * @summary Delete governance group(s)
-         * @param {WorkgroupbulkdeleterequestV1} workgroupbulkdeleterequestV1 
+         * @param {Workgroupbulkdeleterequest} workgroupbulkdeleterequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteWorkgroupsInBulkV1(workgroupbulkdeleterequestV1: WorkgroupbulkdeleterequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupdeleteitemV1>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkgroupsInBulkV1(workgroupbulkdeleterequestV1, axiosOptions);
+        async deleteWorkgroupsInBulkV1(workgroupbulkdeleterequest: Workgroupbulkdeleterequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workgroupdeleteitem>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkgroupsInBulkV1(workgroupbulkdeleterequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['GovernanceGroupsV1Api.deleteWorkgroupsInBulkV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['GovernanceGroupsApi.deleteWorkgroupsInBulkV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1065,10 +1065,10 @@ export const GovernanceGroupsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkgroupV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkgroupdtoV1>> {
+        async getWorkgroupV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workgroupdto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkgroupV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['GovernanceGroupsV1Api.getWorkgroupV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['GovernanceGroupsApi.getWorkgroupV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1082,10 +1082,10 @@ export const GovernanceGroupsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listConnectionsV1(workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupconnectiondtoV1>>> {
+        async listConnectionsV1(workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workgroupconnectiondto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listConnectionsV1(workgroupId, offset, limit, count, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['GovernanceGroupsV1Api.listConnectionsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['GovernanceGroupsApi.listConnectionsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1099,10 +1099,10 @@ export const GovernanceGroupsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkgroupMembersV1(workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListWorkgroupMembersV1200ResponseInnerV1>>> {
+        async listWorkgroupMembersV1(workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListWorkgroupMembersV1200ResponseInner>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroupMembersV1(workgroupId, offset, limit, count, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['GovernanceGroupsV1Api.listWorkgroupMembersV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['GovernanceGroupsApi.listWorkgroupMembersV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1116,523 +1116,523 @@ export const GovernanceGroupsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkgroupsV1(offset?: number, limit?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupdtoV1>>> {
+        async listWorkgroupsV1(offset?: number, limit?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workgroupdto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroupsV1(offset, limit, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['GovernanceGroupsV1Api.listWorkgroupsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['GovernanceGroupsApi.listWorkgroupsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API updates an existing governance group by ID. The following fields and objects are patchable: * name * description * owner
          * @summary Patch a governance group
          * @param {string} id ID of the Governance Group
-         * @param {Array<JsonpatchoperationV1>} [jsonpatchoperationV1] 
+         * @param {Array<Jsonpatchoperation>} [jsonpatchoperation] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchWorkgroupV1(id: string, jsonpatchoperationV1?: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkgroupdtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchWorkgroupV1(id, jsonpatchoperationV1, axiosOptions);
+        async patchWorkgroupV1(id: string, jsonpatchoperation?: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workgroupdto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchWorkgroupV1(id, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['GovernanceGroupsV1Api.patchWorkgroupV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['GovernanceGroupsApi.patchWorkgroupV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API adds one or more members to a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
          * @summary Add members to governance group
          * @param {string} workgroupId ID of the Governance Group.
-         * @param {Array<BulkworkgroupmembersrequestInnerV1>} bulkworkgroupmembersrequestInnerV1 List of identities to be added to a Governance Group members list.
+         * @param {Array<BulkworkgroupmembersrequestInner>} bulkworkgroupmembersrequestInner List of identities to be added to a Governance Group members list.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateWorkgroupMembersV1(workgroupId: string, bulkworkgroupmembersrequestInnerV1: Array<BulkworkgroupmembersrequestInnerV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupmemberadditemV1>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateWorkgroupMembersV1(workgroupId, bulkworkgroupmembersrequestInnerV1, axiosOptions);
+        async updateWorkgroupMembersV1(workgroupId: string, bulkworkgroupmembersrequestInner: Array<BulkworkgroupmembersrequestInner>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workgroupmemberadditem>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateWorkgroupMembersV1(workgroupId, bulkworkgroupmembersrequestInner, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['GovernanceGroupsV1Api.updateWorkgroupMembersV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['GovernanceGroupsApi.updateWorkgroupMembersV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * GovernanceGroupsV1Api - factory interface
+ * GovernanceGroupsApi - factory interface
  * @export
  */
-export const GovernanceGroupsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = GovernanceGroupsV1ApiFp(configuration)
+export const GovernanceGroupsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = GovernanceGroupsApiFp(configuration)
     return {
         /**
          * This API creates a new Governance Group.
          * @summary Create a new governance group.
-         * @param {GovernanceGroupsV1ApiCreateWorkgroupV1Request} requestParameters Request parameters.
+         * @param {GovernanceGroupsApiCreateWorkgroupV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createWorkgroupV1(requestParameters: GovernanceGroupsV1ApiCreateWorkgroupV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<WorkgroupdtoV1> {
-            return localVarFp.createWorkgroupV1(requestParameters.workgroupdtoV1, axiosOptions).then((request) => request(axios, basePath));
+        createWorkgroupV1(requestParameters: GovernanceGroupsApiCreateWorkgroupV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Workgroupdto> {
+            return localVarFp.createWorkgroupV1(requestParameters.workgroupdto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API removes one or more  members from a Governance Group.  A >  **Following field of Identity is an optional field in the request.**  >  **name**
          * @summary Remove members from governance group
-         * @param {GovernanceGroupsV1ApiDeleteWorkgroupMembersV1Request} requestParameters Request parameters.
+         * @param {GovernanceGroupsApiDeleteWorkgroupMembersV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteWorkgroupMembersV1(requestParameters: GovernanceGroupsV1ApiDeleteWorkgroupMembersV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<WorkgroupmemberdeleteitemV1>> {
-            return localVarFp.deleteWorkgroupMembersV1(requestParameters.workgroupId, requestParameters.bulkworkgroupmembersrequestInnerV1, axiosOptions).then((request) => request(axios, basePath));
+        deleteWorkgroupMembersV1(requestParameters: GovernanceGroupsApiDeleteWorkgroupMembersV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Workgroupmemberdeleteitem>> {
+            return localVarFp.deleteWorkgroupMembersV1(requestParameters.workgroupId, requestParameters.bulkworkgroupmembersrequestInner, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API deletes a Governance Group by its ID.
          * @summary Delete a governance group
-         * @param {GovernanceGroupsV1ApiDeleteWorkgroupV1Request} requestParameters Request parameters.
+         * @param {GovernanceGroupsApiDeleteWorkgroupV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteWorkgroupV1(requestParameters: GovernanceGroupsV1ApiDeleteWorkgroupV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteWorkgroupV1(requestParameters: GovernanceGroupsApiDeleteWorkgroupV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteWorkgroupV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          *  This API initiates a bulk deletion of one or more Governance Groups.  >  If any of the indicated Governance Groups have one or more connections associated with it,then those Governance Groups will be added in  **inUse** list of the response. Governance Group(s) marked as **inUse** can not be deleted.  >  If any of the indicated Governance Groups is not does not exists in Organization,then those Governance Groups will be added in **notFound** list of the response. Governance Groups marked as **notFound** will not be deleted.  >  If any of the indicated Governance Groups does not have any connections associated with it,then those Governance Groups will be added in **deleted** list of the response. A Governance Group marked as **deleted** will be deleted from current Organization.  >  If the request contains any **inUse** or **notFound** Governance Group IDs then it skips only these Governance Groups for deletion and deletes the rest of Governance Groups which have no connections associated with it.   >  **This API has limit number of Governance Groups can be deleted at one time. If the request contains more then 100 Governance Groups IDs to be deleted then the API will throw an exception.**
          * @summary Delete governance group(s)
-         * @param {GovernanceGroupsV1ApiDeleteWorkgroupsInBulkV1Request} requestParameters Request parameters.
+         * @param {GovernanceGroupsApiDeleteWorkgroupsInBulkV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteWorkgroupsInBulkV1(requestParameters: GovernanceGroupsV1ApiDeleteWorkgroupsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<WorkgroupdeleteitemV1>> {
-            return localVarFp.deleteWorkgroupsInBulkV1(requestParameters.workgroupbulkdeleterequestV1, axiosOptions).then((request) => request(axios, basePath));
+        deleteWorkgroupsInBulkV1(requestParameters: GovernanceGroupsApiDeleteWorkgroupsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Workgroupdeleteitem>> {
+            return localVarFp.deleteWorkgroupsInBulkV1(requestParameters.workgroupbulkdeleterequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a Governance Groups by its ID.
          * @summary Get governance group by id
-         * @param {GovernanceGroupsV1ApiGetWorkgroupV1Request} requestParameters Request parameters.
+         * @param {GovernanceGroupsApiGetWorkgroupV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkgroupV1(requestParameters: GovernanceGroupsV1ApiGetWorkgroupV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<WorkgroupdtoV1> {
+        getWorkgroupV1(requestParameters: GovernanceGroupsApiGetWorkgroupV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Workgroupdto> {
             return localVarFp.getWorkgroupV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns list of connections associated with a Governance Group.
          * @summary List connections for governance group
-         * @param {GovernanceGroupsV1ApiListConnectionsV1Request} requestParameters Request parameters.
+         * @param {GovernanceGroupsApiListConnectionsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listConnectionsV1(requestParameters: GovernanceGroupsV1ApiListConnectionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<WorkgroupconnectiondtoV1>> {
+        listConnectionsV1(requestParameters: GovernanceGroupsApiListConnectionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Workgroupconnectiondto>> {
             return localVarFp.listConnectionsV1(requestParameters.workgroupId, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns list of members associated with a Governance Group.
          * @summary List governance group members
-         * @param {GovernanceGroupsV1ApiListWorkgroupMembersV1Request} requestParameters Request parameters.
+         * @param {GovernanceGroupsApiListWorkgroupMembersV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkgroupMembersV1(requestParameters: GovernanceGroupsV1ApiListWorkgroupMembersV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ListWorkgroupMembersV1200ResponseInnerV1>> {
+        listWorkgroupMembersV1(requestParameters: GovernanceGroupsApiListWorkgroupMembersV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ListWorkgroupMembersV1200ResponseInner>> {
             return localVarFp.listWorkgroupMembersV1(requestParameters.workgroupId, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns list of Governance Groups
          * @summary List governance groups
-         * @param {GovernanceGroupsV1ApiListWorkgroupsV1Request} requestParameters Request parameters.
+         * @param {GovernanceGroupsApiListWorkgroupsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkgroupsV1(requestParameters: GovernanceGroupsV1ApiListWorkgroupsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<WorkgroupdtoV1>> {
+        listWorkgroupsV1(requestParameters: GovernanceGroupsApiListWorkgroupsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Workgroupdto>> {
             return localVarFp.listWorkgroupsV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API updates an existing governance group by ID. The following fields and objects are patchable: * name * description * owner
          * @summary Patch a governance group
-         * @param {GovernanceGroupsV1ApiPatchWorkgroupV1Request} requestParameters Request parameters.
+         * @param {GovernanceGroupsApiPatchWorkgroupV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchWorkgroupV1(requestParameters: GovernanceGroupsV1ApiPatchWorkgroupV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<WorkgroupdtoV1> {
-            return localVarFp.patchWorkgroupV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        patchWorkgroupV1(requestParameters: GovernanceGroupsApiPatchWorkgroupV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Workgroupdto> {
+            return localVarFp.patchWorkgroupV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API adds one or more members to a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
          * @summary Add members to governance group
-         * @param {GovernanceGroupsV1ApiUpdateWorkgroupMembersV1Request} requestParameters Request parameters.
+         * @param {GovernanceGroupsApiUpdateWorkgroupMembersV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateWorkgroupMembersV1(requestParameters: GovernanceGroupsV1ApiUpdateWorkgroupMembersV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<WorkgroupmemberadditemV1>> {
-            return localVarFp.updateWorkgroupMembersV1(requestParameters.workgroupId, requestParameters.bulkworkgroupmembersrequestInnerV1, axiosOptions).then((request) => request(axios, basePath));
+        updateWorkgroupMembersV1(requestParameters: GovernanceGroupsApiUpdateWorkgroupMembersV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Workgroupmemberadditem>> {
+            return localVarFp.updateWorkgroupMembersV1(requestParameters.workgroupId, requestParameters.bulkworkgroupmembersrequestInner, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createWorkgroupV1 operation in GovernanceGroupsV1Api.
+ * Request parameters for createWorkgroupV1 operation in GovernanceGroupsApi.
  * @export
- * @interface GovernanceGroupsV1ApiCreateWorkgroupV1Request
+ * @interface GovernanceGroupsApiCreateWorkgroupV1Request
  */
-export interface GovernanceGroupsV1ApiCreateWorkgroupV1Request {
+export interface GovernanceGroupsApiCreateWorkgroupV1Request {
     /**
      * 
-     * @type {WorkgroupdtoV1}
-     * @memberof GovernanceGroupsV1ApiCreateWorkgroupV1
+     * @type {Workgroupdto}
+     * @memberof GovernanceGroupsApiCreateWorkgroupV1
      */
-    readonly workgroupdtoV1: WorkgroupdtoV1
+    readonly workgroupdto: Workgroupdto
 }
 
 /**
- * Request parameters for deleteWorkgroupMembersV1 operation in GovernanceGroupsV1Api.
+ * Request parameters for deleteWorkgroupMembersV1 operation in GovernanceGroupsApi.
  * @export
- * @interface GovernanceGroupsV1ApiDeleteWorkgroupMembersV1Request
+ * @interface GovernanceGroupsApiDeleteWorkgroupMembersV1Request
  */
-export interface GovernanceGroupsV1ApiDeleteWorkgroupMembersV1Request {
+export interface GovernanceGroupsApiDeleteWorkgroupMembersV1Request {
     /**
      * ID of the Governance Group.
      * @type {string}
-     * @memberof GovernanceGroupsV1ApiDeleteWorkgroupMembersV1
+     * @memberof GovernanceGroupsApiDeleteWorkgroupMembersV1
      */
     readonly workgroupId: string
 
     /**
      * List of identities to be removed from  a Governance Group members list.
-     * @type {Array<BulkworkgroupmembersrequestInnerV1>}
-     * @memberof GovernanceGroupsV1ApiDeleteWorkgroupMembersV1
+     * @type {Array<BulkworkgroupmembersrequestInner>}
+     * @memberof GovernanceGroupsApiDeleteWorkgroupMembersV1
      */
-    readonly bulkworkgroupmembersrequestInnerV1: Array<BulkworkgroupmembersrequestInnerV1>
+    readonly bulkworkgroupmembersrequestInner: Array<BulkworkgroupmembersrequestInner>
 }
 
 /**
- * Request parameters for deleteWorkgroupV1 operation in GovernanceGroupsV1Api.
+ * Request parameters for deleteWorkgroupV1 operation in GovernanceGroupsApi.
  * @export
- * @interface GovernanceGroupsV1ApiDeleteWorkgroupV1Request
+ * @interface GovernanceGroupsApiDeleteWorkgroupV1Request
  */
-export interface GovernanceGroupsV1ApiDeleteWorkgroupV1Request {
+export interface GovernanceGroupsApiDeleteWorkgroupV1Request {
     /**
      * ID of the Governance Group
      * @type {string}
-     * @memberof GovernanceGroupsV1ApiDeleteWorkgroupV1
+     * @memberof GovernanceGroupsApiDeleteWorkgroupV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for deleteWorkgroupsInBulkV1 operation in GovernanceGroupsV1Api.
+ * Request parameters for deleteWorkgroupsInBulkV1 operation in GovernanceGroupsApi.
  * @export
- * @interface GovernanceGroupsV1ApiDeleteWorkgroupsInBulkV1Request
+ * @interface GovernanceGroupsApiDeleteWorkgroupsInBulkV1Request
  */
-export interface GovernanceGroupsV1ApiDeleteWorkgroupsInBulkV1Request {
+export interface GovernanceGroupsApiDeleteWorkgroupsInBulkV1Request {
     /**
      * 
-     * @type {WorkgroupbulkdeleterequestV1}
-     * @memberof GovernanceGroupsV1ApiDeleteWorkgroupsInBulkV1
+     * @type {Workgroupbulkdeleterequest}
+     * @memberof GovernanceGroupsApiDeleteWorkgroupsInBulkV1
      */
-    readonly workgroupbulkdeleterequestV1: WorkgroupbulkdeleterequestV1
+    readonly workgroupbulkdeleterequest: Workgroupbulkdeleterequest
 }
 
 /**
- * Request parameters for getWorkgroupV1 operation in GovernanceGroupsV1Api.
+ * Request parameters for getWorkgroupV1 operation in GovernanceGroupsApi.
  * @export
- * @interface GovernanceGroupsV1ApiGetWorkgroupV1Request
+ * @interface GovernanceGroupsApiGetWorkgroupV1Request
  */
-export interface GovernanceGroupsV1ApiGetWorkgroupV1Request {
+export interface GovernanceGroupsApiGetWorkgroupV1Request {
     /**
      * ID of the Governance Group
      * @type {string}
-     * @memberof GovernanceGroupsV1ApiGetWorkgroupV1
+     * @memberof GovernanceGroupsApiGetWorkgroupV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for listConnectionsV1 operation in GovernanceGroupsV1Api.
+ * Request parameters for listConnectionsV1 operation in GovernanceGroupsApi.
  * @export
- * @interface GovernanceGroupsV1ApiListConnectionsV1Request
+ * @interface GovernanceGroupsApiListConnectionsV1Request
  */
-export interface GovernanceGroupsV1ApiListConnectionsV1Request {
+export interface GovernanceGroupsApiListConnectionsV1Request {
     /**
      * ID of the Governance Group.
      * @type {string}
-     * @memberof GovernanceGroupsV1ApiListConnectionsV1
+     * @memberof GovernanceGroupsApiListConnectionsV1
      */
     readonly workgroupId: string
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof GovernanceGroupsV1ApiListConnectionsV1
+     * @memberof GovernanceGroupsApiListConnectionsV1
      */
     readonly offset?: number
 
     /**
      * Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof GovernanceGroupsV1ApiListConnectionsV1
+     * @memberof GovernanceGroupsApiListConnectionsV1
      */
     readonly limit?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof GovernanceGroupsV1ApiListConnectionsV1
+     * @memberof GovernanceGroupsApiListConnectionsV1
      */
     readonly count?: boolean
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
      * @type {string}
-     * @memberof GovernanceGroupsV1ApiListConnectionsV1
+     * @memberof GovernanceGroupsApiListConnectionsV1
      */
     readonly sorters?: string
 }
 
 /**
- * Request parameters for listWorkgroupMembersV1 operation in GovernanceGroupsV1Api.
+ * Request parameters for listWorkgroupMembersV1 operation in GovernanceGroupsApi.
  * @export
- * @interface GovernanceGroupsV1ApiListWorkgroupMembersV1Request
+ * @interface GovernanceGroupsApiListWorkgroupMembersV1Request
  */
-export interface GovernanceGroupsV1ApiListWorkgroupMembersV1Request {
+export interface GovernanceGroupsApiListWorkgroupMembersV1Request {
     /**
      * ID of the Governance Group.
      * @type {string}
-     * @memberof GovernanceGroupsV1ApiListWorkgroupMembersV1
+     * @memberof GovernanceGroupsApiListWorkgroupMembersV1
      */
     readonly workgroupId: string
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof GovernanceGroupsV1ApiListWorkgroupMembersV1
+     * @memberof GovernanceGroupsApiListWorkgroupMembersV1
      */
     readonly offset?: number
 
     /**
      * Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof GovernanceGroupsV1ApiListWorkgroupMembersV1
+     * @memberof GovernanceGroupsApiListWorkgroupMembersV1
      */
     readonly limit?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof GovernanceGroupsV1ApiListWorkgroupMembersV1
+     * @memberof GovernanceGroupsApiListWorkgroupMembersV1
      */
     readonly count?: boolean
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
      * @type {string}
-     * @memberof GovernanceGroupsV1ApiListWorkgroupMembersV1
+     * @memberof GovernanceGroupsApiListWorkgroupMembersV1
      */
     readonly sorters?: string
 }
 
 /**
- * Request parameters for listWorkgroupsV1 operation in GovernanceGroupsV1Api.
+ * Request parameters for listWorkgroupsV1 operation in GovernanceGroupsApi.
  * @export
- * @interface GovernanceGroupsV1ApiListWorkgroupsV1Request
+ * @interface GovernanceGroupsApiListWorkgroupsV1Request
  */
-export interface GovernanceGroupsV1ApiListWorkgroupsV1Request {
+export interface GovernanceGroupsApiListWorkgroupsV1Request {
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof GovernanceGroupsV1ApiListWorkgroupsV1
+     * @memberof GovernanceGroupsApiListWorkgroupsV1
      */
     readonly offset?: number
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof GovernanceGroupsV1ApiListWorkgroupsV1
+     * @memberof GovernanceGroupsApiListWorkgroupsV1
      */
     readonly limit?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof GovernanceGroupsV1ApiListWorkgroupsV1
+     * @memberof GovernanceGroupsApiListWorkgroupsV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, sw, in*  **memberships.identityId**: *eq, in*
      * @type {string}
-     * @memberof GovernanceGroupsV1ApiListWorkgroupsV1
+     * @memberof GovernanceGroupsApiListWorkgroupsV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified, id, description**
      * @type {string}
-     * @memberof GovernanceGroupsV1ApiListWorkgroupsV1
+     * @memberof GovernanceGroupsApiListWorkgroupsV1
      */
     readonly sorters?: string
 }
 
 /**
- * Request parameters for patchWorkgroupV1 operation in GovernanceGroupsV1Api.
+ * Request parameters for patchWorkgroupV1 operation in GovernanceGroupsApi.
  * @export
- * @interface GovernanceGroupsV1ApiPatchWorkgroupV1Request
+ * @interface GovernanceGroupsApiPatchWorkgroupV1Request
  */
-export interface GovernanceGroupsV1ApiPatchWorkgroupV1Request {
+export interface GovernanceGroupsApiPatchWorkgroupV1Request {
     /**
      * ID of the Governance Group
      * @type {string}
-     * @memberof GovernanceGroupsV1ApiPatchWorkgroupV1
+     * @memberof GovernanceGroupsApiPatchWorkgroupV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof GovernanceGroupsV1ApiPatchWorkgroupV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof GovernanceGroupsApiPatchWorkgroupV1
      */
-    readonly jsonpatchoperationV1?: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation?: Array<Jsonpatchoperation>
 }
 
 /**
- * Request parameters for updateWorkgroupMembersV1 operation in GovernanceGroupsV1Api.
+ * Request parameters for updateWorkgroupMembersV1 operation in GovernanceGroupsApi.
  * @export
- * @interface GovernanceGroupsV1ApiUpdateWorkgroupMembersV1Request
+ * @interface GovernanceGroupsApiUpdateWorkgroupMembersV1Request
  */
-export interface GovernanceGroupsV1ApiUpdateWorkgroupMembersV1Request {
+export interface GovernanceGroupsApiUpdateWorkgroupMembersV1Request {
     /**
      * ID of the Governance Group.
      * @type {string}
-     * @memberof GovernanceGroupsV1ApiUpdateWorkgroupMembersV1
+     * @memberof GovernanceGroupsApiUpdateWorkgroupMembersV1
      */
     readonly workgroupId: string
 
     /**
      * List of identities to be added to a Governance Group members list.
-     * @type {Array<BulkworkgroupmembersrequestInnerV1>}
-     * @memberof GovernanceGroupsV1ApiUpdateWorkgroupMembersV1
+     * @type {Array<BulkworkgroupmembersrequestInner>}
+     * @memberof GovernanceGroupsApiUpdateWorkgroupMembersV1
      */
-    readonly bulkworkgroupmembersrequestInnerV1: Array<BulkworkgroupmembersrequestInnerV1>
+    readonly bulkworkgroupmembersrequestInner: Array<BulkworkgroupmembersrequestInner>
 }
 
 /**
- * GovernanceGroupsV1Api - object-oriented interface
+ * GovernanceGroupsApi - object-oriented interface
  * @export
- * @class GovernanceGroupsV1Api
+ * @class GovernanceGroupsApi
  * @extends {BaseAPI}
  */
-export class GovernanceGroupsV1Api extends BaseAPI {
+export class GovernanceGroupsApi extends BaseAPI {
     /**
      * This API creates a new Governance Group.
      * @summary Create a new governance group.
-     * @param {GovernanceGroupsV1ApiCreateWorkgroupV1Request} requestParameters Request parameters.
+     * @param {GovernanceGroupsApiCreateWorkgroupV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof GovernanceGroupsV1Api
+     * @memberof GovernanceGroupsApi
      */
-    public createWorkgroupV1(requestParameters: GovernanceGroupsV1ApiCreateWorkgroupV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return GovernanceGroupsV1ApiFp(this.configuration).createWorkgroupV1(requestParameters.workgroupdtoV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createWorkgroupV1(requestParameters: GovernanceGroupsApiCreateWorkgroupV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return GovernanceGroupsApiFp(this.configuration).createWorkgroupV1(requestParameters.workgroupdto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API removes one or more  members from a Governance Group.  A >  **Following field of Identity is an optional field in the request.**  >  **name**
      * @summary Remove members from governance group
-     * @param {GovernanceGroupsV1ApiDeleteWorkgroupMembersV1Request} requestParameters Request parameters.
+     * @param {GovernanceGroupsApiDeleteWorkgroupMembersV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof GovernanceGroupsV1Api
+     * @memberof GovernanceGroupsApi
      */
-    public deleteWorkgroupMembersV1(requestParameters: GovernanceGroupsV1ApiDeleteWorkgroupMembersV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return GovernanceGroupsV1ApiFp(this.configuration).deleteWorkgroupMembersV1(requestParameters.workgroupId, requestParameters.bulkworkgroupmembersrequestInnerV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteWorkgroupMembersV1(requestParameters: GovernanceGroupsApiDeleteWorkgroupMembersV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return GovernanceGroupsApiFp(this.configuration).deleteWorkgroupMembersV1(requestParameters.workgroupId, requestParameters.bulkworkgroupmembersrequestInner, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API deletes a Governance Group by its ID.
      * @summary Delete a governance group
-     * @param {GovernanceGroupsV1ApiDeleteWorkgroupV1Request} requestParameters Request parameters.
+     * @param {GovernanceGroupsApiDeleteWorkgroupV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof GovernanceGroupsV1Api
+     * @memberof GovernanceGroupsApi
      */
-    public deleteWorkgroupV1(requestParameters: GovernanceGroupsV1ApiDeleteWorkgroupV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return GovernanceGroupsV1ApiFp(this.configuration).deleteWorkgroupV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteWorkgroupV1(requestParameters: GovernanceGroupsApiDeleteWorkgroupV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return GovernanceGroupsApiFp(this.configuration).deleteWorkgroupV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      *  This API initiates a bulk deletion of one or more Governance Groups.  >  If any of the indicated Governance Groups have one or more connections associated with it,then those Governance Groups will be added in  **inUse** list of the response. Governance Group(s) marked as **inUse** can not be deleted.  >  If any of the indicated Governance Groups is not does not exists in Organization,then those Governance Groups will be added in **notFound** list of the response. Governance Groups marked as **notFound** will not be deleted.  >  If any of the indicated Governance Groups does not have any connections associated with it,then those Governance Groups will be added in **deleted** list of the response. A Governance Group marked as **deleted** will be deleted from current Organization.  >  If the request contains any **inUse** or **notFound** Governance Group IDs then it skips only these Governance Groups for deletion and deletes the rest of Governance Groups which have no connections associated with it.   >  **This API has limit number of Governance Groups can be deleted at one time. If the request contains more then 100 Governance Groups IDs to be deleted then the API will throw an exception.**
      * @summary Delete governance group(s)
-     * @param {GovernanceGroupsV1ApiDeleteWorkgroupsInBulkV1Request} requestParameters Request parameters.
+     * @param {GovernanceGroupsApiDeleteWorkgroupsInBulkV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof GovernanceGroupsV1Api
+     * @memberof GovernanceGroupsApi
      */
-    public deleteWorkgroupsInBulkV1(requestParameters: GovernanceGroupsV1ApiDeleteWorkgroupsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return GovernanceGroupsV1ApiFp(this.configuration).deleteWorkgroupsInBulkV1(requestParameters.workgroupbulkdeleterequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteWorkgroupsInBulkV1(requestParameters: GovernanceGroupsApiDeleteWorkgroupsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return GovernanceGroupsApiFp(this.configuration).deleteWorkgroupsInBulkV1(requestParameters.workgroupbulkdeleterequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a Governance Groups by its ID.
      * @summary Get governance group by id
-     * @param {GovernanceGroupsV1ApiGetWorkgroupV1Request} requestParameters Request parameters.
+     * @param {GovernanceGroupsApiGetWorkgroupV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof GovernanceGroupsV1Api
+     * @memberof GovernanceGroupsApi
      */
-    public getWorkgroupV1(requestParameters: GovernanceGroupsV1ApiGetWorkgroupV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return GovernanceGroupsV1ApiFp(this.configuration).getWorkgroupV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getWorkgroupV1(requestParameters: GovernanceGroupsApiGetWorkgroupV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return GovernanceGroupsApiFp(this.configuration).getWorkgroupV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns list of connections associated with a Governance Group.
      * @summary List connections for governance group
-     * @param {GovernanceGroupsV1ApiListConnectionsV1Request} requestParameters Request parameters.
+     * @param {GovernanceGroupsApiListConnectionsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof GovernanceGroupsV1Api
+     * @memberof GovernanceGroupsApi
      */
-    public listConnectionsV1(requestParameters: GovernanceGroupsV1ApiListConnectionsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return GovernanceGroupsV1ApiFp(this.configuration).listConnectionsV1(requestParameters.workgroupId, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listConnectionsV1(requestParameters: GovernanceGroupsApiListConnectionsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return GovernanceGroupsApiFp(this.configuration).listConnectionsV1(requestParameters.workgroupId, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns list of members associated with a Governance Group.
      * @summary List governance group members
-     * @param {GovernanceGroupsV1ApiListWorkgroupMembersV1Request} requestParameters Request parameters.
+     * @param {GovernanceGroupsApiListWorkgroupMembersV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof GovernanceGroupsV1Api
+     * @memberof GovernanceGroupsApi
      */
-    public listWorkgroupMembersV1(requestParameters: GovernanceGroupsV1ApiListWorkgroupMembersV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return GovernanceGroupsV1ApiFp(this.configuration).listWorkgroupMembersV1(requestParameters.workgroupId, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listWorkgroupMembersV1(requestParameters: GovernanceGroupsApiListWorkgroupMembersV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return GovernanceGroupsApiFp(this.configuration).listWorkgroupMembersV1(requestParameters.workgroupId, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns list of Governance Groups
      * @summary List governance groups
-     * @param {GovernanceGroupsV1ApiListWorkgroupsV1Request} requestParameters Request parameters.
+     * @param {GovernanceGroupsApiListWorkgroupsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof GovernanceGroupsV1Api
+     * @memberof GovernanceGroupsApi
      */
-    public listWorkgroupsV1(requestParameters: GovernanceGroupsV1ApiListWorkgroupsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return GovernanceGroupsV1ApiFp(this.configuration).listWorkgroupsV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listWorkgroupsV1(requestParameters: GovernanceGroupsApiListWorkgroupsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return GovernanceGroupsApiFp(this.configuration).listWorkgroupsV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API updates an existing governance group by ID. The following fields and objects are patchable: * name * description * owner
      * @summary Patch a governance group
-     * @param {GovernanceGroupsV1ApiPatchWorkgroupV1Request} requestParameters Request parameters.
+     * @param {GovernanceGroupsApiPatchWorkgroupV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof GovernanceGroupsV1Api
+     * @memberof GovernanceGroupsApi
      */
-    public patchWorkgroupV1(requestParameters: GovernanceGroupsV1ApiPatchWorkgroupV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return GovernanceGroupsV1ApiFp(this.configuration).patchWorkgroupV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchWorkgroupV1(requestParameters: GovernanceGroupsApiPatchWorkgroupV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return GovernanceGroupsApiFp(this.configuration).patchWorkgroupV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API adds one or more members to a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
      * @summary Add members to governance group
-     * @param {GovernanceGroupsV1ApiUpdateWorkgroupMembersV1Request} requestParameters Request parameters.
+     * @param {GovernanceGroupsApiUpdateWorkgroupMembersV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof GovernanceGroupsV1Api
+     * @memberof GovernanceGroupsApi
      */
-    public updateWorkgroupMembersV1(requestParameters: GovernanceGroupsV1ApiUpdateWorkgroupMembersV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return GovernanceGroupsV1ApiFp(this.configuration).updateWorkgroupMembersV1(requestParameters.workgroupId, requestParameters.bulkworkgroupmembersrequestInnerV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateWorkgroupMembersV1(requestParameters: GovernanceGroupsApiUpdateWorkgroupMembersV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return GovernanceGroupsApiFp(this.configuration).updateWorkgroupMembersV1(requestParameters.workgroupId, requestParameters.bulkworkgroupmembersrequestInner, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

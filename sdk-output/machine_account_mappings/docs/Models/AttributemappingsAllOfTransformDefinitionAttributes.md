@@ -1,19 +1,19 @@
 ---
-id: v1-attributemappings-all-of-transform-definition-attributes-v1
-title: AttributemappingsAllOfTransformDefinitionAttributesV1
-pagination_label: AttributemappingsAllOfTransformDefinitionAttributesV1
-sidebar_label: AttributemappingsAllOfTransformDefinitionAttributesV1
+id: v1-attributemappings-all-of-transform-definition-attributes
+title: AttributemappingsAllOfTransformDefinitionAttributes
+pagination_label: AttributemappingsAllOfTransformDefinitionAttributes
+sidebar_label: AttributemappingsAllOfTransformDefinitionAttributes
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AttributemappingsAllOfTransformDefinitionAttributesV1', 'v1AttributemappingsAllOfTransformDefinitionAttributesV1']
-slug: /tools/sdk/typescript/machine_account_mappings/models/attributemappings-all-of-transform-definition-attributes-v1
-tags: ['SDK', 'Software Development Kit', 'AttributemappingsAllOfTransformDefinitionAttributesV1', 'v1AttributemappingsAllOfTransformDefinitionAttributesV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'AttributemappingsAllOfTransformDefinitionAttributes', 'v1AttributemappingsAllOfTransformDefinitionAttributes']
+slug: /tools/sdk/typescript/machine_account_mappings/models/attributemappings-all-of-transform-definition-attributes
+tags: ['SDK', 'Software Development Kit', 'AttributemappingsAllOfTransformDefinitionAttributes', 'v1AttributemappingsAllOfTransformDefinitionAttributes']
 ---
 
-# AttributemappingsAllOfTransformDefinitionAttributesV1
+# AttributemappingsAllOfTransformDefinitionAttributes
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**input** | **(optional)** **AttributemappingsAllOfTransformDefinitionAttributesInputV1** |  | [default to undefined]
+**input** | **(optional)** `AttributemappingsAllOfTransformDefinitionAttributesInput` |  | [default to undefined]
 

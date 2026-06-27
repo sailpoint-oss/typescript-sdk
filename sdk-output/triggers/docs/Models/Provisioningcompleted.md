@@ -1,26 +1,26 @@
 ---
-id: v1-provisioningcompleted-v1
-title: ProvisioningcompletedV1
-pagination_label: ProvisioningcompletedV1
-sidebar_label: ProvisioningcompletedV1
+id: v1-provisioningcompleted
+title: Provisioningcompleted
+pagination_label: Provisioningcompleted
+sidebar_label: Provisioningcompleted
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ProvisioningcompletedV1', 'v1ProvisioningcompletedV1']
-slug: /tools/sdk/typescript/triggers/models/provisioningcompleted-v1
-tags: ['SDK', 'Software Development Kit', 'ProvisioningcompletedV1', 'v1ProvisioningcompletedV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Provisioningcompleted', 'v1Provisioningcompleted']
+slug: /tools/sdk/typescript/triggers/models/provisioningcompleted
+tags: ['SDK', 'Software Development Kit', 'Provisioningcompleted', 'v1Provisioningcompleted']
 ---
 
-# ProvisioningcompletedV1
+# Provisioningcompleted
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**trackingNumber** | **string** | The reference number of the provisioning request. Useful for tracking status in the Account Activity search interface. | [default to undefined]
-**sources** | **string** | One or more sources that the provisioning transaction(s) were done against.  Sources are comma separated. | [default to undefined]
-**action** | **(optional)** **string** | Origin of where the provisioning request came from. | [default to undefined]
-**errors** | **(optional)** **Array&lt;string&gt;** | A list of any accumulated error messages that occurred during provisioning. | [default to undefined]
-**warnings** | **(optional)** **Array&lt;string&gt;** | A list of any accumulated warning messages that occurred during provisioning. | [default to undefined]
-**recipient** | **ProvisioningcompletedRecipientV1** |  | [default to undefined]
-**requester** | **(optional)** **ProvisioningcompletedRequesterV1** |  | [default to undefined]
-**accountRequests** | **Array&lt;ProvisioningcompletedAccountRequestsInnerV1&gt;** | A list of provisioning instructions to be executed on a per-account basis. The order in which operations are executed may not always be predictable. | [default to undefined]
+**trackingNumber** | `string` | The reference number of the provisioning request. Useful for tracking status in the Account Activity search interface. | [default to undefined]
+**sources** | `string` | One or more sources that the provisioning transaction(s) were done against.  Sources are comma separated. | [default to undefined]
+**action** | **(optional)** `string` | Origin of where the provisioning request came from. | [default to undefined]
+**errors** | **(optional)** `Array<string>` | A list of any accumulated error messages that occurred during provisioning. | [default to undefined]
+**warnings** | **(optional)** `Array<string>` | A list of any accumulated warning messages that occurred during provisioning. | [default to undefined]
+**recipient** | `ProvisioningcompletedRecipient` |  | [default to undefined]
+**requester** | **(optional)** `ProvisioningcompletedRequester` |  | [default to undefined]
+**accountRequests** | `Array<ProvisioningcompletedAccountRequestsInner>` | A list of provisioning instructions to be executed on a per-account basis. The order in which operations are executed may not always be predictable. | [default to undefined]
 

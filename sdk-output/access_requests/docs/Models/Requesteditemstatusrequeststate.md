@@ -1,15 +1,15 @@
 ---
-id: v1-requesteditemstatusrequeststate-v1
-title: RequesteditemstatusrequeststateV1
-pagination_label: RequesteditemstatusrequeststateV1
-sidebar_label: RequesteditemstatusrequeststateV1
+id: v1-requesteditemstatusrequeststate
+title: Requesteditemstatusrequeststate
+pagination_label: Requesteditemstatusrequeststate
+sidebar_label: Requesteditemstatusrequeststate
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RequesteditemstatusrequeststateV1', 'v1RequesteditemstatusrequeststateV1']
-slug: /tools/sdk/typescript/access_requests/models/requesteditemstatusrequeststate-v1
-tags: ['SDK', 'Software Development Kit', 'RequesteditemstatusrequeststateV1', 'v1RequesteditemstatusrequeststateV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Requesteditemstatusrequeststate', 'v1Requesteditemstatusrequeststate']
+slug: /tools/sdk/typescript/access_requests/models/requesteditemstatusrequeststate
+tags: ['SDK', 'Software Development Kit', 'Requesteditemstatusrequeststate', 'v1Requesteditemstatusrequeststate']
 ---
 
-# RequesteditemstatusrequeststateV1
+# Requesteditemstatusrequeststate
 
 ## Enum
 

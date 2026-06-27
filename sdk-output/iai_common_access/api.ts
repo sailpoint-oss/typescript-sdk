@@ -26,62 +26,62 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface CommonaccessidstatusV1
+ * @interface Commonaccessidstatus
  */
-export interface CommonaccessidstatusV1 {
+export interface Commonaccessidstatus {
     /**
      * List of confirmed common access ids.
      * @type {Array<string>}
-     * @memberof CommonaccessidstatusV1
+     * @memberof Commonaccessidstatus
      */
     'confirmedIds'?: Array<string>;
     /**
      * List of denied common access ids.
      * @type {Array<string>}
-     * @memberof CommonaccessidstatusV1
+     * @memberof Commonaccessidstatus
      */
     'deniedIds'?: Array<string>;
 }
 /**
  * 
  * @export
- * @interface CommonaccessitemaccessV1
+ * @interface Commonaccessitemaccess
  */
-export interface CommonaccessitemaccessV1 {
+export interface Commonaccessitemaccess {
     /**
      * Common access ID
      * @type {string}
-     * @memberof CommonaccessitemaccessV1
+     * @memberof Commonaccessitemaccess
      */
     'id'?: string;
     /**
      * 
-     * @type {CommonaccesstypeV1}
-     * @memberof CommonaccessitemaccessV1
+     * @type {Commonaccesstype}
+     * @memberof Commonaccessitemaccess
      */
-    'type'?: CommonaccesstypeV1;
+    'type'?: Commonaccesstype;
     /**
      * Common access name
      * @type {string}
-     * @memberof CommonaccessitemaccessV1
+     * @memberof Commonaccessitemaccess
      */
     'name'?: string;
     /**
      * Common access description
      * @type {string}
-     * @memberof CommonaccessitemaccessV1
+     * @memberof Commonaccessitemaccess
      */
     'description'?: string | null;
     /**
      * Common access owner name
      * @type {string}
-     * @memberof CommonaccessitemaccessV1
+     * @memberof Commonaccessitemaccess
      */
     'ownerName'?: string;
     /**
      * Common access owner ID
      * @type {string}
-     * @memberof CommonaccessitemaccessV1
+     * @memberof Commonaccessitemaccess
      */
     'ownerId'?: string;
 }
@@ -90,70 +90,70 @@ export interface CommonaccessitemaccessV1 {
 /**
  * 
  * @export
- * @interface CommonaccessitemrequestV1
+ * @interface Commonaccessitemrequest
  */
-export interface CommonaccessitemrequestV1 {
+export interface Commonaccessitemrequest {
     /**
      * 
-     * @type {CommonaccessitemaccessV1}
-     * @memberof CommonaccessitemrequestV1
+     * @type {Commonaccessitemaccess}
+     * @memberof Commonaccessitemrequest
      */
-    'access'?: CommonaccessitemaccessV1;
+    'access'?: Commonaccessitemaccess;
     /**
      * 
-     * @type {CommonaccessitemstateV1}
-     * @memberof CommonaccessitemrequestV1
+     * @type {Commonaccessitemstate}
+     * @memberof Commonaccessitemrequest
      */
-    'status'?: CommonaccessitemstateV1;
+    'status'?: Commonaccessitemstate;
 }
 
 
 /**
  * 
  * @export
- * @interface CommonaccessitemresponseV1
+ * @interface Commonaccessitemresponse
  */
-export interface CommonaccessitemresponseV1 {
+export interface Commonaccessitemresponse {
     /**
      * Common Access Item ID
      * @type {string}
-     * @memberof CommonaccessitemresponseV1
+     * @memberof Commonaccessitemresponse
      */
     'id'?: string;
     /**
      * 
-     * @type {CommonaccessitemaccessV1}
-     * @memberof CommonaccessitemresponseV1
+     * @type {Commonaccessitemaccess}
+     * @memberof Commonaccessitemresponse
      */
-    'access'?: CommonaccessitemaccessV1;
+    'access'?: Commonaccessitemaccess;
     /**
      * 
-     * @type {CommonaccessitemstateV1}
-     * @memberof CommonaccessitemresponseV1
+     * @type {Commonaccessitemstate}
+     * @memberof Commonaccessitemresponse
      */
-    'status'?: CommonaccessitemstateV1;
+    'status'?: Commonaccessitemstate;
     /**
      * 
      * @type {string}
-     * @memberof CommonaccessitemresponseV1
+     * @memberof Commonaccessitemresponse
      */
     'lastUpdated'?: string;
     /**
      * 
      * @type {boolean}
-     * @memberof CommonaccessitemresponseV1
+     * @memberof Commonaccessitemresponse
      */
     'reviewedByUser'?: boolean;
     /**
      * 
      * @type {string}
-     * @memberof CommonaccessitemresponseV1
+     * @memberof Commonaccessitemresponse
      */
     'lastReviewed'?: string;
     /**
      * 
      * @type {string}
-     * @memberof CommonaccessitemresponseV1
+     * @memberof Commonaccessitemresponse
      */
     'createdByUser'?: string;
 }
@@ -165,66 +165,66 @@ export interface CommonaccessitemresponseV1 {
  * @enum {string}
  */
 
-export const CommonaccessitemstateV1 = {
+export const Commonaccessitemstate = {
     Confirmed: 'CONFIRMED',
     Denied: 'DENIED'
 } as const;
 
-export type CommonaccessitemstateV1 = typeof CommonaccessitemstateV1[keyof typeof CommonaccessitemstateV1];
+export type Commonaccessitemstate = typeof Commonaccessitemstate[keyof typeof Commonaccessitemstate];
 
 
 /**
  * 
  * @export
- * @interface CommonaccessresponseV1
+ * @interface Commonaccessresponse
  */
-export interface CommonaccessresponseV1 {
+export interface Commonaccessresponse {
     /**
      * Unique ID of the common access item
      * @type {string}
-     * @memberof CommonaccessresponseV1
+     * @memberof Commonaccessresponse
      */
     'id'?: string;
     /**
      * 
-     * @type {CommonaccessitemaccessV1}
-     * @memberof CommonaccessresponseV1
+     * @type {Commonaccessitemaccess}
+     * @memberof Commonaccessresponse
      */
-    'access'?: CommonaccessitemaccessV1;
+    'access'?: Commonaccessitemaccess;
     /**
      * CONFIRMED or DENIED
      * @type {string}
-     * @memberof CommonaccessresponseV1
+     * @memberof Commonaccessresponse
      */
     'status'?: string;
     /**
      * 
      * @type {string}
-     * @memberof CommonaccessresponseV1
+     * @memberof Commonaccessresponse
      */
     'commonAccessType'?: string;
     /**
      * 
      * @type {string}
-     * @memberof CommonaccessresponseV1
+     * @memberof Commonaccessresponse
      */
     'lastUpdated'?: string;
     /**
      * true if user has confirmed or denied status
      * @type {boolean}
-     * @memberof CommonaccessresponseV1
+     * @memberof Commonaccessresponse
      */
     'reviewedByUser'?: boolean;
     /**
      * 
      * @type {string}
-     * @memberof CommonaccessresponseV1
+     * @memberof Commonaccessresponse
      */
     'lastReviewed'?: string | null;
     /**
      * 
      * @type {boolean}
-     * @memberof CommonaccessresponseV1
+     * @memberof Commonaccessresponse
      */
     'createdByUser'?: boolean;
 }
@@ -234,49 +234,49 @@ export interface CommonaccessresponseV1 {
  * @enum {string}
  */
 
-export const CommonaccesstypeV1 = {
+export const Commonaccesstype = {
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE'
 } as const;
 
-export type CommonaccesstypeV1 = typeof CommonaccesstypeV1[keyof typeof CommonaccesstypeV1];
+export type Commonaccesstype = typeof Commonaccesstype[keyof typeof Commonaccesstype];
 
 
 /**
  * 
  * @export
- * @interface CreateCommonAccessV1429ResponseV1
+ * @interface CreateCommonAccessV1429Response
  */
-export interface CreateCommonAccessV1429ResponseV1 {
+export interface CreateCommonAccessV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof CreateCommonAccessV1429ResponseV1
+     * @memberof CreateCommonAccessV1429Response
      */
     'message'?: any;
 }
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -285,44 +285,44 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetCommonAccessV1401ResponseV1
+ * @interface GetCommonAccessV1401Response
  */
-export interface GetCommonAccessV1401ResponseV1 {
+export interface GetCommonAccessV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetCommonAccessV1401ResponseV1
+     * @memberof GetCommonAccessV1401Response
      */
     'error'?: any;
 }
@@ -332,32 +332,32 @@ export interface GetCommonAccessV1401ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 
 /**
- * IAICommonAccessV1Api - axios parameter creator
+ * IAICommonAccessApi - axios parameter creator
  * @export
  */
-export const IAICommonAccessV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const IAICommonAccessApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This API is used to add roles/access profiles to the list of common access for a customer. Requires authorization scope of iai:access-modeling:create
          * @summary Create common access items
-         * @param {CommonaccessitemrequestV1} commonaccessitemrequestV1 
+         * @param {Commonaccessitemrequest} commonaccessitemrequest 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createCommonAccessV1: async (commonaccessitemrequestV1: CommonaccessitemrequestV1, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'commonaccessitemrequestV1' is not null or undefined
-            assertParamExists('createCommonAccessV1', 'commonaccessitemrequestV1', commonaccessitemrequestV1)
+        createCommonAccessV1: async (commonaccessitemrequest: Commonaccessitemrequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'commonaccessitemrequest' is not null or undefined
+            assertParamExists('createCommonAccessV1', 'commonaccessitemrequest', commonaccessitemrequest)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -384,7 +384,7 @@ export const IAICommonAccessV1ApiAxiosParamCreator = function (configuration?: C
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(commonaccessitemrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(commonaccessitemrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -457,14 +457,14 @@ export const IAICommonAccessV1ApiAxiosParamCreator = function (configuration?: C
         /**
          * This submits an update request to the common access application. At this time there are no parameters. Requires authorization scope of iai:access-modeling:update
          * @summary Bulk update common access status
-         * @param {Array<CommonaccessidstatusV1>} commonaccessidstatusV1 Confirm or deny in bulk the common access ids that are (or aren\&#39;t) common access
+         * @param {Array<Commonaccessidstatus>} commonaccessidstatus Confirm or deny in bulk the common access ids that are (or aren\&#39;t) common access
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateCommonAccessStatusInBulkV1: async (commonaccessidstatusV1: Array<CommonaccessidstatusV1>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'commonaccessidstatusV1' is not null or undefined
-            assertParamExists('updateCommonAccessStatusInBulkV1', 'commonaccessidstatusV1', commonaccessidstatusV1)
+        updateCommonAccessStatusInBulkV1: async (commonaccessidstatus: Array<Commonaccessidstatus>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'commonaccessidstatus' is not null or undefined
+            assertParamExists('updateCommonAccessStatusInBulkV1', 'commonaccessidstatus', commonaccessidstatus)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -491,7 +491,7 @@ export const IAICommonAccessV1ApiAxiosParamCreator = function (configuration?: C
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(commonaccessidstatusV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(commonaccessidstatus, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -502,24 +502,24 @@ export const IAICommonAccessV1ApiAxiosParamCreator = function (configuration?: C
 };
 
 /**
- * IAICommonAccessV1Api - functional programming interface
+ * IAICommonAccessApi - functional programming interface
  * @export
  */
-export const IAICommonAccessV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = IAICommonAccessV1ApiAxiosParamCreator(configuration)
+export const IAICommonAccessApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = IAICommonAccessApiAxiosParamCreator(configuration)
     return {
         /**
          * This API is used to add roles/access profiles to the list of common access for a customer. Requires authorization scope of iai:access-modeling:create
          * @summary Create common access items
-         * @param {CommonaccessitemrequestV1} commonaccessitemrequestV1 
+         * @param {Commonaccessitemrequest} commonaccessitemrequest 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createCommonAccessV1(commonaccessitemrequestV1: CommonaccessitemrequestV1, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CommonaccessitemresponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createCommonAccessV1(commonaccessitemrequestV1, xSailPointExperimental, axiosOptions);
+        async createCommonAccessV1(commonaccessitemrequest: Commonaccessitemrequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Commonaccessitemresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCommonAccessV1(commonaccessitemrequest, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAICommonAccessV1Api.createCommonAccessV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAICommonAccessApi.createCommonAccessV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -534,201 +534,201 @@ export const IAICommonAccessV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCommonAccessV1(offset?: number, limit?: number, count?: boolean, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CommonaccessresponseV1>>> {
+        async getCommonAccessV1(offset?: number, limit?: number, count?: boolean, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Commonaccessresponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCommonAccessV1(offset, limit, count, filters, sorters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAICommonAccessV1Api.getCommonAccessV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAICommonAccessApi.getCommonAccessV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This submits an update request to the common access application. At this time there are no parameters. Requires authorization scope of iai:access-modeling:update
          * @summary Bulk update common access status
-         * @param {Array<CommonaccessidstatusV1>} commonaccessidstatusV1 Confirm or deny in bulk the common access ids that are (or aren\&#39;t) common access
+         * @param {Array<Commonaccessidstatus>} commonaccessidstatus Confirm or deny in bulk the common access ids that are (or aren\&#39;t) common access
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateCommonAccessStatusInBulkV1(commonaccessidstatusV1: Array<CommonaccessidstatusV1>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateCommonAccessStatusInBulkV1(commonaccessidstatusV1, xSailPointExperimental, axiosOptions);
+        async updateCommonAccessStatusInBulkV1(commonaccessidstatus: Array<Commonaccessidstatus>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateCommonAccessStatusInBulkV1(commonaccessidstatus, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAICommonAccessV1Api.updateCommonAccessStatusInBulkV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAICommonAccessApi.updateCommonAccessStatusInBulkV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * IAICommonAccessV1Api - factory interface
+ * IAICommonAccessApi - factory interface
  * @export
  */
-export const IAICommonAccessV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = IAICommonAccessV1ApiFp(configuration)
+export const IAICommonAccessApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = IAICommonAccessApiFp(configuration)
     return {
         /**
          * This API is used to add roles/access profiles to the list of common access for a customer. Requires authorization scope of iai:access-modeling:create
          * @summary Create common access items
-         * @param {IAICommonAccessV1ApiCreateCommonAccessV1Request} requestParameters Request parameters.
+         * @param {IAICommonAccessApiCreateCommonAccessV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createCommonAccessV1(requestParameters: IAICommonAccessV1ApiCreateCommonAccessV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CommonaccessitemresponseV1> {
-            return localVarFp.createCommonAccessV1(requestParameters.commonaccessitemrequestV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        createCommonAccessV1(requestParameters: IAICommonAccessApiCreateCommonAccessV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Commonaccessitemresponse> {
+            return localVarFp.createCommonAccessV1(requestParameters.commonaccessitemrequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint returns the current common access for a customer. The returned items can be filtered and sorted. Requires authorization scope of iai:access-modeling:read
          * @summary Get a paginated list of common access
-         * @param {IAICommonAccessV1ApiGetCommonAccessV1Request} requestParameters Request parameters.
+         * @param {IAICommonAccessApiGetCommonAccessV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCommonAccessV1(requestParameters: IAICommonAccessV1ApiGetCommonAccessV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<CommonaccessresponseV1>> {
+        getCommonAccessV1(requestParameters: IAICommonAccessApiGetCommonAccessV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Commonaccessresponse>> {
             return localVarFp.getCommonAccessV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This submits an update request to the common access application. At this time there are no parameters. Requires authorization scope of iai:access-modeling:update
          * @summary Bulk update common access status
-         * @param {IAICommonAccessV1ApiUpdateCommonAccessStatusInBulkV1Request} requestParameters Request parameters.
+         * @param {IAICommonAccessApiUpdateCommonAccessStatusInBulkV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateCommonAccessStatusInBulkV1(requestParameters: IAICommonAccessV1ApiUpdateCommonAccessStatusInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
-            return localVarFp.updateCommonAccessStatusInBulkV1(requestParameters.commonaccessidstatusV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        updateCommonAccessStatusInBulkV1(requestParameters: IAICommonAccessApiUpdateCommonAccessStatusInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
+            return localVarFp.updateCommonAccessStatusInBulkV1(requestParameters.commonaccessidstatus, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createCommonAccessV1 operation in IAICommonAccessV1Api.
+ * Request parameters for createCommonAccessV1 operation in IAICommonAccessApi.
  * @export
- * @interface IAICommonAccessV1ApiCreateCommonAccessV1Request
+ * @interface IAICommonAccessApiCreateCommonAccessV1Request
  */
-export interface IAICommonAccessV1ApiCreateCommonAccessV1Request {
+export interface IAICommonAccessApiCreateCommonAccessV1Request {
     /**
      * 
-     * @type {CommonaccessitemrequestV1}
-     * @memberof IAICommonAccessV1ApiCreateCommonAccessV1
+     * @type {Commonaccessitemrequest}
+     * @memberof IAICommonAccessApiCreateCommonAccessV1
      */
-    readonly commonaccessitemrequestV1: CommonaccessitemrequestV1
+    readonly commonaccessitemrequest: Commonaccessitemrequest
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAICommonAccessV1ApiCreateCommonAccessV1
+     * @memberof IAICommonAccessApiCreateCommonAccessV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getCommonAccessV1 operation in IAICommonAccessV1Api.
+ * Request parameters for getCommonAccessV1 operation in IAICommonAccessApi.
  * @export
- * @interface IAICommonAccessV1ApiGetCommonAccessV1Request
+ * @interface IAICommonAccessApiGetCommonAccessV1Request
  */
-export interface IAICommonAccessV1ApiGetCommonAccessV1Request {
+export interface IAICommonAccessApiGetCommonAccessV1Request {
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IAICommonAccessV1ApiGetCommonAccessV1
+     * @memberof IAICommonAccessApiGetCommonAccessV1
      */
     readonly offset?: number
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IAICommonAccessV1ApiGetCommonAccessV1
+     * @memberof IAICommonAccessApiGetCommonAccessV1
      */
     readonly limit?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof IAICommonAccessV1ApiGetCommonAccessV1
+     * @memberof IAICommonAccessApiGetCommonAccessV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, sw*  **reviewedByUser** *eq*  **access.id**: *eq, sw*  **access.type**: *eq*  **access.name**: *sw, eq*  **access.description**: *sw, eq*
      * @type {string}
-     * @memberof IAICommonAccessV1ApiGetCommonAccessV1
+     * @memberof IAICommonAccessApiGetCommonAccessV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, status**  By default the common access items are sorted by name, ascending.
      * @type {string}
-     * @memberof IAICommonAccessV1ApiGetCommonAccessV1
+     * @memberof IAICommonAccessApiGetCommonAccessV1
      */
     readonly sorters?: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAICommonAccessV1ApiGetCommonAccessV1
+     * @memberof IAICommonAccessApiGetCommonAccessV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for updateCommonAccessStatusInBulkV1 operation in IAICommonAccessV1Api.
+ * Request parameters for updateCommonAccessStatusInBulkV1 operation in IAICommonAccessApi.
  * @export
- * @interface IAICommonAccessV1ApiUpdateCommonAccessStatusInBulkV1Request
+ * @interface IAICommonAccessApiUpdateCommonAccessStatusInBulkV1Request
  */
-export interface IAICommonAccessV1ApiUpdateCommonAccessStatusInBulkV1Request {
+export interface IAICommonAccessApiUpdateCommonAccessStatusInBulkV1Request {
     /**
      * Confirm or deny in bulk the common access ids that are (or aren\&#39;t) common access
-     * @type {Array<CommonaccessidstatusV1>}
-     * @memberof IAICommonAccessV1ApiUpdateCommonAccessStatusInBulkV1
+     * @type {Array<Commonaccessidstatus>}
+     * @memberof IAICommonAccessApiUpdateCommonAccessStatusInBulkV1
      */
-    readonly commonaccessidstatusV1: Array<CommonaccessidstatusV1>
+    readonly commonaccessidstatus: Array<Commonaccessidstatus>
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAICommonAccessV1ApiUpdateCommonAccessStatusInBulkV1
+     * @memberof IAICommonAccessApiUpdateCommonAccessStatusInBulkV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * IAICommonAccessV1Api - object-oriented interface
+ * IAICommonAccessApi - object-oriented interface
  * @export
- * @class IAICommonAccessV1Api
+ * @class IAICommonAccessApi
  * @extends {BaseAPI}
  */
-export class IAICommonAccessV1Api extends BaseAPI {
+export class IAICommonAccessApi extends BaseAPI {
     /**
      * This API is used to add roles/access profiles to the list of common access for a customer. Requires authorization scope of iai:access-modeling:create
      * @summary Create common access items
-     * @param {IAICommonAccessV1ApiCreateCommonAccessV1Request} requestParameters Request parameters.
+     * @param {IAICommonAccessApiCreateCommonAccessV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAICommonAccessV1Api
+     * @memberof IAICommonAccessApi
      */
-    public createCommonAccessV1(requestParameters: IAICommonAccessV1ApiCreateCommonAccessV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IAICommonAccessV1ApiFp(this.configuration).createCommonAccessV1(requestParameters.commonaccessitemrequestV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createCommonAccessV1(requestParameters: IAICommonAccessApiCreateCommonAccessV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IAICommonAccessApiFp(this.configuration).createCommonAccessV1(requestParameters.commonaccessitemrequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint returns the current common access for a customer. The returned items can be filtered and sorted. Requires authorization scope of iai:access-modeling:read
      * @summary Get a paginated list of common access
-     * @param {IAICommonAccessV1ApiGetCommonAccessV1Request} requestParameters Request parameters.
+     * @param {IAICommonAccessApiGetCommonAccessV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAICommonAccessV1Api
+     * @memberof IAICommonAccessApi
      */
-    public getCommonAccessV1(requestParameters: IAICommonAccessV1ApiGetCommonAccessV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return IAICommonAccessV1ApiFp(this.configuration).getCommonAccessV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getCommonAccessV1(requestParameters: IAICommonAccessApiGetCommonAccessV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return IAICommonAccessApiFp(this.configuration).getCommonAccessV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This submits an update request to the common access application. At this time there are no parameters. Requires authorization scope of iai:access-modeling:update
      * @summary Bulk update common access status
-     * @param {IAICommonAccessV1ApiUpdateCommonAccessStatusInBulkV1Request} requestParameters Request parameters.
+     * @param {IAICommonAccessApiUpdateCommonAccessStatusInBulkV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAICommonAccessV1Api
+     * @memberof IAICommonAccessApi
      */
-    public updateCommonAccessStatusInBulkV1(requestParameters: IAICommonAccessV1ApiUpdateCommonAccessStatusInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IAICommonAccessV1ApiFp(this.configuration).updateCommonAccessStatusInBulkV1(requestParameters.commonaccessidstatusV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateCommonAccessStatusInBulkV1(requestParameters: IAICommonAccessApiUpdateCommonAccessStatusInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IAICommonAccessApiFp(this.configuration).updateCommonAccessStatusInBulkV1(requestParameters.commonaccessidstatus, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

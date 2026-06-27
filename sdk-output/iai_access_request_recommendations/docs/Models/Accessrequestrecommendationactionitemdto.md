@@ -1,20 +1,20 @@
 ---
-id: v1-accessrequestrecommendationactionitemdto-v1
-title: AccessrequestrecommendationactionitemdtoV1
-pagination_label: AccessrequestrecommendationactionitemdtoV1
-sidebar_label: AccessrequestrecommendationactionitemdtoV1
+id: v1-accessrequestrecommendationactionitemdto
+title: Accessrequestrecommendationactionitemdto
+pagination_label: Accessrequestrecommendationactionitemdto
+sidebar_label: Accessrequestrecommendationactionitemdto
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccessrequestrecommendationactionitemdtoV1', 'v1AccessrequestrecommendationactionitemdtoV1']
-slug: /tools/sdk/typescript/iai_access_request_recommendations/models/accessrequestrecommendationactionitemdto-v1
-tags: ['SDK', 'Software Development Kit', 'AccessrequestrecommendationactionitemdtoV1', 'v1AccessrequestrecommendationactionitemdtoV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accessrequestrecommendationactionitemdto', 'v1Accessrequestrecommendationactionitemdto']
+slug: /tools/sdk/typescript/iai_access_request_recommendations/models/accessrequestrecommendationactionitemdto
+tags: ['SDK', 'Software Development Kit', 'Accessrequestrecommendationactionitemdto', 'v1Accessrequestrecommendationactionitemdto']
 ---
 
-# AccessrequestrecommendationactionitemdtoV1
+# Accessrequestrecommendationactionitemdto
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identityId** | **string** | The identity ID taking the action. | [default to undefined]
-**access** | **AccessrequestrecommendationitemV1** |  | [default to undefined]
+**identityId** | `string` | The identity ID taking the action. | [default to undefined]
+**access** | `Accessrequestrecommendationitem` |  | [default to undefined]
 

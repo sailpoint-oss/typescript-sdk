@@ -1,15 +1,15 @@
 ---
-id: v1-array-inner1-v1
-title: ArrayInner1V1
-pagination_label: ArrayInner1V1
-sidebar_label: ArrayInner1V1
+id: v1-array-inner1
+title: ArrayInner1
+pagination_label: ArrayInner1
+sidebar_label: ArrayInner1
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ArrayInner1V1', 'v1ArrayInner1V1']
-slug: /tools/sdk/typescript/iai_role_mining/models/array-inner1-v1
-tags: ['SDK', 'Software Development Kit', 'ArrayInner1V1', 'v1ArrayInner1V1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ArrayInner1', 'v1ArrayInner1']
+slug: /tools/sdk/typescript/iai_role_mining/models/array-inner1
+tags: ['SDK', 'Software Development Kit', 'ArrayInner1', 'v1ArrayInner1']
 ---
 
-# ArrayInner1V1
+# ArrayInner1
 
 ## Properties
 

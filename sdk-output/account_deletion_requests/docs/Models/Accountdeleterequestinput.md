@@ -1,19 +1,19 @@
 ---
-id: v1-accountdeleterequestinput-v1
-title: AccountdeleterequestinputV1
-pagination_label: AccountdeleterequestinputV1
-sidebar_label: AccountdeleterequestinputV1
+id: v1-accountdeleterequestinput
+title: Accountdeleterequestinput
+pagination_label: Accountdeleterequestinput
+sidebar_label: Accountdeleterequestinput
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccountdeleterequestinputV1', 'v1AccountdeleterequestinputV1']
-slug: /tools/sdk/typescript/account_deletion_requests/models/accountdeleterequestinput-v1
-tags: ['SDK', 'Software Development Kit', 'AccountdeleterequestinputV1', 'v1AccountdeleterequestinputV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accountdeleterequestinput', 'v1Accountdeleterequestinput']
+slug: /tools/sdk/typescript/account_deletion_requests/models/accountdeleterequestinput
+tags: ['SDK', 'Software Development Kit', 'Accountdeleterequestinput', 'v1Accountdeleterequestinput']
 ---
 
-# AccountdeleterequestinputV1
+# Accountdeleterequestinput
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**comments** | **(optional)** **string** | Reason for deleting the account. | [default to undefined]
+**comments** | **(optional)** `string` | Reason for deleting the account. | [default to undefined]
 

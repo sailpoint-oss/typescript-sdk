@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -53,104 +53,104 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetIdentityOutlierSnapshotsV1401ResponseV1
+ * @interface GetIdentityOutlierSnapshotsV1401Response
  */
-export interface GetIdentityOutlierSnapshotsV1401ResponseV1 {
+export interface GetIdentityOutlierSnapshotsV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetIdentityOutlierSnapshotsV1401ResponseV1
+     * @memberof GetIdentityOutlierSnapshotsV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetIdentityOutlierSnapshotsV1429ResponseV1
+ * @interface GetIdentityOutlierSnapshotsV1429Response
  */
-export interface GetIdentityOutlierSnapshotsV1429ResponseV1 {
+export interface GetIdentityOutlierSnapshotsV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetIdentityOutlierSnapshotsV1429ResponseV1
+     * @memberof GetIdentityOutlierSnapshotsV1429Response
      */
     'message'?: any;
 }
 /**
  * 
  * @export
- * @interface LatestoutliersummaryV1
+ * @interface Latestoutliersummary
  */
-export interface LatestoutliersummaryV1 {
+export interface Latestoutliersummary {
     /**
      * The type of outlier summary
      * @type {string}
-     * @memberof LatestoutliersummaryV1
+     * @memberof Latestoutliersummary
      */
-    'type'?: LatestoutliersummaryV1TypeV1;
+    'type'?: LatestoutliersummaryTypeEnum;
     /**
      * The date the bulk outlier detection ran/snapshot was created
      * @type {string}
-     * @memberof LatestoutliersummaryV1
+     * @memberof Latestoutliersummary
      */
     'snapshotDate'?: string;
     /**
      * Total number of outliers for the customer making the request
      * @type {number}
-     * @memberof LatestoutliersummaryV1
+     * @memberof Latestoutliersummary
      */
     'totalOutliers'?: number;
     /**
      * Total number of identities for the customer making the request
      * @type {number}
-     * @memberof LatestoutliersummaryV1
+     * @memberof Latestoutliersummary
      */
     'totalIdentities'?: number;
     /**
      * Total number of ignored outliers
      * @type {number}
-     * @memberof LatestoutliersummaryV1
+     * @memberof Latestoutliersummary
      */
     'totalIgnored'?: number;
 }
 
-export const LatestoutliersummaryV1TypeV1 = {
+export const LatestoutliersummaryTypeEnum = {
     LowSimilarity: 'LOW_SIMILARITY',
     Structural: 'STRUCTURAL'
 } as const;
 
-export type LatestoutliersummaryV1TypeV1 = typeof LatestoutliersummaryV1TypeV1[keyof typeof LatestoutliersummaryV1TypeV1];
+export type LatestoutliersummaryTypeEnum = typeof LatestoutliersummaryTypeEnum[keyof typeof LatestoutliersummaryTypeEnum];
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -158,414 +158,414 @@ export type LatestoutliersummaryV1TypeV1 = typeof LatestoutliersummaryV1TypeV1[k
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface OutlierV1
+ * @interface Outlier
  */
-export interface OutlierV1 {
+export interface Outlier {
     /**
      * The identity\'s unique identifier for the outlier record
      * @type {string}
-     * @memberof OutlierV1
+     * @memberof Outlier
      */
     'id'?: string;
     /**
      * The ID of the identity that is detected as an outlier
      * @type {string}
-     * @memberof OutlierV1
+     * @memberof Outlier
      */
     'identityId'?: string;
     /**
      * The type of outlier summary
      * @type {string}
-     * @memberof OutlierV1
+     * @memberof Outlier
      */
-    'type'?: OutlierV1TypeV1;
+    'type'?: OutlierTypeEnum;
     /**
      * The first date the outlier was detected
      * @type {string}
-     * @memberof OutlierV1
+     * @memberof Outlier
      */
     'firstDetectionDate'?: string;
     /**
      * The most recent date the outlier was detected
      * @type {string}
-     * @memberof OutlierV1
+     * @memberof Outlier
      */
     'latestDetectionDate'?: string;
     /**
      * Flag whether or not the outlier has been ignored
      * @type {boolean}
-     * @memberof OutlierV1
+     * @memberof Outlier
      */
     'ignored'?: boolean;
     /**
      * Object containing mapped identity attributes
      * @type {object}
-     * @memberof OutlierV1
+     * @memberof Outlier
      */
     'attributes'?: object;
     /**
      * The outlier score determined by the detection engine ranging from 0..1
      * @type {number}
-     * @memberof OutlierV1
+     * @memberof Outlier
      */
     'score'?: number;
     /**
      * Enum value of if the outlier manually or automatically un-ignored. Will be NULL if outlier is not ignored
      * @type {string}
-     * @memberof OutlierV1
+     * @memberof Outlier
      */
-    'unignoreType'?: OutlierV1UnignoreTypeV1 | null;
+    'unignoreType'?: OutlierUnignoreTypeEnum | null;
     /**
      * shows date when last time has been unignored outlier
      * @type {string}
-     * @memberof OutlierV1
+     * @memberof Outlier
      */
     'unignoreDate'?: string | null;
     /**
      * shows date when last time has been ignored outlier
      * @type {string}
-     * @memberof OutlierV1
+     * @memberof Outlier
      */
     'ignoreDate'?: string | null;
 }
 
-export const OutlierV1TypeV1 = {
+export const OutlierTypeEnum = {
     LowSimilarity: 'LOW_SIMILARITY',
     Structural: 'STRUCTURAL'
 } as const;
 
-export type OutlierV1TypeV1 = typeof OutlierV1TypeV1[keyof typeof OutlierV1TypeV1];
-export const OutlierV1UnignoreTypeV1 = {
+export type OutlierTypeEnum = typeof OutlierTypeEnum[keyof typeof OutlierTypeEnum];
+export const OutlierUnignoreTypeEnum = {
     Manual: 'MANUAL',
     Automatic: 'AUTOMATIC'
 } as const;
 
-export type OutlierV1UnignoreTypeV1 = typeof OutlierV1UnignoreTypeV1[keyof typeof OutlierV1UnignoreTypeV1];
+export type OutlierUnignoreTypeEnum = typeof OutlierUnignoreTypeEnum[keyof typeof OutlierUnignoreTypeEnum];
 
 /**
  * 
  * @export
- * @interface OutliercontributingfeatureV1
+ * @interface Outliercontributingfeature
  */
-export interface OutliercontributingfeatureV1 {
+export interface Outliercontributingfeature {
     /**
      * Contributing feature id
      * @type {string}
-     * @memberof OutliercontributingfeatureV1
+     * @memberof Outliercontributingfeature
      */
     'id'?: string;
     /**
      * The name of the feature
      * @type {string}
-     * @memberof OutliercontributingfeatureV1
+     * @memberof Outliercontributingfeature
      */
     'name'?: string;
     /**
      * 
-     * @type {OutliervaluetypeV1}
-     * @memberof OutliercontributingfeatureV1
+     * @type {Outliervaluetype}
+     * @memberof Outliercontributingfeature
      */
-    'valueType'?: OutliervaluetypeV1;
+    'valueType'?: Outliervaluetype;
     /**
      * The feature value
      * @type {number}
-     * @memberof OutliercontributingfeatureV1
+     * @memberof Outliercontributingfeature
      */
     'value'?: number;
     /**
      * The importance of the feature. This can also be a negative value
      * @type {number}
-     * @memberof OutliercontributingfeatureV1
+     * @memberof Outliercontributingfeature
      */
     'importance'?: number;
     /**
      * The (translated if header is passed) displayName for the feature
      * @type {string}
-     * @memberof OutliercontributingfeatureV1
+     * @memberof Outliercontributingfeature
      */
     'displayName'?: string;
     /**
      * The (translated if header is passed) description for the feature
      * @type {string}
-     * @memberof OutliercontributingfeatureV1
+     * @memberof Outliercontributingfeature
      */
     'description'?: string;
     /**
      * 
-     * @type {OutlierfeaturetranslationV1}
-     * @memberof OutliercontributingfeatureV1
+     * @type {Outlierfeaturetranslation}
+     * @memberof Outliercontributingfeature
      */
-    'translationMessages'?: OutlierfeaturetranslationV1 | null;
+    'translationMessages'?: Outlierfeaturetranslation | null;
 }
 /**
  * 
  * @export
- * @interface OutlierfeaturesummaryOutlierFeatureDisplayValuesInnerV1
+ * @interface Outlierfeaturesummary
  */
-export interface OutlierfeaturesummaryOutlierFeatureDisplayValuesInnerV1 {
-    /**
-     * display name
-     * @type {string}
-     * @memberof OutlierfeaturesummaryOutlierFeatureDisplayValuesInnerV1
-     */
-    'displayName'?: string;
-    /**
-     * value
-     * @type {string}
-     * @memberof OutlierfeaturesummaryOutlierFeatureDisplayValuesInnerV1
-     */
-    'value'?: string;
-    /**
-     * 
-     * @type {OutliervaluetypeV1}
-     * @memberof OutlierfeaturesummaryOutlierFeatureDisplayValuesInnerV1
-     */
-    'valueType'?: OutliervaluetypeV1;
-}
-/**
- * 
- * @export
- * @interface OutlierfeaturesummaryV1
- */
-export interface OutlierfeaturesummaryV1 {
+export interface Outlierfeaturesummary {
     /**
      * Contributing feature name
      * @type {string}
-     * @memberof OutlierfeaturesummaryV1
+     * @memberof Outlierfeaturesummary
      */
     'contributingFeatureName'?: string;
     /**
      * Identity display name
      * @type {string}
-     * @memberof OutlierfeaturesummaryV1
+     * @memberof Outlierfeaturesummary
      */
     'identityOutlierDisplayName'?: string;
     /**
      * 
-     * @type {Array<OutlierfeaturesummaryOutlierFeatureDisplayValuesInnerV1>}
-     * @memberof OutlierfeaturesummaryV1
+     * @type {Array<OutlierfeaturesummaryOutlierFeatureDisplayValuesInner>}
+     * @memberof Outlierfeaturesummary
      */
-    'outlierFeatureDisplayValues'?: Array<OutlierfeaturesummaryOutlierFeatureDisplayValuesInnerV1>;
+    'outlierFeatureDisplayValues'?: Array<OutlierfeaturesummaryOutlierFeatureDisplayValuesInner>;
     /**
      * Definition of the feature
      * @type {string}
-     * @memberof OutlierfeaturesummaryV1
+     * @memberof Outlierfeaturesummary
      */
     'featureDefinition'?: string;
     /**
      * Detailed explanation of the feature
      * @type {string}
-     * @memberof OutlierfeaturesummaryV1
+     * @memberof Outlierfeaturesummary
      */
     'featureExplanation'?: string;
     /**
      * outlier\'s peer identity display name
      * @type {string}
-     * @memberof OutlierfeaturesummaryV1
+     * @memberof Outlierfeaturesummary
      */
     'peerDisplayName'?: string | null;
     /**
      * outlier\'s peer identity id
      * @type {string}
-     * @memberof OutlierfeaturesummaryV1
+     * @memberof Outlierfeaturesummary
      */
     'peerIdentityId'?: string | null;
     /**
      * Access Item reference
      * @type {object}
-     * @memberof OutlierfeaturesummaryV1
+     * @memberof Outlierfeaturesummary
      */
     'accessItemReference'?: object;
 }
 /**
  * 
  * @export
- * @interface OutlierfeaturetranslationV1
+ * @interface OutlierfeaturesummaryOutlierFeatureDisplayValuesInner
  */
-export interface OutlierfeaturetranslationV1 {
+export interface OutlierfeaturesummaryOutlierFeatureDisplayValuesInner {
+    /**
+     * display name
+     * @type {string}
+     * @memberof OutlierfeaturesummaryOutlierFeatureDisplayValuesInner
+     */
+    'displayName'?: string;
+    /**
+     * value
+     * @type {string}
+     * @memberof OutlierfeaturesummaryOutlierFeatureDisplayValuesInner
+     */
+    'value'?: string;
     /**
      * 
-     * @type {TranslationmessageV1}
-     * @memberof OutlierfeaturetranslationV1
+     * @type {Outliervaluetype}
+     * @memberof OutlierfeaturesummaryOutlierFeatureDisplayValuesInner
      */
-    'displayName'?: TranslationmessageV1;
-    /**
-     * 
-     * @type {TranslationmessageV1}
-     * @memberof OutlierfeaturetranslationV1
-     */
-    'description'?: TranslationmessageV1;
+    'valueType'?: Outliervaluetype;
 }
 /**
  * 
  * @export
- * @interface OutlierscontributingfeatureaccessitemsV1
+ * @interface Outlierfeaturetranslation
  */
-export interface OutlierscontributingfeatureaccessitemsV1 {
+export interface Outlierfeaturetranslation {
+    /**
+     * 
+     * @type {Translationmessage}
+     * @memberof Outlierfeaturetranslation
+     */
+    'displayName'?: Translationmessage;
+    /**
+     * 
+     * @type {Translationmessage}
+     * @memberof Outlierfeaturetranslation
+     */
+    'description'?: Translationmessage;
+}
+/**
+ * 
+ * @export
+ * @interface Outlierscontributingfeatureaccessitems
+ */
+export interface Outlierscontributingfeatureaccessitems {
     /**
      * The ID of the access item
      * @type {string}
-     * @memberof OutlierscontributingfeatureaccessitemsV1
+     * @memberof Outlierscontributingfeatureaccessitems
      */
     'id'?: string;
     /**
      * the display name of the access item
      * @type {string}
-     * @memberof OutlierscontributingfeatureaccessitemsV1
+     * @memberof Outlierscontributingfeatureaccessitems
      */
     'displayName'?: string;
     /**
      * Description of the access item.
      * @type {string}
-     * @memberof OutlierscontributingfeatureaccessitemsV1
+     * @memberof Outlierscontributingfeatureaccessitems
      */
     'description'?: string | null;
     /**
      * The type of the access item.
      * @type {string}
-     * @memberof OutlierscontributingfeatureaccessitemsV1
+     * @memberof Outlierscontributingfeatureaccessitems
      */
-    'accessType'?: OutlierscontributingfeatureaccessitemsV1AccessTypeV1;
+    'accessType'?: OutlierscontributingfeatureaccessitemsAccessTypeEnum;
     /**
      * the associated source name if it exists
      * @type {string}
-     * @memberof OutlierscontributingfeatureaccessitemsV1
+     * @memberof Outlierscontributingfeatureaccessitems
      */
     'sourceName'?: string;
     /**
      * rarest access
      * @type {boolean}
-     * @memberof OutlierscontributingfeatureaccessitemsV1
+     * @memberof Outlierscontributingfeatureaccessitems
      */
     'extremelyRare'?: boolean;
 }
 
-export const OutlierscontributingfeatureaccessitemsV1AccessTypeV1 = {
+export const OutlierscontributingfeatureaccessitemsAccessTypeEnum = {
     Entitlement: 'ENTITLEMENT',
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE'
 } as const;
 
-export type OutlierscontributingfeatureaccessitemsV1AccessTypeV1 = typeof OutlierscontributingfeatureaccessitemsV1AccessTypeV1[keyof typeof OutlierscontributingfeatureaccessitemsV1AccessTypeV1];
+export type OutlierscontributingfeatureaccessitemsAccessTypeEnum = typeof OutlierscontributingfeatureaccessitemsAccessTypeEnum[keyof typeof OutlierscontributingfeatureaccessitemsAccessTypeEnum];
 
 /**
  * 
  * @export
- * @interface OutliersummaryV1
+ * @interface Outliersummary
  */
-export interface OutliersummaryV1 {
+export interface Outliersummary {
     /**
      * The type of outlier summary
      * @type {string}
-     * @memberof OutliersummaryV1
+     * @memberof Outliersummary
      */
-    'type'?: OutliersummaryV1TypeV1;
+    'type'?: OutliersummaryTypeEnum;
     /**
      * The date the bulk outlier detection ran/snapshot was created
      * @type {string}
-     * @memberof OutliersummaryV1
+     * @memberof Outliersummary
      */
     'snapshotDate'?: string;
     /**
      * Total number of outliers for the customer making the request
      * @type {number}
-     * @memberof OutliersummaryV1
+     * @memberof Outliersummary
      */
     'totalOutliers'?: number;
     /**
      * Total number of identities for the customer making the request
      * @type {number}
-     * @memberof OutliersummaryV1
+     * @memberof Outliersummary
      */
     'totalIdentities'?: number;
     /**
      * 
      * @type {number}
-     * @memberof OutliersummaryV1
+     * @memberof Outliersummary
      */
     'totalIgnored'?: number;
 }
 
-export const OutliersummaryV1TypeV1 = {
+export const OutliersummaryTypeEnum = {
     LowSimilarity: 'LOW_SIMILARITY',
     Structural: 'STRUCTURAL'
 } as const;
 
-export type OutliersummaryV1TypeV1 = typeof OutliersummaryV1TypeV1[keyof typeof OutliersummaryV1TypeV1];
+export type OutliersummaryTypeEnum = typeof OutliersummaryTypeEnum[keyof typeof OutliersummaryTypeEnum];
 
 /**
  * The data type of the value field
  * @export
- * @interface OutliervaluetypeV1
+ * @interface Outliervaluetype
  */
-export interface OutliervaluetypeV1 {
+export interface Outliervaluetype {
     /**
      * The data type of the value field
      * @type {string}
-     * @memberof OutliervaluetypeV1
+     * @memberof Outliervaluetype
      */
-    'name'?: OutliervaluetypeV1NameV1;
+    'name'?: OutliervaluetypeNameEnum;
     /**
      * The position of the value type
      * @type {number}
-     * @memberof OutliervaluetypeV1
+     * @memberof Outliervaluetype
      */
     'ordinal'?: number;
 }
 
-export const OutliervaluetypeV1NameV1 = {
+export const OutliervaluetypeNameEnum = {
     Integer: 'INTEGER',
     Float: 'FLOAT'
 } as const;
 
-export type OutliervaluetypeV1NameV1 = typeof OutliervaluetypeV1NameV1[keyof typeof OutliervaluetypeV1NameV1];
+export type OutliervaluetypeNameEnum = typeof OutliervaluetypeNameEnum[keyof typeof OutliervaluetypeNameEnum];
 
 /**
  * 
  * @export
- * @interface TranslationmessageV1
+ * @interface Translationmessage
  */
-export interface TranslationmessageV1 {
+export interface Translationmessage {
     /**
      * The key of the translation message
      * @type {string}
-     * @memberof TranslationmessageV1
+     * @memberof Translationmessage
      */
     'key'?: string;
     /**
      * The values corresponding to the translation messages
      * @type {Array<string>}
-     * @memberof TranslationmessageV1
+     * @memberof Translationmessage
      */
     'values'?: Array<string>;
 }
 
 /**
- * IAIOutliersV1Api - axios parameter creator
+ * IAIOutliersApi - axios parameter creator
  * @export
  */
-export const IAIOutliersV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const IAIOutliersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This API exports a list of ignored outliers to a CSV as well as list of non-ignored outliers to a CSV. These two CSVs will be zipped and exported.  Columns will include: identityId, type, firstDetectionDate, latestDetectionDate, ignored, & attributes (defined set of identity attributes). 
          * @summary Iai identity outliers export
-         * @param {ExportOutliersZipV1TypeV1} [type] Type of the identity outliers snapshot to filter on
+         * @param {ExportOutliersZipV1TypeEnum} [type] Type of the identity outliers snapshot to filter on
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        exportOutliersZipV1: async (type?: ExportOutliersZipV1TypeV1, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        exportOutliersZipV1: async (type?: ExportOutliersZipV1TypeEnum, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -605,14 +605,14 @@ export const IAIOutliersV1ApiAxiosParamCreator = function (configuration?: Confi
          * @summary Iai identity outliers summary
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {GetIdentityOutlierSnapshotsV1TypeV1} [type] Type of the identity outliers snapshot to filter on
+         * @param {GetIdentityOutlierSnapshotsV1TypeEnum} [type] Type of the identity outliers snapshot to filter on
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **snapshotDate**: *ge, le*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **snapshotDate**
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentityOutlierSnapshotsV1: async (limit?: number, offset?: number, type?: GetIdentityOutlierSnapshotsV1TypeV1, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getIdentityOutlierSnapshotsV1: async (limit?: number, offset?: number, type?: GetIdentityOutlierSnapshotsV1TypeEnum, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -669,14 +669,14 @@ export const IAIOutliersV1ApiAxiosParamCreator = function (configuration?: Confi
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {GetIdentityOutliersV1TypeV1} [type] Type of the identity outliers snapshot to filter on
+         * @param {GetIdentityOutliersV1TypeEnum} [type] Type of the identity outliers snapshot to filter on
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **attributes**: *eq, sw, co, in*  **firstDetectionDate**: *ge, le*  **certStatus**: *eq*  **ignored**: *eq*  **score**: *ge, le*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **firstDetectionDate, attributes, score**
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentityOutliersV1: async (limit?: number, offset?: number, count?: boolean, type?: GetIdentityOutliersV1TypeV1, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getIdentityOutliersV1: async (limit?: number, offset?: number, count?: boolean, type?: GetIdentityOutliersV1TypeEnum, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -734,12 +734,12 @@ export const IAIOutliersV1ApiAxiosParamCreator = function (configuration?: Confi
         /**
          * This API returns a most recent snapshot of each outlier type, each containing the number of identities that customer has, the number of outliers, and the type of outlier.
          * @summary Iai identity outliers latest summary
-         * @param {GetLatestIdentityOutlierSnapshotsV1TypeV1} [type] Type of the identity outliers snapshot to filter on
+         * @param {GetLatestIdentityOutlierSnapshotsV1TypeEnum} [type] Type of the identity outliers snapshot to filter on
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getLatestIdentityOutlierSnapshotsV1: async (type?: GetLatestIdentityOutlierSnapshotsV1TypeV1, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getLatestIdentityOutlierSnapshotsV1: async (type?: GetLatestIdentityOutlierSnapshotsV1TypeEnum, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -931,7 +931,7 @@ export const IAIOutliersV1ApiAxiosParamCreator = function (configuration?: Confi
          * This API returns a list of the enriched access items associated with each feature filtered by the access item type.  The object contains: accessItemId, display name (translated text or message key), description (translated text or message key), accessType, sourceName, extremelyRare. 
          * @summary Gets a list of access items associated with each identity outlier contributing feature
          * @param {string} outlierId The outlier id
-         * @param {ListOutliersContributingFeatureAccessItemsV1ContributingFeatureNameV1} contributingFeatureName The name of contributing feature
+         * @param {ListOutliersContributingFeatureAccessItemsV1ContributingFeatureNameEnum} contributingFeatureName The name of contributing feature
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -941,7 +941,7 @@ export const IAIOutliersV1ApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listOutliersContributingFeatureAccessItemsV1: async (outlierId: string, contributingFeatureName: ListOutliersContributingFeatureAccessItemsV1ContributingFeatureNameV1, limit?: number, offset?: number, count?: boolean, accessType?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listOutliersContributingFeatureAccessItemsV1: async (outlierId: string, contributingFeatureName: ListOutliersContributingFeatureAccessItemsV1ContributingFeatureNameEnum, limit?: number, offset?: number, count?: boolean, accessType?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'outlierId' is not null or undefined
             assertParamExists('listOutliersContributingFeatureAccessItemsV1', 'outlierId', outlierId)
             // verify required parameter 'contributingFeatureName' is not null or undefined
@@ -1046,24 +1046,24 @@ export const IAIOutliersV1ApiAxiosParamCreator = function (configuration?: Confi
 };
 
 /**
- * IAIOutliersV1Api - functional programming interface
+ * IAIOutliersApi - functional programming interface
  * @export
  */
-export const IAIOutliersV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = IAIOutliersV1ApiAxiosParamCreator(configuration)
+export const IAIOutliersApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = IAIOutliersApiAxiosParamCreator(configuration)
     return {
         /**
          * This API exports a list of ignored outliers to a CSV as well as list of non-ignored outliers to a CSV. These two CSVs will be zipped and exported.  Columns will include: identityId, type, firstDetectionDate, latestDetectionDate, ignored, & attributes (defined set of identity attributes). 
          * @summary Iai identity outliers export
-         * @param {ExportOutliersZipV1TypeV1} [type] Type of the identity outliers snapshot to filter on
+         * @param {ExportOutliersZipV1TypeEnum} [type] Type of the identity outliers snapshot to filter on
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async exportOutliersZipV1(type?: ExportOutliersZipV1TypeV1, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
+        async exportOutliersZipV1(type?: ExportOutliersZipV1TypeEnum, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.exportOutliersZipV1(type, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAIOutliersV1Api.exportOutliersZipV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAIOutliersApi.exportOutliersZipV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1071,17 +1071,17 @@ export const IAIOutliersV1ApiFp = function(configuration?: Configuration) {
          * @summary Iai identity outliers summary
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {GetIdentityOutlierSnapshotsV1TypeV1} [type] Type of the identity outliers snapshot to filter on
+         * @param {GetIdentityOutlierSnapshotsV1TypeEnum} [type] Type of the identity outliers snapshot to filter on
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **snapshotDate**: *ge, le*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **snapshotDate**
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityOutlierSnapshotsV1(limit?: number, offset?: number, type?: GetIdentityOutlierSnapshotsV1TypeV1, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OutliersummaryV1>>> {
+        async getIdentityOutlierSnapshotsV1(limit?: number, offset?: number, type?: GetIdentityOutlierSnapshotsV1TypeEnum, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Outliersummary>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityOutlierSnapshotsV1(limit, offset, type, filters, sorters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAIOutliersV1Api.getIdentityOutlierSnapshotsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAIOutliersApi.getIdentityOutlierSnapshotsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1090,31 +1090,31 @@ export const IAIOutliersV1ApiFp = function(configuration?: Configuration) {
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {GetIdentityOutliersV1TypeV1} [type] Type of the identity outliers snapshot to filter on
+         * @param {GetIdentityOutliersV1TypeEnum} [type] Type of the identity outliers snapshot to filter on
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **attributes**: *eq, sw, co, in*  **firstDetectionDate**: *ge, le*  **certStatus**: *eq*  **ignored**: *eq*  **score**: *ge, le*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **firstDetectionDate, attributes, score**
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityOutliersV1(limit?: number, offset?: number, count?: boolean, type?: GetIdentityOutliersV1TypeV1, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OutlierV1>>> {
+        async getIdentityOutliersV1(limit?: number, offset?: number, count?: boolean, type?: GetIdentityOutliersV1TypeEnum, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Outlier>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityOutliersV1(limit, offset, count, type, filters, sorters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAIOutliersV1Api.getIdentityOutliersV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAIOutliersApi.getIdentityOutliersV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API returns a most recent snapshot of each outlier type, each containing the number of identities that customer has, the number of outliers, and the type of outlier.
          * @summary Iai identity outliers latest summary
-         * @param {GetLatestIdentityOutlierSnapshotsV1TypeV1} [type] Type of the identity outliers snapshot to filter on
+         * @param {GetLatestIdentityOutlierSnapshotsV1TypeEnum} [type] Type of the identity outliers snapshot to filter on
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getLatestIdentityOutlierSnapshotsV1(type?: GetLatestIdentityOutlierSnapshotsV1TypeV1, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<LatestoutliersummaryV1>>> {
+        async getLatestIdentityOutlierSnapshotsV1(type?: GetLatestIdentityOutlierSnapshotsV1TypeEnum, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Latestoutliersummary>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getLatestIdentityOutlierSnapshotsV1(type, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAIOutliersV1Api.getLatestIdentityOutlierSnapshotsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAIOutliersApi.getLatestIdentityOutlierSnapshotsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1125,10 +1125,10 @@ export const IAIOutliersV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getOutlierContributingFeatureSummaryV1(outlierFeatureId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OutlierfeaturesummaryV1>> {
+        async getOutlierContributingFeatureSummaryV1(outlierFeatureId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Outlierfeaturesummary>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOutlierContributingFeatureSummaryV1(outlierFeatureId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAIOutliersV1Api.getOutlierContributingFeatureSummaryV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAIOutliersApi.getOutlierContributingFeatureSummaryV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1144,10 +1144,10 @@ export const IAIOutliersV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPeerGroupOutliersContributingFeaturesV1(outlierId: string, limit?: number, offset?: number, count?: boolean, includeTranslationMessages?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OutliercontributingfeatureV1>>> {
+        async getPeerGroupOutliersContributingFeaturesV1(outlierId: string, limit?: number, offset?: number, count?: boolean, includeTranslationMessages?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Outliercontributingfeature>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPeerGroupOutliersContributingFeaturesV1(outlierId, limit, offset, count, includeTranslationMessages, sorters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAIOutliersV1Api.getPeerGroupOutliersContributingFeaturesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAIOutliersApi.getPeerGroupOutliersContributingFeaturesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1161,14 +1161,14 @@ export const IAIOutliersV1ApiFp = function(configuration?: Configuration) {
         async ignoreIdentityOutliersV1(requestBody: Array<string>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.ignoreIdentityOutliersV1(requestBody, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAIOutliersV1Api.ignoreIdentityOutliersV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAIOutliersApi.ignoreIdentityOutliersV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API returns a list of the enriched access items associated with each feature filtered by the access item type.  The object contains: accessItemId, display name (translated text or message key), description (translated text or message key), accessType, sourceName, extremelyRare. 
          * @summary Gets a list of access items associated with each identity outlier contributing feature
          * @param {string} outlierId The outlier id
-         * @param {ListOutliersContributingFeatureAccessItemsV1ContributingFeatureNameV1} contributingFeatureName The name of contributing feature
+         * @param {ListOutliersContributingFeatureAccessItemsV1ContributingFeatureNameEnum} contributingFeatureName The name of contributing feature
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -1178,10 +1178,10 @@ export const IAIOutliersV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listOutliersContributingFeatureAccessItemsV1(outlierId: string, contributingFeatureName: ListOutliersContributingFeatureAccessItemsV1ContributingFeatureNameV1, limit?: number, offset?: number, count?: boolean, accessType?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OutlierscontributingfeatureaccessitemsV1>>> {
+        async listOutliersContributingFeatureAccessItemsV1(outlierId: string, contributingFeatureName: ListOutliersContributingFeatureAccessItemsV1ContributingFeatureNameEnum, limit?: number, offset?: number, count?: boolean, accessType?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Outlierscontributingfeatureaccessitems>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listOutliersContributingFeatureAccessItemsV1(outlierId, contributingFeatureName, limit, offset, count, accessType, sorters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAIOutliersV1Api.listOutliersContributingFeatureAccessItemsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAIOutliersApi.listOutliersContributingFeatureAccessItemsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1195,593 +1195,593 @@ export const IAIOutliersV1ApiFp = function(configuration?: Configuration) {
         async unIgnoreIdentityOutliersV1(requestBody: Array<string>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.unIgnoreIdentityOutliersV1(requestBody, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAIOutliersV1Api.unIgnoreIdentityOutliersV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAIOutliersApi.unIgnoreIdentityOutliersV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * IAIOutliersV1Api - factory interface
+ * IAIOutliersApi - factory interface
  * @export
  */
-export const IAIOutliersV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = IAIOutliersV1ApiFp(configuration)
+export const IAIOutliersApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = IAIOutliersApiFp(configuration)
     return {
         /**
          * This API exports a list of ignored outliers to a CSV as well as list of non-ignored outliers to a CSV. These two CSVs will be zipped and exported.  Columns will include: identityId, type, firstDetectionDate, latestDetectionDate, ignored, & attributes (defined set of identity attributes). 
          * @summary Iai identity outliers export
-         * @param {IAIOutliersV1ApiExportOutliersZipV1Request} requestParameters Request parameters.
+         * @param {IAIOutliersApiExportOutliersZipV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        exportOutliersZipV1(requestParameters: IAIOutliersV1ApiExportOutliersZipV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<File> {
+        exportOutliersZipV1(requestParameters: IAIOutliersApiExportOutliersZipV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<File> {
             return localVarFp.exportOutliersZipV1(requestParameters.type, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a summary containing the number of identities that customer has, the number of outliers, and the type of outlier.
          * @summary Iai identity outliers summary
-         * @param {IAIOutliersV1ApiGetIdentityOutlierSnapshotsV1Request} requestParameters Request parameters.
+         * @param {IAIOutliersApiGetIdentityOutlierSnapshotsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentityOutlierSnapshotsV1(requestParameters: IAIOutliersV1ApiGetIdentityOutlierSnapshotsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<OutliersummaryV1>> {
+        getIdentityOutlierSnapshotsV1(requestParameters: IAIOutliersApiGetIdentityOutlierSnapshotsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Outliersummary>> {
             return localVarFp.getIdentityOutlierSnapshotsV1(requestParameters.limit, requestParameters.offset, requestParameters.type, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of outliers, containing data such as identity ID, outlier type, detection dates, identity attributes, if identity is ignored, and certification information.
          * @summary Iai get identity outliers
-         * @param {IAIOutliersV1ApiGetIdentityOutliersV1Request} requestParameters Request parameters.
+         * @param {IAIOutliersApiGetIdentityOutliersV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentityOutliersV1(requestParameters: IAIOutliersV1ApiGetIdentityOutliersV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<OutlierV1>> {
+        getIdentityOutliersV1(requestParameters: IAIOutliersApiGetIdentityOutliersV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Outlier>> {
             return localVarFp.getIdentityOutliersV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.type, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a most recent snapshot of each outlier type, each containing the number of identities that customer has, the number of outliers, and the type of outlier.
          * @summary Iai identity outliers latest summary
-         * @param {IAIOutliersV1ApiGetLatestIdentityOutlierSnapshotsV1Request} requestParameters Request parameters.
+         * @param {IAIOutliersApiGetLatestIdentityOutlierSnapshotsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getLatestIdentityOutlierSnapshotsV1(requestParameters: IAIOutliersV1ApiGetLatestIdentityOutlierSnapshotsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<LatestoutliersummaryV1>> {
+        getLatestIdentityOutlierSnapshotsV1(requestParameters: IAIOutliersApiGetLatestIdentityOutlierSnapshotsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Latestoutliersummary>> {
             return localVarFp.getLatestIdentityOutlierSnapshotsV1(requestParameters.type, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a summary of a contributing feature for an identity outlier.  The object contains: contributing feature name (translated text or message key), identity outlier display name, feature values, feature definition and explanation (translated text or message key), peer display name and identityId, access item reference, translation messages object. 
          * @summary Get identity outlier contibuting feature summary
-         * @param {IAIOutliersV1ApiGetOutlierContributingFeatureSummaryV1Request} requestParameters Request parameters.
+         * @param {IAIOutliersApiGetOutlierContributingFeatureSummaryV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getOutlierContributingFeatureSummaryV1(requestParameters: IAIOutliersV1ApiGetOutlierContributingFeatureSummaryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<OutlierfeaturesummaryV1> {
+        getOutlierContributingFeatureSummaryV1(requestParameters: IAIOutliersApiGetOutlierContributingFeatureSummaryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Outlierfeaturesummary> {
             return localVarFp.getOutlierContributingFeatureSummaryV1(requestParameters.outlierFeatureId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of contributing feature objects for a single outlier.  The object contains: feature name, feature value type, value, importance, display name (translated text or message key), description (translated text or message key), translation messages object. 
          * @summary Get identity outlier\'s contibuting features
-         * @param {IAIOutliersV1ApiGetPeerGroupOutliersContributingFeaturesV1Request} requestParameters Request parameters.
+         * @param {IAIOutliersApiGetPeerGroupOutliersContributingFeaturesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getPeerGroupOutliersContributingFeaturesV1(requestParameters: IAIOutliersV1ApiGetPeerGroupOutliersContributingFeaturesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<OutliercontributingfeatureV1>> {
+        getPeerGroupOutliersContributingFeaturesV1(requestParameters: IAIOutliersApiGetPeerGroupOutliersContributingFeaturesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Outliercontributingfeature>> {
             return localVarFp.getPeerGroupOutliersContributingFeaturesV1(requestParameters.outlierId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.includeTranslationMessages, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API receives a list of identity IDs in the request, changes the outliers to be ignored.
          * @summary Iai identity outliers ignore
-         * @param {IAIOutliersV1ApiIgnoreIdentityOutliersV1Request} requestParameters Request parameters.
+         * @param {IAIOutliersApiIgnoreIdentityOutliersV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        ignoreIdentityOutliersV1(requestParameters: IAIOutliersV1ApiIgnoreIdentityOutliersV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        ignoreIdentityOutliersV1(requestParameters: IAIOutliersApiIgnoreIdentityOutliersV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.ignoreIdentityOutliersV1(requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of the enriched access items associated with each feature filtered by the access item type.  The object contains: accessItemId, display name (translated text or message key), description (translated text or message key), accessType, sourceName, extremelyRare. 
          * @summary Gets a list of access items associated with each identity outlier contributing feature
-         * @param {IAIOutliersV1ApiListOutliersContributingFeatureAccessItemsV1Request} requestParameters Request parameters.
+         * @param {IAIOutliersApiListOutliersContributingFeatureAccessItemsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listOutliersContributingFeatureAccessItemsV1(requestParameters: IAIOutliersV1ApiListOutliersContributingFeatureAccessItemsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<OutlierscontributingfeatureaccessitemsV1>> {
+        listOutliersContributingFeatureAccessItemsV1(requestParameters: IAIOutliersApiListOutliersContributingFeatureAccessItemsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Outlierscontributingfeatureaccessitems>> {
             return localVarFp.listOutliersContributingFeatureAccessItemsV1(requestParameters.outlierId, requestParameters.contributingFeatureName, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.accessType, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API receives a list of identity IDs in the request, changes the outliers to be un-ignored.
          * @summary Iai identity outliers unignore
-         * @param {IAIOutliersV1ApiUnIgnoreIdentityOutliersV1Request} requestParameters Request parameters.
+         * @param {IAIOutliersApiUnIgnoreIdentityOutliersV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        unIgnoreIdentityOutliersV1(requestParameters: IAIOutliersV1ApiUnIgnoreIdentityOutliersV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        unIgnoreIdentityOutliersV1(requestParameters: IAIOutliersApiUnIgnoreIdentityOutliersV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.unIgnoreIdentityOutliersV1(requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for exportOutliersZipV1 operation in IAIOutliersV1Api.
+ * Request parameters for exportOutliersZipV1 operation in IAIOutliersApi.
  * @export
- * @interface IAIOutliersV1ApiExportOutliersZipV1Request
+ * @interface IAIOutliersApiExportOutliersZipV1Request
  */
-export interface IAIOutliersV1ApiExportOutliersZipV1Request {
+export interface IAIOutliersApiExportOutliersZipV1Request {
     /**
      * Type of the identity outliers snapshot to filter on
      * @type {'LOW_SIMILARITY' | 'STRUCTURAL'}
-     * @memberof IAIOutliersV1ApiExportOutliersZipV1
+     * @memberof IAIOutliersApiExportOutliersZipV1
      */
-    readonly type?: ExportOutliersZipV1TypeV1
+    readonly type?: ExportOutliersZipV1TypeEnum
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAIOutliersV1ApiExportOutliersZipV1
+     * @memberof IAIOutliersApiExportOutliersZipV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getIdentityOutlierSnapshotsV1 operation in IAIOutliersV1Api.
+ * Request parameters for getIdentityOutlierSnapshotsV1 operation in IAIOutliersApi.
  * @export
- * @interface IAIOutliersV1ApiGetIdentityOutlierSnapshotsV1Request
+ * @interface IAIOutliersApiGetIdentityOutlierSnapshotsV1Request
  */
-export interface IAIOutliersV1ApiGetIdentityOutlierSnapshotsV1Request {
+export interface IAIOutliersApiGetIdentityOutlierSnapshotsV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IAIOutliersV1ApiGetIdentityOutlierSnapshotsV1
+     * @memberof IAIOutliersApiGetIdentityOutlierSnapshotsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IAIOutliersV1ApiGetIdentityOutlierSnapshotsV1
+     * @memberof IAIOutliersApiGetIdentityOutlierSnapshotsV1
      */
     readonly offset?: number
 
     /**
      * Type of the identity outliers snapshot to filter on
      * @type {'LOW_SIMILARITY' | 'STRUCTURAL'}
-     * @memberof IAIOutliersV1ApiGetIdentityOutlierSnapshotsV1
+     * @memberof IAIOutliersApiGetIdentityOutlierSnapshotsV1
      */
-    readonly type?: GetIdentityOutlierSnapshotsV1TypeV1
+    readonly type?: GetIdentityOutlierSnapshotsV1TypeEnum
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **snapshotDate**: *ge, le*
      * @type {string}
-     * @memberof IAIOutliersV1ApiGetIdentityOutlierSnapshotsV1
+     * @memberof IAIOutliersApiGetIdentityOutlierSnapshotsV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **snapshotDate**
      * @type {string}
-     * @memberof IAIOutliersV1ApiGetIdentityOutlierSnapshotsV1
+     * @memberof IAIOutliersApiGetIdentityOutlierSnapshotsV1
      */
     readonly sorters?: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAIOutliersV1ApiGetIdentityOutlierSnapshotsV1
+     * @memberof IAIOutliersApiGetIdentityOutlierSnapshotsV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getIdentityOutliersV1 operation in IAIOutliersV1Api.
+ * Request parameters for getIdentityOutliersV1 operation in IAIOutliersApi.
  * @export
- * @interface IAIOutliersV1ApiGetIdentityOutliersV1Request
+ * @interface IAIOutliersApiGetIdentityOutliersV1Request
  */
-export interface IAIOutliersV1ApiGetIdentityOutliersV1Request {
+export interface IAIOutliersApiGetIdentityOutliersV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IAIOutliersV1ApiGetIdentityOutliersV1
+     * @memberof IAIOutliersApiGetIdentityOutliersV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IAIOutliersV1ApiGetIdentityOutliersV1
+     * @memberof IAIOutliersApiGetIdentityOutliersV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof IAIOutliersV1ApiGetIdentityOutliersV1
+     * @memberof IAIOutliersApiGetIdentityOutliersV1
      */
     readonly count?: boolean
 
     /**
      * Type of the identity outliers snapshot to filter on
      * @type {'LOW_SIMILARITY' | 'STRUCTURAL'}
-     * @memberof IAIOutliersV1ApiGetIdentityOutliersV1
+     * @memberof IAIOutliersApiGetIdentityOutliersV1
      */
-    readonly type?: GetIdentityOutliersV1TypeV1
+    readonly type?: GetIdentityOutliersV1TypeEnum
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **attributes**: *eq, sw, co, in*  **firstDetectionDate**: *ge, le*  **certStatus**: *eq*  **ignored**: *eq*  **score**: *ge, le*
      * @type {string}
-     * @memberof IAIOutliersV1ApiGetIdentityOutliersV1
+     * @memberof IAIOutliersApiGetIdentityOutliersV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **firstDetectionDate, attributes, score**
      * @type {string}
-     * @memberof IAIOutliersV1ApiGetIdentityOutliersV1
+     * @memberof IAIOutliersApiGetIdentityOutliersV1
      */
     readonly sorters?: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAIOutliersV1ApiGetIdentityOutliersV1
+     * @memberof IAIOutliersApiGetIdentityOutliersV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getLatestIdentityOutlierSnapshotsV1 operation in IAIOutliersV1Api.
+ * Request parameters for getLatestIdentityOutlierSnapshotsV1 operation in IAIOutliersApi.
  * @export
- * @interface IAIOutliersV1ApiGetLatestIdentityOutlierSnapshotsV1Request
+ * @interface IAIOutliersApiGetLatestIdentityOutlierSnapshotsV1Request
  */
-export interface IAIOutliersV1ApiGetLatestIdentityOutlierSnapshotsV1Request {
+export interface IAIOutliersApiGetLatestIdentityOutlierSnapshotsV1Request {
     /**
      * Type of the identity outliers snapshot to filter on
      * @type {'LOW_SIMILARITY' | 'STRUCTURAL'}
-     * @memberof IAIOutliersV1ApiGetLatestIdentityOutlierSnapshotsV1
+     * @memberof IAIOutliersApiGetLatestIdentityOutlierSnapshotsV1
      */
-    readonly type?: GetLatestIdentityOutlierSnapshotsV1TypeV1
+    readonly type?: GetLatestIdentityOutlierSnapshotsV1TypeEnum
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAIOutliersV1ApiGetLatestIdentityOutlierSnapshotsV1
+     * @memberof IAIOutliersApiGetLatestIdentityOutlierSnapshotsV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getOutlierContributingFeatureSummaryV1 operation in IAIOutliersV1Api.
+ * Request parameters for getOutlierContributingFeatureSummaryV1 operation in IAIOutliersApi.
  * @export
- * @interface IAIOutliersV1ApiGetOutlierContributingFeatureSummaryV1Request
+ * @interface IAIOutliersApiGetOutlierContributingFeatureSummaryV1Request
  */
-export interface IAIOutliersV1ApiGetOutlierContributingFeatureSummaryV1Request {
+export interface IAIOutliersApiGetOutlierContributingFeatureSummaryV1Request {
     /**
      * Contributing feature id
      * @type {string}
-     * @memberof IAIOutliersV1ApiGetOutlierContributingFeatureSummaryV1
+     * @memberof IAIOutliersApiGetOutlierContributingFeatureSummaryV1
      */
     readonly outlierFeatureId: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAIOutliersV1ApiGetOutlierContributingFeatureSummaryV1
+     * @memberof IAIOutliersApiGetOutlierContributingFeatureSummaryV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getPeerGroupOutliersContributingFeaturesV1 operation in IAIOutliersV1Api.
+ * Request parameters for getPeerGroupOutliersContributingFeaturesV1 operation in IAIOutliersApi.
  * @export
- * @interface IAIOutliersV1ApiGetPeerGroupOutliersContributingFeaturesV1Request
+ * @interface IAIOutliersApiGetPeerGroupOutliersContributingFeaturesV1Request
  */
-export interface IAIOutliersV1ApiGetPeerGroupOutliersContributingFeaturesV1Request {
+export interface IAIOutliersApiGetPeerGroupOutliersContributingFeaturesV1Request {
     /**
      * The outlier id
      * @type {string}
-     * @memberof IAIOutliersV1ApiGetPeerGroupOutliersContributingFeaturesV1
+     * @memberof IAIOutliersApiGetPeerGroupOutliersContributingFeaturesV1
      */
     readonly outlierId: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IAIOutliersV1ApiGetPeerGroupOutliersContributingFeaturesV1
+     * @memberof IAIOutliersApiGetPeerGroupOutliersContributingFeaturesV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IAIOutliersV1ApiGetPeerGroupOutliersContributingFeaturesV1
+     * @memberof IAIOutliersApiGetPeerGroupOutliersContributingFeaturesV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof IAIOutliersV1ApiGetPeerGroupOutliersContributingFeaturesV1
+     * @memberof IAIOutliersApiGetPeerGroupOutliersContributingFeaturesV1
      */
     readonly count?: boolean
 
     /**
      * Whether or not to include translation messages object in returned response
      * @type {string}
-     * @memberof IAIOutliersV1ApiGetPeerGroupOutliersContributingFeaturesV1
+     * @memberof IAIOutliersApiGetPeerGroupOutliersContributingFeaturesV1
      */
     readonly includeTranslationMessages?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **importance**
      * @type {string}
-     * @memberof IAIOutliersV1ApiGetPeerGroupOutliersContributingFeaturesV1
+     * @memberof IAIOutliersApiGetPeerGroupOutliersContributingFeaturesV1
      */
     readonly sorters?: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAIOutliersV1ApiGetPeerGroupOutliersContributingFeaturesV1
+     * @memberof IAIOutliersApiGetPeerGroupOutliersContributingFeaturesV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for ignoreIdentityOutliersV1 operation in IAIOutliersV1Api.
+ * Request parameters for ignoreIdentityOutliersV1 operation in IAIOutliersApi.
  * @export
- * @interface IAIOutliersV1ApiIgnoreIdentityOutliersV1Request
+ * @interface IAIOutliersApiIgnoreIdentityOutliersV1Request
  */
-export interface IAIOutliersV1ApiIgnoreIdentityOutliersV1Request {
+export interface IAIOutliersApiIgnoreIdentityOutliersV1Request {
     /**
      * 
      * @type {Array<string>}
-     * @memberof IAIOutliersV1ApiIgnoreIdentityOutliersV1
+     * @memberof IAIOutliersApiIgnoreIdentityOutliersV1
      */
     readonly requestBody: Array<string>
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAIOutliersV1ApiIgnoreIdentityOutliersV1
+     * @memberof IAIOutliersApiIgnoreIdentityOutliersV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for listOutliersContributingFeatureAccessItemsV1 operation in IAIOutliersV1Api.
+ * Request parameters for listOutliersContributingFeatureAccessItemsV1 operation in IAIOutliersApi.
  * @export
- * @interface IAIOutliersV1ApiListOutliersContributingFeatureAccessItemsV1Request
+ * @interface IAIOutliersApiListOutliersContributingFeatureAccessItemsV1Request
  */
-export interface IAIOutliersV1ApiListOutliersContributingFeatureAccessItemsV1Request {
+export interface IAIOutliersApiListOutliersContributingFeatureAccessItemsV1Request {
     /**
      * The outlier id
      * @type {string}
-     * @memberof IAIOutliersV1ApiListOutliersContributingFeatureAccessItemsV1
+     * @memberof IAIOutliersApiListOutliersContributingFeatureAccessItemsV1
      */
     readonly outlierId: string
 
     /**
      * The name of contributing feature
      * @type {'radical_entitlement_count' | 'entitlement_count' | 'max_jaccard_similarity' | 'mean_max_bundle_concurrency' | 'single_entitlement_bundle_count' | 'peerless_score'}
-     * @memberof IAIOutliersV1ApiListOutliersContributingFeatureAccessItemsV1
+     * @memberof IAIOutliersApiListOutliersContributingFeatureAccessItemsV1
      */
-    readonly contributingFeatureName: ListOutliersContributingFeatureAccessItemsV1ContributingFeatureNameV1
+    readonly contributingFeatureName: ListOutliersContributingFeatureAccessItemsV1ContributingFeatureNameEnum
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IAIOutliersV1ApiListOutliersContributingFeatureAccessItemsV1
+     * @memberof IAIOutliersApiListOutliersContributingFeatureAccessItemsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IAIOutliersV1ApiListOutliersContributingFeatureAccessItemsV1
+     * @memberof IAIOutliersApiListOutliersContributingFeatureAccessItemsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof IAIOutliersV1ApiListOutliersContributingFeatureAccessItemsV1
+     * @memberof IAIOutliersApiListOutliersContributingFeatureAccessItemsV1
      */
     readonly count?: boolean
 
     /**
      * The type of access item for the identity outlier contributing feature. If not provided, it returns all.
      * @type {string}
-     * @memberof IAIOutliersV1ApiListOutliersContributingFeatureAccessItemsV1
+     * @memberof IAIOutliersApiListOutliersContributingFeatureAccessItemsV1
      */
     readonly accessType?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName**
      * @type {string}
-     * @memberof IAIOutliersV1ApiListOutliersContributingFeatureAccessItemsV1
+     * @memberof IAIOutliersApiListOutliersContributingFeatureAccessItemsV1
      */
     readonly sorters?: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAIOutliersV1ApiListOutliersContributingFeatureAccessItemsV1
+     * @memberof IAIOutliersApiListOutliersContributingFeatureAccessItemsV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for unIgnoreIdentityOutliersV1 operation in IAIOutliersV1Api.
+ * Request parameters for unIgnoreIdentityOutliersV1 operation in IAIOutliersApi.
  * @export
- * @interface IAIOutliersV1ApiUnIgnoreIdentityOutliersV1Request
+ * @interface IAIOutliersApiUnIgnoreIdentityOutliersV1Request
  */
-export interface IAIOutliersV1ApiUnIgnoreIdentityOutliersV1Request {
+export interface IAIOutliersApiUnIgnoreIdentityOutliersV1Request {
     /**
      * 
      * @type {Array<string>}
-     * @memberof IAIOutliersV1ApiUnIgnoreIdentityOutliersV1
+     * @memberof IAIOutliersApiUnIgnoreIdentityOutliersV1
      */
     readonly requestBody: Array<string>
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAIOutliersV1ApiUnIgnoreIdentityOutliersV1
+     * @memberof IAIOutliersApiUnIgnoreIdentityOutliersV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * IAIOutliersV1Api - object-oriented interface
+ * IAIOutliersApi - object-oriented interface
  * @export
- * @class IAIOutliersV1Api
+ * @class IAIOutliersApi
  * @extends {BaseAPI}
  */
-export class IAIOutliersV1Api extends BaseAPI {
+export class IAIOutliersApi extends BaseAPI {
     /**
      * This API exports a list of ignored outliers to a CSV as well as list of non-ignored outliers to a CSV. These two CSVs will be zipped and exported.  Columns will include: identityId, type, firstDetectionDate, latestDetectionDate, ignored, & attributes (defined set of identity attributes). 
      * @summary Iai identity outliers export
-     * @param {IAIOutliersV1ApiExportOutliersZipV1Request} requestParameters Request parameters.
+     * @param {IAIOutliersApiExportOutliersZipV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAIOutliersV1Api
+     * @memberof IAIOutliersApi
      */
-    public exportOutliersZipV1(requestParameters: IAIOutliersV1ApiExportOutliersZipV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIOutliersV1ApiFp(this.configuration).exportOutliersZipV1(requestParameters.type, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public exportOutliersZipV1(requestParameters: IAIOutliersApiExportOutliersZipV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return IAIOutliersApiFp(this.configuration).exportOutliersZipV1(requestParameters.type, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a summary containing the number of identities that customer has, the number of outliers, and the type of outlier.
      * @summary Iai identity outliers summary
-     * @param {IAIOutliersV1ApiGetIdentityOutlierSnapshotsV1Request} requestParameters Request parameters.
+     * @param {IAIOutliersApiGetIdentityOutlierSnapshotsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAIOutliersV1Api
+     * @memberof IAIOutliersApi
      */
-    public getIdentityOutlierSnapshotsV1(requestParameters: IAIOutliersV1ApiGetIdentityOutlierSnapshotsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIOutliersV1ApiFp(this.configuration).getIdentityOutlierSnapshotsV1(requestParameters.limit, requestParameters.offset, requestParameters.type, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getIdentityOutlierSnapshotsV1(requestParameters: IAIOutliersApiGetIdentityOutlierSnapshotsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return IAIOutliersApiFp(this.configuration).getIdentityOutlierSnapshotsV1(requestParameters.limit, requestParameters.offset, requestParameters.type, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a list of outliers, containing data such as identity ID, outlier type, detection dates, identity attributes, if identity is ignored, and certification information.
      * @summary Iai get identity outliers
-     * @param {IAIOutliersV1ApiGetIdentityOutliersV1Request} requestParameters Request parameters.
+     * @param {IAIOutliersApiGetIdentityOutliersV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAIOutliersV1Api
+     * @memberof IAIOutliersApi
      */
-    public getIdentityOutliersV1(requestParameters: IAIOutliersV1ApiGetIdentityOutliersV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIOutliersV1ApiFp(this.configuration).getIdentityOutliersV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.type, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getIdentityOutliersV1(requestParameters: IAIOutliersApiGetIdentityOutliersV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return IAIOutliersApiFp(this.configuration).getIdentityOutliersV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.type, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a most recent snapshot of each outlier type, each containing the number of identities that customer has, the number of outliers, and the type of outlier.
      * @summary Iai identity outliers latest summary
-     * @param {IAIOutliersV1ApiGetLatestIdentityOutlierSnapshotsV1Request} requestParameters Request parameters.
+     * @param {IAIOutliersApiGetLatestIdentityOutlierSnapshotsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAIOutliersV1Api
+     * @memberof IAIOutliersApi
      */
-    public getLatestIdentityOutlierSnapshotsV1(requestParameters: IAIOutliersV1ApiGetLatestIdentityOutlierSnapshotsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIOutliersV1ApiFp(this.configuration).getLatestIdentityOutlierSnapshotsV1(requestParameters.type, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getLatestIdentityOutlierSnapshotsV1(requestParameters: IAIOutliersApiGetLatestIdentityOutlierSnapshotsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return IAIOutliersApiFp(this.configuration).getLatestIdentityOutlierSnapshotsV1(requestParameters.type, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a summary of a contributing feature for an identity outlier.  The object contains: contributing feature name (translated text or message key), identity outlier display name, feature values, feature definition and explanation (translated text or message key), peer display name and identityId, access item reference, translation messages object. 
      * @summary Get identity outlier contibuting feature summary
-     * @param {IAIOutliersV1ApiGetOutlierContributingFeatureSummaryV1Request} requestParameters Request parameters.
+     * @param {IAIOutliersApiGetOutlierContributingFeatureSummaryV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAIOutliersV1Api
+     * @memberof IAIOutliersApi
      */
-    public getOutlierContributingFeatureSummaryV1(requestParameters: IAIOutliersV1ApiGetOutlierContributingFeatureSummaryV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIOutliersV1ApiFp(this.configuration).getOutlierContributingFeatureSummaryV1(requestParameters.outlierFeatureId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getOutlierContributingFeatureSummaryV1(requestParameters: IAIOutliersApiGetOutlierContributingFeatureSummaryV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IAIOutliersApiFp(this.configuration).getOutlierContributingFeatureSummaryV1(requestParameters.outlierFeatureId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a list of contributing feature objects for a single outlier.  The object contains: feature name, feature value type, value, importance, display name (translated text or message key), description (translated text or message key), translation messages object. 
      * @summary Get identity outlier\'s contibuting features
-     * @param {IAIOutliersV1ApiGetPeerGroupOutliersContributingFeaturesV1Request} requestParameters Request parameters.
+     * @param {IAIOutliersApiGetPeerGroupOutliersContributingFeaturesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAIOutliersV1Api
+     * @memberof IAIOutliersApi
      */
-    public getPeerGroupOutliersContributingFeaturesV1(requestParameters: IAIOutliersV1ApiGetPeerGroupOutliersContributingFeaturesV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIOutliersV1ApiFp(this.configuration).getPeerGroupOutliersContributingFeaturesV1(requestParameters.outlierId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.includeTranslationMessages, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getPeerGroupOutliersContributingFeaturesV1(requestParameters: IAIOutliersApiGetPeerGroupOutliersContributingFeaturesV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IAIOutliersApiFp(this.configuration).getPeerGroupOutliersContributingFeaturesV1(requestParameters.outlierId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.includeTranslationMessages, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API receives a list of identity IDs in the request, changes the outliers to be ignored.
      * @summary Iai identity outliers ignore
-     * @param {IAIOutliersV1ApiIgnoreIdentityOutliersV1Request} requestParameters Request parameters.
+     * @param {IAIOutliersApiIgnoreIdentityOutliersV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAIOutliersV1Api
+     * @memberof IAIOutliersApi
      */
-    public ignoreIdentityOutliersV1(requestParameters: IAIOutliersV1ApiIgnoreIdentityOutliersV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIOutliersV1ApiFp(this.configuration).ignoreIdentityOutliersV1(requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public ignoreIdentityOutliersV1(requestParameters: IAIOutliersApiIgnoreIdentityOutliersV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IAIOutliersApiFp(this.configuration).ignoreIdentityOutliersV1(requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a list of the enriched access items associated with each feature filtered by the access item type.  The object contains: accessItemId, display name (translated text or message key), description (translated text or message key), accessType, sourceName, extremelyRare. 
      * @summary Gets a list of access items associated with each identity outlier contributing feature
-     * @param {IAIOutliersV1ApiListOutliersContributingFeatureAccessItemsV1Request} requestParameters Request parameters.
+     * @param {IAIOutliersApiListOutliersContributingFeatureAccessItemsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAIOutliersV1Api
+     * @memberof IAIOutliersApi
      */
-    public listOutliersContributingFeatureAccessItemsV1(requestParameters: IAIOutliersV1ApiListOutliersContributingFeatureAccessItemsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIOutliersV1ApiFp(this.configuration).listOutliersContributingFeatureAccessItemsV1(requestParameters.outlierId, requestParameters.contributingFeatureName, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.accessType, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listOutliersContributingFeatureAccessItemsV1(requestParameters: IAIOutliersApiListOutliersContributingFeatureAccessItemsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IAIOutliersApiFp(this.configuration).listOutliersContributingFeatureAccessItemsV1(requestParameters.outlierId, requestParameters.contributingFeatureName, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.accessType, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API receives a list of identity IDs in the request, changes the outliers to be un-ignored.
      * @summary Iai identity outliers unignore
-     * @param {IAIOutliersV1ApiUnIgnoreIdentityOutliersV1Request} requestParameters Request parameters.
+     * @param {IAIOutliersApiUnIgnoreIdentityOutliersV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAIOutliersV1Api
+     * @memberof IAIOutliersApi
      */
-    public unIgnoreIdentityOutliersV1(requestParameters: IAIOutliersV1ApiUnIgnoreIdentityOutliersV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIOutliersV1ApiFp(this.configuration).unIgnoreIdentityOutliersV1(requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public unIgnoreIdentityOutliersV1(requestParameters: IAIOutliersApiUnIgnoreIdentityOutliersV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IAIOutliersApiFp(this.configuration).unIgnoreIdentityOutliersV1(requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
 /**
  * @export
  */
-export const ExportOutliersZipV1TypeV1 = {
+export const ExportOutliersZipV1TypeEnum = {
     LowSimilarity: 'LOW_SIMILARITY',
     Structural: 'STRUCTURAL'
 } as const;
-export type ExportOutliersZipV1TypeV1 = typeof ExportOutliersZipV1TypeV1[keyof typeof ExportOutliersZipV1TypeV1];
+export type ExportOutliersZipV1TypeEnum = typeof ExportOutliersZipV1TypeEnum[keyof typeof ExportOutliersZipV1TypeEnum];
 /**
  * @export
  */
-export const GetIdentityOutlierSnapshotsV1TypeV1 = {
+export const GetIdentityOutlierSnapshotsV1TypeEnum = {
     LowSimilarity: 'LOW_SIMILARITY',
     Structural: 'STRUCTURAL'
 } as const;
-export type GetIdentityOutlierSnapshotsV1TypeV1 = typeof GetIdentityOutlierSnapshotsV1TypeV1[keyof typeof GetIdentityOutlierSnapshotsV1TypeV1];
+export type GetIdentityOutlierSnapshotsV1TypeEnum = typeof GetIdentityOutlierSnapshotsV1TypeEnum[keyof typeof GetIdentityOutlierSnapshotsV1TypeEnum];
 /**
  * @export
  */
-export const GetIdentityOutliersV1TypeV1 = {
+export const GetIdentityOutliersV1TypeEnum = {
     LowSimilarity: 'LOW_SIMILARITY',
     Structural: 'STRUCTURAL'
 } as const;
-export type GetIdentityOutliersV1TypeV1 = typeof GetIdentityOutliersV1TypeV1[keyof typeof GetIdentityOutliersV1TypeV1];
+export type GetIdentityOutliersV1TypeEnum = typeof GetIdentityOutliersV1TypeEnum[keyof typeof GetIdentityOutliersV1TypeEnum];
 /**
  * @export
  */
-export const GetLatestIdentityOutlierSnapshotsV1TypeV1 = {
+export const GetLatestIdentityOutlierSnapshotsV1TypeEnum = {
     LowSimilarity: 'LOW_SIMILARITY',
     Structural: 'STRUCTURAL'
 } as const;
-export type GetLatestIdentityOutlierSnapshotsV1TypeV1 = typeof GetLatestIdentityOutlierSnapshotsV1TypeV1[keyof typeof GetLatestIdentityOutlierSnapshotsV1TypeV1];
+export type GetLatestIdentityOutlierSnapshotsV1TypeEnum = typeof GetLatestIdentityOutlierSnapshotsV1TypeEnum[keyof typeof GetLatestIdentityOutlierSnapshotsV1TypeEnum];
 /**
  * @export
  */
-export const ListOutliersContributingFeatureAccessItemsV1ContributingFeatureNameV1 = {
+export const ListOutliersContributingFeatureAccessItemsV1ContributingFeatureNameEnum = {
     RadicalEntitlementCount: 'radical_entitlement_count',
     EntitlementCount: 'entitlement_count',
     MaxJaccardSimilarity: 'max_jaccard_similarity',
@@ -1789,6 +1789,6 @@ export const ListOutliersContributingFeatureAccessItemsV1ContributingFeatureName
     SingleEntitlementBundleCount: 'single_entitlement_bundle_count',
     PeerlessScore: 'peerless_score'
 } as const;
-export type ListOutliersContributingFeatureAccessItemsV1ContributingFeatureNameV1 = typeof ListOutliersContributingFeatureAccessItemsV1ContributingFeatureNameV1[keyof typeof ListOutliersContributingFeatureAccessItemsV1ContributingFeatureNameV1];
+export type ListOutliersContributingFeatureAccessItemsV1ContributingFeatureNameEnum = typeof ListOutliersContributingFeatureAccessItemsV1ContributingFeatureNameEnum[keyof typeof ListOutliersContributingFeatureAccessItemsV1ContributingFeatureNameEnum];
 
 

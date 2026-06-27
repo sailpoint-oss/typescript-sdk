@@ -1,23 +1,23 @@
 ---
-id: v1-roleinsightsinsight-v1
-title: RoleinsightsinsightV1
-pagination_label: RoleinsightsinsightV1
-sidebar_label: RoleinsightsinsightV1
+id: v1-roleinsightsinsight
+title: Roleinsightsinsight
+pagination_label: Roleinsightsinsight
+sidebar_label: Roleinsightsinsight
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RoleinsightsinsightV1', 'v1RoleinsightsinsightV1']
-slug: /tools/sdk/typescript/role_insights/models/roleinsightsinsight-v1
-tags: ['SDK', 'Software Development Kit', 'RoleinsightsinsightV1', 'v1RoleinsightsinsightV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Roleinsightsinsight', 'v1Roleinsightsinsight']
+slug: /tools/sdk/typescript/role_insights/models/roleinsightsinsight
+tags: ['SDK', 'Software Development Kit', 'Roleinsightsinsight', 'v1Roleinsightsinsight']
 ---
 
-# RoleinsightsinsightV1
+# Roleinsightsinsight
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | The number of identities in this role with the entitlement. | [default to undefined]
-**identitiesWithAccess** | **(optional)** **number** | The number of identities in this role with the entitlement. | [default to undefined]
-**identitiesImpacted** | **(optional)** **number** | The number of identities in this role that do not have the specified entitlement. | [default to undefined]
-**totalNumberOfIdentities** | **(optional)** **number** | The total number of identities. | [default to undefined]
-**impactedIdentityNames** | **(optional)** **string** |  | [default to undefined]
+**type** | **(optional)** `string` | The number of identities in this role with the entitlement. | [default to undefined]
+**identitiesWithAccess** | **(optional)** `number` | The number of identities in this role with the entitlement. | [default to undefined]
+**identitiesImpacted** | **(optional)** `number` | The number of identities in this role that do not have the specified entitlement. | [default to undefined]
+**totalNumberOfIdentities** | **(optional)** `number` | The total number of identities. | [default to undefined]
+**impactedIdentityNames** | **(optional)** `string` |  | [default to undefined]
 

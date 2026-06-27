@@ -1,19 +1,19 @@
 ---
-id: v1-list-pending-approvals-v1429-response-v1
-title: ListPendingApprovalsV1429ResponseV1
-pagination_label: ListPendingApprovalsV1429ResponseV1
-sidebar_label: ListPendingApprovalsV1429ResponseV1
+id: v1-list-pending-approvals-v1429-response
+title: ListPendingApprovalsV1429Response
+pagination_label: ListPendingApprovalsV1429Response
+sidebar_label: ListPendingApprovalsV1429Response
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ListPendingApprovalsV1429ResponseV1', 'v1ListPendingApprovalsV1429ResponseV1']
-slug: /tools/sdk/typescript/access_request_approvals/models/list-pending-approvals-v1429-response-v1
-tags: ['SDK', 'Software Development Kit', 'ListPendingApprovalsV1429ResponseV1', 'v1ListPendingApprovalsV1429ResponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ListPendingApprovalsV1429Response', 'v1ListPendingApprovalsV1429Response']
+slug: /tools/sdk/typescript/access_request_approvals/models/list-pending-approvals-v1429-response
+tags: ['SDK', 'Software Development Kit', 'ListPendingApprovalsV1429Response', 'v1ListPendingApprovalsV1429Response']
 ---
 
-# ListPendingApprovalsV1429ResponseV1
+# ListPendingApprovalsV1429Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **(optional)** **any** | A message describing the error | [default to undefined]
+**message** | **(optional)** `any` | A message describing the error | [default to undefined]
 

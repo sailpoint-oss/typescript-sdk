@@ -1,19 +1,19 @@
 ---
-id: v1-get-notification-template-variables-v1429-response-v1
-title: GetNotificationTemplateVariablesV1429ResponseV1
-pagination_label: GetNotificationTemplateVariablesV1429ResponseV1
-sidebar_label: GetNotificationTemplateVariablesV1429ResponseV1
+id: v1-get-notification-template-variables-v1429-response
+title: GetNotificationTemplateVariablesV1429Response
+pagination_label: GetNotificationTemplateVariablesV1429Response
+sidebar_label: GetNotificationTemplateVariablesV1429Response
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'GetNotificationTemplateVariablesV1429ResponseV1', 'v1GetNotificationTemplateVariablesV1429ResponseV1']
-slug: /tools/sdk/typescript/notifications/models/get-notification-template-variables-v1429-response-v1
-tags: ['SDK', 'Software Development Kit', 'GetNotificationTemplateVariablesV1429ResponseV1', 'v1GetNotificationTemplateVariablesV1429ResponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'GetNotificationTemplateVariablesV1429Response', 'v1GetNotificationTemplateVariablesV1429Response']
+slug: /tools/sdk/typescript/notifications/models/get-notification-template-variables-v1429-response
+tags: ['SDK', 'Software Development Kit', 'GetNotificationTemplateVariablesV1429Response', 'v1GetNotificationTemplateVariablesV1429Response']
 ---
 
-# GetNotificationTemplateVariablesV1429ResponseV1
+# GetNotificationTemplateVariablesV1429Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **(optional)** **any** | A message describing the error | [default to undefined]
+**message** | **(optional)** `any` | A message describing the error | [default to undefined]
 

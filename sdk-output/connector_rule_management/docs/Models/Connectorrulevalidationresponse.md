@@ -1,20 +1,20 @@
 ---
-id: v1-connectorrulevalidationresponse-v1
-title: ConnectorrulevalidationresponseV1
-pagination_label: ConnectorrulevalidationresponseV1
-sidebar_label: ConnectorrulevalidationresponseV1
+id: v1-connectorrulevalidationresponse
+title: Connectorrulevalidationresponse
+pagination_label: Connectorrulevalidationresponse
+sidebar_label: Connectorrulevalidationresponse
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ConnectorrulevalidationresponseV1', 'v1ConnectorrulevalidationresponseV1']
-slug: /tools/sdk/typescript/connector_rule_management/models/connectorrulevalidationresponse-v1
-tags: ['SDK', 'Software Development Kit', 'ConnectorrulevalidationresponseV1', 'v1ConnectorrulevalidationresponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Connectorrulevalidationresponse', 'v1Connectorrulevalidationresponse']
+slug: /tools/sdk/typescript/connector_rule_management/models/connectorrulevalidationresponse
+tags: ['SDK', 'Software Development Kit', 'Connectorrulevalidationresponse', 'v1Connectorrulevalidationresponse']
 ---
 
-# ConnectorrulevalidationresponseV1
+# Connectorrulevalidationresponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**state** | **string** |  | [default to undefined]
-**details** | **Array&lt;ConnectorrulevalidationresponseDetailsInnerV1&gt;** |  | [default to undefined]
+**state** | `string` |  | [default to undefined]
+**details** | `Array<ConnectorrulevalidationresponseDetailsInner>` |  | [default to undefined]
 

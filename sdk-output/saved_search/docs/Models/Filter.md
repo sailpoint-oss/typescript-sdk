@@ -1,22 +1,22 @@
 ---
-id: v1-filter-v1
-title: FilterV1
-pagination_label: FilterV1
-sidebar_label: FilterV1
+id: v1-filter
+title: Filter
+pagination_label: Filter
+sidebar_label: Filter
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'FilterV1', 'v1FilterV1']
-slug: /tools/sdk/typescript/saved_search/models/filter-v1
-tags: ['SDK', 'Software Development Kit', 'FilterV1', 'v1FilterV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Filter', 'v1Filter']
+slug: /tools/sdk/typescript/saved_search/models/filter
+tags: ['SDK', 'Software Development Kit', 'Filter', 'v1Filter']
 ---
 
-# FilterV1
+# Filter
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **FiltertypeV1** |  | [default to undefined]
-**range** | **(optional)** **RangeV1** |  | [default to undefined]
-**terms** | **(optional)** **Array&lt;string&gt;** | The terms to be filtered. | [default to undefined]
-**exclude** | **(optional)** **boolean** | Indicates if the filter excludes results. | [default to false]
+**type** | **(optional)** `Filtertype` |  | [default to undefined]
+**range** | **(optional)** `Range` |  | [default to undefined]
+**terms** | **(optional)** `Array<string>` | The terms to be filtered. | [default to undefined]
+**exclude** | **(optional)** `boolean` | Indicates if the filter excludes results. | [default to false]
 

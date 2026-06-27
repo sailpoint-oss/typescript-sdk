@@ -1,8 +1,8 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
-AccountAggregationsV1Api.md
-AccountAggregationsV1ApideveloperSite_code_examples.yaml
+AccountAggregationsApi.md
+AccountAggregationsApideveloperSite_code_examples.yaml
 Accountaggregationstatus.md
 Errormessagedto.md
 Errorresponsedto.md

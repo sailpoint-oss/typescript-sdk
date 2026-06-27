@@ -1,8 +1,8 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
-AccessRequestApprovalsV1Api.md
-AccessRequestApprovalsV1ApideveloperSite_code_examples.yaml
+AccessRequestApprovalsApi.md
+AccessRequestApprovalsApideveloperSite_code_examples.yaml
 Accessitemrequestedfor.md
 Accessitemrequester.md
 Accessitemreviewedby.md

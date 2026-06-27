@@ -1,21 +1,21 @@
 ---
-id: v1-identityprofileexportedobject-v1
-title: IdentityprofileexportedobjectV1
-pagination_label: IdentityprofileexportedobjectV1
-sidebar_label: IdentityprofileexportedobjectV1
+id: v1-identityprofileexportedobject
+title: Identityprofileexportedobject
+pagination_label: Identityprofileexportedobject
+sidebar_label: Identityprofileexportedobject
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'IdentityprofileexportedobjectV1', 'v1IdentityprofileexportedobjectV1']
-slug: /tools/sdk/typescript/identity_profiles/models/identityprofileexportedobject-v1
-tags: ['SDK', 'Software Development Kit', 'IdentityprofileexportedobjectV1', 'v1IdentityprofileexportedobjectV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Identityprofileexportedobject', 'v1Identityprofileexportedobject']
+slug: /tools/sdk/typescript/identity_profiles/models/identityprofileexportedobject
+tags: ['SDK', 'Software Development Kit', 'Identityprofileexportedobject', 'v1Identityprofileexportedobject']
 ---
 
-# IdentityprofileexportedobjectV1
+# Identityprofileexportedobject
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**version** | **(optional)** **number** | Version or object from the target service. | [default to undefined]
-**self** | **(optional)** **IdentityprofileexportedobjectSelfV1** |  | [default to undefined]
-**object** | **(optional)** **IdentityprofileV1** |  | [default to undefined]
+**version** | **(optional)** `number` | Version or object from the target service. | [default to undefined]
+**self** | **(optional)** `IdentityprofileexportedobjectSelf` |  | [default to undefined]
+**object** | **(optional)** `Identityprofile` |  | [default to undefined]
 

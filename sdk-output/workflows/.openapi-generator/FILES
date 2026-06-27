@@ -34,8 +34,8 @@ Workflowlibraryoperator.md
 Workflowlibrarytrigger.md
 Workflowmodifiedby.md
 Workflowoauthclient.md
-WorkflowsV1Api.md
-WorkflowsV1ApideveloperSite_code_examples.yaml
+WorkflowsApi.md
+WorkflowsApideveloperSite_code_examples.yaml
 Workflowtrigger.md
 api.ts
 base.ts

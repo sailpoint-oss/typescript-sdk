@@ -1,15 +1,15 @@
 ---
-id: v1-metrictype-v1
-title: MetrictypeV1
-pagination_label: MetrictypeV1
-sidebar_label: MetrictypeV1
+id: v1-metrictype
+title: Metrictype
+pagination_label: Metrictype
+sidebar_label: Metrictype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'MetrictypeV1', 'v1MetrictypeV1']
-slug: /tools/sdk/typescript/access_model_metadata/models/metrictype-v1
-tags: ['SDK', 'Software Development Kit', 'MetrictypeV1', 'v1MetrictypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Metrictype', 'v1Metrictype']
+slug: /tools/sdk/typescript/access_model_metadata/models/metrictype
+tags: ['SDK', 'Software Development Kit', 'Metrictype', 'v1Metrictype']
 ---
 
-# MetrictypeV1
+# Metrictype
 
 ## Enum
 

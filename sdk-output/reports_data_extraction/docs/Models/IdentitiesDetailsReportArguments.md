@@ -1,19 +1,19 @@
 ---
-id: v1-identities-details-report-arguments-v1
-title: IdentitiesDetailsReportArgumentsV1
-pagination_label: IdentitiesDetailsReportArgumentsV1
-sidebar_label: IdentitiesDetailsReportArgumentsV1
+id: v1-identities-details-report-arguments
+title: IdentitiesDetailsReportArguments
+pagination_label: IdentitiesDetailsReportArguments
+sidebar_label: IdentitiesDetailsReportArguments
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'IdentitiesDetailsReportArgumentsV1', 'v1IdentitiesDetailsReportArgumentsV1']
-slug: /tools/sdk/typescript/reports_data_extraction/models/identities-details-report-arguments-v1
-tags: ['SDK', 'Software Development Kit', 'IdentitiesDetailsReportArgumentsV1', 'v1IdentitiesDetailsReportArgumentsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'IdentitiesDetailsReportArguments', 'v1IdentitiesDetailsReportArguments']
+slug: /tools/sdk/typescript/reports_data_extraction/models/identities-details-report-arguments
+tags: ['SDK', 'Software Development Kit', 'IdentitiesDetailsReportArguments', 'v1IdentitiesDetailsReportArguments']
 ---
 
-# IdentitiesDetailsReportArgumentsV1
+# IdentitiesDetailsReportArguments
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**correlatedOnly** | **boolean** | Flag to specify if only correlated identities are included in report. | [default to false]
+**correlatedOnly** | `boolean` | Flag to specify if only correlated identities are included in report. | [default to false]
 

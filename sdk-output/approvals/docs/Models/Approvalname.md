@@ -1,20 +1,20 @@
 ---
-id: v1-approvalname-v1
-title: ApprovalnameV1
-pagination_label: ApprovalnameV1
-sidebar_label: ApprovalnameV1
+id: v1-approvalname
+title: Approvalname
+pagination_label: Approvalname
+sidebar_label: Approvalname
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ApprovalnameV1', 'v1ApprovalnameV1']
-slug: /tools/sdk/typescript/approvals/models/approvalname-v1
-tags: ['SDK', 'Software Development Kit', 'ApprovalnameV1', 'v1ApprovalnameV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Approvalname', 'v1Approvalname']
+slug: /tools/sdk/typescript/approvals/models/approvalname
+tags: ['SDK', 'Software Development Kit', 'Approvalname', 'v1Approvalname']
 ---
 
-# ApprovalnameV1
+# Approvalname
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **(optional)** **string** | Name of the approval | [default to undefined]
-**locale** | **(optional)** **string** | What locale the name of the approval is using | [default to undefined]
+**value** | **(optional)** `string` | Name of the approval | [default to undefined]
+**locale** | **(optional)** `string` | What locale the name of the approval is using | [default to undefined]
 

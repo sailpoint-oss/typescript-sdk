@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -53,33 +53,33 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -87,46 +87,46 @@ export interface ErrorresponsedtoV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface SendDeclassifyMachineAccountFromSourceV1401ResponseV1
+ * @interface SendDeclassifyMachineAccountFromSourceV1401Response
  */
-export interface SendDeclassifyMachineAccountFromSourceV1401ResponseV1 {
+export interface SendDeclassifyMachineAccountFromSourceV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof SendDeclassifyMachineAccountFromSourceV1401ResponseV1
+     * @memberof SendDeclassifyMachineAccountFromSourceV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface SendDeclassifyMachineAccountFromSourceV1429ResponseV1
+ * @interface SendDeclassifyMachineAccountFromSourceV1429Response
  */
-export interface SendDeclassifyMachineAccountFromSourceV1429ResponseV1 {
+export interface SendDeclassifyMachineAccountFromSourceV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof SendDeclassifyMachineAccountFromSourceV1429ResponseV1
+     * @memberof SendDeclassifyMachineAccountFromSourceV1429Response
      */
     'message'?: any;
 }
 
 /**
- * DeclassifySourceV1Api - axios parameter creator
+ * DeclassifySourceApi - axios parameter creator
  * @export
  */
-export const DeclassifySourceV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const DeclassifySourceApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Use this API to declassify all the accounts from a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -166,11 +166,11 @@ export const DeclassifySourceV1ApiAxiosParamCreator = function (configuration?: 
 };
 
 /**
- * DeclassifySourceV1Api - functional programming interface
+ * DeclassifySourceApi - functional programming interface
  * @export
  */
-export const DeclassifySourceV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = DeclassifySourceV1ApiAxiosParamCreator(configuration)
+export const DeclassifySourceApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = DeclassifySourceApiAxiosParamCreator(configuration)
     return {
         /**
          * Use this API to declassify all the accounts from a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -182,63 +182,63 @@ export const DeclassifySourceV1ApiFp = function(configuration?: Configuration) {
         async sendDeclassifyMachineAccountFromSourceV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.sendDeclassifyMachineAccountFromSourceV1(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DeclassifySourceV1Api.sendDeclassifyMachineAccountFromSourceV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DeclassifySourceApi.sendDeclassifyMachineAccountFromSourceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * DeclassifySourceV1Api - factory interface
+ * DeclassifySourceApi - factory interface
  * @export
  */
-export const DeclassifySourceV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = DeclassifySourceV1ApiFp(configuration)
+export const DeclassifySourceApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = DeclassifySourceApiFp(configuration)
     return {
         /**
          * Use this API to declassify all the accounts from a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Declassify source\'s all accounts
-         * @param {DeclassifySourceV1ApiSendDeclassifyMachineAccountFromSourceV1Request} requestParameters Request parameters.
+         * @param {DeclassifySourceApiSendDeclassifyMachineAccountFromSourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        sendDeclassifyMachineAccountFromSourceV1(requestParameters: DeclassifySourceV1ApiSendDeclassifyMachineAccountFromSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        sendDeclassifyMachineAccountFromSourceV1(requestParameters: DeclassifySourceApiSendDeclassifyMachineAccountFromSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.sendDeclassifyMachineAccountFromSourceV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for sendDeclassifyMachineAccountFromSourceV1 operation in DeclassifySourceV1Api.
+ * Request parameters for sendDeclassifyMachineAccountFromSourceV1 operation in DeclassifySourceApi.
  * @export
- * @interface DeclassifySourceV1ApiSendDeclassifyMachineAccountFromSourceV1Request
+ * @interface DeclassifySourceApiSendDeclassifyMachineAccountFromSourceV1Request
  */
-export interface DeclassifySourceV1ApiSendDeclassifyMachineAccountFromSourceV1Request {
+export interface DeclassifySourceApiSendDeclassifyMachineAccountFromSourceV1Request {
     /**
      * Source ID.
      * @type {string}
-     * @memberof DeclassifySourceV1ApiSendDeclassifyMachineAccountFromSourceV1
+     * @memberof DeclassifySourceApiSendDeclassifyMachineAccountFromSourceV1
      */
     readonly sourceId: string
 }
 
 /**
- * DeclassifySourceV1Api - object-oriented interface
+ * DeclassifySourceApi - object-oriented interface
  * @export
- * @class DeclassifySourceV1Api
+ * @class DeclassifySourceApi
  * @extends {BaseAPI}
  */
-export class DeclassifySourceV1Api extends BaseAPI {
+export class DeclassifySourceApi extends BaseAPI {
     /**
      * Use this API to declassify all the accounts from a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary Declassify source\'s all accounts
-     * @param {DeclassifySourceV1ApiSendDeclassifyMachineAccountFromSourceV1Request} requestParameters Request parameters.
+     * @param {DeclassifySourceApiSendDeclassifyMachineAccountFromSourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DeclassifySourceV1Api
+     * @memberof DeclassifySourceApi
      */
-    public sendDeclassifyMachineAccountFromSourceV1(requestParameters: DeclassifySourceV1ApiSendDeclassifyMachineAccountFromSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DeclassifySourceV1ApiFp(this.configuration).sendDeclassifyMachineAccountFromSourceV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public sendDeclassifyMachineAccountFromSourceV1(requestParameters: DeclassifySourceApiSendDeclassifyMachineAccountFromSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DeclassifySourceApiFp(this.configuration).sendDeclassifyMachineAccountFromSourceV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

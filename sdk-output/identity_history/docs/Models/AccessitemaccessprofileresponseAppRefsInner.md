@@ -1,20 +1,20 @@
 ---
-id: v1-accessitemaccessprofileresponse-app-refs-inner-v1
-title: AccessitemaccessprofileresponseAppRefsInnerV1
-pagination_label: AccessitemaccessprofileresponseAppRefsInnerV1
-sidebar_label: AccessitemaccessprofileresponseAppRefsInnerV1
+id: v1-accessitemaccessprofileresponse-app-refs-inner
+title: AccessitemaccessprofileresponseAppRefsInner
+pagination_label: AccessitemaccessprofileresponseAppRefsInner
+sidebar_label: AccessitemaccessprofileresponseAppRefsInner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccessitemaccessprofileresponseAppRefsInnerV1', 'v1AccessitemaccessprofileresponseAppRefsInnerV1']
-slug: /tools/sdk/typescript/identity_history/models/accessitemaccessprofileresponse-app-refs-inner-v1
-tags: ['SDK', 'Software Development Kit', 'AccessitemaccessprofileresponseAppRefsInnerV1', 'v1AccessitemaccessprofileresponseAppRefsInnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'AccessitemaccessprofileresponseAppRefsInner', 'v1AccessitemaccessprofileresponseAppRefsInner']
+slug: /tools/sdk/typescript/identity_history/models/accessitemaccessprofileresponse-app-refs-inner
+tags: ['SDK', 'Software Development Kit', 'AccessitemaccessprofileresponseAppRefsInner', 'v1AccessitemaccessprofileresponseAppRefsInner']
 ---
 
-# AccessitemaccessprofileresponseAppRefsInnerV1
+# AccessitemaccessprofileresponseAppRefsInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cloudAppId** | **(optional)** **string** | the cloud app id associated with the access profile | [default to undefined]
-**cloudAppName** | **(optional)** **string** | the cloud app name associated with the access profile | [default to undefined]
+**cloudAppId** | **(optional)** `string` | the cloud app id associated with the access profile | [default to undefined]
+**cloudAppName** | **(optional)** `string` | the cloud app name associated with the access profile | [default to undefined]
 

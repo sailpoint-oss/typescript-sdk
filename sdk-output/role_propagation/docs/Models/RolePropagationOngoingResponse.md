@@ -1,20 +1,20 @@
 ---
-id: v1-role-propagation-ongoing-response-v1
-title: RolePropagationOngoingResponseV1
-pagination_label: RolePropagationOngoingResponseV1
-sidebar_label: RolePropagationOngoingResponseV1
+id: v1-role-propagation-ongoing-response
+title: RolePropagationOngoingResponse
+pagination_label: RolePropagationOngoingResponse
+sidebar_label: RolePropagationOngoingResponse
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RolePropagationOngoingResponseV1', 'v1RolePropagationOngoingResponseV1']
-slug: /tools/sdk/typescript/role_propagation/models/role-propagation-ongoing-response-v1
-tags: ['SDK', 'Software Development Kit', 'RolePropagationOngoingResponseV1', 'v1RolePropagationOngoingResponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'RolePropagationOngoingResponse', 'v1RolePropagationOngoingResponse']
+slug: /tools/sdk/typescript/role_propagation/models/role-propagation-ongoing-response
+tags: ['SDK', 'Software Development Kit', 'RolePropagationOngoingResponse', 'v1RolePropagationOngoingResponse']
 ---
 
-# RolePropagationOngoingResponseV1
+# RolePropagationOngoingResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**isRunning** | **(optional)** **boolean** | Indicates if the role propagation process is currently running on the tenant | [default to false]
-**rolePropagationDetails** | **(optional)** **RolePropagationOngoingResponseRolePropagationDetailsV1** |  | [default to undefined]
+**isRunning** | **(optional)** `boolean` | Indicates if the role propagation process is currently running on the tenant | [default to false]
+**rolePropagationDetails** | **(optional)** `RolePropagationOngoingResponseRolePropagationDetails` |  | [default to undefined]
 

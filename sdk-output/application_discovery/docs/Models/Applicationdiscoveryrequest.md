@@ -1,19 +1,19 @@
 ---
-id: v1-applicationdiscoveryrequest-v1
-title: ApplicationdiscoveryrequestV1
-pagination_label: ApplicationdiscoveryrequestV1
-sidebar_label: ApplicationdiscoveryrequestV1
+id: v1-applicationdiscoveryrequest
+title: Applicationdiscoveryrequest
+pagination_label: Applicationdiscoveryrequest
+sidebar_label: Applicationdiscoveryrequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ApplicationdiscoveryrequestV1', 'v1ApplicationdiscoveryrequestV1']
-slug: /tools/sdk/typescript/application_discovery/models/applicationdiscoveryrequest-v1
-tags: ['SDK', 'Software Development Kit', 'ApplicationdiscoveryrequestV1', 'v1ApplicationdiscoveryrequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Applicationdiscoveryrequest', 'v1Applicationdiscoveryrequest']
+slug: /tools/sdk/typescript/application_discovery/models/applicationdiscoveryrequest
+tags: ['SDK', 'Software Development Kit', 'Applicationdiscoveryrequest', 'v1Applicationdiscoveryrequest']
 ---
 
-# ApplicationdiscoveryrequestV1
+# Applicationdiscoveryrequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**datasetIds** | **Array&lt;string&gt;** | List of dataset Ids to discover applications | [default to undefined]
+**datasetIds** | `Array<string>` | List of dataset Ids to discover applications | [default to undefined]
 

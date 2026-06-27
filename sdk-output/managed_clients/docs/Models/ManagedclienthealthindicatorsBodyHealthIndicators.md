@@ -1,21 +1,21 @@
 ---
-id: v1-managedclienthealthindicators-body-health-indicators-v1
-title: ManagedclienthealthindicatorsBodyHealthIndicatorsV1
-pagination_label: ManagedclienthealthindicatorsBodyHealthIndicatorsV1
-sidebar_label: ManagedclienthealthindicatorsBodyHealthIndicatorsV1
+id: v1-managedclienthealthindicators-body-health-indicators
+title: ManagedclienthealthindicatorsBodyHealthIndicators
+pagination_label: ManagedclienthealthindicatorsBodyHealthIndicators
+sidebar_label: ManagedclienthealthindicatorsBodyHealthIndicators
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ManagedclienthealthindicatorsBodyHealthIndicatorsV1', 'v1ManagedclienthealthindicatorsBodyHealthIndicatorsV1']
-slug: /tools/sdk/typescript/managed_clients/models/managedclienthealthindicators-body-health-indicators-v1
-tags: ['SDK', 'Software Development Kit', 'ManagedclienthealthindicatorsBodyHealthIndicatorsV1', 'v1ManagedclienthealthindicatorsBodyHealthIndicatorsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ManagedclienthealthindicatorsBodyHealthIndicators', 'v1ManagedclienthealthindicatorsBodyHealthIndicators']
+slug: /tools/sdk/typescript/managed_clients/models/managedclienthealthindicators-body-health-indicators
+tags: ['SDK', 'Software Development Kit', 'ManagedclienthealthindicatorsBodyHealthIndicators', 'v1ManagedclienthealthindicatorsBodyHealthIndicators']
 ---
 
-# ManagedclienthealthindicatorsBodyHealthIndicatorsV1
+# ManagedclienthealthindicatorsBodyHealthIndicators
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**container** | **(optional)** **HealthindicatorcategoryV1** |  | [default to undefined]
-**memory** | **(optional)** **HealthindicatorcategoryV1** |  | [default to undefined]
-**cpu** | **(optional)** **HealthindicatorcategoryV1** |  | [default to undefined]
+**container** | **(optional)** `Healthindicatorcategory` |  | [default to undefined]
+**memory** | **(optional)** `Healthindicatorcategory` |  | [default to undefined]
+**cpu** | **(optional)** `Healthindicatorcategory` |  | [default to undefined]
 

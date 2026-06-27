@@ -1,20 +1,20 @@
 ---
-id: v1-loaduncorrelatedaccountstask-v1
-title: LoaduncorrelatedaccountstaskV1
-pagination_label: LoaduncorrelatedaccountstaskV1
-sidebar_label: LoaduncorrelatedaccountstaskV1
+id: v1-loaduncorrelatedaccountstask
+title: Loaduncorrelatedaccountstask
+pagination_label: Loaduncorrelatedaccountstask
+sidebar_label: Loaduncorrelatedaccountstask
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'LoaduncorrelatedaccountstaskV1', 'v1LoaduncorrelatedaccountstaskV1']
-slug: /tools/sdk/typescript/sources/models/loaduncorrelatedaccountstask-v1
-tags: ['SDK', 'Software Development Kit', 'LoaduncorrelatedaccountstaskV1', 'v1LoaduncorrelatedaccountstaskV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Loaduncorrelatedaccountstask', 'v1Loaduncorrelatedaccountstask']
+slug: /tools/sdk/typescript/sources/models/loaduncorrelatedaccountstask
+tags: ['SDK', 'Software Development Kit', 'Loaduncorrelatedaccountstask', 'v1Loaduncorrelatedaccountstask']
 ---
 
-# LoaduncorrelatedaccountstaskV1
+# Loaduncorrelatedaccountstask
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**success** | **(optional)** **boolean** | The status of the result | [default to true]
-**task** | **(optional)** **LoaduncorrelatedaccountstaskTaskV1** |  | [default to undefined]
+**success** | **(optional)** `boolean` | The status of the result | [default to true]
+**task** | **(optional)** `LoaduncorrelatedaccountstaskTask` |  | [default to undefined]
 

@@ -1,19 +1,19 @@
 ---
-id: v1-accountattributescreate-v1
-title: AccountattributescreateV1
-pagination_label: AccountattributescreateV1
-sidebar_label: AccountattributescreateV1
+id: v1-accountattributescreate
+title: Accountattributescreate
+pagination_label: Accountattributescreate
+sidebar_label: Accountattributescreate
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccountattributescreateV1', 'v1AccountattributescreateV1']
-slug: /tools/sdk/typescript/accounts/models/accountattributescreate-v1
-tags: ['SDK', 'Software Development Kit', 'AccountattributescreateV1', 'v1AccountattributescreateV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accountattributescreate', 'v1Accountattributescreate']
+slug: /tools/sdk/typescript/accounts/models/accountattributescreate
+tags: ['SDK', 'Software Development Kit', 'Accountattributescreate', 'v1Accountattributescreate']
 ---
 
-# AccountattributescreateV1
+# Accountattributescreate
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | **AccountattributescreateAttributesV1** |  | [default to undefined]
+**attributes** | `AccountattributescreateAttributes` |  | [default to undefined]
 

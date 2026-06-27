@@ -1,15 +1,15 @@
 ---
-id: v1-workflowlibraryaction-example-output-v1
-title: WorkflowlibraryactionExampleOutputV1
-pagination_label: WorkflowlibraryactionExampleOutputV1
-sidebar_label: WorkflowlibraryactionExampleOutputV1
+id: v1-workflowlibraryaction-example-output
+title: WorkflowlibraryactionExampleOutput
+pagination_label: WorkflowlibraryactionExampleOutput
+sidebar_label: WorkflowlibraryactionExampleOutput
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'WorkflowlibraryactionExampleOutputV1', 'v1WorkflowlibraryactionExampleOutputV1']
-slug: /tools/sdk/typescript/workflows/models/workflowlibraryaction-example-output-v1
-tags: ['SDK', 'Software Development Kit', 'WorkflowlibraryactionExampleOutputV1', 'v1WorkflowlibraryactionExampleOutputV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'WorkflowlibraryactionExampleOutput', 'v1WorkflowlibraryactionExampleOutput']
+slug: /tools/sdk/typescript/workflows/models/workflowlibraryaction-example-output
+tags: ['SDK', 'Software Development Kit', 'WorkflowlibraryactionExampleOutput', 'v1WorkflowlibraryactionExampleOutput']
 ---
 
-# WorkflowlibraryactionExampleOutputV1
+# WorkflowlibraryactionExampleOutput
 
 ## Properties
 

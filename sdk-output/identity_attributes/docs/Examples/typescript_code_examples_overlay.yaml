@@ -4,14 +4,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_attributes/methods/identity-attributes#create-identity-attribute-v1
       source: |
-        import { IdentityAttributesV1Api } from 'sailpoint-api-client';
+        import { IdentityAttributesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IdentityAttributesV1Api(configuration);
-        const identityattribute2V1: Identityattribute2V1 = ; // Identityattribute2V1 | 
-        const result = await apiInstance.createIdentityAttributeV1(identityattribute2V1);
+        const configuration = new Configuration();
+        const apiInstance = new IdentityAttributesApi(configuration);
+        const identityattribute2: Identityattribute2 = ; // Identityattribute2 | 
+        const result = await apiInstance.createIdentityAttributeV1({ identityattribute2: identityattribute2 });
         console.log(result);
 - path: /identity-attributes/v1/{name}
   method: DELETE
@@ -19,14 +18,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_attributes/methods/identity-attributes#delete-identity-attribute-v1
       source: |
-        import { IdentityAttributesV1Api } from 'sailpoint-api-client';
+        import { IdentityAttributesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IdentityAttributesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new IdentityAttributesApi(configuration);
         const name: string = 'displayName'; // string | The attribute\'s technical name. (default to undefined)
-        const result = await apiInstance.deleteIdentityAttributeV1(name);
+        const result = await apiInstance.deleteIdentityAttributeV1({ name: name });
         console.log(result);
 - path: /identity-attributes/v1/bulk-delete
   method: DELETE
@@ -34,14 +32,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_attributes/methods/identity-attributes#delete-identity-attributes-in-bulk-v1
       source: |
-        import { IdentityAttributesV1Api } from 'sailpoint-api-client';
+        import { IdentityAttributesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IdentityAttributesV1Api(configuration);
-        const identityattributenamesV1: IdentityattributenamesV1 = ; // IdentityattributenamesV1 | 
-        const result = await apiInstance.deleteIdentityAttributesInBulkV1(identityattributenamesV1);
+        const configuration = new Configuration();
+        const apiInstance = new IdentityAttributesApi(configuration);
+        const identityattributenames: Identityattributenames = ; // Identityattributenames | 
+        const result = await apiInstance.deleteIdentityAttributesInBulkV1({ identityattributenames: identityattributenames });
         console.log(result);
 - path: /identity-attributes/v1/{name}
   method: GET
@@ -49,14 +46,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_attributes/methods/identity-attributes#get-identity-attribute-v1
       source: |
-        import { IdentityAttributesV1Api } from 'sailpoint-api-client';
+        import { IdentityAttributesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IdentityAttributesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new IdentityAttributesApi(configuration);
         const name: string = 'displayName'; // string | The attribute\'s technical name. (default to undefined)
-        const result = await apiInstance.getIdentityAttributeV1(name);
+        const result = await apiInstance.getIdentityAttributeV1({ name: name });
         console.log(result);
 - path: /identity-attributes/v1
   method: GET
@@ -64,17 +60,16 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_attributes/methods/identity-attributes#list-identity-attributes-v1
       source: |
-        import { IdentityAttributesV1Api } from 'sailpoint-api-client';
+        import { IdentityAttributesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IdentityAttributesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new IdentityAttributesApi(configuration);
         const includeSystem: boolean = false; // boolean | Include \'system\' attributes in the response. (optional) (default to false)
         const includeSilent: boolean = false; // boolean | Include \'silent\' attributes in the response. (optional) (default to false)
         const searchableOnly: boolean = false; // boolean | Include only \'searchable\' attributes in the response. (optional) (default to false)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
-        const result = await apiInstance.listIdentityAttributesV1();
+        const result = await apiInstance.listIdentityAttributesV1({  });
         console.log(result);
 - path: /identity-attributes/v1/{name}
   method: PUT
@@ -82,13 +77,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_attributes/methods/identity-attributes#put-identity-attribute-v1
       source: |
-        import { IdentityAttributesV1Api } from 'sailpoint-api-client';
+        import { IdentityAttributesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IdentityAttributesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new IdentityAttributesApi(configuration);
         const name: string = 'displayName'; // string | The attribute\'s technical name. (default to undefined)
-        const identityattribute2V1: Identityattribute2V1 = ; // Identityattribute2V1 | 
-        const result = await apiInstance.putIdentityAttributeV1(name, identityattribute2V1);
+        const identityattribute2: Identityattribute2 = ; // Identityattribute2 | 
+        const result = await apiInstance.putIdentityAttributeV1({ name: name, identityattribute2: identityattribute2 });
         console.log(result);

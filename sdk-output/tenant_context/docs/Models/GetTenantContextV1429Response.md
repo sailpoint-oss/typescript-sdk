@@ -1,19 +1,19 @@
 ---
-id: v1-get-tenant-context-v1429-response-v1
-title: GetTenantContextV1429ResponseV1
-pagination_label: GetTenantContextV1429ResponseV1
-sidebar_label: GetTenantContextV1429ResponseV1
+id: v1-get-tenant-context-v1429-response
+title: GetTenantContextV1429Response
+pagination_label: GetTenantContextV1429Response
+sidebar_label: GetTenantContextV1429Response
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'GetTenantContextV1429ResponseV1', 'v1GetTenantContextV1429ResponseV1']
-slug: /tools/sdk/typescript/tenant_context/models/get-tenant-context-v1429-response-v1
-tags: ['SDK', 'Software Development Kit', 'GetTenantContextV1429ResponseV1', 'v1GetTenantContextV1429ResponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'GetTenantContextV1429Response', 'v1GetTenantContextV1429Response']
+slug: /tools/sdk/typescript/tenant_context/models/get-tenant-context-v1429-response
+tags: ['SDK', 'Software Development Kit', 'GetTenantContextV1429Response', 'v1GetTenantContextV1429Response']
 ---
 
-# GetTenantContextV1429ResponseV1
+# GetTenantContextV1429Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **(optional)** **any** | A message describing the error | [default to undefined]
+**message** | **(optional)** `any` | A message describing the error | [default to undefined]
 

@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -53,57 +53,57 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetPasswordSyncGroupsV1401ResponseV1
+ * @interface GetPasswordSyncGroupsV1401Response
  */
-export interface GetPasswordSyncGroupsV1401ResponseV1 {
+export interface GetPasswordSyncGroupsV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetPasswordSyncGroupsV1401ResponseV1
+     * @memberof GetPasswordSyncGroupsV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetPasswordSyncGroupsV1429ResponseV1
+ * @interface GetPasswordSyncGroupsV1429Response
  */
-export interface GetPasswordSyncGroupsV1429ResponseV1 {
+export interface GetPasswordSyncGroupsV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetPasswordSyncGroupsV1429ResponseV1
+     * @memberof GetPasswordSyncGroupsV1429Response
      */
     'message'?: any;
 }
@@ -113,74 +113,74 @@ export interface GetPasswordSyncGroupsV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface PasswordsyncgroupV1
+ * @interface Passwordsyncgroup
  */
-export interface PasswordsyncgroupV1 {
+export interface Passwordsyncgroup {
     /**
      * ID of the sync group
      * @type {string}
-     * @memberof PasswordsyncgroupV1
+     * @memberof Passwordsyncgroup
      */
     'id'?: string;
     /**
      * Name of the sync group
      * @type {string}
-     * @memberof PasswordsyncgroupV1
+     * @memberof Passwordsyncgroup
      */
     'name'?: string;
     /**
      * ID of the password policy
      * @type {string}
-     * @memberof PasswordsyncgroupV1
+     * @memberof Passwordsyncgroup
      */
     'passwordPolicyId'?: string;
     /**
      * List of password managed sources IDs
      * @type {Array<string>}
-     * @memberof PasswordsyncgroupV1
+     * @memberof Passwordsyncgroup
      */
     'sourceIds'?: Array<string>;
     /**
      * The date and time this sync group was created
      * @type {string}
-     * @memberof PasswordsyncgroupV1
+     * @memberof Passwordsyncgroup
      */
     'created'?: string | null;
     /**
      * The date and time this sync group was last modified
      * @type {string}
-     * @memberof PasswordsyncgroupV1
+     * @memberof Passwordsyncgroup
      */
     'modified'?: string | null;
 }
 
 /**
- * PasswordSyncGroupsV1Api - axios parameter creator
+ * PasswordSyncGroupsApi - axios parameter creator
  * @export
  */
-export const PasswordSyncGroupsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const PasswordSyncGroupsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This API creates a password sync group based on the specifications provided.
          * @summary Create password sync group
-         * @param {PasswordsyncgroupV1} passwordsyncgroupV1 
+         * @param {Passwordsyncgroup} passwordsyncgroup 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createPasswordSyncGroupV1: async (passwordsyncgroupV1: PasswordsyncgroupV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'passwordsyncgroupV1' is not null or undefined
-            assertParamExists('createPasswordSyncGroupV1', 'passwordsyncgroupV1', passwordsyncgroupV1)
+        createPasswordSyncGroupV1: async (passwordsyncgroup: Passwordsyncgroup, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'passwordsyncgroup' is not null or undefined
+            assertParamExists('createPasswordSyncGroupV1', 'passwordsyncgroup', passwordsyncgroup)
             const localVarPath = `/password-sync-groups/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -200,7 +200,7 @@ export const PasswordSyncGroupsV1ApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(passwordsyncgroupV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(passwordsyncgroup, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -324,15 +324,15 @@ export const PasswordSyncGroupsV1ApiAxiosParamCreator = function (configuration?
          * This API updates the specified password sync group.
          * @summary Update password sync group by id
          * @param {string} id The ID of password sync group to update.
-         * @param {PasswordsyncgroupV1} passwordsyncgroupV1 
+         * @param {Passwordsyncgroup} passwordsyncgroup 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updatePasswordSyncGroupV1: async (id: string, passwordsyncgroupV1: PasswordsyncgroupV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updatePasswordSyncGroupV1: async (id: string, passwordsyncgroup: Passwordsyncgroup, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updatePasswordSyncGroupV1', 'id', id)
-            // verify required parameter 'passwordsyncgroupV1' is not null or undefined
-            assertParamExists('updatePasswordSyncGroupV1', 'passwordsyncgroupV1', passwordsyncgroupV1)
+            // verify required parameter 'passwordsyncgroup' is not null or undefined
+            assertParamExists('updatePasswordSyncGroupV1', 'passwordsyncgroup', passwordsyncgroup)
             const localVarPath = `/password-sync-groups/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -353,7 +353,7 @@ export const PasswordSyncGroupsV1ApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(passwordsyncgroupV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(passwordsyncgroup, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -364,23 +364,23 @@ export const PasswordSyncGroupsV1ApiAxiosParamCreator = function (configuration?
 };
 
 /**
- * PasswordSyncGroupsV1Api - functional programming interface
+ * PasswordSyncGroupsApi - functional programming interface
  * @export
  */
-export const PasswordSyncGroupsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = PasswordSyncGroupsV1ApiAxiosParamCreator(configuration)
+export const PasswordSyncGroupsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = PasswordSyncGroupsApiAxiosParamCreator(configuration)
     return {
         /**
          * This API creates a password sync group based on the specifications provided.
          * @summary Create password sync group
-         * @param {PasswordsyncgroupV1} passwordsyncgroupV1 
+         * @param {Passwordsyncgroup} passwordsyncgroup 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createPasswordSyncGroupV1(passwordsyncgroupV1: PasswordsyncgroupV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordsyncgroupV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createPasswordSyncGroupV1(passwordsyncgroupV1, axiosOptions);
+        async createPasswordSyncGroupV1(passwordsyncgroup: Passwordsyncgroup, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Passwordsyncgroup>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createPasswordSyncGroupV1(passwordsyncgroup, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PasswordSyncGroupsV1Api.createPasswordSyncGroupV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PasswordSyncGroupsApi.createPasswordSyncGroupV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -393,7 +393,7 @@ export const PasswordSyncGroupsV1ApiFp = function(configuration?: Configuration)
         async deletePasswordSyncGroupV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deletePasswordSyncGroupV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PasswordSyncGroupsV1Api.deletePasswordSyncGroupV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PasswordSyncGroupsApi.deletePasswordSyncGroupV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -403,10 +403,10 @@ export const PasswordSyncGroupsV1ApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPasswordSyncGroupV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordsyncgroupV1>> {
+        async getPasswordSyncGroupV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Passwordsyncgroup>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordSyncGroupV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PasswordSyncGroupsV1Api.getPasswordSyncGroupV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PasswordSyncGroupsApi.getPasswordSyncGroupV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -418,245 +418,245 @@ export const PasswordSyncGroupsV1ApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPasswordSyncGroupsV1(limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PasswordsyncgroupV1>>> {
+        async getPasswordSyncGroupsV1(limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Passwordsyncgroup>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordSyncGroupsV1(limit, offset, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PasswordSyncGroupsV1Api.getPasswordSyncGroupsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PasswordSyncGroupsApi.getPasswordSyncGroupsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API updates the specified password sync group.
          * @summary Update password sync group by id
          * @param {string} id The ID of password sync group to update.
-         * @param {PasswordsyncgroupV1} passwordsyncgroupV1 
+         * @param {Passwordsyncgroup} passwordsyncgroup 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updatePasswordSyncGroupV1(id: string, passwordsyncgroupV1: PasswordsyncgroupV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordsyncgroupV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePasswordSyncGroupV1(id, passwordsyncgroupV1, axiosOptions);
+        async updatePasswordSyncGroupV1(id: string, passwordsyncgroup: Passwordsyncgroup, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Passwordsyncgroup>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePasswordSyncGroupV1(id, passwordsyncgroup, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PasswordSyncGroupsV1Api.updatePasswordSyncGroupV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PasswordSyncGroupsApi.updatePasswordSyncGroupV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * PasswordSyncGroupsV1Api - factory interface
+ * PasswordSyncGroupsApi - factory interface
  * @export
  */
-export const PasswordSyncGroupsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = PasswordSyncGroupsV1ApiFp(configuration)
+export const PasswordSyncGroupsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = PasswordSyncGroupsApiFp(configuration)
     return {
         /**
          * This API creates a password sync group based on the specifications provided.
          * @summary Create password sync group
-         * @param {PasswordSyncGroupsV1ApiCreatePasswordSyncGroupV1Request} requestParameters Request parameters.
+         * @param {PasswordSyncGroupsApiCreatePasswordSyncGroupV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createPasswordSyncGroupV1(requestParameters: PasswordSyncGroupsV1ApiCreatePasswordSyncGroupV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PasswordsyncgroupV1> {
-            return localVarFp.createPasswordSyncGroupV1(requestParameters.passwordsyncgroupV1, axiosOptions).then((request) => request(axios, basePath));
+        createPasswordSyncGroupV1(requestParameters: PasswordSyncGroupsApiCreatePasswordSyncGroupV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Passwordsyncgroup> {
+            return localVarFp.createPasswordSyncGroupV1(requestParameters.passwordsyncgroup, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API deletes the specified password sync group.
          * @summary Delete password sync group by id
-         * @param {PasswordSyncGroupsV1ApiDeletePasswordSyncGroupV1Request} requestParameters Request parameters.
+         * @param {PasswordSyncGroupsApiDeletePasswordSyncGroupV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deletePasswordSyncGroupV1(requestParameters: PasswordSyncGroupsV1ApiDeletePasswordSyncGroupV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deletePasswordSyncGroupV1(requestParameters: PasswordSyncGroupsApiDeletePasswordSyncGroupV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deletePasswordSyncGroupV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the sync group for the specified ID.
          * @summary Get password sync group by id
-         * @param {PasswordSyncGroupsV1ApiGetPasswordSyncGroupV1Request} requestParameters Request parameters.
+         * @param {PasswordSyncGroupsApiGetPasswordSyncGroupV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getPasswordSyncGroupV1(requestParameters: PasswordSyncGroupsV1ApiGetPasswordSyncGroupV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PasswordsyncgroupV1> {
+        getPasswordSyncGroupV1(requestParameters: PasswordSyncGroupsApiGetPasswordSyncGroupV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Passwordsyncgroup> {
             return localVarFp.getPasswordSyncGroupV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of password sync groups.
          * @summary Get password sync group list
-         * @param {PasswordSyncGroupsV1ApiGetPasswordSyncGroupsV1Request} requestParameters Request parameters.
+         * @param {PasswordSyncGroupsApiGetPasswordSyncGroupsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getPasswordSyncGroupsV1(requestParameters: PasswordSyncGroupsV1ApiGetPasswordSyncGroupsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<PasswordsyncgroupV1>> {
+        getPasswordSyncGroupsV1(requestParameters: PasswordSyncGroupsApiGetPasswordSyncGroupsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Passwordsyncgroup>> {
             return localVarFp.getPasswordSyncGroupsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API updates the specified password sync group.
          * @summary Update password sync group by id
-         * @param {PasswordSyncGroupsV1ApiUpdatePasswordSyncGroupV1Request} requestParameters Request parameters.
+         * @param {PasswordSyncGroupsApiUpdatePasswordSyncGroupV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updatePasswordSyncGroupV1(requestParameters: PasswordSyncGroupsV1ApiUpdatePasswordSyncGroupV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PasswordsyncgroupV1> {
-            return localVarFp.updatePasswordSyncGroupV1(requestParameters.id, requestParameters.passwordsyncgroupV1, axiosOptions).then((request) => request(axios, basePath));
+        updatePasswordSyncGroupV1(requestParameters: PasswordSyncGroupsApiUpdatePasswordSyncGroupV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Passwordsyncgroup> {
+            return localVarFp.updatePasswordSyncGroupV1(requestParameters.id, requestParameters.passwordsyncgroup, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createPasswordSyncGroupV1 operation in PasswordSyncGroupsV1Api.
+ * Request parameters for createPasswordSyncGroupV1 operation in PasswordSyncGroupsApi.
  * @export
- * @interface PasswordSyncGroupsV1ApiCreatePasswordSyncGroupV1Request
+ * @interface PasswordSyncGroupsApiCreatePasswordSyncGroupV1Request
  */
-export interface PasswordSyncGroupsV1ApiCreatePasswordSyncGroupV1Request {
+export interface PasswordSyncGroupsApiCreatePasswordSyncGroupV1Request {
     /**
      * 
-     * @type {PasswordsyncgroupV1}
-     * @memberof PasswordSyncGroupsV1ApiCreatePasswordSyncGroupV1
+     * @type {Passwordsyncgroup}
+     * @memberof PasswordSyncGroupsApiCreatePasswordSyncGroupV1
      */
-    readonly passwordsyncgroupV1: PasswordsyncgroupV1
+    readonly passwordsyncgroup: Passwordsyncgroup
 }
 
 /**
- * Request parameters for deletePasswordSyncGroupV1 operation in PasswordSyncGroupsV1Api.
+ * Request parameters for deletePasswordSyncGroupV1 operation in PasswordSyncGroupsApi.
  * @export
- * @interface PasswordSyncGroupsV1ApiDeletePasswordSyncGroupV1Request
+ * @interface PasswordSyncGroupsApiDeletePasswordSyncGroupV1Request
  */
-export interface PasswordSyncGroupsV1ApiDeletePasswordSyncGroupV1Request {
+export interface PasswordSyncGroupsApiDeletePasswordSyncGroupV1Request {
     /**
      * The ID of password sync group to delete.
      * @type {string}
-     * @memberof PasswordSyncGroupsV1ApiDeletePasswordSyncGroupV1
+     * @memberof PasswordSyncGroupsApiDeletePasswordSyncGroupV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getPasswordSyncGroupV1 operation in PasswordSyncGroupsV1Api.
+ * Request parameters for getPasswordSyncGroupV1 operation in PasswordSyncGroupsApi.
  * @export
- * @interface PasswordSyncGroupsV1ApiGetPasswordSyncGroupV1Request
+ * @interface PasswordSyncGroupsApiGetPasswordSyncGroupV1Request
  */
-export interface PasswordSyncGroupsV1ApiGetPasswordSyncGroupV1Request {
+export interface PasswordSyncGroupsApiGetPasswordSyncGroupV1Request {
     /**
      * The ID of password sync group to retrieve.
      * @type {string}
-     * @memberof PasswordSyncGroupsV1ApiGetPasswordSyncGroupV1
+     * @memberof PasswordSyncGroupsApiGetPasswordSyncGroupV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getPasswordSyncGroupsV1 operation in PasswordSyncGroupsV1Api.
+ * Request parameters for getPasswordSyncGroupsV1 operation in PasswordSyncGroupsApi.
  * @export
- * @interface PasswordSyncGroupsV1ApiGetPasswordSyncGroupsV1Request
+ * @interface PasswordSyncGroupsApiGetPasswordSyncGroupsV1Request
  */
-export interface PasswordSyncGroupsV1ApiGetPasswordSyncGroupsV1Request {
+export interface PasswordSyncGroupsApiGetPasswordSyncGroupsV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof PasswordSyncGroupsV1ApiGetPasswordSyncGroupsV1
+     * @memberof PasswordSyncGroupsApiGetPasswordSyncGroupsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof PasswordSyncGroupsV1ApiGetPasswordSyncGroupsV1
+     * @memberof PasswordSyncGroupsApiGetPasswordSyncGroupsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof PasswordSyncGroupsV1ApiGetPasswordSyncGroupsV1
+     * @memberof PasswordSyncGroupsApiGetPasswordSyncGroupsV1
      */
     readonly count?: boolean
 }
 
 /**
- * Request parameters for updatePasswordSyncGroupV1 operation in PasswordSyncGroupsV1Api.
+ * Request parameters for updatePasswordSyncGroupV1 operation in PasswordSyncGroupsApi.
  * @export
- * @interface PasswordSyncGroupsV1ApiUpdatePasswordSyncGroupV1Request
+ * @interface PasswordSyncGroupsApiUpdatePasswordSyncGroupV1Request
  */
-export interface PasswordSyncGroupsV1ApiUpdatePasswordSyncGroupV1Request {
+export interface PasswordSyncGroupsApiUpdatePasswordSyncGroupV1Request {
     /**
      * The ID of password sync group to update.
      * @type {string}
-     * @memberof PasswordSyncGroupsV1ApiUpdatePasswordSyncGroupV1
+     * @memberof PasswordSyncGroupsApiUpdatePasswordSyncGroupV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {PasswordsyncgroupV1}
-     * @memberof PasswordSyncGroupsV1ApiUpdatePasswordSyncGroupV1
+     * @type {Passwordsyncgroup}
+     * @memberof PasswordSyncGroupsApiUpdatePasswordSyncGroupV1
      */
-    readonly passwordsyncgroupV1: PasswordsyncgroupV1
+    readonly passwordsyncgroup: Passwordsyncgroup
 }
 
 /**
- * PasswordSyncGroupsV1Api - object-oriented interface
+ * PasswordSyncGroupsApi - object-oriented interface
  * @export
- * @class PasswordSyncGroupsV1Api
+ * @class PasswordSyncGroupsApi
  * @extends {BaseAPI}
  */
-export class PasswordSyncGroupsV1Api extends BaseAPI {
+export class PasswordSyncGroupsApi extends BaseAPI {
     /**
      * This API creates a password sync group based on the specifications provided.
      * @summary Create password sync group
-     * @param {PasswordSyncGroupsV1ApiCreatePasswordSyncGroupV1Request} requestParameters Request parameters.
+     * @param {PasswordSyncGroupsApiCreatePasswordSyncGroupV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof PasswordSyncGroupsV1Api
+     * @memberof PasswordSyncGroupsApi
      */
-    public createPasswordSyncGroupV1(requestParameters: PasswordSyncGroupsV1ApiCreatePasswordSyncGroupV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return PasswordSyncGroupsV1ApiFp(this.configuration).createPasswordSyncGroupV1(requestParameters.passwordsyncgroupV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createPasswordSyncGroupV1(requestParameters: PasswordSyncGroupsApiCreatePasswordSyncGroupV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return PasswordSyncGroupsApiFp(this.configuration).createPasswordSyncGroupV1(requestParameters.passwordsyncgroup, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API deletes the specified password sync group.
      * @summary Delete password sync group by id
-     * @param {PasswordSyncGroupsV1ApiDeletePasswordSyncGroupV1Request} requestParameters Request parameters.
+     * @param {PasswordSyncGroupsApiDeletePasswordSyncGroupV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof PasswordSyncGroupsV1Api
+     * @memberof PasswordSyncGroupsApi
      */
-    public deletePasswordSyncGroupV1(requestParameters: PasswordSyncGroupsV1ApiDeletePasswordSyncGroupV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return PasswordSyncGroupsV1ApiFp(this.configuration).deletePasswordSyncGroupV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deletePasswordSyncGroupV1(requestParameters: PasswordSyncGroupsApiDeletePasswordSyncGroupV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return PasswordSyncGroupsApiFp(this.configuration).deletePasswordSyncGroupV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the sync group for the specified ID.
      * @summary Get password sync group by id
-     * @param {PasswordSyncGroupsV1ApiGetPasswordSyncGroupV1Request} requestParameters Request parameters.
+     * @param {PasswordSyncGroupsApiGetPasswordSyncGroupV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof PasswordSyncGroupsV1Api
+     * @memberof PasswordSyncGroupsApi
      */
-    public getPasswordSyncGroupV1(requestParameters: PasswordSyncGroupsV1ApiGetPasswordSyncGroupV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return PasswordSyncGroupsV1ApiFp(this.configuration).getPasswordSyncGroupV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getPasswordSyncGroupV1(requestParameters: PasswordSyncGroupsApiGetPasswordSyncGroupV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return PasswordSyncGroupsApiFp(this.configuration).getPasswordSyncGroupV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a list of password sync groups.
      * @summary Get password sync group list
-     * @param {PasswordSyncGroupsV1ApiGetPasswordSyncGroupsV1Request} requestParameters Request parameters.
+     * @param {PasswordSyncGroupsApiGetPasswordSyncGroupsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof PasswordSyncGroupsV1Api
+     * @memberof PasswordSyncGroupsApi
      */
-    public getPasswordSyncGroupsV1(requestParameters: PasswordSyncGroupsV1ApiGetPasswordSyncGroupsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return PasswordSyncGroupsV1ApiFp(this.configuration).getPasswordSyncGroupsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getPasswordSyncGroupsV1(requestParameters: PasswordSyncGroupsApiGetPasswordSyncGroupsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return PasswordSyncGroupsApiFp(this.configuration).getPasswordSyncGroupsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API updates the specified password sync group.
      * @summary Update password sync group by id
-     * @param {PasswordSyncGroupsV1ApiUpdatePasswordSyncGroupV1Request} requestParameters Request parameters.
+     * @param {PasswordSyncGroupsApiUpdatePasswordSyncGroupV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof PasswordSyncGroupsV1Api
+     * @memberof PasswordSyncGroupsApi
      */
-    public updatePasswordSyncGroupV1(requestParameters: PasswordSyncGroupsV1ApiUpdatePasswordSyncGroupV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return PasswordSyncGroupsV1ApiFp(this.configuration).updatePasswordSyncGroupV1(requestParameters.id, requestParameters.passwordsyncgroupV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updatePasswordSyncGroupV1(requestParameters: PasswordSyncGroupsApiUpdatePasswordSyncGroupV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return PasswordSyncGroupsApiFp(this.configuration).updatePasswordSyncGroupV1(requestParameters.id, requestParameters.passwordsyncgroup, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

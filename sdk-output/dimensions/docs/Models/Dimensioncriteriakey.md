@@ -1,20 +1,20 @@
 ---
-id: v1-dimensioncriteriakey-v1
-title: DimensioncriteriakeyV1
-pagination_label: DimensioncriteriakeyV1
-sidebar_label: DimensioncriteriakeyV1
+id: v1-dimensioncriteriakey
+title: Dimensioncriteriakey
+pagination_label: Dimensioncriteriakey
+sidebar_label: Dimensioncriteriakey
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'DimensioncriteriakeyV1', 'v1DimensioncriteriakeyV1']
-slug: /tools/sdk/typescript/dimensions/models/dimensioncriteriakey-v1
-tags: ['SDK', 'Software Development Kit', 'DimensioncriteriakeyV1', 'v1DimensioncriteriakeyV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Dimensioncriteriakey', 'v1Dimensioncriteriakey']
+slug: /tools/sdk/typescript/dimensions/models/dimensioncriteriakey
+tags: ['SDK', 'Software Development Kit', 'Dimensioncriteriakey', 'v1Dimensioncriteriakey']
 ---
 
-# DimensioncriteriakeyV1
+# Dimensioncriteriakey
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **DimensioncriteriakeytypeV1** |  | [default to undefined]
-**property** | **string** | The name of the identity attribute to which the associated criteria applies. | [default to undefined]
+**type** | `Dimensioncriteriakeytype` |  | [default to undefined]
+**property** | `string` | The name of the identity attribute to which the associated criteria applies. | [default to undefined]
 

@@ -1,15 +1,15 @@
 ---
-id: v1-certificationdecision-v1
-title: CertificationdecisionV1
-pagination_label: CertificationdecisionV1
-sidebar_label: CertificationdecisionV1
+id: v1-certificationdecision
+title: Certificationdecision
+pagination_label: Certificationdecision
+sidebar_label: Certificationdecision
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'CertificationdecisionV1', 'v1CertificationdecisionV1']
-slug: /tools/sdk/typescript/certifications/models/certificationdecision-v1
-tags: ['SDK', 'Software Development Kit', 'CertificationdecisionV1', 'v1CertificationdecisionV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Certificationdecision', 'v1Certificationdecision']
+slug: /tools/sdk/typescript/certifications/models/certificationdecision
+tags: ['SDK', 'Software Development Kit', 'Certificationdecision', 'v1Certificationdecision']
 ---
 
-# CertificationdecisionV1
+# Certificationdecision
 
 ## Enum
 

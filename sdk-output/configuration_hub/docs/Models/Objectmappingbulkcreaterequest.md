@@ -1,19 +1,19 @@
 ---
-id: v1-objectmappingbulkcreaterequest-v1
-title: ObjectmappingbulkcreaterequestV1
-pagination_label: ObjectmappingbulkcreaterequestV1
-sidebar_label: ObjectmappingbulkcreaterequestV1
+id: v1-objectmappingbulkcreaterequest
+title: Objectmappingbulkcreaterequest
+pagination_label: Objectmappingbulkcreaterequest
+sidebar_label: Objectmappingbulkcreaterequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ObjectmappingbulkcreaterequestV1', 'v1ObjectmappingbulkcreaterequestV1']
-slug: /tools/sdk/typescript/configuration_hub/models/objectmappingbulkcreaterequest-v1
-tags: ['SDK', 'Software Development Kit', 'ObjectmappingbulkcreaterequestV1', 'v1ObjectmappingbulkcreaterequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Objectmappingbulkcreaterequest', 'v1Objectmappingbulkcreaterequest']
+slug: /tools/sdk/typescript/configuration_hub/models/objectmappingbulkcreaterequest
+tags: ['SDK', 'Software Development Kit', 'Objectmappingbulkcreaterequest', 'v1Objectmappingbulkcreaterequest']
 ---
 
-# ObjectmappingbulkcreaterequestV1
+# Objectmappingbulkcreaterequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**newObjectsMappings** | **Array&lt;ObjectmappingrequestV1&gt;** |  | [default to undefined]
+**newObjectsMappings** | `Array<Objectmappingrequest>` |  | [default to undefined]
 

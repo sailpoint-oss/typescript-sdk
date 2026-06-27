@@ -1,21 +1,21 @@
 ---
-id: v1-savedsearchcomplete-search-results-identity-v1
-title: SavedsearchcompleteSearchResultsIdentityV1
-pagination_label: SavedsearchcompleteSearchResultsIdentityV1
-sidebar_label: SavedsearchcompleteSearchResultsIdentityV1
+id: v1-savedsearchcomplete-search-results-identity
+title: SavedsearchcompleteSearchResultsIdentity
+pagination_label: SavedsearchcompleteSearchResultsIdentity
+sidebar_label: SavedsearchcompleteSearchResultsIdentity
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SavedsearchcompleteSearchResultsIdentityV1', 'v1SavedsearchcompleteSearchResultsIdentityV1']
-slug: /tools/sdk/typescript/triggers/models/savedsearchcomplete-search-results-identity-v1
-tags: ['SDK', 'Software Development Kit', 'SavedsearchcompleteSearchResultsIdentityV1', 'v1SavedsearchcompleteSearchResultsIdentityV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'SavedsearchcompleteSearchResultsIdentity', 'v1SavedsearchcompleteSearchResultsIdentity']
+slug: /tools/sdk/typescript/triggers/models/savedsearchcomplete-search-results-identity
+tags: ['SDK', 'Software Development Kit', 'SavedsearchcompleteSearchResultsIdentity', 'v1SavedsearchcompleteSearchResultsIdentity']
 ---
 
-# SavedsearchcompleteSearchResultsIdentityV1
+# SavedsearchcompleteSearchResultsIdentity
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **string** | The number of rows in the table. | [default to undefined]
-**noun** | **string** | The type of object represented in the table. | [default to undefined]
-**preview** | **Array&lt;Array&lt;string&gt;&gt;** | A sample of the data in the table. | [default to undefined]
+**count** | `string` | The number of rows in the table. | [default to undefined]
+**noun** | `string` | The type of object represented in the table. | [default to undefined]
+**preview** | `Array<Array<string>>` | A sample of the data in the table. | [default to undefined]
 

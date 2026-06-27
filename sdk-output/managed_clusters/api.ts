@@ -26,391 +26,391 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ArrayInnerV1
+ * @interface ArrayInner
  */
-export interface ArrayInnerV1 {
+export interface ArrayInner {
 }
 /**
  * Client Runtime Logging Configuration
  * @export
- * @interface ClientlogconfigurationV1
+ * @interface Clientlogconfiguration
  */
-export interface ClientlogconfigurationV1 {
+export interface Clientlogconfiguration {
     /**
      * Log configuration\'s client ID
      * @type {string}
-     * @memberof ClientlogconfigurationV1
+     * @memberof Clientlogconfiguration
      */
     'clientId'?: string;
     /**
      * Duration in minutes for log configuration to remain in effect before resetting to defaults.
      * @type {number}
-     * @memberof ClientlogconfigurationV1
+     * @memberof Clientlogconfiguration
      */
     'durationMinutes'?: number;
     /**
      * Expiration date-time of the log configuration request.  Can be no greater than 24 hours from current date-time.
      * @type {string}
-     * @memberof ClientlogconfigurationV1
+     * @memberof Clientlogconfiguration
      */
     'expiration'?: string;
     /**
      * 
-     * @type {StandardlevelV1}
-     * @memberof ClientlogconfigurationV1
+     * @type {Standardlevel}
+     * @memberof Clientlogconfiguration
      */
-    'rootLevel': StandardlevelV1;
+    'rootLevel': Standardlevel;
     /**
      * Mapping of identifiers to Standard Log Level values
-     * @type {{ [key: string]: StandardlevelV1; }}
-     * @memberof ClientlogconfigurationV1
+     * @type {{ [key: string]: Standardlevel; }}
+     * @memberof Clientlogconfiguration
      */
-    'logLevels'?: { [key: string]: StandardlevelV1; };
+    'logLevels'?: { [key: string]: Standardlevel; };
 }
 
 
 /**
  * Client Runtime Logging Configuration
  * @export
- * @interface ClientlogconfigurationdurationminutesV1
+ * @interface Clientlogconfigurationdurationminutes
  */
-export interface ClientlogconfigurationdurationminutesV1 {
+export interface Clientlogconfigurationdurationminutes {
     /**
      * Log configuration\'s client ID
      * @type {string}
-     * @memberof ClientlogconfigurationdurationminutesV1
+     * @memberof Clientlogconfigurationdurationminutes
      */
     'clientId'?: string;
     /**
      * Duration in minutes for log configuration to remain in effect before resetting to defaults.
      * @type {number}
-     * @memberof ClientlogconfigurationdurationminutesV1
+     * @memberof Clientlogconfigurationdurationminutes
      */
     'durationMinutes'?: number;
     /**
      * 
-     * @type {StandardlevelV1}
-     * @memberof ClientlogconfigurationdurationminutesV1
+     * @type {Standardlevel}
+     * @memberof Clientlogconfigurationdurationminutes
      */
-    'rootLevel': StandardlevelV1;
+    'rootLevel': Standardlevel;
     /**
      * Mapping of identifiers to Standard Log Level values
-     * @type {{ [key: string]: StandardlevelV1; }}
-     * @memberof ClientlogconfigurationdurationminutesV1
+     * @type {{ [key: string]: Standardlevel; }}
+     * @memberof Clientlogconfigurationdurationminutes
      */
-    'logLevels'?: { [key: string]: StandardlevelV1; };
+    'logLevels'?: { [key: string]: Standardlevel; };
 }
 
 
 /**
  * Client Runtime Logging Configuration
  * @export
- * @interface ClientlogconfigurationexpirationV1
+ * @interface Clientlogconfigurationexpiration
  */
-export interface ClientlogconfigurationexpirationV1 {
+export interface Clientlogconfigurationexpiration {
     /**
      * Log configuration\'s client ID
      * @type {string}
-     * @memberof ClientlogconfigurationexpirationV1
+     * @memberof Clientlogconfigurationexpiration
      */
     'clientId'?: string;
     /**
      * Expiration date-time of the log configuration request.  Can be no greater than 24 hours from current date-time.
      * @type {string}
-     * @memberof ClientlogconfigurationexpirationV1
+     * @memberof Clientlogconfigurationexpiration
      */
     'expiration'?: string;
     /**
      * 
-     * @type {StandardlevelV1}
-     * @memberof ClientlogconfigurationexpirationV1
+     * @type {Standardlevel}
+     * @memberof Clientlogconfigurationexpiration
      */
-    'rootLevel': StandardlevelV1;
+    'rootLevel': Standardlevel;
     /**
      * Mapping of identifiers to Standard Log Level values
-     * @type {{ [key: string]: StandardlevelV1; }}
-     * @memberof ClientlogconfigurationexpirationV1
+     * @type {{ [key: string]: Standardlevel; }}
+     * @memberof Clientlogconfigurationexpiration
      */
-    'logLevels'?: { [key: string]: StandardlevelV1; };
+    'logLevels'?: { [key: string]: Standardlevel; };
 }
 
 
+/**
+ * Manual Upgrade Job Response
+ * @export
+ * @interface Clustermanualupgrade
+ */
+export interface Clustermanualupgrade {
+    /**
+     * List of job objects for the upgrade request.
+     * @type {Array<ClustermanualupgradeJobsInner>}
+     * @memberof Clustermanualupgrade
+     */
+    'jobs'?: Array<ClustermanualupgradeJobsInner>;
+}
+/**
+ * 
+ * @export
+ * @interface ClustermanualupgradeJobsInner
+ */
+export interface ClustermanualupgradeJobsInner {
+    /**
+     * Unique identifier for the upgrade job.
+     * @type {string}
+     * @memberof ClustermanualupgradeJobsInner
+     */
+    'uuid': string;
+    /**
+     * Identifier for the cookbook used in the upgrade job.
+     * @type {string}
+     * @memberof ClustermanualupgradeJobsInner
+     */
+    'cookbook': string;
+    /**
+     * Current state of the upgrade job.
+     * @type {string}
+     * @memberof ClustermanualupgradeJobsInner
+     */
+    'state': string;
+    /**
+     * The type of upgrade job (e.g., VA_UPGRADE).
+     * @type {string}
+     * @memberof ClustermanualupgradeJobsInner
+     */
+    'type': string;
+    /**
+     * Unique identifier of the target for the upgrade job.
+     * @type {string}
+     * @memberof ClustermanualupgradeJobsInner
+     */
+    'targetId': string;
+    /**
+     * 
+     * @type {ClustermanualupgradeJobsInnerManagedProcessConfiguration}
+     * @memberof ClustermanualupgradeJobsInner
+     */
+    'managedProcessConfiguration': ClustermanualupgradeJobsInnerManagedProcessConfiguration;
+}
+/**
+ * Configuration of the managed processes involved in the upgrade.
+ * @export
+ * @interface ClustermanualupgradeJobsInnerManagedProcessConfiguration
+ */
+export interface ClustermanualupgradeJobsInnerManagedProcessConfiguration {
+    /**
+     * 
+     * @type {ClustermanualupgradeJobsInnerManagedProcessConfigurationCharon}
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfiguration
+     */
+    'charon'?: ClustermanualupgradeJobsInnerManagedProcessConfigurationCharon;
+    /**
+     * 
+     * @type {ClustermanualupgradeJobsInnerManagedProcessConfigurationCcg}
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfiguration
+     */
+    'ccg'?: ClustermanualupgradeJobsInnerManagedProcessConfigurationCcg;
+    /**
+     * 
+     * @type {ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgent}
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfiguration
+     */
+    'otel_agent'?: ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgent;
+    /**
+     * 
+     * @type {ClustermanualupgradeJobsInnerManagedProcessConfigurationRelay}
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfiguration
+     */
+    'relay'?: ClustermanualupgradeJobsInnerManagedProcessConfigurationRelay;
+    /**
+     * 
+     * @type {ClustermanualupgradeJobsInnerManagedProcessConfigurationToolbox}
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfiguration
+     */
+    'toolbox'?: ClustermanualupgradeJobsInnerManagedProcessConfigurationToolbox;
+}
 /**
  * Configuration details for the \'ccg\' process.
  * @export
- * @interface ClustermanualupgradeJobsInnerManagedProcessConfigurationCcgV1
+ * @interface ClustermanualupgradeJobsInnerManagedProcessConfigurationCcg
  */
-export interface ClustermanualupgradeJobsInnerManagedProcessConfigurationCcgV1 {
+export interface ClustermanualupgradeJobsInnerManagedProcessConfigurationCcg {
     /**
      * Version of the \'ccg\' process.
      * @type {string}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationCcgV1
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationCcg
      */
     'version': string;
     /**
      * Path to the \'ccg\' process.
      * @type {string}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationCcgV1
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationCcg
      */
     'path': string;
     /**
      * A brief description of the \'ccg\' process.
      * @type {string}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationCcgV1
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationCcg
      */
     'description': string;
     /**
      * Indicates whether the process needs to be restarted.
      * @type {boolean}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationCcgV1
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationCcg
      */
     'restartNeeded': boolean;
     /**
      * A map of dependencies for the \'ccg\' process.
      * @type {{ [key: string]: string; }}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationCcgV1
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationCcg
      */
     'dependencies': { [key: string]: string; };
 }
 /**
  * Configuration details for the \'charon\' process.
  * @export
- * @interface ClustermanualupgradeJobsInnerManagedProcessConfigurationCharonV1
+ * @interface ClustermanualupgradeJobsInnerManagedProcessConfigurationCharon
  */
-export interface ClustermanualupgradeJobsInnerManagedProcessConfigurationCharonV1 {
+export interface ClustermanualupgradeJobsInnerManagedProcessConfigurationCharon {
     /**
      * Version of the \'charon\' process.
      * @type {string}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationCharonV1
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationCharon
      */
     'version': string;
     /**
      * Path to the \'charon\' process.
      * @type {string}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationCharonV1
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationCharon
      */
     'path': string;
     /**
      * A brief description of the \'charon\' process.
      * @type {string}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationCharonV1
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationCharon
      */
     'description': string;
     /**
      * Indicates whether the process needs to be restarted.
      * @type {boolean}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationCharonV1
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationCharon
      */
     'restartNeeded': boolean;
 }
 /**
  * Configuration details for the \'otel_agent\' process.
  * @export
- * @interface ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgentV1
+ * @interface ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgent
  */
-export interface ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgentV1 {
+export interface ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgent {
     /**
      * Version of the \'otel_agent\' process.
      * @type {string}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgentV1
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgent
      */
     'version': string;
     /**
      * Path to the \'otel_agent\' process.
      * @type {string}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgentV1
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgent
      */
     'path': string;
     /**
      * A brief description of the \'otel_agent\' process.
      * @type {string}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgentV1
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgent
      */
     'description': string;
     /**
      * Indicates whether the process needs to be restarted.
      * @type {boolean}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgentV1
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgent
      */
     'restartNeeded': boolean;
 }
 /**
  * Configuration details for the \'relay\' process.
  * @export
- * @interface ClustermanualupgradeJobsInnerManagedProcessConfigurationRelayV1
+ * @interface ClustermanualupgradeJobsInnerManagedProcessConfigurationRelay
  */
-export interface ClustermanualupgradeJobsInnerManagedProcessConfigurationRelayV1 {
+export interface ClustermanualupgradeJobsInnerManagedProcessConfigurationRelay {
     /**
      * Version of the \'relay\' process.
      * @type {string}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationRelayV1
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationRelay
      */
     'version': string;
     /**
      * Path to the \'relay\' process.
      * @type {string}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationRelayV1
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationRelay
      */
     'path': string;
     /**
      * A brief description of the \'relay\' process.
      * @type {string}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationRelayV1
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationRelay
      */
     'description': string;
     /**
      * Indicates whether the process needs to be restarted.
      * @type {boolean}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationRelayV1
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationRelay
      */
     'restartNeeded': boolean;
 }
 /**
  * Configuration details for the \'toolbox\' process.
  * @export
- * @interface ClustermanualupgradeJobsInnerManagedProcessConfigurationToolboxV1
+ * @interface ClustermanualupgradeJobsInnerManagedProcessConfigurationToolbox
  */
-export interface ClustermanualupgradeJobsInnerManagedProcessConfigurationToolboxV1 {
+export interface ClustermanualupgradeJobsInnerManagedProcessConfigurationToolbox {
     /**
      * Version of the \'toolbox\' process.
      * @type {string}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationToolboxV1
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationToolbox
      */
     'version': string;
     /**
      * Path to the \'toolbox\' process.
      * @type {string}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationToolboxV1
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationToolbox
      */
     'path': string;
     /**
      * A brief description of the \'toolbox\' process.
      * @type {string}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationToolboxV1
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationToolbox
      */
     'description': string;
     /**
      * Indicates whether the process needs to be restarted.
      * @type {boolean}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationToolboxV1
+     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationToolbox
      */
     'restartNeeded': boolean;
 }
 /**
- * Configuration of the managed processes involved in the upgrade.
- * @export
- * @interface ClustermanualupgradeJobsInnerManagedProcessConfigurationV1
- */
-export interface ClustermanualupgradeJobsInnerManagedProcessConfigurationV1 {
-    /**
-     * 
-     * @type {ClustermanualupgradeJobsInnerManagedProcessConfigurationCharonV1}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationV1
-     */
-    'charon'?: ClustermanualupgradeJobsInnerManagedProcessConfigurationCharonV1;
-    /**
-     * 
-     * @type {ClustermanualupgradeJobsInnerManagedProcessConfigurationCcgV1}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationV1
-     */
-    'ccg'?: ClustermanualupgradeJobsInnerManagedProcessConfigurationCcgV1;
-    /**
-     * 
-     * @type {ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgentV1}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationV1
-     */
-    'otel_agent'?: ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgentV1;
-    /**
-     * 
-     * @type {ClustermanualupgradeJobsInnerManagedProcessConfigurationRelayV1}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationV1
-     */
-    'relay'?: ClustermanualupgradeJobsInnerManagedProcessConfigurationRelayV1;
-    /**
-     * 
-     * @type {ClustermanualupgradeJobsInnerManagedProcessConfigurationToolboxV1}
-     * @memberof ClustermanualupgradeJobsInnerManagedProcessConfigurationV1
-     */
-    'toolbox'?: ClustermanualupgradeJobsInnerManagedProcessConfigurationToolboxV1;
-}
-/**
  * 
  * @export
- * @interface ClustermanualupgradeJobsInnerV1
+ * @interface Errormessagedto
  */
-export interface ClustermanualupgradeJobsInnerV1 {
-    /**
-     * Unique identifier for the upgrade job.
-     * @type {string}
-     * @memberof ClustermanualupgradeJobsInnerV1
-     */
-    'uuid': string;
-    /**
-     * Identifier for the cookbook used in the upgrade job.
-     * @type {string}
-     * @memberof ClustermanualupgradeJobsInnerV1
-     */
-    'cookbook': string;
-    /**
-     * Current state of the upgrade job.
-     * @type {string}
-     * @memberof ClustermanualupgradeJobsInnerV1
-     */
-    'state': string;
-    /**
-     * The type of upgrade job (e.g., VA_UPGRADE).
-     * @type {string}
-     * @memberof ClustermanualupgradeJobsInnerV1
-     */
-    'type': string;
-    /**
-     * Unique identifier of the target for the upgrade job.
-     * @type {string}
-     * @memberof ClustermanualupgradeJobsInnerV1
-     */
-    'targetId': string;
-    /**
-     * 
-     * @type {ClustermanualupgradeJobsInnerManagedProcessConfigurationV1}
-     * @memberof ClustermanualupgradeJobsInnerV1
-     */
-    'managedProcessConfiguration': ClustermanualupgradeJobsInnerManagedProcessConfigurationV1;
-}
-/**
- * Manual Upgrade Job Response
- * @export
- * @interface ClustermanualupgradeV1
- */
-export interface ClustermanualupgradeV1 {
-    /**
-     * List of job objects for the upgrade request.
-     * @type {Array<ClustermanualupgradeJobsInnerV1>}
-     * @memberof ClustermanualupgradeV1
-     */
-    'jobs'?: Array<ClustermanualupgradeJobsInnerV1>;
-}
-/**
- * 
- * @export
- * @interface ErrormessagedtoV1
- */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -419,87 +419,87 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetManagedClustersV1401ResponseV1
+ * @interface GetManagedClustersV1401Response
  */
-export interface GetManagedClustersV1401ResponseV1 {
+export interface GetManagedClustersV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetManagedClustersV1401ResponseV1
+     * @memberof GetManagedClustersV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetManagedClustersV1429ResponseV1
+ * @interface GetManagedClustersV1429Response
  */
-export interface GetManagedClustersV1429ResponseV1 {
+export interface GetManagedClustersV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetManagedClustersV1429ResponseV1
+     * @memberof GetManagedClustersV1429Response
      */
     'message'?: any;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface JsonpatchoperationV1
+ * @interface Jsonpatchoperation
  */
-export interface JsonpatchoperationV1 {
+export interface Jsonpatchoperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
-    'op': JsonpatchoperationV1OpV1;
+    'op': JsonpatchoperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValueV1}
-     * @memberof JsonpatchoperationV1
+     * @type {JsonpatchoperationValue}
+     * @memberof Jsonpatchoperation
      */
-    'value'?: JsonpatchoperationValueV1;
+    'value'?: JsonpatchoperationValue;
 }
 
-export const JsonpatchoperationV1OpV1 = {
+export const JsonpatchoperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -508,14 +508,14 @@ export const JsonpatchoperationV1OpV1 = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationV1OpV1 = typeof JsonpatchoperationV1OpV1[keyof typeof JsonpatchoperationV1OpV1];
+export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
 
 /**
- * @type JsonpatchoperationValueV1
+ * @type JsonpatchoperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number | object | string;
+export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -523,12 +523,12 @@ export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number |
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
@@ -537,250 +537,217 @@ export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
  * @enum {string}
  */
 
-export const ManagedclienttypeV1 = {
+export const Managedclienttype = {
     Ccg: 'CCG',
     Va: 'VA',
     Internal: 'INTERNAL',
     IiqHarvester: 'IIQ_HARVESTER'
 } as const;
 
-export type ManagedclienttypeV1 = typeof ManagedclienttypeV1[keyof typeof ManagedclienttypeV1];
+export type Managedclienttype = typeof Managedclienttype[keyof typeof Managedclienttype];
 
-
-/**
- * The preference for applying updates for the cluster
- * @export
- * @interface ManagedclusterUpdatePreferencesV1
- */
-export interface ManagedclusterUpdatePreferencesV1 {
-    /**
-     * The processGroups for updatePreferences
-     * @type {string}
-     * @memberof ManagedclusterUpdatePreferencesV1
-     */
-    'processGroups'?: string | null;
-    /**
-     * The current updateState for the cluster
-     * @type {string}
-     * @memberof ManagedclusterUpdatePreferencesV1
-     */
-    'updateState'?: ManagedclusterUpdatePreferencesV1UpdateStateV1 | null;
-    /**
-     * The mail id to which new releases will be notified
-     * @type {string}
-     * @memberof ManagedclusterUpdatePreferencesV1
-     */
-    'notificationEmail'?: string | null;
-}
-
-export const ManagedclusterUpdatePreferencesV1UpdateStateV1 = {
-    Auto: 'AUTO',
-    Disabled: 'DISABLED'
-} as const;
-
-export type ManagedclusterUpdatePreferencesV1UpdateStateV1 = typeof ManagedclusterUpdatePreferencesV1UpdateStateV1[keyof typeof ManagedclusterUpdatePreferencesV1UpdateStateV1];
 
 /**
  * Managed Cluster
  * @export
- * @interface ManagedclusterV1
+ * @interface Managedcluster
  */
-export interface ManagedclusterV1 {
+export interface Managedcluster {
     /**
      * ManagedCluster ID
      * @type {string}
-     * @memberof ManagedclusterV1
+     * @memberof Managedcluster
      */
     'id': string;
     /**
      * ManagedCluster name
      * @type {string}
-     * @memberof ManagedclusterV1
+     * @memberof Managedcluster
      */
     'name'?: string;
     /**
      * ManagedCluster pod
      * @type {string}
-     * @memberof ManagedclusterV1
+     * @memberof Managedcluster
      */
     'pod'?: string;
     /**
      * ManagedCluster org
      * @type {string}
-     * @memberof ManagedclusterV1
+     * @memberof Managedcluster
      */
     'org'?: string;
     /**
      * 
-     * @type {ManagedclustertypesV1}
-     * @memberof ManagedclusterV1
+     * @type {Managedclustertypes}
+     * @memberof Managedcluster
      */
-    'type'?: ManagedclustertypesV1;
+    'type'?: Managedclustertypes;
     /**
      * ManagedProcess configuration map
      * @type {{ [key: string]: string | null; }}
-     * @memberof ManagedclusterV1
+     * @memberof Managedcluster
      */
     'configuration'?: { [key: string]: string | null; };
     /**
      * 
-     * @type {ManagedclusterkeypairV1}
-     * @memberof ManagedclusterV1
+     * @type {Managedclusterkeypair}
+     * @memberof Managedcluster
      */
-    'keyPair'?: ManagedclusterkeypairV1;
+    'keyPair'?: Managedclusterkeypair;
     /**
      * 
-     * @type {ManagedclusterattributesV1}
-     * @memberof ManagedclusterV1
+     * @type {Managedclusterattributes}
+     * @memberof Managedcluster
      */
-    'attributes'?: ManagedclusterattributesV1;
+    'attributes'?: Managedclusterattributes;
     /**
      * ManagedCluster description
      * @type {string}
-     * @memberof ManagedclusterV1
+     * @memberof Managedcluster
      */
     'description'?: string;
     /**
      * 
-     * @type {ManagedclusterredisV1}
-     * @memberof ManagedclusterV1
+     * @type {Managedclusterredis}
+     * @memberof Managedcluster
      */
-    'redis'?: ManagedclusterredisV1;
+    'redis'?: Managedclusterredis;
     /**
      * 
-     * @type {ManagedclienttypeV1}
-     * @memberof ManagedclusterV1
+     * @type {Managedclienttype}
+     * @memberof Managedcluster
      */
-    'clientType': ManagedclienttypeV1 | null;
+    'clientType': Managedclienttype | null;
     /**
      * CCG version used by the ManagedCluster
      * @type {string}
-     * @memberof ManagedclusterV1
+     * @memberof Managedcluster
      */
     'ccgVersion': string;
     /**
      * boolean flag indicating whether or not the cluster configuration is pinned
      * @type {boolean}
-     * @memberof ManagedclusterV1
+     * @memberof Managedcluster
      */
     'pinnedConfig'?: boolean;
     /**
      * 
-     * @type {ClientlogconfigurationV1}
-     * @memberof ManagedclusterV1
+     * @type {Clientlogconfiguration}
+     * @memberof Managedcluster
      */
-    'logConfiguration'?: ClientlogconfigurationV1 | null;
+    'logConfiguration'?: Clientlogconfiguration | null;
     /**
      * Whether or not the cluster is operational or not
      * @type {boolean}
-     * @memberof ManagedclusterV1
+     * @memberof Managedcluster
      */
     'operational'?: boolean;
     /**
      * Cluster status
      * @type {string}
-     * @memberof ManagedclusterV1
+     * @memberof Managedcluster
      */
-    'status'?: ManagedclusterV1StatusV1;
+    'status'?: ManagedclusterStatusEnum;
     /**
      * Public key certificate
      * @type {string}
-     * @memberof ManagedclusterV1
+     * @memberof Managedcluster
      */
     'publicKeyCertificate'?: string | null;
     /**
      * Public key thumbprint
      * @type {string}
-     * @memberof ManagedclusterV1
+     * @memberof Managedcluster
      */
     'publicKeyThumbprint'?: string | null;
     /**
      * Public key
      * @type {string}
-     * @memberof ManagedclusterV1
+     * @memberof Managedcluster
      */
     'publicKey'?: string | null;
     /**
      * 
-     * @type {ManagedclusterencryptionconfigV1}
-     * @memberof ManagedclusterV1
+     * @type {Managedclusterencryptionconfig}
+     * @memberof Managedcluster
      */
-    'encryptionConfiguration'?: ManagedclusterencryptionconfigV1;
+    'encryptionConfiguration'?: Managedclusterencryptionconfig;
     /**
      * Key describing any immediate cluster alerts
      * @type {string}
-     * @memberof ManagedclusterV1
+     * @memberof Managedcluster
      */
     'alertKey'?: string;
     /**
      * List of clients in a cluster
      * @type {Array<string>}
-     * @memberof ManagedclusterV1
+     * @memberof Managedcluster
      */
     'clientIds'?: Array<string>;
     /**
      * Number of services bound to a cluster
      * @type {number}
-     * @memberof ManagedclusterV1
+     * @memberof Managedcluster
      */
     'serviceCount'?: number;
     /**
      * CC ID only used in calling CC, will be removed without notice when Migration to CEGS is finished
      * @type {string}
-     * @memberof ManagedclusterV1
+     * @memberof Managedcluster
      */
     'ccId'?: string;
     /**
      * The date/time this cluster was created
      * @type {string}
-     * @memberof ManagedclusterV1
+     * @memberof Managedcluster
      */
     'createdAt'?: string | null;
     /**
      * The date/time this cluster was last updated
      * @type {string}
-     * @memberof ManagedclusterV1
+     * @memberof Managedcluster
      */
     'updatedAt'?: string | null;
     /**
      * The date/time this cluster was notified for the last release
      * @type {string}
-     * @memberof ManagedclusterV1
+     * @memberof Managedcluster
      */
     'lastReleaseNotifiedAt'?: string | null;
     /**
      * 
-     * @type {ManagedclusterUpdatePreferencesV1}
-     * @memberof ManagedclusterV1
+     * @type {ManagedclusterUpdatePreferences}
+     * @memberof Managedcluster
      */
-    'updatePreferences'?: ManagedclusterUpdatePreferencesV1;
+    'updatePreferences'?: ManagedclusterUpdatePreferences;
     /**
      * The current installed release on the Managed cluster
      * @type {string}
-     * @memberof ManagedclusterV1
+     * @memberof Managedcluster
      */
     'currentInstalledReleaseVersion'?: string | null;
     /**
      * New available updates for the Managed cluster
      * @type {string}
-     * @memberof ManagedclusterV1
+     * @memberof Managedcluster
      */
     'updatePackage'?: string | null;
     /**
      * The time at which out of date notification was sent for the Managed cluster
      * @type {string}
-     * @memberof ManagedclusterV1
+     * @memberof Managedcluster
      */
     'isOutOfDateNotifiedAt'?: string | null;
     /**
      * The consolidated Health Status for the Managed cluster
      * @type {string}
-     * @memberof ManagedclusterV1
+     * @memberof Managedcluster
      */
-    'consolidatedHealthIndicatorsStatus'?: ManagedclusterV1ConsolidatedHealthIndicatorsStatusV1 | null;
+    'consolidatedHealthIndicatorsStatus'?: ManagedclusterConsolidatedHealthIndicatorsStatusEnum | null;
 }
 
-export const ManagedclusterV1StatusV1 = {
+export const ManagedclusterStatusEnum = {
     Configuring: 'CONFIGURING',
     Failed: 'FAILED',
     NoClients: 'NO_CLIENTS',
@@ -788,146 +755,179 @@ export const ManagedclusterV1StatusV1 = {
     Warning: 'WARNING'
 } as const;
 
-export type ManagedclusterV1StatusV1 = typeof ManagedclusterV1StatusV1[keyof typeof ManagedclusterV1StatusV1];
-export const ManagedclusterV1ConsolidatedHealthIndicatorsStatusV1 = {
+export type ManagedclusterStatusEnum = typeof ManagedclusterStatusEnum[keyof typeof ManagedclusterStatusEnum];
+export const ManagedclusterConsolidatedHealthIndicatorsStatusEnum = {
     Normal: 'NORMAL',
     Warning: 'WARNING',
     Error: 'ERROR'
 } as const;
 
-export type ManagedclusterV1ConsolidatedHealthIndicatorsStatusV1 = typeof ManagedclusterV1ConsolidatedHealthIndicatorsStatusV1[keyof typeof ManagedclusterV1ConsolidatedHealthIndicatorsStatusV1];
+export type ManagedclusterConsolidatedHealthIndicatorsStatusEnum = typeof ManagedclusterConsolidatedHealthIndicatorsStatusEnum[keyof typeof ManagedclusterConsolidatedHealthIndicatorsStatusEnum];
+
+/**
+ * The preference for applying updates for the cluster
+ * @export
+ * @interface ManagedclusterUpdatePreferences
+ */
+export interface ManagedclusterUpdatePreferences {
+    /**
+     * The processGroups for updatePreferences
+     * @type {string}
+     * @memberof ManagedclusterUpdatePreferences
+     */
+    'processGroups'?: string | null;
+    /**
+     * The current updateState for the cluster
+     * @type {string}
+     * @memberof ManagedclusterUpdatePreferences
+     */
+    'updateState'?: ManagedclusterUpdatePreferencesUpdateStateEnum | null;
+    /**
+     * The mail id to which new releases will be notified
+     * @type {string}
+     * @memberof ManagedclusterUpdatePreferences
+     */
+    'notificationEmail'?: string | null;
+}
+
+export const ManagedclusterUpdatePreferencesUpdateStateEnum = {
+    Auto: 'AUTO',
+    Disabled: 'DISABLED'
+} as const;
+
+export type ManagedclusterUpdatePreferencesUpdateStateEnum = typeof ManagedclusterUpdatePreferencesUpdateStateEnum[keyof typeof ManagedclusterUpdatePreferencesUpdateStateEnum];
 
 /**
  * Managed Cluster Attributes for Cluster Configuration. Supported Cluster Types [sqsCluster, spConnectCluster]
  * @export
- * @interface ManagedclusterattributesV1
+ * @interface Managedclusterattributes
  */
-export interface ManagedclusterattributesV1 {
+export interface Managedclusterattributes {
     /**
      * 
-     * @type {ManagedclusterqueueV1}
-     * @memberof ManagedclusterattributesV1
+     * @type {Managedclusterqueue}
+     * @memberof Managedclusterattributes
      */
-    'queue'?: ManagedclusterqueueV1;
+    'queue'?: Managedclusterqueue;
     /**
      * ManagedCluster keystore for spConnectCluster type
      * @type {string}
-     * @memberof ManagedclusterattributesV1
+     * @memberof Managedclusterattributes
      */
     'keystore'?: string | null;
 }
 /**
  * Defines the encryption settings for a managed cluster, including the format used for storing and processing encrypted data.
  * @export
- * @interface ManagedclusterencryptionconfigV1
+ * @interface Managedclusterencryptionconfig
  */
-export interface ManagedclusterencryptionconfigV1 {
+export interface Managedclusterencryptionconfig {
     /**
      * Specifies the format used for encrypted data, such as secrets. The format determines how the encrypted data is structured and processed.
      * @type {string}
-     * @memberof ManagedclusterencryptionconfigV1
+     * @memberof Managedclusterencryptionconfig
      */
-    'format'?: ManagedclusterencryptionconfigV1FormatV1;
+    'format'?: ManagedclusterencryptionconfigFormatEnum;
 }
 
-export const ManagedclusterencryptionconfigV1FormatV1 = {
+export const ManagedclusterencryptionconfigFormatEnum = {
     V2: 'V2',
     V3: 'V3'
 } as const;
 
-export type ManagedclusterencryptionconfigV1FormatV1 = typeof ManagedclusterencryptionconfigV1FormatV1[keyof typeof ManagedclusterencryptionconfigV1FormatV1];
+export type ManagedclusterencryptionconfigFormatEnum = typeof ManagedclusterencryptionconfigFormatEnum[keyof typeof ManagedclusterencryptionconfigFormatEnum];
 
 /**
  * Managed Cluster key pair for Cluster
  * @export
- * @interface ManagedclusterkeypairV1
+ * @interface Managedclusterkeypair
  */
-export interface ManagedclusterkeypairV1 {
+export interface Managedclusterkeypair {
     /**
      * ManagedCluster publicKey
      * @type {string}
-     * @memberof ManagedclusterkeypairV1
+     * @memberof Managedclusterkeypair
      */
     'publicKey'?: string | null;
     /**
      * ManagedCluster publicKeyThumbprint
      * @type {string}
-     * @memberof ManagedclusterkeypairV1
+     * @memberof Managedclusterkeypair
      */
     'publicKeyThumbprint'?: string | null;
     /**
      * ManagedCluster publicKeyCertificate
      * @type {string}
-     * @memberof ManagedclusterkeypairV1
+     * @memberof Managedclusterkeypair
      */
     'publicKeyCertificate'?: string | null;
 }
 /**
  * Managed Cluster key pair for Cluster
  * @export
- * @interface ManagedclusterqueueV1
+ * @interface Managedclusterqueue
  */
-export interface ManagedclusterqueueV1 {
+export interface Managedclusterqueue {
     /**
      * ManagedCluster queue name
      * @type {string}
-     * @memberof ManagedclusterqueueV1
+     * @memberof Managedclusterqueue
      */
     'name'?: string;
     /**
      * ManagedCluster queue aws region
      * @type {string}
-     * @memberof ManagedclusterqueueV1
+     * @memberof Managedclusterqueue
      */
     'region'?: string;
 }
 /**
  * Managed Cluster Redis Configuration
  * @export
- * @interface ManagedclusterredisV1
+ * @interface Managedclusterredis
  */
-export interface ManagedclusterredisV1 {
+export interface Managedclusterredis {
     /**
      * ManagedCluster redisHost
      * @type {string}
-     * @memberof ManagedclusterredisV1
+     * @memberof Managedclusterredis
      */
     'redisHost'?: string;
     /**
      * ManagedCluster redisPort
      * @type {number}
-     * @memberof ManagedclusterredisV1
+     * @memberof Managedclusterredis
      */
     'redisPort'?: number;
 }
 /**
  * Request to create Managed Cluster
  * @export
- * @interface ManagedclusterrequestV1
+ * @interface Managedclusterrequest
  */
-export interface ManagedclusterrequestV1 {
+export interface Managedclusterrequest {
     /**
      * ManagedCluster name
      * @type {string}
-     * @memberof ManagedclusterrequestV1
+     * @memberof Managedclusterrequest
      */
     'name': string;
     /**
      * 
-     * @type {ManagedclustertypesV1}
-     * @memberof ManagedclusterrequestV1
+     * @type {Managedclustertypes}
+     * @memberof Managedclusterrequest
      */
-    'type'?: ManagedclustertypesV1;
+    'type'?: Managedclustertypes;
     /**
      * ManagedProcess configuration map
      * @type {{ [key: string]: string; }}
-     * @memberof ManagedclusterrequestV1
+     * @memberof Managedclusterrequest
      */
     'configuration'?: { [key: string]: string; };
     /**
      * ManagedCluster description
      * @type {string}
-     * @memberof ManagedclusterrequestV1
+     * @memberof Managedclusterrequest
      */
     'description'?: string | null;
 }
@@ -939,7 +939,7 @@ export interface ManagedclusterrequestV1 {
  * @enum {string}
  */
 
-export const ManagedclustertypesV1 = {
+export const Managedclustertypes = {
     Idn: 'idn',
     Iai: 'iai',
     SpConnectCluster: 'spConnectCluster',
@@ -952,14 +952,14 @@ export const ManagedclustertypesV1 = {
     Standard: 'standard'
 } as const;
 
-export type ManagedclustertypesV1 = typeof ManagedclustertypesV1[keyof typeof ManagedclustertypesV1];
+export type Managedclustertypes = typeof Managedclustertypes[keyof typeof Managedclustertypes];
 
 
 /**
- * @type PutClientLogConfigurationV1RequestV1
+ * @type PutClientLogConfigurationV1Request
  * @export
  */
-export type PutClientLogConfigurationV1RequestV1 = ClientlogconfigurationdurationminutesV1 | ClientlogconfigurationexpirationV1;
+export type PutClientLogConfigurationV1Request = Clientlogconfigurationdurationminutes | Clientlogconfigurationexpiration;
 
 /**
  * Standard Log4j log level
@@ -967,7 +967,7 @@ export type PutClientLogConfigurationV1RequestV1 = Clientlogconfigurationduratio
  * @enum {string}
  */
 
-export const StandardlevelV1 = {
+export const Standardlevel = {
     Off: 'OFF',
     Fatal: 'FATAL',
     Error: 'ERROR',
@@ -977,26 +977,26 @@ export const StandardlevelV1 = {
     Trace: 'TRACE'
 } as const;
 
-export type StandardlevelV1 = typeof StandardlevelV1[keyof typeof StandardlevelV1];
+export type Standardlevel = typeof Standardlevel[keyof typeof Standardlevel];
 
 
 
 /**
- * ManagedClustersV1Api - axios parameter creator
+ * ManagedClustersApi - axios parameter creator
  * @export
  */
-export const ManagedClustersV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const ManagedClustersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Create a new Managed Cluster. The API returns a result that includes the managed cluster ID.
          * @summary Create create managed cluster
-         * @param {ManagedclusterrequestV1} managedclusterrequestV1 
+         * @param {Managedclusterrequest} managedclusterrequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createManagedClusterV1: async (managedclusterrequestV1: ManagedclusterrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'managedclusterrequestV1' is not null or undefined
-            assertParamExists('createManagedClusterV1', 'managedclusterrequestV1', managedclusterrequestV1)
+        createManagedClusterV1: async (managedclusterrequest: Managedclusterrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'managedclusterrequest' is not null or undefined
+            assertParamExists('createManagedClusterV1', 'managedclusterrequest', managedclusterrequest)
             const localVarPath = `/managed-clusters/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1016,7 +1016,7 @@ export const ManagedClustersV1ApiAxiosParamCreator = function (configuration?: C
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(managedclusterrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(managedclusterrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1184,15 +1184,15 @@ export const ManagedClustersV1ApiAxiosParamCreator = function (configuration?: C
          * Update a managed cluster\'s log configuration. You may only specify one of `durationMinutes` or `expiration`, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` is 240.
          * @summary Update managed cluster log configuration
          * @param {string} id ID of the managed cluster to update the log configuration for.
-         * @param {PutClientLogConfigurationV1RequestV1} putClientLogConfigurationV1RequestV1 Client log configuration for the given managed cluster.
+         * @param {PutClientLogConfigurationV1Request} putClientLogConfigurationV1Request Client log configuration for the given managed cluster.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putClientLogConfigurationV1: async (id: string, putClientLogConfigurationV1RequestV1: PutClientLogConfigurationV1RequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putClientLogConfigurationV1: async (id: string, putClientLogConfigurationV1Request: PutClientLogConfigurationV1Request, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('putClientLogConfigurationV1', 'id', id)
-            // verify required parameter 'putClientLogConfigurationV1RequestV1' is not null or undefined
-            assertParamExists('putClientLogConfigurationV1', 'putClientLogConfigurationV1RequestV1', putClientLogConfigurationV1RequestV1)
+            // verify required parameter 'putClientLogConfigurationV1Request' is not null or undefined
+            assertParamExists('putClientLogConfigurationV1', 'putClientLogConfigurationV1Request', putClientLogConfigurationV1Request)
             const localVarPath = `/managed-clusters/v1/{id}/log-config`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1213,7 +1213,7 @@ export const ManagedClustersV1ApiAxiosParamCreator = function (configuration?: C
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(putClientLogConfigurationV1RequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(putClientLogConfigurationV1Request, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1224,15 +1224,15 @@ export const ManagedClustersV1ApiAxiosParamCreator = function (configuration?: C
          * Update an existing managed cluster.
          * @summary Update managed cluster
          * @param {string} id Managed cluster ID.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 JSONPatch payload used to update the object.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation JSONPatch payload used to update the object.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateManagedClusterV1: async (id: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateManagedClusterV1: async (id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateManagedClusterV1', 'id', id)
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('updateManagedClusterV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('updateManagedClusterV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/managed-clusters/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1253,7 +1253,7 @@ export const ManagedClustersV1ApiAxiosParamCreator = function (configuration?: C
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1298,23 +1298,23 @@ export const ManagedClustersV1ApiAxiosParamCreator = function (configuration?: C
 };
 
 /**
- * ManagedClustersV1Api - functional programming interface
+ * ManagedClustersApi - functional programming interface
  * @export
  */
-export const ManagedClustersV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = ManagedClustersV1ApiAxiosParamCreator(configuration)
+export const ManagedClustersApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = ManagedClustersApiAxiosParamCreator(configuration)
     return {
         /**
          * Create a new Managed Cluster. The API returns a result that includes the managed cluster ID.
          * @summary Create create managed cluster
-         * @param {ManagedclusterrequestV1} managedclusterrequestV1 
+         * @param {Managedclusterrequest} managedclusterrequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createManagedClusterV1(managedclusterrequestV1: ManagedclusterrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedclusterV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createManagedClusterV1(managedclusterrequestV1, axiosOptions);
+        async createManagedClusterV1(managedclusterrequest: Managedclusterrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Managedcluster>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createManagedClusterV1(managedclusterrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ManagedClustersV1Api.createManagedClusterV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ManagedClustersApi.createManagedClusterV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1328,7 +1328,7 @@ export const ManagedClustersV1ApiFp = function(configuration?: Configuration) {
         async deleteManagedClusterV1(id: string, removeClients?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteManagedClusterV1(id, removeClients, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ManagedClustersV1Api.deleteManagedClusterV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ManagedClustersApi.deleteManagedClusterV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1338,10 +1338,10 @@ export const ManagedClustersV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getClientLogConfigurationV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClientlogconfigurationV1>> {
+        async getClientLogConfigurationV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Clientlogconfiguration>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getClientLogConfigurationV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ManagedClustersV1Api.getClientLogConfigurationV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ManagedClustersApi.getClientLogConfigurationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1351,10 +1351,10 @@ export const ManagedClustersV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getManagedClusterV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedclusterV1>> {
+        async getManagedClusterV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Managedcluster>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getManagedClusterV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ManagedClustersV1Api.getManagedClusterV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ManagedClustersApi.getManagedClusterV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1367,38 +1367,38 @@ export const ManagedClustersV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getManagedClustersV1(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ManagedclusterV1>>> {
+        async getManagedClustersV1(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Managedcluster>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getManagedClustersV1(offset, limit, count, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ManagedClustersV1Api.getManagedClustersV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ManagedClustersApi.getManagedClustersV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Update a managed cluster\'s log configuration. You may only specify one of `durationMinutes` or `expiration`, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` is 240.
          * @summary Update managed cluster log configuration
          * @param {string} id ID of the managed cluster to update the log configuration for.
-         * @param {PutClientLogConfigurationV1RequestV1} putClientLogConfigurationV1RequestV1 Client log configuration for the given managed cluster.
+         * @param {PutClientLogConfigurationV1Request} putClientLogConfigurationV1Request Client log configuration for the given managed cluster.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putClientLogConfigurationV1(id: string, putClientLogConfigurationV1RequestV1: PutClientLogConfigurationV1RequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClientlogconfigurationV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putClientLogConfigurationV1(id, putClientLogConfigurationV1RequestV1, axiosOptions);
+        async putClientLogConfigurationV1(id: string, putClientLogConfigurationV1Request: PutClientLogConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Clientlogconfiguration>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putClientLogConfigurationV1(id, putClientLogConfigurationV1Request, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ManagedClustersV1Api.putClientLogConfigurationV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ManagedClustersApi.putClientLogConfigurationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Update an existing managed cluster.
          * @summary Update managed cluster
          * @param {string} id Managed cluster ID.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 JSONPatch payload used to update the object.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation JSONPatch payload used to update the object.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateManagedClusterV1(id: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedclusterV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateManagedClusterV1(id, jsonpatchoperationV1, axiosOptions);
+        async updateManagedClusterV1(id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Managedcluster>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateManagedClusterV1(id, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ManagedClustersV1Api.updateManagedClusterV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ManagedClustersApi.updateManagedClusterV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1408,360 +1408,360 @@ export const ManagedClustersV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClustermanualupgradeV1>> {
+        async updateV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Clustermanualupgrade>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ManagedClustersV1Api.updateV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ManagedClustersApi.updateV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * ManagedClustersV1Api - factory interface
+ * ManagedClustersApi - factory interface
  * @export
  */
-export const ManagedClustersV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = ManagedClustersV1ApiFp(configuration)
+export const ManagedClustersApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = ManagedClustersApiFp(configuration)
     return {
         /**
          * Create a new Managed Cluster. The API returns a result that includes the managed cluster ID.
          * @summary Create create managed cluster
-         * @param {ManagedClustersV1ApiCreateManagedClusterV1Request} requestParameters Request parameters.
+         * @param {ManagedClustersApiCreateManagedClusterV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createManagedClusterV1(requestParameters: ManagedClustersV1ApiCreateManagedClusterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ManagedclusterV1> {
-            return localVarFp.createManagedClusterV1(requestParameters.managedclusterrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        createManagedClusterV1(requestParameters: ManagedClustersApiCreateManagedClusterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Managedcluster> {
+            return localVarFp.createManagedClusterV1(requestParameters.managedclusterrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Delete an existing managed cluster.
          * @summary Delete managed cluster
-         * @param {ManagedClustersV1ApiDeleteManagedClusterV1Request} requestParameters Request parameters.
+         * @param {ManagedClustersApiDeleteManagedClusterV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteManagedClusterV1(requestParameters: ManagedClustersV1ApiDeleteManagedClusterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteManagedClusterV1(requestParameters: ManagedClustersApiDeleteManagedClusterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteManagedClusterV1(requestParameters.id, requestParameters.removeClients, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get a managed cluster\'s log configuration.
          * @summary Get managed cluster log configuration
-         * @param {ManagedClustersV1ApiGetClientLogConfigurationV1Request} requestParameters Request parameters.
+         * @param {ManagedClustersApiGetClientLogConfigurationV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getClientLogConfigurationV1(requestParameters: ManagedClustersV1ApiGetClientLogConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ClientlogconfigurationV1> {
+        getClientLogConfigurationV1(requestParameters: ManagedClustersApiGetClientLogConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Clientlogconfiguration> {
             return localVarFp.getClientLogConfigurationV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get a managed cluster by ID.
          * @summary Get managed cluster
-         * @param {ManagedClustersV1ApiGetManagedClusterV1Request} requestParameters Request parameters.
+         * @param {ManagedClustersApiGetManagedClusterV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getManagedClusterV1(requestParameters: ManagedClustersV1ApiGetManagedClusterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ManagedclusterV1> {
+        getManagedClusterV1(requestParameters: ManagedClustersApiGetManagedClusterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Managedcluster> {
             return localVarFp.getManagedClusterV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * List current organization\'s managed clusters, based on request context.
          * @summary Get managed clusters
-         * @param {ManagedClustersV1ApiGetManagedClustersV1Request} requestParameters Request parameters.
+         * @param {ManagedClustersApiGetManagedClustersV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getManagedClustersV1(requestParameters: ManagedClustersV1ApiGetManagedClustersV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ManagedclusterV1>> {
+        getManagedClustersV1(requestParameters: ManagedClustersApiGetManagedClustersV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Managedcluster>> {
             return localVarFp.getManagedClustersV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Update a managed cluster\'s log configuration. You may only specify one of `durationMinutes` or `expiration`, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` is 240.
          * @summary Update managed cluster log configuration
-         * @param {ManagedClustersV1ApiPutClientLogConfigurationV1Request} requestParameters Request parameters.
+         * @param {ManagedClustersApiPutClientLogConfigurationV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putClientLogConfigurationV1(requestParameters: ManagedClustersV1ApiPutClientLogConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ClientlogconfigurationV1> {
-            return localVarFp.putClientLogConfigurationV1(requestParameters.id, requestParameters.putClientLogConfigurationV1RequestV1, axiosOptions).then((request) => request(axios, basePath));
+        putClientLogConfigurationV1(requestParameters: ManagedClustersApiPutClientLogConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Clientlogconfiguration> {
+            return localVarFp.putClientLogConfigurationV1(requestParameters.id, requestParameters.putClientLogConfigurationV1Request, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Update an existing managed cluster.
          * @summary Update managed cluster
-         * @param {ManagedClustersV1ApiUpdateManagedClusterV1Request} requestParameters Request parameters.
+         * @param {ManagedClustersApiUpdateManagedClusterV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateManagedClusterV1(requestParameters: ManagedClustersV1ApiUpdateManagedClusterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ManagedclusterV1> {
-            return localVarFp.updateManagedClusterV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        updateManagedClusterV1(requestParameters: ManagedClustersApiUpdateManagedClusterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Managedcluster> {
+            return localVarFp.updateManagedClusterV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Trigger Manual Upgrade for Managed Cluster. AMS Security: API, Internal A token with SYSTEM_ADMINISTRATOR authority is required to call this API.
          * @summary Trigger manual upgrade for managed cluster
-         * @param {ManagedClustersV1ApiUpdateV1Request} requestParameters Request parameters.
+         * @param {ManagedClustersApiUpdateV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateV1(requestParameters: ManagedClustersV1ApiUpdateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ClustermanualupgradeV1> {
+        updateV1(requestParameters: ManagedClustersApiUpdateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Clustermanualupgrade> {
             return localVarFp.updateV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createManagedClusterV1 operation in ManagedClustersV1Api.
+ * Request parameters for createManagedClusterV1 operation in ManagedClustersApi.
  * @export
- * @interface ManagedClustersV1ApiCreateManagedClusterV1Request
+ * @interface ManagedClustersApiCreateManagedClusterV1Request
  */
-export interface ManagedClustersV1ApiCreateManagedClusterV1Request {
+export interface ManagedClustersApiCreateManagedClusterV1Request {
     /**
      * 
-     * @type {ManagedclusterrequestV1}
-     * @memberof ManagedClustersV1ApiCreateManagedClusterV1
+     * @type {Managedclusterrequest}
+     * @memberof ManagedClustersApiCreateManagedClusterV1
      */
-    readonly managedclusterrequestV1: ManagedclusterrequestV1
+    readonly managedclusterrequest: Managedclusterrequest
 }
 
 /**
- * Request parameters for deleteManagedClusterV1 operation in ManagedClustersV1Api.
+ * Request parameters for deleteManagedClusterV1 operation in ManagedClustersApi.
  * @export
- * @interface ManagedClustersV1ApiDeleteManagedClusterV1Request
+ * @interface ManagedClustersApiDeleteManagedClusterV1Request
  */
-export interface ManagedClustersV1ApiDeleteManagedClusterV1Request {
+export interface ManagedClustersApiDeleteManagedClusterV1Request {
     /**
      * Managed cluster ID.
      * @type {string}
-     * @memberof ManagedClustersV1ApiDeleteManagedClusterV1
+     * @memberof ManagedClustersApiDeleteManagedClusterV1
      */
     readonly id: string
 
     /**
      * Flag to determine the need to delete a cluster with clients.
      * @type {boolean}
-     * @memberof ManagedClustersV1ApiDeleteManagedClusterV1
+     * @memberof ManagedClustersApiDeleteManagedClusterV1
      */
     readonly removeClients?: boolean
 }
 
 /**
- * Request parameters for getClientLogConfigurationV1 operation in ManagedClustersV1Api.
+ * Request parameters for getClientLogConfigurationV1 operation in ManagedClustersApi.
  * @export
- * @interface ManagedClustersV1ApiGetClientLogConfigurationV1Request
+ * @interface ManagedClustersApiGetClientLogConfigurationV1Request
  */
-export interface ManagedClustersV1ApiGetClientLogConfigurationV1Request {
+export interface ManagedClustersApiGetClientLogConfigurationV1Request {
     /**
      * ID of managed cluster to get log configuration for.
      * @type {string}
-     * @memberof ManagedClustersV1ApiGetClientLogConfigurationV1
+     * @memberof ManagedClustersApiGetClientLogConfigurationV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getManagedClusterV1 operation in ManagedClustersV1Api.
+ * Request parameters for getManagedClusterV1 operation in ManagedClustersApi.
  * @export
- * @interface ManagedClustersV1ApiGetManagedClusterV1Request
+ * @interface ManagedClustersApiGetManagedClusterV1Request
  */
-export interface ManagedClustersV1ApiGetManagedClusterV1Request {
+export interface ManagedClustersApiGetManagedClusterV1Request {
     /**
      * Managed cluster ID.
      * @type {string}
-     * @memberof ManagedClustersV1ApiGetManagedClusterV1
+     * @memberof ManagedClustersApiGetManagedClusterV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getManagedClustersV1 operation in ManagedClustersV1Api.
+ * Request parameters for getManagedClustersV1 operation in ManagedClustersApi.
  * @export
- * @interface ManagedClustersV1ApiGetManagedClustersV1Request
+ * @interface ManagedClustersApiGetManagedClustersV1Request
  */
-export interface ManagedClustersV1ApiGetManagedClustersV1Request {
+export interface ManagedClustersApiGetManagedClustersV1Request {
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof ManagedClustersV1ApiGetManagedClustersV1
+     * @memberof ManagedClustersApiGetManagedClustersV1
      */
     readonly offset?: number
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof ManagedClustersV1ApiGetManagedClustersV1
+     * @memberof ManagedClustersApiGetManagedClustersV1
      */
     readonly limit?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof ManagedClustersV1ApiGetManagedClustersV1
+     * @memberof ManagedClustersApiGetManagedClustersV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*
      * @type {string}
-     * @memberof ManagedClustersV1ApiGetManagedClustersV1
+     * @memberof ManagedClustersApiGetManagedClustersV1
      */
     readonly filters?: string
 }
 
 /**
- * Request parameters for putClientLogConfigurationV1 operation in ManagedClustersV1Api.
+ * Request parameters for putClientLogConfigurationV1 operation in ManagedClustersApi.
  * @export
- * @interface ManagedClustersV1ApiPutClientLogConfigurationV1Request
+ * @interface ManagedClustersApiPutClientLogConfigurationV1Request
  */
-export interface ManagedClustersV1ApiPutClientLogConfigurationV1Request {
+export interface ManagedClustersApiPutClientLogConfigurationV1Request {
     /**
      * ID of the managed cluster to update the log configuration for.
      * @type {string}
-     * @memberof ManagedClustersV1ApiPutClientLogConfigurationV1
+     * @memberof ManagedClustersApiPutClientLogConfigurationV1
      */
     readonly id: string
 
     /**
      * Client log configuration for the given managed cluster.
-     * @type {PutClientLogConfigurationV1RequestV1}
-     * @memberof ManagedClustersV1ApiPutClientLogConfigurationV1
+     * @type {PutClientLogConfigurationV1Request}
+     * @memberof ManagedClustersApiPutClientLogConfigurationV1
      */
-    readonly putClientLogConfigurationV1RequestV1: PutClientLogConfigurationV1RequestV1
+    readonly putClientLogConfigurationV1Request: PutClientLogConfigurationV1Request
 }
 
 /**
- * Request parameters for updateManagedClusterV1 operation in ManagedClustersV1Api.
+ * Request parameters for updateManagedClusterV1 operation in ManagedClustersApi.
  * @export
- * @interface ManagedClustersV1ApiUpdateManagedClusterV1Request
+ * @interface ManagedClustersApiUpdateManagedClusterV1Request
  */
-export interface ManagedClustersV1ApiUpdateManagedClusterV1Request {
+export interface ManagedClustersApiUpdateManagedClusterV1Request {
     /**
      * Managed cluster ID.
      * @type {string}
-     * @memberof ManagedClustersV1ApiUpdateManagedClusterV1
+     * @memberof ManagedClustersApiUpdateManagedClusterV1
      */
     readonly id: string
 
     /**
      * JSONPatch payload used to update the object.
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof ManagedClustersV1ApiUpdateManagedClusterV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof ManagedClustersApiUpdateManagedClusterV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * Request parameters for updateV1 operation in ManagedClustersV1Api.
+ * Request parameters for updateV1 operation in ManagedClustersApi.
  * @export
- * @interface ManagedClustersV1ApiUpdateV1Request
+ * @interface ManagedClustersApiUpdateV1Request
  */
-export interface ManagedClustersV1ApiUpdateV1Request {
+export interface ManagedClustersApiUpdateV1Request {
     /**
      * ID of managed cluster to trigger manual upgrade.
      * @type {string}
-     * @memberof ManagedClustersV1ApiUpdateV1
+     * @memberof ManagedClustersApiUpdateV1
      */
     readonly id: string
 }
 
 /**
- * ManagedClustersV1Api - object-oriented interface
+ * ManagedClustersApi - object-oriented interface
  * @export
- * @class ManagedClustersV1Api
+ * @class ManagedClustersApi
  * @extends {BaseAPI}
  */
-export class ManagedClustersV1Api extends BaseAPI {
+export class ManagedClustersApi extends BaseAPI {
     /**
      * Create a new Managed Cluster. The API returns a result that includes the managed cluster ID.
      * @summary Create create managed cluster
-     * @param {ManagedClustersV1ApiCreateManagedClusterV1Request} requestParameters Request parameters.
+     * @param {ManagedClustersApiCreateManagedClusterV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ManagedClustersV1Api
+     * @memberof ManagedClustersApi
      */
-    public createManagedClusterV1(requestParameters: ManagedClustersV1ApiCreateManagedClusterV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ManagedClustersV1ApiFp(this.configuration).createManagedClusterV1(requestParameters.managedclusterrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createManagedClusterV1(requestParameters: ManagedClustersApiCreateManagedClusterV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ManagedClustersApiFp(this.configuration).createManagedClusterV1(requestParameters.managedclusterrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Delete an existing managed cluster.
      * @summary Delete managed cluster
-     * @param {ManagedClustersV1ApiDeleteManagedClusterV1Request} requestParameters Request parameters.
+     * @param {ManagedClustersApiDeleteManagedClusterV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ManagedClustersV1Api
+     * @memberof ManagedClustersApi
      */
-    public deleteManagedClusterV1(requestParameters: ManagedClustersV1ApiDeleteManagedClusterV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ManagedClustersV1ApiFp(this.configuration).deleteManagedClusterV1(requestParameters.id, requestParameters.removeClients, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteManagedClusterV1(requestParameters: ManagedClustersApiDeleteManagedClusterV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ManagedClustersApiFp(this.configuration).deleteManagedClusterV1(requestParameters.id, requestParameters.removeClients, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get a managed cluster\'s log configuration.
      * @summary Get managed cluster log configuration
-     * @param {ManagedClustersV1ApiGetClientLogConfigurationV1Request} requestParameters Request parameters.
+     * @param {ManagedClustersApiGetClientLogConfigurationV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ManagedClustersV1Api
+     * @memberof ManagedClustersApi
      */
-    public getClientLogConfigurationV1(requestParameters: ManagedClustersV1ApiGetClientLogConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ManagedClustersV1ApiFp(this.configuration).getClientLogConfigurationV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getClientLogConfigurationV1(requestParameters: ManagedClustersApiGetClientLogConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ManagedClustersApiFp(this.configuration).getClientLogConfigurationV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get a managed cluster by ID.
      * @summary Get managed cluster
-     * @param {ManagedClustersV1ApiGetManagedClusterV1Request} requestParameters Request parameters.
+     * @param {ManagedClustersApiGetManagedClusterV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ManagedClustersV1Api
+     * @memberof ManagedClustersApi
      */
-    public getManagedClusterV1(requestParameters: ManagedClustersV1ApiGetManagedClusterV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ManagedClustersV1ApiFp(this.configuration).getManagedClusterV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getManagedClusterV1(requestParameters: ManagedClustersApiGetManagedClusterV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ManagedClustersApiFp(this.configuration).getManagedClusterV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * List current organization\'s managed clusters, based on request context.
      * @summary Get managed clusters
-     * @param {ManagedClustersV1ApiGetManagedClustersV1Request} requestParameters Request parameters.
+     * @param {ManagedClustersApiGetManagedClustersV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ManagedClustersV1Api
+     * @memberof ManagedClustersApi
      */
-    public getManagedClustersV1(requestParameters: ManagedClustersV1ApiGetManagedClustersV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return ManagedClustersV1ApiFp(this.configuration).getManagedClustersV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getManagedClustersV1(requestParameters: ManagedClustersApiGetManagedClustersV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return ManagedClustersApiFp(this.configuration).getManagedClustersV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Update a managed cluster\'s log configuration. You may only specify one of `durationMinutes` or `expiration`, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` is 240.
      * @summary Update managed cluster log configuration
-     * @param {ManagedClustersV1ApiPutClientLogConfigurationV1Request} requestParameters Request parameters.
+     * @param {ManagedClustersApiPutClientLogConfigurationV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ManagedClustersV1Api
+     * @memberof ManagedClustersApi
      */
-    public putClientLogConfigurationV1(requestParameters: ManagedClustersV1ApiPutClientLogConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ManagedClustersV1ApiFp(this.configuration).putClientLogConfigurationV1(requestParameters.id, requestParameters.putClientLogConfigurationV1RequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putClientLogConfigurationV1(requestParameters: ManagedClustersApiPutClientLogConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ManagedClustersApiFp(this.configuration).putClientLogConfigurationV1(requestParameters.id, requestParameters.putClientLogConfigurationV1Request, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Update an existing managed cluster.
      * @summary Update managed cluster
-     * @param {ManagedClustersV1ApiUpdateManagedClusterV1Request} requestParameters Request parameters.
+     * @param {ManagedClustersApiUpdateManagedClusterV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ManagedClustersV1Api
+     * @memberof ManagedClustersApi
      */
-    public updateManagedClusterV1(requestParameters: ManagedClustersV1ApiUpdateManagedClusterV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ManagedClustersV1ApiFp(this.configuration).updateManagedClusterV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateManagedClusterV1(requestParameters: ManagedClustersApiUpdateManagedClusterV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ManagedClustersApiFp(this.configuration).updateManagedClusterV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Trigger Manual Upgrade for Managed Cluster. AMS Security: API, Internal A token with SYSTEM_ADMINISTRATOR authority is required to call this API.
      * @summary Trigger manual upgrade for managed cluster
-     * @param {ManagedClustersV1ApiUpdateV1Request} requestParameters Request parameters.
+     * @param {ManagedClustersApiUpdateV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ManagedClustersV1Api
+     * @memberof ManagedClustersApi
      */
-    public updateV1(requestParameters: ManagedClustersV1ApiUpdateV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ManagedClustersV1ApiFp(this.configuration).updateV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateV1(requestParameters: ManagedClustersApiUpdateV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ManagedClustersApiFp(this.configuration).updateV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

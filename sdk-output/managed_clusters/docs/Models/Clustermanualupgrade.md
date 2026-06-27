@@ -1,19 +1,19 @@
 ---
-id: v1-clustermanualupgrade-v1
-title: ClustermanualupgradeV1
-pagination_label: ClustermanualupgradeV1
-sidebar_label: ClustermanualupgradeV1
+id: v1-clustermanualupgrade
+title: Clustermanualupgrade
+pagination_label: Clustermanualupgrade
+sidebar_label: Clustermanualupgrade
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ClustermanualupgradeV1', 'v1ClustermanualupgradeV1']
-slug: /tools/sdk/typescript/managed_clusters/models/clustermanualupgrade-v1
-tags: ['SDK', 'Software Development Kit', 'ClustermanualupgradeV1', 'v1ClustermanualupgradeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Clustermanualupgrade', 'v1Clustermanualupgrade']
+slug: /tools/sdk/typescript/managed_clusters/models/clustermanualupgrade
+tags: ['SDK', 'Software Development Kit', 'Clustermanualupgrade', 'v1Clustermanualupgrade']
 ---
 
-# ClustermanualupgradeV1
+# Clustermanualupgrade
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**jobs** | **(optional)** **Array&lt;ClustermanualupgradeJobsInnerV1&gt;** | List of job objects for the upgrade request. | [default to undefined]
+**jobs** | **(optional)** `Array<ClustermanualupgradeJobsInner>` | List of job objects for the upgrade request. | [default to undefined]
 

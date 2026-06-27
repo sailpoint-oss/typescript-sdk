@@ -1,21 +1,21 @@
 ---
-id: v1-manualworkitemdetails-current-owner-v1
-title: ManualworkitemdetailsCurrentOwnerV1
-pagination_label: ManualworkitemdetailsCurrentOwnerV1
-sidebar_label: ManualworkitemdetailsCurrentOwnerV1
+id: v1-manualworkitemdetails-current-owner
+title: ManualworkitemdetailsCurrentOwner
+pagination_label: ManualworkitemdetailsCurrentOwner
+sidebar_label: ManualworkitemdetailsCurrentOwner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ManualworkitemdetailsCurrentOwnerV1', 'v1ManualworkitemdetailsCurrentOwnerV1']
-slug: /tools/sdk/typescript/access_requests/models/manualworkitemdetails-current-owner-v1
-tags: ['SDK', 'Software Development Kit', 'ManualworkitemdetailsCurrentOwnerV1', 'v1ManualworkitemdetailsCurrentOwnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ManualworkitemdetailsCurrentOwner', 'v1ManualworkitemdetailsCurrentOwner']
+slug: /tools/sdk/typescript/access_requests/models/manualworkitemdetails-current-owner
+tags: ['SDK', 'Software Development Kit', 'ManualworkitemdetailsCurrentOwner', 'v1ManualworkitemdetailsCurrentOwner']
 ---
 
-# ManualworkitemdetailsCurrentOwnerV1
+# ManualworkitemdetailsCurrentOwner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | DTO type of current work item owner\'s identity. | [default to undefined]
-**id** | **(optional)** **string** | ID of current work item owner\'s identity. | [default to undefined]
-**name** | **(optional)** **string** | Display name of current work item owner. | [default to undefined]
+**type** | **(optional)** `string` | DTO type of current work item owner\'s identity. | [default to undefined]
+**id** | **(optional)** `string` | ID of current work item owner\'s identity. | [default to undefined]
+**name** | **(optional)** `string` | Display name of current work item owner. | [default to undefined]
 

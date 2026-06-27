@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -53,33 +53,33 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -87,288 +87,288 @@ export interface ErrorresponsedtoV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface PasswordchangerequestV1
+ * @interface Passwordchangerequest
  */
-export interface PasswordchangerequestV1 {
+export interface Passwordchangerequest {
     /**
      * The identity ID that requested the password change
      * @type {string}
-     * @memberof PasswordchangerequestV1
+     * @memberof Passwordchangerequest
      */
     'identityId'?: string;
     /**
      * The RSA encrypted password
      * @type {string}
-     * @memberof PasswordchangerequestV1
+     * @memberof Passwordchangerequest
      */
     'encryptedPassword'?: string;
     /**
      * The encryption key ID
      * @type {string}
-     * @memberof PasswordchangerequestV1
+     * @memberof Passwordchangerequest
      */
     'publicKeyId'?: string;
     /**
      * Account ID of the account This is specified per account schema in the source configuration. It is used to distinguish accounts. More info can be found here https://community.sailpoint.com/t5/IdentityNow-Connectors/How-do-I-designate-an-account-attribute-as-the-Account-ID-for-a/ta-p/80350
      * @type {string}
-     * @memberof PasswordchangerequestV1
+     * @memberof Passwordchangerequest
      */
     'accountId'?: string;
     /**
      * The ID of the source for which identity is requesting the password change
      * @type {string}
-     * @memberof PasswordchangerequestV1
+     * @memberof Passwordchangerequest
      */
     'sourceId'?: string;
 }
 /**
  * 
  * @export
- * @interface PasswordchangeresponseV1
+ * @interface Passwordchangeresponse
  */
-export interface PasswordchangeresponseV1 {
+export interface Passwordchangeresponse {
     /**
      * The password change request ID
      * @type {string}
-     * @memberof PasswordchangeresponseV1
+     * @memberof Passwordchangeresponse
      */
     'requestId'?: string | null;
     /**
      * Password change state
      * @type {string}
-     * @memberof PasswordchangeresponseV1
+     * @memberof Passwordchangeresponse
      */
-    'state'?: PasswordchangeresponseV1StateV1;
+    'state'?: PasswordchangeresponseStateEnum;
 }
 
-export const PasswordchangeresponseV1StateV1 = {
+export const PasswordchangeresponseStateEnum = {
     InProgress: 'IN_PROGRESS',
     Finished: 'FINISHED',
     Failed: 'FAILED'
 } as const;
 
-export type PasswordchangeresponseV1StateV1 = typeof PasswordchangeresponseV1StateV1[keyof typeof PasswordchangeresponseV1StateV1];
+export type PasswordchangeresponseStateEnum = typeof PasswordchangeresponseStateEnum[keyof typeof PasswordchangeresponseStateEnum];
 
 /**
  * 
  * @export
- * @interface PassworddigittokenV1
+ * @interface Passworddigittoken
  */
-export interface PassworddigittokenV1 {
+export interface Passworddigittoken {
     /**
      * The digit token for password management
      * @type {string}
-     * @memberof PassworddigittokenV1
+     * @memberof Passworddigittoken
      */
     'digitToken'?: string;
     /**
      * The reference ID of the digit token generation request
      * @type {string}
-     * @memberof PassworddigittokenV1
+     * @memberof Passworddigittoken
      */
     'requestId'?: string;
 }
 /**
  * 
  * @export
- * @interface PassworddigittokenresetV1
+ * @interface Passworddigittokenreset
  */
-export interface PassworddigittokenresetV1 {
+export interface Passworddigittokenreset {
     /**
      * The uid of the user requested for digit token
      * @type {string}
-     * @memberof PassworddigittokenresetV1
+     * @memberof Passworddigittokenreset
      */
     'userId': string;
     /**
      * The length of digit token. It should be from 6 to 18, inclusive. The default value is 6.
      * @type {number}
-     * @memberof PassworddigittokenresetV1
+     * @memberof Passworddigittokenreset
      */
     'length'?: number;
     /**
      * The time to live for the digit token in minutes. The default value is 5 minutes.
      * @type {number}
-     * @memberof PassworddigittokenresetV1
+     * @memberof Passworddigittokenreset
      */
     'durationMinutes'?: number;
 }
 /**
  * 
  * @export
- * @interface PasswordinfoV1
+ * @interface Passwordinfo
  */
-export interface PasswordinfoV1 {
+export interface Passwordinfo {
     /**
      * Identity ID
      * @type {string}
-     * @memberof PasswordinfoV1
+     * @memberof Passwordinfo
      */
     'identityId'?: string;
     /**
      * source ID
      * @type {string}
-     * @memberof PasswordinfoV1
+     * @memberof Passwordinfo
      */
     'sourceId'?: string;
     /**
      * public key ID
      * @type {string}
-     * @memberof PasswordinfoV1
+     * @memberof Passwordinfo
      */
     'publicKeyId'?: string;
     /**
      * User\'s public key with Base64 encoding
      * @type {string}
-     * @memberof PasswordinfoV1
+     * @memberof Passwordinfo
      */
     'publicKey'?: string;
     /**
      * Account info related to queried identity and source
-     * @type {Array<PasswordinfoaccountV1>}
-     * @memberof PasswordinfoV1
+     * @type {Array<Passwordinfoaccount>}
+     * @memberof Passwordinfo
      */
-    'accounts'?: Array<PasswordinfoaccountV1>;
+    'accounts'?: Array<Passwordinfoaccount>;
     /**
      * Password constraints
      * @type {Array<string>}
-     * @memberof PasswordinfoV1
+     * @memberof Passwordinfo
      */
     'policies'?: Array<string>;
 }
 /**
  * 
  * @export
- * @interface PasswordinfoaccountV1
+ * @interface Passwordinfoaccount
  */
-export interface PasswordinfoaccountV1 {
+export interface Passwordinfoaccount {
     /**
      * Account ID of the account. This is specified per account schema in the source configuration. It is used to distinguish accounts. More info can be found here https://community.sailpoint.com/t5/IdentityNow-Connectors/How-do-I-designate-an-account-attribute-as-the-Account-ID-for-a/ta-p/80350
      * @type {string}
-     * @memberof PasswordinfoaccountV1
+     * @memberof Passwordinfoaccount
      */
     'accountId'?: string;
     /**
      * Display name of the account. This is specified per account schema in the source configuration. It is used to display name of the account. More info can be found here https://community.sailpoint.com/t5/IdentityNow-Connectors/How-do-I-designate-an-account-attribute-as-the-Account-Name-for/ta-p/74008
      * @type {string}
-     * @memberof PasswordinfoaccountV1
+     * @memberof Passwordinfoaccount
      */
     'accountName'?: string;
 }
 /**
  * 
  * @export
- * @interface PasswordinfoquerydtoV1
+ * @interface Passwordinfoquerydto
  */
-export interface PasswordinfoquerydtoV1 {
+export interface Passwordinfoquerydto {
     /**
      * The login name of the user
      * @type {string}
-     * @memberof PasswordinfoquerydtoV1
+     * @memberof Passwordinfoquerydto
      */
     'userName'?: string;
     /**
      * The display name of the source
      * @type {string}
-     * @memberof PasswordinfoquerydtoV1
+     * @memberof Passwordinfoquerydto
      */
     'sourceName'?: string;
 }
 /**
  * 
  * @export
- * @interface PasswordstatusV1
+ * @interface Passwordstatus
  */
-export interface PasswordstatusV1 {
+export interface Passwordstatus {
     /**
      * The password change request ID
      * @type {string}
-     * @memberof PasswordstatusV1
+     * @memberof Passwordstatus
      */
     'requestId'?: string | null;
     /**
      * Password change state
      * @type {string}
-     * @memberof PasswordstatusV1
+     * @memberof Passwordstatus
      */
-    'state'?: PasswordstatusV1StateV1;
+    'state'?: PasswordstatusStateEnum;
     /**
      * The errors during the password change request
      * @type {Array<string>}
-     * @memberof PasswordstatusV1
+     * @memberof Passwordstatus
      */
     'errors'?: Array<string>;
     /**
      * List of source IDs in the password change request
      * @type {Array<string>}
-     * @memberof PasswordstatusV1
+     * @memberof Passwordstatus
      */
     'sourceIds'?: Array<string>;
 }
 
-export const PasswordstatusV1StateV1 = {
+export const PasswordstatusStateEnum = {
     InProgress: 'IN_PROGRESS',
     Finished: 'FINISHED',
     Failed: 'FAILED'
 } as const;
 
-export type PasswordstatusV1StateV1 = typeof PasswordstatusV1StateV1[keyof typeof PasswordstatusV1StateV1];
+export type PasswordstatusStateEnum = typeof PasswordstatusStateEnum[keyof typeof PasswordstatusStateEnum];
 
 /**
  * 
  * @export
- * @interface QueryPasswordInfoV1401ResponseV1
+ * @interface QueryPasswordInfoV1401Response
  */
-export interface QueryPasswordInfoV1401ResponseV1 {
+export interface QueryPasswordInfoV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof QueryPasswordInfoV1401ResponseV1
+     * @memberof QueryPasswordInfoV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface QueryPasswordInfoV1429ResponseV1
+ * @interface QueryPasswordInfoV1429Response
  */
-export interface QueryPasswordInfoV1429ResponseV1 {
+export interface QueryPasswordInfoV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof QueryPasswordInfoV1429ResponseV1
+     * @memberof QueryPasswordInfoV1429Response
      */
     'message'?: any;
 }
 
 /**
- * PasswordManagementV1Api - axios parameter creator
+ * PasswordManagementApi - axios parameter creator
  * @export
  */
-export const PasswordManagementV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const PasswordManagementApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This API is used to generate a digit token for password management. Requires authorization scope of \"idn:password-digit-token:create\".
          * @summary Generate a digit token
-         * @param {PassworddigittokenresetV1} passworddigittokenresetV1 
+         * @param {Passworddigittokenreset} passworddigittokenreset 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createDigitTokenV1: async (passworddigittokenresetV1: PassworddigittokenresetV1, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'passworddigittokenresetV1' is not null or undefined
-            assertParamExists('createDigitTokenV1', 'passworddigittokenresetV1', passworddigittokenresetV1)
+        createDigitTokenV1: async (passworddigittokenreset: Passworddigittokenreset, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'passworddigittokenreset' is not null or undefined
+            assertParamExists('createDigitTokenV1', 'passworddigittokenreset', passworddigittokenreset)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -395,7 +395,7 @@ export const PasswordManagementV1ApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(passworddigittokenresetV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(passworddigittokenreset, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -439,13 +439,13 @@ export const PasswordManagementV1ApiAxiosParamCreator = function (configuration?
         /**
          * This API is used to query password related information.  
          * @summary Query password info
-         * @param {PasswordinfoquerydtoV1} passwordinfoquerydtoV1 
+         * @param {Passwordinfoquerydto} passwordinfoquerydto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        queryPasswordInfoV1: async (passwordinfoquerydtoV1: PasswordinfoquerydtoV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'passwordinfoquerydtoV1' is not null or undefined
-            assertParamExists('queryPasswordInfoV1', 'passwordinfoquerydtoV1', passwordinfoquerydtoV1)
+        queryPasswordInfoV1: async (passwordinfoquerydto: Passwordinfoquerydto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'passwordinfoquerydto' is not null or undefined
+            assertParamExists('queryPasswordInfoV1', 'passwordinfoquerydto', passwordinfoquerydto)
             const localVarPath = `/query-password-info/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -465,7 +465,7 @@ export const PasswordManagementV1ApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(passwordinfoquerydtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(passwordinfoquerydto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -475,13 +475,13 @@ export const PasswordManagementV1ApiAxiosParamCreator = function (configuration?
         /**
          * This API is used to set a password for an identity.   An identity can change their own password (as well as any of their accounts\' passwords) if they use a token generated by their ISC user, such as a [personal access token](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens) or [\"authorization_code\" derived OAuth token](https://developer.sailpoint.com/idn/api/authentication#authorization-code-grant-flow).  >**Note: If you want to set an identity\'s source account password, you must enable `PASSWORD` as one of the source\'s features. You can use the [PATCH Source endpoint](https://developer.sailpoint.com/docs/api/v3/update-source) to add the `PASSWORD` feature.**  To generate the encryptedPassword (RSA encrypted using publicKey) for the request body, run the following command:  ```bash echo -n \"myPassword\" | openssl pkeyutl -encrypt -inkey public_key.pem -pubin | base64 ```  In this example, myPassword is the plain text password being set and encrypted, and public_key.pem is the path to the public key file. You can retrieve the required publicKey, along with other information like identityId, sourceId, publicKeyId, accounts, and policies, using the Query Password Info endpoint.  To successfully run this command, you must have OpenSSL installed on your machine. If OpenSSL is unavailable, consider using the Virtual Appliance (VA), which has OpenSSL pre-installed and configured.  If you are using a Windows machine, refer to this [guide](https://tecadmin.net/install-openssl-on-windows/) for instructions on installing OpenSSL.  You can then use [Get Password Change Request Status](https://developer.sailpoint.com/idn/api/v3/get-password-change-status) to check the password change request status. To do so, you must provide the `requestId` from your earlier request to set the password.  
          * @summary Set identity\'s password
-         * @param {PasswordchangerequestV1} passwordchangerequestV1 
+         * @param {Passwordchangerequest} passwordchangerequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setPasswordV1: async (passwordchangerequestV1: PasswordchangerequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'passwordchangerequestV1' is not null or undefined
-            assertParamExists('setPasswordV1', 'passwordchangerequestV1', passwordchangerequestV1)
+        setPasswordV1: async (passwordchangerequest: Passwordchangerequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'passwordchangerequest' is not null or undefined
+            assertParamExists('setPasswordV1', 'passwordchangerequest', passwordchangerequest)
             const localVarPath = `/set-password/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -501,7 +501,7 @@ export const PasswordManagementV1ApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(passwordchangerequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(passwordchangerequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -512,24 +512,24 @@ export const PasswordManagementV1ApiAxiosParamCreator = function (configuration?
 };
 
 /**
- * PasswordManagementV1Api - functional programming interface
+ * PasswordManagementApi - functional programming interface
  * @export
  */
-export const PasswordManagementV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = PasswordManagementV1ApiAxiosParamCreator(configuration)
+export const PasswordManagementApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = PasswordManagementApiAxiosParamCreator(configuration)
     return {
         /**
          * This API is used to generate a digit token for password management. Requires authorization scope of \"idn:password-digit-token:create\".
          * @summary Generate a digit token
-         * @param {PassworddigittokenresetV1} passworddigittokenresetV1 
+         * @param {Passworddigittokenreset} passworddigittokenreset 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createDigitTokenV1(passworddigittokenresetV1: PassworddigittokenresetV1, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PassworddigittokenV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createDigitTokenV1(passworddigittokenresetV1, xSailPointExperimental, axiosOptions);
+        async createDigitTokenV1(passworddigittokenreset: Passworddigittokenreset, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Passworddigittoken>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createDigitTokenV1(passworddigittokenreset, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PasswordManagementV1Api.createDigitTokenV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PasswordManagementApi.createDigitTokenV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -539,207 +539,207 @@ export const PasswordManagementV1ApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPasswordChangeStatusV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordstatusV1>> {
+        async getPasswordChangeStatusV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Passwordstatus>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordChangeStatusV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PasswordManagementV1Api.getPasswordChangeStatusV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PasswordManagementApi.getPasswordChangeStatusV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API is used to query password related information.  
          * @summary Query password info
-         * @param {PasswordinfoquerydtoV1} passwordinfoquerydtoV1 
+         * @param {Passwordinfoquerydto} passwordinfoquerydto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async queryPasswordInfoV1(passwordinfoquerydtoV1: PasswordinfoquerydtoV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordinfoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.queryPasswordInfoV1(passwordinfoquerydtoV1, axiosOptions);
+        async queryPasswordInfoV1(passwordinfoquerydto: Passwordinfoquerydto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Passwordinfo>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.queryPasswordInfoV1(passwordinfoquerydto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PasswordManagementV1Api.queryPasswordInfoV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PasswordManagementApi.queryPasswordInfoV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API is used to set a password for an identity.   An identity can change their own password (as well as any of their accounts\' passwords) if they use a token generated by their ISC user, such as a [personal access token](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens) or [\"authorization_code\" derived OAuth token](https://developer.sailpoint.com/idn/api/authentication#authorization-code-grant-flow).  >**Note: If you want to set an identity\'s source account password, you must enable `PASSWORD` as one of the source\'s features. You can use the [PATCH Source endpoint](https://developer.sailpoint.com/docs/api/v3/update-source) to add the `PASSWORD` feature.**  To generate the encryptedPassword (RSA encrypted using publicKey) for the request body, run the following command:  ```bash echo -n \"myPassword\" | openssl pkeyutl -encrypt -inkey public_key.pem -pubin | base64 ```  In this example, myPassword is the plain text password being set and encrypted, and public_key.pem is the path to the public key file. You can retrieve the required publicKey, along with other information like identityId, sourceId, publicKeyId, accounts, and policies, using the Query Password Info endpoint.  To successfully run this command, you must have OpenSSL installed on your machine. If OpenSSL is unavailable, consider using the Virtual Appliance (VA), which has OpenSSL pre-installed and configured.  If you are using a Windows machine, refer to this [guide](https://tecadmin.net/install-openssl-on-windows/) for instructions on installing OpenSSL.  You can then use [Get Password Change Request Status](https://developer.sailpoint.com/idn/api/v3/get-password-change-status) to check the password change request status. To do so, you must provide the `requestId` from your earlier request to set the password.  
          * @summary Set identity\'s password
-         * @param {PasswordchangerequestV1} passwordchangerequestV1 
+         * @param {Passwordchangerequest} passwordchangerequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setPasswordV1(passwordchangerequestV1: PasswordchangerequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordchangeresponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setPasswordV1(passwordchangerequestV1, axiosOptions);
+        async setPasswordV1(passwordchangerequest: Passwordchangerequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Passwordchangeresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setPasswordV1(passwordchangerequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PasswordManagementV1Api.setPasswordV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PasswordManagementApi.setPasswordV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * PasswordManagementV1Api - factory interface
+ * PasswordManagementApi - factory interface
  * @export
  */
-export const PasswordManagementV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = PasswordManagementV1ApiFp(configuration)
+export const PasswordManagementApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = PasswordManagementApiFp(configuration)
     return {
         /**
          * This API is used to generate a digit token for password management. Requires authorization scope of \"idn:password-digit-token:create\".
          * @summary Generate a digit token
-         * @param {PasswordManagementV1ApiCreateDigitTokenV1Request} requestParameters Request parameters.
+         * @param {PasswordManagementApiCreateDigitTokenV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createDigitTokenV1(requestParameters: PasswordManagementV1ApiCreateDigitTokenV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PassworddigittokenV1> {
-            return localVarFp.createDigitTokenV1(requestParameters.passworddigittokenresetV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        createDigitTokenV1(requestParameters: PasswordManagementApiCreateDigitTokenV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Passworddigittoken> {
+            return localVarFp.createDigitTokenV1(requestParameters.passworddigittokenreset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the status of a password change request.
          * @summary Get password change request status
-         * @param {PasswordManagementV1ApiGetPasswordChangeStatusV1Request} requestParameters Request parameters.
+         * @param {PasswordManagementApiGetPasswordChangeStatusV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getPasswordChangeStatusV1(requestParameters: PasswordManagementV1ApiGetPasswordChangeStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PasswordstatusV1> {
+        getPasswordChangeStatusV1(requestParameters: PasswordManagementApiGetPasswordChangeStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Passwordstatus> {
             return localVarFp.getPasswordChangeStatusV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API is used to query password related information.  
          * @summary Query password info
-         * @param {PasswordManagementV1ApiQueryPasswordInfoV1Request} requestParameters Request parameters.
+         * @param {PasswordManagementApiQueryPasswordInfoV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        queryPasswordInfoV1(requestParameters: PasswordManagementV1ApiQueryPasswordInfoV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PasswordinfoV1> {
-            return localVarFp.queryPasswordInfoV1(requestParameters.passwordinfoquerydtoV1, axiosOptions).then((request) => request(axios, basePath));
+        queryPasswordInfoV1(requestParameters: PasswordManagementApiQueryPasswordInfoV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Passwordinfo> {
+            return localVarFp.queryPasswordInfoV1(requestParameters.passwordinfoquerydto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API is used to set a password for an identity.   An identity can change their own password (as well as any of their accounts\' passwords) if they use a token generated by their ISC user, such as a [personal access token](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens) or [\"authorization_code\" derived OAuth token](https://developer.sailpoint.com/idn/api/authentication#authorization-code-grant-flow).  >**Note: If you want to set an identity\'s source account password, you must enable `PASSWORD` as one of the source\'s features. You can use the [PATCH Source endpoint](https://developer.sailpoint.com/docs/api/v3/update-source) to add the `PASSWORD` feature.**  To generate the encryptedPassword (RSA encrypted using publicKey) for the request body, run the following command:  ```bash echo -n \"myPassword\" | openssl pkeyutl -encrypt -inkey public_key.pem -pubin | base64 ```  In this example, myPassword is the plain text password being set and encrypted, and public_key.pem is the path to the public key file. You can retrieve the required publicKey, along with other information like identityId, sourceId, publicKeyId, accounts, and policies, using the Query Password Info endpoint.  To successfully run this command, you must have OpenSSL installed on your machine. If OpenSSL is unavailable, consider using the Virtual Appliance (VA), which has OpenSSL pre-installed and configured.  If you are using a Windows machine, refer to this [guide](https://tecadmin.net/install-openssl-on-windows/) for instructions on installing OpenSSL.  You can then use [Get Password Change Request Status](https://developer.sailpoint.com/idn/api/v3/get-password-change-status) to check the password change request status. To do so, you must provide the `requestId` from your earlier request to set the password.  
          * @summary Set identity\'s password
-         * @param {PasswordManagementV1ApiSetPasswordV1Request} requestParameters Request parameters.
+         * @param {PasswordManagementApiSetPasswordV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setPasswordV1(requestParameters: PasswordManagementV1ApiSetPasswordV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PasswordchangeresponseV1> {
-            return localVarFp.setPasswordV1(requestParameters.passwordchangerequestV1, axiosOptions).then((request) => request(axios, basePath));
+        setPasswordV1(requestParameters: PasswordManagementApiSetPasswordV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Passwordchangeresponse> {
+            return localVarFp.setPasswordV1(requestParameters.passwordchangerequest, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createDigitTokenV1 operation in PasswordManagementV1Api.
+ * Request parameters for createDigitTokenV1 operation in PasswordManagementApi.
  * @export
- * @interface PasswordManagementV1ApiCreateDigitTokenV1Request
+ * @interface PasswordManagementApiCreateDigitTokenV1Request
  */
-export interface PasswordManagementV1ApiCreateDigitTokenV1Request {
+export interface PasswordManagementApiCreateDigitTokenV1Request {
     /**
      * 
-     * @type {PassworddigittokenresetV1}
-     * @memberof PasswordManagementV1ApiCreateDigitTokenV1
+     * @type {Passworddigittokenreset}
+     * @memberof PasswordManagementApiCreateDigitTokenV1
      */
-    readonly passworddigittokenresetV1: PassworddigittokenresetV1
+    readonly passworddigittokenreset: Passworddigittokenreset
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof PasswordManagementV1ApiCreateDigitTokenV1
+     * @memberof PasswordManagementApiCreateDigitTokenV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getPasswordChangeStatusV1 operation in PasswordManagementV1Api.
+ * Request parameters for getPasswordChangeStatusV1 operation in PasswordManagementApi.
  * @export
- * @interface PasswordManagementV1ApiGetPasswordChangeStatusV1Request
+ * @interface PasswordManagementApiGetPasswordChangeStatusV1Request
  */
-export interface PasswordManagementV1ApiGetPasswordChangeStatusV1Request {
+export interface PasswordManagementApiGetPasswordChangeStatusV1Request {
     /**
      * Password change request ID
      * @type {string}
-     * @memberof PasswordManagementV1ApiGetPasswordChangeStatusV1
+     * @memberof PasswordManagementApiGetPasswordChangeStatusV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for queryPasswordInfoV1 operation in PasswordManagementV1Api.
+ * Request parameters for queryPasswordInfoV1 operation in PasswordManagementApi.
  * @export
- * @interface PasswordManagementV1ApiQueryPasswordInfoV1Request
+ * @interface PasswordManagementApiQueryPasswordInfoV1Request
  */
-export interface PasswordManagementV1ApiQueryPasswordInfoV1Request {
+export interface PasswordManagementApiQueryPasswordInfoV1Request {
     /**
      * 
-     * @type {PasswordinfoquerydtoV1}
-     * @memberof PasswordManagementV1ApiQueryPasswordInfoV1
+     * @type {Passwordinfoquerydto}
+     * @memberof PasswordManagementApiQueryPasswordInfoV1
      */
-    readonly passwordinfoquerydtoV1: PasswordinfoquerydtoV1
+    readonly passwordinfoquerydto: Passwordinfoquerydto
 }
 
 /**
- * Request parameters for setPasswordV1 operation in PasswordManagementV1Api.
+ * Request parameters for setPasswordV1 operation in PasswordManagementApi.
  * @export
- * @interface PasswordManagementV1ApiSetPasswordV1Request
+ * @interface PasswordManagementApiSetPasswordV1Request
  */
-export interface PasswordManagementV1ApiSetPasswordV1Request {
+export interface PasswordManagementApiSetPasswordV1Request {
     /**
      * 
-     * @type {PasswordchangerequestV1}
-     * @memberof PasswordManagementV1ApiSetPasswordV1
+     * @type {Passwordchangerequest}
+     * @memberof PasswordManagementApiSetPasswordV1
      */
-    readonly passwordchangerequestV1: PasswordchangerequestV1
+    readonly passwordchangerequest: Passwordchangerequest
 }
 
 /**
- * PasswordManagementV1Api - object-oriented interface
+ * PasswordManagementApi - object-oriented interface
  * @export
- * @class PasswordManagementV1Api
+ * @class PasswordManagementApi
  * @extends {BaseAPI}
  */
-export class PasswordManagementV1Api extends BaseAPI {
+export class PasswordManagementApi extends BaseAPI {
     /**
      * This API is used to generate a digit token for password management. Requires authorization scope of \"idn:password-digit-token:create\".
      * @summary Generate a digit token
-     * @param {PasswordManagementV1ApiCreateDigitTokenV1Request} requestParameters Request parameters.
+     * @param {PasswordManagementApiCreateDigitTokenV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof PasswordManagementV1Api
+     * @memberof PasswordManagementApi
      */
-    public createDigitTokenV1(requestParameters: PasswordManagementV1ApiCreateDigitTokenV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return PasswordManagementV1ApiFp(this.configuration).createDigitTokenV1(requestParameters.passworddigittokenresetV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createDigitTokenV1(requestParameters: PasswordManagementApiCreateDigitTokenV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return PasswordManagementApiFp(this.configuration).createDigitTokenV1(requestParameters.passworddigittokenreset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the status of a password change request.
      * @summary Get password change request status
-     * @param {PasswordManagementV1ApiGetPasswordChangeStatusV1Request} requestParameters Request parameters.
+     * @param {PasswordManagementApiGetPasswordChangeStatusV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof PasswordManagementV1Api
+     * @memberof PasswordManagementApi
      */
-    public getPasswordChangeStatusV1(requestParameters: PasswordManagementV1ApiGetPasswordChangeStatusV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return PasswordManagementV1ApiFp(this.configuration).getPasswordChangeStatusV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getPasswordChangeStatusV1(requestParameters: PasswordManagementApiGetPasswordChangeStatusV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return PasswordManagementApiFp(this.configuration).getPasswordChangeStatusV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API is used to query password related information.  
      * @summary Query password info
-     * @param {PasswordManagementV1ApiQueryPasswordInfoV1Request} requestParameters Request parameters.
+     * @param {PasswordManagementApiQueryPasswordInfoV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof PasswordManagementV1Api
+     * @memberof PasswordManagementApi
      */
-    public queryPasswordInfoV1(requestParameters: PasswordManagementV1ApiQueryPasswordInfoV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return PasswordManagementV1ApiFp(this.configuration).queryPasswordInfoV1(requestParameters.passwordinfoquerydtoV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public queryPasswordInfoV1(requestParameters: PasswordManagementApiQueryPasswordInfoV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return PasswordManagementApiFp(this.configuration).queryPasswordInfoV1(requestParameters.passwordinfoquerydto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API is used to set a password for an identity.   An identity can change their own password (as well as any of their accounts\' passwords) if they use a token generated by their ISC user, such as a [personal access token](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens) or [\"authorization_code\" derived OAuth token](https://developer.sailpoint.com/idn/api/authentication#authorization-code-grant-flow).  >**Note: If you want to set an identity\'s source account password, you must enable `PASSWORD` as one of the source\'s features. You can use the [PATCH Source endpoint](https://developer.sailpoint.com/docs/api/v3/update-source) to add the `PASSWORD` feature.**  To generate the encryptedPassword (RSA encrypted using publicKey) for the request body, run the following command:  ```bash echo -n \"myPassword\" | openssl pkeyutl -encrypt -inkey public_key.pem -pubin | base64 ```  In this example, myPassword is the plain text password being set and encrypted, and public_key.pem is the path to the public key file. You can retrieve the required publicKey, along with other information like identityId, sourceId, publicKeyId, accounts, and policies, using the Query Password Info endpoint.  To successfully run this command, you must have OpenSSL installed on your machine. If OpenSSL is unavailable, consider using the Virtual Appliance (VA), which has OpenSSL pre-installed and configured.  If you are using a Windows machine, refer to this [guide](https://tecadmin.net/install-openssl-on-windows/) for instructions on installing OpenSSL.  You can then use [Get Password Change Request Status](https://developer.sailpoint.com/idn/api/v3/get-password-change-status) to check the password change request status. To do so, you must provide the `requestId` from your earlier request to set the password.  
      * @summary Set identity\'s password
-     * @param {PasswordManagementV1ApiSetPasswordV1Request} requestParameters Request parameters.
+     * @param {PasswordManagementApiSetPasswordV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof PasswordManagementV1Api
+     * @memberof PasswordManagementApi
      */
-    public setPasswordV1(requestParameters: PasswordManagementV1ApiSetPasswordV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return PasswordManagementV1ApiFp(this.configuration).setPasswordV1(requestParameters.passwordchangerequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public setPasswordV1(requestParameters: PasswordManagementApiSetPasswordV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return PasswordManagementApiFp(this.configuration).setPasswordV1(requestParameters.passwordchangerequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

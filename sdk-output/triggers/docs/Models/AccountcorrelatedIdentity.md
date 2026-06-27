@@ -1,21 +1,21 @@
 ---
-id: v1-accountcorrelated-identity-v1
-title: AccountcorrelatedIdentityV1
-pagination_label: AccountcorrelatedIdentityV1
-sidebar_label: AccountcorrelatedIdentityV1
+id: v1-accountcorrelated-identity
+title: AccountcorrelatedIdentity
+pagination_label: AccountcorrelatedIdentity
+sidebar_label: AccountcorrelatedIdentity
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccountcorrelatedIdentityV1', 'v1AccountcorrelatedIdentityV1']
-slug: /tools/sdk/typescript/triggers/models/accountcorrelated-identity-v1
-tags: ['SDK', 'Software Development Kit', 'AccountcorrelatedIdentityV1', 'v1AccountcorrelatedIdentityV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'AccountcorrelatedIdentity', 'v1AccountcorrelatedIdentity']
+slug: /tools/sdk/typescript/triggers/models/accountcorrelated-identity
+tags: ['SDK', 'Software Development Kit', 'AccountcorrelatedIdentity', 'v1AccountcorrelatedIdentity']
 ---
 
-# AccountcorrelatedIdentityV1
+# AccountcorrelatedIdentity
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **string** | DTO type of the identity the account is correlated with. | [default to undefined]
-**id** | **string** | ID of the identity the account is correlated with. | [default to undefined]
-**name** | **string** | Display name of the identity the account is correlated with. | [default to undefined]
+**type** | `string` | DTO type of the identity the account is correlated with. | [default to undefined]
+**id** | `string` | ID of the identity the account is correlated with. | [default to undefined]
+**name** | `string` | Display name of the identity the account is correlated with. | [default to undefined]
 

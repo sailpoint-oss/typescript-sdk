@@ -4,15 +4,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#create-provisioning-policy-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source id (default to undefined)
-        const provisioningpolicydtoV1: ProvisioningpolicydtoV1 = {"name":"Account","description":"Account Provisioning Policy","usageType":"CREATE","fields":[{"name":"displayName","transform":{"type":"identityAttribute","attributes":{"name":"displayName"}},"attributes":{},"isRequired":false,"type":"string","isMultiValued":false},{"name":"distinguishedName","transform":{"type":"usernameGenerator","attributes":{"sourceCheck":true,"patterns":["CN=$fi $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com","CN=$fti $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com","CN=$fn $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com","CN=$fn$ln${uniqueCounter},OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com"],"fn":{"type":"identityAttribute","attributes":{"name":"firstname"}},"ln":{"type":"identityAttribute","attributes":{"name":"lastname"}},"fi":{"type":"substring","attributes":{"input":{"type":"identityAttribute","attributes":{"name":"firstname"}},"begin":0,"end":1}},"fti":{"type":"substring","attributes":{"input":{"type":"identityAttribute","attributes":{"name":"firstname"}},"begin":0,"end":2}}}},"attributes":{"cloudMaxUniqueChecks":"5","cloudMaxSize":"100","cloudRequired":"true"},"isRequired":false,"type":"","isMultiValued":false},{"name":"description","transform":{"type":"static","attributes":{"value":""}},"attributes":{},"isRequired":false,"type":"string","isMultiValued":false}]}; // ProvisioningpolicydtoV1 | 
-        const result = await apiInstance.createProvisioningPolicyV1(sourceId, provisioningpolicydtoV1);
+        const provisioningpolicydto: Provisioningpolicydto = {"name":"Account","description":"Account Provisioning Policy","usageType":"CREATE","fields":[{"name":"displayName","transform":{"type":"identityAttribute","attributes":{"name":"displayName"}},"attributes":{},"isRequired":false,"type":"string","isMultiValued":false},{"name":"distinguishedName","transform":{"type":"usernameGenerator","attributes":{"sourceCheck":true,"patterns":["CN=$fi $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com","CN=$fti $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com","CN=$fn $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com","CN=$fn$ln${uniqueCounter},OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com"],"fn":{"type":"identityAttribute","attributes":{"name":"firstname"}},"ln":{"type":"identityAttribute","attributes":{"name":"lastname"}},"fi":{"type":"substring","attributes":{"input":{"type":"identityAttribute","attributes":{"name":"firstname"}},"begin":0,"end":1}},"fti":{"type":"substring","attributes":{"input":{"type":"identityAttribute","attributes":{"name":"firstname"}},"begin":0,"end":2}}}},"attributes":{"cloudMaxUniqueChecks":"5","cloudMaxSize":"100","cloudRequired":"true"},"isRequired":false,"type":"","isMultiValued":false},{"name":"description","transform":{"type":"static","attributes":{"value":""}},"attributes":{},"isRequired":false,"type":"string","isMultiValued":false}]}; // Provisioningpolicydto | 
+        const result = await apiInstance.createProvisioningPolicyV1({ sourceId: sourceId, provisioningpolicydto: provisioningpolicydto });
         console.log(result);
 - path: /sources/v1/{sourceId}/schedules
   method: POST
@@ -20,15 +19,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#create-source-schedule-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
-        const schedule3V1: Schedule3V1 = ; // Schedule3V1 | 
-        const result = await apiInstance.createSourceScheduleV1(sourceId, schedule3V1);
+        const schedule3: Schedule3 = ; // Schedule3 | 
+        const result = await apiInstance.createSourceScheduleV1({ sourceId: sourceId, schedule3: schedule3 });
         console.log(result);
 - path: /sources/v1/{sourceId}/schemas
   method: POST
@@ -36,15 +34,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#create-source-schema-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
-        const schemaV1: SchemaV1 = ; // SchemaV1 | 
-        const result = await apiInstance.createSourceSchemaV1(sourceId, schemaV1);
+        const schema: Schema = ; // Schema | 
+        const result = await apiInstance.createSourceSchemaV1({ sourceId: sourceId, schema: schema });
         console.log(result);
 - path: /sources/v1
   method: POST
@@ -52,15 +49,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#create-source-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
-        const sourceV1: SourceV1 = ; // SourceV1 | 
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
+        const source: Source = ; // Source | 
         const provisionAsCsv: boolean = false; // boolean | If this parameter is `true`, it configures the source as a Delimited File (CSV) source. Setting this to `true` will automatically set the `type` of the source to `DelimitedFile`.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don\'t set this query parameter and you attempt to set the `type` attribute directly, the request won\'t correctly generate the source.   (optional) (default to undefined)
-        const result = await apiInstance.createSourceV1(sourceV1);
+        const result = await apiInstance.createSourceV1({ source: source });
         console.log(result);
 - path: /sources/v1/{id}/remove-accounts
   method: POST
@@ -68,14 +64,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#delete-accounts-async-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const id: string = 'ebbf35756e1140699ce52b233121384a'; // string | The source id (default to undefined)
-        const result = await apiInstance.deleteAccountsAsyncV1(id);
+        const result = await apiInstance.deleteAccountsAsyncV1({ id: id });
         console.log(result);
 - path: /sources/v1/{sourceId}/native-change-detection-config
   method: DELETE
@@ -83,14 +78,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#delete-native-change-detection-config-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The source id (default to undefined)
-        const result = await apiInstance.deleteNativeChangeDetectionConfigV1(sourceId);
+        const result = await apiInstance.deleteNativeChangeDetectionConfigV1({ sourceId: sourceId });
         console.log(result);
 - path: /sources/v1/{sourceId}/provisioning-policies/{usageType}
   method: DELETE
@@ -98,15 +92,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#delete-provisioning-policy-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source ID. (default to undefined)
-        const usageType: UsagetypeV1 = CREATE; // UsagetypeV1 | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. (default to undefined)
-        const result = await apiInstance.deleteProvisioningPolicyV1(sourceId, usageType);
+        const usageType: Usagetype = CREATE; // Usagetype | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. (default to undefined)
+        const result = await apiInstance.deleteProvisioningPolicyV1({ sourceId: sourceId, usageType: usageType });
         console.log(result);
 - path: /sources/v1/{sourceId}/schedules/{scheduleType}
   method: DELETE
@@ -114,15 +107,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#delete-source-schedule-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source id. (default to undefined)
         const scheduleType: string = 'ACCOUNT_AGGREGATION'; // 'ACCOUNT_AGGREGATION' | 'GROUP_AGGREGATION' | The Schedule type. (default to undefined)
-        const result = await apiInstance.deleteSourceScheduleV1(sourceId, scheduleType);
+        const result = await apiInstance.deleteSourceScheduleV1({ sourceId: sourceId, scheduleType: scheduleType });
         console.log(result);
 - path: /sources/v1/{sourceId}/schemas/{schemaId}
   method: DELETE
@@ -130,15 +122,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#delete-source-schema-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source id. (default to undefined)
         const schemaId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Schema id. (default to undefined)
-        const result = await apiInstance.deleteSourceSchemaV1(sourceId, schemaId);
+        const result = await apiInstance.deleteSourceSchemaV1({ sourceId: sourceId, schemaId: schemaId });
         console.log(result);
 - path: /sources/v1/{id}
   method: DELETE
@@ -146,14 +137,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#delete-source-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const id: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
-        const result = await apiInstance.deleteSourceV1(id);
+        const result = await apiInstance.deleteSourceV1({ id: id });
         console.log(result);
 - path: /sources/v1/{sourceId}/approval-config/account-delete
   method: GET
@@ -161,14 +151,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-account-delete-approval-config-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = 'ha38f94347e94562b5bb8424a56498d8'; // string | The Source id (default to undefined)
-        const result = await apiInstance.getAccountDeleteApprovalConfigV1(sourceId);
+        const result = await apiInstance.getAccountDeleteApprovalConfigV1({ sourceId: sourceId });
         console.log(result);
 - path: /sources/v1/{id}/schemas/accounts
   method: GET
@@ -176,14 +165,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-accounts-schema-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const id: string = '8c190e6787aa4ed9a90bd9d5344523fb'; // string | The Source id (default to undefined)
-        const result = await apiInstance.getAccountsSchemaV1(id);
+        const result = await apiInstance.getAccountsSchemaV1({ id: id });
         console.log(result);
 - path: /sources/v1/{id}/correlation-config
   method: GET
@@ -191,14 +179,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-correlation-config-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const id: string = '2c9180835d191a86015d28455b4a2329'; // string | The source id (default to undefined)
-        const result = await apiInstance.getCorrelationConfigV1(id);
+        const result = await apiInstance.getCorrelationConfigV1({ id: id });
         console.log(result);
 - path: /sources/v1/{id}/schemas/entitlements
   method: GET
@@ -206,15 +193,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-entitlements-schema-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const id: string = '8c190e6787aa4ed9a90bd9d5344523fb'; // string | The Source id (default to undefined)
         const schemaName: string = '?schemaName=group'; // string | Name of entitlement schema (optional) (default to undefined)
-        const result = await apiInstance.getEntitlementsSchemaV1(id);
+        const result = await apiInstance.getEntitlementsSchemaV1({ id: id });
         console.log(result);
 - path: /sources/v1/{sourceId}/approval-config/machine-account-delete
   method: GET
@@ -222,14 +208,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-machine-account-deletion-approval-config-by-source-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = 'gt38f94347e94562b5bb8424a56498d8'; // string | source id. (default to undefined)
-        const result = await apiInstance.getMachineAccountDeletionApprovalConfigBySourceV1(sourceId);
+        const result = await apiInstance.getMachineAccountDeletionApprovalConfigBySourceV1({ sourceId: sourceId });
         console.log(result);
 - path: /sources/v1/{sourceId}/native-change-detection-config
   method: GET
@@ -237,14 +222,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-native-change-detection-config-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The source id (default to undefined)
-        const result = await apiInstance.getNativeChangeDetectionConfigV1(sourceId);
+        const result = await apiInstance.getNativeChangeDetectionConfigV1({ sourceId: sourceId });
         console.log(result);
 - path: /sources/v1/{sourceId}/provisioning-policies/{usageType}
   method: GET
@@ -252,15 +236,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-provisioning-policy-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source ID. (default to undefined)
-        const usageType: UsagetypeV1 = CREATE; // UsagetypeV1 | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. (default to undefined)
-        const result = await apiInstance.getProvisioningPolicyV1(sourceId, usageType);
+        const usageType: Usagetype = CREATE; // Usagetype | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. (default to undefined)
+        const result = await apiInstance.getProvisioningPolicyV1({ sourceId: sourceId, usageType: usageType });
         console.log(result);
 - path: /sources/v1/{id}/attribute-sync-config
   method: GET
@@ -268,15 +251,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-attr-sync-config-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const id: string = '2c9180835d191a86015d28455b4a2329'; // string | The source id (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.getSourceAttrSyncConfigV1(id);
+        const result = await apiInstance.getSourceAttrSyncConfigV1({ id: id });
         console.log(result);
 - path: /sources/v1/{id}/connectors/source-config
   method: GET
@@ -284,15 +266,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-config-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const id: string = 'cef3ee201db947c5912551015ba0c679'; // string | The Source id (default to undefined)
         const locale: string = 'en'; // 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl' | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (optional) (default to undefined)
-        const result = await apiInstance.getSourceConfigV1(id);
+        const result = await apiInstance.getSourceConfigV1({ id: id });
         console.log(result);
 - path: /sources/v1/{sourceId}/connections
   method: GET
@@ -300,14 +281,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-connections-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
-        const result = await apiInstance.getSourceConnectionsV1(sourceId);
+        const result = await apiInstance.getSourceConnectionsV1({ sourceId: sourceId });
         console.log(result);
 - path: /sources/v1/{id}/entitlement-request-config
   method: GET
@@ -315,15 +295,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-entitlement-request-config-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const id: string = '8c190e6787aa4ed9a90bd9d5344523fb'; // string | The Source id (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.getSourceEntitlementRequestConfigV1(id);
+        const result = await apiInstance.getSourceEntitlementRequestConfigV1({ id: id });
         console.log(result);
 - path: /sources/v1/{sourceId}/source-health
   method: GET
@@ -331,14 +310,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-health-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source id. (default to undefined)
-        const result = await apiInstance.getSourceHealthV1(sourceId);
+        const result = await apiInstance.getSourceHealthV1({ sourceId: sourceId });
         console.log(result);
 - path: /sources/v1/{sourceId}/schedules/{scheduleType}
   method: GET
@@ -346,15 +324,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-schedule-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source id. (default to undefined)
         const scheduleType: string = 'ACCOUNT_AGGREGATION'; // 'ACCOUNT_AGGREGATION' | 'GROUP_AGGREGATION' | The Schedule type. (default to undefined)
-        const result = await apiInstance.getSourceScheduleV1(sourceId, scheduleType);
+        const result = await apiInstance.getSourceScheduleV1({ sourceId: sourceId, scheduleType: scheduleType });
         console.log(result);
 - path: /sources/v1/{sourceId}/schedules
   method: GET
@@ -362,14 +339,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-schedules-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
-        const result = await apiInstance.getSourceSchedulesV1(sourceId);
+        const result = await apiInstance.getSourceSchedulesV1({ sourceId: sourceId });
         console.log(result);
 - path: /sources/v1/{sourceId}/schemas/{schemaId}
   method: GET
@@ -377,15 +353,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-schema-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source id. (default to undefined)
         const schemaId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Schema id. (default to undefined)
-        const result = await apiInstance.getSourceSchemaV1(sourceId, schemaId);
+        const result = await apiInstance.getSourceSchemaV1({ sourceId: sourceId, schemaId: schemaId });
         console.log(result);
 - path: /sources/v1/{sourceId}/schemas
   method: GET
@@ -393,16 +368,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-schemas-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
         const includeTypes: string = 'group'; // 'group' | 'user' | If set to \'group\', then the account schema is filtered and only group schemas are returned. Only a value of \'group\' is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas. (optional) (default to undefined)
         const includeNames: string = 'account'; // string | A comma-separated list of schema names to filter result. (optional) (default to undefined)
-        const result = await apiInstance.getSourceSchemasV1(sourceId);
+        const result = await apiInstance.getSourceSchemasV1({ sourceId: sourceId });
         console.log(result);
 - path: /sources/v1/{id}
   method: GET
@@ -410,14 +384,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const id: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
-        const result = await apiInstance.getSourceV1(id);
+        const result = await apiInstance.getSourceV1({ id: id });
         console.log(result);
 - path: /sources/v1/{id}/schemas/accounts
   method: POST
@@ -425,15 +398,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#import-accounts-schema-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const id: string = '8c190e6787aa4ed9a90bd9d5344523fb'; // string | The Source id (default to undefined)
         const file: File = BINARY_DATA_HERE; // File |  (optional) (default to undefined)
-        const result = await apiInstance.importAccountsSchemaV1(id);
+        const result = await apiInstance.importAccountsSchemaV1({ id: id });
         console.log(result);
 - path: /sources/v1/{id}/load-accounts
   method: POST
@@ -441,16 +413,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#import-accounts-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Source Id (default to undefined)
         const file: File = BINARY_DATA_HERE; // File | The CSV file containing the source accounts to aggregate. (optional) (default to undefined)
         const disableOptimization: string = 'disableOptimization_example'; // string | Use this flag to reprocess every account whether or not the data has changed. (optional) (default to undefined)
-        const result = await apiInstance.importAccountsV1(id);
+        const result = await apiInstance.importAccountsV1({ id: id });
         console.log(result);
 - path: /sources/v1/{sourceId}/upload-connector-file
   method: POST
@@ -458,15 +429,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#import-connector-file-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source id. (default to undefined)
         const file: File = BINARY_DATA_HERE; // File |  (optional) (default to undefined)
-        const result = await apiInstance.importConnectorFileV1(sourceId);
+        const result = await apiInstance.importConnectorFileV1({ sourceId: sourceId });
         console.log(result);
 - path: /sources/v1/{id}/schemas/entitlements
   method: POST
@@ -474,16 +444,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#import-entitlements-schema-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const id: string = '8c190e6787aa4ed9a90bd9d5344523fb'; // string | The Source id (default to undefined)
         const schemaName: string = '?schemaName=group'; // string | Name of entitlement schema (optional) (default to undefined)
         const file: File = BINARY_DATA_HERE; // File |  (optional) (default to undefined)
-        const result = await apiInstance.importEntitlementsSchemaV1(id);
+        const result = await apiInstance.importEntitlementsSchemaV1({ id: id });
         console.log(result);
 - path: /sources/v1/{sourceId}/load-entitlements
   method: POST
@@ -491,15 +460,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#import-entitlements-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Source Id (default to undefined)
         const file: File = BINARY_DATA_HERE; // File | The CSV file containing the source entitlements to aggregate. (optional) (default to undefined)
-        const result = await apiInstance.importEntitlementsV1(sourceId);
+        const result = await apiInstance.importEntitlementsV1({ sourceId: sourceId });
         console.log(result);
 - path: /sources/v1/{id}/load-uncorrelated-accounts
   method: POST
@@ -507,15 +475,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#import-uncorrelated-accounts-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const id: string = '75dbec1ebe154d5785da27b95e1dd5d7'; // string | Source Id (default to undefined)
         const file: File = BINARY_DATA_HERE; // File |  (optional) (default to undefined)
-        const result = await apiInstance.importUncorrelatedAccountsV1(id);
+        const result = await apiInstance.importUncorrelatedAccountsV1({ id: id });
         console.log(result);
 - path: /sources/v1/{sourceId}/password-policies
   method: GET
@@ -523,17 +490,16 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#list-password-policy-holders-on-source-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '8c190e6787aa4ed9a90bd9d5344523fb'; // string | The Source id (default to undefined)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
-        const result = await apiInstance.listPasswordPolicyHoldersOnSourceV1(sourceId);
+        const result = await apiInstance.listPasswordPolicyHoldersOnSourceV1({ sourceId: sourceId });
         console.log(result);
 - path: /sources/v1/{sourceId}/provisioning-policies
   method: GET
@@ -541,16 +507,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#list-provisioning-policies-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source id (default to undefined)
         const offset: number = 0; // number | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
         const limit: number = 250; // number | Limit        Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
-        const result = await apiInstance.listProvisioningPoliciesV1(sourceId);
+        const result = await apiInstance.listProvisioningPoliciesV1({ sourceId: sourceId });
         console.log(result);
 - path: /sources/v1
   method: GET
@@ -558,12 +523,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#list-sources-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
@@ -571,7 +535,7 @@
         const sorters: string = 'name'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status, id, description, owner.id, accountCorrelationConfig.id, accountCorrelationConfig.name, managerCorrelationRule.type, managerCorrelationRule.id, managerCorrelationRule.name, authoritative, managementWorkgroup.id, connectorName, connectionType** (optional) (default to undefined)
         const forSubadmin: string = 'name'; // string | Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned. (optional) (default to undefined)
         const includeIDNSource: boolean = true; // boolean | Include the IdentityNow source in the response. (optional) (default to false)
-        const result = await apiInstance.listSourcesV1();
+        const result = await apiInstance.listSourcesV1({  });
         console.log(result);
 - path: /sources/v1/{sourceId}/connector/ping-cluster
   method: POST
@@ -579,14 +543,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#ping-cluster-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = 'cef3ee201db947c5912551015ba0c679'; // string | The ID of the Source (default to undefined)
-        const result = await apiInstance.pingClusterV1(sourceId);
+        const result = await apiInstance.pingClusterV1({ sourceId: sourceId });
         console.log(result);
 - path: /sources/v1/{id}/correlation-config
   method: PUT
@@ -594,15 +557,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#put-correlation-config-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const id: string = '2c9180835d191a86015d28455b4a2329'; // string | The source id (default to undefined)
-        const correlationconfigV1: CorrelationconfigV1 = ; // CorrelationconfigV1 | 
-        const result = await apiInstance.putCorrelationConfigV1(id, correlationconfigV1);
+        const correlationconfig: Correlationconfig = ; // Correlationconfig | 
+        const result = await apiInstance.putCorrelationConfigV1({ id: id, correlationconfig: correlationconfig });
         console.log(result);
 - path: /sources/v1/{sourceId}/native-change-detection-config
   method: PUT
@@ -610,15 +572,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#put-native-change-detection-config-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The source id (default to undefined)
-        const nativechangedetectionconfigV1: NativechangedetectionconfigV1 = ; // NativechangedetectionconfigV1 | 
-        const result = await apiInstance.putNativeChangeDetectionConfigV1(sourceId, nativechangedetectionconfigV1);
+        const nativechangedetectionconfig: Nativechangedetectionconfig = ; // Nativechangedetectionconfig | 
+        const result = await apiInstance.putNativeChangeDetectionConfigV1({ sourceId: sourceId, nativechangedetectionconfig: nativechangedetectionconfig });
         console.log(result);
 - path: /sources/v1/{sourceId}/provisioning-policies/{usageType}
   method: PUT
@@ -626,16 +587,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#put-provisioning-policy-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source ID. (default to undefined)
-        const usageType: UsagetypeV1 = CREATE; // UsagetypeV1 | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. (default to undefined)
-        const provisioningpolicydtoV1: ProvisioningpolicydtoV1 = ; // ProvisioningpolicydtoV1 | 
-        const result = await apiInstance.putProvisioningPolicyV1(sourceId, usageType, provisioningpolicydtoV1);
+        const usageType: Usagetype = CREATE; // Usagetype | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. (default to undefined)
+        const provisioningpolicydto: Provisioningpolicydto = ; // Provisioningpolicydto | 
+        const result = await apiInstance.putProvisioningPolicyV1({ sourceId: sourceId, usageType: usageType, provisioningpolicydto: provisioningpolicydto });
         console.log(result);
 - path: /sources/v1/{id}/attribute-sync-config
   method: PUT
@@ -643,16 +603,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#put-source-attr-sync-config-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const id: string = '2c9180835d191a86015d28455b4a2329'; // string | The source id (default to undefined)
-        const attrsyncsourceconfigV1: AttrsyncsourceconfigV1 = ; // AttrsyncsourceconfigV1 | 
+        const attrsyncsourceconfig: Attrsyncsourceconfig = ; // Attrsyncsourceconfig | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.putSourceAttrSyncConfigV1(id, attrsyncsourceconfigV1);
+        const result = await apiInstance.putSourceAttrSyncConfigV1({ id: id, attrsyncsourceconfig: attrsyncsourceconfig });
         console.log(result);
 - path: /sources/v1/{sourceId}/schemas/{schemaId}
   method: PUT
@@ -660,16 +619,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#put-source-schema-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source id. (default to undefined)
         const schemaId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Schema id. (default to undefined)
-        const schemaV1: SchemaV1 = ; // SchemaV1 | 
-        const result = await apiInstance.putSourceSchemaV1(sourceId, schemaId, schemaV1);
+        const schema: Schema = ; // Schema | 
+        const result = await apiInstance.putSourceSchemaV1({ sourceId: sourceId, schemaId: schemaId, schema: schema });
         console.log(result);
 - path: /sources/v1/{id}
   method: PUT
@@ -677,15 +635,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#put-source-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const id: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
-        const sourceV1: SourceV1 = ; // SourceV1 | 
-        const result = await apiInstance.putSourceV1(id, sourceV1);
+        const source: Source = ; // Source | 
+        const result = await apiInstance.putSourceV1({ id: id, source: source });
         console.log(result);
 - path: /sources/v1/{sourceId}/connector/peek-resource-objects
   method: POST
@@ -693,15 +650,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#search-resource-objects-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = 'cef3ee201db947c5912551015ba0c679'; // string | The ID of the Source (default to undefined)
-        const resourceobjectsrequestV1: ResourceobjectsrequestV1 = ; // ResourceobjectsrequestV1 | 
-        const result = await apiInstance.searchResourceObjectsV1(sourceId, resourceobjectsrequestV1);
+        const resourceobjectsrequest: Resourceobjectsrequest = ; // Resourceobjectsrequest | 
+        const result = await apiInstance.searchResourceObjectsV1({ sourceId: sourceId, resourceobjectsrequest: resourceobjectsrequest });
         console.log(result);
 - path: /sources/v1/{id}/synchronize-attributes
   method: POST
@@ -709,15 +665,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#sync-attributes-for-source-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const id: string = 'id_example'; // string | The Source id (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.syncAttributesForSourceV1(id);
+        const result = await apiInstance.syncAttributesForSourceV1({ id: id });
         console.log(result);
 - path: /sources/v1/{sourceId}/connector/test-configuration
   method: POST
@@ -725,14 +680,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#test-source-configuration-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = 'cef3ee201db947c5912551015ba0c679'; // string | The ID of the Source (default to undefined)
-        const result = await apiInstance.testSourceConfigurationV1(sourceId);
+        const result = await apiInstance.testSourceConfigurationV1({ sourceId: sourceId });
         console.log(result);
 - path: /sources/v1/{sourceId}/connector/check-connection
   method: POST
@@ -740,14 +694,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#test-source-connection-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = 'cef3ee201db947c5912551015ba0c679'; // string | The ID of the Source. (default to undefined)
-        const result = await apiInstance.testSourceConnectionV1(sourceId);
+        const result = await apiInstance.testSourceConnectionV1({ sourceId: sourceId });
         console.log(result);
 - path: /sources/v1/{sourceId}/approval-config/account-delete
   method: PATCH
@@ -755,15 +708,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#update-account-deletion-approval-config-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '00eebcf881994e419d72e757fd30dc0e'; // string | Human account source ID. (default to undefined)
-        const jsonpatchoperationV1: Array&lt;JsonpatchoperationV1&gt; = ; // Array<JsonpatchoperationV1> | The JSONPatch payload used to update the object.
-        const result = await apiInstance.updateAccountDeletionApprovalConfigV1(sourceId, jsonpatchoperationV1);
+        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = ; // Array<Jsonpatchoperation> | The JSONPatch payload used to update the object.
+        const result = await apiInstance.updateAccountDeletionApprovalConfigV1({ sourceId: sourceId, jsonpatchoperation: jsonpatchoperation });
         console.log(result);
 - path: /sources/v1/{sourceId}/approval-config/machine-account-delete
   method: PATCH
@@ -771,15 +723,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#update-machine-account-deletion-approval-config-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '00eebcf881994e419d72e757fd30dc0e'; // string | machine account source ID. (default to undefined)
-        const jsonpatchoperationV1: Array&lt;JsonpatchoperationV1&gt; = ; // Array<JsonpatchoperationV1> | The JSONPatch payload used to update the object.
-        const result = await apiInstance.updateMachineAccountDeletionApprovalConfigV1(sourceId, jsonpatchoperationV1);
+        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = ; // Array<Jsonpatchoperation> | The JSONPatch payload used to update the object.
+        const result = await apiInstance.updateMachineAccountDeletionApprovalConfigV1({ sourceId: sourceId, jsonpatchoperation: jsonpatchoperation });
         console.log(result);
 - path: /sources/v1/{sourceId}/password-policies
   method: PATCH
@@ -787,15 +738,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#update-password-policy-holders-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '8c190e6787aa4ed9a90bd9d5344523fb'; // string | The Source id (default to undefined)
-        const passwordpolicyholdersdtoInnerV1: Array&lt;PasswordpolicyholdersdtoInnerV1&gt; = ; // Array<PasswordpolicyholdersdtoInnerV1> | 
-        const result = await apiInstance.updatePasswordPolicyHoldersV1(sourceId, passwordpolicyholdersdtoInnerV1);
+        const passwordpolicyholdersdtoInner: Array&lt;PasswordpolicyholdersdtoInner&gt; = ; // Array<PasswordpolicyholdersdtoInner> | 
+        const result = await apiInstance.updatePasswordPolicyHoldersV1({ sourceId: sourceId, passwordpolicyholdersdtoInner: passwordpolicyholdersdtoInner });
         console.log(result);
 - path: /sources/v1/{sourceId}/provisioning-policies/bulk-update
   method: POST
@@ -803,15 +753,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#update-provisioning-policies-in-bulk-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source id. (default to undefined)
-        const provisioningpolicydtoV1: Array&lt;ProvisioningpolicydtoV1&gt; = ; // Array<ProvisioningpolicydtoV1> | 
-        const result = await apiInstance.updateProvisioningPoliciesInBulkV1(sourceId, provisioningpolicydtoV1);
+        const provisioningpolicydto: Array&lt;Provisioningpolicydto&gt; = ; // Array<Provisioningpolicydto> | 
+        const result = await apiInstance.updateProvisioningPoliciesInBulkV1({ sourceId: sourceId, provisioningpolicydto: provisioningpolicydto });
         console.log(result);
 - path: /sources/v1/{sourceId}/provisioning-policies/{usageType}
   method: PATCH
@@ -819,16 +768,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#update-provisioning-policy-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source id. (default to undefined)
-        const usageType: UsagetypeV1 = CREATE; // UsagetypeV1 | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. (default to undefined)
-        const jsonpatchoperationV1: Array&lt;JsonpatchoperationV1&gt; = [{"op":"add","path":"/fields/0","value":{"name":"email","transform":{"type":"identityAttribute","attributes":{"name":"email"}},"attributes":{},"isRequired":false,"type":"string","isMultiValued":false}}]; // Array<JsonpatchoperationV1> | The JSONPatch payload used to update the schema.
-        const result = await apiInstance.updateProvisioningPolicyV1(sourceId, usageType, jsonpatchoperationV1);
+        const usageType: Usagetype = CREATE; // Usagetype | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. (default to undefined)
+        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"add","path":"/fields/0","value":{"name":"email","transform":{"type":"identityAttribute","attributes":{"name":"email"}},"attributes":{},"isRequired":false,"type":"string","isMultiValued":false}}]; // Array<Jsonpatchoperation> | The JSONPatch payload used to update the schema.
+        const result = await apiInstance.updateProvisioningPolicyV1({ sourceId: sourceId, usageType: usageType, jsonpatchoperation: jsonpatchoperation });
         console.log(result);
 - path: /sources/v1/{id}/entitlement-request-config
   method: PUT
@@ -836,16 +784,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#update-source-entitlement-request-config-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const id: string = '8c190e6787aa4ed9a90bd9d5344523fb'; // string | The Source id (default to undefined)
-        const sourceentitlementrequestconfigV1: SourceentitlementrequestconfigV1 = {"accessRequestConfig":{"approvalSchemes":[]}}; // SourceentitlementrequestconfigV1 | 
+        const sourceentitlementrequestconfig: Sourceentitlementrequestconfig = {"accessRequestConfig":{"approvalSchemes":[]}}; // Sourceentitlementrequestconfig | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.updateSourceEntitlementRequestConfigV1(id, sourceentitlementrequestconfigV1);
+        const result = await apiInstance.updateSourceEntitlementRequestConfigV1({ id: id, sourceentitlementrequestconfig: sourceentitlementrequestconfig });
         console.log(result);
 - path: /sources/v1/{sourceId}/schedules/{scheduleType}
   method: PATCH
@@ -853,16 +800,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#update-source-schedule-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source id. (default to undefined)
         const scheduleType: string = 'ACCOUNT_AGGREGATION'; // 'ACCOUNT_AGGREGATION' | 'GROUP_AGGREGATION' | The Schedule type. (default to undefined)
-        const jsonpatchoperationV1: Array&lt;JsonpatchoperationV1&gt; = [{"op":"replace","path":"/cronExpression","value":"0 0 6 * * ?"}]; // Array<JsonpatchoperationV1> | The JSONPatch payload used to update the schedule.
-        const result = await apiInstance.updateSourceScheduleV1(sourceId, scheduleType, jsonpatchoperationV1);
+        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/cronExpression","value":"0 0 6 * * ?"}]; // Array<Jsonpatchoperation> | The JSONPatch payload used to update the schedule.
+        const result = await apiInstance.updateSourceScheduleV1({ sourceId: sourceId, scheduleType: scheduleType, jsonpatchoperation: jsonpatchoperation });
         console.log(result);
 - path: /sources/v1/{sourceId}/schemas/{schemaId}
   method: PATCH
@@ -870,16 +816,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#update-source-schema-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source id. (default to undefined)
         const schemaId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Schema id. (default to undefined)
-        const jsonpatchoperationV1: Array&lt;JsonpatchoperationV1&gt; = [{"op":"add","path":"/attributes/-","value":{"name":"location","type":"STRING","schema":null,"description":"Employee location","isMulti":false,"isEntitlement":false,"isGroup":false}}]; // Array<JsonpatchoperationV1> | The JSONPatch payload used to update the schema.
-        const result = await apiInstance.updateSourceSchemaV1(sourceId, schemaId, jsonpatchoperationV1);
+        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"add","path":"/attributes/-","value":{"name":"location","type":"STRING","schema":null,"description":"Employee location","isMulti":false,"isEntitlement":false,"isGroup":false}}]; // Array<Jsonpatchoperation> | The JSONPatch payload used to update the schema.
+        const result = await apiInstance.updateSourceSchemaV1({ sourceId: sourceId, schemaId: schemaId, jsonpatchoperation: jsonpatchoperation });
         console.log(result);
 - path: /sources/v1/{id}
   method: PATCH
@@ -887,13 +832,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#update-source-v1
       source: |
-        import { SourcesV1Api } from 'sailpoint-api-client';
+        import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourcesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
         const id: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
-        const jsonpatchoperationV1: Array&lt;JsonpatchoperationV1&gt; = [{"op":"replace","path":"/description","value":"new description"}]; // Array<JsonpatchoperationV1> | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
-        const result = await apiInstance.updateSourceV1(id, jsonpatchoperationV1);
+        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/description","value":"new description"}]; // Array<Jsonpatchoperation> | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
+        const result = await apiInstance.updateSourceV1({ id: id, jsonpatchoperation: jsonpatchoperation });
         console.log(result);

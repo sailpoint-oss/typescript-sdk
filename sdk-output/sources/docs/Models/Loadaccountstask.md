@@ -1,20 +1,20 @@
 ---
-id: v1-loadaccountstask-v1
-title: LoadaccountstaskV1
-pagination_label: LoadaccountstaskV1
-sidebar_label: LoadaccountstaskV1
+id: v1-loadaccountstask
+title: Loadaccountstask
+pagination_label: Loadaccountstask
+sidebar_label: Loadaccountstask
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'LoadaccountstaskV1', 'v1LoadaccountstaskV1']
-slug: /tools/sdk/typescript/sources/models/loadaccountstask-v1
-tags: ['SDK', 'Software Development Kit', 'LoadaccountstaskV1', 'v1LoadaccountstaskV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Loadaccountstask', 'v1Loadaccountstask']
+slug: /tools/sdk/typescript/sources/models/loadaccountstask
+tags: ['SDK', 'Software Development Kit', 'Loadaccountstask', 'v1Loadaccountstask']
 ---
 
-# LoadaccountstaskV1
+# Loadaccountstask
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**success** | **(optional)** **boolean** | The status of the result | [default to true]
-**task** | **(optional)** **LoadaccountstaskTaskV1** |  | [default to undefined]
+**success** | **(optional)** `boolean` | The status of the result | [default to true]
+**task** | **(optional)** `LoadaccountstaskTask` |  | [default to undefined]
 

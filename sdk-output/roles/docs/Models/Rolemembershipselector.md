@@ -1,21 +1,21 @@
 ---
-id: v1-rolemembershipselector-v1
-title: RolemembershipselectorV1
-pagination_label: RolemembershipselectorV1
-sidebar_label: RolemembershipselectorV1
+id: v1-rolemembershipselector
+title: Rolemembershipselector
+pagination_label: Rolemembershipselector
+sidebar_label: Rolemembershipselector
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RolemembershipselectorV1', 'v1RolemembershipselectorV1']
-slug: /tools/sdk/typescript/roles/models/rolemembershipselector-v1
-tags: ['SDK', 'Software Development Kit', 'RolemembershipselectorV1', 'v1RolemembershipselectorV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Rolemembershipselector', 'v1Rolemembershipselector']
+slug: /tools/sdk/typescript/roles/models/rolemembershipselector
+tags: ['SDK', 'Software Development Kit', 'Rolemembershipselector', 'v1Rolemembershipselector']
 ---
 
-# RolemembershipselectorV1
+# Rolemembershipselector
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **RolemembershipselectortypeV1** |  | [default to undefined]
-**criteria** | **(optional)** **Rolecriterialevel1V1** |  | [default to undefined]
-**identities** | **(optional)** **Array&lt;RolemembershipidentityV1&gt;** | Defines role membership as being exclusive to the specified Identities, when type is IDENTITY_LIST. | [default to undefined]
+**type** | **(optional)** `Rolemembershipselectortype` |  | [default to undefined]
+**criteria** | **(optional)** `Rolecriterialevel1` |  | [default to undefined]
+**identities** | **(optional)** `Array<Rolemembershipidentity>` | Defines role membership as being exclusive to the specified Identities, when type is IDENTITY_LIST. | [default to undefined]
 

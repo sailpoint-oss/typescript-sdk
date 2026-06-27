@@ -4,14 +4,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_profiles/methods/access-profiles#create-access-profile-v1
       source: |
-        import { AccessProfilesV1Api } from 'sailpoint-api-client';
+        import { AccessProfilesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessProfilesV1Api(configuration);
-        const accessprofileV1: AccessprofileV1 = ; // AccessprofileV1 | 
-        const result = await apiInstance.createAccessProfileV1(accessprofileV1);
+        const configuration = new Configuration();
+        const apiInstance = new AccessProfilesApi(configuration);
+        const accessprofile: Accessprofile = ; // Accessprofile | 
+        const result = await apiInstance.createAccessProfileV1({ accessprofile: accessprofile });
         console.log(result);
 - path: /access-profiles/v1/{id}
   method: DELETE
@@ -19,14 +18,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_profiles/methods/access-profiles#delete-access-profile-v1
       source: |
-        import { AccessProfilesV1Api } from 'sailpoint-api-client';
+        import { AccessProfilesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessProfilesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AccessProfilesApi(configuration);
         const id: string = '2c91808a7813090a017814121919ecca'; // string | ID of the Access Profile to delete (default to undefined)
-        const result = await apiInstance.deleteAccessProfileV1(id);
+        const result = await apiInstance.deleteAccessProfileV1({ id: id });
         console.log(result);
 - path: /access-profiles/v1/bulk-delete
   method: POST
@@ -34,14 +32,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_profiles/methods/access-profiles#delete-access-profiles-in-bulk-v1
       source: |
-        import { AccessProfilesV1Api } from 'sailpoint-api-client';
+        import { AccessProfilesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessProfilesV1Api(configuration);
-        const accessprofilebulkdeleterequestV1: AccessprofilebulkdeleterequestV1 = {"bestEffortOnly":true,"accessProfileIds":["2c91808876438bb2017668b91919ecca","2c91808876438ba801766e129f151816"]}; // AccessprofilebulkdeleterequestV1 | 
-        const result = await apiInstance.deleteAccessProfilesInBulkV1(accessprofilebulkdeleterequestV1);
+        const configuration = new Configuration();
+        const apiInstance = new AccessProfilesApi(configuration);
+        const accessprofilebulkdeleterequest: Accessprofilebulkdeleterequest = {"bestEffortOnly":true,"accessProfileIds":["2c91808876438bb2017668b91919ecca","2c91808876438ba801766e129f151816"]}; // Accessprofilebulkdeleterequest | 
+        const result = await apiInstance.deleteAccessProfilesInBulkV1({ accessprofilebulkdeleterequest: accessprofilebulkdeleterequest });
         console.log(result);
 - path: /access-profiles/v1/{id}/entitlements
   method: GET
@@ -49,19 +46,18 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_profiles/methods/access-profiles#get-access-profile-entitlements-v1
       source: |
-        import { AccessProfilesV1Api } from 'sailpoint-api-client';
+        import { AccessProfilesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessProfilesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AccessProfilesApi(configuration);
         const id: string = '2c91808a7813090a017814121919ecca'; // string | ID of the access profile containing the entitlements. (default to undefined)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const filters: string = 'attribute eq "memberOf"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **attribute**: *eq, sw*  **value**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in*  Filtering is not supported for access profiles and entitlements that have the \'+\' symbol in their names.  (optional) (default to undefined)
         const sorters: string = 'name,-modified'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified** (optional) (default to undefined)
-        const result = await apiInstance.getAccessProfileEntitlementsV1(id);
+        const result = await apiInstance.getAccessProfileEntitlementsV1({ id: id });
         console.log(result);
 - path: /access-profiles/v1/{id}
   method: GET
@@ -69,14 +65,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_profiles/methods/access-profiles#get-access-profile-v1
       source: |
-        import { AccessProfilesV1Api } from 'sailpoint-api-client';
+        import { AccessProfilesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessProfilesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AccessProfilesApi(configuration);
         const id: string = '2c9180837ca6693d017ca8d097500149'; // string | ID of the Access Profile (default to undefined)
-        const result = await apiInstance.getAccessProfileV1(id);
+        const result = await apiInstance.getAccessProfileV1({ id: id });
         console.log(result);
 - path: /access-profiles/v1
   method: GET
@@ -84,12 +79,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_profiles/methods/access-profiles#list-access-profiles-v1
       source: |
-        import { AccessProfilesV1Api } from 'sailpoint-api-client';
+        import { AccessProfilesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessProfilesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AccessProfilesApi(configuration);
         const forSubadmin: string = '8c190e6787aa4ed9a90bd9d5344523fb'; // string | Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID or the special value **me**, which is shorthand for the calling identity\'s ID.  If you specify an identity that isn\'t a subadmin, the API returns a 400 Bad Request error. (optional) (default to undefined)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -98,7 +92,7 @@
         const sorters: string = 'name,-modified'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional) (default to undefined)
         const forSegmentIds: string = '0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d'; // string | Filters access profiles to only those assigned to the segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error. (optional) (default to undefined)
         const includeUnsegmented: boolean = false; // boolean | Indicates whether the response list should contain unsegmented access profiles. If `for-segment-ids` is absent or empty, specifying *include-unsegmented* as `false` results in an error. (optional) (default to true)
-        const result = await apiInstance.listAccessProfilesV1();
+        const result = await apiInstance.listAccessProfilesV1({  });
         console.log(result);
 - path: /access-profiles/v1/{id}
   method: PATCH
@@ -106,15 +100,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_profiles/methods/access-profiles#patch-access-profile-v1
       source: |
-        import { AccessProfilesV1Api } from 'sailpoint-api-client';
+        import { AccessProfilesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessProfilesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AccessProfilesApi(configuration);
         const id: string = '2c91808a7813090a017814121919ecca'; // string | ID of the Access Profile to patch (default to undefined)
-        const jsonpatchoperationV1: Array&lt;JsonpatchoperationV1&gt; = [{"op":"add","path":"/entitlements","value":[{"id":"2c9180857725c14301772a93bb77242d","type":"ENTITLEMENT","name":"AD User Group"}]}]; // Array<JsonpatchoperationV1> | 
-        const result = await apiInstance.patchAccessProfileV1(id, jsonpatchoperationV1);
+        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"add","path":"/entitlements","value":[{"id":"2c9180857725c14301772a93bb77242d","type":"ENTITLEMENT","name":"AD User Group"}]}]; // Array<Jsonpatchoperation> | 
+        const result = await apiInstance.patchAccessProfileV1({ id: id, jsonpatchoperation: jsonpatchoperation });
         console.log(result);
 - path: /access-profiles/v1/bulk-update-requestable
   method: POST
@@ -122,13 +115,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_profiles/methods/access-profiles#update-access-profiles-in-bulk-v1
       source: |
-        import { AccessProfilesV1Api } from 'sailpoint-api-client';
+        import { AccessProfilesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessProfilesV1Api(configuration);
-        const accessprofilebulkupdaterequestInnerV1: Array&lt;AccessprofilebulkupdaterequestInnerV1&gt; = [{"id":"464ae7bf-791e-49fd-b746-06a2e4a89635","requestable":false}]; // Array<AccessprofilebulkupdaterequestInnerV1> | 
+        const configuration = new Configuration();
+        const apiInstance = new AccessProfilesApi(configuration);
+        const accessprofilebulkupdaterequestInner: Array&lt;AccessprofilebulkupdaterequestInner&gt; = [{"id":"464ae7bf-791e-49fd-b746-06a2e4a89635","requestable":false}]; // Array<AccessprofilebulkupdaterequestInner> | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.updateAccessProfilesInBulkV1(accessprofilebulkupdaterequestInnerV1);
+        const result = await apiInstance.updateAccessProfilesInBulkV1({ accessprofilebulkupdaterequestInner: accessprofilebulkupdaterequestInner });
         console.log(result);

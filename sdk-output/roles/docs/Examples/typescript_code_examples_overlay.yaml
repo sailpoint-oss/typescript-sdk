@@ -4,14 +4,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#create-role-v1
       source: |
-        import { RolesV1Api } from 'sailpoint-api-client';
+        import { RolesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new RolesV1Api(configuration);
-        const roleV1: RoleV1 = ; // RoleV1 | 
-        const result = await apiInstance.createRoleV1(roleV1);
+        const configuration = new Configuration();
+        const apiInstance = new RolesApi(configuration);
+        const role: Role = ; // Role | 
+        const result = await apiInstance.createRoleV1({ role: role });
         console.log(result);
 - path: /roles/v1/bulk-delete
   method: POST
@@ -19,14 +18,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#delete-bulk-roles-v1
       source: |
-        import { RolesV1Api } from 'sailpoint-api-client';
+        import { RolesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new RolesV1Api(configuration);
-        const rolebulkdeleterequestV1: RolebulkdeleterequestV1 = {"roleIds":["2c91808876438bb2017668b91919ecca","2c91808876438ba801766e129f151816"]}; // RolebulkdeleterequestV1 | 
-        const result = await apiInstance.deleteBulkRolesV1(rolebulkdeleterequestV1);
+        const configuration = new Configuration();
+        const apiInstance = new RolesApi(configuration);
+        const rolebulkdeleterequest: Rolebulkdeleterequest = {"roleIds":["2c91808876438bb2017668b91919ecca","2c91808876438ba801766e129f151816"]}; // Rolebulkdeleterequest | 
+        const result = await apiInstance.deleteBulkRolesV1({ rolebulkdeleterequest: rolebulkdeleterequest });
         console.log(result);
 - path: /roles/v1/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}
   method: DELETE
@@ -34,16 +32,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#delete-metadata-from-role-by-key-and-value-v1
       source: |
-        import { RolesV1Api } from 'sailpoint-api-client';
+        import { RolesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new RolesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new RolesApi(configuration);
         const id: string = '2c91808c74ff913f0175097daa9d59cd'; // string | The role\'s id. (default to undefined)
         const attributeKey: string = 'iscPrivacy'; // string | Technical name of the Attribute. (default to undefined)
         const attributeValue: string = 'public'; // string | Technical name of the Attribute Value. (default to undefined)
-        const result = await apiInstance.deleteMetadataFromRoleByKeyAndValueV1(id, attributeKey, attributeValue);
+        const result = await apiInstance.deleteMetadataFromRoleByKeyAndValueV1({ id: id, attributeKey: attributeKey, attributeValue: attributeValue });
         console.log(result);
 - path: /roles/v1/{id}
   method: DELETE
@@ -51,14 +48,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#delete-role-v1
       source: |
-        import { RolesV1Api } from 'sailpoint-api-client';
+        import { RolesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new RolesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new RolesApi(configuration);
         const id: string = '2c91808a7813090a017814121e121518'; // string | ID of the Role (default to undefined)
-        const result = await apiInstance.deleteRoleV1(id);
+        const result = await apiInstance.deleteRoleV1({ id: id });
         console.log(result);
 - path: /roles/v1/access-model-metadata/bulk-update/id
   method: GET
@@ -66,14 +62,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#get-bulk-update-status-by-id-v1
       source: |
-        import { RolesV1Api } from 'sailpoint-api-client';
+        import { RolesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new RolesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new RolesApi(configuration);
         const id: string = 'c24359c389374d0fb8585698a2189e3d'; // string | The Id of the bulk update task. (default to undefined)
-        const result = await apiInstance.getBulkUpdateStatusByIdV1(id);
+        const result = await apiInstance.getBulkUpdateStatusByIdV1({ id: id });
         console.log(result);
 - path: /roles/v1/access-model-metadata/bulk-update
   method: GET
@@ -81,13 +76,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#get-bulk-update-status-v1
       source: |
-        import { RolesV1Api } from 'sailpoint-api-client';
+        import { RolesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new RolesV1Api(configuration);
-        const result = await apiInstance.getBulkUpdateStatusV1();
+        const configuration = new Configuration();
+        const apiInstance = new RolesApi(configuration);
+        const result = await apiInstance.getBulkUpdateStatusV1({  });
         console.log(result);
 - path: /roles/v1/{id}/assigned-identities
   method: GET
@@ -95,19 +89,18 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#get-role-assigned-identities-v1
       source: |
-        import { RolesV1Api } from 'sailpoint-api-client';
+        import { RolesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new RolesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new RolesApi(configuration);
         const id: string = '2c91808a7813090a017814121e121518'; // string | ID of the Role for which the assigned Identities are to be listed (default to undefined)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const filters: string = 'name sw Joe'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **aliasName**: *eq, sw*  **email**: *eq, sw*  **name**: *eq, sw, co* (optional) (default to undefined)
         const sorters: string = 'aliasName,name'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, aliasName, email** (optional) (default to undefined)
-        const result = await apiInstance.getRoleAssignedIdentitiesV1(id);
+        const result = await apiInstance.getRoleAssignedIdentitiesV1({ id: id });
         console.log(result);
 - path: /roles/v1/{id}/entitlements
   method: GET
@@ -115,12 +108,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#get-role-entitlements-v1
       source: |
-        import { RolesV1Api } from 'sailpoint-api-client';
+        import { RolesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new RolesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new RolesApi(configuration);
         const id: string = '2c91808a7813090a017814121919ecca'; // string | Containing role\'s ID. (default to undefined)
         const limit: number = 50; // number | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -128,7 +120,7 @@
         const filters: string = 'attribute eq "memberOf"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **attribute**: *eq, sw*  **value**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in* (optional) (default to undefined)
         const sorters: string = 'name,-modified'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified** (optional) (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.getRoleEntitlementsV1(id);
+        const result = await apiInstance.getRoleEntitlementsV1({ id: id });
         console.log(result);
 - path: /roles/v1/{id}
   method: GET
@@ -136,14 +128,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#get-role-v1
       source: |
-        import { RolesV1Api } from 'sailpoint-api-client';
+        import { RolesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new RolesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new RolesApi(configuration);
         const id: string = '2c91808a7813090a017814121e121518'; // string | ID of the Role (default to undefined)
-        const result = await apiInstance.getRoleV1(id);
+        const result = await apiInstance.getRoleV1({ id: id });
         console.log(result);
 - path: /roles/v1
   method: GET
@@ -151,12 +142,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#list-roles-v1
       source: |
-        import { RolesV1Api } from 'sailpoint-api-client';
+        import { RolesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new RolesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new RolesApi(configuration);
         const forSubadmin: string = '5168015d32f890ca15812c9180835d2e'; // string | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\'s ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional) (default to undefined)
         const limit: number = 50; // number | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -165,7 +155,7 @@
         const sorters: string = 'name,-modified'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional) (default to undefined)
         const forSegmentIds: string = '0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d'; // string | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error. (optional) (default to undefined)
         const includeUnsegmented: boolean = false; // boolean | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional) (default to true)
-        const result = await apiInstance.listRolesV1();
+        const result = await apiInstance.listRolesV1({  });
         console.log(result);
 - path: /roles/v1/{id}
   method: PATCH
@@ -173,15 +163,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#patch-role-v1
       source: |
-        import { RolesV1Api } from 'sailpoint-api-client';
+        import { RolesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new RolesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new RolesApi(configuration);
         const id: string = '2c91808a7813090a017814121e121518'; // string | ID of the Role to patch (default to undefined)
-        const jsonpatchoperationV1: Array&lt;JsonpatchoperationV1&gt; = [{"op":"replace","path":"/requestable","value":true},{"op":"replace","path":"/enabled","value":true}]; // Array<JsonpatchoperationV1> | 
-        const result = await apiInstance.patchRoleV1(id, jsonpatchoperationV1);
+        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/requestable","value":true},{"op":"replace","path":"/enabled","value":true}]; // Array<Jsonpatchoperation> | 
+        const result = await apiInstance.patchRoleV1({ id: id, jsonpatchoperation: jsonpatchoperation });
         console.log(result);
 - path: /roles/v1/filter
   method: POST
@@ -189,12 +178,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#search-roles-by-filter-v1
       source: |
-        import { RolesV1Api } from 'sailpoint-api-client';
+        import { RolesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new RolesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new RolesApi(configuration);
         const forSubadmin: string = '5168015d32f890ca15812c9180835d2e'; // string | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\'s ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional) (default to undefined)
         const limit: number = 50; // number | Max number of results to return See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -202,8 +190,8 @@
         const sorters: string = 'name,-modified'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional) (default to undefined)
         const forSegmentIds: string = '0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d'; // string | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error. (optional) (default to undefined)
         const includeUnsegmented: boolean = false; // boolean | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional) (default to true)
-        const rolelistfilterdtoV1: RolelistfilterdtoV1 = {"filters":"dimensional eq false","ammKeyValues":[{"attribute":"iscFederalClassifications","values":["secret"]}]}; // RolelistfilterdtoV1 |  (optional)
-        const result = await apiInstance.searchRolesByFilterV1();
+        const rolelistfilterdto: Rolelistfilterdto = {"filters":"dimensional eq false","ammKeyValues":[{"attribute":"iscFederalClassifications","values":["secret"]}]}; // Rolelistfilterdto |  (optional)
+        const result = await apiInstance.searchRolesByFilterV1({  });
         console.log(result);
 - path: /roles/v1/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}
   method: POST
@@ -211,16 +199,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#update-attribute-key-and-value-to-role-v1
       source: |
-        import { RolesV1Api } from 'sailpoint-api-client';
+        import { RolesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new RolesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new RolesApi(configuration);
         const id: string = 'c24359c389374d0fb8585698a2189e3d'; // string | The Id of a role (default to undefined)
         const attributeKey: string = 'iscPrivacy'; // string | Technical name of the Attribute. (default to undefined)
         const attributeValue: string = 'public'; // string | Technical name of the Attribute Value. (default to undefined)
-        const result = await apiInstance.updateAttributeKeyAndValueToRoleV1(id, attributeKey, attributeValue);
+        const result = await apiInstance.updateAttributeKeyAndValueToRoleV1({ id: id, attributeKey: attributeKey, attributeValue: attributeValue });
         console.log(result);
 - path: /roles/v1/access-model-metadata/bulk-update/filter
   method: POST
@@ -228,14 +215,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#update-roles-metadata-by-filter-v1
       source: |
-        import { RolesV1Api } from 'sailpoint-api-client';
+        import { RolesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new RolesV1Api(configuration);
-        const rolemetadatabulkupdatebyfilterrequestV1: RolemetadatabulkupdatebyfilterrequestV1 = {"operation":"ADD","replaceScope":"ALL","filters":"requestable eq false","values":[{"attribute":"iscFederalClassifications","values":["topSecret"]}]}; // RolemetadatabulkupdatebyfilterrequestV1 | 
-        const result = await apiInstance.updateRolesMetadataByFilterV1(rolemetadatabulkupdatebyfilterrequestV1);
+        const configuration = new Configuration();
+        const apiInstance = new RolesApi(configuration);
+        const rolemetadatabulkupdatebyfilterrequest: Rolemetadatabulkupdatebyfilterrequest = {"operation":"ADD","replaceScope":"ALL","filters":"requestable eq false","values":[{"attribute":"iscFederalClassifications","values":["topSecret"]}]}; // Rolemetadatabulkupdatebyfilterrequest | 
+        const result = await apiInstance.updateRolesMetadataByFilterV1({ rolemetadatabulkupdatebyfilterrequest: rolemetadatabulkupdatebyfilterrequest });
         console.log(result);
 - path: /roles/v1/access-model-metadata/bulk-update/ids
   method: POST
@@ -243,14 +229,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#update-roles-metadata-by-ids-v1
       source: |
-        import { RolesV1Api } from 'sailpoint-api-client';
+        import { RolesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new RolesV1Api(configuration);
-        const rolemetadatabulkupdatebyidrequestV1: RolemetadatabulkupdatebyidrequestV1 = ; // RolemetadatabulkupdatebyidrequestV1 | 
-        const result = await apiInstance.updateRolesMetadataByIdsV1(rolemetadatabulkupdatebyidrequestV1);
+        const configuration = new Configuration();
+        const apiInstance = new RolesApi(configuration);
+        const rolemetadatabulkupdatebyidrequest: Rolemetadatabulkupdatebyidrequest = ; // Rolemetadatabulkupdatebyidrequest | 
+        const result = await apiInstance.updateRolesMetadataByIdsV1({ rolemetadatabulkupdatebyidrequest: rolemetadatabulkupdatebyidrequest });
         console.log(result);
 - path: /roles/v1/access-model-metadata/bulk-update/query
   method: POST
@@ -258,12 +243,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#update-roles-metadata-by-query-v1
       source: |
-        import { RolesV1Api } from 'sailpoint-api-client';
+        import { RolesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new RolesV1Api(configuration);
-        const rolemetadatabulkupdatebyqueryrequestV1: RolemetadatabulkupdatebyqueryrequestV1 = {"example of a success update":{"query":{"indices":["roles"],"queryType":"TEXT","textQuery":{"terms":["test123"],"fields":["id"],"matchAny":false,"contains":true},"includeNested":false},"operation":"REPLACE","replaceScope":"ALL","values":[{"attribute":"iscFederalClassifications","values":["secret"]}]}}; // RolemetadatabulkupdatebyqueryrequestV1 | 
-        const result = await apiInstance.updateRolesMetadataByQueryV1(rolemetadatabulkupdatebyqueryrequestV1);
+        const configuration = new Configuration();
+        const apiInstance = new RolesApi(configuration);
+        const rolemetadatabulkupdatebyqueryrequest: Rolemetadatabulkupdatebyqueryrequest = {"example of a success update":{"query":{"indices":["roles"],"queryType":"TEXT","textQuery":{"terms":["test123"],"fields":["id"],"matchAny":false,"contains":true},"includeNested":false},"operation":"REPLACE","replaceScope":"ALL","values":[{"attribute":"iscFederalClassifications","values":["secret"]}]}}; // Rolemetadatabulkupdatebyqueryrequest | 
+        const result = await apiInstance.updateRolesMetadataByQueryV1({ rolemetadatabulkupdatebyqueryrequest: rolemetadatabulkupdatebyqueryrequest });
         console.log(result);

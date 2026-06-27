@@ -1,20 +1,20 @@
 ---
-id: v1-sodpolicy-conflicting-access-criteria-v1
-title: SodpolicyConflictingAccessCriteriaV1
-pagination_label: SodpolicyConflictingAccessCriteriaV1
-sidebar_label: SodpolicyConflictingAccessCriteriaV1
+id: v1-sodpolicy-conflicting-access-criteria
+title: SodpolicyConflictingAccessCriteria
+pagination_label: SodpolicyConflictingAccessCriteria
+sidebar_label: SodpolicyConflictingAccessCriteria
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SodpolicyConflictingAccessCriteriaV1', 'v1SodpolicyConflictingAccessCriteriaV1']
-slug: /tools/sdk/typescript/sod_policies/models/sodpolicy-conflicting-access-criteria-v1
-tags: ['SDK', 'Software Development Kit', 'SodpolicyConflictingAccessCriteriaV1', 'v1SodpolicyConflictingAccessCriteriaV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'SodpolicyConflictingAccessCriteria', 'v1SodpolicyConflictingAccessCriteria']
+slug: /tools/sdk/typescript/sod_policies/models/sodpolicy-conflicting-access-criteria
+tags: ['SDK', 'Software Development Kit', 'SodpolicyConflictingAccessCriteria', 'v1SodpolicyConflictingAccessCriteria']
 ---
 
-# SodpolicyConflictingAccessCriteriaV1
+# SodpolicyConflictingAccessCriteria
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**leftCriteria** | **(optional)** **AccesscriteriaV1** |  | [default to undefined]
-**rightCriteria** | **(optional)** **AccesscriteriaV1** |  | [default to undefined]
+**leftCriteria** | **(optional)** `Accesscriteria` |  | [default to undefined]
+**rightCriteria** | **(optional)** `Accesscriteria` |  | [default to undefined]
 

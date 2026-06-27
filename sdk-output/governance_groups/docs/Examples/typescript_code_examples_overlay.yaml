@@ -4,14 +4,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/governance_groups/methods/governance-groups#create-workgroup-v1
       source: |
-        import { GovernanceGroupsV1Api } from 'sailpoint-api-client';
+        import { GovernanceGroupsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new GovernanceGroupsV1Api(configuration);
-        const workgroupdtoV1: WorkgroupdtoV1 = ; // WorkgroupdtoV1 | 
-        const result = await apiInstance.createWorkgroupV1(workgroupdtoV1);
+        const configuration = new Configuration();
+        const apiInstance = new GovernanceGroupsApi(configuration);
+        const workgroupdto: Workgroupdto = ; // Workgroupdto | 
+        const result = await apiInstance.createWorkgroupV1({ workgroupdto: workgroupdto });
         console.log(result);
 - path: /workgroups/v1/{workgroupId}/members/bulk-delete
   method: POST
@@ -19,15 +18,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/governance_groups/methods/governance-groups#delete-workgroup-members-v1
       source: |
-        import { GovernanceGroupsV1Api } from 'sailpoint-api-client';
+        import { GovernanceGroupsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new GovernanceGroupsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new GovernanceGroupsApi(configuration);
         const workgroupId: string = '2c91808a7813090a017814121919ecca'; // string | ID of the Governance Group. (default to undefined)
-        const bulkworkgroupmembersrequestInnerV1: Array&lt;BulkworkgroupmembersrequestInnerV1&gt; = ; // Array<BulkworkgroupmembersrequestInnerV1> | List of identities to be removed from  a Governance Group members list.
-        const result = await apiInstance.deleteWorkgroupMembersV1(workgroupId, bulkworkgroupmembersrequestInnerV1);
+        const bulkworkgroupmembersrequestInner: Array&lt;BulkworkgroupmembersrequestInner&gt; = ; // Array<BulkworkgroupmembersrequestInner> | List of identities to be removed from  a Governance Group members list.
+        const result = await apiInstance.deleteWorkgroupMembersV1({ workgroupId: workgroupId, bulkworkgroupmembersrequestInner: bulkworkgroupmembersrequestInner });
         console.log(result);
 - path: /workgroups/v1/{id}
   method: DELETE
@@ -35,14 +33,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/governance_groups/methods/governance-groups#delete-workgroup-v1
       source: |
-        import { GovernanceGroupsV1Api } from 'sailpoint-api-client';
+        import { GovernanceGroupsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new GovernanceGroupsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new GovernanceGroupsApi(configuration);
         const id: string = '2c9180837ca6693d017ca8d097500149'; // string | ID of the Governance Group (default to undefined)
-        const result = await apiInstance.deleteWorkgroupV1(id);
+        const result = await apiInstance.deleteWorkgroupV1({ id: id });
         console.log(result);
 - path: /workgroups/v1/bulk-delete
   method: POST
@@ -50,14 +47,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/governance_groups/methods/governance-groups#delete-workgroups-in-bulk-v1
       source: |
-        import { GovernanceGroupsV1Api } from 'sailpoint-api-client';
+        import { GovernanceGroupsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new GovernanceGroupsV1Api(configuration);
-        const workgroupbulkdeleterequestV1: WorkgroupbulkdeleterequestV1 = {"ids":["567a697e-885b-495a-afc5-d55e1c23a302","c7b0f7b2-1e78-4063-b294-a555333dacd2"]}; // WorkgroupbulkdeleterequestV1 | 
-        const result = await apiInstance.deleteWorkgroupsInBulkV1(workgroupbulkdeleterequestV1);
+        const configuration = new Configuration();
+        const apiInstance = new GovernanceGroupsApi(configuration);
+        const workgroupbulkdeleterequest: Workgroupbulkdeleterequest = {"ids":["567a697e-885b-495a-afc5-d55e1c23a302","c7b0f7b2-1e78-4063-b294-a555333dacd2"]}; // Workgroupbulkdeleterequest | 
+        const result = await apiInstance.deleteWorkgroupsInBulkV1({ workgroupbulkdeleterequest: workgroupbulkdeleterequest });
         console.log(result);
 - path: /workgroups/v1/{id}
   method: GET
@@ -65,14 +61,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/governance_groups/methods/governance-groups#get-workgroup-v1
       source: |
-        import { GovernanceGroupsV1Api } from 'sailpoint-api-client';
+        import { GovernanceGroupsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new GovernanceGroupsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new GovernanceGroupsApi(configuration);
         const id: string = '2c9180837ca6693d017ca8d097500149'; // string | ID of the Governance Group (default to undefined)
-        const result = await apiInstance.getWorkgroupV1(id);
+        const result = await apiInstance.getWorkgroupV1({ id: id });
         console.log(result);
 - path: /workgroups/v1/{workgroupId}/connections
   method: GET
@@ -80,18 +75,17 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/governance_groups/methods/governance-groups#list-connections-v1
       source: |
-        import { GovernanceGroupsV1Api } from 'sailpoint-api-client';
+        import { GovernanceGroupsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new GovernanceGroupsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new GovernanceGroupsApi(configuration);
         const workgroupId: string = '2c91808a7813090a017814121919ecca'; // string | ID of the Governance Group. (default to undefined)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const limit: number = 50; // number | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const sorters: string = 'name,-modified'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional) (default to undefined)
-        const result = await apiInstance.listConnectionsV1(workgroupId);
+        const result = await apiInstance.listConnectionsV1({ workgroupId: workgroupId });
         console.log(result);
 - path: /workgroups/v1/{workgroupId}/members
   method: GET
@@ -99,18 +93,17 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/governance_groups/methods/governance-groups#list-workgroup-members-v1
       source: |
-        import { GovernanceGroupsV1Api } from 'sailpoint-api-client';
+        import { GovernanceGroupsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new GovernanceGroupsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new GovernanceGroupsApi(configuration);
         const workgroupId: string = '2c91808a7813090a017814121919ecca'; // string | ID of the Governance Group. (default to undefined)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const limit: number = 50; // number | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const sorters: string = 'name,-modified'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional) (default to undefined)
-        const result = await apiInstance.listWorkgroupMembersV1(workgroupId);
+        const result = await apiInstance.listWorkgroupMembersV1({ workgroupId: workgroupId });
         console.log(result);
 - path: /workgroups/v1
   method: GET
@@ -118,18 +111,17 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/governance_groups/methods/governance-groups#list-workgroups-v1
       source: |
-        import { GovernanceGroupsV1Api } from 'sailpoint-api-client';
+        import { GovernanceGroupsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new GovernanceGroupsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new GovernanceGroupsApi(configuration);
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const filters: string = 'name sw "Test"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, sw, in*  **memberships.identityId**: *eq, in* (optional) (default to undefined)
         const sorters: string = 'name,-modified'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified, id, description** (optional) (default to undefined)
-        const result = await apiInstance.listWorkgroupsV1();
+        const result = await apiInstance.listWorkgroupsV1({  });
         console.log(result);
 - path: /workgroups/v1/{id}
   method: PATCH
@@ -137,15 +129,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/governance_groups/methods/governance-groups#patch-workgroup-v1
       source: |
-        import { GovernanceGroupsV1Api } from 'sailpoint-api-client';
+        import { GovernanceGroupsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new GovernanceGroupsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new GovernanceGroupsApi(configuration);
         const id: string = '2c9180837ca6693d017ca8d097500149'; // string | ID of the Governance Group (default to undefined)
-        const jsonpatchoperationV1: Array&lt;JsonpatchoperationV1&gt; = [{"op":"replace","path":"/description","value":"Governance Group new description."}]; // Array<JsonpatchoperationV1> |  (optional)
-        const result = await apiInstance.patchWorkgroupV1(id);
+        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/description","value":"Governance Group new description."}]; // Array<Jsonpatchoperation> |  (optional)
+        const result = await apiInstance.patchWorkgroupV1({ id: id });
         console.log(result);
 - path: /workgroups/v1/{workgroupId}/members/bulk-add
   method: POST
@@ -153,13 +144,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/governance_groups/methods/governance-groups#update-workgroup-members-v1
       source: |
-        import { GovernanceGroupsV1Api } from 'sailpoint-api-client';
+        import { GovernanceGroupsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new GovernanceGroupsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new GovernanceGroupsApi(configuration);
         const workgroupId: string = '2c91808a7813090a017814121919ecca'; // string | ID of the Governance Group. (default to undefined)
-        const bulkworkgroupmembersrequestInnerV1: Array&lt;BulkworkgroupmembersrequestInnerV1&gt; = ; // Array<BulkworkgroupmembersrequestInnerV1> | List of identities to be added to a Governance Group members list.
-        const result = await apiInstance.updateWorkgroupMembersV1(workgroupId, bulkworkgroupmembersrequestInnerV1);
+        const bulkworkgroupmembersrequestInner: Array&lt;BulkworkgroupmembersrequestInner&gt; = ; // Array<BulkworkgroupmembersrequestInner> | List of identities to be added to a Governance Group members list.
+        const result = await apiInstance.updateWorkgroupMembersV1({ workgroupId: workgroupId, bulkworkgroupmembersrequestInner: bulkworkgroupmembersrequestInner });
         console.log(result);

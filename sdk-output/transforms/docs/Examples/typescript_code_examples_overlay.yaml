@@ -4,14 +4,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/transforms/methods/transforms#create-transform-v1
       source: |
-        import { TransformsV1Api } from 'sailpoint-api-client';
+        import { TransformsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new TransformsV1Api(configuration);
-        const transformV1: TransformV1 = {"name":"Timestamp To Date","type":"dateFormat","attributes":{"inputFormat":"MMM dd yyyy, HH:mm:ss.SSS","outputFormat":"yyyy/dd/MM"}}; // TransformV1 | The transform to be created.
-        const result = await apiInstance.createTransformV1(transformV1);
+        const configuration = new Configuration();
+        const apiInstance = new TransformsApi(configuration);
+        const transform: Transform = {"name":"Timestamp To Date","type":"dateFormat","attributes":{"inputFormat":"MMM dd yyyy, HH:mm:ss.SSS","outputFormat":"yyyy/dd/MM"}}; // Transform | The transform to be created.
+        const result = await apiInstance.createTransformV1({ transform: transform });
         console.log(result);
 - path: /transforms/v1/{id}
   method: DELETE
@@ -19,14 +18,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/transforms/methods/transforms#delete-transform-v1
       source: |
-        import { TransformsV1Api } from 'sailpoint-api-client';
+        import { TransformsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new TransformsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new TransformsApi(configuration);
         const id: string = '2cd78adghjkja34jh2b1hkjhasuecd'; // string | ID of the transform to delete (default to undefined)
-        const result = await apiInstance.deleteTransformV1(id);
+        const result = await apiInstance.deleteTransformV1({ id: id });
         console.log(result);
 - path: /transforms/v1/{id}
   method: GET
@@ -34,14 +32,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/transforms/methods/transforms#get-transform-v1
       source: |
-        import { TransformsV1Api } from 'sailpoint-api-client';
+        import { TransformsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new TransformsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new TransformsApi(configuration);
         const id: string = '2cd78adghjkja34jh2b1hkjhasuecd'; // string | ID of the transform to retrieve (default to undefined)
-        const result = await apiInstance.getTransformV1(id);
+        const result = await apiInstance.getTransformV1({ id: id });
         console.log(result);
 - path: /transforms/v1
   method: GET
@@ -49,18 +46,17 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/transforms/methods/transforms#list-transforms-v1
       source: |
-        import { TransformsV1Api } from 'sailpoint-api-client';
+        import { TransformsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new TransformsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new TransformsApi(configuration);
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const name: string = 'ExampleTransformName123'; // string | Name of the transform to retrieve from the list. (optional) (default to undefined)
         const filters: string = 'name eq "Uppercase"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **internal**: *eq*  **name**: *eq, sw* (optional) (default to undefined)
-        const result = await apiInstance.listTransformsV1();
+        const result = await apiInstance.listTransformsV1({  });
         console.log(result);
 - path: /transforms/v1/{id}
   method: PUT
@@ -68,13 +64,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/transforms/methods/transforms#update-transform-v1
       source: |
-        import { TransformsV1Api } from 'sailpoint-api-client';
+        import { TransformsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new TransformsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new TransformsApi(configuration);
         const id: string = '2cd78adghjkja34jh2b1hkjhasuecd'; // string | ID of the transform to update (default to undefined)
-        const transformV1: TransformV1 = {"name":"Timestamp To Date","type":"dateFormat","attributes":{"inputFormat":"MMM-dd-yyyy, HH:mm:ss.SSS","outputFormat":"yyyy/dd/MM"}}; // TransformV1 | The updated transform object. Must include \"name\", \"type\", and \"attributes\" fields, but \"name\" and \"type\" must not be modified. (optional)
-        const result = await apiInstance.updateTransformV1(id);
+        const transform: Transform = {"name":"Timestamp To Date","type":"dateFormat","attributes":{"inputFormat":"MMM-dd-yyyy, HH:mm:ss.SSS","outputFormat":"yyyy/dd/MM"}}; // Transform | The updated transform object. Must include \"name\", \"type\", and \"attributes\" fields, but \"name\" and \"type\" must not be modified. (optional)
+        const result = await apiInstance.updateTransformV1({ id: id });
         console.log(result);

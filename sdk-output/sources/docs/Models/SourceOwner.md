@@ -1,21 +1,21 @@
 ---
-id: v1-source-owner-v1
-title: SourceOwnerV1
-pagination_label: SourceOwnerV1
-sidebar_label: SourceOwnerV1
+id: v1-source-owner
+title: SourceOwner
+pagination_label: SourceOwner
+sidebar_label: SourceOwner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SourceOwnerV1', 'v1SourceOwnerV1']
-slug: /tools/sdk/typescript/sources/models/source-owner-v1
-tags: ['SDK', 'Software Development Kit', 'SourceOwnerV1', 'v1SourceOwnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'SourceOwner', 'v1SourceOwner']
+slug: /tools/sdk/typescript/sources/models/source-owner
+tags: ['SDK', 'Software Development Kit', 'SourceOwner', 'v1SourceOwner']
 ---
 
-# SourceOwnerV1
+# SourceOwner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | Type of object being referenced. | [default to undefined]
-**id** | **(optional)** **string** | Owner identity\'s ID. | [default to undefined]
-**name** | **(optional)** **string** | Owner identity\'s human-readable display name. | [default to undefined]
+**type** | **(optional)** `string` | Type of object being referenced. | [default to undefined]
+**id** | **(optional)** `string` | Owner identity\'s ID. | [default to undefined]
+**name** | **(optional)** `string` | Owner identity\'s human-readable display name. | [default to undefined]
 

@@ -1,21 +1,21 @@
 ---
-id: v1-jitconfiguration-v1
-title: JitconfigurationV1
-pagination_label: JitconfigurationV1
-sidebar_label: JitconfigurationV1
+id: v1-jitconfiguration
+title: Jitconfiguration
+pagination_label: Jitconfiguration
+sidebar_label: Jitconfiguration
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'JitconfigurationV1', 'v1JitconfigurationV1']
-slug: /tools/sdk/typescript/global_tenant_security_settings/models/jitconfiguration-v1
-tags: ['SDK', 'Software Development Kit', 'JitconfigurationV1', 'v1JitconfigurationV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Jitconfiguration', 'v1Jitconfiguration']
+slug: /tools/sdk/typescript/global_tenant_security_settings/models/jitconfiguration
+tags: ['SDK', 'Software Development Kit', 'Jitconfiguration', 'v1Jitconfiguration']
 ---
 
-# JitconfigurationV1
+# Jitconfiguration
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**enabled** | **(optional)** **boolean** | The indicator for just-in-time provisioning enabled | [default to false]
-**sourceId** | **(optional)** **string** | the sourceId that mapped to just-in-time provisioning configuration | [default to undefined]
+**enabled** | **(optional)** `boolean` | The indicator for just-in-time provisioning enabled | [default to false]
+**sourceId** | **(optional)** `string` | the sourceId that mapped to just-in-time provisioning configuration | [default to undefined]
 **sourceAttributeMappings** | **(optional)**  | A mapping of identity profile attribute names to SAML assertion attribute names | [default to undefined]
 

@@ -81,8 +81,8 @@ SourceSchemasInner.md
 Sourceconnectionsdto.md
 Sourceentitlementrequestconfig.md
 Sourcehealthdto.md
-SourcesV1Api.md
-SourcesV1ApideveloperSite_code_examples.yaml
+SourcesApi.md
+SourcesApideveloperSite_code_examples.yaml
 Sourcesyncjob.md
 Sourcesyncpayload.md
 Statusresponse.md

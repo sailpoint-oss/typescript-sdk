@@ -1,19 +1,19 @@
 ---
-id: v1-domainaddress-v1
-title: DomainaddressV1
-pagination_label: DomainaddressV1
-sidebar_label: DomainaddressV1
+id: v1-domainaddress
+title: Domainaddress
+pagination_label: Domainaddress
+sidebar_label: Domainaddress
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'DomainaddressV1', 'v1DomainaddressV1']
-slug: /tools/sdk/typescript/notifications/models/domainaddress-v1
-tags: ['SDK', 'Software Development Kit', 'DomainaddressV1', 'v1DomainaddressV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Domainaddress', 'v1Domainaddress']
+slug: /tools/sdk/typescript/notifications/models/domainaddress
+tags: ['SDK', 'Software Development Kit', 'Domainaddress', 'v1Domainaddress']
 ---
 
-# DomainaddressV1
+# Domainaddress
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**domain** | **(optional)** **string** | A domain address | [default to undefined]
+**domain** | **(optional)** `string` | A domain address | [default to undefined]
 

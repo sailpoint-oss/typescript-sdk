@@ -26,136 +26,136 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * Asynchronous response containing a unique tracking ID for the account request
  * @export
- * @interface AccountrequestasyncresultV1
+ * @interface Accountrequestasyncresult
  */
-export interface AccountrequestasyncresultV1 {
+export interface Accountrequestasyncresult {
     /**
      * Id of the account request
      * @type {string}
-     * @memberof AccountrequestasyncresultV1
+     * @memberof Accountrequestasyncresult
      */
     'accountRequestId': string;
 }
 /**
- * 
+ * Represents a request to create a machine account.
  * @export
- * @interface AccountrequestdetailsdtoRequesterV1
+ * @interface Accountrequestdetailsdto
  */
-export interface AccountrequestdetailsdtoRequesterV1 {
+export interface Accountrequestdetailsdto {
+    /**
+     * Account request ID.
+     * @type {string}
+     * @memberof Accountrequestdetailsdto
+     */
+    'accountRequestId'?: string;
+    /**
+     * Type of the account request.
+     * @type {string}
+     * @memberof Accountrequestdetailsdto
+     */
+    'requestType'?: string;
+    /**
+     * Machine account creation request creation date and time.
+     * @type {string}
+     * @memberof Accountrequestdetailsdto
+     */
+    'createdAt'?: string;
+    /**
+     * Machine account creation request completion date and time.
+     * @type {string}
+     * @memberof Accountrequestdetailsdto
+     */
+    'completedAt'?: string | null;
+    /**
+     * Overall status of the creation request.
+     * @type {string}
+     * @memberof Accountrequestdetailsdto
+     */
+    'overallStatus'?: string;
     /**
      * 
-     * @type {DtotypeV1}
-     * @memberof AccountrequestdetailsdtoRequesterV1
+     * @type {AccountrequestdetailsdtoRequester}
+     * @memberof Accountrequestdetailsdto
      */
-    'type'?: DtotypeV1;
+    'requester'?: AccountrequestdetailsdtoRequester;
+    /**
+     * List of account request phases.
+     * @type {Array<Accountrequestphase>}
+     * @memberof Accountrequestdetailsdto
+     */
+    'accountRequestPhases'?: Array<Accountrequestphase>;
+    /**
+     * Detailed error information.
+     * @type {string}
+     * @memberof Accountrequestdetailsdto
+     */
+    'errorDetails'?: string | null;
+}
+/**
+ * 
+ * @export
+ * @interface AccountrequestdetailsdtoRequester
+ */
+export interface AccountrequestdetailsdtoRequester {
+    /**
+     * 
+     * @type {Dtotype}
+     * @memberof AccountrequestdetailsdtoRequester
+     */
+    'type'?: Dtotype;
     /**
      * ID of the object to which this reference applies
      * @type {string}
-     * @memberof AccountrequestdetailsdtoRequesterV1
+     * @memberof AccountrequestdetailsdtoRequester
      */
     'id'?: string;
     /**
      * Human-readable display name of the object to which this reference applies
      * @type {string}
-     * @memberof AccountrequestdetailsdtoRequesterV1
+     * @memberof AccountrequestdetailsdtoRequester
      */
     'name'?: string;
 }
 
 
 /**
- * Represents a request to create a machine account.
- * @export
- * @interface AccountrequestdetailsdtoV1
- */
-export interface AccountrequestdetailsdtoV1 {
-    /**
-     * Account request ID.
-     * @type {string}
-     * @memberof AccountrequestdetailsdtoV1
-     */
-    'accountRequestId'?: string;
-    /**
-     * Type of the account request.
-     * @type {string}
-     * @memberof AccountrequestdetailsdtoV1
-     */
-    'requestType'?: string;
-    /**
-     * Machine account creation request creation date and time.
-     * @type {string}
-     * @memberof AccountrequestdetailsdtoV1
-     */
-    'createdAt'?: string;
-    /**
-     * Machine account creation request completion date and time.
-     * @type {string}
-     * @memberof AccountrequestdetailsdtoV1
-     */
-    'completedAt'?: string | null;
-    /**
-     * Overall status of the creation request.
-     * @type {string}
-     * @memberof AccountrequestdetailsdtoV1
-     */
-    'overallStatus'?: string;
-    /**
-     * 
-     * @type {AccountrequestdetailsdtoRequesterV1}
-     * @memberof AccountrequestdetailsdtoV1
-     */
-    'requester'?: AccountrequestdetailsdtoRequesterV1;
-    /**
-     * List of account request phases.
-     * @type {Array<AccountrequestphaseV1>}
-     * @memberof AccountrequestdetailsdtoV1
-     */
-    'accountRequestPhases'?: Array<AccountrequestphaseV1>;
-    /**
-     * Detailed error information.
-     * @type {string}
-     * @memberof AccountrequestdetailsdtoV1
-     */
-    'errorDetails'?: string | null;
-}
-/**
  * Contains detailed information about each phase in the account request process, including its type, current state, and relevant timestamps.
  * @export
- * @interface AccountrequestphaseV1
+ * @interface Accountrequestphase
  */
-export interface AccountrequestphaseV1 {
+export interface Accountrequestphase {
     /**
      * Enum of account request phase type
      * @type {string}
-     * @memberof AccountrequestphaseV1
+     * @memberof Accountrequestphase
      */
-    'name'?: AccountrequestphaseV1NameV1;
+    'name'?: AccountrequestphaseNameEnum;
     /**
      * 
-     * @type {AccountrequestphasestateV1}
-     * @memberof AccountrequestphaseV1
+     * @type {Accountrequestphasestate}
+     * @memberof Accountrequestphase
      */
-    'state'?: AccountrequestphasestateV1;
+    'state'?: Accountrequestphasestate;
     /**
      * Start date of account request phase.
      * @type {string}
-     * @memberof AccountrequestphaseV1
+     * @memberof Accountrequestphase
      */
     'started'?: string;
     /**
      * Finish date of account request phase.
      * @type {string}
-     * @memberof AccountrequestphaseV1
+     * @memberof Accountrequestphase
      */
     'finished'?: string;
 }
 
-export const AccountrequestphaseV1NameV1 = {
+export const AccountrequestphaseNameEnum = {
     ApprovalPhase: 'APPROVAL_PHASE',
     ProvisioningPhase: 'PROVISIONING_PHASE'
 } as const;
 
-export type AccountrequestphaseV1NameV1 = typeof AccountrequestphaseV1NameV1[keyof typeof AccountrequestphaseV1NameV1];
+export type AccountrequestphaseNameEnum = typeof AccountrequestphaseNameEnum[keyof typeof AccountrequestphaseNameEnum];
 
 /**
  * The current phase state of the account request, indicating its progress or outcome in the approval workflow.
@@ -163,7 +163,7 @@ export type AccountrequestphaseV1NameV1 = typeof AccountrequestphaseV1NameV1[key
  * @enum {string}
  */
 
-export const AccountrequestphasestateV1 = {
+export const Accountrequestphasestate = {
     Pending: 'PENDING',
     Cancelled: 'CANCELLED',
     Approved: 'APPROVED',
@@ -173,31 +173,31 @@ export const AccountrequestphasestateV1 = {
     NotStarted: 'NOT_STARTED'
 } as const;
 
-export type AccountrequestphasestateV1 = typeof AccountrequestphasestateV1[keyof typeof AccountrequestphasestateV1];
+export type Accountrequestphasestate = typeof Accountrequestphasestate[keyof typeof Accountrequestphasestate];
 
 
 /**
  * 
  * @export
- * @interface BasereferencedtoV1
+ * @interface Basereferencedto
  */
-export interface BasereferencedtoV1 {
+export interface Basereferencedto {
     /**
      * 
-     * @type {DtotypeV1}
-     * @memberof BasereferencedtoV1
+     * @type {Dtotype}
+     * @memberof Basereferencedto
      */
-    'type'?: DtotypeV1;
+    'type'?: Dtotype;
     /**
      * ID of the object to which this reference applies
      * @type {string}
-     * @memberof BasereferencedtoV1
+     * @memberof Basereferencedto
      */
     'id'?: string;
     /**
      * Human-readable display name of the object to which this reference applies
      * @type {string}
-     * @memberof BasereferencedtoV1
+     * @memberof Basereferencedto
      */
     'name'?: string;
 }
@@ -206,26 +206,26 @@ export interface BasereferencedtoV1 {
 /**
  * 
  * @export
- * @interface CreateMachineAccountRequestV1401ResponseV1
+ * @interface CreateMachineAccountRequestV1401Response
  */
-export interface CreateMachineAccountRequestV1401ResponseV1 {
+export interface CreateMachineAccountRequestV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof CreateMachineAccountRequestV1401ResponseV1
+     * @memberof CreateMachineAccountRequestV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface CreateMachineAccountRequestV1429ResponseV1
+ * @interface CreateMachineAccountRequestV1429Response
  */
-export interface CreateMachineAccountRequestV1429ResponseV1 {
+export interface CreateMachineAccountRequestV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof CreateMachineAccountRequestV1429ResponseV1
+     * @memberof CreateMachineAccountRequestV1429Response
      */
     'message'?: any;
 }
@@ -235,7 +235,7 @@ export interface CreateMachineAccountRequestV1429ResponseV1 {
  * @enum {string}
  */
 
-export const DtotypeV1 = {
+export const Dtotype = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
@@ -267,31 +267,31 @@ export const DtotypeV1 = {
     Workgroup: 'WORKGROUP'
 } as const;
 
-export type DtotypeV1 = typeof DtotypeV1[keyof typeof DtotypeV1];
+export type Dtotype = typeof Dtotype[keyof typeof Dtotype];
 
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -300,33 +300,33 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -334,143 +334,143 @@ export interface ErrorresponsedtoV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
-/**
- * 
- * @export
- * @interface MachineaccountcreateaccessdtoSubtypesInnerV1
- */
-export interface MachineaccountcreateaccessdtoSubtypesInnerV1 {
-    /**
-     * Subtype ID.
-     * @type {string}
-     * @memberof MachineaccountcreateaccessdtoSubtypesInnerV1
-     */
-    'subtypeId'?: string;
-    /**
-     * Entitlement ID.
-     * @type {string}
-     * @memberof MachineaccountcreateaccessdtoSubtypesInnerV1
-     */
-    'entitlementId'?: string;
-    /**
-     * Subtype display name.
-     * @type {string}
-     * @memberof MachineaccountcreateaccessdtoSubtypesInnerV1
-     */
-    'subtypeDisplayName'?: string;
-    /**
-     * Subtype technical name.
-     * @type {string}
-     * @memberof MachineaccountcreateaccessdtoSubtypesInnerV1
-     */
-    'subtypeTechnicalName'?: string;
-}
 /**
  * A summary endpoint which returns list of sources and subtypes for which user has an entitlement to request machine accounts.
  * @export
- * @interface MachineaccountcreateaccessdtoV1
+ * @interface Machineaccountcreateaccessdto
  */
-export interface MachineaccountcreateaccessdtoV1 {
+export interface Machineaccountcreateaccessdto {
     /**
      * Source ID.
      * @type {string}
-     * @memberof MachineaccountcreateaccessdtoV1
+     * @memberof Machineaccountcreateaccessdto
      */
     'sourceId'?: string;
     /**
      * Source name.
      * @type {string}
-     * @memberof MachineaccountcreateaccessdtoV1
+     * @memberof Machineaccountcreateaccessdto
      */
     'sourceName'?: string;
     /**
      * List of subtypes for which the user has an entitlement to request machine accounts.
-     * @type {Array<MachineaccountcreateaccessdtoSubtypesInnerV1>}
-     * @memberof MachineaccountcreateaccessdtoV1
+     * @type {Array<MachineaccountcreateaccessdtoSubtypesInner>}
+     * @memberof Machineaccountcreateaccessdto
      */
-    'subtypes'?: Array<MachineaccountcreateaccessdtoSubtypesInnerV1>;
+    'subtypes'?: Array<MachineaccountcreateaccessdtoSubtypesInner>;
+}
+/**
+ * 
+ * @export
+ * @interface MachineaccountcreateaccessdtoSubtypesInner
+ */
+export interface MachineaccountcreateaccessdtoSubtypesInner {
+    /**
+     * Subtype ID.
+     * @type {string}
+     * @memberof MachineaccountcreateaccessdtoSubtypesInner
+     */
+    'subtypeId'?: string;
+    /**
+     * Entitlement ID.
+     * @type {string}
+     * @memberof MachineaccountcreateaccessdtoSubtypesInner
+     */
+    'entitlementId'?: string;
+    /**
+     * Subtype display name.
+     * @type {string}
+     * @memberof MachineaccountcreateaccessdtoSubtypesInner
+     */
+    'subtypeDisplayName'?: string;
+    /**
+     * Subtype technical name.
+     * @type {string}
+     * @memberof MachineaccountcreateaccessdtoSubtypesInner
+     */
+    'subtypeTechnicalName'?: string;
 }
 /**
  * Contains the required information for processing a user-initiated machine account creation request.
  * @export
- * @interface MachineaccountcreaterequestinputV1
+ * @interface Machineaccountcreaterequestinput
  */
-export interface MachineaccountcreaterequestinputV1 {
+export interface Machineaccountcreaterequestinput {
     /**
      * Subtype ID for which machine account create is enabled and user have the entitlement to create the machine account.
      * @type {string}
-     * @memberof MachineaccountcreaterequestinputV1
+     * @memberof Machineaccountcreaterequestinput
      */
     'subtypeId': string;
     /**
      * Form ID selected by user for the machine account create request.
      * @type {string}
-     * @memberof MachineaccountcreaterequestinputV1
+     * @memberof Machineaccountcreaterequestinput
      */
     'formId'?: string;
     /**
      * Owner Identity ID. This identity will be assigned as an owner of the created machine account.
      * @type {string}
-     * @memberof MachineaccountcreaterequestinputV1
+     * @memberof Machineaccountcreaterequestinput
      */
     'ownerIdentityId': string;
     /**
      * Machine identity to correlate with the created machine account. If not provided, a new machine identity will be created.
      * @type {string}
-     * @memberof MachineaccountcreaterequestinputV1
+     * @memberof Machineaccountcreaterequestinput
      */
     'machineIdentityId'?: string | null;
     /**
      * Environment type to use for the machine account.
      * @type {string}
-     * @memberof MachineaccountcreaterequestinputV1
+     * @memberof Machineaccountcreaterequestinput
      */
     'environment'?: string;
     /**
      * Description for the machine account.
      * @type {string}
-     * @memberof MachineaccountcreaterequestinputV1
+     * @memberof Machineaccountcreaterequestinput
      */
     'description'?: string;
     /**
      * Fields of the form linked to the subtype in approval settings.
      * @type {object}
-     * @memberof MachineaccountcreaterequestinputV1
+     * @memberof Machineaccountcreaterequestinput
      */
     'userInput'?: object;
     /**
      * List of entitlement IDs to provision for created machine account.
      * @type {Array<string>}
-     * @memberof MachineaccountcreaterequestinputV1
+     * @memberof Machineaccountcreaterequestinput
      */
     'entitlementIds'?: Array<string>;
 }
 
 /**
- * MachineAccountCreationRequestV1Api - axios parameter creator
+ * MachineAccountCreationRequestApi - axios parameter creator
  * @export
  */
-export const MachineAccountCreationRequestV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const MachineAccountCreationRequestApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Initiates machine account creation request for the specified subtype. This method validates the input data, processes the machine account creation request, and generates an asynchronous result containing a tracking ID.   >**NOTE: You can only request a machine accounts on subtype for which you have a create machine account entitlement provisioned.** 
          * @summary Submit Machine Account Creation Request
-         * @param {MachineaccountcreaterequestinputV1} machineaccountcreaterequestinputV1 
+         * @param {Machineaccountcreaterequestinput} machineaccountcreaterequestinput 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createMachineAccountRequestV1: async (machineaccountcreaterequestinputV1: MachineaccountcreaterequestinputV1, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'machineaccountcreaterequestinputV1' is not null or undefined
-            assertParamExists('createMachineAccountRequestV1', 'machineaccountcreaterequestinputV1', machineaccountcreaterequestinputV1)
+        createMachineAccountRequestV1: async (machineaccountcreaterequestinput: Machineaccountcreaterequestinput, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'machineaccountcreaterequestinput' is not null or undefined
+            assertParamExists('createMachineAccountRequestV1', 'machineaccountcreaterequestinput', machineaccountcreaterequestinput)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -497,7 +497,7 @@ export const MachineAccountCreationRequestV1ApiAxiosParamCreator = function (con
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(machineaccountcreaterequestinputV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(machineaccountcreaterequestinput, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -602,24 +602,24 @@ export const MachineAccountCreationRequestV1ApiAxiosParamCreator = function (con
 };
 
 /**
- * MachineAccountCreationRequestV1Api - functional programming interface
+ * MachineAccountCreationRequestApi - functional programming interface
  * @export
  */
-export const MachineAccountCreationRequestV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = MachineAccountCreationRequestV1ApiAxiosParamCreator(configuration)
+export const MachineAccountCreationRequestApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = MachineAccountCreationRequestApiAxiosParamCreator(configuration)
     return {
         /**
          * Initiates machine account creation request for the specified subtype. This method validates the input data, processes the machine account creation request, and generates an asynchronous result containing a tracking ID.   >**NOTE: You can only request a machine accounts on subtype for which you have a create machine account entitlement provisioned.** 
          * @summary Submit Machine Account Creation Request
-         * @param {MachineaccountcreaterequestinputV1} machineaccountcreaterequestinputV1 
+         * @param {Machineaccountcreaterequestinput} machineaccountcreaterequestinput 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createMachineAccountRequestV1(machineaccountcreaterequestinputV1: MachineaccountcreaterequestinputV1, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountrequestasyncresultV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createMachineAccountRequestV1(machineaccountcreaterequestinputV1, xSailPointExperimental, axiosOptions);
+        async createMachineAccountRequestV1(machineaccountcreaterequestinput: Machineaccountcreaterequestinput, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accountrequestasyncresult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createMachineAccountRequestV1(machineaccountcreaterequestinput, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MachineAccountCreationRequestV1Api.createMachineAccountRequestV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountCreationRequestApi.createMachineAccountRequestV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -630,10 +630,10 @@ export const MachineAccountCreationRequestV1ApiFp = function(configuration?: Con
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCreateMachineAccountRequestV1(xSailPointExperimental: string, accountRequestId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountrequestdetailsdtoV1>> {
+        async getCreateMachineAccountRequestV1(xSailPointExperimental: string, accountRequestId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accountrequestdetailsdto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCreateMachineAccountRequestV1(xSailPointExperimental, accountRequestId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MachineAccountCreationRequestV1Api.getCreateMachineAccountRequestV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountCreationRequestApi.getCreateMachineAccountRequestV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -645,166 +645,166 @@ export const MachineAccountCreationRequestV1ApiFp = function(configuration?: Con
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getMachineAccountCreateAccessInfoV1(xSailPointExperimental: string, offset?: number, limit?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MachineaccountcreateaccessdtoV1>>> {
+        async getMachineAccountCreateAccessInfoV1(xSailPointExperimental: string, offset?: number, limit?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Machineaccountcreateaccessdto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMachineAccountCreateAccessInfoV1(xSailPointExperimental, offset, limit, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MachineAccountCreationRequestV1Api.getMachineAccountCreateAccessInfoV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountCreationRequestApi.getMachineAccountCreateAccessInfoV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * MachineAccountCreationRequestV1Api - factory interface
+ * MachineAccountCreationRequestApi - factory interface
  * @export
  */
-export const MachineAccountCreationRequestV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = MachineAccountCreationRequestV1ApiFp(configuration)
+export const MachineAccountCreationRequestApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = MachineAccountCreationRequestApiFp(configuration)
     return {
         /**
          * Initiates machine account creation request for the specified subtype. This method validates the input data, processes the machine account creation request, and generates an asynchronous result containing a tracking ID.   >**NOTE: You can only request a machine accounts on subtype for which you have a create machine account entitlement provisioned.** 
          * @summary Submit Machine Account Creation Request
-         * @param {MachineAccountCreationRequestV1ApiCreateMachineAccountRequestV1Request} requestParameters Request parameters.
+         * @param {MachineAccountCreationRequestApiCreateMachineAccountRequestV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createMachineAccountRequestV1(requestParameters: MachineAccountCreationRequestV1ApiCreateMachineAccountRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountrequestasyncresultV1> {
-            return localVarFp.createMachineAccountRequestV1(requestParameters.machineaccountcreaterequestinputV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        createMachineAccountRequestV1(requestParameters: MachineAccountCreationRequestApiCreateMachineAccountRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accountrequestasyncresult> {
+            return localVarFp.createMachineAccountRequestV1(requestParameters.machineaccountcreaterequestinput, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Retrieves a account request details for machine account creation. This allows the user to view all details for given account request.
          * @summary Get Machine Account Creation Request
-         * @param {MachineAccountCreationRequestV1ApiGetCreateMachineAccountRequestV1Request} requestParameters Request parameters.
+         * @param {MachineAccountCreationRequestApiGetCreateMachineAccountRequestV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCreateMachineAccountRequestV1(requestParameters: MachineAccountCreationRequestV1ApiGetCreateMachineAccountRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountrequestdetailsdtoV1> {
+        getCreateMachineAccountRequestV1(requestParameters: MachineAccountCreationRequestApiGetCreateMachineAccountRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accountrequestdetailsdto> {
             return localVarFp.getCreateMachineAccountRequestV1(requestParameters.xSailPointExperimental, requestParameters.accountRequestId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint retrieves the list of sources and subtypes for which logged in user has the entitlement to create a machine account. The response includes a list of object detailing the source, subtype and entitlement details which enables the clients to understand if they can submit the request to create a machine account for the given subtype.
          * @summary Machine Account Create Access
-         * @param {MachineAccountCreationRequestV1ApiGetMachineAccountCreateAccessInfoV1Request} requestParameters Request parameters.
+         * @param {MachineAccountCreationRequestApiGetMachineAccountCreateAccessInfoV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getMachineAccountCreateAccessInfoV1(requestParameters: MachineAccountCreationRequestV1ApiGetMachineAccountCreateAccessInfoV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<MachineaccountcreateaccessdtoV1>> {
+        getMachineAccountCreateAccessInfoV1(requestParameters: MachineAccountCreationRequestApiGetMachineAccountCreateAccessInfoV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Machineaccountcreateaccessdto>> {
             return localVarFp.getMachineAccountCreateAccessInfoV1(requestParameters.xSailPointExperimental, requestParameters.offset, requestParameters.limit, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createMachineAccountRequestV1 operation in MachineAccountCreationRequestV1Api.
+ * Request parameters for createMachineAccountRequestV1 operation in MachineAccountCreationRequestApi.
  * @export
- * @interface MachineAccountCreationRequestV1ApiCreateMachineAccountRequestV1Request
+ * @interface MachineAccountCreationRequestApiCreateMachineAccountRequestV1Request
  */
-export interface MachineAccountCreationRequestV1ApiCreateMachineAccountRequestV1Request {
+export interface MachineAccountCreationRequestApiCreateMachineAccountRequestV1Request {
     /**
      * 
-     * @type {MachineaccountcreaterequestinputV1}
-     * @memberof MachineAccountCreationRequestV1ApiCreateMachineAccountRequestV1
+     * @type {Machineaccountcreaterequestinput}
+     * @memberof MachineAccountCreationRequestApiCreateMachineAccountRequestV1
      */
-    readonly machineaccountcreaterequestinputV1: MachineaccountcreaterequestinputV1
+    readonly machineaccountcreaterequestinput: Machineaccountcreaterequestinput
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof MachineAccountCreationRequestV1ApiCreateMachineAccountRequestV1
+     * @memberof MachineAccountCreationRequestApiCreateMachineAccountRequestV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getCreateMachineAccountRequestV1 operation in MachineAccountCreationRequestV1Api.
+ * Request parameters for getCreateMachineAccountRequestV1 operation in MachineAccountCreationRequestApi.
  * @export
- * @interface MachineAccountCreationRequestV1ApiGetCreateMachineAccountRequestV1Request
+ * @interface MachineAccountCreationRequestApiGetCreateMachineAccountRequestV1Request
  */
-export interface MachineAccountCreationRequestV1ApiGetCreateMachineAccountRequestV1Request {
+export interface MachineAccountCreationRequestApiGetCreateMachineAccountRequestV1Request {
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof MachineAccountCreationRequestV1ApiGetCreateMachineAccountRequestV1
+     * @memberof MachineAccountCreationRequestApiGetCreateMachineAccountRequestV1
      */
     readonly xSailPointExperimental: string
 
     /**
      * Account Request ID
      * @type {string}
-     * @memberof MachineAccountCreationRequestV1ApiGetCreateMachineAccountRequestV1
+     * @memberof MachineAccountCreationRequestApiGetCreateMachineAccountRequestV1
      */
     readonly accountRequestId: string
 }
 
 /**
- * Request parameters for getMachineAccountCreateAccessInfoV1 operation in MachineAccountCreationRequestV1Api.
+ * Request parameters for getMachineAccountCreateAccessInfoV1 operation in MachineAccountCreationRequestApi.
  * @export
- * @interface MachineAccountCreationRequestV1ApiGetMachineAccountCreateAccessInfoV1Request
+ * @interface MachineAccountCreationRequestApiGetMachineAccountCreateAccessInfoV1Request
  */
-export interface MachineAccountCreationRequestV1ApiGetMachineAccountCreateAccessInfoV1Request {
+export interface MachineAccountCreationRequestApiGetMachineAccountCreateAccessInfoV1Request {
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof MachineAccountCreationRequestV1ApiGetMachineAccountCreateAccessInfoV1
+     * @memberof MachineAccountCreationRequestApiGetMachineAccountCreateAccessInfoV1
      */
     readonly xSailPointExperimental: string
 
     /**
      * Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
      * @type {number}
-     * @memberof MachineAccountCreationRequestV1ApiGetMachineAccountCreateAccessInfoV1
+     * @memberof MachineAccountCreationRequestApiGetMachineAccountCreateAccessInfoV1
      */
     readonly offset?: number
 
     /**
      * Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
      * @type {number}
-     * @memberof MachineAccountCreationRequestV1ApiGetMachineAccountCreateAccessInfoV1
+     * @memberof MachineAccountCreationRequestApiGetMachineAccountCreateAccessInfoV1
      */
     readonly limit?: number
 }
 
 /**
- * MachineAccountCreationRequestV1Api - object-oriented interface
+ * MachineAccountCreationRequestApi - object-oriented interface
  * @export
- * @class MachineAccountCreationRequestV1Api
+ * @class MachineAccountCreationRequestApi
  * @extends {BaseAPI}
  */
-export class MachineAccountCreationRequestV1Api extends BaseAPI {
+export class MachineAccountCreationRequestApi extends BaseAPI {
     /**
      * Initiates machine account creation request for the specified subtype. This method validates the input data, processes the machine account creation request, and generates an asynchronous result containing a tracking ID.   >**NOTE: You can only request a machine accounts on subtype for which you have a create machine account entitlement provisioned.** 
      * @summary Submit Machine Account Creation Request
-     * @param {MachineAccountCreationRequestV1ApiCreateMachineAccountRequestV1Request} requestParameters Request parameters.
+     * @param {MachineAccountCreationRequestApiCreateMachineAccountRequestV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MachineAccountCreationRequestV1Api
+     * @memberof MachineAccountCreationRequestApi
      */
-    public createMachineAccountRequestV1(requestParameters: MachineAccountCreationRequestV1ApiCreateMachineAccountRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineAccountCreationRequestV1ApiFp(this.configuration).createMachineAccountRequestV1(requestParameters.machineaccountcreaterequestinputV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createMachineAccountRequestV1(requestParameters: MachineAccountCreationRequestApiCreateMachineAccountRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountCreationRequestApiFp(this.configuration).createMachineAccountRequestV1(requestParameters.machineaccountcreaterequestinput, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Retrieves a account request details for machine account creation. This allows the user to view all details for given account request.
      * @summary Get Machine Account Creation Request
-     * @param {MachineAccountCreationRequestV1ApiGetCreateMachineAccountRequestV1Request} requestParameters Request parameters.
+     * @param {MachineAccountCreationRequestApiGetCreateMachineAccountRequestV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MachineAccountCreationRequestV1Api
+     * @memberof MachineAccountCreationRequestApi
      */
-    public getCreateMachineAccountRequestV1(requestParameters: MachineAccountCreationRequestV1ApiGetCreateMachineAccountRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineAccountCreationRequestV1ApiFp(this.configuration).getCreateMachineAccountRequestV1(requestParameters.xSailPointExperimental, requestParameters.accountRequestId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getCreateMachineAccountRequestV1(requestParameters: MachineAccountCreationRequestApiGetCreateMachineAccountRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountCreationRequestApiFp(this.configuration).getCreateMachineAccountRequestV1(requestParameters.xSailPointExperimental, requestParameters.accountRequestId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint retrieves the list of sources and subtypes for which logged in user has the entitlement to create a machine account. The response includes a list of object detailing the source, subtype and entitlement details which enables the clients to understand if they can submit the request to create a machine account for the given subtype.
      * @summary Machine Account Create Access
-     * @param {MachineAccountCreationRequestV1ApiGetMachineAccountCreateAccessInfoV1Request} requestParameters Request parameters.
+     * @param {MachineAccountCreationRequestApiGetMachineAccountCreateAccessInfoV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MachineAccountCreationRequestV1Api
+     * @memberof MachineAccountCreationRequestApi
      */
-    public getMachineAccountCreateAccessInfoV1(requestParameters: MachineAccountCreationRequestV1ApiGetMachineAccountCreateAccessInfoV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineAccountCreationRequestV1ApiFp(this.configuration).getMachineAccountCreateAccessInfoV1(requestParameters.xSailPointExperimental, requestParameters.offset, requestParameters.limit, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getMachineAccountCreateAccessInfoV1(requestParameters: MachineAccountCreationRequestApiGetMachineAccountCreateAccessInfoV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountCreationRequestApiFp(this.configuration).getMachineAccountCreateAccessInfoV1(requestParameters.xSailPointExperimental, requestParameters.offset, requestParameters.limit, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

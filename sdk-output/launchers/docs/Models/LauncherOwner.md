@@ -1,20 +1,20 @@
 ---
-id: v1-launcher-owner-v1
-title: LauncherOwnerV1
-pagination_label: LauncherOwnerV1
-sidebar_label: LauncherOwnerV1
+id: v1-launcher-owner
+title: LauncherOwner
+pagination_label: LauncherOwner
+sidebar_label: LauncherOwner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'LauncherOwnerV1', 'v1LauncherOwnerV1']
-slug: /tools/sdk/typescript/launchers/models/launcher-owner-v1
-tags: ['SDK', 'Software Development Kit', 'LauncherOwnerV1', 'v1LauncherOwnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'LauncherOwner', 'v1LauncherOwner']
+slug: /tools/sdk/typescript/launchers/models/launcher-owner
+tags: ['SDK', 'Software Development Kit', 'LauncherOwner', 'v1LauncherOwner']
 ---
 
-# LauncherOwnerV1
+# LauncherOwner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **string** | Owner type | [default to undefined]
-**id** | **string** | Owner ID | [default to undefined]
+**type** | `string` | Owner type | [default to undefined]
+**id** | `string` | Owner ID | [default to undefined]
 

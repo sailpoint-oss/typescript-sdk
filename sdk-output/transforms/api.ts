@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -53,57 +53,57 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface ListTransformsV1401ResponseV1
+ * @interface ListTransformsV1401Response
  */
-export interface ListTransformsV1401ResponseV1 {
+export interface ListTransformsV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListTransformsV1401ResponseV1
+     * @memberof ListTransformsV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ListTransformsV1429ResponseV1
+ * @interface ListTransformsV1429Response
  */
-export interface ListTransformsV1429ResponseV1 {
+export interface ListTransformsV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListTransformsV1429ResponseV1
+     * @memberof ListTransformsV1429Response
      */
     'message'?: any;
 }
@@ -113,41 +113,41 @@ export interface ListTransformsV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * The representation of an internally- or customer-defined transform.
  * @export
- * @interface TransformV1
+ * @interface Transform
  */
-export interface TransformV1 {
+export interface Transform {
     /**
      * Unique name of this transform
      * @type {string}
-     * @memberof TransformV1
+     * @memberof Transform
      */
     'name': string;
     /**
      * The type of transform operation
      * @type {string}
-     * @memberof TransformV1
+     * @memberof Transform
      */
-    'type': TransformV1TypeV1;
+    'type': TransformTypeEnum;
     /**
      * Meta-data about the transform. Values in this list are specific to the type of transform to be executed.
      * @type {object}
-     * @memberof TransformV1
+     * @memberof Transform
      */
     'attributes': object | null;
 }
 
-export const TransformV1TypeV1 = {
+export const TransformTypeEnum = {
     AccountAttribute: 'accountAttribute',
     Base64Decode: 'base64Decode',
     Base64Encode: 'base64Encode',
@@ -185,47 +185,47 @@ export const TransformV1TypeV1 = {
     Rfc5646: 'rfc5646'
 } as const;
 
-export type TransformV1TypeV1 = typeof TransformV1TypeV1[keyof typeof TransformV1TypeV1];
+export type TransformTypeEnum = typeof TransformTypeEnum[keyof typeof TransformTypeEnum];
 
 /**
  * 
  * @export
- * @interface TransformreadV1
+ * @interface Transformread
  */
-export interface TransformreadV1 {
+export interface Transformread {
     /**
      * Unique name of this transform
      * @type {string}
-     * @memberof TransformreadV1
+     * @memberof Transformread
      */
     'name': string;
     /**
      * The type of transform operation
      * @type {string}
-     * @memberof TransformreadV1
+     * @memberof Transformread
      */
-    'type': TransformreadV1TypeV1;
+    'type': TransformreadTypeEnum;
     /**
      * Meta-data about the transform. Values in this list are specific to the type of transform to be executed.
      * @type {object}
-     * @memberof TransformreadV1
+     * @memberof Transformread
      */
     'attributes': object | null;
     /**
      * Unique ID of this transform
      * @type {string}
-     * @memberof TransformreadV1
+     * @memberof Transformread
      */
     'id': string;
     /**
      * Indicates whether this is an internal SailPoint-created transform or a customer-created transform
      * @type {boolean}
-     * @memberof TransformreadV1
+     * @memberof Transformread
      */
     'internal': boolean;
 }
 
-export const TransformreadV1TypeV1 = {
+export const TransformreadTypeEnum = {
     AccountAttribute: 'accountAttribute',
     Base64Decode: 'base64Decode',
     Base64Encode: 'base64Encode',
@@ -263,25 +263,25 @@ export const TransformreadV1TypeV1 = {
     Rfc5646: 'rfc5646'
 } as const;
 
-export type TransformreadV1TypeV1 = typeof TransformreadV1TypeV1[keyof typeof TransformreadV1TypeV1];
+export type TransformreadTypeEnum = typeof TransformreadTypeEnum[keyof typeof TransformreadTypeEnum];
 
 
 /**
- * TransformsV1Api - axios parameter creator
+ * TransformsApi - axios parameter creator
  * @export
  */
-export const TransformsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const TransformsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Creates a new transform object immediately. By default, the internal flag is set to false to indicate that this is a custom transform. Only SailPoint employees have the ability to create a transform with internal set to true. Newly created Transforms can be used in the Identity Profile mappings within the UI.
          * @summary Create transform
-         * @param {TransformV1} transformV1 The transform to be created.
+         * @param {Transform} transform The transform to be created.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createTransformV1: async (transformV1: TransformV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'transformV1' is not null or undefined
-            assertParamExists('createTransformV1', 'transformV1', transformV1)
+        createTransformV1: async (transform: Transform, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'transform' is not null or undefined
+            assertParamExists('createTransformV1', 'transform', transform)
             const localVarPath = `/transforms/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -301,7 +301,7 @@ export const TransformsV1ApiAxiosParamCreator = function (configuration?: Config
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(transformV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(transform, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -435,11 +435,11 @@ export const TransformsV1ApiAxiosParamCreator = function (configuration?: Config
          * Replaces the transform specified by the given ID with the transform provided in the request body. Only the \"attributes\" field is mutable. Attempting to change other properties (ex. \"name\" and \"type\") will result in an error.
          * @summary Update a transform
          * @param {string} id ID of the transform to update
-         * @param {TransformV1} [transformV1] The updated transform object. Must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields, but \&quot;name\&quot; and \&quot;type\&quot; must not be modified.
+         * @param {Transform} [transform] The updated transform object. Must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields, but \&quot;name\&quot; and \&quot;type\&quot; must not be modified.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateTransformV1: async (id: string, transformV1?: TransformV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateTransformV1: async (id: string, transform?: Transform, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateTransformV1', 'id', id)
             const localVarPath = `/transforms/v1/{id}`
@@ -462,7 +462,7 @@ export const TransformsV1ApiAxiosParamCreator = function (configuration?: Config
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(transformV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(transform, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -473,23 +473,23 @@ export const TransformsV1ApiAxiosParamCreator = function (configuration?: Config
 };
 
 /**
- * TransformsV1Api - functional programming interface
+ * TransformsApi - functional programming interface
  * @export
  */
-export const TransformsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = TransformsV1ApiAxiosParamCreator(configuration)
+export const TransformsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = TransformsApiAxiosParamCreator(configuration)
     return {
         /**
          * Creates a new transform object immediately. By default, the internal flag is set to false to indicate that this is a custom transform. Only SailPoint employees have the ability to create a transform with internal set to true. Newly created Transforms can be used in the Identity Profile mappings within the UI.
          * @summary Create transform
-         * @param {TransformV1} transformV1 The transform to be created.
+         * @param {Transform} transform The transform to be created.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createTransformV1(transformV1: TransformV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformreadV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createTransformV1(transformV1, axiosOptions);
+        async createTransformV1(transform: Transform, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Transformread>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createTransformV1(transform, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TransformsV1Api.createTransformV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TransformsApi.createTransformV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -502,7 +502,7 @@ export const TransformsV1ApiFp = function(configuration?: Configuration) {
         async deleteTransformV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTransformV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TransformsV1Api.deleteTransformV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TransformsApi.deleteTransformV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -512,10 +512,10 @@ export const TransformsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getTransformV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformreadV1>> {
+        async getTransformV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Transformread>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTransformV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TransformsV1Api.getTransformV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TransformsApi.getTransformV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -529,259 +529,259 @@ export const TransformsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listTransformsV1(offset?: number, limit?: number, count?: boolean, name?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TransformreadV1>>> {
+        async listTransformsV1(offset?: number, limit?: number, count?: boolean, name?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Transformread>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listTransformsV1(offset, limit, count, name, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TransformsV1Api.listTransformsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TransformsApi.listTransformsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Replaces the transform specified by the given ID with the transform provided in the request body. Only the \"attributes\" field is mutable. Attempting to change other properties (ex. \"name\" and \"type\") will result in an error.
          * @summary Update a transform
          * @param {string} id ID of the transform to update
-         * @param {TransformV1} [transformV1] The updated transform object. Must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields, but \&quot;name\&quot; and \&quot;type\&quot; must not be modified.
+         * @param {Transform} [transform] The updated transform object. Must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields, but \&quot;name\&quot; and \&quot;type\&quot; must not be modified.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateTransformV1(id: string, transformV1?: TransformV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformreadV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTransformV1(id, transformV1, axiosOptions);
+        async updateTransformV1(id: string, transform?: Transform, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Transformread>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTransformV1(id, transform, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TransformsV1Api.updateTransformV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TransformsApi.updateTransformV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * TransformsV1Api - factory interface
+ * TransformsApi - factory interface
  * @export
  */
-export const TransformsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = TransformsV1ApiFp(configuration)
+export const TransformsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = TransformsApiFp(configuration)
     return {
         /**
          * Creates a new transform object immediately. By default, the internal flag is set to false to indicate that this is a custom transform. Only SailPoint employees have the ability to create a transform with internal set to true. Newly created Transforms can be used in the Identity Profile mappings within the UI.
          * @summary Create transform
-         * @param {TransformsV1ApiCreateTransformV1Request} requestParameters Request parameters.
+         * @param {TransformsApiCreateTransformV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createTransformV1(requestParameters: TransformsV1ApiCreateTransformV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TransformreadV1> {
-            return localVarFp.createTransformV1(requestParameters.transformV1, axiosOptions).then((request) => request(axios, basePath));
+        createTransformV1(requestParameters: TransformsApiCreateTransformV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Transformread> {
+            return localVarFp.createTransformV1(requestParameters.transform, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Deletes the transform specified by the given ID. Attempting to delete a transform that is used in one or more Identity Profile mappings will result in an error. If this occurs, you must first remove the transform from all mappings before deleting the transform.
          * @summary Delete a transform
-         * @param {TransformsV1ApiDeleteTransformV1Request} requestParameters Request parameters.
+         * @param {TransformsApiDeleteTransformV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteTransformV1(requestParameters: TransformsV1ApiDeleteTransformV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteTransformV1(requestParameters: TransformsApiDeleteTransformV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteTransformV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the transform specified by the given ID.
          * @summary Transform by id
-         * @param {TransformsV1ApiGetTransformV1Request} requestParameters Request parameters.
+         * @param {TransformsApiGetTransformV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getTransformV1(requestParameters: TransformsV1ApiGetTransformV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TransformreadV1> {
+        getTransformV1(requestParameters: TransformsApiGetTransformV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Transformread> {
             return localVarFp.getTransformV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Gets a list of all saved transform objects.
          * @summary List transforms
-         * @param {TransformsV1ApiListTransformsV1Request} requestParameters Request parameters.
+         * @param {TransformsApiListTransformsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listTransformsV1(requestParameters: TransformsV1ApiListTransformsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<TransformreadV1>> {
+        listTransformsV1(requestParameters: TransformsApiListTransformsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Transformread>> {
             return localVarFp.listTransformsV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.name, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Replaces the transform specified by the given ID with the transform provided in the request body. Only the \"attributes\" field is mutable. Attempting to change other properties (ex. \"name\" and \"type\") will result in an error.
          * @summary Update a transform
-         * @param {TransformsV1ApiUpdateTransformV1Request} requestParameters Request parameters.
+         * @param {TransformsApiUpdateTransformV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateTransformV1(requestParameters: TransformsV1ApiUpdateTransformV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TransformreadV1> {
-            return localVarFp.updateTransformV1(requestParameters.id, requestParameters.transformV1, axiosOptions).then((request) => request(axios, basePath));
+        updateTransformV1(requestParameters: TransformsApiUpdateTransformV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Transformread> {
+            return localVarFp.updateTransformV1(requestParameters.id, requestParameters.transform, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createTransformV1 operation in TransformsV1Api.
+ * Request parameters for createTransformV1 operation in TransformsApi.
  * @export
- * @interface TransformsV1ApiCreateTransformV1Request
+ * @interface TransformsApiCreateTransformV1Request
  */
-export interface TransformsV1ApiCreateTransformV1Request {
+export interface TransformsApiCreateTransformV1Request {
     /**
      * The transform to be created.
-     * @type {TransformV1}
-     * @memberof TransformsV1ApiCreateTransformV1
+     * @type {Transform}
+     * @memberof TransformsApiCreateTransformV1
      */
-    readonly transformV1: TransformV1
+    readonly transform: Transform
 }
 
 /**
- * Request parameters for deleteTransformV1 operation in TransformsV1Api.
+ * Request parameters for deleteTransformV1 operation in TransformsApi.
  * @export
- * @interface TransformsV1ApiDeleteTransformV1Request
+ * @interface TransformsApiDeleteTransformV1Request
  */
-export interface TransformsV1ApiDeleteTransformV1Request {
+export interface TransformsApiDeleteTransformV1Request {
     /**
      * ID of the transform to delete
      * @type {string}
-     * @memberof TransformsV1ApiDeleteTransformV1
+     * @memberof TransformsApiDeleteTransformV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getTransformV1 operation in TransformsV1Api.
+ * Request parameters for getTransformV1 operation in TransformsApi.
  * @export
- * @interface TransformsV1ApiGetTransformV1Request
+ * @interface TransformsApiGetTransformV1Request
  */
-export interface TransformsV1ApiGetTransformV1Request {
+export interface TransformsApiGetTransformV1Request {
     /**
      * ID of the transform to retrieve
      * @type {string}
-     * @memberof TransformsV1ApiGetTransformV1
+     * @memberof TransformsApiGetTransformV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for listTransformsV1 operation in TransformsV1Api.
+ * Request parameters for listTransformsV1 operation in TransformsApi.
  * @export
- * @interface TransformsV1ApiListTransformsV1Request
+ * @interface TransformsApiListTransformsV1Request
  */
-export interface TransformsV1ApiListTransformsV1Request {
+export interface TransformsApiListTransformsV1Request {
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof TransformsV1ApiListTransformsV1
+     * @memberof TransformsApiListTransformsV1
      */
     readonly offset?: number
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof TransformsV1ApiListTransformsV1
+     * @memberof TransformsApiListTransformsV1
      */
     readonly limit?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof TransformsV1ApiListTransformsV1
+     * @memberof TransformsApiListTransformsV1
      */
     readonly count?: boolean
 
     /**
      * Name of the transform to retrieve from the list.
      * @type {string}
-     * @memberof TransformsV1ApiListTransformsV1
+     * @memberof TransformsApiListTransformsV1
      */
     readonly name?: string
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **internal**: *eq*  **name**: *eq, sw*
      * @type {string}
-     * @memberof TransformsV1ApiListTransformsV1
+     * @memberof TransformsApiListTransformsV1
      */
     readonly filters?: string
 }
 
 /**
- * Request parameters for updateTransformV1 operation in TransformsV1Api.
+ * Request parameters for updateTransformV1 operation in TransformsApi.
  * @export
- * @interface TransformsV1ApiUpdateTransformV1Request
+ * @interface TransformsApiUpdateTransformV1Request
  */
-export interface TransformsV1ApiUpdateTransformV1Request {
+export interface TransformsApiUpdateTransformV1Request {
     /**
      * ID of the transform to update
      * @type {string}
-     * @memberof TransformsV1ApiUpdateTransformV1
+     * @memberof TransformsApiUpdateTransformV1
      */
     readonly id: string
 
     /**
      * The updated transform object. Must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields, but \&quot;name\&quot; and \&quot;type\&quot; must not be modified.
-     * @type {TransformV1}
-     * @memberof TransformsV1ApiUpdateTransformV1
+     * @type {Transform}
+     * @memberof TransformsApiUpdateTransformV1
      */
-    readonly transformV1?: TransformV1
+    readonly transform?: Transform
 }
 
 /**
- * TransformsV1Api - object-oriented interface
+ * TransformsApi - object-oriented interface
  * @export
- * @class TransformsV1Api
+ * @class TransformsApi
  * @extends {BaseAPI}
  */
-export class TransformsV1Api extends BaseAPI {
+export class TransformsApi extends BaseAPI {
     /**
      * Creates a new transform object immediately. By default, the internal flag is set to false to indicate that this is a custom transform. Only SailPoint employees have the ability to create a transform with internal set to true. Newly created Transforms can be used in the Identity Profile mappings within the UI.
      * @summary Create transform
-     * @param {TransformsV1ApiCreateTransformV1Request} requestParameters Request parameters.
+     * @param {TransformsApiCreateTransformV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TransformsV1Api
+     * @memberof TransformsApi
      */
-    public createTransformV1(requestParameters: TransformsV1ApiCreateTransformV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TransformsV1ApiFp(this.configuration).createTransformV1(requestParameters.transformV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createTransformV1(requestParameters: TransformsApiCreateTransformV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return TransformsApiFp(this.configuration).createTransformV1(requestParameters.transform, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Deletes the transform specified by the given ID. Attempting to delete a transform that is used in one or more Identity Profile mappings will result in an error. If this occurs, you must first remove the transform from all mappings before deleting the transform.
      * @summary Delete a transform
-     * @param {TransformsV1ApiDeleteTransformV1Request} requestParameters Request parameters.
+     * @param {TransformsApiDeleteTransformV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TransformsV1Api
+     * @memberof TransformsApi
      */
-    public deleteTransformV1(requestParameters: TransformsV1ApiDeleteTransformV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TransformsV1ApiFp(this.configuration).deleteTransformV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteTransformV1(requestParameters: TransformsApiDeleteTransformV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return TransformsApiFp(this.configuration).deleteTransformV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the transform specified by the given ID.
      * @summary Transform by id
-     * @param {TransformsV1ApiGetTransformV1Request} requestParameters Request parameters.
+     * @param {TransformsApiGetTransformV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TransformsV1Api
+     * @memberof TransformsApi
      */
-    public getTransformV1(requestParameters: TransformsV1ApiGetTransformV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TransformsV1ApiFp(this.configuration).getTransformV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getTransformV1(requestParameters: TransformsApiGetTransformV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return TransformsApiFp(this.configuration).getTransformV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Gets a list of all saved transform objects.
      * @summary List transforms
-     * @param {TransformsV1ApiListTransformsV1Request} requestParameters Request parameters.
+     * @param {TransformsApiListTransformsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TransformsV1Api
+     * @memberof TransformsApi
      */
-    public listTransformsV1(requestParameters: TransformsV1ApiListTransformsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return TransformsV1ApiFp(this.configuration).listTransformsV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.name, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listTransformsV1(requestParameters: TransformsApiListTransformsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return TransformsApiFp(this.configuration).listTransformsV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.name, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Replaces the transform specified by the given ID with the transform provided in the request body. Only the \"attributes\" field is mutable. Attempting to change other properties (ex. \"name\" and \"type\") will result in an error.
      * @summary Update a transform
-     * @param {TransformsV1ApiUpdateTransformV1Request} requestParameters Request parameters.
+     * @param {TransformsApiUpdateTransformV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TransformsV1Api
+     * @memberof TransformsApi
      */
-    public updateTransformV1(requestParameters: TransformsV1ApiUpdateTransformV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TransformsV1ApiFp(this.configuration).updateTransformV1(requestParameters.id, requestParameters.transformV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateTransformV1(requestParameters: TransformsApiUpdateTransformV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return TransformsApiFp(this.configuration).updateTransformV1(requestParameters.id, requestParameters.transform, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

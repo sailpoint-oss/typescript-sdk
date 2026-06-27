@@ -1,15 +1,15 @@
 ---
-id: v1-contextattributedto-value-v1
-title: ContextattributedtoValueV1
-pagination_label: ContextattributedtoValueV1
-sidebar_label: ContextattributedtoValueV1
+id: v1-contextattributedto-value
+title: ContextattributedtoValue
+pagination_label: ContextattributedtoValue
+sidebar_label: ContextattributedtoValue
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ContextattributedtoValueV1', 'v1ContextattributedtoValueV1']
-slug: /tools/sdk/typescript/identities/models/contextattributedto-value-v1
-tags: ['SDK', 'Software Development Kit', 'ContextattributedtoValueV1', 'v1ContextattributedtoValueV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ContextattributedtoValue', 'v1ContextattributedtoValue']
+slug: /tools/sdk/typescript/identities/models/contextattributedto-value
+tags: ['SDK', 'Software Development Kit', 'ContextattributedtoValue', 'v1ContextattributedtoValue']
 ---
 
-# ContextattributedtoValueV1
+# ContextattributedtoValue
 
 ## Properties
 

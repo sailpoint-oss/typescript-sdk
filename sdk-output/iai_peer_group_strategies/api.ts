@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -53,57 +53,57 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetPeerGroupOutliersV1401ResponseV1
+ * @interface GetPeerGroupOutliersV1401Response
  */
-export interface GetPeerGroupOutliersV1401ResponseV1 {
+export interface GetPeerGroupOutliersV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetPeerGroupOutliersV1401ResponseV1
+     * @memberof GetPeerGroupOutliersV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetPeerGroupOutliersV1429ResponseV1
+ * @interface GetPeerGroupOutliersV1429Response
  */
-export interface GetPeerGroupOutliersV1429ResponseV1 {
+export interface GetPeerGroupOutliersV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetPeerGroupOutliersV1429ResponseV1
+     * @memberof GetPeerGroupOutliersV1429Response
      */
     'message'?: any;
 }
@@ -113,56 +113,56 @@ export interface GetPeerGroupOutliersV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface PeergroupmemberV1
+ * @interface Peergroupmember
  */
-export interface PeergroupmemberV1 {
+export interface Peergroupmember {
     /**
      * A unique identifier for the peer group member.
      * @type {string}
-     * @memberof PeergroupmemberV1
+     * @memberof Peergroupmember
      */
     'id'?: string;
     /**
      * The type of the peer group member.
      * @type {string}
-     * @memberof PeergroupmemberV1
+     * @memberof Peergroupmember
      */
     'type'?: string;
     /**
      * The ID of the peer group.
      * @type {string}
-     * @memberof PeergroupmemberV1
+     * @memberof Peergroupmember
      */
     'peer_group_id'?: string;
     /**
      * Arbitrary key-value pairs, belonging to the peer group member.
      * @type {{ [key: string]: object; }}
-     * @memberof PeergroupmemberV1
+     * @memberof Peergroupmember
      */
     'attributes'?: { [key: string]: object; };
 }
 
 /**
- * IAIPeerGroupStrategiesV1Api - axios parameter creator
+ * IAIPeerGroupStrategiesApi - axios parameter creator
  * @export
  */
-export const IAIPeerGroupStrategiesV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const IAIPeerGroupStrategiesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * -- Deprecated : See \'IAI Outliers\' This API will be used by Identity Governance systems to identify identities that are not included in an organization\'s peer groups. By default, 250 identities are returned. You can specify between 1 and 1000 number of identities that can be returned.
          * @summary Identity outliers list
-         * @param {GetPeerGroupOutliersV1StrategyV1} strategy The strategy used to create peer groups. Currently, \&#39;entitlement\&#39; is supported.
+         * @param {GetPeerGroupOutliersV1StrategyEnum} strategy The strategy used to create peer groups. Currently, \&#39;entitlement\&#39; is supported.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -171,7 +171,7 @@ export const IAIPeerGroupStrategiesV1ApiAxiosParamCreator = function (configurat
          * @deprecated
          * @throws {RequiredError}
          */
-        getPeerGroupOutliersV1: async (strategy: GetPeerGroupOutliersV1StrategyV1, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getPeerGroupOutliersV1: async (strategy: GetPeerGroupOutliersV1StrategyEnum, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'strategy' is not null or undefined
             assertParamExists('getPeerGroupOutliersV1', 'strategy', strategy)
             if (xSailPointExperimental === undefined) {
@@ -221,16 +221,16 @@ export const IAIPeerGroupStrategiesV1ApiAxiosParamCreator = function (configurat
 };
 
 /**
- * IAIPeerGroupStrategiesV1Api - functional programming interface
+ * IAIPeerGroupStrategiesApi - functional programming interface
  * @export
  */
-export const IAIPeerGroupStrategiesV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = IAIPeerGroupStrategiesV1ApiAxiosParamCreator(configuration)
+export const IAIPeerGroupStrategiesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = IAIPeerGroupStrategiesApiAxiosParamCreator(configuration)
     return {
         /**
          * -- Deprecated : See \'IAI Outliers\' This API will be used by Identity Governance systems to identify identities that are not included in an organization\'s peer groups. By default, 250 identities are returned. You can specify between 1 and 1000 number of identities that can be returned.
          * @summary Identity outliers list
-         * @param {GetPeerGroupOutliersV1StrategyV1} strategy The strategy used to create peer groups. Currently, \&#39;entitlement\&#39; is supported.
+         * @param {GetPeerGroupOutliersV1StrategyEnum} strategy The strategy used to create peer groups. Currently, \&#39;entitlement\&#39; is supported.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -239,105 +239,105 @@ export const IAIPeerGroupStrategiesV1ApiFp = function(configuration?: Configurat
          * @deprecated
          * @throws {RequiredError}
          */
-        async getPeerGroupOutliersV1(strategy: GetPeerGroupOutliersV1StrategyV1, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PeergroupmemberV1>>> {
+        async getPeerGroupOutliersV1(strategy: GetPeerGroupOutliersV1StrategyEnum, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Peergroupmember>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPeerGroupOutliersV1(strategy, limit, offset, count, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAIPeerGroupStrategiesV1Api.getPeerGroupOutliersV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAIPeerGroupStrategiesApi.getPeerGroupOutliersV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * IAIPeerGroupStrategiesV1Api - factory interface
+ * IAIPeerGroupStrategiesApi - factory interface
  * @export
  */
-export const IAIPeerGroupStrategiesV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = IAIPeerGroupStrategiesV1ApiFp(configuration)
+export const IAIPeerGroupStrategiesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = IAIPeerGroupStrategiesApiFp(configuration)
     return {
         /**
          * -- Deprecated : See \'IAI Outliers\' This API will be used by Identity Governance systems to identify identities that are not included in an organization\'s peer groups. By default, 250 identities are returned. You can specify between 1 and 1000 number of identities that can be returned.
          * @summary Identity outliers list
-         * @param {IAIPeerGroupStrategiesV1ApiGetPeerGroupOutliersV1Request} requestParameters Request parameters.
+         * @param {IAIPeerGroupStrategiesApiGetPeerGroupOutliersV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @deprecated
          * @throws {RequiredError}
          */
-        getPeerGroupOutliersV1(requestParameters: IAIPeerGroupStrategiesV1ApiGetPeerGroupOutliersV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<PeergroupmemberV1>> {
+        getPeerGroupOutliersV1(requestParameters: IAIPeerGroupStrategiesApiGetPeerGroupOutliersV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Peergroupmember>> {
             return localVarFp.getPeerGroupOutliersV1(requestParameters.strategy, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for getPeerGroupOutliersV1 operation in IAIPeerGroupStrategiesV1Api.
+ * Request parameters for getPeerGroupOutliersV1 operation in IAIPeerGroupStrategiesApi.
  * @export
- * @interface IAIPeerGroupStrategiesV1ApiGetPeerGroupOutliersV1Request
+ * @interface IAIPeerGroupStrategiesApiGetPeerGroupOutliersV1Request
  */
-export interface IAIPeerGroupStrategiesV1ApiGetPeerGroupOutliersV1Request {
+export interface IAIPeerGroupStrategiesApiGetPeerGroupOutliersV1Request {
     /**
      * The strategy used to create peer groups. Currently, \&#39;entitlement\&#39; is supported.
      * @type {'entitlement'}
-     * @memberof IAIPeerGroupStrategiesV1ApiGetPeerGroupOutliersV1
+     * @memberof IAIPeerGroupStrategiesApiGetPeerGroupOutliersV1
      */
-    readonly strategy: GetPeerGroupOutliersV1StrategyV1
+    readonly strategy: GetPeerGroupOutliersV1StrategyEnum
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IAIPeerGroupStrategiesV1ApiGetPeerGroupOutliersV1
+     * @memberof IAIPeerGroupStrategiesApiGetPeerGroupOutliersV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IAIPeerGroupStrategiesV1ApiGetPeerGroupOutliersV1
+     * @memberof IAIPeerGroupStrategiesApiGetPeerGroupOutliersV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof IAIPeerGroupStrategiesV1ApiGetPeerGroupOutliersV1
+     * @memberof IAIPeerGroupStrategiesApiGetPeerGroupOutliersV1
      */
     readonly count?: boolean
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAIPeerGroupStrategiesV1ApiGetPeerGroupOutliersV1
+     * @memberof IAIPeerGroupStrategiesApiGetPeerGroupOutliersV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * IAIPeerGroupStrategiesV1Api - object-oriented interface
+ * IAIPeerGroupStrategiesApi - object-oriented interface
  * @export
- * @class IAIPeerGroupStrategiesV1Api
+ * @class IAIPeerGroupStrategiesApi
  * @extends {BaseAPI}
  */
-export class IAIPeerGroupStrategiesV1Api extends BaseAPI {
+export class IAIPeerGroupStrategiesApi extends BaseAPI {
     /**
      * -- Deprecated : See \'IAI Outliers\' This API will be used by Identity Governance systems to identify identities that are not included in an organization\'s peer groups. By default, 250 identities are returned. You can specify between 1 and 1000 number of identities that can be returned.
      * @summary Identity outliers list
-     * @param {IAIPeerGroupStrategiesV1ApiGetPeerGroupOutliersV1Request} requestParameters Request parameters.
+     * @param {IAIPeerGroupStrategiesApiGetPeerGroupOutliersV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @deprecated
      * @throws {RequiredError}
-     * @memberof IAIPeerGroupStrategiesV1Api
+     * @memberof IAIPeerGroupStrategiesApi
      */
-    public getPeerGroupOutliersV1(requestParameters: IAIPeerGroupStrategiesV1ApiGetPeerGroupOutliersV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIPeerGroupStrategiesV1ApiFp(this.configuration).getPeerGroupOutliersV1(requestParameters.strategy, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getPeerGroupOutliersV1(requestParameters: IAIPeerGroupStrategiesApiGetPeerGroupOutliersV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IAIPeerGroupStrategiesApiFp(this.configuration).getPeerGroupOutliersV1(requestParameters.strategy, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
 /**
  * @export
  */
-export const GetPeerGroupOutliersV1StrategyV1 = {
+export const GetPeerGroupOutliersV1StrategyEnum = {
     Entitlement: 'entitlement'
 } as const;
-export type GetPeerGroupOutliersV1StrategyV1 = typeof GetPeerGroupOutliersV1StrategyV1[keyof typeof GetPeerGroupOutliersV1StrategyV1];
+export type GetPeerGroupOutliersV1StrategyEnum = typeof GetPeerGroupOutliersV1StrategyEnum[keyof typeof GetPeerGroupOutliersV1StrategyEnum];
 
 

@@ -6,6 +6,8 @@ Errorresponsedto.md
 Index.md
 Localeorigin.md
 README.md
+RolePropagationApi.md
+RolePropagationApideveloperSite_code_examples.yaml
 RolePropagationConfigInput.md
 RolePropagationConfigResponse.md
 RolePropagationOngoingResponse.md
@@ -14,8 +16,6 @@ RolePropagationResponse.md
 RolePropagationStatusResponse.md
 RolePropagationStatusResponseLaunchedBy.md
 RolePropagationStatusResponseTerminatedBy.md
-RolePropagationV1Api.md
-RolePropagationV1ApideveloperSite_code_examples.yaml
 StartRolePropagationV1401Response.md
 StartRolePropagationV1429Response.md
 api.ts

@@ -1,15 +1,15 @@
 ---
-id: v1-accountrequestphasestate-v1
-title: AccountrequestphasestateV1
-pagination_label: AccountrequestphasestateV1
-sidebar_label: AccountrequestphasestateV1
+id: v1-accountrequestphasestate
+title: Accountrequestphasestate
+pagination_label: Accountrequestphasestate
+sidebar_label: Accountrequestphasestate
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccountrequestphasestateV1', 'v1AccountrequestphasestateV1']
-slug: /tools/sdk/typescript/machine_account_creation_request/models/accountrequestphasestate-v1
-tags: ['SDK', 'Software Development Kit', 'AccountrequestphasestateV1', 'v1AccountrequestphasestateV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accountrequestphasestate', 'v1Accountrequestphasestate']
+slug: /tools/sdk/typescript/machine_account_creation_request/models/accountrequestphasestate
+tags: ['SDK', 'Software Development Kit', 'Accountrequestphasestate', 'v1Accountrequestphasestate']
 ---
 
-# AccountrequestphasestateV1
+# Accountrequestphasestate
 
 ## Enum
 

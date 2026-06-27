@@ -1,20 +1,20 @@
 ---
-id: v1-attributemappings-all-of-transform-definition-attributes-input-v1
-title: AttributemappingsAllOfTransformDefinitionAttributesInputV1
-pagination_label: AttributemappingsAllOfTransformDefinitionAttributesInputV1
-sidebar_label: AttributemappingsAllOfTransformDefinitionAttributesInputV1
+id: v1-attributemappings-all-of-transform-definition-attributes-input
+title: AttributemappingsAllOfTransformDefinitionAttributesInput
+pagination_label: AttributemappingsAllOfTransformDefinitionAttributesInput
+sidebar_label: AttributemappingsAllOfTransformDefinitionAttributesInput
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AttributemappingsAllOfTransformDefinitionAttributesInputV1', 'v1AttributemappingsAllOfTransformDefinitionAttributesInputV1']
-slug: /tools/sdk/typescript/machine_account_mappings/models/attributemappings-all-of-transform-definition-attributes-input-v1
-tags: ['SDK', 'Software Development Kit', 'AttributemappingsAllOfTransformDefinitionAttributesInputV1', 'v1AttributemappingsAllOfTransformDefinitionAttributesInputV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'AttributemappingsAllOfTransformDefinitionAttributesInput', 'v1AttributemappingsAllOfTransformDefinitionAttributesInput']
+slug: /tools/sdk/typescript/machine_account_mappings/models/attributemappings-all-of-transform-definition-attributes-input
+tags: ['SDK', 'Software Development Kit', 'AttributemappingsAllOfTransformDefinitionAttributesInput', 'v1AttributemappingsAllOfTransformDefinitionAttributesInput']
 ---
 
-# AttributemappingsAllOfTransformDefinitionAttributesInputV1
+# AttributemappingsAllOfTransformDefinitionAttributesInput
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | The Type of Attribute | [default to undefined]
-**attributes** | **(optional)** **AttributemappingsAllOfTransformDefinitionAttributesInputAttributesV1** |  | [default to undefined]
+**type** | **(optional)** `string` | The Type of Attribute | [default to undefined]
+**attributes** | **(optional)** `AttributemappingsAllOfTransformDefinitionAttributesInputAttributes` |  | [default to undefined]
 

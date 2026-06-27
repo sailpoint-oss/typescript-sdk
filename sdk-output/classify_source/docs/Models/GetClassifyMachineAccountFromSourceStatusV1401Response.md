@@ -1,19 +1,19 @@
 ---
-id: v1-get-classify-machine-account-from-source-status-v1401-response-v1
-title: GetClassifyMachineAccountFromSourceStatusV1401ResponseV1
-pagination_label: GetClassifyMachineAccountFromSourceStatusV1401ResponseV1
-sidebar_label: GetClassifyMachineAccountFromSourceStatusV1401ResponseV1
+id: v1-get-classify-machine-account-from-source-status-v1401-response
+title: GetClassifyMachineAccountFromSourceStatusV1401Response
+pagination_label: GetClassifyMachineAccountFromSourceStatusV1401Response
+sidebar_label: GetClassifyMachineAccountFromSourceStatusV1401Response
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'GetClassifyMachineAccountFromSourceStatusV1401ResponseV1', 'v1GetClassifyMachineAccountFromSourceStatusV1401ResponseV1']
-slug: /tools/sdk/typescript/classify_source/models/get-classify-machine-account-from-source-status-v1401-response-v1
-tags: ['SDK', 'Software Development Kit', 'GetClassifyMachineAccountFromSourceStatusV1401ResponseV1', 'v1GetClassifyMachineAccountFromSourceStatusV1401ResponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'GetClassifyMachineAccountFromSourceStatusV1401Response', 'v1GetClassifyMachineAccountFromSourceStatusV1401Response']
+slug: /tools/sdk/typescript/classify_source/models/get-classify-machine-account-from-source-status-v1401-response
+tags: ['SDK', 'Software Development Kit', 'GetClassifyMachineAccountFromSourceStatusV1401Response', 'v1GetClassifyMachineAccountFromSourceStatusV1401Response']
 ---
 
-# GetClassifyMachineAccountFromSourceStatusV1401ResponseV1
+# GetClassifyMachineAccountFromSourceStatusV1401Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**error** | **(optional)** **any** | A message describing the error | [default to undefined]
+**error** | **(optional)** `any` | A message describing the error | [default to undefined]
 

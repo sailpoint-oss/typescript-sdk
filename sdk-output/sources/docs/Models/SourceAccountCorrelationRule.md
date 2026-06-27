@@ -1,21 +1,21 @@
 ---
-id: v1-source-account-correlation-rule-v1
-title: SourceAccountCorrelationRuleV1
-pagination_label: SourceAccountCorrelationRuleV1
-sidebar_label: SourceAccountCorrelationRuleV1
+id: v1-source-account-correlation-rule
+title: SourceAccountCorrelationRule
+pagination_label: SourceAccountCorrelationRule
+sidebar_label: SourceAccountCorrelationRule
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SourceAccountCorrelationRuleV1', 'v1SourceAccountCorrelationRuleV1']
-slug: /tools/sdk/typescript/sources/models/source-account-correlation-rule-v1
-tags: ['SDK', 'Software Development Kit', 'SourceAccountCorrelationRuleV1', 'v1SourceAccountCorrelationRuleV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'SourceAccountCorrelationRule', 'v1SourceAccountCorrelationRule']
+slug: /tools/sdk/typescript/sources/models/source-account-correlation-rule
+tags: ['SDK', 'Software Development Kit', 'SourceAccountCorrelationRule', 'v1SourceAccountCorrelationRule']
 ---
 
-# SourceAccountCorrelationRuleV1
+# SourceAccountCorrelationRule
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | Type of object being referenced. | [default to undefined]
-**id** | **(optional)** **string** | Rule ID. | [default to undefined]
-**name** | **(optional)** **string** | Rule\'s human-readable display name. | [default to undefined]
+**type** | **(optional)** `string` | Type of object being referenced. | [default to undefined]
+**id** | **(optional)** `string` | Rule ID. | [default to undefined]
+**name** | **(optional)** `string` | Rule\'s human-readable display name. | [default to undefined]
 

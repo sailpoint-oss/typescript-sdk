@@ -1,19 +1,19 @@
 ---
-id: v1-visibilitycriteria-v1
-title: VisibilitycriteriaV1
-pagination_label: VisibilitycriteriaV1
-sidebar_label: VisibilitycriteriaV1
+id: v1-visibilitycriteria
+title: Visibilitycriteria
+pagination_label: Visibilitycriteria
+sidebar_label: Visibilitycriteria
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'VisibilitycriteriaV1', 'v1VisibilitycriteriaV1']
-slug: /tools/sdk/typescript/segments/models/visibilitycriteria-v1
-tags: ['SDK', 'Software Development Kit', 'VisibilitycriteriaV1', 'v1VisibilitycriteriaV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Visibilitycriteria', 'v1Visibilitycriteria']
+slug: /tools/sdk/typescript/segments/models/visibilitycriteria
+tags: ['SDK', 'Software Development Kit', 'Visibilitycriteria', 'v1Visibilitycriteria']
 ---
 
-# VisibilitycriteriaV1
+# Visibilitycriteria
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**expression** | **(optional)** **ExpressionV1** |  | [default to undefined]
+**expression** | **(optional)** `Expression` |  | [default to undefined]
 

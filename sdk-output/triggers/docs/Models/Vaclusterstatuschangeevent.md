@@ -1,23 +1,23 @@
 ---
-id: v1-vaclusterstatuschangeevent-v1
-title: VaclusterstatuschangeeventV1
-pagination_label: VaclusterstatuschangeeventV1
-sidebar_label: VaclusterstatuschangeeventV1
+id: v1-vaclusterstatuschangeevent
+title: Vaclusterstatuschangeevent
+pagination_label: Vaclusterstatuschangeevent
+sidebar_label: Vaclusterstatuschangeevent
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'VaclusterstatuschangeeventV1', 'v1VaclusterstatuschangeeventV1']
-slug: /tools/sdk/typescript/triggers/models/vaclusterstatuschangeevent-v1
-tags: ['SDK', 'Software Development Kit', 'VaclusterstatuschangeeventV1', 'v1VaclusterstatuschangeeventV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Vaclusterstatuschangeevent', 'v1Vaclusterstatuschangeevent']
+slug: /tools/sdk/typescript/triggers/models/vaclusterstatuschangeevent
+tags: ['SDK', 'Software Development Kit', 'Vaclusterstatuschangeevent', 'v1Vaclusterstatuschangeevent']
 ---
 
-# VaclusterstatuschangeeventV1
+# Vaclusterstatuschangeevent
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created** | **string** | The date and time the status change occurred. | [default to undefined]
-**type** | **string** | The type of the object that initiated this event. | [default to undefined]
-**application** | **VaclusterstatuschangeeventApplicationV1** |  | [default to undefined]
-**healthCheckResult** | **VaclusterstatuschangeeventHealthCheckResultV1** |  | [default to undefined]
-**previousHealthCheckResult** | **VaclusterstatuschangeeventPreviousHealthCheckResultV1** |  | [default to undefined]
+**created** | `string` | The date and time the status change occurred. | [default to undefined]
+**type** | `string` | The type of the object that initiated this event. | [default to undefined]
+**application** | `VaclusterstatuschangeeventApplication` |  | [default to undefined]
+**healthCheckResult** | `VaclusterstatuschangeeventHealthCheckResult` |  | [default to undefined]
+**previousHealthCheckResult** | `VaclusterstatuschangeeventPreviousHealthCheckResult` |  | [default to undefined]
 

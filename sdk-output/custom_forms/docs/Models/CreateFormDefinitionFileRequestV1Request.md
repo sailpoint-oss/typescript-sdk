@@ -1,19 +1,19 @@
 ---
-id: v1-create-form-definition-file-request-v1-request-v1
-title: CreateFormDefinitionFileRequestV1RequestV1
-pagination_label: CreateFormDefinitionFileRequestV1RequestV1
-sidebar_label: CreateFormDefinitionFileRequestV1RequestV1
+id: v1-create-form-definition-file-request-v1-request
+title: CreateFormDefinitionFileRequestV1Request
+pagination_label: CreateFormDefinitionFileRequestV1Request
+sidebar_label: CreateFormDefinitionFileRequestV1Request
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'CreateFormDefinitionFileRequestV1RequestV1', 'v1CreateFormDefinitionFileRequestV1RequestV1']
-slug: /tools/sdk/typescript/custom_forms/models/create-form-definition-file-request-v1-request-v1
-tags: ['SDK', 'Software Development Kit', 'CreateFormDefinitionFileRequestV1RequestV1', 'v1CreateFormDefinitionFileRequestV1RequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'CreateFormDefinitionFileRequestV1Request', 'v1CreateFormDefinitionFileRequestV1Request']
+slug: /tools/sdk/typescript/custom_forms/models/create-form-definition-file-request-v1-request
+tags: ['SDK', 'Software Development Kit', 'CreateFormDefinitionFileRequestV1Request', 'v1CreateFormDefinitionFileRequestV1Request']
 ---
 
-# CreateFormDefinitionFileRequestV1RequestV1
+# CreateFormDefinitionFileRequestV1Request
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**file** | **File** | File specifying the multipart | [default to undefined]
+**file** | `File` | File specifying the multipart | [default to undefined]
 

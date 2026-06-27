@@ -1,22 +1,22 @@
 ---
-id: v1-accessrequestpreapproval-v1
-title: AccessrequestpreapprovalV1
-pagination_label: AccessrequestpreapprovalV1
-sidebar_label: AccessrequestpreapprovalV1
+id: v1-accessrequestpreapproval
+title: Accessrequestpreapproval
+pagination_label: Accessrequestpreapproval
+sidebar_label: Accessrequestpreapproval
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccessrequestpreapprovalV1', 'v1AccessrequestpreapprovalV1']
-slug: /tools/sdk/typescript/triggers/models/accessrequestpreapproval-v1
-tags: ['SDK', 'Software Development Kit', 'AccessrequestpreapprovalV1', 'v1AccessrequestpreapprovalV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accessrequestpreapproval', 'v1Accessrequestpreapproval']
+slug: /tools/sdk/typescript/triggers/models/accessrequestpreapproval
+tags: ['SDK', 'Software Development Kit', 'Accessrequestpreapproval', 'v1Accessrequestpreapproval']
 ---
 
-# AccessrequestpreapprovalV1
+# Accessrequestpreapproval
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**accessRequestId** | **string** | The unique ID of the access request. | [default to undefined]
-**requestedFor** | **Array&lt;AccessitemrequestedfordtoV1&gt;** | Identities access was requested for. | [default to undefined]
-**requestedItems** | **Array&lt;AccessrequestpreapprovalRequestedItemsInnerV1&gt;** | Details of the access items being requested. | [default to undefined]
-**requestedBy** | **AccessitemrequesterdtoV1** |  | [default to undefined]
+**accessRequestId** | `string` | The unique ID of the access request. | [default to undefined]
+**requestedFor** | `Array<Accessitemrequestedfordto>` | Identities access was requested for. | [default to undefined]
+**requestedItems** | `Array<AccessrequestpreapprovalRequestedItemsInner>` | Details of the access items being requested. | [default to undefined]
+**requestedBy** | `Accessitemrequesterdto` |  | [default to undefined]
 

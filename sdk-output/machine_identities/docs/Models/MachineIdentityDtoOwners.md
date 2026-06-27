@@ -1,20 +1,20 @@
 ---
-id: v1-machine-identity-dto-owners-v1
-title: MachineIdentityDtoOwnersV1
-pagination_label: MachineIdentityDtoOwnersV1
-sidebar_label: MachineIdentityDtoOwnersV1
+id: v1-machine-identity-dto-owners
+title: MachineIdentityDtoOwners
+pagination_label: MachineIdentityDtoOwners
+sidebar_label: MachineIdentityDtoOwners
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'MachineIdentityDtoOwnersV1', 'v1MachineIdentityDtoOwnersV1']
-slug: /tools/sdk/typescript/machine_identities/models/machine-identity-dto-owners-v1
-tags: ['SDK', 'Software Development Kit', 'MachineIdentityDtoOwnersV1', 'v1MachineIdentityDtoOwnersV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'MachineIdentityDtoOwners', 'v1MachineIdentityDtoOwners']
+slug: /tools/sdk/typescript/machine_identities/models/machine-identity-dto-owners
+tags: ['SDK', 'Software Development Kit', 'MachineIdentityDtoOwners', 'v1MachineIdentityDtoOwners']
 ---
 
-# MachineIdentityDtoOwnersV1
+# MachineIdentityDtoOwners
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**primaryIdentity** | **object** | Defines the identity which is selected as the primary owner | [default to undefined]
-**secondaryIdentities** | **Array&lt;BasereferencedtoV1&gt;** | Defines the identities which are selected as secondary owners | [default to undefined]
+**primaryIdentity** | `object` | Defines the identity which is selected as the primary owner | [default to undefined]
+**secondaryIdentities** | `Array<Basereferencedto>` | Defines the identities which are selected as secondary owners | [default to undefined]
 

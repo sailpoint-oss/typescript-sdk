@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -53,57 +53,57 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetPrivilegeCriteriaConfigV1401ResponseV1
+ * @interface GetPrivilegeCriteriaConfigV1401Response
  */
-export interface GetPrivilegeCriteriaConfigV1401ResponseV1 {
+export interface GetPrivilegeCriteriaConfigV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetPrivilegeCriteriaConfigV1401ResponseV1
+     * @memberof GetPrivilegeCriteriaConfigV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetPrivilegeCriteriaConfigV1429ResponseV1
+ * @interface GetPrivilegeCriteriaConfigV1429Response
  */
-export interface GetPrivilegeCriteriaConfigV1429ResponseV1 {
+export interface GetPrivilegeCriteriaConfigV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetPrivilegeCriteriaConfigV1429ResponseV1
+     * @memberof GetPrivilegeCriteriaConfigV1429Response
      */
     'message'?: any;
 }
@@ -113,57 +113,57 @@ export interface GetPrivilegeCriteriaConfigV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface PrivilegecriteriaconfigdtoV1
+ * @interface Privilegecriteriaconfigdto
  */
-export interface PrivilegecriteriaconfigdtoV1 {
+export interface Privilegecriteriaconfigdto {
     /**
      * The Id of the task which is executing the bulk update.
      * @type {string}
-     * @memberof PrivilegecriteriaconfigdtoV1
+     * @memberof Privilegecriteriaconfigdto
      */
     'id'?: string;
     /**
      * The Id of the source that the criteria configuration is applied to.
      * @type {string}
-     * @memberof PrivilegecriteriaconfigdtoV1
+     * @memberof Privilegecriteriaconfigdto
      */
     'sourceId'?: string;
     /**
      * The configuration settings for privilege criteria evaluation. 
      * @type {object}
-     * @memberof PrivilegecriteriaconfigdtoV1
+     * @memberof Privilegecriteriaconfigdto
      */
     'config'?: object;
     /**
      * The date and time when the privilege criteria configuration was created.
      * @type {string}
-     * @memberof PrivilegecriteriaconfigdtoV1
+     * @memberof Privilegecriteriaconfigdto
      */
     'created'?: string;
     /**
      * The date and time when the privilege criteria configuration was last modified.
      * @type {string}
-     * @memberof PrivilegecriteriaconfigdtoV1
+     * @memberof Privilegecriteriaconfigdto
      */
     'modified'?: string;
 }
 
 /**
- * PrivilegeCriteriaConfigurationV1Api - axios parameter creator
+ * PrivilegeCriteriaConfigurationApi - axios parameter creator
  * @export
  */
-export const PrivilegeCriteriaConfigurationV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const PrivilegeCriteriaConfigurationApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Use this API to get the privilege criteria configuration by Id.
@@ -280,11 +280,11 @@ export const PrivilegeCriteriaConfigurationV1ApiAxiosParamCreator = function (co
 };
 
 /**
- * PrivilegeCriteriaConfigurationV1Api - functional programming interface
+ * PrivilegeCriteriaConfigurationApi - functional programming interface
  * @export
  */
-export const PrivilegeCriteriaConfigurationV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = PrivilegeCriteriaConfigurationV1ApiAxiosParamCreator(configuration)
+export const PrivilegeCriteriaConfigurationApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = PrivilegeCriteriaConfigurationApiAxiosParamCreator(configuration)
     return {
         /**
          * Use this API to get the privilege criteria configuration by Id.
@@ -293,10 +293,10 @@ export const PrivilegeCriteriaConfigurationV1ApiFp = function(configuration?: Co
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPrivilegeCriteriaConfigV1(criteriaConfigId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PrivilegecriteriaconfigdtoV1>> {
+        async getPrivilegeCriteriaConfigV1(criteriaConfigId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Privilegecriteriaconfigdto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPrivilegeCriteriaConfigV1(criteriaConfigId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PrivilegeCriteriaConfigurationV1Api.getPrivilegeCriteriaConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PrivilegeCriteriaConfigurationApi.getPrivilegeCriteriaConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -306,10 +306,10 @@ export const PrivilegeCriteriaConfigurationV1ApiFp = function(configuration?: Co
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listPrivilegeCriteriaConfigV1(filters: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PrivilegecriteriaconfigdtoV1>>> {
+        async listPrivilegeCriteriaConfigV1(filters: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Privilegecriteriaconfigdto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listPrivilegeCriteriaConfigV1(filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PrivilegeCriteriaConfigurationV1Api.listPrivilegeCriteriaConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PrivilegeCriteriaConfigurationApi.listPrivilegeCriteriaConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -320,145 +320,145 @@ export const PrivilegeCriteriaConfigurationV1ApiFp = function(configuration?: Co
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchPrivilegeCriteriaConfigV1(criteriaConfigId: string, requestBody: Array<object>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PrivilegecriteriaconfigdtoV1>> {
+        async patchPrivilegeCriteriaConfigV1(criteriaConfigId: string, requestBody: Array<object>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Privilegecriteriaconfigdto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchPrivilegeCriteriaConfigV1(criteriaConfigId, requestBody, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PrivilegeCriteriaConfigurationV1Api.patchPrivilegeCriteriaConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PrivilegeCriteriaConfigurationApi.patchPrivilegeCriteriaConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * PrivilegeCriteriaConfigurationV1Api - factory interface
+ * PrivilegeCriteriaConfigurationApi - factory interface
  * @export
  */
-export const PrivilegeCriteriaConfigurationV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = PrivilegeCriteriaConfigurationV1ApiFp(configuration)
+export const PrivilegeCriteriaConfigurationApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = PrivilegeCriteriaConfigurationApiFp(configuration)
     return {
         /**
          * Use this API to get the privilege criteria configuration by Id.
          * @summary Get privilege criteria config
-         * @param {PrivilegeCriteriaConfigurationV1ApiGetPrivilegeCriteriaConfigV1Request} requestParameters Request parameters.
+         * @param {PrivilegeCriteriaConfigurationApiGetPrivilegeCriteriaConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getPrivilegeCriteriaConfigV1(requestParameters: PrivilegeCriteriaConfigurationV1ApiGetPrivilegeCriteriaConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PrivilegecriteriaconfigdtoV1> {
+        getPrivilegeCriteriaConfigV1(requestParameters: PrivilegeCriteriaConfigurationApiGetPrivilegeCriteriaConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Privilegecriteriaconfigdto> {
             return localVarFp.getPrivilegeCriteriaConfigV1(requestParameters.criteriaConfigId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to list the privilege criteria configuration.
          * @summary List privilege criteria config
-         * @param {PrivilegeCriteriaConfigurationV1ApiListPrivilegeCriteriaConfigV1Request} requestParameters Request parameters.
+         * @param {PrivilegeCriteriaConfigurationApiListPrivilegeCriteriaConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listPrivilegeCriteriaConfigV1(requestParameters: PrivilegeCriteriaConfigurationV1ApiListPrivilegeCriteriaConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<PrivilegecriteriaconfigdtoV1>> {
+        listPrivilegeCriteriaConfigV1(requestParameters: PrivilegeCriteriaConfigurationApiListPrivilegeCriteriaConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Privilegecriteriaconfigdto>> {
             return localVarFp.listPrivilegeCriteriaConfigV1(requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to update the privilege criteria configuration.
          * @summary Update privilege criteria configuration
-         * @param {PrivilegeCriteriaConfigurationV1ApiPatchPrivilegeCriteriaConfigV1Request} requestParameters Request parameters.
+         * @param {PrivilegeCriteriaConfigurationApiPatchPrivilegeCriteriaConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchPrivilegeCriteriaConfigV1(requestParameters: PrivilegeCriteriaConfigurationV1ApiPatchPrivilegeCriteriaConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PrivilegecriteriaconfigdtoV1> {
+        patchPrivilegeCriteriaConfigV1(requestParameters: PrivilegeCriteriaConfigurationApiPatchPrivilegeCriteriaConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Privilegecriteriaconfigdto> {
             return localVarFp.patchPrivilegeCriteriaConfigV1(requestParameters.criteriaConfigId, requestParameters.requestBody, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for getPrivilegeCriteriaConfigV1 operation in PrivilegeCriteriaConfigurationV1Api.
+ * Request parameters for getPrivilegeCriteriaConfigV1 operation in PrivilegeCriteriaConfigurationApi.
  * @export
- * @interface PrivilegeCriteriaConfigurationV1ApiGetPrivilegeCriteriaConfigV1Request
+ * @interface PrivilegeCriteriaConfigurationApiGetPrivilegeCriteriaConfigV1Request
  */
-export interface PrivilegeCriteriaConfigurationV1ApiGetPrivilegeCriteriaConfigV1Request {
+export interface PrivilegeCriteriaConfigurationApiGetPrivilegeCriteriaConfigV1Request {
     /**
      * The Id of the privilege criteria configuration record to retrieve.
      * @type {string}
-     * @memberof PrivilegeCriteriaConfigurationV1ApiGetPrivilegeCriteriaConfigV1
+     * @memberof PrivilegeCriteriaConfigurationApiGetPrivilegeCriteriaConfigV1
      */
     readonly criteriaConfigId: string
 }
 
 /**
- * Request parameters for listPrivilegeCriteriaConfigV1 operation in PrivilegeCriteriaConfigurationV1Api.
+ * Request parameters for listPrivilegeCriteriaConfigV1 operation in PrivilegeCriteriaConfigurationApi.
  * @export
- * @interface PrivilegeCriteriaConfigurationV1ApiListPrivilegeCriteriaConfigV1Request
+ * @interface PrivilegeCriteriaConfigurationApiListPrivilegeCriteriaConfigV1Request
  */
-export interface PrivilegeCriteriaConfigurationV1ApiListPrivilegeCriteriaConfigV1Request {
+export interface PrivilegeCriteriaConfigurationApiListPrivilegeCriteriaConfigV1Request {
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  All filter values are case-sensitive for this API.  For example, the following is valid: &#x60;?filters&#x3D;sourceId eq \&quot;2c91809175e6c63f0175fb5570220569\&quot;&#x60;
      * @type {string}
-     * @memberof PrivilegeCriteriaConfigurationV1ApiListPrivilegeCriteriaConfigV1
+     * @memberof PrivilegeCriteriaConfigurationApiListPrivilegeCriteriaConfigV1
      */
     readonly filters: string
 }
 
 /**
- * Request parameters for patchPrivilegeCriteriaConfigV1 operation in PrivilegeCriteriaConfigurationV1Api.
+ * Request parameters for patchPrivilegeCriteriaConfigV1 operation in PrivilegeCriteriaConfigurationApi.
  * @export
- * @interface PrivilegeCriteriaConfigurationV1ApiPatchPrivilegeCriteriaConfigV1Request
+ * @interface PrivilegeCriteriaConfigurationApiPatchPrivilegeCriteriaConfigV1Request
  */
-export interface PrivilegeCriteriaConfigurationV1ApiPatchPrivilegeCriteriaConfigV1Request {
+export interface PrivilegeCriteriaConfigurationApiPatchPrivilegeCriteriaConfigV1Request {
     /**
      * The Id of the privilege criteria configuration to update.
      * @type {string}
-     * @memberof PrivilegeCriteriaConfigurationV1ApiPatchPrivilegeCriteriaConfigV1
+     * @memberof PrivilegeCriteriaConfigurationApiPatchPrivilegeCriteriaConfigV1
      */
     readonly criteriaConfigId: string
 
     /**
      * A list of criteria configuration operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
      * @type {Array<object>}
-     * @memberof PrivilegeCriteriaConfigurationV1ApiPatchPrivilegeCriteriaConfigV1
+     * @memberof PrivilegeCriteriaConfigurationApiPatchPrivilegeCriteriaConfigV1
      */
     readonly requestBody: Array<object>
 }
 
 /**
- * PrivilegeCriteriaConfigurationV1Api - object-oriented interface
+ * PrivilegeCriteriaConfigurationApi - object-oriented interface
  * @export
- * @class PrivilegeCriteriaConfigurationV1Api
+ * @class PrivilegeCriteriaConfigurationApi
  * @extends {BaseAPI}
  */
-export class PrivilegeCriteriaConfigurationV1Api extends BaseAPI {
+export class PrivilegeCriteriaConfigurationApi extends BaseAPI {
     /**
      * Use this API to get the privilege criteria configuration by Id.
      * @summary Get privilege criteria config
-     * @param {PrivilegeCriteriaConfigurationV1ApiGetPrivilegeCriteriaConfigV1Request} requestParameters Request parameters.
+     * @param {PrivilegeCriteriaConfigurationApiGetPrivilegeCriteriaConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof PrivilegeCriteriaConfigurationV1Api
+     * @memberof PrivilegeCriteriaConfigurationApi
      */
-    public getPrivilegeCriteriaConfigV1(requestParameters: PrivilegeCriteriaConfigurationV1ApiGetPrivilegeCriteriaConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return PrivilegeCriteriaConfigurationV1ApiFp(this.configuration).getPrivilegeCriteriaConfigV1(requestParameters.criteriaConfigId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getPrivilegeCriteriaConfigV1(requestParameters: PrivilegeCriteriaConfigurationApiGetPrivilegeCriteriaConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return PrivilegeCriteriaConfigurationApiFp(this.configuration).getPrivilegeCriteriaConfigV1(requestParameters.criteriaConfigId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to list the privilege criteria configuration.
      * @summary List privilege criteria config
-     * @param {PrivilegeCriteriaConfigurationV1ApiListPrivilegeCriteriaConfigV1Request} requestParameters Request parameters.
+     * @param {PrivilegeCriteriaConfigurationApiListPrivilegeCriteriaConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof PrivilegeCriteriaConfigurationV1Api
+     * @memberof PrivilegeCriteriaConfigurationApi
      */
-    public listPrivilegeCriteriaConfigV1(requestParameters: PrivilegeCriteriaConfigurationV1ApiListPrivilegeCriteriaConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return PrivilegeCriteriaConfigurationV1ApiFp(this.configuration).listPrivilegeCriteriaConfigV1(requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listPrivilegeCriteriaConfigV1(requestParameters: PrivilegeCriteriaConfigurationApiListPrivilegeCriteriaConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return PrivilegeCriteriaConfigurationApiFp(this.configuration).listPrivilegeCriteriaConfigV1(requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to update the privilege criteria configuration.
      * @summary Update privilege criteria configuration
-     * @param {PrivilegeCriteriaConfigurationV1ApiPatchPrivilegeCriteriaConfigV1Request} requestParameters Request parameters.
+     * @param {PrivilegeCriteriaConfigurationApiPatchPrivilegeCriteriaConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof PrivilegeCriteriaConfigurationV1Api
+     * @memberof PrivilegeCriteriaConfigurationApi
      */
-    public patchPrivilegeCriteriaConfigV1(requestParameters: PrivilegeCriteriaConfigurationV1ApiPatchPrivilegeCriteriaConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return PrivilegeCriteriaConfigurationV1ApiFp(this.configuration).patchPrivilegeCriteriaConfigV1(requestParameters.criteriaConfigId, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchPrivilegeCriteriaConfigV1(requestParameters: PrivilegeCriteriaConfigurationApiPatchPrivilegeCriteriaConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return PrivilegeCriteriaConfigurationApiFp(this.configuration).patchPrivilegeCriteriaConfigV1(requestParameters.criteriaConfigId, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

@@ -1,20 +1,20 @@
 ---
-id: v1-federationprotocoldetails-v1
-title: FederationprotocoldetailsV1
-pagination_label: FederationprotocoldetailsV1
-sidebar_label: FederationprotocoldetailsV1
+id: v1-federationprotocoldetails
+title: Federationprotocoldetails
+pagination_label: Federationprotocoldetails
+sidebar_label: Federationprotocoldetails
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'FederationprotocoldetailsV1', 'v1FederationprotocoldetailsV1']
-slug: /tools/sdk/typescript/global_tenant_security_settings/models/federationprotocoldetails-v1
-tags: ['SDK', 'Software Development Kit', 'FederationprotocoldetailsV1', 'v1FederationprotocoldetailsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Federationprotocoldetails', 'v1Federationprotocoldetails']
+slug: /tools/sdk/typescript/global_tenant_security_settings/models/federationprotocoldetails
+tags: ['SDK', 'Software Development Kit', 'Federationprotocoldetails', 'v1Federationprotocoldetails']
 ---
 
-# FederationprotocoldetailsV1
+# Federationprotocoldetails
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**role** | **(optional)** **string** | Federation protocol role | [default to undefined]
-**entityId** | **(optional)** **string** | An entity ID is a globally unique name for a SAML entity, either an Identity Provider (IDP) or a Service Provider (SP). | [default to undefined]
+**role** | **(optional)** `string` | Federation protocol role | [default to undefined]
+**entityId** | **(optional)** `string` | An entity ID is a globally unique name for a SAML entity, either an Identity Provider (IDP) or a Service Provider (SP). | [default to undefined]
 

@@ -1,20 +1,20 @@
 ---
-id: v1-roleminingpotentialroleeditentitlements-v1
-title: RoleminingpotentialroleeditentitlementsV1
-pagination_label: RoleminingpotentialroleeditentitlementsV1
-sidebar_label: RoleminingpotentialroleeditentitlementsV1
+id: v1-roleminingpotentialroleeditentitlements
+title: Roleminingpotentialroleeditentitlements
+pagination_label: Roleminingpotentialroleeditentitlements
+sidebar_label: Roleminingpotentialroleeditentitlements
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RoleminingpotentialroleeditentitlementsV1', 'v1RoleminingpotentialroleeditentitlementsV1']
-slug: /tools/sdk/typescript/iai_role_mining/models/roleminingpotentialroleeditentitlements-v1
-tags: ['SDK', 'Software Development Kit', 'RoleminingpotentialroleeditentitlementsV1', 'v1RoleminingpotentialroleeditentitlementsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Roleminingpotentialroleeditentitlements', 'v1Roleminingpotentialroleeditentitlements']
+slug: /tools/sdk/typescript/iai_role_mining/models/roleminingpotentialroleeditentitlements
+tags: ['SDK', 'Software Development Kit', 'Roleminingpotentialroleeditentitlements', 'v1Roleminingpotentialroleeditentitlements']
 ---
 
-# RoleminingpotentialroleeditentitlementsV1
+# Roleminingpotentialroleeditentitlements
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ids** | **(optional)** **Array&lt;string&gt;** | The list of entitlement ids to be edited | [default to undefined]
-**exclude** | **(optional)** **boolean** | If true, add ids to be exclusion list. If false, remove ids from the exclusion list. | [default to undefined]
+**ids** | **(optional)** `Array<string>` | The list of entitlement ids to be edited | [default to undefined]
+**exclude** | **(optional)** `boolean` | If true, add ids to be exclusion list. If false, remove ids from the exclusion list. | [default to undefined]
 

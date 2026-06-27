@@ -1,19 +1,19 @@
 ---
-id: v1-get-identity-decision-summary-v1401-response-v1
-title: GetIdentityDecisionSummaryV1401ResponseV1
-pagination_label: GetIdentityDecisionSummaryV1401ResponseV1
-sidebar_label: GetIdentityDecisionSummaryV1401ResponseV1
+id: v1-get-identity-decision-summary-v1401-response
+title: GetIdentityDecisionSummaryV1401Response
+pagination_label: GetIdentityDecisionSummaryV1401Response
+sidebar_label: GetIdentityDecisionSummaryV1401Response
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'GetIdentityDecisionSummaryV1401ResponseV1', 'v1GetIdentityDecisionSummaryV1401ResponseV1']
-slug: /tools/sdk/typescript/certification_summaries/models/get-identity-decision-summary-v1401-response-v1
-tags: ['SDK', 'Software Development Kit', 'GetIdentityDecisionSummaryV1401ResponseV1', 'v1GetIdentityDecisionSummaryV1401ResponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'GetIdentityDecisionSummaryV1401Response', 'v1GetIdentityDecisionSummaryV1401Response']
+slug: /tools/sdk/typescript/certification_summaries/models/get-identity-decision-summary-v1401-response
+tags: ['SDK', 'Software Development Kit', 'GetIdentityDecisionSummaryV1401Response', 'v1GetIdentityDecisionSummaryV1401Response']
 ---
 
-# GetIdentityDecisionSummaryV1401ResponseV1
+# GetIdentityDecisionSummaryV1401Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**error** | **(optional)** **any** | A message describing the error | [default to undefined]
+**error** | **(optional)** `any` | A message describing the error | [default to undefined]
 

@@ -1,19 +1,19 @@
 ---
-id: v1-accountrequestasyncresult-v1
-title: AccountrequestasyncresultV1
-pagination_label: AccountrequestasyncresultV1
-sidebar_label: AccountrequestasyncresultV1
+id: v1-accountrequestasyncresult
+title: Accountrequestasyncresult
+pagination_label: Accountrequestasyncresult
+sidebar_label: Accountrequestasyncresult
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccountrequestasyncresultV1', 'v1AccountrequestasyncresultV1']
-slug: /tools/sdk/typescript/account_deletion_requests/models/accountrequestasyncresult-v1
-tags: ['SDK', 'Software Development Kit', 'AccountrequestasyncresultV1', 'v1AccountrequestasyncresultV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accountrequestasyncresult', 'v1Accountrequestasyncresult']
+slug: /tools/sdk/typescript/account_deletion_requests/models/accountrequestasyncresult
+tags: ['SDK', 'Software Development Kit', 'Accountrequestasyncresult', 'v1Accountrequestasyncresult']
 ---
 
-# AccountrequestasyncresultV1
+# Accountrequestasyncresult
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**accountRequestId** | **string** | Id of the account request | [default to undefined]
+**accountRequestId** | `string` | Id of the account request | [default to undefined]
 

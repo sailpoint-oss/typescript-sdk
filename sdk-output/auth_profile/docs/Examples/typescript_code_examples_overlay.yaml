@@ -4,14 +4,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/auth_profile/methods/auth-profile#get-profile-config-list-v1
       source: |
-        import { AuthProfileV1Api } from 'sailpoint-api-client';
+        import { AuthProfileApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AuthProfileV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AuthProfileApi(configuration);
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.getProfileConfigListV1();
+        const result = await apiInstance.getProfileConfigListV1({  });
         console.log(result);
 - path: /auth-profiles/v1/{id}
   method: GET
@@ -19,15 +18,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/auth_profile/methods/auth-profile#get-profile-config-v1
       source: |
-        import { AuthProfileV1Api } from 'sailpoint-api-client';
+        import { AuthProfileApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AuthProfileV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AuthProfileApi(configuration);
         const id: string = '2c91808a7813090a017814121919ecca'; // string | ID of the Auth Profile to patch. (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.getProfileConfigV1(id);
+        const result = await apiInstance.getProfileConfigV1({ id: id });
         console.log(result);
 - path: /auth-profiles/v1/{id}
   method: PATCH
@@ -35,14 +33,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/auth_profile/methods/auth-profile#patch-profile-config-v1
       source: |
-        import { AuthProfileV1Api } from 'sailpoint-api-client';
+        import { AuthProfileApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AuthProfileV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AuthProfileApi(configuration);
         const id: string = '2c91808a7813090a017814121919ecca'; // string | ID of the Auth Profile to patch. (default to undefined)
-        const jsonpatchoperationV1: Array&lt;JsonpatchoperationV1&gt; = ; // Array<JsonpatchoperationV1> | 
+        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = ; // Array<Jsonpatchoperation> | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.patchProfileConfigV1(id, jsonpatchoperationV1);
+        const result = await apiInstance.patchProfileConfigV1({ id: id, jsonpatchoperation: jsonpatchoperation });
         console.log(result);

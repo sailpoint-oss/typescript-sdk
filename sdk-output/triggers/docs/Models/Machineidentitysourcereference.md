@@ -1,21 +1,21 @@
 ---
-id: v1-machineidentitysourcereference-v1
-title: MachineidentitysourcereferenceV1
-pagination_label: MachineidentitysourcereferenceV1
-sidebar_label: MachineidentitysourcereferenceV1
+id: v1-machineidentitysourcereference
+title: Machineidentitysourcereference
+pagination_label: Machineidentitysourcereference
+sidebar_label: Machineidentitysourcereference
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'MachineidentitysourcereferenceV1', 'v1MachineidentitysourcereferenceV1']
-slug: /tools/sdk/typescript/triggers/models/machineidentitysourcereference-v1
-tags: ['SDK', 'Software Development Kit', 'MachineidentitysourcereferenceV1', 'v1MachineidentitysourcereferenceV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Machineidentitysourcereference', 'v1Machineidentitysourcereference']
+slug: /tools/sdk/typescript/triggers/models/machineidentitysourcereference
+tags: ['SDK', 'Software Development Kit', 'Machineidentitysourcereference', 'v1Machineidentitysourcereference']
 ---
 
-# MachineidentitysourcereferenceV1
+# Machineidentitysourcereference
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **string** | Source Type. | [default to undefined]
-**id** | **string** | Unique identifier. | [default to undefined]
-**name** | **string** | Display name. | [default to undefined]
+**type** | `string` | Source Type. | [default to undefined]
+**id** | `string` | Unique identifier. | [default to undefined]
+**name** | `string` | Display name. | [default to undefined]
 

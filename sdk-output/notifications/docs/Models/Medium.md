@@ -1,15 +1,15 @@
 ---
-id: v1-medium-v1
-title: MediumV1
-pagination_label: MediumV1
-sidebar_label: MediumV1
+id: v1-medium
+title: Medium
+pagination_label: Medium
+sidebar_label: Medium
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'MediumV1', 'v1MediumV1']
-slug: /tools/sdk/typescript/notifications/models/medium-v1
-tags: ['SDK', 'Software Development Kit', 'MediumV1', 'v1MediumV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Medium', 'v1Medium']
+slug: /tools/sdk/typescript/notifications/models/medium
+tags: ['SDK', 'Software Development Kit', 'Medium', 'v1Medium']
 ---
 
-# MediumV1
+# Medium
 
 ## Enum
 

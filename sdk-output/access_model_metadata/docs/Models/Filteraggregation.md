@@ -1,22 +1,22 @@
 ---
-id: v1-filteraggregation-v1
-title: FilteraggregationV1
-pagination_label: FilteraggregationV1
-sidebar_label: FilteraggregationV1
+id: v1-filteraggregation
+title: Filteraggregation
+pagination_label: Filteraggregation
+sidebar_label: Filteraggregation
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'FilteraggregationV1', 'v1FilteraggregationV1']
-slug: /tools/sdk/typescript/access_model_metadata/models/filteraggregation-v1
-tags: ['SDK', 'Software Development Kit', 'FilteraggregationV1', 'v1FilteraggregationV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Filteraggregation', 'v1Filteraggregation']
+slug: /tools/sdk/typescript/access_model_metadata/models/filteraggregation
+tags: ['SDK', 'Software Development Kit', 'Filteraggregation', 'v1Filteraggregation']
 ---
 
-# FilteraggregationV1
+# Filteraggregation
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** | The name of the filter aggregate to be included in the result. | [default to undefined]
-**type** | **(optional)** **SearchfiltertypeV1** |  | [default to undefined]
-**field** | **string** | The search field to apply the filter to.  Prefix the field name with \'@\' to reference a nested object.  | [default to undefined]
-**value** | **string** | The value to filter on. | [default to undefined]
+**name** | `string` | The name of the filter aggregate to be included in the result. | [default to undefined]
+**type** | **(optional)** `Searchfiltertype` |  | [default to undefined]
+**field** | `string` | The search field to apply the filter to.  Prefix the field name with \'@\' to reference a nested object.  | [default to undefined]
+**value** | `string` | The value to filter on. | [default to undefined]
 

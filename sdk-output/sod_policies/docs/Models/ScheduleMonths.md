@@ -1,21 +1,21 @@
 ---
-id: v1-schedule-months-v1
-title: ScheduleMonthsV1
-pagination_label: ScheduleMonthsV1
-sidebar_label: ScheduleMonthsV1
+id: v1-schedule-months
+title: ScheduleMonths
+pagination_label: ScheduleMonths
+sidebar_label: ScheduleMonths
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ScheduleMonthsV1', 'v1ScheduleMonthsV1']
-slug: /tools/sdk/typescript/sod_policies/models/schedule-months-v1
-tags: ['SDK', 'Software Development Kit', 'ScheduleMonthsV1', 'v1ScheduleMonthsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ScheduleMonths', 'v1ScheduleMonths']
+slug: /tools/sdk/typescript/sod_policies/models/schedule-months
+tags: ['SDK', 'Software Development Kit', 'ScheduleMonths', 'v1ScheduleMonths']
 ---
 
-# ScheduleMonthsV1
+# ScheduleMonths
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **SelectortypeV1** |  | [default to undefined]
-**values** | **Array&lt;string&gt;** | The selected values.  | [default to undefined]
-**interval** | **(optional)** **number** | The selected interval for RANGE selectors.  | [default to undefined]
+**type** | `Selectortype` |  | [default to undefined]
+**values** | `Array<string>` | The selected values.  | [default to undefined]
+**interval** | **(optional)** `number` | The selected interval for RANGE selectors.  | [default to undefined]
 

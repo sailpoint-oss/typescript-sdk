@@ -1,20 +1,20 @@
 ---
-id: v1-passwordinfoquerydto-v1
-title: PasswordinfoquerydtoV1
-pagination_label: PasswordinfoquerydtoV1
-sidebar_label: PasswordinfoquerydtoV1
+id: v1-passwordinfoquerydto
+title: Passwordinfoquerydto
+pagination_label: Passwordinfoquerydto
+sidebar_label: Passwordinfoquerydto
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'PasswordinfoquerydtoV1', 'v1PasswordinfoquerydtoV1']
-slug: /tools/sdk/typescript/password_management/models/passwordinfoquerydto-v1
-tags: ['SDK', 'Software Development Kit', 'PasswordinfoquerydtoV1', 'v1PasswordinfoquerydtoV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Passwordinfoquerydto', 'v1Passwordinfoquerydto']
+slug: /tools/sdk/typescript/password_management/models/passwordinfoquerydto
+tags: ['SDK', 'Software Development Kit', 'Passwordinfoquerydto', 'v1Passwordinfoquerydto']
 ---
 
-# PasswordinfoquerydtoV1
+# Passwordinfoquerydto
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**userName** | **(optional)** **string** | The login name of the user | [default to undefined]
-**sourceName** | **(optional)** **string** | The display name of the source | [default to undefined]
+**userName** | **(optional)** `string` | The login name of the user | [default to undefined]
+**sourceName** | **(optional)** `string` | The display name of the source | [default to undefined]
 

@@ -26,32 +26,32 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ArrayInnerV1
+ * @interface ArrayInner
  */
-export interface ArrayInnerV1 {
+export interface ArrayInner {
 }
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -60,87 +60,87 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetOrgConfigV1401ResponseV1
+ * @interface GetOrgConfigV1401Response
  */
-export interface GetOrgConfigV1401ResponseV1 {
+export interface GetOrgConfigV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetOrgConfigV1401ResponseV1
+     * @memberof GetOrgConfigV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetOrgConfigV1429ResponseV1
+ * @interface GetOrgConfigV1429Response
  */
-export interface GetOrgConfigV1429ResponseV1 {
+export interface GetOrgConfigV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetOrgConfigV1429ResponseV1
+     * @memberof GetOrgConfigV1429Response
      */
     'message'?: any;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface JsonpatchoperationV1
+ * @interface Jsonpatchoperation
  */
-export interface JsonpatchoperationV1 {
+export interface Jsonpatchoperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
-    'op': JsonpatchoperationV1OpV1;
+    'op': JsonpatchoperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValueV1}
-     * @memberof JsonpatchoperationV1
+     * @type {JsonpatchoperationValue}
+     * @memberof Jsonpatchoperation
      */
-    'value'?: JsonpatchoperationValueV1;
+    'value'?: JsonpatchoperationValue;
 }
 
-export const JsonpatchoperationV1OpV1 = {
+export const JsonpatchoperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -149,14 +149,14 @@ export const JsonpatchoperationV1OpV1 = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationV1OpV1 = typeof JsonpatchoperationV1OpV1[keyof typeof JsonpatchoperationV1OpV1];
+export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
 
 /**
- * @type JsonpatchoperationValueV1
+ * @type JsonpatchoperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number | object | string;
+export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -164,118 +164,118 @@ export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number |
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * DTO class for OrgConfig data accessible by customer external org admin (\"ORG_ADMIN\") users
  * @export
- * @interface OrgconfigV1
+ * @interface Orgconfig
  */
-export interface OrgconfigV1 {
+export interface Orgconfig {
     /**
      * The name of the org.
      * @type {string}
-     * @memberof OrgconfigV1
+     * @memberof Orgconfig
      */
     'orgName'?: string;
     /**
      * The selected time zone which is to be used for the org.  This directly affects when scheduled tasks are executed.  Valid options can be found at /beta/org-config/valid-time-zones
      * @type {string}
-     * @memberof OrgconfigV1
+     * @memberof Orgconfig
      */
     'timeZone'?: string;
     /**
      * Flag to determine whether the LCS_CHANGE_HONORS_SOURCE_ENABLE_FEATURE flag is enabled for the current org.
      * @type {boolean}
-     * @memberof OrgconfigV1
+     * @memberof Orgconfig
      */
     'lcsChangeHonorsSourceEnableFeature'?: boolean;
     /**
      * ARM Customer ID
      * @type {string}
-     * @memberof OrgconfigV1
+     * @memberof Orgconfig
      */
     'armCustomerId'?: string | null;
     /**
      * A list of IDN::sourceId to ARM::systemId mappings.
      * @type {string}
-     * @memberof OrgconfigV1
+     * @memberof Orgconfig
      */
     'armSapSystemIdMappings'?: string | null;
     /**
      * ARM authentication string
      * @type {string}
-     * @memberof OrgconfigV1
+     * @memberof Orgconfig
      */
     'armAuth'?: string | null;
     /**
      * ARM database name
      * @type {string}
-     * @memberof OrgconfigV1
+     * @memberof Orgconfig
      */
     'armDb'?: string | null;
     /**
      * ARM SSO URL
      * @type {string}
-     * @memberof OrgconfigV1
+     * @memberof Orgconfig
      */
     'armSsoUrl'?: string | null;
     /**
      * Flag to determine whether IAI Certification Recommendations are enabled for the current org
      * @type {boolean}
-     * @memberof OrgconfigV1
+     * @memberof Orgconfig
      */
     'iaiEnableCertificationRecommendations'?: boolean;
     /**
      * 
-     * @type {Array<ReportconfigdtoV1>}
-     * @memberof OrgconfigV1
+     * @type {Array<Reportconfigdto>}
+     * @memberof Orgconfig
      */
-    'sodReportConfigs'?: Array<ReportconfigdtoV1>;
+    'sodReportConfigs'?: Array<Reportconfigdto>;
 }
 /**
  * 
  * @export
- * @interface ReportconfigdtoV1
+ * @interface Reportconfigdto
  */
-export interface ReportconfigdtoV1 {
+export interface Reportconfigdto {
     /**
      * Name of column in report
      * @type {string}
-     * @memberof ReportconfigdtoV1
+     * @memberof Reportconfigdto
      */
     'columnName'?: string;
     /**
      * If true, column is required in all reports, and this entry is immutable. A 400 error will result from any attempt to modify the column\'s definition.
      * @type {boolean}
-     * @memberof ReportconfigdtoV1
+     * @memberof Reportconfigdto
      */
     'required'?: boolean;
     /**
      * If true, column is included in the report. A 400 error will be thrown if an attempt is made to set included=false if required==true.
      * @type {boolean}
-     * @memberof ReportconfigdtoV1
+     * @memberof Reportconfigdto
      */
     'included'?: boolean;
     /**
      * Relative sort order for the column. Columns will be displayed left-to-right in nondecreasing order.
      * @type {number}
-     * @memberof ReportconfigdtoV1
+     * @memberof Reportconfigdto
      */
     'order'?: number;
 }
 
 /**
- * OrgConfigV1Api - axios parameter creator
+ * OrgConfigApi - axios parameter creator
  * @export
  */
-export const OrgConfigV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const OrgConfigApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Get the current organization\'s configuration settings, only external accessible properties.
@@ -363,13 +363,13 @@ export const OrgConfigV1ApiAxiosParamCreator = function (configuration?: Configu
         /**
          * Patch the current organization\'s configuration, using http://jsonpatch.com/ syntax. This is commonly used to changing an organization\'s time zone.
          * @summary Patch org config
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchOrgConfigV1: async (jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('patchOrgConfigV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+        patchOrgConfigV1: async (jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('patchOrgConfigV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/org-config/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -389,7 +389,7 @@ export const OrgConfigV1ApiAxiosParamCreator = function (configuration?: Configu
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -400,11 +400,11 @@ export const OrgConfigV1ApiAxiosParamCreator = function (configuration?: Configu
 };
 
 /**
- * OrgConfigV1Api - functional programming interface
+ * OrgConfigApi - functional programming interface
  * @export
  */
-export const OrgConfigV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = OrgConfigV1ApiAxiosParamCreator(configuration)
+export const OrgConfigApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = OrgConfigApiAxiosParamCreator(configuration)
     return {
         /**
          * Get the current organization\'s configuration settings, only external accessible properties.
@@ -412,10 +412,10 @@ export const OrgConfigV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getOrgConfigV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrgconfigV1>> {
+        async getOrgConfigV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Orgconfig>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOrgConfigV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['OrgConfigV1Api.getOrgConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['OrgConfigApi.getOrgConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -431,31 +431,31 @@ export const OrgConfigV1ApiFp = function(configuration?: Configuration) {
         async getValidTimeZonesV1(xSailPointExperimental?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<string>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getValidTimeZonesV1(xSailPointExperimental, limit, offset, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['OrgConfigV1Api.getValidTimeZonesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['OrgConfigApi.getValidTimeZonesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Patch the current organization\'s configuration, using http://jsonpatch.com/ syntax. This is commonly used to changing an organization\'s time zone.
          * @summary Patch org config
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchOrgConfigV1(jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrgconfigV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchOrgConfigV1(jsonpatchoperationV1, axiosOptions);
+        async patchOrgConfigV1(jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Orgconfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchOrgConfigV1(jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['OrgConfigV1Api.patchOrgConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['OrgConfigApi.patchOrgConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * OrgConfigV1Api - factory interface
+ * OrgConfigApi - factory interface
  * @export
  */
-export const OrgConfigV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = OrgConfigV1ApiFp(configuration)
+export const OrgConfigApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = OrgConfigApiFp(configuration)
     return {
         /**
          * Get the current organization\'s configuration settings, only external accessible properties.
@@ -463,121 +463,121 @@ export const OrgConfigV1ApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getOrgConfigV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<OrgconfigV1> {
+        getOrgConfigV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Orgconfig> {
             return localVarFp.getOrgConfigV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * List the valid time zones that can be set in organization configurations.
          * @summary Get valid time zones
-         * @param {OrgConfigV1ApiGetValidTimeZonesV1Request} requestParameters Request parameters.
+         * @param {OrgConfigApiGetValidTimeZonesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getValidTimeZonesV1(requestParameters: OrgConfigV1ApiGetValidTimeZonesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<string>> {
+        getValidTimeZonesV1(requestParameters: OrgConfigApiGetValidTimeZonesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<string>> {
             return localVarFp.getValidTimeZonesV1(requestParameters.xSailPointExperimental, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Patch the current organization\'s configuration, using http://jsonpatch.com/ syntax. This is commonly used to changing an organization\'s time zone.
          * @summary Patch org config
-         * @param {OrgConfigV1ApiPatchOrgConfigV1Request} requestParameters Request parameters.
+         * @param {OrgConfigApiPatchOrgConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchOrgConfigV1(requestParameters: OrgConfigV1ApiPatchOrgConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<OrgconfigV1> {
-            return localVarFp.patchOrgConfigV1(requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        patchOrgConfigV1(requestParameters: OrgConfigApiPatchOrgConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Orgconfig> {
+            return localVarFp.patchOrgConfigV1(requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for getValidTimeZonesV1 operation in OrgConfigV1Api.
+ * Request parameters for getValidTimeZonesV1 operation in OrgConfigApi.
  * @export
- * @interface OrgConfigV1ApiGetValidTimeZonesV1Request
+ * @interface OrgConfigApiGetValidTimeZonesV1Request
  */
-export interface OrgConfigV1ApiGetValidTimeZonesV1Request {
+export interface OrgConfigApiGetValidTimeZonesV1Request {
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof OrgConfigV1ApiGetValidTimeZonesV1
+     * @memberof OrgConfigApiGetValidTimeZonesV1
      */
     readonly xSailPointExperimental?: string
 
     /**
      * Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof OrgConfigV1ApiGetValidTimeZonesV1
+     * @memberof OrgConfigApiGetValidTimeZonesV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof OrgConfigV1ApiGetValidTimeZonesV1
+     * @memberof OrgConfigApiGetValidTimeZonesV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof OrgConfigV1ApiGetValidTimeZonesV1
+     * @memberof OrgConfigApiGetValidTimeZonesV1
      */
     readonly count?: boolean
 }
 
 /**
- * Request parameters for patchOrgConfigV1 operation in OrgConfigV1Api.
+ * Request parameters for patchOrgConfigV1 operation in OrgConfigApi.
  * @export
- * @interface OrgConfigV1ApiPatchOrgConfigV1Request
+ * @interface OrgConfigApiPatchOrgConfigV1Request
  */
-export interface OrgConfigV1ApiPatchOrgConfigV1Request {
+export interface OrgConfigApiPatchOrgConfigV1Request {
     /**
      * A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof OrgConfigV1ApiPatchOrgConfigV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof OrgConfigApiPatchOrgConfigV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * OrgConfigV1Api - object-oriented interface
+ * OrgConfigApi - object-oriented interface
  * @export
- * @class OrgConfigV1Api
+ * @class OrgConfigApi
  * @extends {BaseAPI}
  */
-export class OrgConfigV1Api extends BaseAPI {
+export class OrgConfigApi extends BaseAPI {
     /**
      * Get the current organization\'s configuration settings, only external accessible properties.
      * @summary Get org config settings
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof OrgConfigV1Api
+     * @memberof OrgConfigApi
      */
     public getOrgConfigV1(axiosOptions?: RawAxiosRequestConfig) {
-        return OrgConfigV1ApiFp(this.configuration).getOrgConfigV1(axiosOptions).then((request) => request(this.axios, this.basePath));
+        return OrgConfigApiFp(this.configuration).getOrgConfigV1(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * List the valid time zones that can be set in organization configurations.
      * @summary Get valid time zones
-     * @param {OrgConfigV1ApiGetValidTimeZonesV1Request} requestParameters Request parameters.
+     * @param {OrgConfigApiGetValidTimeZonesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof OrgConfigV1Api
+     * @memberof OrgConfigApi
      */
-    public getValidTimeZonesV1(requestParameters: OrgConfigV1ApiGetValidTimeZonesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return OrgConfigV1ApiFp(this.configuration).getValidTimeZonesV1(requestParameters.xSailPointExperimental, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getValidTimeZonesV1(requestParameters: OrgConfigApiGetValidTimeZonesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return OrgConfigApiFp(this.configuration).getValidTimeZonesV1(requestParameters.xSailPointExperimental, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Patch the current organization\'s configuration, using http://jsonpatch.com/ syntax. This is commonly used to changing an organization\'s time zone.
      * @summary Patch org config
-     * @param {OrgConfigV1ApiPatchOrgConfigV1Request} requestParameters Request parameters.
+     * @param {OrgConfigApiPatchOrgConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof OrgConfigV1Api
+     * @memberof OrgConfigApi
      */
-    public patchOrgConfigV1(requestParameters: OrgConfigV1ApiPatchOrgConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return OrgConfigV1ApiFp(this.configuration).patchOrgConfigV1(requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchOrgConfigV1(requestParameters: OrgConfigApiPatchOrgConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return OrgConfigApiFp(this.configuration).patchOrgConfigV1(requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

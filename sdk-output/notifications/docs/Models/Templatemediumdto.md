@@ -1,15 +1,15 @@
 ---
-id: v1-templatemediumdto-v1
-title: TemplatemediumdtoV1
-pagination_label: TemplatemediumdtoV1
-sidebar_label: TemplatemediumdtoV1
+id: v1-templatemediumdto
+title: Templatemediumdto
+pagination_label: Templatemediumdto
+sidebar_label: Templatemediumdto
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'TemplatemediumdtoV1', 'v1TemplatemediumdtoV1']
-slug: /tools/sdk/typescript/notifications/models/templatemediumdto-v1
-tags: ['SDK', 'Software Development Kit', 'TemplatemediumdtoV1', 'v1TemplatemediumdtoV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Templatemediumdto', 'v1Templatemediumdto']
+slug: /tools/sdk/typescript/notifications/models/templatemediumdto
+tags: ['SDK', 'Software Development Kit', 'Templatemediumdto', 'v1Templatemediumdto']
 ---
 
-# TemplatemediumdtoV1
+# Templatemediumdto
 
 ## Enum
 

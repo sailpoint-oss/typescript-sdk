@@ -1,19 +1,19 @@
 ---
-id: v1-managedclusterencryptionconfig-v1
-title: ManagedclusterencryptionconfigV1
-pagination_label: ManagedclusterencryptionconfigV1
-sidebar_label: ManagedclusterencryptionconfigV1
+id: v1-managedclusterencryptionconfig
+title: Managedclusterencryptionconfig
+pagination_label: Managedclusterencryptionconfig
+sidebar_label: Managedclusterencryptionconfig
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ManagedclusterencryptionconfigV1', 'v1ManagedclusterencryptionconfigV1']
-slug: /tools/sdk/typescript/managed_clusters/models/managedclusterencryptionconfig-v1
-tags: ['SDK', 'Software Development Kit', 'ManagedclusterencryptionconfigV1', 'v1ManagedclusterencryptionconfigV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Managedclusterencryptionconfig', 'v1Managedclusterencryptionconfig']
+slug: /tools/sdk/typescript/managed_clusters/models/managedclusterencryptionconfig
+tags: ['SDK', 'Software Development Kit', 'Managedclusterencryptionconfig', 'v1Managedclusterencryptionconfig']
 ---
 
-# ManagedclusterencryptionconfigV1
+# Managedclusterencryptionconfig
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**format** | **(optional)** **string** | Specifies the format used for encrypted data, such as secrets. The format determines how the encrypted data is structured and processed. | [default to undefined]
+**format** | **(optional)** `string` | Specifies the format used for encrypted data, such as secrets. The format determines how the encrypted data is structured and processed. | [default to undefined]
 

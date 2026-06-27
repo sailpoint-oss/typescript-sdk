@@ -1,21 +1,21 @@
 ---
-id: v1-savedsearchcomplete-search-results-v1
-title: SavedsearchcompleteSearchResultsV1
-pagination_label: SavedsearchcompleteSearchResultsV1
-sidebar_label: SavedsearchcompleteSearchResultsV1
+id: v1-savedsearchcomplete-search-results
+title: SavedsearchcompleteSearchResults
+pagination_label: SavedsearchcompleteSearchResults
+sidebar_label: SavedsearchcompleteSearchResults
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SavedsearchcompleteSearchResultsV1', 'v1SavedsearchcompleteSearchResultsV1']
-slug: /tools/sdk/typescript/triggers/models/savedsearchcomplete-search-results-v1
-tags: ['SDK', 'Software Development Kit', 'SavedsearchcompleteSearchResultsV1', 'v1SavedsearchcompleteSearchResultsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'SavedsearchcompleteSearchResults', 'v1SavedsearchcompleteSearchResults']
+slug: /tools/sdk/typescript/triggers/models/savedsearchcomplete-search-results
+tags: ['SDK', 'Software Development Kit', 'SavedsearchcompleteSearchResults', 'v1SavedsearchcompleteSearchResults']
 ---
 
-# SavedsearchcompleteSearchResultsV1
+# SavedsearchcompleteSearchResults
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Account** | **(optional)** **SavedsearchcompleteSearchResultsAccountV1** |  | [default to undefined]
-**Entitlement** | **(optional)** **SavedsearchcompleteSearchResultsEntitlementV1** |  | [default to undefined]
-**Identity** | **(optional)** **SavedsearchcompleteSearchResultsIdentityV1** |  | [default to undefined]
+**Account** | **(optional)** `SavedsearchcompleteSearchResultsAccount` |  | [default to undefined]
+**Entitlement** | **(optional)** `SavedsearchcompleteSearchResultsEntitlement` |  | [default to undefined]
+**Identity** | **(optional)** `SavedsearchcompleteSearchResultsIdentity` |  | [default to undefined]
 

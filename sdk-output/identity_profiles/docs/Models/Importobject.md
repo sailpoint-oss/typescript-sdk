@@ -1,21 +1,21 @@
 ---
-id: v1-importobject-v1
-title: ImportobjectV1
-pagination_label: ImportobjectV1
-sidebar_label: ImportobjectV1
+id: v1-importobject
+title: Importobject
+pagination_label: Importobject
+sidebar_label: Importobject
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ImportobjectV1', 'v1ImportobjectV1']
-slug: /tools/sdk/typescript/identity_profiles/models/importobject-v1
-tags: ['SDK', 'Software Development Kit', 'ImportobjectV1', 'v1ImportobjectV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Importobject', 'v1Importobject']
+slug: /tools/sdk/typescript/identity_profiles/models/importobject
+tags: ['SDK', 'Software Development Kit', 'Importobject', 'v1Importobject']
 ---
 
-# ImportobjectV1
+# Importobject
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | DTO type of object created or updated by import. | [default to undefined]
-**id** | **(optional)** **string** | ID of object created or updated by import. | [default to undefined]
-**name** | **(optional)** **string** | Display name of object created or updated by import. | [default to undefined]
+**type** | **(optional)** `string` | DTO type of object created or updated by import. | [default to undefined]
+**id** | **(optional)** `string` | ID of object created or updated by import. | [default to undefined]
+**name** | **(optional)** `string` | Display name of object created or updated by import. | [default to undefined]
 

@@ -1,19 +1,19 @@
 ---
-id: v1-scheduledactionresponse-content-backup-options-object-options-value-v1
-title: ScheduledactionresponseContentBackupOptionsObjectOptionsValueV1
-pagination_label: ScheduledactionresponseContentBackupOptionsObjectOptionsValueV1
-sidebar_label: ScheduledactionresponseContentBackupOptionsObjectOptionsValueV1
+id: v1-scheduledactionresponse-content-backup-options-object-options-value
+title: ScheduledactionresponseContentBackupOptionsObjectOptionsValue
+pagination_label: ScheduledactionresponseContentBackupOptionsObjectOptionsValue
+sidebar_label: ScheduledactionresponseContentBackupOptionsObjectOptionsValue
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ScheduledactionresponseContentBackupOptionsObjectOptionsValueV1', 'v1ScheduledactionresponseContentBackupOptionsObjectOptionsValueV1']
-slug: /tools/sdk/typescript/configuration_hub/models/scheduledactionresponse-content-backup-options-object-options-value-v1
-tags: ['SDK', 'Software Development Kit', 'ScheduledactionresponseContentBackupOptionsObjectOptionsValueV1', 'v1ScheduledactionresponseContentBackupOptionsObjectOptionsValueV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ScheduledactionresponseContentBackupOptionsObjectOptionsValue', 'v1ScheduledactionresponseContentBackupOptionsObjectOptionsValue']
+slug: /tools/sdk/typescript/configuration_hub/models/scheduledactionresponse-content-backup-options-object-options-value
+tags: ['SDK', 'Software Development Kit', 'ScheduledactionresponseContentBackupOptionsObjectOptionsValue', 'v1ScheduledactionresponseContentBackupOptionsObjectOptionsValue']
 ---
 
-# ScheduledactionresponseContentBackupOptionsObjectOptionsValueV1
+# ScheduledactionresponseContentBackupOptionsObjectOptionsValue
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**includedNames** | **(optional)** **Array&lt;string&gt;** | Set of names to be included. | [default to undefined]
+**includedNames** | **(optional)** `Array<string>` | Set of names to be included. | [default to undefined]
 

@@ -1,15 +1,15 @@
 ---
-id: v1-configtypeenum-v1
-title: ConfigtypeenumV1
-pagination_label: ConfigtypeenumV1
-sidebar_label: ConfigtypeenumV1
+id: v1-configtypeenum
+title: Configtypeenum
+pagination_label: Configtypeenum
+sidebar_label: Configtypeenum
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ConfigtypeenumV1', 'v1ConfigtypeenumV1']
-slug: /tools/sdk/typescript/work_reassignment/models/configtypeenum-v1
-tags: ['SDK', 'Software Development Kit', 'ConfigtypeenumV1', 'v1ConfigtypeenumV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Configtypeenum', 'v1Configtypeenum']
+slug: /tools/sdk/typescript/work_reassignment/models/configtypeenum
+tags: ['SDK', 'Software Development Kit', 'Configtypeenum', 'v1Configtypeenum']
 ---
 
-# ConfigtypeenumV1
+# Configtypeenum
 
 ## Enum
 

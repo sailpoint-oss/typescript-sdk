@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -53,273 +53,273 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetLaunchersV1200ResponseV1
+ * @interface GetLaunchersV1200Response
  */
-export interface GetLaunchersV1200ResponseV1 {
+export interface GetLaunchersV1200Response {
     /**
      * Pagination marker
      * @type {string}
-     * @memberof GetLaunchersV1200ResponseV1
+     * @memberof GetLaunchersV1200Response
      */
     'next'?: string;
     /**
      * 
-     * @type {Array<LauncherV1>}
-     * @memberof GetLaunchersV1200ResponseV1
+     * @type {Array<Launcher>}
+     * @memberof GetLaunchersV1200Response
      */
-    'items'?: Array<LauncherV1>;
+    'items'?: Array<Launcher>;
 }
 /**
  * 
  * @export
- * @interface GetLaunchersV1401ResponseV1
+ * @interface GetLaunchersV1401Response
  */
-export interface GetLaunchersV1401ResponseV1 {
+export interface GetLaunchersV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetLaunchersV1401ResponseV1
+     * @memberof GetLaunchersV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetLaunchersV1429ResponseV1
+ * @interface GetLaunchersV1429Response
  */
-export interface GetLaunchersV1429ResponseV1 {
+export interface GetLaunchersV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetLaunchersV1429ResponseV1
+     * @memberof GetLaunchersV1429Response
      */
     'message'?: any;
 }
 /**
- * Owner of the Launcher
- * @export
- * @interface LauncherOwnerV1
- */
-export interface LauncherOwnerV1 {
-    /**
-     * Owner type
-     * @type {string}
-     * @memberof LauncherOwnerV1
-     */
-    'type': string;
-    /**
-     * Owner ID
-     * @type {string}
-     * @memberof LauncherOwnerV1
-     */
-    'id': string;
-}
-/**
  * 
  * @export
- * @interface LauncherReferenceV1
+ * @interface Launcher
  */
-export interface LauncherReferenceV1 {
-    /**
-     * Type of Launcher reference
-     * @type {string}
-     * @memberof LauncherReferenceV1
-     */
-    'type'?: LauncherReferenceV1TypeV1;
-    /**
-     * ID of Launcher reference
-     * @type {string}
-     * @memberof LauncherReferenceV1
-     */
-    'id'?: string;
-}
-
-export const LauncherReferenceV1TypeV1 = {
-    Workflow: 'WORKFLOW'
-} as const;
-
-export type LauncherReferenceV1TypeV1 = typeof LauncherReferenceV1TypeV1[keyof typeof LauncherReferenceV1TypeV1];
-
-/**
- * 
- * @export
- * @interface LauncherV1
- */
-export interface LauncherV1 {
+export interface Launcher {
     /**
      * ID of the Launcher
      * @type {string}
-     * @memberof LauncherV1
+     * @memberof Launcher
      */
     'id': string;
     /**
      * Date the Launcher was created
      * @type {string}
-     * @memberof LauncherV1
+     * @memberof Launcher
      */
     'created': string;
     /**
      * Date the Launcher was last modified
      * @type {string}
-     * @memberof LauncherV1
+     * @memberof Launcher
      */
     'modified': string;
     /**
      * 
-     * @type {LauncherOwnerV1}
-     * @memberof LauncherV1
+     * @type {LauncherOwner}
+     * @memberof Launcher
      */
-    'owner': LauncherOwnerV1;
+    'owner': LauncherOwner;
     /**
      * Name of the Launcher, limited to 255 characters
      * @type {string}
-     * @memberof LauncherV1
+     * @memberof Launcher
      */
     'name': string;
     /**
      * Description of the Launcher, limited to 2000 characters
      * @type {string}
-     * @memberof LauncherV1
+     * @memberof Launcher
      */
     'description': string;
     /**
      * Launcher type
      * @type {string}
-     * @memberof LauncherV1
+     * @memberof Launcher
      */
-    'type': LauncherV1TypeV1;
+    'type': LauncherTypeEnum;
     /**
      * State of the Launcher
      * @type {boolean}
-     * @memberof LauncherV1
+     * @memberof Launcher
      */
     'disabled': boolean;
     /**
      * 
-     * @type {LauncherReferenceV1}
-     * @memberof LauncherV1
+     * @type {LauncherReference}
+     * @memberof Launcher
      */
-    'reference'?: LauncherReferenceV1;
+    'reference'?: LauncherReference;
     /**
      * JSON configuration associated with this Launcher, restricted to a max size of 4KB 
      * @type {string}
-     * @memberof LauncherV1
+     * @memberof Launcher
      */
     'config': string;
 }
 
-export const LauncherV1TypeV1 = {
+export const LauncherTypeEnum = {
     InteractiveProcess: 'INTERACTIVE_PROCESS'
 } as const;
 
-export type LauncherV1TypeV1 = typeof LauncherV1TypeV1[keyof typeof LauncherV1TypeV1];
+export type LauncherTypeEnum = typeof LauncherTypeEnum[keyof typeof LauncherTypeEnum];
+
+/**
+ * Owner of the Launcher
+ * @export
+ * @interface LauncherOwner
+ */
+export interface LauncherOwner {
+    /**
+     * Owner type
+     * @type {string}
+     * @memberof LauncherOwner
+     */
+    'type': string;
+    /**
+     * Owner ID
+     * @type {string}
+     * @memberof LauncherOwner
+     */
+    'id': string;
+}
+/**
+ * 
+ * @export
+ * @interface LauncherReference
+ */
+export interface LauncherReference {
+    /**
+     * Type of Launcher reference
+     * @type {string}
+     * @memberof LauncherReference
+     */
+    'type'?: LauncherReferenceTypeEnum;
+    /**
+     * ID of Launcher reference
+     * @type {string}
+     * @memberof LauncherReference
+     */
+    'id'?: string;
+}
+
+export const LauncherReferenceTypeEnum = {
+    Workflow: 'WORKFLOW'
+} as const;
+
+export type LauncherReferenceTypeEnum = typeof LauncherReferenceTypeEnum[keyof typeof LauncherReferenceTypeEnum];
 
 /**
  * 
  * @export
- * @interface LauncherrequestReferenceV1
+ * @interface Launcherrequest
  */
-export interface LauncherrequestReferenceV1 {
+export interface Launcherrequest {
+    /**
+     * Name of the Launcher, limited to 255 characters
+     * @type {string}
+     * @memberof Launcherrequest
+     */
+    'name': string;
+    /**
+     * Description of the Launcher, limited to 2000 characters
+     * @type {string}
+     * @memberof Launcherrequest
+     */
+    'description': string;
+    /**
+     * Launcher type
+     * @type {string}
+     * @memberof Launcherrequest
+     */
+    'type': LauncherrequestTypeEnum;
+    /**
+     * State of the Launcher
+     * @type {boolean}
+     * @memberof Launcherrequest
+     */
+    'disabled': boolean;
+    /**
+     * 
+     * @type {LauncherrequestReference}
+     * @memberof Launcherrequest
+     */
+    'reference'?: LauncherrequestReference;
+    /**
+     * JSON configuration associated with this Launcher, restricted to a max size of 4KB 
+     * @type {string}
+     * @memberof Launcherrequest
+     */
+    'config': string;
+}
+
+export const LauncherrequestTypeEnum = {
+    InteractiveProcess: 'INTERACTIVE_PROCESS'
+} as const;
+
+export type LauncherrequestTypeEnum = typeof LauncherrequestTypeEnum[keyof typeof LauncherrequestTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface LauncherrequestReference
+ */
+export interface LauncherrequestReference {
     /**
      * Type of Launcher reference
      * @type {string}
-     * @memberof LauncherrequestReferenceV1
+     * @memberof LauncherrequestReference
      */
-    'type': LauncherrequestReferenceV1TypeV1;
+    'type': LauncherrequestReferenceTypeEnum;
     /**
      * ID of Launcher reference
      * @type {string}
-     * @memberof LauncherrequestReferenceV1
+     * @memberof LauncherrequestReference
      */
     'id': string;
 }
 
-export const LauncherrequestReferenceV1TypeV1 = {
+export const LauncherrequestReferenceTypeEnum = {
     Workflow: 'WORKFLOW'
 } as const;
 
-export type LauncherrequestReferenceV1TypeV1 = typeof LauncherrequestReferenceV1TypeV1[keyof typeof LauncherrequestReferenceV1TypeV1];
-
-/**
- * 
- * @export
- * @interface LauncherrequestV1
- */
-export interface LauncherrequestV1 {
-    /**
-     * Name of the Launcher, limited to 255 characters
-     * @type {string}
-     * @memberof LauncherrequestV1
-     */
-    'name': string;
-    /**
-     * Description of the Launcher, limited to 2000 characters
-     * @type {string}
-     * @memberof LauncherrequestV1
-     */
-    'description': string;
-    /**
-     * Launcher type
-     * @type {string}
-     * @memberof LauncherrequestV1
-     */
-    'type': LauncherrequestV1TypeV1;
-    /**
-     * State of the Launcher
-     * @type {boolean}
-     * @memberof LauncherrequestV1
-     */
-    'disabled': boolean;
-    /**
-     * 
-     * @type {LauncherrequestReferenceV1}
-     * @memberof LauncherrequestV1
-     */
-    'reference'?: LauncherrequestReferenceV1;
-    /**
-     * JSON configuration associated with this Launcher, restricted to a max size of 4KB 
-     * @type {string}
-     * @memberof LauncherrequestV1
-     */
-    'config': string;
-}
-
-export const LauncherrequestV1TypeV1 = {
-    InteractiveProcess: 'INTERACTIVE_PROCESS'
-} as const;
-
-export type LauncherrequestV1TypeV1 = typeof LauncherrequestV1TypeV1[keyof typeof LauncherrequestV1TypeV1];
+export type LauncherrequestReferenceTypeEnum = typeof LauncherrequestReferenceTypeEnum[keyof typeof LauncherrequestReferenceTypeEnum];
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -327,44 +327,44 @@ export type LauncherrequestV1TypeV1 = typeof LauncherrequestV1TypeV1[keyof typeo
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface StartLauncherV1200ResponseV1
+ * @interface StartLauncherV1200Response
  */
-export interface StartLauncherV1200ResponseV1 {
+export interface StartLauncherV1200Response {
     /**
      * ID of the Interactive Process that was launched
      * @type {string}
-     * @memberof StartLauncherV1200ResponseV1
+     * @memberof StartLauncherV1200Response
      */
     'interactiveProcessId': string;
 }
 
 /**
- * LaunchersV1Api - axios parameter creator
+ * LaunchersApi - axios parameter creator
  * @export
  */
-export const LaunchersV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const LaunchersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Create a Launcher with given information
          * @summary Create launcher
-         * @param {LauncherrequestV1} launcherrequestV1 Payload to create a Launcher
+         * @param {Launcherrequest} launcherrequest Payload to create a Launcher
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createLauncherV1: async (launcherrequestV1: LauncherrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'launcherrequestV1' is not null or undefined
-            assertParamExists('createLauncherV1', 'launcherrequestV1', launcherrequestV1)
+        createLauncherV1: async (launcherrequest: Launcherrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'launcherrequest' is not null or undefined
+            assertParamExists('createLauncherV1', 'launcherrequest', launcherrequest)
             const localVarPath = `/launchers/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -384,7 +384,7 @@ export const LaunchersV1ApiAxiosParamCreator = function (configuration?: Configu
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(launcherrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(launcherrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -508,15 +508,15 @@ export const LaunchersV1ApiAxiosParamCreator = function (configuration?: Configu
          * Replace the given Launcher ID with given payload
          * @summary Replace launcher
          * @param {string} launcherID ID of the Launcher to be replaced
-         * @param {LauncherrequestV1} launcherrequestV1 Payload to replace Launcher
+         * @param {Launcherrequest} launcherrequest Payload to replace Launcher
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putLauncherV1: async (launcherID: string, launcherrequestV1: LauncherrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putLauncherV1: async (launcherID: string, launcherrequest: Launcherrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'launcherID' is not null or undefined
             assertParamExists('putLauncherV1', 'launcherID', launcherID)
-            // verify required parameter 'launcherrequestV1' is not null or undefined
-            assertParamExists('putLauncherV1', 'launcherrequestV1', launcherrequestV1)
+            // verify required parameter 'launcherrequest' is not null or undefined
+            assertParamExists('putLauncherV1', 'launcherrequest', launcherrequest)
             const localVarPath = `/launchers/v1/{launcherID}`
                 .replace(`{${"launcherID"}}`, encodeURIComponent(String(launcherID)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -537,7 +537,7 @@ export const LaunchersV1ApiAxiosParamCreator = function (configuration?: Configu
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(launcherrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(launcherrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -582,23 +582,23 @@ export const LaunchersV1ApiAxiosParamCreator = function (configuration?: Configu
 };
 
 /**
- * LaunchersV1Api - functional programming interface
+ * LaunchersApi - functional programming interface
  * @export
  */
-export const LaunchersV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = LaunchersV1ApiAxiosParamCreator(configuration)
+export const LaunchersApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = LaunchersApiAxiosParamCreator(configuration)
     return {
         /**
          * Create a Launcher with given information
          * @summary Create launcher
-         * @param {LauncherrequestV1} launcherrequestV1 Payload to create a Launcher
+         * @param {Launcherrequest} launcherrequest Payload to create a Launcher
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createLauncherV1(launcherrequestV1: LauncherrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LauncherV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createLauncherV1(launcherrequestV1, axiosOptions);
+        async createLauncherV1(launcherrequest: Launcherrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Launcher>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createLauncherV1(launcherrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['LaunchersV1Api.createLauncherV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['LaunchersApi.createLauncherV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -611,7 +611,7 @@ export const LaunchersV1ApiFp = function(configuration?: Configuration) {
         async deleteLauncherV1(launcherID: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteLauncherV1(launcherID, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['LaunchersV1Api.deleteLauncherV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['LaunchersApi.deleteLauncherV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -621,10 +621,10 @@ export const LaunchersV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getLauncherV1(launcherID: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LauncherV1>> {
+        async getLauncherV1(launcherID: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Launcher>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getLauncherV1(launcherID, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['LaunchersV1Api.getLauncherV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['LaunchersApi.getLauncherV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -636,24 +636,24 @@ export const LaunchersV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getLaunchersV1(filters?: string, next?: string, limit?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetLaunchersV1200ResponseV1>> {
+        async getLaunchersV1(filters?: string, next?: string, limit?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetLaunchersV1200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getLaunchersV1(filters, next, limit, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['LaunchersV1Api.getLaunchersV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['LaunchersApi.getLaunchersV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Replace the given Launcher ID with given payload
          * @summary Replace launcher
          * @param {string} launcherID ID of the Launcher to be replaced
-         * @param {LauncherrequestV1} launcherrequestV1 Payload to replace Launcher
+         * @param {Launcherrequest} launcherrequest Payload to replace Launcher
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putLauncherV1(launcherID: string, launcherrequestV1: LauncherrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LauncherV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putLauncherV1(launcherID, launcherrequestV1, axiosOptions);
+        async putLauncherV1(launcherID: string, launcherrequest: Launcherrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Launcher>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putLauncherV1(launcherID, launcherrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['LaunchersV1Api.putLauncherV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['LaunchersApi.putLauncherV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -663,267 +663,267 @@ export const LaunchersV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startLauncherV1(launcherID: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StartLauncherV1200ResponseV1>> {
+        async startLauncherV1(launcherID: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StartLauncherV1200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.startLauncherV1(launcherID, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['LaunchersV1Api.startLauncherV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['LaunchersApi.startLauncherV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * LaunchersV1Api - factory interface
+ * LaunchersApi - factory interface
  * @export
  */
-export const LaunchersV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = LaunchersV1ApiFp(configuration)
+export const LaunchersApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = LaunchersApiFp(configuration)
     return {
         /**
          * Create a Launcher with given information
          * @summary Create launcher
-         * @param {LaunchersV1ApiCreateLauncherV1Request} requestParameters Request parameters.
+         * @param {LaunchersApiCreateLauncherV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createLauncherV1(requestParameters: LaunchersV1ApiCreateLauncherV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<LauncherV1> {
-            return localVarFp.createLauncherV1(requestParameters.launcherrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        createLauncherV1(requestParameters: LaunchersApiCreateLauncherV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Launcher> {
+            return localVarFp.createLauncherV1(requestParameters.launcherrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Delete the given Launcher ID
          * @summary Delete launcher
-         * @param {LaunchersV1ApiDeleteLauncherV1Request} requestParameters Request parameters.
+         * @param {LaunchersApiDeleteLauncherV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteLauncherV1(requestParameters: LaunchersV1ApiDeleteLauncherV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteLauncherV1(requestParameters: LaunchersApiDeleteLauncherV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteLauncherV1(requestParameters.launcherID, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get details for the given Launcher ID
          * @summary Get launcher by id
-         * @param {LaunchersV1ApiGetLauncherV1Request} requestParameters Request parameters.
+         * @param {LaunchersApiGetLauncherV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getLauncherV1(requestParameters: LaunchersV1ApiGetLauncherV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<LauncherV1> {
+        getLauncherV1(requestParameters: LaunchersApiGetLauncherV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Launcher> {
             return localVarFp.getLauncherV1(requestParameters.launcherID, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Return a list of Launchers for the authenticated tenant
          * @summary List all launchers for tenant
-         * @param {LaunchersV1ApiGetLaunchersV1Request} requestParameters Request parameters.
+         * @param {LaunchersApiGetLaunchersV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getLaunchersV1(requestParameters: LaunchersV1ApiGetLaunchersV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetLaunchersV1200ResponseV1> {
+        getLaunchersV1(requestParameters: LaunchersApiGetLaunchersV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetLaunchersV1200Response> {
             return localVarFp.getLaunchersV1(requestParameters.filters, requestParameters.next, requestParameters.limit, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Replace the given Launcher ID with given payload
          * @summary Replace launcher
-         * @param {LaunchersV1ApiPutLauncherV1Request} requestParameters Request parameters.
+         * @param {LaunchersApiPutLauncherV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putLauncherV1(requestParameters: LaunchersV1ApiPutLauncherV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<LauncherV1> {
-            return localVarFp.putLauncherV1(requestParameters.launcherID, requestParameters.launcherrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        putLauncherV1(requestParameters: LaunchersApiPutLauncherV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Launcher> {
+            return localVarFp.putLauncherV1(requestParameters.launcherID, requestParameters.launcherrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Launch the given Launcher ID
          * @summary Launch a launcher
-         * @param {LaunchersV1ApiStartLauncherV1Request} requestParameters Request parameters.
+         * @param {LaunchersApiStartLauncherV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startLauncherV1(requestParameters: LaunchersV1ApiStartLauncherV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<StartLauncherV1200ResponseV1> {
+        startLauncherV1(requestParameters: LaunchersApiStartLauncherV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<StartLauncherV1200Response> {
             return localVarFp.startLauncherV1(requestParameters.launcherID, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createLauncherV1 operation in LaunchersV1Api.
+ * Request parameters for createLauncherV1 operation in LaunchersApi.
  * @export
- * @interface LaunchersV1ApiCreateLauncherV1Request
+ * @interface LaunchersApiCreateLauncherV1Request
  */
-export interface LaunchersV1ApiCreateLauncherV1Request {
+export interface LaunchersApiCreateLauncherV1Request {
     /**
      * Payload to create a Launcher
-     * @type {LauncherrequestV1}
-     * @memberof LaunchersV1ApiCreateLauncherV1
+     * @type {Launcherrequest}
+     * @memberof LaunchersApiCreateLauncherV1
      */
-    readonly launcherrequestV1: LauncherrequestV1
+    readonly launcherrequest: Launcherrequest
 }
 
 /**
- * Request parameters for deleteLauncherV1 operation in LaunchersV1Api.
+ * Request parameters for deleteLauncherV1 operation in LaunchersApi.
  * @export
- * @interface LaunchersV1ApiDeleteLauncherV1Request
+ * @interface LaunchersApiDeleteLauncherV1Request
  */
-export interface LaunchersV1ApiDeleteLauncherV1Request {
+export interface LaunchersApiDeleteLauncherV1Request {
     /**
      * ID of the Launcher to be deleted
      * @type {string}
-     * @memberof LaunchersV1ApiDeleteLauncherV1
+     * @memberof LaunchersApiDeleteLauncherV1
      */
     readonly launcherID: string
 }
 
 /**
- * Request parameters for getLauncherV1 operation in LaunchersV1Api.
+ * Request parameters for getLauncherV1 operation in LaunchersApi.
  * @export
- * @interface LaunchersV1ApiGetLauncherV1Request
+ * @interface LaunchersApiGetLauncherV1Request
  */
-export interface LaunchersV1ApiGetLauncherV1Request {
+export interface LaunchersApiGetLauncherV1Request {
     /**
      * ID of the Launcher to be retrieved
      * @type {string}
-     * @memberof LaunchersV1ApiGetLauncherV1
+     * @memberof LaunchersApiGetLauncherV1
      */
     readonly launcherID: string
 }
 
 /**
- * Request parameters for getLaunchersV1 operation in LaunchersV1Api.
+ * Request parameters for getLaunchersV1 operation in LaunchersApi.
  * @export
- * @interface LaunchersV1ApiGetLaunchersV1Request
+ * @interface LaunchersApiGetLaunchersV1Request
  */
-export interface LaunchersV1ApiGetLaunchersV1Request {
+export interface LaunchersApiGetLaunchersV1Request {
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **description**: *sw*  **disabled**: *eq*  **name**: *sw*
      * @type {string}
-     * @memberof LaunchersV1ApiGetLaunchersV1
+     * @memberof LaunchersApiGetLaunchersV1
      */
     readonly filters?: string
 
     /**
      * Pagination marker
      * @type {string}
-     * @memberof LaunchersV1ApiGetLaunchersV1
+     * @memberof LaunchersApiGetLaunchersV1
      */
     readonly next?: string
 
     /**
      * Number of Launchers to return
      * @type {number}
-     * @memberof LaunchersV1ApiGetLaunchersV1
+     * @memberof LaunchersApiGetLaunchersV1
      */
     readonly limit?: number
 }
 
 /**
- * Request parameters for putLauncherV1 operation in LaunchersV1Api.
+ * Request parameters for putLauncherV1 operation in LaunchersApi.
  * @export
- * @interface LaunchersV1ApiPutLauncherV1Request
+ * @interface LaunchersApiPutLauncherV1Request
  */
-export interface LaunchersV1ApiPutLauncherV1Request {
+export interface LaunchersApiPutLauncherV1Request {
     /**
      * ID of the Launcher to be replaced
      * @type {string}
-     * @memberof LaunchersV1ApiPutLauncherV1
+     * @memberof LaunchersApiPutLauncherV1
      */
     readonly launcherID: string
 
     /**
      * Payload to replace Launcher
-     * @type {LauncherrequestV1}
-     * @memberof LaunchersV1ApiPutLauncherV1
+     * @type {Launcherrequest}
+     * @memberof LaunchersApiPutLauncherV1
      */
-    readonly launcherrequestV1: LauncherrequestV1
+    readonly launcherrequest: Launcherrequest
 }
 
 /**
- * Request parameters for startLauncherV1 operation in LaunchersV1Api.
+ * Request parameters for startLauncherV1 operation in LaunchersApi.
  * @export
- * @interface LaunchersV1ApiStartLauncherV1Request
+ * @interface LaunchersApiStartLauncherV1Request
  */
-export interface LaunchersV1ApiStartLauncherV1Request {
+export interface LaunchersApiStartLauncherV1Request {
     /**
      * ID of the Launcher to be launched
      * @type {string}
-     * @memberof LaunchersV1ApiStartLauncherV1
+     * @memberof LaunchersApiStartLauncherV1
      */
     readonly launcherID: string
 }
 
 /**
- * LaunchersV1Api - object-oriented interface
+ * LaunchersApi - object-oriented interface
  * @export
- * @class LaunchersV1Api
+ * @class LaunchersApi
  * @extends {BaseAPI}
  */
-export class LaunchersV1Api extends BaseAPI {
+export class LaunchersApi extends BaseAPI {
     /**
      * Create a Launcher with given information
      * @summary Create launcher
-     * @param {LaunchersV1ApiCreateLauncherV1Request} requestParameters Request parameters.
+     * @param {LaunchersApiCreateLauncherV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof LaunchersV1Api
+     * @memberof LaunchersApi
      */
-    public createLauncherV1(requestParameters: LaunchersV1ApiCreateLauncherV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return LaunchersV1ApiFp(this.configuration).createLauncherV1(requestParameters.launcherrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createLauncherV1(requestParameters: LaunchersApiCreateLauncherV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return LaunchersApiFp(this.configuration).createLauncherV1(requestParameters.launcherrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Delete the given Launcher ID
      * @summary Delete launcher
-     * @param {LaunchersV1ApiDeleteLauncherV1Request} requestParameters Request parameters.
+     * @param {LaunchersApiDeleteLauncherV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof LaunchersV1Api
+     * @memberof LaunchersApi
      */
-    public deleteLauncherV1(requestParameters: LaunchersV1ApiDeleteLauncherV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return LaunchersV1ApiFp(this.configuration).deleteLauncherV1(requestParameters.launcherID, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteLauncherV1(requestParameters: LaunchersApiDeleteLauncherV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return LaunchersApiFp(this.configuration).deleteLauncherV1(requestParameters.launcherID, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get details for the given Launcher ID
      * @summary Get launcher by id
-     * @param {LaunchersV1ApiGetLauncherV1Request} requestParameters Request parameters.
+     * @param {LaunchersApiGetLauncherV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof LaunchersV1Api
+     * @memberof LaunchersApi
      */
-    public getLauncherV1(requestParameters: LaunchersV1ApiGetLauncherV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return LaunchersV1ApiFp(this.configuration).getLauncherV1(requestParameters.launcherID, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getLauncherV1(requestParameters: LaunchersApiGetLauncherV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return LaunchersApiFp(this.configuration).getLauncherV1(requestParameters.launcherID, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Return a list of Launchers for the authenticated tenant
      * @summary List all launchers for tenant
-     * @param {LaunchersV1ApiGetLaunchersV1Request} requestParameters Request parameters.
+     * @param {LaunchersApiGetLaunchersV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof LaunchersV1Api
+     * @memberof LaunchersApi
      */
-    public getLaunchersV1(requestParameters: LaunchersV1ApiGetLaunchersV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return LaunchersV1ApiFp(this.configuration).getLaunchersV1(requestParameters.filters, requestParameters.next, requestParameters.limit, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getLaunchersV1(requestParameters: LaunchersApiGetLaunchersV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return LaunchersApiFp(this.configuration).getLaunchersV1(requestParameters.filters, requestParameters.next, requestParameters.limit, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Replace the given Launcher ID with given payload
      * @summary Replace launcher
-     * @param {LaunchersV1ApiPutLauncherV1Request} requestParameters Request parameters.
+     * @param {LaunchersApiPutLauncherV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof LaunchersV1Api
+     * @memberof LaunchersApi
      */
-    public putLauncherV1(requestParameters: LaunchersV1ApiPutLauncherV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return LaunchersV1ApiFp(this.configuration).putLauncherV1(requestParameters.launcherID, requestParameters.launcherrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putLauncherV1(requestParameters: LaunchersApiPutLauncherV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return LaunchersApiFp(this.configuration).putLauncherV1(requestParameters.launcherID, requestParameters.launcherrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Launch the given Launcher ID
      * @summary Launch a launcher
-     * @param {LaunchersV1ApiStartLauncherV1Request} requestParameters Request parameters.
+     * @param {LaunchersApiStartLauncherV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof LaunchersV1Api
+     * @memberof LaunchersApi
      */
-    public startLauncherV1(requestParameters: LaunchersV1ApiStartLauncherV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return LaunchersV1ApiFp(this.configuration).startLauncherV1(requestParameters.launcherID, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public startLauncherV1(requestParameters: LaunchersApiStartLauncherV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return LaunchersApiFp(this.configuration).startLauncherV1(requestParameters.launcherID, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

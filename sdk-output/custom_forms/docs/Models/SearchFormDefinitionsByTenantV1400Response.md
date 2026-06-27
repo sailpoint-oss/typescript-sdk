@@ -1,22 +1,22 @@
 ---
-id: v1-search-form-definitions-by-tenant-v1400-response-v1
-title: SearchFormDefinitionsByTenantV1400ResponseV1
-pagination_label: SearchFormDefinitionsByTenantV1400ResponseV1
-sidebar_label: SearchFormDefinitionsByTenantV1400ResponseV1
+id: v1-search-form-definitions-by-tenant-v1400-response
+title: SearchFormDefinitionsByTenantV1400Response
+pagination_label: SearchFormDefinitionsByTenantV1400Response
+sidebar_label: SearchFormDefinitionsByTenantV1400Response
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SearchFormDefinitionsByTenantV1400ResponseV1', 'v1SearchFormDefinitionsByTenantV1400ResponseV1']
-slug: /tools/sdk/typescript/custom_forms/models/search-form-definitions-by-tenant-v1400-response-v1
-tags: ['SDK', 'Software Development Kit', 'SearchFormDefinitionsByTenantV1400ResponseV1', 'v1SearchFormDefinitionsByTenantV1400ResponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'SearchFormDefinitionsByTenantV1400Response', 'v1SearchFormDefinitionsByTenantV1400Response']
+slug: /tools/sdk/typescript/custom_forms/models/search-form-definitions-by-tenant-v1400-response
+tags: ['SDK', 'Software Development Kit', 'SearchFormDefinitionsByTenantV1400Response', 'v1SearchFormDefinitionsByTenantV1400Response']
 ---
 
-# SearchFormDefinitionsByTenantV1400ResponseV1
+# SearchFormDefinitionsByTenantV1400Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**detailCode** | **(optional)** **string** |  | [default to undefined]
-**messages** | **(optional)** **Array&lt;ErrormessageV1&gt;** |  | [default to undefined]
-**statusCode** | **(optional)** **number** |  | [default to undefined]
-**trackingId** | **(optional)** **string** |  | [default to undefined]
+**detailCode** | **(optional)** `string` |  | [default to undefined]
+**messages** | **(optional)** `Array<Errormessage>` |  | [default to undefined]
+**statusCode** | **(optional)** `number` |  | [default to undefined]
+**trackingId** | **(optional)** `string` |  | [default to undefined]
 

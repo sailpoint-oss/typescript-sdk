@@ -26,96 +26,96 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface BulkaddtaggedobjectV1
+ * @interface Bulkaddtaggedobject
  */
-export interface BulkaddtaggedobjectV1 {
+export interface Bulkaddtaggedobject {
     /**
      * 
-     * @type {Array<TaggedobjectdtoV1>}
-     * @memberof BulkaddtaggedobjectV1
+     * @type {Array<Taggedobjectdto>}
+     * @memberof Bulkaddtaggedobject
      */
-    'objectRefs'?: Array<TaggedobjectdtoV1>;
+    'objectRefs'?: Array<Taggedobjectdto>;
     /**
      * Label to be applied to an Object
      * @type {Array<string>}
-     * @memberof BulkaddtaggedobjectV1
+     * @memberof Bulkaddtaggedobject
      */
     'tags'?: Array<string>;
     /**
      * If APPEND, tags are appended to the list of tags for the object. A 400 error is returned if this would add duplicate tags to the object.  If MERGE, tags are merged with the existing tags. Duplicate tags are silently ignored.
      * @type {string}
-     * @memberof BulkaddtaggedobjectV1
+     * @memberof Bulkaddtaggedobject
      */
-    'operation'?: BulkaddtaggedobjectV1OperationV1;
+    'operation'?: BulkaddtaggedobjectOperationEnum;
 }
 
-export const BulkaddtaggedobjectV1OperationV1 = {
+export const BulkaddtaggedobjectOperationEnum = {
     Append: 'APPEND',
     Merge: 'MERGE'
 } as const;
 
-export type BulkaddtaggedobjectV1OperationV1 = typeof BulkaddtaggedobjectV1OperationV1[keyof typeof BulkaddtaggedobjectV1OperationV1];
+export type BulkaddtaggedobjectOperationEnum = typeof BulkaddtaggedobjectOperationEnum[keyof typeof BulkaddtaggedobjectOperationEnum];
 
 /**
  * 
  * @export
- * @interface BulkremovetaggedobjectV1
+ * @interface Bulkremovetaggedobject
  */
-export interface BulkremovetaggedobjectV1 {
+export interface Bulkremovetaggedobject {
     /**
      * 
-     * @type {Array<TaggedobjectdtoV1>}
-     * @memberof BulkremovetaggedobjectV1
+     * @type {Array<Taggedobjectdto>}
+     * @memberof Bulkremovetaggedobject
      */
-    'objectRefs'?: Array<TaggedobjectdtoV1>;
+    'objectRefs'?: Array<Taggedobjectdto>;
     /**
      * Label to be applied to an Object
      * @type {Array<string>}
-     * @memberof BulkremovetaggedobjectV1
+     * @memberof Bulkremovetaggedobject
      */
     'tags'?: Array<string>;
 }
 /**
  * 
  * @export
- * @interface BulktaggedobjectresponseV1
+ * @interface Bulktaggedobjectresponse
  */
-export interface BulktaggedobjectresponseV1 {
+export interface Bulktaggedobjectresponse {
     /**
      * 
-     * @type {Array<TaggedobjectdtoV1>}
-     * @memberof BulktaggedobjectresponseV1
+     * @type {Array<Taggedobjectdto>}
+     * @memberof Bulktaggedobjectresponse
      */
-    'objectRefs'?: Array<TaggedobjectdtoV1>;
+    'objectRefs'?: Array<Taggedobjectdto>;
     /**
      * Label to be applied to an Object
      * @type {Array<string>}
-     * @memberof BulktaggedobjectresponseV1
+     * @memberof Bulktaggedobjectresponse
      */
     'tags'?: Array<string>;
 }
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -124,57 +124,57 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface ListTaggedObjectsV1401ResponseV1
+ * @interface ListTaggedObjectsV1401Response
  */
-export interface ListTaggedObjectsV1401ResponseV1 {
+export interface ListTaggedObjectsV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListTaggedObjectsV1401ResponseV1
+     * @memberof ListTaggedObjectsV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ListTaggedObjectsV1429ResponseV1
+ * @interface ListTaggedObjectsV1429Response
  */
-export interface ListTaggedObjectsV1429ResponseV1 {
+export interface ListTaggedObjectsV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListTaggedObjectsV1429ResponseV1
+     * @memberof ListTaggedObjectsV1429Response
      */
     'message'?: any;
 }
@@ -184,60 +184,60 @@ export interface ListTaggedObjectsV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * Tagged object.
  * @export
- * @interface TaggedobjectV1
+ * @interface Taggedobject
  */
-export interface TaggedobjectV1 {
+export interface Taggedobject {
     /**
      * 
-     * @type {TaggedobjectdtoV1}
-     * @memberof TaggedobjectV1
+     * @type {Taggedobjectdto}
+     * @memberof Taggedobject
      */
-    'objectRef'?: TaggedobjectdtoV1;
+    'objectRef'?: Taggedobjectdto;
     /**
      * Labels to be applied to an Object
      * @type {Array<string>}
-     * @memberof TaggedobjectV1
+     * @memberof Taggedobject
      */
     'tags'?: Array<string>;
 }
 /**
  * 
  * @export
- * @interface TaggedobjectdtoV1
+ * @interface Taggedobjectdto
  */
-export interface TaggedobjectdtoV1 {
+export interface Taggedobjectdto {
     /**
      * DTO type
      * @type {string}
-     * @memberof TaggedobjectdtoV1
+     * @memberof Taggedobjectdto
      */
-    'type'?: TaggedobjectdtoV1TypeV1;
+    'type'?: TaggedobjectdtoTypeEnum;
     /**
      * ID of the object this reference applies to
      * @type {string}
-     * @memberof TaggedobjectdtoV1
+     * @memberof Taggedobjectdto
      */
     'id'?: string;
     /**
      * Human-readable display name of the object this reference applies to
      * @type {string}
-     * @memberof TaggedobjectdtoV1
+     * @memberof Taggedobjectdto
      */
     'name'?: string | null;
 }
 
-export const TaggedobjectdtoV1TypeV1 = {
+export const TaggedobjectdtoTypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     Application: 'APPLICATION',
     Campaign: 'CAMPAIGN',
@@ -248,24 +248,24 @@ export const TaggedobjectdtoV1TypeV1 = {
     Source: 'SOURCE'
 } as const;
 
-export type TaggedobjectdtoV1TypeV1 = typeof TaggedobjectdtoV1TypeV1[keyof typeof TaggedobjectdtoV1TypeV1];
+export type TaggedobjectdtoTypeEnum = typeof TaggedobjectdtoTypeEnum[keyof typeof TaggedobjectdtoTypeEnum];
 
 
 /**
- * TaggedObjectsV1Api - axios parameter creator
+ * TaggedObjectsApi - axios parameter creator
  * @export
  */
-export const TaggedObjectsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const TaggedObjectsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Delete all tags from a tagged object.
          * @summary Delete object tags
-         * @param {DeleteTaggedObjectV1TypeV1} type The type of object to delete tags from.
+         * @param {DeleteTaggedObjectV1TypeEnum} type The type of object to delete tags from.
          * @param {string} id The ID of the object to delete tags from.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteTaggedObjectV1: async (type: DeleteTaggedObjectV1TypeV1, id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteTaggedObjectV1: async (type: DeleteTaggedObjectV1TypeEnum, id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'type' is not null or undefined
             assertParamExists('deleteTaggedObjectV1', 'type', type)
             // verify required parameter 'id' is not null or undefined
@@ -298,13 +298,13 @@ export const TaggedObjectsV1ApiAxiosParamCreator = function (configuration?: Con
         /**
          * This API removes tags from multiple objects.
          * @summary Remove tags from multiple objects
-         * @param {BulkremovetaggedobjectV1} bulkremovetaggedobjectV1 Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+         * @param {Bulkremovetaggedobject} bulkremovetaggedobject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteTagsToManyObjectV1: async (bulkremovetaggedobjectV1: BulkremovetaggedobjectV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'bulkremovetaggedobjectV1' is not null or undefined
-            assertParamExists('deleteTagsToManyObjectV1', 'bulkremovetaggedobjectV1', bulkremovetaggedobjectV1)
+        deleteTagsToManyObjectV1: async (bulkremovetaggedobject: Bulkremovetaggedobject, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'bulkremovetaggedobject' is not null or undefined
+            assertParamExists('deleteTagsToManyObjectV1', 'bulkremovetaggedobject', bulkremovetaggedobject)
             const localVarPath = `/tagged-objects/v1/bulk-remove`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -324,7 +324,7 @@ export const TaggedObjectsV1ApiAxiosParamCreator = function (configuration?: Con
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(bulkremovetaggedobjectV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(bulkremovetaggedobject, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -334,12 +334,12 @@ export const TaggedObjectsV1ApiAxiosParamCreator = function (configuration?: Con
         /**
          * This gets a tagged object for the specified type.
          * @summary Get tagged object
-         * @param {GetTaggedObjectV1TypeV1} type The type of tagged object to retrieve.
+         * @param {GetTaggedObjectV1TypeEnum} type The type of tagged object to retrieve.
          * @param {string} id The ID of the object reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getTaggedObjectV1: async (type: GetTaggedObjectV1TypeV1, id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTaggedObjectV1: async (type: GetTaggedObjectV1TypeEnum, id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'type' is not null or undefined
             assertParamExists('getTaggedObjectV1', 'type', type)
             // verify required parameter 'id' is not null or undefined
@@ -372,7 +372,7 @@ export const TaggedObjectsV1ApiAxiosParamCreator = function (configuration?: Con
         /**
          * This API returns a list of all tagged objects by type.
          * @summary List tagged objects by type
-         * @param {ListTaggedObjectsByTypeV1TypeV1} type The type of tagged object to retrieve.
+         * @param {ListTaggedObjectsByTypeV1TypeEnum} type The type of tagged object to retrieve.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -380,7 +380,7 @@ export const TaggedObjectsV1ApiAxiosParamCreator = function (configuration?: Con
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listTaggedObjectsByTypeV1: async (type: ListTaggedObjectsByTypeV1TypeV1, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listTaggedObjectsByTypeV1: async (type: ListTaggedObjectsByTypeV1TypeEnum, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'type' is not null or undefined
             assertParamExists('listTaggedObjectsByTypeV1', 'type', type)
             const localVarPath = `/tagged-objects/v1/{type}`
@@ -476,19 +476,19 @@ export const TaggedObjectsV1ApiAxiosParamCreator = function (configuration?: Con
         /**
          * This updates a tagged object for the specified type.
          * @summary Update tagged object
-         * @param {PutTaggedObjectV1TypeV1} type The type of tagged object to update.
+         * @param {PutTaggedObjectV1TypeEnum} type The type of tagged object to update.
          * @param {string} id The ID of the object reference to update.
-         * @param {TaggedobjectV1} taggedobjectV1 
+         * @param {Taggedobject} taggedobject 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putTaggedObjectV1: async (type: PutTaggedObjectV1TypeV1, id: string, taggedobjectV1: TaggedobjectV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putTaggedObjectV1: async (type: PutTaggedObjectV1TypeEnum, id: string, taggedobject: Taggedobject, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'type' is not null or undefined
             assertParamExists('putTaggedObjectV1', 'type', type)
             // verify required parameter 'id' is not null or undefined
             assertParamExists('putTaggedObjectV1', 'id', id)
-            // verify required parameter 'taggedobjectV1' is not null or undefined
-            assertParamExists('putTaggedObjectV1', 'taggedobjectV1', taggedobjectV1)
+            // verify required parameter 'taggedobject' is not null or undefined
+            assertParamExists('putTaggedObjectV1', 'taggedobject', taggedobject)
             const localVarPath = `/tagged-objects/v1/{type}/{id}`
                 .replace(`{${"type"}}`, encodeURIComponent(String(type)))
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
@@ -510,7 +510,7 @@ export const TaggedObjectsV1ApiAxiosParamCreator = function (configuration?: Con
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(taggedobjectV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(taggedobject, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -520,13 +520,13 @@ export const TaggedObjectsV1ApiAxiosParamCreator = function (configuration?: Con
         /**
          * This adds a tag to an object.
          * @summary Add tag to object
-         * @param {TaggedobjectV1} taggedobjectV1 
+         * @param {Taggedobject} taggedobject 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setTagToObjectV1: async (taggedobjectV1: TaggedobjectV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'taggedobjectV1' is not null or undefined
-            assertParamExists('setTagToObjectV1', 'taggedobjectV1', taggedobjectV1)
+        setTagToObjectV1: async (taggedobject: Taggedobject, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'taggedobject' is not null or undefined
+            assertParamExists('setTagToObjectV1', 'taggedobject', taggedobject)
             const localVarPath = `/tagged-objects/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -546,7 +546,7 @@ export const TaggedObjectsV1ApiAxiosParamCreator = function (configuration?: Con
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(taggedobjectV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(taggedobject, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -556,13 +556,13 @@ export const TaggedObjectsV1ApiAxiosParamCreator = function (configuration?: Con
         /**
          * This API adds tags to multiple objects.
          * @summary Tag multiple objects
-         * @param {BulkaddtaggedobjectV1} bulkaddtaggedobjectV1 Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+         * @param {Bulkaddtaggedobject} bulkaddtaggedobject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setTagsToManyObjectsV1: async (bulkaddtaggedobjectV1: BulkaddtaggedobjectV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'bulkaddtaggedobjectV1' is not null or undefined
-            assertParamExists('setTagsToManyObjectsV1', 'bulkaddtaggedobjectV1', bulkaddtaggedobjectV1)
+        setTagsToManyObjectsV1: async (bulkaddtaggedobject: Bulkaddtaggedobject, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'bulkaddtaggedobject' is not null or undefined
+            assertParamExists('setTagsToManyObjectsV1', 'bulkaddtaggedobject', bulkaddtaggedobject)
             const localVarPath = `/tagged-objects/v1/bulk-add`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -582,7 +582,7 @@ export const TaggedObjectsV1ApiAxiosParamCreator = function (configuration?: Con
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(bulkaddtaggedobjectV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(bulkaddtaggedobject, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -593,57 +593,57 @@ export const TaggedObjectsV1ApiAxiosParamCreator = function (configuration?: Con
 };
 
 /**
- * TaggedObjectsV1Api - functional programming interface
+ * TaggedObjectsApi - functional programming interface
  * @export
  */
-export const TaggedObjectsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = TaggedObjectsV1ApiAxiosParamCreator(configuration)
+export const TaggedObjectsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = TaggedObjectsApiAxiosParamCreator(configuration)
     return {
         /**
          * Delete all tags from a tagged object.
          * @summary Delete object tags
-         * @param {DeleteTaggedObjectV1TypeV1} type The type of object to delete tags from.
+         * @param {DeleteTaggedObjectV1TypeEnum} type The type of object to delete tags from.
          * @param {string} id The ID of the object to delete tags from.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteTaggedObjectV1(type: DeleteTaggedObjectV1TypeV1, id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async deleteTaggedObjectV1(type: DeleteTaggedObjectV1TypeEnum, id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTaggedObjectV1(type, id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TaggedObjectsV1Api.deleteTaggedObjectV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TaggedObjectsApi.deleteTaggedObjectV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API removes tags from multiple objects.
          * @summary Remove tags from multiple objects
-         * @param {BulkremovetaggedobjectV1} bulkremovetaggedobjectV1 Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+         * @param {Bulkremovetaggedobject} bulkremovetaggedobject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteTagsToManyObjectV1(bulkremovetaggedobjectV1: BulkremovetaggedobjectV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTagsToManyObjectV1(bulkremovetaggedobjectV1, axiosOptions);
+        async deleteTagsToManyObjectV1(bulkremovetaggedobject: Bulkremovetaggedobject, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTagsToManyObjectV1(bulkremovetaggedobject, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TaggedObjectsV1Api.deleteTagsToManyObjectV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TaggedObjectsApi.deleteTagsToManyObjectV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This gets a tagged object for the specified type.
          * @summary Get tagged object
-         * @param {GetTaggedObjectV1TypeV1} type The type of tagged object to retrieve.
+         * @param {GetTaggedObjectV1TypeEnum} type The type of tagged object to retrieve.
          * @param {string} id The ID of the object reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getTaggedObjectV1(type: GetTaggedObjectV1TypeV1, id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaggedobjectV1>> {
+        async getTaggedObjectV1(type: GetTaggedObjectV1TypeEnum, id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Taggedobject>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTaggedObjectV1(type, id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TaggedObjectsV1Api.getTaggedObjectV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TaggedObjectsApi.getTaggedObjectV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API returns a list of all tagged objects by type.
          * @summary List tagged objects by type
-         * @param {ListTaggedObjectsByTypeV1TypeV1} type The type of tagged object to retrieve.
+         * @param {ListTaggedObjectsByTypeV1TypeEnum} type The type of tagged object to retrieve.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -651,10 +651,10 @@ export const TaggedObjectsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listTaggedObjectsByTypeV1(type: ListTaggedObjectsByTypeV1TypeV1, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaggedobjectV1>>> {
+        async listTaggedObjectsByTypeV1(type: ListTaggedObjectsByTypeV1TypeEnum, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Taggedobject>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listTaggedObjectsByTypeV1(type, limit, offset, count, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TaggedObjectsV1Api.listTaggedObjectsByTypeV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TaggedObjectsApi.listTaggedObjectsByTypeV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -667,443 +667,443 @@ export const TaggedObjectsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listTaggedObjectsV1(limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaggedobjectV1>>> {
+        async listTaggedObjectsV1(limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Taggedobject>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listTaggedObjectsV1(limit, offset, count, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TaggedObjectsV1Api.listTaggedObjectsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TaggedObjectsApi.listTaggedObjectsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This updates a tagged object for the specified type.
          * @summary Update tagged object
-         * @param {PutTaggedObjectV1TypeV1} type The type of tagged object to update.
+         * @param {PutTaggedObjectV1TypeEnum} type The type of tagged object to update.
          * @param {string} id The ID of the object reference to update.
-         * @param {TaggedobjectV1} taggedobjectV1 
+         * @param {Taggedobject} taggedobject 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putTaggedObjectV1(type: PutTaggedObjectV1TypeV1, id: string, taggedobjectV1: TaggedobjectV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaggedobjectV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putTaggedObjectV1(type, id, taggedobjectV1, axiosOptions);
+        async putTaggedObjectV1(type: PutTaggedObjectV1TypeEnum, id: string, taggedobject: Taggedobject, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Taggedobject>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putTaggedObjectV1(type, id, taggedobject, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TaggedObjectsV1Api.putTaggedObjectV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TaggedObjectsApi.putTaggedObjectV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This adds a tag to an object.
          * @summary Add tag to object
-         * @param {TaggedobjectV1} taggedobjectV1 
+         * @param {Taggedobject} taggedobject 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setTagToObjectV1(taggedobjectV1: TaggedobjectV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setTagToObjectV1(taggedobjectV1, axiosOptions);
+        async setTagToObjectV1(taggedobject: Taggedobject, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setTagToObjectV1(taggedobject, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TaggedObjectsV1Api.setTagToObjectV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TaggedObjectsApi.setTagToObjectV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API adds tags to multiple objects.
          * @summary Tag multiple objects
-         * @param {BulkaddtaggedobjectV1} bulkaddtaggedobjectV1 Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+         * @param {Bulkaddtaggedobject} bulkaddtaggedobject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setTagsToManyObjectsV1(bulkaddtaggedobjectV1: BulkaddtaggedobjectV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BulktaggedobjectresponseV1>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setTagsToManyObjectsV1(bulkaddtaggedobjectV1, axiosOptions);
+        async setTagsToManyObjectsV1(bulkaddtaggedobject: Bulkaddtaggedobject, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Bulktaggedobjectresponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setTagsToManyObjectsV1(bulkaddtaggedobject, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TaggedObjectsV1Api.setTagsToManyObjectsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TaggedObjectsApi.setTagsToManyObjectsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * TaggedObjectsV1Api - factory interface
+ * TaggedObjectsApi - factory interface
  * @export
  */
-export const TaggedObjectsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = TaggedObjectsV1ApiFp(configuration)
+export const TaggedObjectsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = TaggedObjectsApiFp(configuration)
     return {
         /**
          * Delete all tags from a tagged object.
          * @summary Delete object tags
-         * @param {TaggedObjectsV1ApiDeleteTaggedObjectV1Request} requestParameters Request parameters.
+         * @param {TaggedObjectsApiDeleteTaggedObjectV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteTaggedObjectV1(requestParameters: TaggedObjectsV1ApiDeleteTaggedObjectV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteTaggedObjectV1(requestParameters: TaggedObjectsApiDeleteTaggedObjectV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteTaggedObjectV1(requestParameters.type, requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API removes tags from multiple objects.
          * @summary Remove tags from multiple objects
-         * @param {TaggedObjectsV1ApiDeleteTagsToManyObjectV1Request} requestParameters Request parameters.
+         * @param {TaggedObjectsApiDeleteTagsToManyObjectV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteTagsToManyObjectV1(requestParameters: TaggedObjectsV1ApiDeleteTagsToManyObjectV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.deleteTagsToManyObjectV1(requestParameters.bulkremovetaggedobjectV1, axiosOptions).then((request) => request(axios, basePath));
+        deleteTagsToManyObjectV1(requestParameters: TaggedObjectsApiDeleteTagsToManyObjectV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteTagsToManyObjectV1(requestParameters.bulkremovetaggedobject, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a tagged object for the specified type.
          * @summary Get tagged object
-         * @param {TaggedObjectsV1ApiGetTaggedObjectV1Request} requestParameters Request parameters.
+         * @param {TaggedObjectsApiGetTaggedObjectV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getTaggedObjectV1(requestParameters: TaggedObjectsV1ApiGetTaggedObjectV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TaggedobjectV1> {
+        getTaggedObjectV1(requestParameters: TaggedObjectsApiGetTaggedObjectV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Taggedobject> {
             return localVarFp.getTaggedObjectV1(requestParameters.type, requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of all tagged objects by type.
          * @summary List tagged objects by type
-         * @param {TaggedObjectsV1ApiListTaggedObjectsByTypeV1Request} requestParameters Request parameters.
+         * @param {TaggedObjectsApiListTaggedObjectsByTypeV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listTaggedObjectsByTypeV1(requestParameters: TaggedObjectsV1ApiListTaggedObjectsByTypeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<TaggedobjectV1>> {
+        listTaggedObjectsByTypeV1(requestParameters: TaggedObjectsApiListTaggedObjectsByTypeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Taggedobject>> {
             return localVarFp.listTaggedObjectsByTypeV1(requestParameters.type, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of all tagged objects.
          * @summary List tagged objects
-         * @param {TaggedObjectsV1ApiListTaggedObjectsV1Request} requestParameters Request parameters.
+         * @param {TaggedObjectsApiListTaggedObjectsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listTaggedObjectsV1(requestParameters: TaggedObjectsV1ApiListTaggedObjectsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<TaggedobjectV1>> {
+        listTaggedObjectsV1(requestParameters: TaggedObjectsApiListTaggedObjectsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Taggedobject>> {
             return localVarFp.listTaggedObjectsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This updates a tagged object for the specified type.
          * @summary Update tagged object
-         * @param {TaggedObjectsV1ApiPutTaggedObjectV1Request} requestParameters Request parameters.
+         * @param {TaggedObjectsApiPutTaggedObjectV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putTaggedObjectV1(requestParameters: TaggedObjectsV1ApiPutTaggedObjectV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TaggedobjectV1> {
-            return localVarFp.putTaggedObjectV1(requestParameters.type, requestParameters.id, requestParameters.taggedobjectV1, axiosOptions).then((request) => request(axios, basePath));
+        putTaggedObjectV1(requestParameters: TaggedObjectsApiPutTaggedObjectV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Taggedobject> {
+            return localVarFp.putTaggedObjectV1(requestParameters.type, requestParameters.id, requestParameters.taggedobject, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This adds a tag to an object.
          * @summary Add tag to object
-         * @param {TaggedObjectsV1ApiSetTagToObjectV1Request} requestParameters Request parameters.
+         * @param {TaggedObjectsApiSetTagToObjectV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setTagToObjectV1(requestParameters: TaggedObjectsV1ApiSetTagToObjectV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.setTagToObjectV1(requestParameters.taggedobjectV1, axiosOptions).then((request) => request(axios, basePath));
+        setTagToObjectV1(requestParameters: TaggedObjectsApiSetTagToObjectV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.setTagToObjectV1(requestParameters.taggedobject, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API adds tags to multiple objects.
          * @summary Tag multiple objects
-         * @param {TaggedObjectsV1ApiSetTagsToManyObjectsV1Request} requestParameters Request parameters.
+         * @param {TaggedObjectsApiSetTagsToManyObjectsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setTagsToManyObjectsV1(requestParameters: TaggedObjectsV1ApiSetTagsToManyObjectsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<BulktaggedobjectresponseV1>> {
-            return localVarFp.setTagsToManyObjectsV1(requestParameters.bulkaddtaggedobjectV1, axiosOptions).then((request) => request(axios, basePath));
+        setTagsToManyObjectsV1(requestParameters: TaggedObjectsApiSetTagsToManyObjectsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Bulktaggedobjectresponse>> {
+            return localVarFp.setTagsToManyObjectsV1(requestParameters.bulkaddtaggedobject, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for deleteTaggedObjectV1 operation in TaggedObjectsV1Api.
+ * Request parameters for deleteTaggedObjectV1 operation in TaggedObjectsApi.
  * @export
- * @interface TaggedObjectsV1ApiDeleteTaggedObjectV1Request
+ * @interface TaggedObjectsApiDeleteTaggedObjectV1Request
  */
-export interface TaggedObjectsV1ApiDeleteTaggedObjectV1Request {
+export interface TaggedObjectsApiDeleteTaggedObjectV1Request {
     /**
      * The type of object to delete tags from.
      * @type {'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'}
-     * @memberof TaggedObjectsV1ApiDeleteTaggedObjectV1
+     * @memberof TaggedObjectsApiDeleteTaggedObjectV1
      */
-    readonly type: DeleteTaggedObjectV1TypeV1
+    readonly type: DeleteTaggedObjectV1TypeEnum
 
     /**
      * The ID of the object to delete tags from.
      * @type {string}
-     * @memberof TaggedObjectsV1ApiDeleteTaggedObjectV1
+     * @memberof TaggedObjectsApiDeleteTaggedObjectV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for deleteTagsToManyObjectV1 operation in TaggedObjectsV1Api.
+ * Request parameters for deleteTagsToManyObjectV1 operation in TaggedObjectsApi.
  * @export
- * @interface TaggedObjectsV1ApiDeleteTagsToManyObjectV1Request
+ * @interface TaggedObjectsApiDeleteTagsToManyObjectV1Request
  */
-export interface TaggedObjectsV1ApiDeleteTagsToManyObjectV1Request {
+export interface TaggedObjectsApiDeleteTagsToManyObjectV1Request {
     /**
      * Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
-     * @type {BulkremovetaggedobjectV1}
-     * @memberof TaggedObjectsV1ApiDeleteTagsToManyObjectV1
+     * @type {Bulkremovetaggedobject}
+     * @memberof TaggedObjectsApiDeleteTagsToManyObjectV1
      */
-    readonly bulkremovetaggedobjectV1: BulkremovetaggedobjectV1
+    readonly bulkremovetaggedobject: Bulkremovetaggedobject
 }
 
 /**
- * Request parameters for getTaggedObjectV1 operation in TaggedObjectsV1Api.
+ * Request parameters for getTaggedObjectV1 operation in TaggedObjectsApi.
  * @export
- * @interface TaggedObjectsV1ApiGetTaggedObjectV1Request
+ * @interface TaggedObjectsApiGetTaggedObjectV1Request
  */
-export interface TaggedObjectsV1ApiGetTaggedObjectV1Request {
+export interface TaggedObjectsApiGetTaggedObjectV1Request {
     /**
      * The type of tagged object to retrieve.
      * @type {'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'}
-     * @memberof TaggedObjectsV1ApiGetTaggedObjectV1
+     * @memberof TaggedObjectsApiGetTaggedObjectV1
      */
-    readonly type: GetTaggedObjectV1TypeV1
+    readonly type: GetTaggedObjectV1TypeEnum
 
     /**
      * The ID of the object reference to retrieve.
      * @type {string}
-     * @memberof TaggedObjectsV1ApiGetTaggedObjectV1
+     * @memberof TaggedObjectsApiGetTaggedObjectV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for listTaggedObjectsByTypeV1 operation in TaggedObjectsV1Api.
+ * Request parameters for listTaggedObjectsByTypeV1 operation in TaggedObjectsApi.
  * @export
- * @interface TaggedObjectsV1ApiListTaggedObjectsByTypeV1Request
+ * @interface TaggedObjectsApiListTaggedObjectsByTypeV1Request
  */
-export interface TaggedObjectsV1ApiListTaggedObjectsByTypeV1Request {
+export interface TaggedObjectsApiListTaggedObjectsByTypeV1Request {
     /**
      * The type of tagged object to retrieve.
      * @type {'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'}
-     * @memberof TaggedObjectsV1ApiListTaggedObjectsByTypeV1
+     * @memberof TaggedObjectsApiListTaggedObjectsByTypeV1
      */
-    readonly type: ListTaggedObjectsByTypeV1TypeV1
+    readonly type: ListTaggedObjectsByTypeV1TypeEnum
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof TaggedObjectsV1ApiListTaggedObjectsByTypeV1
+     * @memberof TaggedObjectsApiListTaggedObjectsByTypeV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof TaggedObjectsV1ApiListTaggedObjectsByTypeV1
+     * @memberof TaggedObjectsApiListTaggedObjectsByTypeV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof TaggedObjectsV1ApiListTaggedObjectsByTypeV1
+     * @memberof TaggedObjectsApiListTaggedObjectsByTypeV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq*  **objectRef.type**: *eq*
      * @type {string}
-     * @memberof TaggedObjectsV1ApiListTaggedObjectsByTypeV1
+     * @memberof TaggedObjectsApiListTaggedObjectsByTypeV1
      */
     readonly filters?: string
 }
 
 /**
- * Request parameters for listTaggedObjectsV1 operation in TaggedObjectsV1Api.
+ * Request parameters for listTaggedObjectsV1 operation in TaggedObjectsApi.
  * @export
- * @interface TaggedObjectsV1ApiListTaggedObjectsV1Request
+ * @interface TaggedObjectsApiListTaggedObjectsV1Request
  */
-export interface TaggedObjectsV1ApiListTaggedObjectsV1Request {
+export interface TaggedObjectsApiListTaggedObjectsV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof TaggedObjectsV1ApiListTaggedObjectsV1
+     * @memberof TaggedObjectsApiListTaggedObjectsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof TaggedObjectsV1ApiListTaggedObjectsV1
+     * @memberof TaggedObjectsApiListTaggedObjectsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof TaggedObjectsV1ApiListTaggedObjectsV1
+     * @memberof TaggedObjectsApiListTaggedObjectsV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq, in*  **objectRef.type**: *eq, in*  **tagName**: *eq, in*
      * @type {string}
-     * @memberof TaggedObjectsV1ApiListTaggedObjectsV1
+     * @memberof TaggedObjectsApiListTaggedObjectsV1
      */
     readonly filters?: string
 }
 
 /**
- * Request parameters for putTaggedObjectV1 operation in TaggedObjectsV1Api.
+ * Request parameters for putTaggedObjectV1 operation in TaggedObjectsApi.
  * @export
- * @interface TaggedObjectsV1ApiPutTaggedObjectV1Request
+ * @interface TaggedObjectsApiPutTaggedObjectV1Request
  */
-export interface TaggedObjectsV1ApiPutTaggedObjectV1Request {
+export interface TaggedObjectsApiPutTaggedObjectV1Request {
     /**
      * The type of tagged object to update.
      * @type {'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'}
-     * @memberof TaggedObjectsV1ApiPutTaggedObjectV1
+     * @memberof TaggedObjectsApiPutTaggedObjectV1
      */
-    readonly type: PutTaggedObjectV1TypeV1
+    readonly type: PutTaggedObjectV1TypeEnum
 
     /**
      * The ID of the object reference to update.
      * @type {string}
-     * @memberof TaggedObjectsV1ApiPutTaggedObjectV1
+     * @memberof TaggedObjectsApiPutTaggedObjectV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {TaggedobjectV1}
-     * @memberof TaggedObjectsV1ApiPutTaggedObjectV1
+     * @type {Taggedobject}
+     * @memberof TaggedObjectsApiPutTaggedObjectV1
      */
-    readonly taggedobjectV1: TaggedobjectV1
+    readonly taggedobject: Taggedobject
 }
 
 /**
- * Request parameters for setTagToObjectV1 operation in TaggedObjectsV1Api.
+ * Request parameters for setTagToObjectV1 operation in TaggedObjectsApi.
  * @export
- * @interface TaggedObjectsV1ApiSetTagToObjectV1Request
+ * @interface TaggedObjectsApiSetTagToObjectV1Request
  */
-export interface TaggedObjectsV1ApiSetTagToObjectV1Request {
+export interface TaggedObjectsApiSetTagToObjectV1Request {
     /**
      * 
-     * @type {TaggedobjectV1}
-     * @memberof TaggedObjectsV1ApiSetTagToObjectV1
+     * @type {Taggedobject}
+     * @memberof TaggedObjectsApiSetTagToObjectV1
      */
-    readonly taggedobjectV1: TaggedobjectV1
+    readonly taggedobject: Taggedobject
 }
 
 /**
- * Request parameters for setTagsToManyObjectsV1 operation in TaggedObjectsV1Api.
+ * Request parameters for setTagsToManyObjectsV1 operation in TaggedObjectsApi.
  * @export
- * @interface TaggedObjectsV1ApiSetTagsToManyObjectsV1Request
+ * @interface TaggedObjectsApiSetTagsToManyObjectsV1Request
  */
-export interface TaggedObjectsV1ApiSetTagsToManyObjectsV1Request {
+export interface TaggedObjectsApiSetTagsToManyObjectsV1Request {
     /**
      * Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
-     * @type {BulkaddtaggedobjectV1}
-     * @memberof TaggedObjectsV1ApiSetTagsToManyObjectsV1
+     * @type {Bulkaddtaggedobject}
+     * @memberof TaggedObjectsApiSetTagsToManyObjectsV1
      */
-    readonly bulkaddtaggedobjectV1: BulkaddtaggedobjectV1
+    readonly bulkaddtaggedobject: Bulkaddtaggedobject
 }
 
 /**
- * TaggedObjectsV1Api - object-oriented interface
+ * TaggedObjectsApi - object-oriented interface
  * @export
- * @class TaggedObjectsV1Api
+ * @class TaggedObjectsApi
  * @extends {BaseAPI}
  */
-export class TaggedObjectsV1Api extends BaseAPI {
+export class TaggedObjectsApi extends BaseAPI {
     /**
      * Delete all tags from a tagged object.
      * @summary Delete object tags
-     * @param {TaggedObjectsV1ApiDeleteTaggedObjectV1Request} requestParameters Request parameters.
+     * @param {TaggedObjectsApiDeleteTaggedObjectV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TaggedObjectsV1Api
+     * @memberof TaggedObjectsApi
      */
-    public deleteTaggedObjectV1(requestParameters: TaggedObjectsV1ApiDeleteTaggedObjectV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TaggedObjectsV1ApiFp(this.configuration).deleteTaggedObjectV1(requestParameters.type, requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteTaggedObjectV1(requestParameters: TaggedObjectsApiDeleteTaggedObjectV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return TaggedObjectsApiFp(this.configuration).deleteTaggedObjectV1(requestParameters.type, requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API removes tags from multiple objects.
      * @summary Remove tags from multiple objects
-     * @param {TaggedObjectsV1ApiDeleteTagsToManyObjectV1Request} requestParameters Request parameters.
+     * @param {TaggedObjectsApiDeleteTagsToManyObjectV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TaggedObjectsV1Api
+     * @memberof TaggedObjectsApi
      */
-    public deleteTagsToManyObjectV1(requestParameters: TaggedObjectsV1ApiDeleteTagsToManyObjectV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TaggedObjectsV1ApiFp(this.configuration).deleteTagsToManyObjectV1(requestParameters.bulkremovetaggedobjectV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteTagsToManyObjectV1(requestParameters: TaggedObjectsApiDeleteTagsToManyObjectV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return TaggedObjectsApiFp(this.configuration).deleteTagsToManyObjectV1(requestParameters.bulkremovetaggedobject, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a tagged object for the specified type.
      * @summary Get tagged object
-     * @param {TaggedObjectsV1ApiGetTaggedObjectV1Request} requestParameters Request parameters.
+     * @param {TaggedObjectsApiGetTaggedObjectV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TaggedObjectsV1Api
+     * @memberof TaggedObjectsApi
      */
-    public getTaggedObjectV1(requestParameters: TaggedObjectsV1ApiGetTaggedObjectV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TaggedObjectsV1ApiFp(this.configuration).getTaggedObjectV1(requestParameters.type, requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getTaggedObjectV1(requestParameters: TaggedObjectsApiGetTaggedObjectV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return TaggedObjectsApiFp(this.configuration).getTaggedObjectV1(requestParameters.type, requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a list of all tagged objects by type.
      * @summary List tagged objects by type
-     * @param {TaggedObjectsV1ApiListTaggedObjectsByTypeV1Request} requestParameters Request parameters.
+     * @param {TaggedObjectsApiListTaggedObjectsByTypeV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TaggedObjectsV1Api
+     * @memberof TaggedObjectsApi
      */
-    public listTaggedObjectsByTypeV1(requestParameters: TaggedObjectsV1ApiListTaggedObjectsByTypeV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TaggedObjectsV1ApiFp(this.configuration).listTaggedObjectsByTypeV1(requestParameters.type, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listTaggedObjectsByTypeV1(requestParameters: TaggedObjectsApiListTaggedObjectsByTypeV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return TaggedObjectsApiFp(this.configuration).listTaggedObjectsByTypeV1(requestParameters.type, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a list of all tagged objects.
      * @summary List tagged objects
-     * @param {TaggedObjectsV1ApiListTaggedObjectsV1Request} requestParameters Request parameters.
+     * @param {TaggedObjectsApiListTaggedObjectsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TaggedObjectsV1Api
+     * @memberof TaggedObjectsApi
      */
-    public listTaggedObjectsV1(requestParameters: TaggedObjectsV1ApiListTaggedObjectsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return TaggedObjectsV1ApiFp(this.configuration).listTaggedObjectsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listTaggedObjectsV1(requestParameters: TaggedObjectsApiListTaggedObjectsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return TaggedObjectsApiFp(this.configuration).listTaggedObjectsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This updates a tagged object for the specified type.
      * @summary Update tagged object
-     * @param {TaggedObjectsV1ApiPutTaggedObjectV1Request} requestParameters Request parameters.
+     * @param {TaggedObjectsApiPutTaggedObjectV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TaggedObjectsV1Api
+     * @memberof TaggedObjectsApi
      */
-    public putTaggedObjectV1(requestParameters: TaggedObjectsV1ApiPutTaggedObjectV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TaggedObjectsV1ApiFp(this.configuration).putTaggedObjectV1(requestParameters.type, requestParameters.id, requestParameters.taggedobjectV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putTaggedObjectV1(requestParameters: TaggedObjectsApiPutTaggedObjectV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return TaggedObjectsApiFp(this.configuration).putTaggedObjectV1(requestParameters.type, requestParameters.id, requestParameters.taggedobject, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This adds a tag to an object.
      * @summary Add tag to object
-     * @param {TaggedObjectsV1ApiSetTagToObjectV1Request} requestParameters Request parameters.
+     * @param {TaggedObjectsApiSetTagToObjectV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TaggedObjectsV1Api
+     * @memberof TaggedObjectsApi
      */
-    public setTagToObjectV1(requestParameters: TaggedObjectsV1ApiSetTagToObjectV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TaggedObjectsV1ApiFp(this.configuration).setTagToObjectV1(requestParameters.taggedobjectV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public setTagToObjectV1(requestParameters: TaggedObjectsApiSetTagToObjectV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return TaggedObjectsApiFp(this.configuration).setTagToObjectV1(requestParameters.taggedobject, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API adds tags to multiple objects.
      * @summary Tag multiple objects
-     * @param {TaggedObjectsV1ApiSetTagsToManyObjectsV1Request} requestParameters Request parameters.
+     * @param {TaggedObjectsApiSetTagsToManyObjectsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TaggedObjectsV1Api
+     * @memberof TaggedObjectsApi
      */
-    public setTagsToManyObjectsV1(requestParameters: TaggedObjectsV1ApiSetTagsToManyObjectsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TaggedObjectsV1ApiFp(this.configuration).setTagsToManyObjectsV1(requestParameters.bulkaddtaggedobjectV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public setTagsToManyObjectsV1(requestParameters: TaggedObjectsApiSetTagsToManyObjectsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return TaggedObjectsApiFp(this.configuration).setTagsToManyObjectsV1(requestParameters.bulkaddtaggedobject, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
 /**
  * @export
  */
-export const DeleteTaggedObjectV1TypeV1 = {
+export const DeleteTaggedObjectV1TypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     Application: 'APPLICATION',
     Campaign: 'CAMPAIGN',
@@ -1113,11 +1113,11 @@ export const DeleteTaggedObjectV1TypeV1 = {
     SodPolicy: 'SOD_POLICY',
     Source: 'SOURCE'
 } as const;
-export type DeleteTaggedObjectV1TypeV1 = typeof DeleteTaggedObjectV1TypeV1[keyof typeof DeleteTaggedObjectV1TypeV1];
+export type DeleteTaggedObjectV1TypeEnum = typeof DeleteTaggedObjectV1TypeEnum[keyof typeof DeleteTaggedObjectV1TypeEnum];
 /**
  * @export
  */
-export const GetTaggedObjectV1TypeV1 = {
+export const GetTaggedObjectV1TypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     Application: 'APPLICATION',
     Campaign: 'CAMPAIGN',
@@ -1127,11 +1127,11 @@ export const GetTaggedObjectV1TypeV1 = {
     SodPolicy: 'SOD_POLICY',
     Source: 'SOURCE'
 } as const;
-export type GetTaggedObjectV1TypeV1 = typeof GetTaggedObjectV1TypeV1[keyof typeof GetTaggedObjectV1TypeV1];
+export type GetTaggedObjectV1TypeEnum = typeof GetTaggedObjectV1TypeEnum[keyof typeof GetTaggedObjectV1TypeEnum];
 /**
  * @export
  */
-export const ListTaggedObjectsByTypeV1TypeV1 = {
+export const ListTaggedObjectsByTypeV1TypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     Application: 'APPLICATION',
     Campaign: 'CAMPAIGN',
@@ -1141,11 +1141,11 @@ export const ListTaggedObjectsByTypeV1TypeV1 = {
     SodPolicy: 'SOD_POLICY',
     Source: 'SOURCE'
 } as const;
-export type ListTaggedObjectsByTypeV1TypeV1 = typeof ListTaggedObjectsByTypeV1TypeV1[keyof typeof ListTaggedObjectsByTypeV1TypeV1];
+export type ListTaggedObjectsByTypeV1TypeEnum = typeof ListTaggedObjectsByTypeV1TypeEnum[keyof typeof ListTaggedObjectsByTypeV1TypeEnum];
 /**
  * @export
  */
-export const PutTaggedObjectV1TypeV1 = {
+export const PutTaggedObjectV1TypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     Application: 'APPLICATION',
     Campaign: 'CAMPAIGN',
@@ -1155,6 +1155,6 @@ export const PutTaggedObjectV1TypeV1 = {
     SodPolicy: 'SOD_POLICY',
     Source: 'SOURCE'
 } as const;
-export type PutTaggedObjectV1TypeV1 = typeof PutTaggedObjectV1TypeV1[keyof typeof PutTaggedObjectV1TypeV1];
+export type PutTaggedObjectV1TypeEnum = typeof PutTaggedObjectV1TypeEnum[keyof typeof PutTaggedObjectV1TypeEnum];
 
 

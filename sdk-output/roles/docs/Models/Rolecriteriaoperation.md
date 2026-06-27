@@ -1,15 +1,15 @@
 ---
-id: v1-rolecriteriaoperation-v1
-title: RolecriteriaoperationV1
-pagination_label: RolecriteriaoperationV1
-sidebar_label: RolecriteriaoperationV1
+id: v1-rolecriteriaoperation
+title: Rolecriteriaoperation
+pagination_label: Rolecriteriaoperation
+sidebar_label: Rolecriteriaoperation
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RolecriteriaoperationV1', 'v1RolecriteriaoperationV1']
-slug: /tools/sdk/typescript/roles/models/rolecriteriaoperation-v1
-tags: ['SDK', 'Software Development Kit', 'RolecriteriaoperationV1', 'v1RolecriteriaoperationV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Rolecriteriaoperation', 'v1Rolecriteriaoperation']
+slug: /tools/sdk/typescript/roles/models/rolecriteriaoperation
+tags: ['SDK', 'Software Development Kit', 'Rolecriteriaoperation', 'v1Rolecriteriaoperation']
 ---
 
-# RolecriteriaoperationV1
+# Rolecriteriaoperation
 
 ## Enum
 

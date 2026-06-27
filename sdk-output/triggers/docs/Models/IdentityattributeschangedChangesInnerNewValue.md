@@ -1,15 +1,15 @@
 ---
-id: v1-identityattributeschanged-changes-inner-new-value-v1
-title: IdentityattributeschangedChangesInnerNewValueV1
-pagination_label: IdentityattributeschangedChangesInnerNewValueV1
-sidebar_label: IdentityattributeschangedChangesInnerNewValueV1
+id: v1-identityattributeschanged-changes-inner-new-value
+title: IdentityattributeschangedChangesInnerNewValue
+pagination_label: IdentityattributeschangedChangesInnerNewValue
+sidebar_label: IdentityattributeschangedChangesInnerNewValue
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'IdentityattributeschangedChangesInnerNewValueV1', 'v1IdentityattributeschangedChangesInnerNewValueV1']
-slug: /tools/sdk/typescript/triggers/models/identityattributeschanged-changes-inner-new-value-v1
-tags: ['SDK', 'Software Development Kit', 'IdentityattributeschangedChangesInnerNewValueV1', 'v1IdentityattributeschangedChangesInnerNewValueV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'IdentityattributeschangedChangesInnerNewValue', 'v1IdentityattributeschangedChangesInnerNewValue']
+slug: /tools/sdk/typescript/triggers/models/identityattributeschanged-changes-inner-new-value
+tags: ['SDK', 'Software Development Kit', 'IdentityattributeschangedChangesInnerNewValue', 'v1IdentityattributeschangedChangesInnerNewValue']
 ---
 
-# IdentityattributeschangedChangesInnerNewValueV1
+# IdentityattributeschangedChangesInnerNewValue
 
 ## Properties
 

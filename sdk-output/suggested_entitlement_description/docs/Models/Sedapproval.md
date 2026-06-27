@@ -1,19 +1,19 @@
 ---
-id: v1-sedapproval-v1
-title: SedapprovalV1
-pagination_label: SedapprovalV1
-sidebar_label: SedapprovalV1
+id: v1-sedapproval
+title: Sedapproval
+pagination_label: Sedapproval
+sidebar_label: Sedapproval
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SedapprovalV1', 'v1SedapprovalV1']
-slug: /tools/sdk/typescript/suggested_entitlement_description/models/sedapproval-v1
-tags: ['SDK', 'Software Development Kit', 'SedapprovalV1', 'v1SedapprovalV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Sedapproval', 'v1Sedapproval']
+slug: /tools/sdk/typescript/suggested_entitlement_description/models/sedapproval
+tags: ['SDK', 'Software Development Kit', 'Sedapproval', 'v1Sedapproval']
 ---
 
-# SedapprovalV1
+# Sedapproval
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | **(optional)** **Array&lt;string&gt;** | List of SED id\'s | [default to undefined]
+**items** | **(optional)** `Array<string>` | List of SED id\'s | [default to undefined]
 

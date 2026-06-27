@@ -4,15 +4,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_account_creation_request/methods/machine-account-creation-request#create-machine-account-request-v1
       source: |
-        import { MachineAccountCreationRequestV1Api } from 'sailpoint-api-client';
+        import { MachineAccountCreationRequestApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new MachineAccountCreationRequestV1Api(configuration);
-        const machineaccountcreaterequestinputV1: MachineaccountcreaterequestinputV1 = ; // MachineaccountcreaterequestinputV1 | 
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountCreationRequestApi(configuration);
+        const machineaccountcreaterequestinput: Machineaccountcreaterequestinput = ; // Machineaccountcreaterequestinput | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.createMachineAccountRequestV1(machineaccountcreaterequestinputV1);
+        const result = await apiInstance.createMachineAccountRequestV1({ machineaccountcreaterequestinput: machineaccountcreaterequestinput });
         console.log(result);
 - path: /account-requests/v1/machine-account-create/{accountRequestId}
   method: GET
@@ -20,15 +19,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_account_creation_request/methods/machine-account-creation-request#get-create-machine-account-request-v1
       source: |
-        import { MachineAccountCreationRequestV1Api } from 'sailpoint-api-client';
+        import { MachineAccountCreationRequestApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new MachineAccountCreationRequestV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountCreationRequestApi(configuration);
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (default to 'true')
         const accountRequestId: string = 'gt38f94347e94562b5bb8424a56498d8'; // string | Account Request ID (default to undefined)
-        const result = await apiInstance.getCreateMachineAccountRequestV1(xSailPointExperimental, accountRequestId);
+        const result = await apiInstance.getCreateMachineAccountRequestV1({ xSailPointExperimental: xSailPointExperimental, accountRequestId: accountRequestId });
         console.log(result);
 - path: /source-subtypes/v1/machine-account-create-access
   method: GET
@@ -36,14 +34,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_account_creation_request/methods/machine-account-creation-request#get-machine-account-create-access-info-v1
       source: |
-        import { MachineAccountCreationRequestV1Api } from 'sailpoint-api-client';
+        import { MachineAccountCreationRequestApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new MachineAccountCreationRequestV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountCreationRequestApi(configuration);
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (default to 'true')
         const offset: number = 0; // number | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
         const limit: number = 250; // number | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
-        const result = await apiInstance.getMachineAccountCreateAccessInfoV1(xSailPointExperimental);
+        const result = await apiInstance.getMachineAccountCreateAccessInfoV1({ xSailPointExperimental: xSailPointExperimental });
         console.log(result);

@@ -3,8 +3,8 @@
 .openapi-generator-ignore
 ArrayInner.md
 Connectordetail.md
-ConnectorsV1Api.md
-ConnectorsV1ApideveloperSite_code_examples.yaml
+ConnectorsApi.md
+ConnectorsApideveloperSite_code_examples.yaml
 Errormessagedto.md
 Errorresponsedto.md
 GetConnectorV1401Response.md

@@ -2,8 +2,8 @@
 .npmignore
 .openapi-generator-ignore
 Argument.md
-ConnectorRuleManagementV1Api.md
-ConnectorRuleManagementV1ApideveloperSite_code_examples.yaml
+ConnectorRuleManagementApi.md
+ConnectorRuleManagementApideveloperSite_code_examples.yaml
 Connectorrulecreaterequest.md
 ConnectorrulecreaterequestSignature.md
 Connectorruleresponse.md

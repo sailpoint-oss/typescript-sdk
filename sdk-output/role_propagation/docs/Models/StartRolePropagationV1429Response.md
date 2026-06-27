@@ -1,19 +1,19 @@
 ---
-id: v1-start-role-propagation-v1429-response-v1
-title: StartRolePropagationV1429ResponseV1
-pagination_label: StartRolePropagationV1429ResponseV1
-sidebar_label: StartRolePropagationV1429ResponseV1
+id: v1-start-role-propagation-v1429-response
+title: StartRolePropagationV1429Response
+pagination_label: StartRolePropagationV1429Response
+sidebar_label: StartRolePropagationV1429Response
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'StartRolePropagationV1429ResponseV1', 'v1StartRolePropagationV1429ResponseV1']
-slug: /tools/sdk/typescript/role_propagation/models/start-role-propagation-v1429-response-v1
-tags: ['SDK', 'Software Development Kit', 'StartRolePropagationV1429ResponseV1', 'v1StartRolePropagationV1429ResponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'StartRolePropagationV1429Response', 'v1StartRolePropagationV1429Response']
+slug: /tools/sdk/typescript/role_propagation/models/start-role-propagation-v1429-response
+tags: ['SDK', 'Software Development Kit', 'StartRolePropagationV1429Response', 'v1StartRolePropagationV1429Response']
 ---
 
-# StartRolePropagationV1429ResponseV1
+# StartRolePropagationV1429Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **(optional)** **any** | A message describing the error | [default to undefined]
+**message** | **(optional)** `any` | A message describing the error | [default to undefined]
 

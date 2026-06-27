@@ -1,19 +1,19 @@
 ---
-id: v1-approvalcommentsrequest-v1
-title: ApprovalcommentsrequestV1
-pagination_label: ApprovalcommentsrequestV1
-sidebar_label: ApprovalcommentsrequestV1
+id: v1-approvalcommentsrequest
+title: Approvalcommentsrequest
+pagination_label: Approvalcommentsrequest
+sidebar_label: Approvalcommentsrequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ApprovalcommentsrequestV1', 'v1ApprovalcommentsrequestV1']
-slug: /tools/sdk/typescript/approvals/models/approvalcommentsrequest-v1
-tags: ['SDK', 'Software Development Kit', 'ApprovalcommentsrequestV1', 'v1ApprovalcommentsrequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Approvalcommentsrequest', 'v1Approvalcommentsrequest']
+slug: /tools/sdk/typescript/approvals/models/approvalcommentsrequest
+tags: ['SDK', 'Software Development Kit', 'Approvalcommentsrequest', 'v1Approvalcommentsrequest']
 ---
 
-# ApprovalcommentsrequestV1
+# Approvalcommentsrequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**comment** | **(optional)** **string** | Comment associated with the request. | [default to undefined]
+**comment** | **(optional)** `string` | Comment associated with the request. | [default to undefined]
 

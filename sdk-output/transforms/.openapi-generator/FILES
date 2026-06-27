@@ -10,8 +10,8 @@ Localeorigin.md
 README.md
 Transform.md
 Transformread.md
-TransformsV1Api.md
-TransformsV1ApideveloperSite_code_examples.yaml
+TransformsApi.md
+TransformsApideveloperSite_code_examples.yaml
 api.ts
 base.ts
 common.ts

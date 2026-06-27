@@ -1,20 +1,20 @@
 ---
-id: v1-identityownershipassociationdetails-association-details-inner-v1
-title: IdentityownershipassociationdetailsAssociationDetailsInnerV1
-pagination_label: IdentityownershipassociationdetailsAssociationDetailsInnerV1
-sidebar_label: IdentityownershipassociationdetailsAssociationDetailsInnerV1
+id: v1-identityownershipassociationdetails-association-details-inner
+title: IdentityownershipassociationdetailsAssociationDetailsInner
+pagination_label: IdentityownershipassociationdetailsAssociationDetailsInner
+sidebar_label: IdentityownershipassociationdetailsAssociationDetailsInner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'IdentityownershipassociationdetailsAssociationDetailsInnerV1', 'v1IdentityownershipassociationdetailsAssociationDetailsInnerV1']
-slug: /tools/sdk/typescript/identities/models/identityownershipassociationdetails-association-details-inner-v1
-tags: ['SDK', 'Software Development Kit', 'IdentityownershipassociationdetailsAssociationDetailsInnerV1', 'v1IdentityownershipassociationdetailsAssociationDetailsInnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'IdentityownershipassociationdetailsAssociationDetailsInner', 'v1IdentityownershipassociationdetailsAssociationDetailsInner']
+slug: /tools/sdk/typescript/identities/models/identityownershipassociationdetails-association-details-inner
+tags: ['SDK', 'Software Development Kit', 'IdentityownershipassociationdetailsAssociationDetailsInner', 'v1IdentityownershipassociationdetailsAssociationDetailsInner']
 ---
 
-# IdentityownershipassociationdetailsAssociationDetailsInnerV1
+# IdentityownershipassociationdetailsAssociationDetailsInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**associationType** | **(optional)** **string** | association type with the identity | [default to undefined]
-**entities** | **(optional)** **Array&lt;IdentityentitiesV1&gt;** | the specific resource this identity has ownership on | [default to undefined]
+**associationType** | **(optional)** `string` | association type with the identity | [default to undefined]
+**entities** | **(optional)** `Array<Identityentities>` | the specific resource this identity has ownership on | [default to undefined]
 

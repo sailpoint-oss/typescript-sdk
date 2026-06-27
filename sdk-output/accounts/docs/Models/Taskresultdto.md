@@ -1,21 +1,21 @@
 ---
-id: v1-taskresultdto-v1
-title: TaskresultdtoV1
-pagination_label: TaskresultdtoV1
-sidebar_label: TaskresultdtoV1
+id: v1-taskresultdto
+title: Taskresultdto
+pagination_label: Taskresultdto
+sidebar_label: Taskresultdto
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'TaskresultdtoV1', 'v1TaskresultdtoV1']
-slug: /tools/sdk/typescript/accounts/models/taskresultdto-v1
-tags: ['SDK', 'Software Development Kit', 'TaskresultdtoV1', 'v1TaskresultdtoV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Taskresultdto', 'v1Taskresultdto']
+slug: /tools/sdk/typescript/accounts/models/taskresultdto
+tags: ['SDK', 'Software Development Kit', 'Taskresultdto', 'v1Taskresultdto']
 ---
 
-# TaskresultdtoV1
+# Taskresultdto
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | Task result DTO type. | [default to undefined]
-**id** | **(optional)** **string** | Task result ID. | [default to undefined]
-**name** | **(optional)** **string** | Task result display name. | [default to undefined]
+**type** | **(optional)** `string` | Task result DTO type. | [default to undefined]
+**id** | **(optional)** `string` | Task result ID. | [default to undefined]
+**name** | **(optional)** `string` | Task result display name. | [default to undefined]
 

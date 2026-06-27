@@ -30,8 +30,8 @@ Approvalreassignrequest.md
 Approvalreference.md
 Approvalrejectrequest.md
 Approvalrequestedtarget.md
-ApprovalsV1Api.md
-ApprovalsV1ApideveloperSite_code_examples.yaml
+ApprovalsApi.md
+ApprovalsApideveloperSite_code_examples.yaml
 Bulkapproverequestdto.md
 Bulkcancelrequestdto.md
 Bulkreassignrequestdto.md

@@ -1,20 +1,20 @@
 ---
-id: v1-reassignreference-v1
-title: ReassignreferenceV1
-pagination_label: ReassignreferenceV1
-sidebar_label: ReassignreferenceV1
+id: v1-reassignreference
+title: Reassignreference
+pagination_label: Reassignreference
+sidebar_label: Reassignreference
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ReassignreferenceV1', 'v1ReassignreferenceV1']
-slug: /tools/sdk/typescript/certifications/models/reassignreference-v1
-tags: ['SDK', 'Software Development Kit', 'ReassignreferenceV1', 'v1ReassignreferenceV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Reassignreference', 'v1Reassignreference']
+slug: /tools/sdk/typescript/certifications/models/reassignreference
+tags: ['SDK', 'Software Development Kit', 'Reassignreference', 'v1Reassignreference']
 ---
 
-# ReassignreferenceV1
+# Reassignreference
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | The ID of item or identity being reassigned. | [default to undefined]
-**type** | **string** | The type of item or identity being reassigned. | [default to undefined]
+**id** | `string` | The ID of item or identity being reassigned. | [default to undefined]
+**type** | `string` | The type of item or identity being reassigned. | [default to undefined]
 

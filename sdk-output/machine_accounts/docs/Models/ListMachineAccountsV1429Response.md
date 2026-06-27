@@ -1,19 +1,19 @@
 ---
-id: v1-list-machine-accounts-v1429-response-v1
-title: ListMachineAccountsV1429ResponseV1
-pagination_label: ListMachineAccountsV1429ResponseV1
-sidebar_label: ListMachineAccountsV1429ResponseV1
+id: v1-list-machine-accounts-v1429-response
+title: ListMachineAccountsV1429Response
+pagination_label: ListMachineAccountsV1429Response
+sidebar_label: ListMachineAccountsV1429Response
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ListMachineAccountsV1429ResponseV1', 'v1ListMachineAccountsV1429ResponseV1']
-slug: /tools/sdk/typescript/machine_accounts/models/list-machine-accounts-v1429-response-v1
-tags: ['SDK', 'Software Development Kit', 'ListMachineAccountsV1429ResponseV1', 'v1ListMachineAccountsV1429ResponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ListMachineAccountsV1429Response', 'v1ListMachineAccountsV1429Response']
+slug: /tools/sdk/typescript/machine_accounts/models/list-machine-accounts-v1429-response
+tags: ['SDK', 'Software Development Kit', 'ListMachineAccountsV1429Response', 'v1ListMachineAccountsV1429Response']
 ---
 
-# ListMachineAccountsV1429ResponseV1
+# ListMachineAccountsV1429Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **(optional)** **any** | A message describing the error | [default to undefined]
+**message** | **(optional)** `any` | A message describing the error | [default to undefined]
 

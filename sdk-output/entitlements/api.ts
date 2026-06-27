@@ -26,362 +26,362 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * Metadata that describes an access item
  * @export
- * @interface AccessmodelmetadataV1
+ * @interface Accessmodelmetadata
  */
-export interface AccessmodelmetadataV1 {
+export interface Accessmodelmetadata {
     /**
      * Unique identifier for the metadata type
      * @type {string}
-     * @memberof AccessmodelmetadataV1
+     * @memberof Accessmodelmetadata
      */
     'key'?: string;
     /**
      * Human readable name of the metadata type
      * @type {string}
-     * @memberof AccessmodelmetadataV1
+     * @memberof Accessmodelmetadata
      */
     'name'?: string;
     /**
      * Allows selecting multiple values
      * @type {boolean}
-     * @memberof AccessmodelmetadataV1
+     * @memberof Accessmodelmetadata
      */
     'multiselect'?: boolean;
     /**
      * The state of the metadata item
      * @type {string}
-     * @memberof AccessmodelmetadataV1
+     * @memberof Accessmodelmetadata
      */
     'status'?: string;
     /**
      * The type of the metadata item
      * @type {string}
-     * @memberof AccessmodelmetadataV1
+     * @memberof Accessmodelmetadata
      */
     'type'?: string;
     /**
      * The types of objects
      * @type {Array<string>}
-     * @memberof AccessmodelmetadataV1
+     * @memberof Accessmodelmetadata
      */
     'objectTypes'?: Array<string>;
     /**
      * Describes the metadata item
      * @type {string}
-     * @memberof AccessmodelmetadataV1
+     * @memberof Accessmodelmetadata
      */
     'description'?: string;
     /**
      * The value to assign to the metadata item
-     * @type {Array<AccessmodelmetadataValuesInnerV1>}
-     * @memberof AccessmodelmetadataV1
+     * @type {Array<AccessmodelmetadataValuesInner>}
+     * @memberof Accessmodelmetadata
      */
-    'values'?: Array<AccessmodelmetadataValuesInnerV1>;
+    'values'?: Array<AccessmodelmetadataValuesInner>;
 }
 /**
  * An individual value to assign to the metadata item
  * @export
- * @interface AccessmodelmetadataValuesInnerV1
+ * @interface AccessmodelmetadataValuesInner
  */
-export interface AccessmodelmetadataValuesInnerV1 {
+export interface AccessmodelmetadataValuesInner {
     /**
      * The value to assign to the metdata item
      * @type {string}
-     * @memberof AccessmodelmetadataValuesInnerV1
+     * @memberof AccessmodelmetadataValuesInner
      */
     'value'?: string;
     /**
      * Display name of the value
      * @type {string}
-     * @memberof AccessmodelmetadataValuesInnerV1
+     * @memberof AccessmodelmetadataValuesInner
      */
     'name'?: string;
     /**
      * The status of the individual value
      * @type {string}
-     * @memberof AccessmodelmetadataValuesInnerV1
+     * @memberof AccessmodelmetadataValuesInner
      */
     'status'?: string;
 }
 /**
  * Reference to an additional owner (identity or governance group).
  * @export
- * @interface AdditionalownerrefV1
+ * @interface Additionalownerref
  */
-export interface AdditionalownerrefV1 {
+export interface Additionalownerref {
     /**
      * Type of the additional owner; IDENTITY for an identity, GOVERNANCE_GROUP for a governance group.
      * @type {string}
-     * @memberof AdditionalownerrefV1
+     * @memberof Additionalownerref
      */
-    'type'?: AdditionalownerrefV1TypeV1;
+    'type'?: AdditionalownerrefTypeEnum;
     /**
      * ID of the identity or governance group.
      * @type {string}
-     * @memberof AdditionalownerrefV1
+     * @memberof Additionalownerref
      */
     'id'?: string;
     /**
      * Display name. It may be left null or omitted on input. If set, it must match the current display name of the identity or governance group, otherwise a 400 Bad Request error may result.
      * @type {string}
-     * @memberof AdditionalownerrefV1
+     * @memberof Additionalownerref
      */
     'name'?: string | null;
 }
 
-export const AdditionalownerrefV1TypeV1 = {
+export const AdditionalownerrefTypeEnum = {
     Identity: 'IDENTITY',
     GovernanceGroup: 'GOVERNANCE_GROUP'
 } as const;
 
-export type AdditionalownerrefV1TypeV1 = typeof AdditionalownerrefV1TypeV1[keyof typeof AdditionalownerrefV1TypeV1];
+export type AdditionalownerrefTypeEnum = typeof AdditionalownerrefTypeEnum[keyof typeof AdditionalownerrefTypeEnum];
 
 /**
  * 
  * @export
- * @interface ArrayInnerV1
+ * @interface ArrayInner
  */
-export interface ArrayInnerV1 {
+export interface ArrayInner {
 }
 /**
  * 
  * @export
- * @interface EntitlementSourceV1
+ * @interface Entitlement
  */
-export interface EntitlementSourceV1 {
-    /**
-     * The source ID
-     * @type {string}
-     * @memberof EntitlementSourceV1
-     */
-    'id'?: string;
-    /**
-     * The source type, will always be \"SOURCE\"
-     * @type {string}
-     * @memberof EntitlementSourceV1
-     */
-    'type'?: string;
-    /**
-     * The source name
-     * @type {string}
-     * @memberof EntitlementSourceV1
-     */
-    'name'?: string;
-}
-/**
- * 
- * @export
- * @interface EntitlementV1
- */
-export interface EntitlementV1 {
+export interface Entitlement {
     /**
      * The entitlement id
      * @type {string}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'id'?: string;
     /**
      * The entitlement name
      * @type {string}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'name'?: string;
     /**
      * The entitlement attribute name
      * @type {string}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'attribute'?: string;
     /**
      * The value of the entitlement
      * @type {string}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'value'?: string;
     /**
      * The object type of the entitlement from the source schema
      * @type {string}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'sourceSchemaObjectType'?: string;
     /**
      * The description of the entitlement
      * @type {string}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'description'?: string | null;
     /**
      * True if the entitlement is privileged
      * @type {boolean}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'privileged'?: boolean;
     /**
      * True if the entitlement is cloud governed
      * @type {boolean}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'cloudGoverned'?: boolean;
     /**
      * True if the entitlement is able to be directly requested
      * @type {boolean}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'requestable'?: boolean;
     /**
      * 
-     * @type {Entitlementv2OwnerV1}
-     * @memberof EntitlementV1
+     * @type {Entitlementv2Owner}
+     * @memberof Entitlement
      */
-    'owner'?: Entitlementv2OwnerV1 | null;
+    'owner'?: Entitlementv2Owner | null;
     /**
      * List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP).
-     * @type {Array<AdditionalownerrefV1>}
-     * @memberof EntitlementV1
+     * @type {Array<Additionalownerref>}
+     * @memberof Entitlement
      */
-    'additionalOwners'?: Array<AdditionalownerrefV1> | null;
+    'additionalOwners'?: Array<Additionalownerref> | null;
     /**
      * A map of entitlement fields that have been manually updated. The key is the field name in UPPER_SNAKE_CASE format, and the value is true or false to indicate if the field has been updated.
      * @type {{ [key: string]: any; }}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'manuallyUpdatedFields'?: { [key: string]: any; } | null;
     /**
      * 
-     * @type {Entitlementv2AccessModelMetadataV1}
-     * @memberof EntitlementV1
+     * @type {Entitlementv2AccessModelMetadata}
+     * @memberof Entitlement
      */
-    'accessModelMetadata'?: Entitlementv2AccessModelMetadataV1;
+    'accessModelMetadata'?: Entitlementv2AccessModelMetadata;
     /**
      * Time when the entitlement was created
      * @type {string}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'created'?: string;
     /**
      * Time when the entitlement was last modified
      * @type {string}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'modified'?: string;
     /**
      * 
-     * @type {EntitlementSourceV1}
-     * @memberof EntitlementV1
+     * @type {EntitlementSource}
+     * @memberof Entitlement
      */
-    'source'?: EntitlementSourceV1;
+    'source'?: EntitlementSource;
     /**
      * A map of free-form key-value pairs from the source system
      * @type {{ [key: string]: any; }}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'attributes'?: { [key: string]: any; };
     /**
      * List of IDs of segments, if any, to which this Entitlement is assigned.
      * @type {Array<string>}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'segments'?: Array<string> | null;
     /**
      * 
-     * @type {Array<PermissiondtoV1>}
-     * @memberof EntitlementV1
+     * @type {Array<Permissiondto>}
+     * @memberof Entitlement
      */
-    'directPermissions'?: Array<PermissiondtoV1>;
+    'directPermissions'?: Array<Permissiondto>;
+}
+/**
+ * 
+ * @export
+ * @interface EntitlementSource
+ */
+export interface EntitlementSource {
+    /**
+     * The source ID
+     * @type {string}
+     * @memberof EntitlementSource
+     */
+    'id'?: string;
+    /**
+     * The source type, will always be \"SOURCE\"
+     * @type {string}
+     * @memberof EntitlementSource
+     */
+    'type'?: string;
+    /**
+     * The source name
+     * @type {string}
+     * @memberof EntitlementSource
+     */
+    'name'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface Entitlementaccessrequestconfig
+ */
+export interface Entitlementaccessrequestconfig {
+    /**
+     * Ordered list of approval steps for the access request. Empty when no approval is required.
+     * @type {Array<Entitlementapprovalscheme>}
+     * @memberof Entitlementaccessrequestconfig
+     */
+    'approvalSchemes'?: Array<Entitlementapprovalscheme>;
+    /**
+     * If the requester must provide a comment during access request.
+     * @type {boolean}
+     * @memberof Entitlementaccessrequestconfig
+     */
+    'requestCommentRequired'?: boolean;
+    /**
+     * If the reviewer must provide a comment when denying the access request.
+     * @type {boolean}
+     * @memberof Entitlementaccessrequestconfig
+     */
+    'denialCommentRequired'?: boolean;
+    /**
+     * Is Reauthorization Required
+     * @type {boolean}
+     * @memberof Entitlementaccessrequestconfig
+     */
+    'reauthorizationRequired'?: boolean;
+    /**
+     * If true, then remove date or sunset date is required in access request of the entitlement.
+     * @type {boolean}
+     * @memberof Entitlementaccessrequestconfig
+     */
+    'requireEndDate'?: boolean;
+    /**
+     * 
+     * @type {EntitlementaccessrequestconfigMaxPermittedAccessDuration}
+     * @memberof Entitlementaccessrequestconfig
+     */
+    'maxPermittedAccessDuration'?: EntitlementaccessrequestconfigMaxPermittedAccessDuration | null;
 }
 /**
  * The maximum duration for which the access is permitted.
  * @export
- * @interface EntitlementaccessrequestconfigMaxPermittedAccessDurationV1
+ * @interface EntitlementaccessrequestconfigMaxPermittedAccessDuration
  */
-export interface EntitlementaccessrequestconfigMaxPermittedAccessDurationV1 {
+export interface EntitlementaccessrequestconfigMaxPermittedAccessDuration {
     /**
      * The numeric value of the duration.
      * @type {number}
-     * @memberof EntitlementaccessrequestconfigMaxPermittedAccessDurationV1
+     * @memberof EntitlementaccessrequestconfigMaxPermittedAccessDuration
      */
     'value'?: number;
     /**
      * The time unit for the duration.
      * @type {string}
-     * @memberof EntitlementaccessrequestconfigMaxPermittedAccessDurationV1
+     * @memberof EntitlementaccessrequestconfigMaxPermittedAccessDuration
      */
-    'timeUnit'?: EntitlementaccessrequestconfigMaxPermittedAccessDurationV1TimeUnitV1;
+    'timeUnit'?: EntitlementaccessrequestconfigMaxPermittedAccessDurationTimeUnitEnum;
 }
 
-export const EntitlementaccessrequestconfigMaxPermittedAccessDurationV1TimeUnitV1 = {
+export const EntitlementaccessrequestconfigMaxPermittedAccessDurationTimeUnitEnum = {
     Hours: 'HOURS',
     Days: 'DAYS',
     Weeks: 'WEEKS',
     Months: 'MONTHS'
 } as const;
 
-export type EntitlementaccessrequestconfigMaxPermittedAccessDurationV1TimeUnitV1 = typeof EntitlementaccessrequestconfigMaxPermittedAccessDurationV1TimeUnitV1[keyof typeof EntitlementaccessrequestconfigMaxPermittedAccessDurationV1TimeUnitV1];
+export type EntitlementaccessrequestconfigMaxPermittedAccessDurationTimeUnitEnum = typeof EntitlementaccessrequestconfigMaxPermittedAccessDurationTimeUnitEnum[keyof typeof EntitlementaccessrequestconfigMaxPermittedAccessDurationTimeUnitEnum];
 
 /**
  * 
  * @export
- * @interface EntitlementaccessrequestconfigV1
+ * @interface Entitlementapprovalscheme
  */
-export interface EntitlementaccessrequestconfigV1 {
-    /**
-     * Ordered list of approval steps for the access request. Empty when no approval is required.
-     * @type {Array<EntitlementapprovalschemeV1>}
-     * @memberof EntitlementaccessrequestconfigV1
-     */
-    'approvalSchemes'?: Array<EntitlementapprovalschemeV1>;
-    /**
-     * If the requester must provide a comment during access request.
-     * @type {boolean}
-     * @memberof EntitlementaccessrequestconfigV1
-     */
-    'requestCommentRequired'?: boolean;
-    /**
-     * If the reviewer must provide a comment when denying the access request.
-     * @type {boolean}
-     * @memberof EntitlementaccessrequestconfigV1
-     */
-    'denialCommentRequired'?: boolean;
-    /**
-     * Is Reauthorization Required
-     * @type {boolean}
-     * @memberof EntitlementaccessrequestconfigV1
-     */
-    'reauthorizationRequired'?: boolean;
-    /**
-     * If true, then remove date or sunset date is required in access request of the entitlement.
-     * @type {boolean}
-     * @memberof EntitlementaccessrequestconfigV1
-     */
-    'requireEndDate'?: boolean;
-    /**
-     * 
-     * @type {EntitlementaccessrequestconfigMaxPermittedAccessDurationV1}
-     * @memberof EntitlementaccessrequestconfigV1
-     */
-    'maxPermittedAccessDuration'?: EntitlementaccessrequestconfigMaxPermittedAccessDurationV1 | null;
-}
-/**
- * 
- * @export
- * @interface EntitlementapprovalschemeV1
- */
-export interface EntitlementapprovalschemeV1 {
+export interface Entitlementapprovalscheme {
     /**
      * Describes the individual or group that is responsible for an approval step. Values are as follows.  **ENTITLEMENT_OWNER**: Owner of the associated Entitlement  **SOURCE_OWNER**: Owner of the associated Source  **MANAGER**: Manager of the Identity for whom the request is being made  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field  **WORKFLOW**: A Workflow, the ID of which is specified by the **approverId** field, Workflows are exclusive to other types of approvals and License required.     
      * @type {string}
-     * @memberof EntitlementapprovalschemeV1
+     * @memberof Entitlementapprovalscheme
      */
-    'approverType'?: EntitlementapprovalschemeV1ApproverTypeV1;
+    'approverType'?: EntitlementapprovalschemeApproverTypeEnum;
     /**
      * Id of the specific approver, used only when approverType is GOVERNANCE_GROUP or WORKFLOW
      * @type {string}
-     * @memberof EntitlementapprovalschemeV1
+     * @memberof Entitlementapprovalscheme
      */
     'approverId'?: string | null;
 }
 
-export const EntitlementapprovalschemeV1ApproverTypeV1 = {
+export const EntitlementapprovalschemeApproverTypeEnum = {
     EntitlementOwner: 'ENTITLEMENT_OWNER',
     SourceOwner: 'SOURCE_OWNER',
     Manager: 'MANAGER',
@@ -389,439 +389,439 @@ export const EntitlementapprovalschemeV1ApproverTypeV1 = {
     Workflow: 'WORKFLOW'
 } as const;
 
-export type EntitlementapprovalschemeV1ApproverTypeV1 = typeof EntitlementapprovalschemeV1ApproverTypeV1[keyof typeof EntitlementapprovalschemeV1ApproverTypeV1];
+export type EntitlementapprovalschemeApproverTypeEnum = typeof EntitlementapprovalschemeApproverTypeEnum[keyof typeof EntitlementapprovalschemeApproverTypeEnum];
 
 /**
  * Object for specifying the bulk update request
  * @export
- * @interface EntitlementbulkupdaterequestV1
+ * @interface Entitlementbulkupdaterequest
  */
-export interface EntitlementbulkupdaterequestV1 {
+export interface Entitlementbulkupdaterequest {
     /**
      * List of entitlement ids to update
      * @type {Array<string>}
-     * @memberof EntitlementbulkupdaterequestV1
+     * @memberof Entitlementbulkupdaterequest
      */
     'entitlementIds': Array<string>;
     /**
      * 
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof EntitlementbulkupdaterequestV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof Entitlementbulkupdaterequest
      */
-    'jsonPatch': Array<JsonpatchoperationV1>;
+    'jsonPatch': Array<Jsonpatchoperation>;
 }
 /**
  * 
  * @export
- * @interface EntitlementprivilegelevelV1
+ * @interface Entitlementprivilegelevel
  */
-export interface EntitlementprivilegelevelV1 {
+export interface Entitlementprivilegelevel {
     /**
      * Direct privilege level assigned to the entitlement
      * @type {string}
-     * @memberof EntitlementprivilegelevelV1
+     * @memberof Entitlementprivilegelevel
      */
-    'direct'?: EntitlementprivilegelevelV1DirectV1;
+    'direct'?: EntitlementprivilegelevelDirectEnum;
     /**
      * User or process that set the privilege level
      * @type {string}
-     * @memberof EntitlementprivilegelevelV1
+     * @memberof Entitlementprivilegelevel
      */
     'setBy'?: string;
     /**
      * Method by which the privilege level was set
      * @type {string}
-     * @memberof EntitlementprivilegelevelV1
+     * @memberof Entitlementprivilegelevel
      */
-    'setByType'?: EntitlementprivilegelevelV1SetByTypeV1 | null;
+    'setByType'?: EntitlementprivilegelevelSetByTypeEnum | null;
     /**
      * Inherited privilege level on the entitlement, if any
      * @type {string}
-     * @memberof EntitlementprivilegelevelV1
+     * @memberof Entitlementprivilegelevel
      */
-    'inherited'?: EntitlementprivilegelevelV1InheritedV1 | null;
+    'inherited'?: EntitlementprivilegelevelInheritedEnum | null;
     /**
      * Effective privilege level assigned to the entitlement
      * @type {string}
-     * @memberof EntitlementprivilegelevelV1
+     * @memberof Entitlementprivilegelevel
      */
-    'effective'?: EntitlementprivilegelevelV1EffectiveV1;
+    'effective'?: EntitlementprivilegelevelEffectiveEnum;
 }
 
-export const EntitlementprivilegelevelV1DirectV1 = {
+export const EntitlementprivilegelevelDirectEnum = {
     High: 'HIGH',
     Low: 'LOW',
     Medium: 'MEDIUM',
     None: 'NONE'
 } as const;
 
-export type EntitlementprivilegelevelV1DirectV1 = typeof EntitlementprivilegelevelV1DirectV1[keyof typeof EntitlementprivilegelevelV1DirectV1];
-export const EntitlementprivilegelevelV1SetByTypeV1 = {
+export type EntitlementprivilegelevelDirectEnum = typeof EntitlementprivilegelevelDirectEnum[keyof typeof EntitlementprivilegelevelDirectEnum];
+export const EntitlementprivilegelevelSetByTypeEnum = {
     Override: 'OVERRIDE',
     CustomCriteria: 'CUSTOM_CRITERIA',
     ConnectorCriteria: 'CONNECTOR_CRITERIA',
     SingleLevelCriteria: 'SINGLE_LEVEL_CRITERIA'
 } as const;
 
-export type EntitlementprivilegelevelV1SetByTypeV1 = typeof EntitlementprivilegelevelV1SetByTypeV1[keyof typeof EntitlementprivilegelevelV1SetByTypeV1];
-export const EntitlementprivilegelevelV1InheritedV1 = {
+export type EntitlementprivilegelevelSetByTypeEnum = typeof EntitlementprivilegelevelSetByTypeEnum[keyof typeof EntitlementprivilegelevelSetByTypeEnum];
+export const EntitlementprivilegelevelInheritedEnum = {
     High: 'HIGH',
     Low: 'LOW',
     Medium: 'MEDIUM',
     None: 'NONE'
 } as const;
 
-export type EntitlementprivilegelevelV1InheritedV1 = typeof EntitlementprivilegelevelV1InheritedV1[keyof typeof EntitlementprivilegelevelV1InheritedV1];
-export const EntitlementprivilegelevelV1EffectiveV1 = {
+export type EntitlementprivilegelevelInheritedEnum = typeof EntitlementprivilegelevelInheritedEnum[keyof typeof EntitlementprivilegelevelInheritedEnum];
+export const EntitlementprivilegelevelEffectiveEnum = {
     High: 'HIGH',
     Low: 'LOW',
     Medium: 'MEDIUM',
     None: 'NONE'
 } as const;
 
-export type EntitlementprivilegelevelV1EffectiveV1 = typeof EntitlementprivilegelevelV1EffectiveV1[keyof typeof EntitlementprivilegelevelV1EffectiveV1];
+export type EntitlementprivilegelevelEffectiveEnum = typeof EntitlementprivilegelevelEffectiveEnum[keyof typeof EntitlementprivilegelevelEffectiveEnum];
 
 /**
  * 
  * @export
- * @interface EntitlementrequestconfigV1
+ * @interface Entitlementrequestconfig
  */
-export interface EntitlementrequestconfigV1 {
+export interface Entitlementrequestconfig {
     /**
      * 
-     * @type {EntitlementaccessrequestconfigV1}
-     * @memberof EntitlementrequestconfigV1
+     * @type {Entitlementaccessrequestconfig}
+     * @memberof Entitlementrequestconfig
      */
-    'accessRequestConfig'?: EntitlementaccessrequestconfigV1;
+    'accessRequestConfig'?: Entitlementaccessrequestconfig;
     /**
      * 
-     * @type {EntitlementrevocationrequestconfigV1}
-     * @memberof EntitlementrequestconfigV1
+     * @type {Entitlementrevocationrequestconfig}
+     * @memberof Entitlementrequestconfig
      */
-    'revocationRequestConfig'?: EntitlementrevocationrequestconfigV1;
+    'revocationRequestConfig'?: Entitlementrevocationrequestconfig;
 }
 /**
  * 
  * @export
- * @interface EntitlementrevocationrequestconfigV1
+ * @interface Entitlementrevocationrequestconfig
  */
-export interface EntitlementrevocationrequestconfigV1 {
+export interface Entitlementrevocationrequestconfig {
     /**
      * Ordered list of approval steps for the access request. Empty when no approval is required.
-     * @type {Array<EntitlementapprovalschemeV1>}
-     * @memberof EntitlementrevocationrequestconfigV1
+     * @type {Array<Entitlementapprovalscheme>}
+     * @memberof Entitlementrevocationrequestconfig
      */
-    'approvalSchemes'?: Array<EntitlementapprovalschemeV1>;
+    'approvalSchemes'?: Array<Entitlementapprovalscheme>;
 }
 /**
  * 
  * @export
- * @interface EntitlementsourceresetbasereferencedtoV1
+ * @interface Entitlementsourceresetbasereferencedto
  */
-export interface EntitlementsourceresetbasereferencedtoV1 {
+export interface Entitlementsourceresetbasereferencedto {
     /**
      * The DTO type
      * @type {string}
-     * @memberof EntitlementsourceresetbasereferencedtoV1
+     * @memberof Entitlementsourceresetbasereferencedto
      */
     'type'?: string;
     /**
      * The task ID of the object to which this reference applies
      * @type {string}
-     * @memberof EntitlementsourceresetbasereferencedtoV1
+     * @memberof Entitlementsourceresetbasereferencedto
      */
     'id'?: string;
     /**
      * Human-readable display name of the object to which this reference applies
      * @type {string}
-     * @memberof EntitlementsourceresetbasereferencedtoV1
+     * @memberof Entitlementsourceresetbasereferencedto
      */
     'name'?: string;
 }
 /**
- * Additional data to classify the entitlement
+ * 
  * @export
- * @interface Entitlementv2AccessModelMetadataV1
+ * @interface Entitlementv2
  */
-export interface Entitlementv2AccessModelMetadataV1 {
+export interface Entitlementv2 {
+    /**
+     * The entitlement id
+     * @type {string}
+     * @memberof Entitlementv2
+     */
+    'id'?: string;
+    /**
+     * The entitlement name
+     * @type {string}
+     * @memberof Entitlementv2
+     */
+    'name'?: string;
+    /**
+     * The entitlement attribute name
+     * @type {string}
+     * @memberof Entitlementv2
+     */
+    'attribute'?: string;
+    /**
+     * The value of the entitlement
+     * @type {string}
+     * @memberof Entitlementv2
+     */
+    'value'?: string;
+    /**
+     * The object type of the entitlement from the source schema
+     * @type {string}
+     * @memberof Entitlementv2
+     */
+    'sourceSchemaObjectType'?: string;
+    /**
+     * The description of the entitlement
+     * @type {string}
+     * @memberof Entitlementv2
+     */
+    'description'?: string | null;
     /**
      * 
-     * @type {Array<AccessmodelmetadataV1>}
-     * @memberof Entitlementv2AccessModelMetadataV1
+     * @type {Entitlementv2PrivilegeLevel}
+     * @memberof Entitlementv2
      */
-    'attributes'?: Array<AccessmodelmetadataV1>;
+    'privilegeLevel'?: Entitlementv2PrivilegeLevel;
+    /**
+     * List of tags assigned to the entitlement
+     * @type {Array<string>}
+     * @memberof Entitlementv2
+     */
+    'tags'?: Array<string> | null;
+    /**
+     * True if the entitlement is cloud governed
+     * @type {boolean}
+     * @memberof Entitlementv2
+     */
+    'cloudGoverned'?: boolean;
+    /**
+     * True if the entitlement is able to be directly requested
+     * @type {boolean}
+     * @memberof Entitlementv2
+     */
+    'requestable'?: boolean;
+    /**
+     * 
+     * @type {Entitlementv2Owner}
+     * @memberof Entitlementv2
+     */
+    'owner'?: Entitlementv2Owner | null;
+    /**
+     * A map of entitlement fields that have been manually updated. The key is the field name in UPPER_SNAKE_CASE format, and the value is true or false to indicate if the field has been updated.
+     * @type {{ [key: string]: any; }}
+     * @memberof Entitlementv2
+     */
+    'manuallyUpdatedFields'?: { [key: string]: any; } | null;
+    /**
+     * 
+     * @type {Entitlementv2AccessModelMetadata}
+     * @memberof Entitlementv2
+     */
+    'accessModelMetadata'?: Entitlementv2AccessModelMetadata;
+    /**
+     * Time when the entitlement was created
+     * @type {string}
+     * @memberof Entitlementv2
+     */
+    'created'?: string;
+    /**
+     * Time when the entitlement was last modified
+     * @type {string}
+     * @memberof Entitlementv2
+     */
+    'modified'?: string;
+    /**
+     * 
+     * @type {Entitlementv2Source}
+     * @memberof Entitlementv2
+     */
+    'source'?: Entitlementv2Source;
+    /**
+     * A map of free-form key-value pairs from the source system
+     * @type {{ [key: string]: any; }}
+     * @memberof Entitlementv2
+     */
+    'attributes'?: { [key: string]: any; };
+    /**
+     * List of IDs of segments, if any, to which this Entitlement is assigned.
+     * @type {Array<string>}
+     * @memberof Entitlementv2
+     */
+    'segments'?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<Permissiondto>}
+     * @memberof Entitlementv2
+     */
+    'directPermissions'?: Array<Permissiondto>;
+}
+/**
+ * Additional data to classify the entitlement
+ * @export
+ * @interface Entitlementv2AccessModelMetadata
+ */
+export interface Entitlementv2AccessModelMetadata {
+    /**
+     * 
+     * @type {Array<Accessmodelmetadata>}
+     * @memberof Entitlementv2AccessModelMetadata
+     */
+    'attributes'?: Array<Accessmodelmetadata>;
 }
 /**
  * The identity that owns the entitlement
  * @export
- * @interface Entitlementv2OwnerV1
+ * @interface Entitlementv2Owner
  */
-export interface Entitlementv2OwnerV1 {
+export interface Entitlementv2Owner {
     /**
      * The identity ID
      * @type {string}
-     * @memberof Entitlementv2OwnerV1
+     * @memberof Entitlementv2Owner
      */
     'id'?: string;
     /**
      * The type of object
      * @type {string}
-     * @memberof Entitlementv2OwnerV1
+     * @memberof Entitlementv2Owner
      */
-    'type'?: Entitlementv2OwnerV1TypeV1;
+    'type'?: Entitlementv2OwnerTypeEnum;
     /**
      * The display name of the identity
      * @type {string}
-     * @memberof Entitlementv2OwnerV1
+     * @memberof Entitlementv2Owner
      */
     'name'?: string;
 }
 
-export const Entitlementv2OwnerV1TypeV1 = {
+export const Entitlementv2OwnerTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type Entitlementv2OwnerV1TypeV1 = typeof Entitlementv2OwnerV1TypeV1[keyof typeof Entitlementv2OwnerV1TypeV1];
+export type Entitlementv2OwnerTypeEnum = typeof Entitlementv2OwnerTypeEnum[keyof typeof Entitlementv2OwnerTypeEnum];
 
 /**
  * 
  * @export
- * @interface Entitlementv2PrivilegeLevelV1
+ * @interface Entitlementv2PrivilegeLevel
  */
-export interface Entitlementv2PrivilegeLevelV1 {
+export interface Entitlementv2PrivilegeLevel {
     /**
      * Direct privilege level assigned to the entitlement
      * @type {string}
-     * @memberof Entitlementv2PrivilegeLevelV1
+     * @memberof Entitlementv2PrivilegeLevel
      */
-    'direct'?: Entitlementv2PrivilegeLevelV1DirectV1;
+    'direct'?: Entitlementv2PrivilegeLevelDirectEnum;
     /**
      * User or process that set the privilege level
      * @type {string}
-     * @memberof Entitlementv2PrivilegeLevelV1
+     * @memberof Entitlementv2PrivilegeLevel
      */
     'setBy'?: string;
     /**
      * Method by which the privilege level was set
      * @type {string}
-     * @memberof Entitlementv2PrivilegeLevelV1
+     * @memberof Entitlementv2PrivilegeLevel
      */
-    'setByType'?: Entitlementv2PrivilegeLevelV1SetByTypeV1 | null;
+    'setByType'?: Entitlementv2PrivilegeLevelSetByTypeEnum | null;
     /**
      * Inherited privilege level on the entitlement, if any
      * @type {string}
-     * @memberof Entitlementv2PrivilegeLevelV1
+     * @memberof Entitlementv2PrivilegeLevel
      */
-    'inherited'?: Entitlementv2PrivilegeLevelV1InheritedV1 | null;
+    'inherited'?: Entitlementv2PrivilegeLevelInheritedEnum | null;
     /**
      * Effective privilege level assigned to the entitlement
      * @type {string}
-     * @memberof Entitlementv2PrivilegeLevelV1
+     * @memberof Entitlementv2PrivilegeLevel
      */
-    'effective'?: Entitlementv2PrivilegeLevelV1EffectiveV1;
+    'effective'?: Entitlementv2PrivilegeLevelEffectiveEnum;
 }
 
-export const Entitlementv2PrivilegeLevelV1DirectV1 = {
+export const Entitlementv2PrivilegeLevelDirectEnum = {
     High: 'HIGH',
     Low: 'LOW',
     Medium: 'MEDIUM',
     None: 'NONE'
 } as const;
 
-export type Entitlementv2PrivilegeLevelV1DirectV1 = typeof Entitlementv2PrivilegeLevelV1DirectV1[keyof typeof Entitlementv2PrivilegeLevelV1DirectV1];
-export const Entitlementv2PrivilegeLevelV1SetByTypeV1 = {
+export type Entitlementv2PrivilegeLevelDirectEnum = typeof Entitlementv2PrivilegeLevelDirectEnum[keyof typeof Entitlementv2PrivilegeLevelDirectEnum];
+export const Entitlementv2PrivilegeLevelSetByTypeEnum = {
     Override: 'OVERRIDE',
     CustomCriteria: 'CUSTOM_CRITERIA',
     ConnectorCriteria: 'CONNECTOR_CRITERIA',
     SingleLevelCriteria: 'SINGLE_LEVEL_CRITERIA'
 } as const;
 
-export type Entitlementv2PrivilegeLevelV1SetByTypeV1 = typeof Entitlementv2PrivilegeLevelV1SetByTypeV1[keyof typeof Entitlementv2PrivilegeLevelV1SetByTypeV1];
-export const Entitlementv2PrivilegeLevelV1InheritedV1 = {
+export type Entitlementv2PrivilegeLevelSetByTypeEnum = typeof Entitlementv2PrivilegeLevelSetByTypeEnum[keyof typeof Entitlementv2PrivilegeLevelSetByTypeEnum];
+export const Entitlementv2PrivilegeLevelInheritedEnum = {
     High: 'HIGH',
     Low: 'LOW',
     Medium: 'MEDIUM',
     None: 'NONE'
 } as const;
 
-export type Entitlementv2PrivilegeLevelV1InheritedV1 = typeof Entitlementv2PrivilegeLevelV1InheritedV1[keyof typeof Entitlementv2PrivilegeLevelV1InheritedV1];
-export const Entitlementv2PrivilegeLevelV1EffectiveV1 = {
+export type Entitlementv2PrivilegeLevelInheritedEnum = typeof Entitlementv2PrivilegeLevelInheritedEnum[keyof typeof Entitlementv2PrivilegeLevelInheritedEnum];
+export const Entitlementv2PrivilegeLevelEffectiveEnum = {
     High: 'HIGH',
     Low: 'LOW',
     Medium: 'MEDIUM',
     None: 'NONE'
 } as const;
 
-export type Entitlementv2PrivilegeLevelV1EffectiveV1 = typeof Entitlementv2PrivilegeLevelV1EffectiveV1[keyof typeof Entitlementv2PrivilegeLevelV1EffectiveV1];
+export type Entitlementv2PrivilegeLevelEffectiveEnum = typeof Entitlementv2PrivilegeLevelEffectiveEnum[keyof typeof Entitlementv2PrivilegeLevelEffectiveEnum];
 
 /**
  * 
  * @export
- * @interface Entitlementv2SourceV1
+ * @interface Entitlementv2Source
  */
-export interface Entitlementv2SourceV1 {
+export interface Entitlementv2Source {
     /**
      * The source ID
      * @type {string}
-     * @memberof Entitlementv2SourceV1
+     * @memberof Entitlementv2Source
      */
     'id'?: string;
     /**
      * The source type, will always be \"SOURCE\"
      * @type {string}
-     * @memberof Entitlementv2SourceV1
+     * @memberof Entitlementv2Source
      */
     'type'?: string;
     /**
      * The source name
      * @type {string}
-     * @memberof Entitlementv2SourceV1
+     * @memberof Entitlementv2Source
      */
     'name'?: string;
 }
 /**
  * 
  * @export
- * @interface EntitlementV2
+ * @interface Errormessagedto
  */
-export interface EntitlementV2 {
-    /**
-     * The entitlement id
-     * @type {string}
-     * @memberof EntitlementV2
-     */
-    'id'?: string;
-    /**
-     * The entitlement name
-     * @type {string}
-     * @memberof EntitlementV2
-     */
-    'name'?: string;
-    /**
-     * The entitlement attribute name
-     * @type {string}
-     * @memberof EntitlementV2
-     */
-    'attribute'?: string;
-    /**
-     * The value of the entitlement
-     * @type {string}
-     * @memberof EntitlementV2
-     */
-    'value'?: string;
-    /**
-     * The object type of the entitlement from the source schema
-     * @type {string}
-     * @memberof EntitlementV2
-     */
-    'sourceSchemaObjectType'?: string;
-    /**
-     * The description of the entitlement
-     * @type {string}
-     * @memberof EntitlementV2
-     */
-    'description'?: string | null;
-    /**
-     * 
-     * @type {Entitlementv2PrivilegeLevelV1}
-     * @memberof EntitlementV2
-     */
-    'privilegeLevel'?: Entitlementv2PrivilegeLevelV1;
-    /**
-     * List of tags assigned to the entitlement
-     * @type {Array<string>}
-     * @memberof EntitlementV2
-     */
-    'tags'?: Array<string> | null;
-    /**
-     * True if the entitlement is cloud governed
-     * @type {boolean}
-     * @memberof EntitlementV2
-     */
-    'cloudGoverned'?: boolean;
-    /**
-     * True if the entitlement is able to be directly requested
-     * @type {boolean}
-     * @memberof EntitlementV2
-     */
-    'requestable'?: boolean;
-    /**
-     * 
-     * @type {Entitlementv2OwnerV1}
-     * @memberof EntitlementV2
-     */
-    'owner'?: Entitlementv2OwnerV1 | null;
-    /**
-     * A map of entitlement fields that have been manually updated. The key is the field name in UPPER_SNAKE_CASE format, and the value is true or false to indicate if the field has been updated.
-     * @type {{ [key: string]: any; }}
-     * @memberof EntitlementV2
-     */
-    'manuallyUpdatedFields'?: { [key: string]: any; } | null;
-    /**
-     * 
-     * @type {Entitlementv2AccessModelMetadataV1}
-     * @memberof EntitlementV2
-     */
-    'accessModelMetadata'?: Entitlementv2AccessModelMetadataV1;
-    /**
-     * Time when the entitlement was created
-     * @type {string}
-     * @memberof EntitlementV2
-     */
-    'created'?: string;
-    /**
-     * Time when the entitlement was last modified
-     * @type {string}
-     * @memberof EntitlementV2
-     */
-    'modified'?: string;
-    /**
-     * 
-     * @type {Entitlementv2SourceV1}
-     * @memberof EntitlementV2
-     */
-    'source'?: Entitlementv2SourceV1;
-    /**
-     * A map of free-form key-value pairs from the source system
-     * @type {{ [key: string]: any; }}
-     * @memberof EntitlementV2
-     */
-    'attributes'?: { [key: string]: any; };
-    /**
-     * List of IDs of segments, if any, to which this Entitlement is assigned.
-     * @type {Array<string>}
-     * @memberof EntitlementV2
-     */
-    'segments'?: Array<string> | null;
-    /**
-     * 
-     * @type {Array<PermissiondtoV1>}
-     * @memberof EntitlementV2
-     */
-    'directPermissions'?: Array<PermissiondtoV1>;
-}
-/**
- * 
- * @export
- * @interface ErrormessagedtoV1
- */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -830,74 +830,74 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface ImportEntitlementsBySourceV1RequestV1
+ * @interface ImportEntitlementsBySourceV1Request
  */
-export interface ImportEntitlementsBySourceV1RequestV1 {
+export interface ImportEntitlementsBySourceV1Request {
     /**
      * The CSV file containing the source entitlements to aggregate.
      * @type {File}
-     * @memberof ImportEntitlementsBySourceV1RequestV1
+     * @memberof ImportEntitlementsBySourceV1Request
      */
     'csvFile'?: File;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface JsonpatchoperationV1
+ * @interface Jsonpatchoperation
  */
-export interface JsonpatchoperationV1 {
+export interface Jsonpatchoperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
-    'op': JsonpatchoperationV1OpV1;
+    'op': JsonpatchoperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValueV1}
-     * @memberof JsonpatchoperationV1
+     * @type {JsonpatchoperationValue}
+     * @memberof Jsonpatchoperation
      */
-    'value'?: JsonpatchoperationValueV1;
+    'value'?: JsonpatchoperationValue;
 }
 
-export const JsonpatchoperationV1OpV1 = {
+export const JsonpatchoperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -906,108 +906,108 @@ export const JsonpatchoperationV1OpV1 = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationV1OpV1 = typeof JsonpatchoperationV1OpV1[keyof typeof JsonpatchoperationV1OpV1];
+export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
 
 /**
- * @type JsonpatchoperationValueV1
+ * @type JsonpatchoperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number | object | string;
+export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * 
  * @export
- * @interface ListEntitlementsV1401ResponseV1
+ * @interface ListEntitlementsV1401Response
  */
-export interface ListEntitlementsV1401ResponseV1 {
+export interface ListEntitlementsV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListEntitlementsV1401ResponseV1
+     * @memberof ListEntitlementsV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ListEntitlementsV1429ResponseV1
+ * @interface ListEntitlementsV1429Response
  */
-export interface ListEntitlementsV1429ResponseV1 {
+export interface ListEntitlementsV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListEntitlementsV1429ResponseV1
+     * @memberof ListEntitlementsV1429Response
      */
     'message'?: any;
 }
 /**
  * 
  * @export
- * @interface LoadentitlementtaskReturnsInnerV1
+ * @interface Loadentitlementtask
  */
-export interface LoadentitlementtaskReturnsInnerV1 {
-    /**
-     * The display label for the return value
-     * @type {string}
-     * @memberof LoadentitlementtaskReturnsInnerV1
-     */
-    'displayLabel'?: string;
-    /**
-     * The attribute name for the return value
-     * @type {string}
-     * @memberof LoadentitlementtaskReturnsInnerV1
-     */
-    'attributeName'?: string;
-}
-/**
- * 
- * @export
- * @interface LoadentitlementtaskV1
- */
-export interface LoadentitlementtaskV1 {
+export interface Loadentitlementtask {
     /**
      * System-generated unique ID of the task this taskStatus represents
      * @type {string}
-     * @memberof LoadentitlementtaskV1
+     * @memberof Loadentitlementtask
      */
     'id'?: string;
     /**
      * Type of task this task represents
      * @type {string}
-     * @memberof LoadentitlementtaskV1
+     * @memberof Loadentitlementtask
      */
     'type'?: string;
     /**
      * The name of the task
      * @type {string}
-     * @memberof LoadentitlementtaskV1
+     * @memberof Loadentitlementtask
      */
     'uniqueName'?: string;
     /**
      * The description of the task
      * @type {string}
-     * @memberof LoadentitlementtaskV1
+     * @memberof Loadentitlementtask
      */
     'description'?: string;
     /**
      * The user who initiated the task
      * @type {string}
-     * @memberof LoadentitlementtaskV1
+     * @memberof Loadentitlementtask
      */
     'launcher'?: string;
     /**
      * The creation date of the task
      * @type {string}
-     * @memberof LoadentitlementtaskV1
+     * @memberof Loadentitlementtask
      */
     'created'?: string;
     /**
      * Return values from the task
-     * @type {Array<LoadentitlementtaskReturnsInnerV1>}
-     * @memberof LoadentitlementtaskV1
+     * @type {Array<LoadentitlementtaskReturnsInner>}
+     * @memberof Loadentitlementtask
      */
-    'returns'?: Array<LoadentitlementtaskReturnsInnerV1>;
+    'returns'?: Array<LoadentitlementtaskReturnsInner>;
+}
+/**
+ * 
+ * @export
+ * @interface LoadentitlementtaskReturnsInner
+ */
+export interface LoadentitlementtaskReturnsInner {
+    /**
+     * The display label for the return value
+     * @type {string}
+     * @memberof LoadentitlementtaskReturnsInner
+     */
+    'displayLabel'?: string;
+    /**
+     * The attribute name for the return value
+     * @type {string}
+     * @memberof LoadentitlementtaskReturnsInner
+     */
+    'attributeName'?: string;
 }
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -1015,39 +1015,39 @@ export interface LoadentitlementtaskV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * Simplified DTO for the Permission objects stored in SailPoint\'s database. The data is aggregated from customer systems and is free-form, so its appearance can vary largely between different clients/customers.
  * @export
- * @interface PermissiondtoV1
+ * @interface Permissiondto
  */
-export interface PermissiondtoV1 {
+export interface Permissiondto {
     /**
      * All the rights (e.g. actions) that this permission allows on the target
      * @type {Array<string>}
-     * @memberof PermissiondtoV1
+     * @memberof Permissiondto
      */
     'rights'?: Array<string>;
     /**
      * The target the permission would grants rights on.
      * @type {string}
-     * @memberof PermissiondtoV1
+     * @memberof Permissiondto
      */
     'target'?: string;
 }
 
 /**
- * EntitlementsV1Api - axios parameter creator
+ * EntitlementsApi - axios parameter creator
  * @export
  */
-export const EntitlementsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const EntitlementsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Add single Access Model Metadata to an entitlement.
@@ -1511,11 +1511,11 @@ export const EntitlementsV1ApiAxiosParamCreator = function (configuration?: Conf
          * This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **segments**, **privilegeOverride/level**, **owner**, **name**, **description**, and **manuallyUpdatedFields**  When you\'re patching owner, only owner type and owner id must be provided. Owner name is optional, and it won\'t be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.
          * @summary Patch an entitlement
          * @param {string} id ID of the entitlement to patch
-         * @param {Array<JsonpatchoperationV1>} [jsonpatchoperationV1] 
+         * @param {Array<Jsonpatchoperation>} [jsonpatchoperation] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchEntitlementV1: async (id: string, jsonpatchoperationV1?: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchEntitlementV1: async (id: string, jsonpatchoperation?: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchEntitlementV1', 'id', id)
             const localVarPath = `/entitlements/v1/{id}`
@@ -1538,7 +1538,7 @@ export const EntitlementsV1ApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1549,15 +1549,15 @@ export const EntitlementsV1ApiAxiosParamCreator = function (configuration?: Conf
          * This API replaces the entitlement request config for a specified entitlement.
          * @summary Replace entitlement request config
          * @param {string} id Entitlement ID
-         * @param {EntitlementrequestconfigV1} entitlementrequestconfigV1 
+         * @param {Entitlementrequestconfig} entitlementrequestconfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putEntitlementRequestConfigV1: async (id: string, entitlementrequestconfigV1: EntitlementrequestconfigV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putEntitlementRequestConfigV1: async (id: string, entitlementrequestconfig: Entitlementrequestconfig, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('putEntitlementRequestConfigV1', 'id', id)
-            // verify required parameter 'entitlementrequestconfigV1' is not null or undefined
-            assertParamExists('putEntitlementRequestConfigV1', 'entitlementrequestconfigV1', entitlementrequestconfigV1)
+            // verify required parameter 'entitlementrequestconfig' is not null or undefined
+            assertParamExists('putEntitlementRequestConfigV1', 'entitlementrequestconfig', entitlementrequestconfig)
             const localVarPath = `/entitlements/v1/{id}/entitlement-request-config`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1578,7 +1578,7 @@ export const EntitlementsV1ApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(entitlementrequestconfigV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(entitlementrequestconfig, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1622,13 +1622,13 @@ export const EntitlementsV1ApiAxiosParamCreator = function (configuration?: Conf
         /**
          * This API applies an update to every entitlement of the list.   The number of entitlements to update is limited to 50 items maximum.   The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. examples of allowed operations : `**{ \"op\": \"replace\", \"path\": \"/requestable\",\"value\": boolean }**` `**{ \"op\": \"replace\", \"path\": \"/privilegeOverride/level\",\"value\": string }**`  A token with ORG_ADMIN or API authority is required to call this API. 
          * @summary Bulk update an entitlement list
-         * @param {EntitlementbulkupdaterequestV1} entitlementbulkupdaterequestV1 
+         * @param {Entitlementbulkupdaterequest} entitlementbulkupdaterequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateEntitlementsInBulkV1: async (entitlementbulkupdaterequestV1: EntitlementbulkupdaterequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'entitlementbulkupdaterequestV1' is not null or undefined
-            assertParamExists('updateEntitlementsInBulkV1', 'entitlementbulkupdaterequestV1', entitlementbulkupdaterequestV1)
+        updateEntitlementsInBulkV1: async (entitlementbulkupdaterequest: Entitlementbulkupdaterequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'entitlementbulkupdaterequest' is not null or undefined
+            assertParamExists('updateEntitlementsInBulkV1', 'entitlementbulkupdaterequest', entitlementbulkupdaterequest)
             const localVarPath = `/entitlements/v1/bulk-update`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1648,7 +1648,7 @@ export const EntitlementsV1ApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(entitlementbulkupdaterequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(entitlementbulkupdaterequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1659,11 +1659,11 @@ export const EntitlementsV1ApiAxiosParamCreator = function (configuration?: Conf
 };
 
 /**
- * EntitlementsV1Api - functional programming interface
+ * EntitlementsApi - functional programming interface
  * @export
  */
-export const EntitlementsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = EntitlementsV1ApiAxiosParamCreator(configuration)
+export const EntitlementsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = EntitlementsApiAxiosParamCreator(configuration)
     return {
         /**
          * Add single Access Model Metadata to an entitlement.
@@ -1674,10 +1674,10 @@ export const EntitlementsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createAccessModelMetadataForEntitlementV1(id: string, attributeKey: string, attributeValue: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementV1>> {
+        async createAccessModelMetadataForEntitlementV1(id: string, attributeKey: string, attributeValue: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Entitlement>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createAccessModelMetadataForEntitlementV1(id, attributeKey, attributeValue, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EntitlementsV1Api.createAccessModelMetadataForEntitlementV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['EntitlementsApi.createAccessModelMetadataForEntitlementV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1692,7 +1692,7 @@ export const EntitlementsV1ApiFp = function(configuration?: Configuration) {
         async deleteAccessModelMetadataFromEntitlementV1(id: string, attributeKey: string, attributeValue: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccessModelMetadataFromEntitlementV1(id, attributeKey, attributeValue, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EntitlementsV1Api.deleteAccessModelMetadataFromEntitlementV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['EntitlementsApi.deleteAccessModelMetadataFromEntitlementV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1702,10 +1702,10 @@ export const EntitlementsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getEntitlementRequestConfigV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementrequestconfigV1>> {
+        async getEntitlementRequestConfigV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Entitlementrequestconfig>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlementRequestConfigV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EntitlementsV1Api.getEntitlementRequestConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['EntitlementsApi.getEntitlementRequestConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1715,10 +1715,10 @@ export const EntitlementsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getEntitlementV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementV2>> {
+        async getEntitlementV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Entitlementv2>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlementV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EntitlementsV1Api.getEntitlementV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['EntitlementsApi.getEntitlementV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1730,10 +1730,10 @@ export const EntitlementsV1ApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async importEntitlementsBySourceV1(id: string, csvFile?: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LoadentitlementtaskV1>> {
+        async importEntitlementsBySourceV1(id: string, csvFile?: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Loadentitlementtask>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.importEntitlementsBySourceV1(id, csvFile, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EntitlementsV1Api.importEntitlementsBySourceV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['EntitlementsApi.importEntitlementsBySourceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1749,10 +1749,10 @@ export const EntitlementsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listEntitlementChildrenV1(id: string, limit?: number, offset?: number, count?: boolean, searchAfter?: string, sorters?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementV2>>> {
+        async listEntitlementChildrenV1(id: string, limit?: number, offset?: number, count?: boolean, searchAfter?: string, sorters?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Entitlementv2>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listEntitlementChildrenV1(id, limit, offset, count, searchAfter, sorters, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EntitlementsV1Api.listEntitlementChildrenV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['EntitlementsApi.listEntitlementChildrenV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1768,10 +1768,10 @@ export const EntitlementsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listEntitlementParentsV1(id: string, limit?: number, offset?: number, count?: boolean, searchAfter?: string, sorters?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementV2>>> {
+        async listEntitlementParentsV1(id: string, limit?: number, offset?: number, count?: boolean, searchAfter?: string, sorters?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Entitlementv2>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listEntitlementParentsV1(id, limit, offset, count, searchAfter, sorters, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EntitlementsV1Api.listEntitlementParentsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['EntitlementsApi.listEntitlementParentsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1786,10 +1786,10 @@ export const EntitlementsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listEntitlementsByAccountV1(accountId: string, limit?: number, offset?: number, count?: boolean, searchAfter?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementV2>>> {
+        async listEntitlementsByAccountV1(accountId: string, limit?: number, offset?: number, count?: boolean, searchAfter?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Entitlementv2>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listEntitlementsByAccountV1(accountId, limit, offset, count, searchAfter, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EntitlementsV1Api.listEntitlementsByAccountV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['EntitlementsApi.listEntitlementsByAccountV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1807,38 +1807,38 @@ export const EntitlementsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listEntitlementsV1(segmentedForIdentity?: string, forSegmentIds?: string, includeUnsegmented?: boolean, offset?: number, limit?: number, count?: boolean, searchAfter?: string, sorters?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementV2>>> {
+        async listEntitlementsV1(segmentedForIdentity?: string, forSegmentIds?: string, includeUnsegmented?: boolean, offset?: number, limit?: number, count?: boolean, searchAfter?: string, sorters?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Entitlementv2>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listEntitlementsV1(segmentedForIdentity, forSegmentIds, includeUnsegmented, offset, limit, count, searchAfter, sorters, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EntitlementsV1Api.listEntitlementsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['EntitlementsApi.listEntitlementsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **segments**, **privilegeOverride/level**, **owner**, **name**, **description**, and **manuallyUpdatedFields**  When you\'re patching owner, only owner type and owner id must be provided. Owner name is optional, and it won\'t be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.
          * @summary Patch an entitlement
          * @param {string} id ID of the entitlement to patch
-         * @param {Array<JsonpatchoperationV1>} [jsonpatchoperationV1] 
+         * @param {Array<Jsonpatchoperation>} [jsonpatchoperation] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchEntitlementV1(id: string, jsonpatchoperationV1?: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementV2>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchEntitlementV1(id, jsonpatchoperationV1, axiosOptions);
+        async patchEntitlementV1(id: string, jsonpatchoperation?: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Entitlementv2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchEntitlementV1(id, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EntitlementsV1Api.patchEntitlementV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['EntitlementsApi.patchEntitlementV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API replaces the entitlement request config for a specified entitlement.
          * @summary Replace entitlement request config
          * @param {string} id Entitlement ID
-         * @param {EntitlementrequestconfigV1} entitlementrequestconfigV1 
+         * @param {Entitlementrequestconfig} entitlementrequestconfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putEntitlementRequestConfigV1(id: string, entitlementrequestconfigV1: EntitlementrequestconfigV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementrequestconfigV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putEntitlementRequestConfigV1(id, entitlementrequestconfigV1, axiosOptions);
+        async putEntitlementRequestConfigV1(id: string, entitlementrequestconfig: Entitlementrequestconfig, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Entitlementrequestconfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putEntitlementRequestConfigV1(id, entitlementrequestconfig, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EntitlementsV1Api.putEntitlementRequestConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['EntitlementsApi.putEntitlementRequestConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1848,737 +1848,737 @@ export const EntitlementsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async resetSourceEntitlementsV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementsourceresetbasereferencedtoV1>> {
+        async resetSourceEntitlementsV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Entitlementsourceresetbasereferencedto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.resetSourceEntitlementsV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EntitlementsV1Api.resetSourceEntitlementsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['EntitlementsApi.resetSourceEntitlementsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API applies an update to every entitlement of the list.   The number of entitlements to update is limited to 50 items maximum.   The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. examples of allowed operations : `**{ \"op\": \"replace\", \"path\": \"/requestable\",\"value\": boolean }**` `**{ \"op\": \"replace\", \"path\": \"/privilegeOverride/level\",\"value\": string }**`  A token with ORG_ADMIN or API authority is required to call this API. 
          * @summary Bulk update an entitlement list
-         * @param {EntitlementbulkupdaterequestV1} entitlementbulkupdaterequestV1 
+         * @param {Entitlementbulkupdaterequest} entitlementbulkupdaterequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateEntitlementsInBulkV1(entitlementbulkupdaterequestV1: EntitlementbulkupdaterequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateEntitlementsInBulkV1(entitlementbulkupdaterequestV1, axiosOptions);
+        async updateEntitlementsInBulkV1(entitlementbulkupdaterequest: Entitlementbulkupdaterequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateEntitlementsInBulkV1(entitlementbulkupdaterequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EntitlementsV1Api.updateEntitlementsInBulkV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['EntitlementsApi.updateEntitlementsInBulkV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * EntitlementsV1Api - factory interface
+ * EntitlementsApi - factory interface
  * @export
  */
-export const EntitlementsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = EntitlementsV1ApiFp(configuration)
+export const EntitlementsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = EntitlementsApiFp(configuration)
     return {
         /**
          * Add single Access Model Metadata to an entitlement.
          * @summary Add metadata to an entitlement.
-         * @param {EntitlementsV1ApiCreateAccessModelMetadataForEntitlementV1Request} requestParameters Request parameters.
+         * @param {EntitlementsApiCreateAccessModelMetadataForEntitlementV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createAccessModelMetadataForEntitlementV1(requestParameters: EntitlementsV1ApiCreateAccessModelMetadataForEntitlementV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<EntitlementV1> {
+        createAccessModelMetadataForEntitlementV1(requestParameters: EntitlementsApiCreateAccessModelMetadataForEntitlementV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Entitlement> {
             return localVarFp.createAccessModelMetadataForEntitlementV1(requestParameters.id, requestParameters.attributeKey, requestParameters.attributeValue, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Remove single Access Model Metadata from an entitlement.
          * @summary Remove metadata from an entitlement.
-         * @param {EntitlementsV1ApiDeleteAccessModelMetadataFromEntitlementV1Request} requestParameters Request parameters.
+         * @param {EntitlementsApiDeleteAccessModelMetadataFromEntitlementV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAccessModelMetadataFromEntitlementV1(requestParameters: EntitlementsV1ApiDeleteAccessModelMetadataFromEntitlementV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteAccessModelMetadataFromEntitlementV1(requestParameters: EntitlementsApiDeleteAccessModelMetadataFromEntitlementV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteAccessModelMetadataFromEntitlementV1(requestParameters.id, requestParameters.attributeKey, requestParameters.attributeValue, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the entitlement request config for a specified entitlement.
          * @summary Get entitlement request config
-         * @param {EntitlementsV1ApiGetEntitlementRequestConfigV1Request} requestParameters Request parameters.
+         * @param {EntitlementsApiGetEntitlementRequestConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getEntitlementRequestConfigV1(requestParameters: EntitlementsV1ApiGetEntitlementRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<EntitlementrequestconfigV1> {
+        getEntitlementRequestConfigV1(requestParameters: EntitlementsApiGetEntitlementRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Entitlementrequestconfig> {
             return localVarFp.getEntitlementRequestConfigV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns an entitlement by its ID.
          * @summary Get an entitlement
-         * @param {EntitlementsV1ApiGetEntitlementV1Request} requestParameters Request parameters.
+         * @param {EntitlementsApiGetEntitlementV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getEntitlementV1(requestParameters: EntitlementsV1ApiGetEntitlementV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<EntitlementV2> {
+        getEntitlementV1(requestParameters: EntitlementsApiGetEntitlementV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Entitlementv2> {
             return localVarFp.getEntitlementV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Starts an entitlement aggregation on the specified source. Though this endpoint has been deprecated, you can find its Beta equivalent [here](https://developer.sailpoint.com/docs/api/beta/import-entitlements).  If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error.  If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
          * @summary Aggregate entitlements
-         * @param {EntitlementsV1ApiImportEntitlementsBySourceV1Request} requestParameters Request parameters.
+         * @param {EntitlementsApiImportEntitlementsBySourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @deprecated
          * @throws {RequiredError}
          */
-        importEntitlementsBySourceV1(requestParameters: EntitlementsV1ApiImportEntitlementsBySourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<LoadentitlementtaskV1> {
+        importEntitlementsBySourceV1(requestParameters: EntitlementsApiImportEntitlementsBySourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Loadentitlementtask> {
             return localVarFp.importEntitlementsBySourceV1(requestParameters.id, requestParameters.csvFile, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of all child entitlements of a given entitlement.
          * @summary List of entitlements children
-         * @param {EntitlementsV1ApiListEntitlementChildrenV1Request} requestParameters Request parameters.
+         * @param {EntitlementsApiListEntitlementChildrenV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listEntitlementChildrenV1(requestParameters: EntitlementsV1ApiListEntitlementChildrenV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<EntitlementV2>> {
+        listEntitlementChildrenV1(requestParameters: EntitlementsApiListEntitlementChildrenV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Entitlementv2>> {
             return localVarFp.listEntitlementChildrenV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.searchAfter, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of all parent entitlements of a given entitlement.
          * @summary List of entitlements parents
-         * @param {EntitlementsV1ApiListEntitlementParentsV1Request} requestParameters Request parameters.
+         * @param {EntitlementsApiListEntitlementParentsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listEntitlementParentsV1(requestParameters: EntitlementsV1ApiListEntitlementParentsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<EntitlementV2>> {
+        listEntitlementParentsV1(requestParameters: EntitlementsApiListEntitlementParentsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Entitlementv2>> {
             return localVarFp.listEntitlementParentsV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.searchAfter, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of all entitlements associated with the given account ID. The account must exist; if not found, the API returns 404.
          * @summary Get entitlements for an account
-         * @param {EntitlementsV1ApiListEntitlementsByAccountV1Request} requestParameters Request parameters.
+         * @param {EntitlementsApiListEntitlementsByAccountV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listEntitlementsByAccountV1(requestParameters: EntitlementsV1ApiListEntitlementsByAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<EntitlementV2>> {
+        listEntitlementsByAccountV1(requestParameters: EntitlementsApiListEntitlementsByAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Entitlementv2>> {
             return localVarFp.listEntitlementsByAccountV1(requestParameters.accountId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.searchAfter, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of entitlements. Any authenticated token can call this API.
          * @summary Gets a list of entitlements.
-         * @param {EntitlementsV1ApiListEntitlementsV1Request} requestParameters Request parameters.
+         * @param {EntitlementsApiListEntitlementsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listEntitlementsV1(requestParameters: EntitlementsV1ApiListEntitlementsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<EntitlementV2>> {
+        listEntitlementsV1(requestParameters: EntitlementsApiListEntitlementsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Entitlementv2>> {
             return localVarFp.listEntitlementsV1(requestParameters.segmentedForIdentity, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.searchAfter, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **segments**, **privilegeOverride/level**, **owner**, **name**, **description**, and **manuallyUpdatedFields**  When you\'re patching owner, only owner type and owner id must be provided. Owner name is optional, and it won\'t be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.
          * @summary Patch an entitlement
-         * @param {EntitlementsV1ApiPatchEntitlementV1Request} requestParameters Request parameters.
+         * @param {EntitlementsApiPatchEntitlementV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchEntitlementV1(requestParameters: EntitlementsV1ApiPatchEntitlementV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<EntitlementV2> {
-            return localVarFp.patchEntitlementV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        patchEntitlementV1(requestParameters: EntitlementsApiPatchEntitlementV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Entitlementv2> {
+            return localVarFp.patchEntitlementV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API replaces the entitlement request config for a specified entitlement.
          * @summary Replace entitlement request config
-         * @param {EntitlementsV1ApiPutEntitlementRequestConfigV1Request} requestParameters Request parameters.
+         * @param {EntitlementsApiPutEntitlementRequestConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putEntitlementRequestConfigV1(requestParameters: EntitlementsV1ApiPutEntitlementRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<EntitlementrequestconfigV1> {
-            return localVarFp.putEntitlementRequestConfigV1(requestParameters.id, requestParameters.entitlementrequestconfigV1, axiosOptions).then((request) => request(axios, basePath));
+        putEntitlementRequestConfigV1(requestParameters: EntitlementsApiPutEntitlementRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Entitlementrequestconfig> {
+            return localVarFp.putEntitlementRequestConfigV1(requestParameters.id, requestParameters.entitlementrequestconfig, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Remove all entitlements from a specific source. To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation.  To do so, use [Account Aggregation](https://developer.sailpoint.com/docs/api/v2024/import-accounts/) with `disableOptimization` = `true`. 
          * @summary Reset source entitlements
-         * @param {EntitlementsV1ApiResetSourceEntitlementsV1Request} requestParameters Request parameters.
+         * @param {EntitlementsApiResetSourceEntitlementsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        resetSourceEntitlementsV1(requestParameters: EntitlementsV1ApiResetSourceEntitlementsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<EntitlementsourceresetbasereferencedtoV1> {
+        resetSourceEntitlementsV1(requestParameters: EntitlementsApiResetSourceEntitlementsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Entitlementsourceresetbasereferencedto> {
             return localVarFp.resetSourceEntitlementsV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API applies an update to every entitlement of the list.   The number of entitlements to update is limited to 50 items maximum.   The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. examples of allowed operations : `**{ \"op\": \"replace\", \"path\": \"/requestable\",\"value\": boolean }**` `**{ \"op\": \"replace\", \"path\": \"/privilegeOverride/level\",\"value\": string }**`  A token with ORG_ADMIN or API authority is required to call this API. 
          * @summary Bulk update an entitlement list
-         * @param {EntitlementsV1ApiUpdateEntitlementsInBulkV1Request} requestParameters Request parameters.
+         * @param {EntitlementsApiUpdateEntitlementsInBulkV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateEntitlementsInBulkV1(requestParameters: EntitlementsV1ApiUpdateEntitlementsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.updateEntitlementsInBulkV1(requestParameters.entitlementbulkupdaterequestV1, axiosOptions).then((request) => request(axios, basePath));
+        updateEntitlementsInBulkV1(requestParameters: EntitlementsApiUpdateEntitlementsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.updateEntitlementsInBulkV1(requestParameters.entitlementbulkupdaterequest, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createAccessModelMetadataForEntitlementV1 operation in EntitlementsV1Api.
+ * Request parameters for createAccessModelMetadataForEntitlementV1 operation in EntitlementsApi.
  * @export
- * @interface EntitlementsV1ApiCreateAccessModelMetadataForEntitlementV1Request
+ * @interface EntitlementsApiCreateAccessModelMetadataForEntitlementV1Request
  */
-export interface EntitlementsV1ApiCreateAccessModelMetadataForEntitlementV1Request {
+export interface EntitlementsApiCreateAccessModelMetadataForEntitlementV1Request {
     /**
      * The entitlement id.
      * @type {string}
-     * @memberof EntitlementsV1ApiCreateAccessModelMetadataForEntitlementV1
+     * @memberof EntitlementsApiCreateAccessModelMetadataForEntitlementV1
      */
     readonly id: string
 
     /**
      * Technical name of the Attribute.
      * @type {string}
-     * @memberof EntitlementsV1ApiCreateAccessModelMetadataForEntitlementV1
+     * @memberof EntitlementsApiCreateAccessModelMetadataForEntitlementV1
      */
     readonly attributeKey: string
 
     /**
      * Technical name of the Attribute Value.
      * @type {string}
-     * @memberof EntitlementsV1ApiCreateAccessModelMetadataForEntitlementV1
+     * @memberof EntitlementsApiCreateAccessModelMetadataForEntitlementV1
      */
     readonly attributeValue: string
 }
 
 /**
- * Request parameters for deleteAccessModelMetadataFromEntitlementV1 operation in EntitlementsV1Api.
+ * Request parameters for deleteAccessModelMetadataFromEntitlementV1 operation in EntitlementsApi.
  * @export
- * @interface EntitlementsV1ApiDeleteAccessModelMetadataFromEntitlementV1Request
+ * @interface EntitlementsApiDeleteAccessModelMetadataFromEntitlementV1Request
  */
-export interface EntitlementsV1ApiDeleteAccessModelMetadataFromEntitlementV1Request {
+export interface EntitlementsApiDeleteAccessModelMetadataFromEntitlementV1Request {
     /**
      * The entitlement id.
      * @type {string}
-     * @memberof EntitlementsV1ApiDeleteAccessModelMetadataFromEntitlementV1
+     * @memberof EntitlementsApiDeleteAccessModelMetadataFromEntitlementV1
      */
     readonly id: string
 
     /**
      * Technical name of the Attribute.
      * @type {string}
-     * @memberof EntitlementsV1ApiDeleteAccessModelMetadataFromEntitlementV1
+     * @memberof EntitlementsApiDeleteAccessModelMetadataFromEntitlementV1
      */
     readonly attributeKey: string
 
     /**
      * Technical name of the Attribute Value.
      * @type {string}
-     * @memberof EntitlementsV1ApiDeleteAccessModelMetadataFromEntitlementV1
+     * @memberof EntitlementsApiDeleteAccessModelMetadataFromEntitlementV1
      */
     readonly attributeValue: string
 }
 
 /**
- * Request parameters for getEntitlementRequestConfigV1 operation in EntitlementsV1Api.
+ * Request parameters for getEntitlementRequestConfigV1 operation in EntitlementsApi.
  * @export
- * @interface EntitlementsV1ApiGetEntitlementRequestConfigV1Request
+ * @interface EntitlementsApiGetEntitlementRequestConfigV1Request
  */
-export interface EntitlementsV1ApiGetEntitlementRequestConfigV1Request {
+export interface EntitlementsApiGetEntitlementRequestConfigV1Request {
     /**
      * Entitlement Id
      * @type {string}
-     * @memberof EntitlementsV1ApiGetEntitlementRequestConfigV1
+     * @memberof EntitlementsApiGetEntitlementRequestConfigV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getEntitlementV1 operation in EntitlementsV1Api.
+ * Request parameters for getEntitlementV1 operation in EntitlementsApi.
  * @export
- * @interface EntitlementsV1ApiGetEntitlementV1Request
+ * @interface EntitlementsApiGetEntitlementV1Request
  */
-export interface EntitlementsV1ApiGetEntitlementV1Request {
+export interface EntitlementsApiGetEntitlementV1Request {
     /**
      * The entitlement ID
      * @type {string}
-     * @memberof EntitlementsV1ApiGetEntitlementV1
+     * @memberof EntitlementsApiGetEntitlementV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for importEntitlementsBySourceV1 operation in EntitlementsV1Api.
+ * Request parameters for importEntitlementsBySourceV1 operation in EntitlementsApi.
  * @export
- * @interface EntitlementsV1ApiImportEntitlementsBySourceV1Request
+ * @interface EntitlementsApiImportEntitlementsBySourceV1Request
  */
-export interface EntitlementsV1ApiImportEntitlementsBySourceV1Request {
+export interface EntitlementsApiImportEntitlementsBySourceV1Request {
     /**
      * Source Id
      * @type {string}
-     * @memberof EntitlementsV1ApiImportEntitlementsBySourceV1
+     * @memberof EntitlementsApiImportEntitlementsBySourceV1
      */
     readonly id: string
 
     /**
      * The CSV file containing the source entitlements to aggregate.
      * @type {File}
-     * @memberof EntitlementsV1ApiImportEntitlementsBySourceV1
+     * @memberof EntitlementsApiImportEntitlementsBySourceV1
      */
     readonly csvFile?: File
 }
 
 /**
- * Request parameters for listEntitlementChildrenV1 operation in EntitlementsV1Api.
+ * Request parameters for listEntitlementChildrenV1 operation in EntitlementsApi.
  * @export
- * @interface EntitlementsV1ApiListEntitlementChildrenV1Request
+ * @interface EntitlementsApiListEntitlementChildrenV1Request
  */
-export interface EntitlementsV1ApiListEntitlementChildrenV1Request {
+export interface EntitlementsApiListEntitlementChildrenV1Request {
     /**
      * Entitlement Id
      * @type {string}
-     * @memberof EntitlementsV1ApiListEntitlementChildrenV1
+     * @memberof EntitlementsApiListEntitlementChildrenV1
      */
     readonly id: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof EntitlementsV1ApiListEntitlementChildrenV1
+     * @memberof EntitlementsApiListEntitlementChildrenV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof EntitlementsV1ApiListEntitlementChildrenV1
+     * @memberof EntitlementsApiListEntitlementChildrenV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof EntitlementsV1ApiListEntitlementChildrenV1
+     * @memberof EntitlementsApiListEntitlementChildrenV1
      */
     readonly count?: boolean
 
     /**
      * Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value.  It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don\&#39;t get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter&#x3D;Account Payable,2c91808375d8e80a0175e1f88a575221&amp;sorters&#x3D;name,id.  If the last entitlement ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last name is \&quot;Account Payable\&quot;, then using that name and ID will start a new search after this entitlement.
      * @type {string}
-     * @memberof EntitlementsV1ApiListEntitlementChildrenV1
+     * @memberof EntitlementsApiListEntitlementChildrenV1
      */
     readonly searchAfter?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable**
      * @type {string}
-     * @memberof EntitlementsV1ApiListEntitlementChildrenV1
+     * @memberof EntitlementsApiListEntitlementChildrenV1
      */
     readonly sorters?: string
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **tags**: *eq*  **privilegeLevel.direct**: *eq*
      * @type {string}
-     * @memberof EntitlementsV1ApiListEntitlementChildrenV1
+     * @memberof EntitlementsApiListEntitlementChildrenV1
      */
     readonly filters?: string
 }
 
 /**
- * Request parameters for listEntitlementParentsV1 operation in EntitlementsV1Api.
+ * Request parameters for listEntitlementParentsV1 operation in EntitlementsApi.
  * @export
- * @interface EntitlementsV1ApiListEntitlementParentsV1Request
+ * @interface EntitlementsApiListEntitlementParentsV1Request
  */
-export interface EntitlementsV1ApiListEntitlementParentsV1Request {
+export interface EntitlementsApiListEntitlementParentsV1Request {
     /**
      * Entitlement Id
      * @type {string}
-     * @memberof EntitlementsV1ApiListEntitlementParentsV1
+     * @memberof EntitlementsApiListEntitlementParentsV1
      */
     readonly id: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof EntitlementsV1ApiListEntitlementParentsV1
+     * @memberof EntitlementsApiListEntitlementParentsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof EntitlementsV1ApiListEntitlementParentsV1
+     * @memberof EntitlementsApiListEntitlementParentsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof EntitlementsV1ApiListEntitlementParentsV1
+     * @memberof EntitlementsApiListEntitlementParentsV1
      */
     readonly count?: boolean
 
     /**
      * Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value.  It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don\&#39;t get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter&#x3D;Account Payable,2c91808375d8e80a0175e1f88a575221&amp;sorters&#x3D;name,id.  If the last entitlement ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last name is \&quot;Account Payable\&quot;, then using that name and ID will start a new search after this entitlement.
      * @type {string}
-     * @memberof EntitlementsV1ApiListEntitlementParentsV1
+     * @memberof EntitlementsApiListEntitlementParentsV1
      */
     readonly searchAfter?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable**
      * @type {string}
-     * @memberof EntitlementsV1ApiListEntitlementParentsV1
+     * @memberof EntitlementsApiListEntitlementParentsV1
      */
     readonly sorters?: string
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **tags**: *eq*  **privilegeLevel.direct**: *eq*
      * @type {string}
-     * @memberof EntitlementsV1ApiListEntitlementParentsV1
+     * @memberof EntitlementsApiListEntitlementParentsV1
      */
     readonly filters?: string
 }
 
 /**
- * Request parameters for listEntitlementsByAccountV1 operation in EntitlementsV1Api.
+ * Request parameters for listEntitlementsByAccountV1 operation in EntitlementsApi.
  * @export
- * @interface EntitlementsV1ApiListEntitlementsByAccountV1Request
+ * @interface EntitlementsApiListEntitlementsByAccountV1Request
  */
-export interface EntitlementsV1ApiListEntitlementsByAccountV1Request {
+export interface EntitlementsApiListEntitlementsByAccountV1Request {
     /**
      * The account ID to get entitlements for
      * @type {string}
-     * @memberof EntitlementsV1ApiListEntitlementsByAccountV1
+     * @memberof EntitlementsApiListEntitlementsByAccountV1
      */
     readonly accountId: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof EntitlementsV1ApiListEntitlementsByAccountV1
+     * @memberof EntitlementsApiListEntitlementsByAccountV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof EntitlementsV1ApiListEntitlementsByAccountV1
+     * @memberof EntitlementsApiListEntitlementsByAccountV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof EntitlementsV1ApiListEntitlementsByAccountV1
+     * @memberof EntitlementsApiListEntitlementsByAccountV1
      */
     readonly count?: boolean
 
     /**
      * Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value.  It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don\&#39;t get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter&#x3D;Account Payable,2c91808375d8e80a0175e1f88a575221&amp;sorters&#x3D;name,id.  If the last entitlement ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last name is \&quot;Account Payable\&quot;, then using that name and ID will start a new search after this entitlement.
      * @type {string}
-     * @memberof EntitlementsV1ApiListEntitlementsByAccountV1
+     * @memberof EntitlementsApiListEntitlementsByAccountV1
      */
     readonly searchAfter?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable**
      * @type {string}
-     * @memberof EntitlementsV1ApiListEntitlementsByAccountV1
+     * @memberof EntitlementsApiListEntitlementsByAccountV1
      */
     readonly sorters?: string
 }
 
 /**
- * Request parameters for listEntitlementsV1 operation in EntitlementsV1Api.
+ * Request parameters for listEntitlementsV1 operation in EntitlementsApi.
  * @export
- * @interface EntitlementsV1ApiListEntitlementsV1Request
+ * @interface EntitlementsApiListEntitlementsV1Request
  */
-export interface EntitlementsV1ApiListEntitlementsV1Request {
+export interface EntitlementsApiListEntitlementsV1Request {
     /**
      * If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID.
      * @type {string}
-     * @memberof EntitlementsV1ApiListEntitlementsV1
+     * @memberof EntitlementsApiListEntitlementsV1
      */
     readonly segmentedForIdentity?: string
 
     /**
      * If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs.
      * @type {string}
-     * @memberof EntitlementsV1ApiListEntitlementsV1
+     * @memberof EntitlementsApiListEntitlementsV1
      */
     readonly forSegmentIds?: string
 
     /**
      * Whether or not the response list should contain unsegmented Entitlements. If **for-segment-ids** and **segmented-for-identity** are both absent or empty, specifying **include-unsegmented&#x3D;false** results in an error.
      * @type {boolean}
-     * @memberof EntitlementsV1ApiListEntitlementsV1
+     * @memberof EntitlementsApiListEntitlementsV1
      */
     readonly includeUnsegmented?: boolean
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof EntitlementsV1ApiListEntitlementsV1
+     * @memberof EntitlementsApiListEntitlementsV1
      */
     readonly offset?: number
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof EntitlementsV1ApiListEntitlementsV1
+     * @memberof EntitlementsApiListEntitlementsV1
      */
     readonly limit?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof EntitlementsV1ApiListEntitlementsV1
+     * @memberof EntitlementsApiListEntitlementsV1
      */
     readonly count?: boolean
 
     /**
      * Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value.  It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don\&#39;t get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter&#x3D;Account Payable,2c91808375d8e80a0175e1f88a575221&amp;sorters&#x3D;name,id.  If the last entitlement ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last name is \&quot;Account Payable\&quot;, then using that name and ID will start a new search after this entitlement.
      * @type {string}
-     * @memberof EntitlementsV1ApiListEntitlementsV1
+     * @memberof EntitlementsApiListEntitlementsV1
      */
     readonly searchAfter?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable**
      * @type {string}
-     * @memberof EntitlementsV1ApiListEntitlementsV1
+     * @memberof EntitlementsApiListEntitlementsV1
      */
     readonly sorters?: string
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **tags**: *eq*  **privilegeLevel.direct**: *eq*
      * @type {string}
-     * @memberof EntitlementsV1ApiListEntitlementsV1
+     * @memberof EntitlementsApiListEntitlementsV1
      */
     readonly filters?: string
 }
 
 /**
- * Request parameters for patchEntitlementV1 operation in EntitlementsV1Api.
+ * Request parameters for patchEntitlementV1 operation in EntitlementsApi.
  * @export
- * @interface EntitlementsV1ApiPatchEntitlementV1Request
+ * @interface EntitlementsApiPatchEntitlementV1Request
  */
-export interface EntitlementsV1ApiPatchEntitlementV1Request {
+export interface EntitlementsApiPatchEntitlementV1Request {
     /**
      * ID of the entitlement to patch
      * @type {string}
-     * @memberof EntitlementsV1ApiPatchEntitlementV1
+     * @memberof EntitlementsApiPatchEntitlementV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof EntitlementsV1ApiPatchEntitlementV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof EntitlementsApiPatchEntitlementV1
      */
-    readonly jsonpatchoperationV1?: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation?: Array<Jsonpatchoperation>
 }
 
 /**
- * Request parameters for putEntitlementRequestConfigV1 operation in EntitlementsV1Api.
+ * Request parameters for putEntitlementRequestConfigV1 operation in EntitlementsApi.
  * @export
- * @interface EntitlementsV1ApiPutEntitlementRequestConfigV1Request
+ * @interface EntitlementsApiPutEntitlementRequestConfigV1Request
  */
-export interface EntitlementsV1ApiPutEntitlementRequestConfigV1Request {
+export interface EntitlementsApiPutEntitlementRequestConfigV1Request {
     /**
      * Entitlement ID
      * @type {string}
-     * @memberof EntitlementsV1ApiPutEntitlementRequestConfigV1
+     * @memberof EntitlementsApiPutEntitlementRequestConfigV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {EntitlementrequestconfigV1}
-     * @memberof EntitlementsV1ApiPutEntitlementRequestConfigV1
+     * @type {Entitlementrequestconfig}
+     * @memberof EntitlementsApiPutEntitlementRequestConfigV1
      */
-    readonly entitlementrequestconfigV1: EntitlementrequestconfigV1
+    readonly entitlementrequestconfig: Entitlementrequestconfig
 }
 
 /**
- * Request parameters for resetSourceEntitlementsV1 operation in EntitlementsV1Api.
+ * Request parameters for resetSourceEntitlementsV1 operation in EntitlementsApi.
  * @export
- * @interface EntitlementsV1ApiResetSourceEntitlementsV1Request
+ * @interface EntitlementsApiResetSourceEntitlementsV1Request
  */
-export interface EntitlementsV1ApiResetSourceEntitlementsV1Request {
+export interface EntitlementsApiResetSourceEntitlementsV1Request {
     /**
      * ID of source for the entitlement reset
      * @type {string}
-     * @memberof EntitlementsV1ApiResetSourceEntitlementsV1
+     * @memberof EntitlementsApiResetSourceEntitlementsV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for updateEntitlementsInBulkV1 operation in EntitlementsV1Api.
+ * Request parameters for updateEntitlementsInBulkV1 operation in EntitlementsApi.
  * @export
- * @interface EntitlementsV1ApiUpdateEntitlementsInBulkV1Request
+ * @interface EntitlementsApiUpdateEntitlementsInBulkV1Request
  */
-export interface EntitlementsV1ApiUpdateEntitlementsInBulkV1Request {
+export interface EntitlementsApiUpdateEntitlementsInBulkV1Request {
     /**
      * 
-     * @type {EntitlementbulkupdaterequestV1}
-     * @memberof EntitlementsV1ApiUpdateEntitlementsInBulkV1
+     * @type {Entitlementbulkupdaterequest}
+     * @memberof EntitlementsApiUpdateEntitlementsInBulkV1
      */
-    readonly entitlementbulkupdaterequestV1: EntitlementbulkupdaterequestV1
+    readonly entitlementbulkupdaterequest: Entitlementbulkupdaterequest
 }
 
 /**
- * EntitlementsV1Api - object-oriented interface
+ * EntitlementsApi - object-oriented interface
  * @export
- * @class EntitlementsV1Api
+ * @class EntitlementsApi
  * @extends {BaseAPI}
  */
-export class EntitlementsV1Api extends BaseAPI {
+export class EntitlementsApi extends BaseAPI {
     /**
      * Add single Access Model Metadata to an entitlement.
      * @summary Add metadata to an entitlement.
-     * @param {EntitlementsV1ApiCreateAccessModelMetadataForEntitlementV1Request} requestParameters Request parameters.
+     * @param {EntitlementsApiCreateAccessModelMetadataForEntitlementV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof EntitlementsV1Api
+     * @memberof EntitlementsApi
      */
-    public createAccessModelMetadataForEntitlementV1(requestParameters: EntitlementsV1ApiCreateAccessModelMetadataForEntitlementV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return EntitlementsV1ApiFp(this.configuration).createAccessModelMetadataForEntitlementV1(requestParameters.id, requestParameters.attributeKey, requestParameters.attributeValue, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createAccessModelMetadataForEntitlementV1(requestParameters: EntitlementsApiCreateAccessModelMetadataForEntitlementV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return EntitlementsApiFp(this.configuration).createAccessModelMetadataForEntitlementV1(requestParameters.id, requestParameters.attributeKey, requestParameters.attributeValue, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Remove single Access Model Metadata from an entitlement.
      * @summary Remove metadata from an entitlement.
-     * @param {EntitlementsV1ApiDeleteAccessModelMetadataFromEntitlementV1Request} requestParameters Request parameters.
+     * @param {EntitlementsApiDeleteAccessModelMetadataFromEntitlementV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof EntitlementsV1Api
+     * @memberof EntitlementsApi
      */
-    public deleteAccessModelMetadataFromEntitlementV1(requestParameters: EntitlementsV1ApiDeleteAccessModelMetadataFromEntitlementV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return EntitlementsV1ApiFp(this.configuration).deleteAccessModelMetadataFromEntitlementV1(requestParameters.id, requestParameters.attributeKey, requestParameters.attributeValue, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteAccessModelMetadataFromEntitlementV1(requestParameters: EntitlementsApiDeleteAccessModelMetadataFromEntitlementV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return EntitlementsApiFp(this.configuration).deleteAccessModelMetadataFromEntitlementV1(requestParameters.id, requestParameters.attributeKey, requestParameters.attributeValue, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the entitlement request config for a specified entitlement.
      * @summary Get entitlement request config
-     * @param {EntitlementsV1ApiGetEntitlementRequestConfigV1Request} requestParameters Request parameters.
+     * @param {EntitlementsApiGetEntitlementRequestConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof EntitlementsV1Api
+     * @memberof EntitlementsApi
      */
-    public getEntitlementRequestConfigV1(requestParameters: EntitlementsV1ApiGetEntitlementRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return EntitlementsV1ApiFp(this.configuration).getEntitlementRequestConfigV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getEntitlementRequestConfigV1(requestParameters: EntitlementsApiGetEntitlementRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return EntitlementsApiFp(this.configuration).getEntitlementRequestConfigV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns an entitlement by its ID.
      * @summary Get an entitlement
-     * @param {EntitlementsV1ApiGetEntitlementV1Request} requestParameters Request parameters.
+     * @param {EntitlementsApiGetEntitlementV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof EntitlementsV1Api
+     * @memberof EntitlementsApi
      */
-    public getEntitlementV1(requestParameters: EntitlementsV1ApiGetEntitlementV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return EntitlementsV1ApiFp(this.configuration).getEntitlementV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getEntitlementV1(requestParameters: EntitlementsApiGetEntitlementV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return EntitlementsApiFp(this.configuration).getEntitlementV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Starts an entitlement aggregation on the specified source. Though this endpoint has been deprecated, you can find its Beta equivalent [here](https://developer.sailpoint.com/docs/api/beta/import-entitlements).  If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error.  If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
      * @summary Aggregate entitlements
-     * @param {EntitlementsV1ApiImportEntitlementsBySourceV1Request} requestParameters Request parameters.
+     * @param {EntitlementsApiImportEntitlementsBySourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @deprecated
      * @throws {RequiredError}
-     * @memberof EntitlementsV1Api
+     * @memberof EntitlementsApi
      */
-    public importEntitlementsBySourceV1(requestParameters: EntitlementsV1ApiImportEntitlementsBySourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return EntitlementsV1ApiFp(this.configuration).importEntitlementsBySourceV1(requestParameters.id, requestParameters.csvFile, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public importEntitlementsBySourceV1(requestParameters: EntitlementsApiImportEntitlementsBySourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return EntitlementsApiFp(this.configuration).importEntitlementsBySourceV1(requestParameters.id, requestParameters.csvFile, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a list of all child entitlements of a given entitlement.
      * @summary List of entitlements children
-     * @param {EntitlementsV1ApiListEntitlementChildrenV1Request} requestParameters Request parameters.
+     * @param {EntitlementsApiListEntitlementChildrenV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof EntitlementsV1Api
+     * @memberof EntitlementsApi
      */
-    public listEntitlementChildrenV1(requestParameters: EntitlementsV1ApiListEntitlementChildrenV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return EntitlementsV1ApiFp(this.configuration).listEntitlementChildrenV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.searchAfter, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listEntitlementChildrenV1(requestParameters: EntitlementsApiListEntitlementChildrenV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return EntitlementsApiFp(this.configuration).listEntitlementChildrenV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.searchAfter, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a list of all parent entitlements of a given entitlement.
      * @summary List of entitlements parents
-     * @param {EntitlementsV1ApiListEntitlementParentsV1Request} requestParameters Request parameters.
+     * @param {EntitlementsApiListEntitlementParentsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof EntitlementsV1Api
+     * @memberof EntitlementsApi
      */
-    public listEntitlementParentsV1(requestParameters: EntitlementsV1ApiListEntitlementParentsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return EntitlementsV1ApiFp(this.configuration).listEntitlementParentsV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.searchAfter, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listEntitlementParentsV1(requestParameters: EntitlementsApiListEntitlementParentsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return EntitlementsApiFp(this.configuration).listEntitlementParentsV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.searchAfter, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a list of all entitlements associated with the given account ID. The account must exist; if not found, the API returns 404.
      * @summary Get entitlements for an account
-     * @param {EntitlementsV1ApiListEntitlementsByAccountV1Request} requestParameters Request parameters.
+     * @param {EntitlementsApiListEntitlementsByAccountV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof EntitlementsV1Api
+     * @memberof EntitlementsApi
      */
-    public listEntitlementsByAccountV1(requestParameters: EntitlementsV1ApiListEntitlementsByAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return EntitlementsV1ApiFp(this.configuration).listEntitlementsByAccountV1(requestParameters.accountId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.searchAfter, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listEntitlementsByAccountV1(requestParameters: EntitlementsApiListEntitlementsByAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return EntitlementsApiFp(this.configuration).listEntitlementsByAccountV1(requestParameters.accountId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.searchAfter, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a list of entitlements. Any authenticated token can call this API.
      * @summary Gets a list of entitlements.
-     * @param {EntitlementsV1ApiListEntitlementsV1Request} requestParameters Request parameters.
+     * @param {EntitlementsApiListEntitlementsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof EntitlementsV1Api
+     * @memberof EntitlementsApi
      */
-    public listEntitlementsV1(requestParameters: EntitlementsV1ApiListEntitlementsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return EntitlementsV1ApiFp(this.configuration).listEntitlementsV1(requestParameters.segmentedForIdentity, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.searchAfter, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listEntitlementsV1(requestParameters: EntitlementsApiListEntitlementsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return EntitlementsApiFp(this.configuration).listEntitlementsV1(requestParameters.segmentedForIdentity, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.searchAfter, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **segments**, **privilegeOverride/level**, **owner**, **name**, **description**, and **manuallyUpdatedFields**  When you\'re patching owner, only owner type and owner id must be provided. Owner name is optional, and it won\'t be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.
      * @summary Patch an entitlement
-     * @param {EntitlementsV1ApiPatchEntitlementV1Request} requestParameters Request parameters.
+     * @param {EntitlementsApiPatchEntitlementV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof EntitlementsV1Api
+     * @memberof EntitlementsApi
      */
-    public patchEntitlementV1(requestParameters: EntitlementsV1ApiPatchEntitlementV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return EntitlementsV1ApiFp(this.configuration).patchEntitlementV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchEntitlementV1(requestParameters: EntitlementsApiPatchEntitlementV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return EntitlementsApiFp(this.configuration).patchEntitlementV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API replaces the entitlement request config for a specified entitlement.
      * @summary Replace entitlement request config
-     * @param {EntitlementsV1ApiPutEntitlementRequestConfigV1Request} requestParameters Request parameters.
+     * @param {EntitlementsApiPutEntitlementRequestConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof EntitlementsV1Api
+     * @memberof EntitlementsApi
      */
-    public putEntitlementRequestConfigV1(requestParameters: EntitlementsV1ApiPutEntitlementRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return EntitlementsV1ApiFp(this.configuration).putEntitlementRequestConfigV1(requestParameters.id, requestParameters.entitlementrequestconfigV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putEntitlementRequestConfigV1(requestParameters: EntitlementsApiPutEntitlementRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return EntitlementsApiFp(this.configuration).putEntitlementRequestConfigV1(requestParameters.id, requestParameters.entitlementrequestconfig, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Remove all entitlements from a specific source. To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation.  To do so, use [Account Aggregation](https://developer.sailpoint.com/docs/api/v2024/import-accounts/) with `disableOptimization` = `true`. 
      * @summary Reset source entitlements
-     * @param {EntitlementsV1ApiResetSourceEntitlementsV1Request} requestParameters Request parameters.
+     * @param {EntitlementsApiResetSourceEntitlementsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof EntitlementsV1Api
+     * @memberof EntitlementsApi
      */
-    public resetSourceEntitlementsV1(requestParameters: EntitlementsV1ApiResetSourceEntitlementsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return EntitlementsV1ApiFp(this.configuration).resetSourceEntitlementsV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public resetSourceEntitlementsV1(requestParameters: EntitlementsApiResetSourceEntitlementsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return EntitlementsApiFp(this.configuration).resetSourceEntitlementsV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API applies an update to every entitlement of the list.   The number of entitlements to update is limited to 50 items maximum.   The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. examples of allowed operations : `**{ \"op\": \"replace\", \"path\": \"/requestable\",\"value\": boolean }**` `**{ \"op\": \"replace\", \"path\": \"/privilegeOverride/level\",\"value\": string }**`  A token with ORG_ADMIN or API authority is required to call this API. 
      * @summary Bulk update an entitlement list
-     * @param {EntitlementsV1ApiUpdateEntitlementsInBulkV1Request} requestParameters Request parameters.
+     * @param {EntitlementsApiUpdateEntitlementsInBulkV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof EntitlementsV1Api
+     * @memberof EntitlementsApi
      */
-    public updateEntitlementsInBulkV1(requestParameters: EntitlementsV1ApiUpdateEntitlementsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return EntitlementsV1ApiFp(this.configuration).updateEntitlementsInBulkV1(requestParameters.entitlementbulkupdaterequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateEntitlementsInBulkV1(requestParameters: EntitlementsApiUpdateEntitlementsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return EntitlementsApiFp(this.configuration).updateEntitlementsInBulkV1(requestParameters.entitlementbulkupdaterequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

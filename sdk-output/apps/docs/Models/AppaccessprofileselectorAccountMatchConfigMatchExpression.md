@@ -1,20 +1,20 @@
 ---
-id: v1-appaccessprofileselector-account-match-config-match-expression-v1
-title: AppaccessprofileselectorAccountMatchConfigMatchExpressionV1
-pagination_label: AppaccessprofileselectorAccountMatchConfigMatchExpressionV1
-sidebar_label: AppaccessprofileselectorAccountMatchConfigMatchExpressionV1
+id: v1-appaccessprofileselector-account-match-config-match-expression
+title: AppaccessprofileselectorAccountMatchConfigMatchExpression
+pagination_label: AppaccessprofileselectorAccountMatchConfigMatchExpression
+sidebar_label: AppaccessprofileselectorAccountMatchConfigMatchExpression
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AppaccessprofileselectorAccountMatchConfigMatchExpressionV1', 'v1AppaccessprofileselectorAccountMatchConfigMatchExpressionV1']
-slug: /tools/sdk/typescript/apps/models/appaccessprofileselector-account-match-config-match-expression-v1
-tags: ['SDK', 'Software Development Kit', 'AppaccessprofileselectorAccountMatchConfigMatchExpressionV1', 'v1AppaccessprofileselectorAccountMatchConfigMatchExpressionV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'AppaccessprofileselectorAccountMatchConfigMatchExpression', 'v1AppaccessprofileselectorAccountMatchConfigMatchExpression']
+slug: /tools/sdk/typescript/apps/models/appaccessprofileselector-account-match-config-match-expression
+tags: ['SDK', 'Software Development Kit', 'AppaccessprofileselectorAccountMatchConfigMatchExpression', 'v1AppaccessprofileselectorAccountMatchConfigMatchExpression']
 ---
 
-# AppaccessprofileselectorAccountMatchConfigMatchExpressionV1
+# AppaccessprofileselectorAccountMatchConfigMatchExpression
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**matchTerms** | **(optional)** **Array&lt;MatchtermV1&gt;** |  | [default to undefined]
-**and** | **(optional)** **boolean** | If it is AND operators for match terms | [default to true]
+**matchTerms** | **(optional)** `Array<Matchterm>` |  | [default to undefined]
+**and** | **(optional)** `boolean` | If it is AND operators for match terms | [default to true]
 

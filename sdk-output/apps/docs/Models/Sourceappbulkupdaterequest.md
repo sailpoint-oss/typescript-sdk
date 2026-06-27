@@ -1,20 +1,20 @@
 ---
-id: v1-sourceappbulkupdaterequest-v1
-title: SourceappbulkupdaterequestV1
-pagination_label: SourceappbulkupdaterequestV1
-sidebar_label: SourceappbulkupdaterequestV1
+id: v1-sourceappbulkupdaterequest
+title: Sourceappbulkupdaterequest
+pagination_label: Sourceappbulkupdaterequest
+sidebar_label: Sourceappbulkupdaterequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SourceappbulkupdaterequestV1', 'v1SourceappbulkupdaterequestV1']
-slug: /tools/sdk/typescript/apps/models/sourceappbulkupdaterequest-v1
-tags: ['SDK', 'Software Development Kit', 'SourceappbulkupdaterequestV1', 'v1SourceappbulkupdaterequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Sourceappbulkupdaterequest', 'v1Sourceappbulkupdaterequest']
+slug: /tools/sdk/typescript/apps/models/sourceappbulkupdaterequest
+tags: ['SDK', 'Software Development Kit', 'Sourceappbulkupdaterequest', 'v1Sourceappbulkupdaterequest']
 ---
 
-# SourceappbulkupdaterequestV1
+# Sourceappbulkupdaterequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**appIds** | **Array&lt;string&gt;** | List of source app ids to update | [default to undefined]
-**jsonPatch** | **Array&lt;JsonpatchoperationV1&gt;** | The JSONPatch payload used to update the source app. | [default to undefined]
+**appIds** | `Array<string>` | List of source app ids to update | [default to undefined]
+**jsonPatch** | `Array<Jsonpatchoperation>` | The JSONPatch payload used to update the source app. | [default to undefined]
 

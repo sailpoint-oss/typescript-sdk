@@ -1,19 +1,19 @@
 ---
-id: v1-searchcriteria-query-v1
-title: SearchcriteriaQueryV1
-pagination_label: SearchcriteriaQueryV1
-sidebar_label: SearchcriteriaQueryV1
+id: v1-searchcriteria-query
+title: SearchcriteriaQuery
+pagination_label: SearchcriteriaQuery
+sidebar_label: SearchcriteriaQuery
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SearchcriteriaQueryV1', 'v1SearchcriteriaQueryV1']
-slug: /tools/sdk/typescript/suggested_entitlement_description/models/searchcriteria-query-v1
-tags: ['SDK', 'Software Development Kit', 'SearchcriteriaQueryV1', 'v1SearchcriteriaQueryV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'SearchcriteriaQuery', 'v1SearchcriteriaQuery']
+slug: /tools/sdk/typescript/suggested_entitlement_description/models/searchcriteria-query
+tags: ['SDK', 'Software Development Kit', 'SearchcriteriaQuery', 'v1SearchcriteriaQuery']
 ---
 
-# SearchcriteriaQueryV1
+# SearchcriteriaQuery
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**query** | **(optional)** **string** | A structured query for advanced search. | [default to undefined]
+**query** | **(optional)** `string` | A structured query for advanced search. | [default to undefined]
 

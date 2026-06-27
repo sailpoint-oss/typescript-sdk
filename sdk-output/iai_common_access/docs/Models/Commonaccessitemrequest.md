@@ -1,20 +1,20 @@
 ---
-id: v1-commonaccessitemrequest-v1
-title: CommonaccessitemrequestV1
-pagination_label: CommonaccessitemrequestV1
-sidebar_label: CommonaccessitemrequestV1
+id: v1-commonaccessitemrequest
+title: Commonaccessitemrequest
+pagination_label: Commonaccessitemrequest
+sidebar_label: Commonaccessitemrequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'CommonaccessitemrequestV1', 'v1CommonaccessitemrequestV1']
-slug: /tools/sdk/typescript/iai_common_access/models/commonaccessitemrequest-v1
-tags: ['SDK', 'Software Development Kit', 'CommonaccessitemrequestV1', 'v1CommonaccessitemrequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Commonaccessitemrequest', 'v1Commonaccessitemrequest']
+slug: /tools/sdk/typescript/iai_common_access/models/commonaccessitemrequest
+tags: ['SDK', 'Software Development Kit', 'Commonaccessitemrequest', 'v1Commonaccessitemrequest']
 ---
 
-# CommonaccessitemrequestV1
+# Commonaccessitemrequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**access** | **(optional)** **CommonaccessitemaccessV1** |  | [default to undefined]
-**status** | **(optional)** **CommonaccessitemstateV1** |  | [default to undefined]
+**access** | **(optional)** `Commonaccessitemaccess` |  | [default to undefined]
+**status** | **(optional)** `Commonaccessitemstate` |  | [default to undefined]
 

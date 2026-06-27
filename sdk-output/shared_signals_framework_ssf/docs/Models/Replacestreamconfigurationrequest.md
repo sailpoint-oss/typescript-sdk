@@ -1,22 +1,22 @@
 ---
-id: v1-replacestreamconfigurationrequest-v1
-title: ReplacestreamconfigurationrequestV1
-pagination_label: ReplacestreamconfigurationrequestV1
-sidebar_label: ReplacestreamconfigurationrequestV1
+id: v1-replacestreamconfigurationrequest
+title: Replacestreamconfigurationrequest
+pagination_label: Replacestreamconfigurationrequest
+sidebar_label: Replacestreamconfigurationrequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ReplacestreamconfigurationrequestV1', 'v1ReplacestreamconfigurationrequestV1']
-slug: /tools/sdk/typescript/shared_signals_framework_ssf/models/replacestreamconfigurationrequest-v1
-tags: ['SDK', 'Software Development Kit', 'ReplacestreamconfigurationrequestV1', 'v1ReplacestreamconfigurationrequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Replacestreamconfigurationrequest', 'v1Replacestreamconfigurationrequest']
+slug: /tools/sdk/typescript/shared_signals_framework_ssf/models/replacestreamconfigurationrequest
+tags: ['SDK', 'Software Development Kit', 'Replacestreamconfigurationrequest', 'v1Replacestreamconfigurationrequest']
 ---
 
-# ReplacestreamconfigurationrequestV1
+# Replacestreamconfigurationrequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**stream_id** | **string** | ID of the stream to replace. | [default to undefined]
-**delivery** | **ReplacestreamconfigurationrequestDeliveryV1** |  | [default to undefined]
-**events_requested** | **(optional)** **Array&lt;string&gt;** | Event types the receiver wants. Use CAEP event-type URIs. | [default to undefined]
-**description** | **(optional)** **string** | Optional human-readable description of the stream. | [default to undefined]
+**stream_id** | `string` | ID of the stream to replace. | [default to undefined]
+**delivery** | `ReplacestreamconfigurationrequestDelivery` |  | [default to undefined]
+**events_requested** | **(optional)** `Array<string>` | Event types the receiver wants. Use CAEP event-type URIs. | [default to undefined]
+**description** | **(optional)** `string` | Optional human-readable description of the stream. | [default to undefined]
 

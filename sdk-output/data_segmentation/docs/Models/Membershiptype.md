@@ -1,15 +1,15 @@
 ---
-id: v1-membershiptype-v1
-title: MembershiptypeV1
-pagination_label: MembershiptypeV1
-sidebar_label: MembershiptypeV1
+id: v1-membershiptype
+title: Membershiptype
+pagination_label: Membershiptype
+sidebar_label: Membershiptype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'MembershiptypeV1', 'v1MembershiptypeV1']
-slug: /tools/sdk/typescript/data_segmentation/models/membershiptype-v1
-tags: ['SDK', 'Software Development Kit', 'MembershiptypeV1', 'v1MembershiptypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Membershiptype', 'v1Membershiptype']
+slug: /tools/sdk/typescript/data_segmentation/models/membershiptype
+tags: ['SDK', 'Software Development Kit', 'Membershiptype', 'v1Membershiptype']
 ---
 
-# MembershiptypeV1
+# Membershiptype
 
 ## Enum
 

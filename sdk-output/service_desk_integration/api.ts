@@ -26,95 +26,95 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ArrayInnerV1
+ * @interface ArrayInner
  */
-export interface ArrayInnerV1 {
+export interface ArrayInner {
 }
 /**
  * 
  * @export
- * @interface BasecommondtoV1
+ * @interface Basecommondto
  */
-export interface BasecommondtoV1 {
+export interface Basecommondto {
     /**
      * System-generated unique ID of the Object
      * @type {string}
-     * @memberof BasecommondtoV1
+     * @memberof Basecommondto
      */
     'id'?: string;
     /**
      * Name of the Object
      * @type {string}
-     * @memberof BasecommondtoV1
+     * @memberof Basecommondto
      */
     'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
-     * @memberof BasecommondtoV1
+     * @memberof Basecommondto
      */
     'created'?: string;
     /**
      * Last modification date of the Object
      * @type {string}
-     * @memberof BasecommondtoV1
+     * @memberof Basecommondto
      */
     'modified'?: string;
 }
 /**
  * Before Provisioning Rule.
  * @export
- * @interface BeforeprovisioningruledtoV1
+ * @interface Beforeprovisioningruledto
  */
-export interface BeforeprovisioningruledtoV1 {
+export interface Beforeprovisioningruledto {
     /**
      * Before Provisioning Rule DTO type.
      * @type {string}
-     * @memberof BeforeprovisioningruledtoV1
+     * @memberof Beforeprovisioningruledto
      */
-    'type'?: BeforeprovisioningruledtoV1TypeV1;
+    'type'?: BeforeprovisioningruledtoTypeEnum;
     /**
      * Before Provisioning Rule ID.
      * @type {string}
-     * @memberof BeforeprovisioningruledtoV1
+     * @memberof Beforeprovisioningruledto
      */
     'id'?: string;
     /**
      * Rule display name.
      * @type {string}
-     * @memberof BeforeprovisioningruledtoV1
+     * @memberof Beforeprovisioningruledto
      */
     'name'?: string;
 }
 
-export const BeforeprovisioningruledtoV1TypeV1 = {
+export const BeforeprovisioningruledtoTypeEnum = {
     Rule: 'RULE'
 } as const;
 
-export type BeforeprovisioningruledtoV1TypeV1 = typeof BeforeprovisioningruledtoV1TypeV1[keyof typeof BeforeprovisioningruledtoV1TypeV1];
+export type BeforeprovisioningruledtoTypeEnum = typeof BeforeprovisioningruledtoTypeEnum[keyof typeof BeforeprovisioningruledtoTypeEnum];
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -123,87 +123,87 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetServiceDeskIntegrationsV1401ResponseV1
+ * @interface GetServiceDeskIntegrationsV1401Response
  */
-export interface GetServiceDeskIntegrationsV1401ResponseV1 {
+export interface GetServiceDeskIntegrationsV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetServiceDeskIntegrationsV1401ResponseV1
+     * @memberof GetServiceDeskIntegrationsV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetServiceDeskIntegrationsV1429ResponseV1
+ * @interface GetServiceDeskIntegrationsV1429Response
  */
-export interface GetServiceDeskIntegrationsV1429ResponseV1 {
+export interface GetServiceDeskIntegrationsV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetServiceDeskIntegrationsV1429ResponseV1
+     * @memberof GetServiceDeskIntegrationsV1429Response
      */
     'message'?: any;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface JsonpatchoperationV1
+ * @interface Jsonpatchoperation
  */
-export interface JsonpatchoperationV1 {
+export interface Jsonpatchoperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
-    'op': JsonpatchoperationV1OpV1;
+    'op': JsonpatchoperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValueV1}
-     * @memberof JsonpatchoperationV1
+     * @type {JsonpatchoperationValue}
+     * @memberof Jsonpatchoperation
      */
-    'value'?: JsonpatchoperationValueV1;
+    'value'?: JsonpatchoperationValue;
 }
 
-export const JsonpatchoperationV1OpV1 = {
+export const JsonpatchoperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -212,14 +212,14 @@ export const JsonpatchoperationV1OpV1 = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationV1OpV1 = typeof JsonpatchoperationV1OpV1[keyof typeof JsonpatchoperationV1OpV1];
+export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
 
 /**
- * @type JsonpatchoperationValueV1
+ * @type JsonpatchoperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number | object | string;
+export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -227,357 +227,357 @@ export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number |
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * Owner\'s identity.
  * @export
- * @interface OwnerdtoV1
+ * @interface Ownerdto
  */
-export interface OwnerdtoV1 {
+export interface Ownerdto {
     /**
      * Owner\'s DTO type.
      * @type {string}
-     * @memberof OwnerdtoV1
+     * @memberof Ownerdto
      */
-    'type'?: OwnerdtoV1TypeV1;
+    'type'?: OwnerdtoTypeEnum;
     /**
      * Owner\'s identity ID.
      * @type {string}
-     * @memberof OwnerdtoV1
+     * @memberof Ownerdto
      */
     'id'?: string;
     /**
      * Owner\'s name.
      * @type {string}
-     * @memberof OwnerdtoV1
+     * @memberof Ownerdto
      */
     'name'?: string;
 }
 
-export const OwnerdtoV1TypeV1 = {
+export const OwnerdtoTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type OwnerdtoV1TypeV1 = typeof OwnerdtoV1TypeV1[keyof typeof OwnerdtoV1TypeV1];
+export type OwnerdtoTypeEnum = typeof OwnerdtoTypeEnum[keyof typeof OwnerdtoTypeEnum];
 
-/**
- * This is a reference to a plan initializer script.
- * @export
- * @interface ProvisioningconfigPlanInitializerScriptV1
- */
-export interface ProvisioningconfigPlanInitializerScriptV1 {
-    /**
-     * This is a Rule that allows provisioning instruction changes.
-     * @type {string}
-     * @memberof ProvisioningconfigPlanInitializerScriptV1
-     */
-    'source'?: string;
-}
 /**
  * Specification of a Service Desk integration provisioning configuration.
  * @export
- * @interface ProvisioningconfigV1
+ * @interface Provisioningconfig
  */
-export interface ProvisioningconfigV1 {
+export interface Provisioningconfig {
     /**
      * Specifies whether this configuration is used to manage provisioning requests for all sources from the org.  If true, no managedResourceRefs are allowed.
      * @type {boolean}
-     * @memberof ProvisioningconfigV1
+     * @memberof Provisioningconfig
      */
     'universalManager'?: boolean;
     /**
      * References to sources for the Service Desk integration template.  May only be specified if universalManager is false.
-     * @type {Array<ServicedesksourceV1>}
-     * @memberof ProvisioningconfigV1
+     * @type {Array<Servicedesksource>}
+     * @memberof Provisioningconfig
      */
-    'managedResourceRefs'?: Array<ServicedesksourceV1>;
+    'managedResourceRefs'?: Array<Servicedesksource>;
     /**
      * 
-     * @type {ProvisioningconfigPlanInitializerScriptV1}
-     * @memberof ProvisioningconfigV1
+     * @type {ProvisioningconfigPlanInitializerScript}
+     * @memberof Provisioningconfig
      */
-    'planInitializerScript'?: ProvisioningconfigPlanInitializerScriptV1 | null;
+    'planInitializerScript'?: ProvisioningconfigPlanInitializerScript | null;
     /**
      * Name of an attribute that when true disables the saving of ProvisioningRequest objects whenever plans are sent through this integration.
      * @type {boolean}
-     * @memberof ProvisioningconfigV1
+     * @memberof Provisioningconfig
      */
     'noProvisioningRequests'?: boolean;
     /**
      * When saving pending requests is enabled, this defines the number of hours the request is allowed to live before it is considered expired and no longer affects plan compilation.
      * @type {number}
-     * @memberof ProvisioningconfigV1
+     * @memberof Provisioningconfig
      */
     'provisioningRequestExpiration'?: number;
 }
 /**
+ * This is a reference to a plan initializer script.
+ * @export
+ * @interface ProvisioningconfigPlanInitializerScript
+ */
+export interface ProvisioningconfigPlanInitializerScript {
+    /**
+     * This is a Rule that allows provisioning instruction changes.
+     * @type {string}
+     * @memberof ProvisioningconfigPlanInitializerScript
+     */
+    'source'?: string;
+}
+/**
  * Configuration of maximum number of days and interval for checking Service Desk integration queue status.
  * @export
- * @interface QueuedcheckconfigdetailsV1
+ * @interface Queuedcheckconfigdetails
  */
-export interface QueuedcheckconfigdetailsV1 {
+export interface Queuedcheckconfigdetails {
     /**
      * Interval in minutes between status checks
      * @type {string}
-     * @memberof QueuedcheckconfigdetailsV1
+     * @memberof Queuedcheckconfigdetails
      */
     'provisioningStatusCheckIntervalMinutes': string;
     /**
      * Maximum number of days to check
      * @type {string}
-     * @memberof QueuedcheckconfigdetailsV1
+     * @memberof Queuedcheckconfigdetails
      */
     'provisioningMaxStatusCheckDays': string;
 }
 /**
  * 
  * @export
- * @interface ServicedeskintegrationdtoV1
+ * @interface Servicedeskintegrationdto
  */
-export interface ServicedeskintegrationdtoV1 {
+export interface Servicedeskintegrationdto {
     /**
      * Unique identifier for the Service Desk integration
      * @type {string}
-     * @memberof ServicedeskintegrationdtoV1
+     * @memberof Servicedeskintegrationdto
      */
     'id'?: string;
     /**
      * Service Desk integration\'s name. The name must be unique.
      * @type {string}
-     * @memberof ServicedeskintegrationdtoV1
+     * @memberof Servicedeskintegrationdto
      */
     'name': string;
     /**
      * The date and time the Service Desk integration was created
      * @type {string}
-     * @memberof ServicedeskintegrationdtoV1
+     * @memberof Servicedeskintegrationdto
      */
     'created'?: string;
     /**
      * The date and time the Service Desk integration was last modified
      * @type {string}
-     * @memberof ServicedeskintegrationdtoV1
+     * @memberof Servicedeskintegrationdto
      */
     'modified'?: string;
     /**
      * Service Desk integration\'s description.
      * @type {string}
-     * @memberof ServicedeskintegrationdtoV1
+     * @memberof Servicedeskintegrationdto
      */
     'description': string;
     /**
      * Service Desk integration types:  - ServiceNowSDIM - ServiceNow 
      * @type {string}
-     * @memberof ServicedeskintegrationdtoV1
+     * @memberof Servicedeskintegrationdto
      */
     'type': string;
     /**
      * 
-     * @type {OwnerdtoV1}
-     * @memberof ServicedeskintegrationdtoV1
+     * @type {Ownerdto}
+     * @memberof Servicedeskintegrationdto
      */
-    'ownerRef'?: OwnerdtoV1;
+    'ownerRef'?: Ownerdto;
     /**
      * 
-     * @type {SourceclusterdtoV1}
-     * @memberof ServicedeskintegrationdtoV1
+     * @type {Sourceclusterdto}
+     * @memberof Servicedeskintegrationdto
      */
-    'clusterRef'?: SourceclusterdtoV1;
+    'clusterRef'?: Sourceclusterdto;
     /**
      * Cluster ID for the Service Desk integration (replaced by clusterRef, retained for backward compatibility).
      * @type {string}
-     * @memberof ServicedeskintegrationdtoV1
+     * @memberof Servicedeskintegrationdto
      * @deprecated
      */
     'cluster'?: string | null;
     /**
      * Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility).
      * @type {Array<string>}
-     * @memberof ServicedeskintegrationdtoV1
+     * @memberof Servicedeskintegrationdto
      * @deprecated
      */
     'managedSources'?: Array<string>;
     /**
      * 
-     * @type {ProvisioningconfigV1}
-     * @memberof ServicedeskintegrationdtoV1
+     * @type {Provisioningconfig}
+     * @memberof Servicedeskintegrationdto
      */
-    'provisioningConfig'?: ProvisioningconfigV1;
+    'provisioningConfig'?: Provisioningconfig;
     /**
      * Service Desk integration\'s attributes. Validation constraints enforced by the implementation.
      * @type {{ [key: string]: any; }}
-     * @memberof ServicedeskintegrationdtoV1
+     * @memberof Servicedeskintegrationdto
      */
     'attributes': { [key: string]: any; };
     /**
      * 
-     * @type {BeforeprovisioningruledtoV1}
-     * @memberof ServicedeskintegrationdtoV1
+     * @type {Beforeprovisioningruledto}
+     * @memberof Servicedeskintegrationdto
      */
-    'beforeProvisioningRule'?: BeforeprovisioningruledtoV1;
+    'beforeProvisioningRule'?: Beforeprovisioningruledto;
 }
 /**
  * 
  * @export
- * @interface ServicedeskintegrationtemplatedtoV1
+ * @interface Servicedeskintegrationtemplatedto
  */
-export interface ServicedeskintegrationtemplatedtoV1 {
+export interface Servicedeskintegrationtemplatedto {
     /**
      * System-generated unique ID of the Object
      * @type {string}
-     * @memberof ServicedeskintegrationtemplatedtoV1
+     * @memberof Servicedeskintegrationtemplatedto
      */
     'id'?: string;
     /**
      * Name of the Object
      * @type {string}
-     * @memberof ServicedeskintegrationtemplatedtoV1
+     * @memberof Servicedeskintegrationtemplatedto
      */
     'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
-     * @memberof ServicedeskintegrationtemplatedtoV1
+     * @memberof Servicedeskintegrationtemplatedto
      */
     'created'?: string;
     /**
      * Last modification date of the Object
      * @type {string}
-     * @memberof ServicedeskintegrationtemplatedtoV1
+     * @memberof Servicedeskintegrationtemplatedto
      */
     'modified'?: string;
     /**
      * The \'type\' property specifies the type of the Service Desk integration template.
      * @type {string}
-     * @memberof ServicedeskintegrationtemplatedtoV1
+     * @memberof Servicedeskintegrationtemplatedto
      */
     'type': string;
     /**
      * The \'attributes\' property value is a map of attributes available for integrations using this Service Desk integration template.
      * @type {{ [key: string]: any; }}
-     * @memberof ServicedeskintegrationtemplatedtoV1
+     * @memberof Servicedeskintegrationtemplatedto
      */
     'attributes': { [key: string]: any; };
     /**
      * 
-     * @type {ProvisioningconfigV1}
-     * @memberof ServicedeskintegrationtemplatedtoV1
+     * @type {Provisioningconfig}
+     * @memberof Servicedeskintegrationtemplatedto
      */
-    'provisioningConfig': ProvisioningconfigV1;
+    'provisioningConfig': Provisioningconfig;
 }
 /**
  * This represents a Service Desk Integration template type.
  * @export
- * @interface ServicedeskintegrationtemplatetypeV1
+ * @interface Servicedeskintegrationtemplatetype
  */
-export interface ServicedeskintegrationtemplatetypeV1 {
+export interface Servicedeskintegrationtemplatetype {
     /**
      * This is the name of the type.
      * @type {string}
-     * @memberof ServicedeskintegrationtemplatetypeV1
+     * @memberof Servicedeskintegrationtemplatetype
      */
     'name'?: string;
     /**
      * This is the type value for the type.
      * @type {string}
-     * @memberof ServicedeskintegrationtemplatetypeV1
+     * @memberof Servicedeskintegrationtemplatetype
      */
     'type': string;
     /**
      * This is the scriptName attribute value for the type.
      * @type {string}
-     * @memberof ServicedeskintegrationtemplatetypeV1
+     * @memberof Servicedeskintegrationtemplatetype
      */
     'scriptName': string;
 }
 /**
  * Source for Service Desk integration template.
  * @export
- * @interface ServicedesksourceV1
+ * @interface Servicedesksource
  */
-export interface ServicedesksourceV1 {
+export interface Servicedesksource {
     /**
      * DTO type of source for service desk integration template.
      * @type {string}
-     * @memberof ServicedesksourceV1
+     * @memberof Servicedesksource
      */
-    'type'?: ServicedesksourceV1TypeV1;
+    'type'?: ServicedesksourceTypeEnum;
     /**
      * ID of source for service desk integration template.
      * @type {string}
-     * @memberof ServicedesksourceV1
+     * @memberof Servicedesksource
      */
     'id'?: string;
     /**
      * Human-readable name of source for service desk integration template.
      * @type {string}
-     * @memberof ServicedesksourceV1
+     * @memberof Servicedesksource
      */
     'name'?: string;
 }
 
-export const ServicedesksourceV1TypeV1 = {
+export const ServicedesksourceTypeEnum = {
     Source: 'SOURCE'
 } as const;
 
-export type ServicedesksourceV1TypeV1 = typeof ServicedesksourceV1TypeV1[keyof typeof ServicedesksourceV1TypeV1];
+export type ServicedesksourceTypeEnum = typeof ServicedesksourceTypeEnum[keyof typeof ServicedesksourceTypeEnum];
 
 /**
  * Source cluster.
  * @export
- * @interface SourceclusterdtoV1
+ * @interface Sourceclusterdto
  */
-export interface SourceclusterdtoV1 {
+export interface Sourceclusterdto {
     /**
      * Source cluster DTO type.
      * @type {string}
-     * @memberof SourceclusterdtoV1
+     * @memberof Sourceclusterdto
      */
-    'type'?: SourceclusterdtoV1TypeV1;
+    'type'?: SourceclusterdtoTypeEnum;
     /**
      * Source cluster ID.
      * @type {string}
-     * @memberof SourceclusterdtoV1
+     * @memberof Sourceclusterdto
      */
     'id'?: string;
     /**
      * Source cluster display name.
      * @type {string}
-     * @memberof SourceclusterdtoV1
+     * @memberof Sourceclusterdto
      */
     'name'?: string;
 }
 
-export const SourceclusterdtoV1TypeV1 = {
+export const SourceclusterdtoTypeEnum = {
     Cluster: 'CLUSTER'
 } as const;
 
-export type SourceclusterdtoV1TypeV1 = typeof SourceclusterdtoV1TypeV1[keyof typeof SourceclusterdtoV1TypeV1];
+export type SourceclusterdtoTypeEnum = typeof SourceclusterdtoTypeEnum[keyof typeof SourceclusterdtoTypeEnum];
 
 
 /**
- * ServiceDeskIntegrationV1Api - axios parameter creator
+ * ServiceDeskIntegrationApi - axios parameter creator
  * @export
  */
-export const ServiceDeskIntegrationV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const ServiceDeskIntegrationApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Create a new Service Desk integration.
          * @summary Create new service desk integration
-         * @param {ServicedeskintegrationdtoV1} servicedeskintegrationdtoV1 The specifics of a new integration to create
+         * @param {Servicedeskintegrationdto} servicedeskintegrationdto The specifics of a new integration to create
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createServiceDeskIntegrationV1: async (servicedeskintegrationdtoV1: ServicedeskintegrationdtoV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'servicedeskintegrationdtoV1' is not null or undefined
-            assertParamExists('createServiceDeskIntegrationV1', 'servicedeskintegrationdtoV1', servicedeskintegrationdtoV1)
+        createServiceDeskIntegrationV1: async (servicedeskintegrationdto: Servicedeskintegrationdto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'servicedeskintegrationdto' is not null or undefined
+            assertParamExists('createServiceDeskIntegrationV1', 'servicedeskintegrationdto', servicedeskintegrationdto)
             const localVarPath = `/service-desk-integrations/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -597,7 +597,7 @@ export const ServiceDeskIntegrationV1ApiAxiosParamCreator = function (configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(servicedeskintegrationdtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(servicedeskintegrationdto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -825,15 +825,15 @@ export const ServiceDeskIntegrationV1ApiAxiosParamCreator = function (configurat
          * Update an existing Service Desk integration by ID with a PATCH request.
          * @summary Patch a service desk integration
          * @param {string} id ID of the Service Desk integration to update
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchServiceDeskIntegrationV1: async (id: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchServiceDeskIntegrationV1: async (id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchServiceDeskIntegrationV1', 'id', id)
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('patchServiceDeskIntegrationV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('patchServiceDeskIntegrationV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/service-desk-integrations/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -854,7 +854,7 @@ export const ServiceDeskIntegrationV1ApiAxiosParamCreator = function (configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -865,15 +865,15 @@ export const ServiceDeskIntegrationV1ApiAxiosParamCreator = function (configurat
          * Update an existing Service Desk integration by ID.
          * @summary Update a service desk integration
          * @param {string} id ID of the Service Desk integration to update
-         * @param {ServicedeskintegrationdtoV1} servicedeskintegrationdtoV1 The specifics of the integration to update
+         * @param {Servicedeskintegrationdto} servicedeskintegrationdto The specifics of the integration to update
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putServiceDeskIntegrationV1: async (id: string, servicedeskintegrationdtoV1: ServicedeskintegrationdtoV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putServiceDeskIntegrationV1: async (id: string, servicedeskintegrationdto: Servicedeskintegrationdto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('putServiceDeskIntegrationV1', 'id', id)
-            // verify required parameter 'servicedeskintegrationdtoV1' is not null or undefined
-            assertParamExists('putServiceDeskIntegrationV1', 'servicedeskintegrationdtoV1', servicedeskintegrationdtoV1)
+            // verify required parameter 'servicedeskintegrationdto' is not null or undefined
+            assertParamExists('putServiceDeskIntegrationV1', 'servicedeskintegrationdto', servicedeskintegrationdto)
             const localVarPath = `/service-desk-integrations/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -894,7 +894,7 @@ export const ServiceDeskIntegrationV1ApiAxiosParamCreator = function (configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(servicedeskintegrationdtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(servicedeskintegrationdto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -904,13 +904,13 @@ export const ServiceDeskIntegrationV1ApiAxiosParamCreator = function (configurat
         /**
          * Update the time check configuration of queued SDIM tickets.
          * @summary Update the time check configuration
-         * @param {QueuedcheckconfigdetailsV1} queuedcheckconfigdetailsV1 The modified time check configuration
+         * @param {Queuedcheckconfigdetails} queuedcheckconfigdetails The modified time check configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateStatusCheckDetailsV1: async (queuedcheckconfigdetailsV1: QueuedcheckconfigdetailsV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'queuedcheckconfigdetailsV1' is not null or undefined
-            assertParamExists('updateStatusCheckDetailsV1', 'queuedcheckconfigdetailsV1', queuedcheckconfigdetailsV1)
+        updateStatusCheckDetailsV1: async (queuedcheckconfigdetails: Queuedcheckconfigdetails, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'queuedcheckconfigdetails' is not null or undefined
+            assertParamExists('updateStatusCheckDetailsV1', 'queuedcheckconfigdetails', queuedcheckconfigdetails)
             const localVarPath = `/service-desk-integrations/v1/status-check-configuration`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -930,7 +930,7 @@ export const ServiceDeskIntegrationV1ApiAxiosParamCreator = function (configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(queuedcheckconfigdetailsV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(queuedcheckconfigdetails, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -941,23 +941,23 @@ export const ServiceDeskIntegrationV1ApiAxiosParamCreator = function (configurat
 };
 
 /**
- * ServiceDeskIntegrationV1Api - functional programming interface
+ * ServiceDeskIntegrationApi - functional programming interface
  * @export
  */
-export const ServiceDeskIntegrationV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = ServiceDeskIntegrationV1ApiAxiosParamCreator(configuration)
+export const ServiceDeskIntegrationApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = ServiceDeskIntegrationApiAxiosParamCreator(configuration)
     return {
         /**
          * Create a new Service Desk integration.
          * @summary Create new service desk integration
-         * @param {ServicedeskintegrationdtoV1} servicedeskintegrationdtoV1 The specifics of a new integration to create
+         * @param {Servicedeskintegrationdto} servicedeskintegrationdto The specifics of a new integration to create
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createServiceDeskIntegrationV1(servicedeskintegrationdtoV1: ServicedeskintegrationdtoV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServicedeskintegrationdtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createServiceDeskIntegrationV1(servicedeskintegrationdtoV1, axiosOptions);
+        async createServiceDeskIntegrationV1(servicedeskintegrationdto: Servicedeskintegrationdto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Servicedeskintegrationdto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createServiceDeskIntegrationV1(servicedeskintegrationdto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ServiceDeskIntegrationV1Api.createServiceDeskIntegrationV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ServiceDeskIntegrationApi.createServiceDeskIntegrationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -970,7 +970,7 @@ export const ServiceDeskIntegrationV1ApiFp = function(configuration?: Configurat
         async deleteServiceDeskIntegrationV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteServiceDeskIntegrationV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ServiceDeskIntegrationV1Api.deleteServiceDeskIntegrationV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ServiceDeskIntegrationApi.deleteServiceDeskIntegrationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -980,10 +980,10 @@ export const ServiceDeskIntegrationV1ApiFp = function(configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getServiceDeskIntegrationTemplateV1(scriptName: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServicedeskintegrationtemplatedtoV1>> {
+        async getServiceDeskIntegrationTemplateV1(scriptName: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Servicedeskintegrationtemplatedto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegrationTemplateV1(scriptName, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ServiceDeskIntegrationV1Api.getServiceDeskIntegrationTemplateV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ServiceDeskIntegrationApi.getServiceDeskIntegrationTemplateV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -992,10 +992,10 @@ export const ServiceDeskIntegrationV1ApiFp = function(configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getServiceDeskIntegrationTypesV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ServicedeskintegrationtemplatetypeV1>>> {
+        async getServiceDeskIntegrationTypesV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Servicedeskintegrationtemplatetype>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegrationTypesV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ServiceDeskIntegrationV1Api.getServiceDeskIntegrationTypesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ServiceDeskIntegrationApi.getServiceDeskIntegrationTypesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1005,10 +1005,10 @@ export const ServiceDeskIntegrationV1ApiFp = function(configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getServiceDeskIntegrationV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServicedeskintegrationdtoV1>> {
+        async getServiceDeskIntegrationV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Servicedeskintegrationdto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegrationV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ServiceDeskIntegrationV1Api.getServiceDeskIntegrationV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ServiceDeskIntegrationApi.getServiceDeskIntegrationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1022,10 +1022,10 @@ export const ServiceDeskIntegrationV1ApiFp = function(configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getServiceDeskIntegrationsV1(offset?: number, limit?: number, sorters?: string, filters?: string, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ServicedeskintegrationdtoV1>>> {
+        async getServiceDeskIntegrationsV1(offset?: number, limit?: number, sorters?: string, filters?: string, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Servicedeskintegrationdto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegrationsV1(offset, limit, sorters, filters, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ServiceDeskIntegrationV1Api.getServiceDeskIntegrationsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ServiceDeskIntegrationApi.getServiceDeskIntegrationsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1034,91 +1034,91 @@ export const ServiceDeskIntegrationV1ApiFp = function(configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getStatusCheckDetailsV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<QueuedcheckconfigdetailsV1>> {
+        async getStatusCheckDetailsV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Queuedcheckconfigdetails>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getStatusCheckDetailsV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ServiceDeskIntegrationV1Api.getStatusCheckDetailsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ServiceDeskIntegrationApi.getStatusCheckDetailsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Update an existing Service Desk integration by ID with a PATCH request.
          * @summary Patch a service desk integration
          * @param {string} id ID of the Service Desk integration to update
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchServiceDeskIntegrationV1(id: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServicedeskintegrationdtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchServiceDeskIntegrationV1(id, jsonpatchoperationV1, axiosOptions);
+        async patchServiceDeskIntegrationV1(id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Servicedeskintegrationdto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchServiceDeskIntegrationV1(id, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ServiceDeskIntegrationV1Api.patchServiceDeskIntegrationV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ServiceDeskIntegrationApi.patchServiceDeskIntegrationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Update an existing Service Desk integration by ID.
          * @summary Update a service desk integration
          * @param {string} id ID of the Service Desk integration to update
-         * @param {ServicedeskintegrationdtoV1} servicedeskintegrationdtoV1 The specifics of the integration to update
+         * @param {Servicedeskintegrationdto} servicedeskintegrationdto The specifics of the integration to update
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putServiceDeskIntegrationV1(id: string, servicedeskintegrationdtoV1: ServicedeskintegrationdtoV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServicedeskintegrationdtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putServiceDeskIntegrationV1(id, servicedeskintegrationdtoV1, axiosOptions);
+        async putServiceDeskIntegrationV1(id: string, servicedeskintegrationdto: Servicedeskintegrationdto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Servicedeskintegrationdto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putServiceDeskIntegrationV1(id, servicedeskintegrationdto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ServiceDeskIntegrationV1Api.putServiceDeskIntegrationV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ServiceDeskIntegrationApi.putServiceDeskIntegrationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Update the time check configuration of queued SDIM tickets.
          * @summary Update the time check configuration
-         * @param {QueuedcheckconfigdetailsV1} queuedcheckconfigdetailsV1 The modified time check configuration
+         * @param {Queuedcheckconfigdetails} queuedcheckconfigdetails The modified time check configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateStatusCheckDetailsV1(queuedcheckconfigdetailsV1: QueuedcheckconfigdetailsV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<QueuedcheckconfigdetailsV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateStatusCheckDetailsV1(queuedcheckconfigdetailsV1, axiosOptions);
+        async updateStatusCheckDetailsV1(queuedcheckconfigdetails: Queuedcheckconfigdetails, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Queuedcheckconfigdetails>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateStatusCheckDetailsV1(queuedcheckconfigdetails, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ServiceDeskIntegrationV1Api.updateStatusCheckDetailsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ServiceDeskIntegrationApi.updateStatusCheckDetailsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * ServiceDeskIntegrationV1Api - factory interface
+ * ServiceDeskIntegrationApi - factory interface
  * @export
  */
-export const ServiceDeskIntegrationV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = ServiceDeskIntegrationV1ApiFp(configuration)
+export const ServiceDeskIntegrationApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = ServiceDeskIntegrationApiFp(configuration)
     return {
         /**
          * Create a new Service Desk integration.
          * @summary Create new service desk integration
-         * @param {ServiceDeskIntegrationV1ApiCreateServiceDeskIntegrationV1Request} requestParameters Request parameters.
+         * @param {ServiceDeskIntegrationApiCreateServiceDeskIntegrationV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createServiceDeskIntegrationV1(requestParameters: ServiceDeskIntegrationV1ApiCreateServiceDeskIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ServicedeskintegrationdtoV1> {
-            return localVarFp.createServiceDeskIntegrationV1(requestParameters.servicedeskintegrationdtoV1, axiosOptions).then((request) => request(axios, basePath));
+        createServiceDeskIntegrationV1(requestParameters: ServiceDeskIntegrationApiCreateServiceDeskIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Servicedeskintegrationdto> {
+            return localVarFp.createServiceDeskIntegrationV1(requestParameters.servicedeskintegrationdto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Delete an existing Service Desk integration by ID.
          * @summary Delete a service desk integration
-         * @param {ServiceDeskIntegrationV1ApiDeleteServiceDeskIntegrationV1Request} requestParameters Request parameters.
+         * @param {ServiceDeskIntegrationApiDeleteServiceDeskIntegrationV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteServiceDeskIntegrationV1(requestParameters: ServiceDeskIntegrationV1ApiDeleteServiceDeskIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteServiceDeskIntegrationV1(requestParameters: ServiceDeskIntegrationApiDeleteServiceDeskIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteServiceDeskIntegrationV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API endpoint returns an existing Service Desk integration template by scriptName.
          * @summary Service desk integration template by scriptname
-         * @param {ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationTemplateV1Request} requestParameters Request parameters.
+         * @param {ServiceDeskIntegrationApiGetServiceDeskIntegrationTemplateV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getServiceDeskIntegrationTemplateV1(requestParameters: ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ServicedeskintegrationtemplatedtoV1> {
+        getServiceDeskIntegrationTemplateV1(requestParameters: ServiceDeskIntegrationApiGetServiceDeskIntegrationTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Servicedeskintegrationtemplatedto> {
             return localVarFp.getServiceDeskIntegrationTemplateV1(requestParameters.scriptName, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1127,27 +1127,27 @@ export const ServiceDeskIntegrationV1ApiFactory = function (configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getServiceDeskIntegrationTypesV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ServicedeskintegrationtemplatetypeV1>> {
+        getServiceDeskIntegrationTypesV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Servicedeskintegrationtemplatetype>> {
             return localVarFp.getServiceDeskIntegrationTypesV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get an existing Service Desk integration by ID.
          * @summary Get a service desk integration
-         * @param {ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationV1Request} requestParameters Request parameters.
+         * @param {ServiceDeskIntegrationApiGetServiceDeskIntegrationV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getServiceDeskIntegrationV1(requestParameters: ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ServicedeskintegrationdtoV1> {
+        getServiceDeskIntegrationV1(requestParameters: ServiceDeskIntegrationApiGetServiceDeskIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Servicedeskintegrationdto> {
             return localVarFp.getServiceDeskIntegrationV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get a list of Service Desk integration objects.
          * @summary List existing service desk integrations
-         * @param {ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationsV1Request} requestParameters Request parameters.
+         * @param {ServiceDeskIntegrationApiGetServiceDeskIntegrationsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getServiceDeskIntegrationsV1(requestParameters: ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ServicedeskintegrationdtoV1>> {
+        getServiceDeskIntegrationsV1(requestParameters: ServiceDeskIntegrationApiGetServiceDeskIntegrationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Servicedeskintegrationdto>> {
             return localVarFp.getServiceDeskIntegrationsV1(requestParameters.offset, requestParameters.limit, requestParameters.sorters, requestParameters.filters, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1156,237 +1156,237 @@ export const ServiceDeskIntegrationV1ApiFactory = function (configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getStatusCheckDetailsV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<QueuedcheckconfigdetailsV1> {
+        getStatusCheckDetailsV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Queuedcheckconfigdetails> {
             return localVarFp.getStatusCheckDetailsV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Update an existing Service Desk integration by ID with a PATCH request.
          * @summary Patch a service desk integration
-         * @param {ServiceDeskIntegrationV1ApiPatchServiceDeskIntegrationV1Request} requestParameters Request parameters.
+         * @param {ServiceDeskIntegrationApiPatchServiceDeskIntegrationV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchServiceDeskIntegrationV1(requestParameters: ServiceDeskIntegrationV1ApiPatchServiceDeskIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ServicedeskintegrationdtoV1> {
-            return localVarFp.patchServiceDeskIntegrationV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        patchServiceDeskIntegrationV1(requestParameters: ServiceDeskIntegrationApiPatchServiceDeskIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Servicedeskintegrationdto> {
+            return localVarFp.patchServiceDeskIntegrationV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Update an existing Service Desk integration by ID.
          * @summary Update a service desk integration
-         * @param {ServiceDeskIntegrationV1ApiPutServiceDeskIntegrationV1Request} requestParameters Request parameters.
+         * @param {ServiceDeskIntegrationApiPutServiceDeskIntegrationV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putServiceDeskIntegrationV1(requestParameters: ServiceDeskIntegrationV1ApiPutServiceDeskIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ServicedeskintegrationdtoV1> {
-            return localVarFp.putServiceDeskIntegrationV1(requestParameters.id, requestParameters.servicedeskintegrationdtoV1, axiosOptions).then((request) => request(axios, basePath));
+        putServiceDeskIntegrationV1(requestParameters: ServiceDeskIntegrationApiPutServiceDeskIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Servicedeskintegrationdto> {
+            return localVarFp.putServiceDeskIntegrationV1(requestParameters.id, requestParameters.servicedeskintegrationdto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Update the time check configuration of queued SDIM tickets.
          * @summary Update the time check configuration
-         * @param {ServiceDeskIntegrationV1ApiUpdateStatusCheckDetailsV1Request} requestParameters Request parameters.
+         * @param {ServiceDeskIntegrationApiUpdateStatusCheckDetailsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateStatusCheckDetailsV1(requestParameters: ServiceDeskIntegrationV1ApiUpdateStatusCheckDetailsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<QueuedcheckconfigdetailsV1> {
-            return localVarFp.updateStatusCheckDetailsV1(requestParameters.queuedcheckconfigdetailsV1, axiosOptions).then((request) => request(axios, basePath));
+        updateStatusCheckDetailsV1(requestParameters: ServiceDeskIntegrationApiUpdateStatusCheckDetailsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Queuedcheckconfigdetails> {
+            return localVarFp.updateStatusCheckDetailsV1(requestParameters.queuedcheckconfigdetails, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createServiceDeskIntegrationV1 operation in ServiceDeskIntegrationV1Api.
+ * Request parameters for createServiceDeskIntegrationV1 operation in ServiceDeskIntegrationApi.
  * @export
- * @interface ServiceDeskIntegrationV1ApiCreateServiceDeskIntegrationV1Request
+ * @interface ServiceDeskIntegrationApiCreateServiceDeskIntegrationV1Request
  */
-export interface ServiceDeskIntegrationV1ApiCreateServiceDeskIntegrationV1Request {
+export interface ServiceDeskIntegrationApiCreateServiceDeskIntegrationV1Request {
     /**
      * The specifics of a new integration to create
-     * @type {ServicedeskintegrationdtoV1}
-     * @memberof ServiceDeskIntegrationV1ApiCreateServiceDeskIntegrationV1
+     * @type {Servicedeskintegrationdto}
+     * @memberof ServiceDeskIntegrationApiCreateServiceDeskIntegrationV1
      */
-    readonly servicedeskintegrationdtoV1: ServicedeskintegrationdtoV1
+    readonly servicedeskintegrationdto: Servicedeskintegrationdto
 }
 
 /**
- * Request parameters for deleteServiceDeskIntegrationV1 operation in ServiceDeskIntegrationV1Api.
+ * Request parameters for deleteServiceDeskIntegrationV1 operation in ServiceDeskIntegrationApi.
  * @export
- * @interface ServiceDeskIntegrationV1ApiDeleteServiceDeskIntegrationV1Request
+ * @interface ServiceDeskIntegrationApiDeleteServiceDeskIntegrationV1Request
  */
-export interface ServiceDeskIntegrationV1ApiDeleteServiceDeskIntegrationV1Request {
+export interface ServiceDeskIntegrationApiDeleteServiceDeskIntegrationV1Request {
     /**
      * ID of Service Desk integration to delete
      * @type {string}
-     * @memberof ServiceDeskIntegrationV1ApiDeleteServiceDeskIntegrationV1
+     * @memberof ServiceDeskIntegrationApiDeleteServiceDeskIntegrationV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getServiceDeskIntegrationTemplateV1 operation in ServiceDeskIntegrationV1Api.
+ * Request parameters for getServiceDeskIntegrationTemplateV1 operation in ServiceDeskIntegrationApi.
  * @export
- * @interface ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationTemplateV1Request
+ * @interface ServiceDeskIntegrationApiGetServiceDeskIntegrationTemplateV1Request
  */
-export interface ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationTemplateV1Request {
+export interface ServiceDeskIntegrationApiGetServiceDeskIntegrationTemplateV1Request {
     /**
      * The scriptName value of the Service Desk integration template to get
      * @type {string}
-     * @memberof ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationTemplateV1
+     * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegrationTemplateV1
      */
     readonly scriptName: string
 }
 
 /**
- * Request parameters for getServiceDeskIntegrationV1 operation in ServiceDeskIntegrationV1Api.
+ * Request parameters for getServiceDeskIntegrationV1 operation in ServiceDeskIntegrationApi.
  * @export
- * @interface ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationV1Request
+ * @interface ServiceDeskIntegrationApiGetServiceDeskIntegrationV1Request
  */
-export interface ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationV1Request {
+export interface ServiceDeskIntegrationApiGetServiceDeskIntegrationV1Request {
     /**
      * ID of the Service Desk integration to get
      * @type {string}
-     * @memberof ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationV1
+     * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegrationV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getServiceDeskIntegrationsV1 operation in ServiceDeskIntegrationV1Api.
+ * Request parameters for getServiceDeskIntegrationsV1 operation in ServiceDeskIntegrationApi.
  * @export
- * @interface ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationsV1Request
+ * @interface ServiceDeskIntegrationApiGetServiceDeskIntegrationsV1Request
  */
-export interface ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationsV1Request {
+export interface ServiceDeskIntegrationApiGetServiceDeskIntegrationsV1Request {
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationsV1
+     * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegrationsV1
      */
     readonly offset?: number
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationsV1
+     * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegrationsV1
      */
     readonly limit?: number
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
      * @type {string}
-     * @memberof ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationsV1
+     * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegrationsV1
      */
     readonly sorters?: string
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq*  **type**: *eq, in*  **cluster**: *eq, in*
      * @type {string}
-     * @memberof ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationsV1
+     * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegrationsV1
      */
     readonly filters?: string
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationsV1
+     * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegrationsV1
      */
     readonly count?: boolean
 }
 
 /**
- * Request parameters for patchServiceDeskIntegrationV1 operation in ServiceDeskIntegrationV1Api.
+ * Request parameters for patchServiceDeskIntegrationV1 operation in ServiceDeskIntegrationApi.
  * @export
- * @interface ServiceDeskIntegrationV1ApiPatchServiceDeskIntegrationV1Request
+ * @interface ServiceDeskIntegrationApiPatchServiceDeskIntegrationV1Request
  */
-export interface ServiceDeskIntegrationV1ApiPatchServiceDeskIntegrationV1Request {
+export interface ServiceDeskIntegrationApiPatchServiceDeskIntegrationV1Request {
     /**
      * ID of the Service Desk integration to update
      * @type {string}
-     * @memberof ServiceDeskIntegrationV1ApiPatchServiceDeskIntegrationV1
+     * @memberof ServiceDeskIntegrationApiPatchServiceDeskIntegrationV1
      */
     readonly id: string
 
     /**
      * A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof ServiceDeskIntegrationV1ApiPatchServiceDeskIntegrationV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof ServiceDeskIntegrationApiPatchServiceDeskIntegrationV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * Request parameters for putServiceDeskIntegrationV1 operation in ServiceDeskIntegrationV1Api.
+ * Request parameters for putServiceDeskIntegrationV1 operation in ServiceDeskIntegrationApi.
  * @export
- * @interface ServiceDeskIntegrationV1ApiPutServiceDeskIntegrationV1Request
+ * @interface ServiceDeskIntegrationApiPutServiceDeskIntegrationV1Request
  */
-export interface ServiceDeskIntegrationV1ApiPutServiceDeskIntegrationV1Request {
+export interface ServiceDeskIntegrationApiPutServiceDeskIntegrationV1Request {
     /**
      * ID of the Service Desk integration to update
      * @type {string}
-     * @memberof ServiceDeskIntegrationV1ApiPutServiceDeskIntegrationV1
+     * @memberof ServiceDeskIntegrationApiPutServiceDeskIntegrationV1
      */
     readonly id: string
 
     /**
      * The specifics of the integration to update
-     * @type {ServicedeskintegrationdtoV1}
-     * @memberof ServiceDeskIntegrationV1ApiPutServiceDeskIntegrationV1
+     * @type {Servicedeskintegrationdto}
+     * @memberof ServiceDeskIntegrationApiPutServiceDeskIntegrationV1
      */
-    readonly servicedeskintegrationdtoV1: ServicedeskintegrationdtoV1
+    readonly servicedeskintegrationdto: Servicedeskintegrationdto
 }
 
 /**
- * Request parameters for updateStatusCheckDetailsV1 operation in ServiceDeskIntegrationV1Api.
+ * Request parameters for updateStatusCheckDetailsV1 operation in ServiceDeskIntegrationApi.
  * @export
- * @interface ServiceDeskIntegrationV1ApiUpdateStatusCheckDetailsV1Request
+ * @interface ServiceDeskIntegrationApiUpdateStatusCheckDetailsV1Request
  */
-export interface ServiceDeskIntegrationV1ApiUpdateStatusCheckDetailsV1Request {
+export interface ServiceDeskIntegrationApiUpdateStatusCheckDetailsV1Request {
     /**
      * The modified time check configuration
-     * @type {QueuedcheckconfigdetailsV1}
-     * @memberof ServiceDeskIntegrationV1ApiUpdateStatusCheckDetailsV1
+     * @type {Queuedcheckconfigdetails}
+     * @memberof ServiceDeskIntegrationApiUpdateStatusCheckDetailsV1
      */
-    readonly queuedcheckconfigdetailsV1: QueuedcheckconfigdetailsV1
+    readonly queuedcheckconfigdetails: Queuedcheckconfigdetails
 }
 
 /**
- * ServiceDeskIntegrationV1Api - object-oriented interface
+ * ServiceDeskIntegrationApi - object-oriented interface
  * @export
- * @class ServiceDeskIntegrationV1Api
+ * @class ServiceDeskIntegrationApi
  * @extends {BaseAPI}
  */
-export class ServiceDeskIntegrationV1Api extends BaseAPI {
+export class ServiceDeskIntegrationApi extends BaseAPI {
     /**
      * Create a new Service Desk integration.
      * @summary Create new service desk integration
-     * @param {ServiceDeskIntegrationV1ApiCreateServiceDeskIntegrationV1Request} requestParameters Request parameters.
+     * @param {ServiceDeskIntegrationApiCreateServiceDeskIntegrationV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ServiceDeskIntegrationV1Api
+     * @memberof ServiceDeskIntegrationApi
      */
-    public createServiceDeskIntegrationV1(requestParameters: ServiceDeskIntegrationV1ApiCreateServiceDeskIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ServiceDeskIntegrationV1ApiFp(this.configuration).createServiceDeskIntegrationV1(requestParameters.servicedeskintegrationdtoV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createServiceDeskIntegrationV1(requestParameters: ServiceDeskIntegrationApiCreateServiceDeskIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).createServiceDeskIntegrationV1(requestParameters.servicedeskintegrationdto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Delete an existing Service Desk integration by ID.
      * @summary Delete a service desk integration
-     * @param {ServiceDeskIntegrationV1ApiDeleteServiceDeskIntegrationV1Request} requestParameters Request parameters.
+     * @param {ServiceDeskIntegrationApiDeleteServiceDeskIntegrationV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ServiceDeskIntegrationV1Api
+     * @memberof ServiceDeskIntegrationApi
      */
-    public deleteServiceDeskIntegrationV1(requestParameters: ServiceDeskIntegrationV1ApiDeleteServiceDeskIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ServiceDeskIntegrationV1ApiFp(this.configuration).deleteServiceDeskIntegrationV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteServiceDeskIntegrationV1(requestParameters: ServiceDeskIntegrationApiDeleteServiceDeskIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).deleteServiceDeskIntegrationV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API endpoint returns an existing Service Desk integration template by scriptName.
      * @summary Service desk integration template by scriptname
-     * @param {ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationTemplateV1Request} requestParameters Request parameters.
+     * @param {ServiceDeskIntegrationApiGetServiceDeskIntegrationTemplateV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ServiceDeskIntegrationV1Api
+     * @memberof ServiceDeskIntegrationApi
      */
-    public getServiceDeskIntegrationTemplateV1(requestParameters: ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationTemplateV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ServiceDeskIntegrationV1ApiFp(this.configuration).getServiceDeskIntegrationTemplateV1(requestParameters.scriptName, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getServiceDeskIntegrationTemplateV1(requestParameters: ServiceDeskIntegrationApiGetServiceDeskIntegrationTemplateV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).getServiceDeskIntegrationTemplateV1(requestParameters.scriptName, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1394,34 +1394,34 @@ export class ServiceDeskIntegrationV1Api extends BaseAPI {
      * @summary List service desk integration types
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ServiceDeskIntegrationV1Api
+     * @memberof ServiceDeskIntegrationApi
      */
     public getServiceDeskIntegrationTypesV1(axiosOptions?: RawAxiosRequestConfig) {
-        return ServiceDeskIntegrationV1ApiFp(this.configuration).getServiceDeskIntegrationTypesV1(axiosOptions).then((request) => request(this.axios, this.basePath));
+        return ServiceDeskIntegrationApiFp(this.configuration).getServiceDeskIntegrationTypesV1(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get an existing Service Desk integration by ID.
      * @summary Get a service desk integration
-     * @param {ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationV1Request} requestParameters Request parameters.
+     * @param {ServiceDeskIntegrationApiGetServiceDeskIntegrationV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ServiceDeskIntegrationV1Api
+     * @memberof ServiceDeskIntegrationApi
      */
-    public getServiceDeskIntegrationV1(requestParameters: ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ServiceDeskIntegrationV1ApiFp(this.configuration).getServiceDeskIntegrationV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getServiceDeskIntegrationV1(requestParameters: ServiceDeskIntegrationApiGetServiceDeskIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).getServiceDeskIntegrationV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get a list of Service Desk integration objects.
      * @summary List existing service desk integrations
-     * @param {ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationsV1Request} requestParameters Request parameters.
+     * @param {ServiceDeskIntegrationApiGetServiceDeskIntegrationsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ServiceDeskIntegrationV1Api
+     * @memberof ServiceDeskIntegrationApi
      */
-    public getServiceDeskIntegrationsV1(requestParameters: ServiceDeskIntegrationV1ApiGetServiceDeskIntegrationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return ServiceDeskIntegrationV1ApiFp(this.configuration).getServiceDeskIntegrationsV1(requestParameters.offset, requestParameters.limit, requestParameters.sorters, requestParameters.filters, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getServiceDeskIntegrationsV1(requestParameters: ServiceDeskIntegrationApiGetServiceDeskIntegrationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).getServiceDeskIntegrationsV1(requestParameters.offset, requestParameters.limit, requestParameters.sorters, requestParameters.filters, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1429,46 +1429,46 @@ export class ServiceDeskIntegrationV1Api extends BaseAPI {
      * @summary Get the time check configuration
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ServiceDeskIntegrationV1Api
+     * @memberof ServiceDeskIntegrationApi
      */
     public getStatusCheckDetailsV1(axiosOptions?: RawAxiosRequestConfig) {
-        return ServiceDeskIntegrationV1ApiFp(this.configuration).getStatusCheckDetailsV1(axiosOptions).then((request) => request(this.axios, this.basePath));
+        return ServiceDeskIntegrationApiFp(this.configuration).getStatusCheckDetailsV1(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Update an existing Service Desk integration by ID with a PATCH request.
      * @summary Patch a service desk integration
-     * @param {ServiceDeskIntegrationV1ApiPatchServiceDeskIntegrationV1Request} requestParameters Request parameters.
+     * @param {ServiceDeskIntegrationApiPatchServiceDeskIntegrationV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ServiceDeskIntegrationV1Api
+     * @memberof ServiceDeskIntegrationApi
      */
-    public patchServiceDeskIntegrationV1(requestParameters: ServiceDeskIntegrationV1ApiPatchServiceDeskIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ServiceDeskIntegrationV1ApiFp(this.configuration).patchServiceDeskIntegrationV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchServiceDeskIntegrationV1(requestParameters: ServiceDeskIntegrationApiPatchServiceDeskIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).patchServiceDeskIntegrationV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Update an existing Service Desk integration by ID.
      * @summary Update a service desk integration
-     * @param {ServiceDeskIntegrationV1ApiPutServiceDeskIntegrationV1Request} requestParameters Request parameters.
+     * @param {ServiceDeskIntegrationApiPutServiceDeskIntegrationV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ServiceDeskIntegrationV1Api
+     * @memberof ServiceDeskIntegrationApi
      */
-    public putServiceDeskIntegrationV1(requestParameters: ServiceDeskIntegrationV1ApiPutServiceDeskIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ServiceDeskIntegrationV1ApiFp(this.configuration).putServiceDeskIntegrationV1(requestParameters.id, requestParameters.servicedeskintegrationdtoV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putServiceDeskIntegrationV1(requestParameters: ServiceDeskIntegrationApiPutServiceDeskIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).putServiceDeskIntegrationV1(requestParameters.id, requestParameters.servicedeskintegrationdto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Update the time check configuration of queued SDIM tickets.
      * @summary Update the time check configuration
-     * @param {ServiceDeskIntegrationV1ApiUpdateStatusCheckDetailsV1Request} requestParameters Request parameters.
+     * @param {ServiceDeskIntegrationApiUpdateStatusCheckDetailsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ServiceDeskIntegrationV1Api
+     * @memberof ServiceDeskIntegrationApi
      */
-    public updateStatusCheckDetailsV1(requestParameters: ServiceDeskIntegrationV1ApiUpdateStatusCheckDetailsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ServiceDeskIntegrationV1ApiFp(this.configuration).updateStatusCheckDetailsV1(requestParameters.queuedcheckconfigdetailsV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateStatusCheckDetailsV1(requestParameters: ServiceDeskIntegrationApiUpdateStatusCheckDetailsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).updateStatusCheckDetailsV1(requestParameters.queuedcheckconfigdetails, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

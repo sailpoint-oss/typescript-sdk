@@ -1,20 +1,20 @@
 ---
-id: v1-forminstancerecipient-v1
-title: ForminstancerecipientV1
-pagination_label: ForminstancerecipientV1
-sidebar_label: ForminstancerecipientV1
+id: v1-forminstancerecipient
+title: Forminstancerecipient
+pagination_label: Forminstancerecipient
+sidebar_label: Forminstancerecipient
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ForminstancerecipientV1', 'v1ForminstancerecipientV1']
-slug: /tools/sdk/typescript/custom_forms/models/forminstancerecipient-v1
-tags: ['SDK', 'Software Development Kit', 'ForminstancerecipientV1', 'v1ForminstancerecipientV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Forminstancerecipient', 'v1Forminstancerecipient']
+slug: /tools/sdk/typescript/custom_forms/models/forminstancerecipient
+tags: ['SDK', 'Software Development Kit', 'Forminstancerecipient', 'v1Forminstancerecipient']
 ---
 
-# ForminstancerecipientV1
+# Forminstancerecipient
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **(optional)** **string** | ID is a unique identifier | [default to undefined]
-**type** | **(optional)** **string** | Type is a FormInstanceRecipientType value IDENTITY FormInstanceRecipientIdentity | [default to undefined]
+**id** | **(optional)** `string` | ID is a unique identifier | [default to undefined]
+**type** | **(optional)** `string` | Type is a FormInstanceRecipientType value IDENTITY FormInstanceRecipientIdentity | [default to undefined]
 

@@ -11,8 +11,8 @@ ListTaggedObjectsV1401Response.md
 ListTaggedObjectsV1429Response.md
 Localeorigin.md
 README.md
-TaggedObjectsV1Api.md
-TaggedObjectsV1ApideveloperSite_code_examples.yaml
+TaggedObjectsApi.md
+TaggedObjectsApideveloperSite_code_examples.yaml
 Taggedobject.md
 Taggedobjectdto.md
 api.ts

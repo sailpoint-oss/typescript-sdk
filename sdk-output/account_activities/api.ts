@@ -26,91 +26,91 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface AccountactivityV1
+ * @interface Accountactivity
  */
-export interface AccountactivityV1 {
+export interface Accountactivity {
     /**
      * Id of the account activity
      * @type {string}
-     * @memberof AccountactivityV1
+     * @memberof Accountactivity
      */
     'id'?: string;
     /**
      * The name of the activity
      * @type {string}
-     * @memberof AccountactivityV1
+     * @memberof Accountactivity
      */
     'name'?: string;
     /**
      * When the activity was first created
      * @type {string}
-     * @memberof AccountactivityV1
+     * @memberof Accountactivity
      */
     'created'?: string;
     /**
      * When the activity was last modified
      * @type {string}
-     * @memberof AccountactivityV1
+     * @memberof Accountactivity
      */
     'modified'?: string | null;
     /**
      * When the activity was completed
      * @type {string}
-     * @memberof AccountactivityV1
+     * @memberof Accountactivity
      */
     'completed'?: string | null;
     /**
      * 
-     * @type {CompletionstatusV1}
-     * @memberof AccountactivityV1
+     * @type {Completionstatus}
+     * @memberof Accountactivity
      */
-    'completionStatus'?: CompletionstatusV1 | null;
+    'completionStatus'?: Completionstatus | null;
     /**
      * The type of action the activity performed.  Please see the following list of types.  This list may grow over time.  - CloudAutomated - IdentityAttributeUpdate - appRequest - LifecycleStateChange - AccountStateUpdate - AccountAttributeUpdate - CloudPasswordRequest - Attribute Synchronization Refresh - Certification - Identity Refresh - Lifecycle Change Refresh   [Learn more here](https://documentation.sailpoint.com/saas/help/search/searchable-fields.html#searching-account-activity-data). 
      * @type {string}
-     * @memberof AccountactivityV1
+     * @memberof Accountactivity
      */
     'type'?: string | null;
     /**
      * 
-     * @type {IdentitysummaryV1}
-     * @memberof AccountactivityV1
+     * @type {Identitysummary}
+     * @memberof Accountactivity
      */
-    'requesterIdentitySummary'?: IdentitysummaryV1 | null;
+    'requesterIdentitySummary'?: Identitysummary | null;
     /**
      * 
-     * @type {IdentitysummaryV1}
-     * @memberof AccountactivityV1
+     * @type {Identitysummary}
+     * @memberof Accountactivity
      */
-    'targetIdentitySummary'?: IdentitysummaryV1 | null;
+    'targetIdentitySummary'?: Identitysummary | null;
     /**
      * A list of error messages, if any, that were encountered.
      * @type {Array<string>}
-     * @memberof AccountactivityV1
+     * @memberof Accountactivity
      */
     'errors'?: Array<string> | null;
     /**
      * A list of warning messages, if any, that were encountered.
      * @type {Array<string>}
-     * @memberof AccountactivityV1
+     * @memberof Accountactivity
      */
     'warnings'?: Array<string> | null;
     /**
      * Individual actions performed as part of this account activity
-     * @type {Array<AccountactivityitemV1>}
-     * @memberof AccountactivityV1
+     * @type {Array<Accountactivityitem>}
+     * @memberof Accountactivity
      */
-    'items'?: Array<AccountactivityitemV1> | null;
+    'items'?: Array<Accountactivityitem> | null;
     /**
      * 
-     * @type {ExecutionstatusV1}
-     * @memberof AccountactivityV1
+     * @type {Executionstatus}
+     * @memberof Accountactivity
      */
-    'executionStatus'?: ExecutionstatusV1;
+    'executionStatus'?: Executionstatus;
     /**
      * Arbitrary key-value pairs, if any were included in the corresponding access request
      * @type {{ [key: string]: string; }}
-     * @memberof AccountactivityV1
+     * @memberof Accountactivity
      */
     'clientMetadata'?: { [key: string]: string; } | null;
 }
@@ -122,7 +122,7 @@ export interface AccountactivityV1 {
  * @enum {string}
  */
 
-export const AccountactivityapprovalstatusV1 = {
+export const Accountactivityapprovalstatus = {
     Finished: 'FINISHED',
     Rejected: 'REJECTED',
     Returned: 'RETURNED',
@@ -131,109 +131,109 @@ export const AccountactivityapprovalstatusV1 = {
     Canceled: 'CANCELED'
 } as const;
 
-export type AccountactivityapprovalstatusV1 = typeof AccountactivityapprovalstatusV1[keyof typeof AccountactivityapprovalstatusV1];
+export type Accountactivityapprovalstatus = typeof Accountactivityapprovalstatus[keyof typeof Accountactivityapprovalstatus];
 
 
 /**
  * 
  * @export
- * @interface AccountactivityitemV1
+ * @interface Accountactivityitem
  */
-export interface AccountactivityitemV1 {
+export interface Accountactivityitem {
     /**
      * Item id
      * @type {string}
-     * @memberof AccountactivityitemV1
+     * @memberof Accountactivityitem
      */
     'id'?: string;
     /**
      * Human-readable display name of item
      * @type {string}
-     * @memberof AccountactivityitemV1
+     * @memberof Accountactivityitem
      */
     'name'?: string;
     /**
      * Date and time item was requested
      * @type {string}
-     * @memberof AccountactivityitemV1
+     * @memberof Accountactivityitem
      */
     'requested'?: string;
     /**
      * 
-     * @type {AccountactivityapprovalstatusV1}
-     * @memberof AccountactivityitemV1
+     * @type {Accountactivityapprovalstatus}
+     * @memberof Accountactivityitem
      */
-    'approvalStatus'?: AccountactivityapprovalstatusV1 | null;
+    'approvalStatus'?: Accountactivityapprovalstatus | null;
     /**
      * 
-     * @type {ProvisioningstateV1}
-     * @memberof AccountactivityitemV1
+     * @type {Provisioningstate}
+     * @memberof Accountactivityitem
      */
-    'provisioningStatus'?: ProvisioningstateV1;
+    'provisioningStatus'?: Provisioningstate;
     /**
      * 
-     * @type {CommentV1}
-     * @memberof AccountactivityitemV1
+     * @type {Comment}
+     * @memberof Accountactivityitem
      */
-    'requesterComment'?: CommentV1 | null;
+    'requesterComment'?: Comment | null;
     /**
      * 
-     * @type {IdentitysummaryV1}
-     * @memberof AccountactivityitemV1
+     * @type {Identitysummary}
+     * @memberof Accountactivityitem
      */
-    'reviewerIdentitySummary'?: IdentitysummaryV1 | null;
+    'reviewerIdentitySummary'?: Identitysummary | null;
     /**
      * 
-     * @type {CommentV1}
-     * @memberof AccountactivityitemV1
+     * @type {Comment}
+     * @memberof Accountactivityitem
      */
-    'reviewerComment'?: CommentV1 | null;
+    'reviewerComment'?: Comment | null;
     /**
      * 
-     * @type {AccountactivityitemoperationV1}
-     * @memberof AccountactivityitemV1
+     * @type {Accountactivityitemoperation}
+     * @memberof Accountactivityitem
      */
-    'operation'?: AccountactivityitemoperationV1 | null;
+    'operation'?: Accountactivityitemoperation | null;
     /**
      * Attribute to which account activity applies
      * @type {string}
-     * @memberof AccountactivityitemV1
+     * @memberof Accountactivityitem
      */
     'attribute'?: string | null;
     /**
      * Value of attribute
      * @type {string}
-     * @memberof AccountactivityitemV1
+     * @memberof Accountactivityitem
      */
     'value'?: string | null;
     /**
      * Native identity in the target system to which the account activity applies
      * @type {string}
-     * @memberof AccountactivityitemV1
+     * @memberof Accountactivityitem
      */
     'nativeIdentity'?: string | null;
     /**
      * Id of Source to which account activity applies
      * @type {string}
-     * @memberof AccountactivityitemV1
+     * @memberof Accountactivityitem
      */
     'sourceId'?: string;
     /**
      * 
-     * @type {AccountrequestinfoV1}
-     * @memberof AccountactivityitemV1
+     * @type {Accountrequestinfo}
+     * @memberof Accountactivityitem
      */
-    'accountRequestInfo'?: AccountrequestinfoV1 | null;
+    'accountRequestInfo'?: Accountrequestinfo | null;
     /**
      * Arbitrary key-value pairs, if any were included in the corresponding access request item
      * @type {{ [key: string]: string; }}
-     * @memberof AccountactivityitemV1
+     * @memberof Accountactivityitem
      */
     'clientMetadata'?: { [key: string]: string; } | null;
     /**
      * The date the role or access profile or entitlement is no longer assigned to the specified identity.
      * @type {string}
-     * @memberof AccountactivityitemV1
+     * @memberof Accountactivityitem
      */
     'removeDate'?: string | null;
 }
@@ -245,7 +245,7 @@ export interface AccountactivityitemV1 {
  * @enum {string}
  */
 
-export const AccountactivityitemoperationV1 = {
+export const Accountactivityitemoperation = {
     Add: 'ADD',
     Create: 'CREATE',
     Modify: 'MODIFY',
@@ -258,64 +258,64 @@ export const AccountactivityitemoperationV1 = {
     Set: 'SET'
 } as const;
 
-export type AccountactivityitemoperationV1 = typeof AccountactivityitemoperationV1[keyof typeof AccountactivityitemoperationV1];
+export type Accountactivityitemoperation = typeof Accountactivityitemoperation[keyof typeof Accountactivityitemoperation];
 
 
 /**
  * If an account activity item is associated with an access request, captures details of that request.
  * @export
- * @interface AccountrequestinfoV1
+ * @interface Accountrequestinfo
  */
-export interface AccountrequestinfoV1 {
+export interface Accountrequestinfo {
     /**
      * Id of requested object
      * @type {string}
-     * @memberof AccountrequestinfoV1
+     * @memberof Accountrequestinfo
      */
     'requestedObjectId'?: string;
     /**
      * Human-readable name of requested object
      * @type {string}
-     * @memberof AccountrequestinfoV1
+     * @memberof Accountrequestinfo
      */
     'requestedObjectName'?: string;
     /**
      * 
-     * @type {RequestableobjecttypeV1}
-     * @memberof AccountrequestinfoV1
+     * @type {Requestableobjecttype}
+     * @memberof Accountrequestinfo
      */
-    'requestedObjectType'?: RequestableobjecttypeV1;
+    'requestedObjectType'?: Requestableobjecttype;
 }
 
 
 /**
  * 
  * @export
- * @interface CommentV1
+ * @interface Comment
  */
-export interface CommentV1 {
+export interface Comment {
     /**
      * Id of the identity making the comment
      * @type {string}
-     * @memberof CommentV1
+     * @memberof Comment
      */
     'commenterId'?: string;
     /**
      * Human-readable display name of the identity making the comment
      * @type {string}
-     * @memberof CommentV1
+     * @memberof Comment
      */
     'commenterName'?: string;
     /**
      * Content of the comment
      * @type {string}
-     * @memberof CommentV1
+     * @memberof Comment
      */
     'body'?: string;
     /**
      * Date and time comment was made
      * @type {string}
-     * @memberof CommentV1
+     * @memberof Comment
      */
     'date'?: string;
 }
@@ -325,38 +325,38 @@ export interface CommentV1 {
  * @enum {string}
  */
 
-export const CompletionstatusV1 = {
+export const Completionstatus = {
     Success: 'SUCCESS',
     Failure: 'FAILURE',
     Incomplete: 'INCOMPLETE',
     Pending: 'PENDING'
 } as const;
 
-export type CompletionstatusV1 = typeof CompletionstatusV1[keyof typeof CompletionstatusV1];
+export type Completionstatus = typeof Completionstatus[keyof typeof Completionstatus];
 
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -365,33 +365,33 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * The current state of execution.
@@ -399,70 +399,70 @@ export interface ErrorresponsedtoV1 {
  * @enum {string}
  */
 
-export const ExecutionstatusV1 = {
+export const Executionstatus = {
     Executing: 'EXECUTING',
     Verifying: 'VERIFYING',
     Terminated: 'TERMINATED',
     Completed: 'COMPLETED'
 } as const;
 
-export type ExecutionstatusV1 = typeof ExecutionstatusV1[keyof typeof ExecutionstatusV1];
+export type Executionstatus = typeof Executionstatus[keyof typeof Executionstatus];
 
 
 /**
  * 
  * @export
- * @interface IdentitysummaryV1
+ * @interface Identitysummary
  */
-export interface IdentitysummaryV1 {
+export interface Identitysummary {
     /**
      * ID of this identity summary
      * @type {string}
-     * @memberof IdentitysummaryV1
+     * @memberof Identitysummary
      */
     'id'?: string;
     /**
      * Human-readable display name of identity
      * @type {string}
-     * @memberof IdentitysummaryV1
+     * @memberof Identitysummary
      */
     'name'?: string;
     /**
      * ID of the identity that this summary represents
      * @type {string}
-     * @memberof IdentitysummaryV1
+     * @memberof Identitysummary
      */
     'identityId'?: string;
     /**
      * Indicates if all access items for this summary have been decided on
      * @type {boolean}
-     * @memberof IdentitysummaryV1
+     * @memberof Identitysummary
      */
     'completed'?: boolean;
 }
 /**
  * 
  * @export
- * @interface ListAccountActivitiesV1401ResponseV1
+ * @interface ListAccountActivitiesV1401Response
  */
-export interface ListAccountActivitiesV1401ResponseV1 {
+export interface ListAccountActivitiesV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListAccountActivitiesV1401ResponseV1
+     * @memberof ListAccountActivitiesV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ListAccountActivitiesV1429ResponseV1
+ * @interface ListAccountActivitiesV1429Response
  */
-export interface ListAccountActivitiesV1429ResponseV1 {
+export interface ListAccountActivitiesV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListAccountActivitiesV1429ResponseV1
+     * @memberof ListAccountActivitiesV1429Response
      */
     'message'?: any;
 }
@@ -472,12 +472,12 @@ export interface ListAccountActivitiesV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
@@ -486,7 +486,7 @@ export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
  * @enum {string}
  */
 
-export const ProvisioningstateV1 = {
+export const Provisioningstate = {
     Pending: 'PENDING',
     Finished: 'FINISHED',
     Unverifiable: 'UNVERIFIABLE',
@@ -495,7 +495,7 @@ export const ProvisioningstateV1 = {
     Retry: 'RETRY'
 } as const;
 
-export type ProvisioningstateV1 = typeof ProvisioningstateV1[keyof typeof ProvisioningstateV1];
+export type Provisioningstate = typeof Provisioningstate[keyof typeof Provisioningstate];
 
 
 /**
@@ -504,21 +504,21 @@ export type ProvisioningstateV1 = typeof ProvisioningstateV1[keyof typeof Provis
  * @enum {string}
  */
 
-export const RequestableobjecttypeV1 = {
+export const Requestableobjecttype = {
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE',
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type RequestableobjecttypeV1 = typeof RequestableobjecttypeV1[keyof typeof RequestableobjecttypeV1];
+export type Requestableobjecttype = typeof Requestableobjecttype[keyof typeof Requestableobjecttype];
 
 
 
 /**
- * AccountActivitiesV1Api - axios parameter creator
+ * AccountActivitiesApi - axios parameter creator
  * @export
  */
-export const AccountActivitiesV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const AccountActivitiesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This gets a single account activity by its id.
@@ -628,11 +628,11 @@ export const AccountActivitiesV1ApiAxiosParamCreator = function (configuration?:
 };
 
 /**
- * AccountActivitiesV1Api - functional programming interface
+ * AccountActivitiesApi - functional programming interface
  * @export
  */
-export const AccountActivitiesV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = AccountActivitiesV1ApiAxiosParamCreator(configuration)
+export const AccountActivitiesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = AccountActivitiesApiAxiosParamCreator(configuration)
     return {
         /**
          * This gets a single account activity by its id.
@@ -641,10 +641,10 @@ export const AccountActivitiesV1ApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccountActivityV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountactivityV1>> {
+        async getAccountActivityV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accountactivity>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountActivityV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AccountActivitiesV1Api.getAccountActivityV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AccountActivitiesApi.getAccountActivityV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -661,151 +661,151 @@ export const AccountActivitiesV1ApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccountActivitiesV1(requestedFor?: string, requestedBy?: string, regardingIdentity?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccountactivityV1>>> {
+        async listAccountActivitiesV1(requestedFor?: string, requestedBy?: string, regardingIdentity?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Accountactivity>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAccountActivitiesV1(requestedFor, requestedBy, regardingIdentity, limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AccountActivitiesV1Api.listAccountActivitiesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AccountActivitiesApi.listAccountActivitiesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * AccountActivitiesV1Api - factory interface
+ * AccountActivitiesApi - factory interface
  * @export
  */
-export const AccountActivitiesV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = AccountActivitiesV1ApiFp(configuration)
+export const AccountActivitiesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = AccountActivitiesApiFp(configuration)
     return {
         /**
          * This gets a single account activity by its id.
          * @summary Get an account activity
-         * @param {AccountActivitiesV1ApiGetAccountActivityV1Request} requestParameters Request parameters.
+         * @param {AccountActivitiesApiGetAccountActivityV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAccountActivityV1(requestParameters: AccountActivitiesV1ApiGetAccountActivityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountactivityV1> {
+        getAccountActivityV1(requestParameters: AccountActivitiesApiGetAccountActivityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accountactivity> {
             return localVarFp.getAccountActivityV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a collection of account activities that satisfy the given query parameters.
          * @summary List account activities
-         * @param {AccountActivitiesV1ApiListAccountActivitiesV1Request} requestParameters Request parameters.
+         * @param {AccountActivitiesApiListAccountActivitiesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAccountActivitiesV1(requestParameters: AccountActivitiesV1ApiListAccountActivitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccountactivityV1>> {
+        listAccountActivitiesV1(requestParameters: AccountActivitiesApiListAccountActivitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Accountactivity>> {
             return localVarFp.listAccountActivitiesV1(requestParameters.requestedFor, requestParameters.requestedBy, requestParameters.regardingIdentity, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for getAccountActivityV1 operation in AccountActivitiesV1Api.
+ * Request parameters for getAccountActivityV1 operation in AccountActivitiesApi.
  * @export
- * @interface AccountActivitiesV1ApiGetAccountActivityV1Request
+ * @interface AccountActivitiesApiGetAccountActivityV1Request
  */
-export interface AccountActivitiesV1ApiGetAccountActivityV1Request {
+export interface AccountActivitiesApiGetAccountActivityV1Request {
     /**
      * The account activity id
      * @type {string}
-     * @memberof AccountActivitiesV1ApiGetAccountActivityV1
+     * @memberof AccountActivitiesApiGetAccountActivityV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for listAccountActivitiesV1 operation in AccountActivitiesV1Api.
+ * Request parameters for listAccountActivitiesV1 operation in AccountActivitiesApi.
  * @export
- * @interface AccountActivitiesV1ApiListAccountActivitiesV1Request
+ * @interface AccountActivitiesApiListAccountActivitiesV1Request
  */
-export interface AccountActivitiesV1ApiListAccountActivitiesV1Request {
+export interface AccountActivitiesApiListAccountActivitiesV1Request {
     /**
      * The identity that the activity was requested for. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
      * @type {string}
-     * @memberof AccountActivitiesV1ApiListAccountActivitiesV1
+     * @memberof AccountActivitiesApiListAccountActivitiesV1
      */
     readonly requestedFor?: string
 
     /**
      * The identity that requested the activity. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
      * @type {string}
-     * @memberof AccountActivitiesV1ApiListAccountActivitiesV1
+     * @memberof AccountActivitiesApiListAccountActivitiesV1
      */
     readonly requestedBy?: string
 
     /**
      * The specified identity will be either the requester or target of the account activity. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*.
      * @type {string}
-     * @memberof AccountActivitiesV1ApiListAccountActivitiesV1
+     * @memberof AccountActivitiesApiListAccountActivitiesV1
      */
     readonly regardingIdentity?: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof AccountActivitiesV1ApiListAccountActivitiesV1
+     * @memberof AccountActivitiesApiListAccountActivitiesV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof AccountActivitiesV1ApiListAccountActivitiesV1
+     * @memberof AccountActivitiesApiListAccountActivitiesV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof AccountActivitiesV1ApiListAccountActivitiesV1
+     * @memberof AccountActivitiesApiListAccountActivitiesV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **type**: *eq, in, ge, le, lt, ne, isnull, sw*  **created**: *gt, lt, ge, le, eq, in, ne, isnull, sw*  **modified**: *gt, lt, ge, le, eq, in, ne, isnull, sw*
      * @type {string}
-     * @memberof AccountActivitiesV1ApiListAccountActivitiesV1
+     * @memberof AccountActivitiesApiListAccountActivitiesV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified**
      * @type {string}
-     * @memberof AccountActivitiesV1ApiListAccountActivitiesV1
+     * @memberof AccountActivitiesApiListAccountActivitiesV1
      */
     readonly sorters?: string
 }
 
 /**
- * AccountActivitiesV1Api - object-oriented interface
+ * AccountActivitiesApi - object-oriented interface
  * @export
- * @class AccountActivitiesV1Api
+ * @class AccountActivitiesApi
  * @extends {BaseAPI}
  */
-export class AccountActivitiesV1Api extends BaseAPI {
+export class AccountActivitiesApi extends BaseAPI {
     /**
      * This gets a single account activity by its id.
      * @summary Get an account activity
-     * @param {AccountActivitiesV1ApiGetAccountActivityV1Request} requestParameters Request parameters.
+     * @param {AccountActivitiesApiGetAccountActivityV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AccountActivitiesV1Api
+     * @memberof AccountActivitiesApi
      */
-    public getAccountActivityV1(requestParameters: AccountActivitiesV1ApiGetAccountActivityV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccountActivitiesV1ApiFp(this.configuration).getAccountActivityV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getAccountActivityV1(requestParameters: AccountActivitiesApiGetAccountActivityV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccountActivitiesApiFp(this.configuration).getAccountActivityV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a collection of account activities that satisfy the given query parameters.
      * @summary List account activities
-     * @param {AccountActivitiesV1ApiListAccountActivitiesV1Request} requestParameters Request parameters.
+     * @param {AccountActivitiesApiListAccountActivitiesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AccountActivitiesV1Api
+     * @memberof AccountActivitiesApi
      */
-    public listAccountActivitiesV1(requestParameters: AccountActivitiesV1ApiListAccountActivitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return AccountActivitiesV1ApiFp(this.configuration).listAccountActivitiesV1(requestParameters.requestedFor, requestParameters.requestedBy, requestParameters.regardingIdentity, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listAccountActivitiesV1(requestParameters: AccountActivitiesApiListAccountActivitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return AccountActivitiesApiFp(this.configuration).listAccountActivitiesV1(requestParameters.requestedFor, requestParameters.requestedBy, requestParameters.regardingIdentity, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

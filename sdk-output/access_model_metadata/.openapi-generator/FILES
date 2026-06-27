@@ -1,8 +1,8 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
-AccessModelMetadataV1Api.md
-AccessModelMetadataV1ApideveloperSite_code_examples.yaml
+AccessModelMetadataApi.md
+AccessModelMetadataApideveloperSite_code_examples.yaml
 Accessmodelmetadatabulkupdateresponse.md
 Aggregations.md
 Aggregationtype.md

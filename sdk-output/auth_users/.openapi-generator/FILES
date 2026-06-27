@@ -2,8 +2,8 @@
 .npmignore
 .openapi-generator-ignore
 ArrayInner.md
-AuthUsersV1Api.md
-AuthUsersV1ApideveloperSite_code_examples.yaml
+AuthUsersApi.md
+AuthUsersApideveloperSite_code_examples.yaml
 Authuser.md
 Errormessagedto.md
 Errorresponsedto.md

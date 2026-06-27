@@ -1,19 +1,19 @@
 ---
-id: v1-identitiesaccountsbulkrequest-v1
-title: IdentitiesaccountsbulkrequestV1
-pagination_label: IdentitiesaccountsbulkrequestV1
-sidebar_label: IdentitiesaccountsbulkrequestV1
+id: v1-identitiesaccountsbulkrequest
+title: Identitiesaccountsbulkrequest
+pagination_label: Identitiesaccountsbulkrequest
+sidebar_label: Identitiesaccountsbulkrequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'IdentitiesaccountsbulkrequestV1', 'v1IdentitiesaccountsbulkrequestV1']
-slug: /tools/sdk/typescript/accounts/models/identitiesaccountsbulkrequest-v1
-tags: ['SDK', 'Software Development Kit', 'IdentitiesaccountsbulkrequestV1', 'v1IdentitiesaccountsbulkrequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Identitiesaccountsbulkrequest', 'v1Identitiesaccountsbulkrequest']
+slug: /tools/sdk/typescript/accounts/models/identitiesaccountsbulkrequest
+tags: ['SDK', 'Software Development Kit', 'Identitiesaccountsbulkrequest', 'v1Identitiesaccountsbulkrequest']
 ---
 
-# IdentitiesaccountsbulkrequestV1
+# Identitiesaccountsbulkrequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identityIds** | **(optional)** **Array&lt;string&gt;** | The ids of the identities for which enable/disable accounts. | [default to undefined]
+**identityIds** | **(optional)** `Array<string>` | The ids of the identities for which enable/disable accounts. | [default to undefined]
 

@@ -1,23 +1,23 @@
 ---
-id: v1-httpconfig-v1
-title: HttpconfigV1
-pagination_label: HttpconfigV1
-sidebar_label: HttpconfigV1
+id: v1-httpconfig
+title: Httpconfig
+pagination_label: Httpconfig
+sidebar_label: Httpconfig
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'HttpconfigV1', 'v1HttpconfigV1']
-slug: /tools/sdk/typescript/triggers/models/httpconfig-v1
-tags: ['SDK', 'Software Development Kit', 'HttpconfigV1', 'v1HttpconfigV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Httpconfig', 'v1Httpconfig']
+slug: /tools/sdk/typescript/triggers/models/httpconfig
+tags: ['SDK', 'Software Development Kit', 'Httpconfig', 'v1Httpconfig']
 ---
 
-# HttpconfigV1
+# Httpconfig
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**url** | **string** | URL of the external/custom integration. | [default to undefined]
-**httpDispatchMode** | **HttpdispatchmodeV1** |  | [default to undefined]
-**httpAuthenticationType** | **(optional)** **HttpauthenticationtypeV1** |  | [default to undefined]
-**basicAuthConfig** | **(optional)** **BasicauthconfigV1** |  | [default to undefined]
-**bearerTokenAuthConfig** | **(optional)** **BearertokenauthconfigV1** |  | [default to undefined]
+**url** | `string` | URL of the external/custom integration. | [default to undefined]
+**httpDispatchMode** | `Httpdispatchmode` |  | [default to undefined]
+**httpAuthenticationType** | **(optional)** `Httpauthenticationtype` |  | [default to undefined]
+**basicAuthConfig** | **(optional)** `Basicauthconfig` |  | [default to undefined]
+**bearerTokenAuthConfig** | **(optional)** `Bearertokenauthconfig` |  | [default to undefined]
 

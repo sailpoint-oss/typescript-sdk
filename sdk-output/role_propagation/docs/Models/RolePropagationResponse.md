@@ -1,19 +1,19 @@
 ---
-id: v1-role-propagation-response-v1
-title: RolePropagationResponseV1
-pagination_label: RolePropagationResponseV1
-sidebar_label: RolePropagationResponseV1
+id: v1-role-propagation-response
+title: RolePropagationResponse
+pagination_label: RolePropagationResponse
+sidebar_label: RolePropagationResponse
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RolePropagationResponseV1', 'v1RolePropagationResponseV1']
-slug: /tools/sdk/typescript/role_propagation/models/role-propagation-response-v1
-tags: ['SDK', 'Software Development Kit', 'RolePropagationResponseV1', 'v1RolePropagationResponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'RolePropagationResponse', 'v1RolePropagationResponse']
+slug: /tools/sdk/typescript/role_propagation/models/role-propagation-response
+tags: ['SDK', 'Software Development Kit', 'RolePropagationResponse', 'v1RolePropagationResponse']
 ---
 
-# RolePropagationResponseV1
+# RolePropagationResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**rolePropagationId** | **(optional)** **string** | Id of the Role Propagation process triggered. | [default to undefined]
+**rolePropagationId** | **(optional)** `string` | Id of the Role Propagation process triggered. | [default to undefined]
 

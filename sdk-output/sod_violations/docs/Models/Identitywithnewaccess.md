@@ -1,20 +1,20 @@
 ---
-id: v1-identitywithnewaccess-v1
-title: IdentitywithnewaccessV1
-pagination_label: IdentitywithnewaccessV1
-sidebar_label: IdentitywithnewaccessV1
+id: v1-identitywithnewaccess
+title: Identitywithnewaccess
+pagination_label: Identitywithnewaccess
+sidebar_label: Identitywithnewaccess
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'IdentitywithnewaccessV1', 'v1IdentitywithnewaccessV1']
-slug: /tools/sdk/typescript/sod_violations/models/identitywithnewaccess-v1
-tags: ['SDK', 'Software Development Kit', 'IdentitywithnewaccessV1', 'v1IdentitywithnewaccessV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Identitywithnewaccess', 'v1Identitywithnewaccess']
+slug: /tools/sdk/typescript/sod_violations/models/identitywithnewaccess
+tags: ['SDK', 'Software Development Kit', 'Identitywithnewaccess', 'v1Identitywithnewaccess']
 ---
 
-# IdentitywithnewaccessV1
+# Identitywithnewaccess
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identityId** | **string** | Identity id to be checked. | [default to undefined]
-**accessRefs** | **Array&lt;IdentitywithnewaccessAccessRefsInnerV1&gt;** | The list of entitlements to consider for possible violations in a preventive check. | [default to undefined]
+**identityId** | `string` | Identity id to be checked. | [default to undefined]
+**accessRefs** | `Array<IdentitywithnewaccessAccessRefsInner>` | The list of entitlements to consider for possible violations in a preventive check. | [default to undefined]
 

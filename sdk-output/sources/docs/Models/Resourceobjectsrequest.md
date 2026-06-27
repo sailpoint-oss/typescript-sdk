@@ -1,20 +1,20 @@
 ---
-id: v1-resourceobjectsrequest-v1
-title: ResourceobjectsrequestV1
-pagination_label: ResourceobjectsrequestV1
-sidebar_label: ResourceobjectsrequestV1
+id: v1-resourceobjectsrequest
+title: Resourceobjectsrequest
+pagination_label: Resourceobjectsrequest
+sidebar_label: Resourceobjectsrequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ResourceobjectsrequestV1', 'v1ResourceobjectsrequestV1']
-slug: /tools/sdk/typescript/sources/models/resourceobjectsrequest-v1
-tags: ['SDK', 'Software Development Kit', 'ResourceobjectsrequestV1', 'v1ResourceobjectsrequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Resourceobjectsrequest', 'v1Resourceobjectsrequest']
+slug: /tools/sdk/typescript/sources/models/resourceobjectsrequest
+tags: ['SDK', 'Software Development Kit', 'Resourceobjectsrequest', 'v1Resourceobjectsrequest']
 ---
 
-# ResourceobjectsrequestV1
+# Resourceobjectsrequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**objectType** | **(optional)** **string** | The type of resource objects to iterate over. | [default to 'account']
-**maxCount** | **(optional)** **number** | The maximum number of resource objects to iterate over and return. | [default to 25]
+**objectType** | **(optional)** `string` | The type of resource objects to iterate over. | [default to 'account']
+**maxCount** | **(optional)** `number` | The maximum number of resource objects to iterate over and return. | [default to 25]
 

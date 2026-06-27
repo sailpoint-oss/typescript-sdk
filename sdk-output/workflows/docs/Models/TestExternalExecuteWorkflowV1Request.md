@@ -1,19 +1,19 @@
 ---
-id: v1-test-external-execute-workflow-v1-request-v1
-title: TestExternalExecuteWorkflowV1RequestV1
-pagination_label: TestExternalExecuteWorkflowV1RequestV1
-sidebar_label: TestExternalExecuteWorkflowV1RequestV1
+id: v1-test-external-execute-workflow-v1-request
+title: TestExternalExecuteWorkflowV1Request
+pagination_label: TestExternalExecuteWorkflowV1Request
+sidebar_label: TestExternalExecuteWorkflowV1Request
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'TestExternalExecuteWorkflowV1RequestV1', 'v1TestExternalExecuteWorkflowV1RequestV1']
-slug: /tools/sdk/typescript/workflows/models/test-external-execute-workflow-v1-request-v1
-tags: ['SDK', 'Software Development Kit', 'TestExternalExecuteWorkflowV1RequestV1', 'v1TestExternalExecuteWorkflowV1RequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'TestExternalExecuteWorkflowV1Request', 'v1TestExternalExecuteWorkflowV1Request']
+slug: /tools/sdk/typescript/workflows/models/test-external-execute-workflow-v1-request
+tags: ['SDK', 'Software Development Kit', 'TestExternalExecuteWorkflowV1Request', 'v1TestExternalExecuteWorkflowV1Request']
 ---
 
-# TestExternalExecuteWorkflowV1RequestV1
+# TestExternalExecuteWorkflowV1Request
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**input** | **(optional)** **object** | The test input for the workflow | [default to undefined]
+**input** | **(optional)** `object` | The test input for the workflow | [default to undefined]
 

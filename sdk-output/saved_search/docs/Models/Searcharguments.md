@@ -1,21 +1,21 @@
 ---
-id: v1-searcharguments-v1
-title: SearchargumentsV1
-pagination_label: SearchargumentsV1
-sidebar_label: SearchargumentsV1
+id: v1-searcharguments
+title: Searcharguments
+pagination_label: Searcharguments
+sidebar_label: Searcharguments
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SearchargumentsV1', 'v1SearchargumentsV1']
-slug: /tools/sdk/typescript/saved_search/models/searcharguments-v1
-tags: ['SDK', 'Software Development Kit', 'SearchargumentsV1', 'v1SearchargumentsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Searcharguments', 'v1Searcharguments']
+slug: /tools/sdk/typescript/saved_search/models/searcharguments
+tags: ['SDK', 'Software Development Kit', 'Searcharguments', 'v1Searcharguments']
 ---
 
-# SearchargumentsV1
+# Searcharguments
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**scheduleId** | **(optional)** **string** | The ID of the scheduled search that triggered the saved search execution.  | [default to undefined]
-**owner** | **(optional)** **TypedreferenceV1** | The owner of the scheduled search being tested.  | [default to undefined]
-**recipients** | **(optional)** **Array&lt;TypedreferenceV1&gt;** | The email recipients of the scheduled search being tested.  | [default to undefined]
+**scheduleId** | **(optional)** `string` | The ID of the scheduled search that triggered the saved search execution.  | [default to undefined]
+**owner** | **(optional)** `Typedreference` | The owner of the scheduled search being tested.  | [default to undefined]
+**recipients** | **(optional)** `Array<Typedreference>` | The email recipients of the scheduled search being tested.  | [default to undefined]
 

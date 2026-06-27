@@ -7,8 +7,8 @@ GetPasswordOrgConfigV1401Response.md
 GetPasswordOrgConfigV1429Response.md
 Index.md
 Localeorigin.md
-PasswordConfigurationV1Api.md
-PasswordConfigurationV1ApideveloperSite_code_examples.yaml
+PasswordConfigurationApi.md
+PasswordConfigurationApideveloperSite_code_examples.yaml
 Passwordorgconfig.md
 README.md
 api.ts

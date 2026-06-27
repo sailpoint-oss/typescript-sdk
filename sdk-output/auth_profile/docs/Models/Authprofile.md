@@ -1,25 +1,25 @@
 ---
-id: v1-authprofile-v1
-title: AuthprofileV1
-pagination_label: AuthprofileV1
-sidebar_label: AuthprofileV1
+id: v1-authprofile
+title: Authprofile
+pagination_label: Authprofile
+sidebar_label: Authprofile
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AuthprofileV1', 'v1AuthprofileV1']
-slug: /tools/sdk/typescript/auth_profile/models/authprofile-v1
-tags: ['SDK', 'Software Development Kit', 'AuthprofileV1', 'v1AuthprofileV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Authprofile', 'v1Authprofile']
+slug: /tools/sdk/typescript/auth_profile/models/authprofile
+tags: ['SDK', 'Software Development Kit', 'Authprofile', 'v1Authprofile']
 ---
 
-# AuthprofileV1
+# Authprofile
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **(optional)** **string** | Authentication Profile name. | [default to undefined]
-**offNetwork** | **(optional)** **boolean** | Use it to block access from off network. | [default to false]
-**untrustedGeography** | **(optional)** **boolean** | Use it to block access from untrusted geoographies. | [default to false]
-**applicationId** | **(optional)** **string** | Application ID. | [default to undefined]
-**applicationName** | **(optional)** **string** | Application name. | [default to undefined]
-**type** | **(optional)** **string** | Type of the Authentication Profile. | [default to undefined]
-**strongAuthLogin** | **(optional)** **boolean** | Use it to enable strong authentication. | [default to false]
+**name** | **(optional)** `string` | Authentication Profile name. | [default to undefined]
+**offNetwork** | **(optional)** `boolean` | Use it to block access from off network. | [default to false]
+**untrustedGeography** | **(optional)** `boolean` | Use it to block access from untrusted geoographies. | [default to false]
+**applicationId** | **(optional)** `string` | Application ID. | [default to undefined]
+**applicationName** | **(optional)** `string` | Application name. | [default to undefined]
+**type** | **(optional)** `string` | Type of the Authentication Profile. | [default to undefined]
+**strongAuthLogin** | **(optional)** `boolean` | Use it to enable strong authentication. | [default to false]
 

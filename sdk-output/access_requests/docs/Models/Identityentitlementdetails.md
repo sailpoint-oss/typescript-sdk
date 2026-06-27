@@ -1,22 +1,22 @@
 ---
-id: v1-identityentitlementdetails-v1
-title: IdentityentitlementdetailsV1
-pagination_label: IdentityentitlementdetailsV1
-sidebar_label: IdentityentitlementdetailsV1
+id: v1-identityentitlementdetails
+title: Identityentitlementdetails
+pagination_label: Identityentitlementdetails
+sidebar_label: Identityentitlementdetails
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'IdentityentitlementdetailsV1', 'v1IdentityentitlementdetailsV1']
-slug: /tools/sdk/typescript/access_requests/models/identityentitlementdetails-v1
-tags: ['SDK', 'Software Development Kit', 'IdentityentitlementdetailsV1', 'v1IdentityentitlementdetailsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Identityentitlementdetails', 'v1Identityentitlementdetails']
+slug: /tools/sdk/typescript/access_requests/models/identityentitlementdetails
+tags: ['SDK', 'Software Development Kit', 'Identityentitlementdetails', 'v1Identityentitlementdetails']
 ---
 
-# IdentityentitlementdetailsV1
+# Identityentitlementdetails
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identityId** | **(optional)** **string** | Id of Identity | [default to undefined]
-**entitlement** | **(optional)** **IdentityentitlementdetailsentitlementdtoV1** |  | [default to undefined]
-**sourceId** | **(optional)** **string** | Id of Source | [default to undefined]
-**accountTargets** | **(optional)** **Array&lt;IdentityentitlementdetailsaccounttargetV1&gt;** | A list of account targets on the identity provisioned with the requested entitlement. | [default to undefined]
+**identityId** | **(optional)** `string` | Id of Identity | [default to undefined]
+**entitlement** | **(optional)** `Identityentitlementdetailsentitlementdto` |  | [default to undefined]
+**sourceId** | **(optional)** `string` | Id of Source | [default to undefined]
+**accountTargets** | **(optional)** `Array<Identityentitlementdetailsaccounttarget>` | A list of account targets on the identity provisioned with the requested entitlement. | [default to undefined]
 

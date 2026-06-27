@@ -1,20 +1,20 @@
 ---
-id: v1-bulkapproveaccessrequest-v1
-title: BulkapproveaccessrequestV1
-pagination_label: BulkapproveaccessrequestV1
-sidebar_label: BulkapproveaccessrequestV1
+id: v1-bulkapproveaccessrequest
+title: Bulkapproveaccessrequest
+pagination_label: Bulkapproveaccessrequest
+sidebar_label: Bulkapproveaccessrequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'BulkapproveaccessrequestV1', 'v1BulkapproveaccessrequestV1']
-slug: /tools/sdk/typescript/access_requests/models/bulkapproveaccessrequest-v1
-tags: ['SDK', 'Software Development Kit', 'BulkapproveaccessrequestV1', 'v1BulkapproveaccessrequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Bulkapproveaccessrequest', 'v1Bulkapproveaccessrequest']
+slug: /tools/sdk/typescript/access_requests/models/bulkapproveaccessrequest
+tags: ['SDK', 'Software Development Kit', 'Bulkapproveaccessrequest', 'v1Bulkapproveaccessrequest']
 ---
 
-# BulkapproveaccessrequestV1
+# Bulkapproveaccessrequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**approvalIds** | **Array&lt;string&gt;** | List of approval ids to approve the pending requests | [default to undefined]
-**comment** | **string** | Reason for approving the pending access request. | [default to undefined]
+**approvalIds** | `Array<string>` | List of approval ids to approve the pending requests | [default to undefined]
+**comment** | `string` | Reason for approving the pending access request. | [default to undefined]
 

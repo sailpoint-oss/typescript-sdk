@@ -26,50 +26,50 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * Config export and import format for individual object configurations.
  * @export
- * @interface ConfigobjectV1
+ * @interface Configobject
  */
-export interface ConfigobjectV1 {
+export interface Configobject {
     /**
      * Current version of configuration object.
      * @type {number}
-     * @memberof ConfigobjectV1
+     * @memberof Configobject
      */
     'version'?: number;
     /**
      * 
-     * @type {SelfimportexportdtoV1}
-     * @memberof ConfigobjectV1
+     * @type {Selfimportexportdto}
+     * @memberof Configobject
      */
-    'self'?: SelfimportexportdtoV1;
+    'self'?: Selfimportexportdto;
     /**
      * Object details. Format dependant on the object type.
      * @type {{ [key: string]: any; }}
-     * @memberof ConfigobjectV1
+     * @memberof Configobject
      */
     'object'?: { [key: string]: any; };
 }
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -78,87 +78,87 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface ExportSpConfigV1401ResponseV1
+ * @interface ExportSpConfigV1401Response
  */
-export interface ExportSpConfigV1401ResponseV1 {
+export interface ExportSpConfigV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ExportSpConfigV1401ResponseV1
+     * @memberof ExportSpConfigV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ExportSpConfigV1429ResponseV1
+ * @interface ExportSpConfigV1429Response
  */
-export interface ExportSpConfigV1429ResponseV1 {
+export interface ExportSpConfigV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ExportSpConfigV1429ResponseV1
+     * @memberof ExportSpConfigV1429Response
      */
     'message'?: any;
 }
 /**
  * 
  * @export
- * @interface ExportoptionsV1
+ * @interface Exportoptions
  */
-export interface ExportoptionsV1 {
+export interface Exportoptions {
     /**
      * Object type names to be excluded from an sp-config export command.
      * @type {Array<string>}
-     * @memberof ExportoptionsV1
+     * @memberof Exportoptions
      */
-    'excludeTypes'?: Array<ExportoptionsV1ExcludeTypesV1>;
+    'excludeTypes'?: Array<ExportoptionsExcludeTypesEnum>;
     /**
      * Object type names to be included in an sp-config export command. IncludeTypes takes precedence over excludeTypes.
      * @type {Array<string>}
-     * @memberof ExportoptionsV1
+     * @memberof Exportoptions
      */
-    'includeTypes'?: Array<ExportoptionsV1IncludeTypesV1>;
+    'includeTypes'?: Array<ExportoptionsIncludeTypesEnum>;
     /**
      * Additional options targeting specific objects related to each item in the includeTypes field
-     * @type {{ [key: string]: ObjectexportimportoptionsV1; }}
-     * @memberof ExportoptionsV1
+     * @type {{ [key: string]: Objectexportimportoptions; }}
+     * @memberof Exportoptions
      */
-    'objectOptions'?: { [key: string]: ObjectexportimportoptionsV1; };
+    'objectOptions'?: { [key: string]: Objectexportimportoptions; };
 }
 
-export const ExportoptionsV1ExcludeTypesV1 = {
+export const ExportoptionsExcludeTypesEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestConfig: 'ACCESS_REQUEST_CONFIG',
     AttrSyncSourceConfig: 'ATTR_SYNC_SOURCE_CONFIG',
@@ -186,8 +186,8 @@ export const ExportoptionsV1ExcludeTypesV1 = {
     Workflow: 'WORKFLOW'
 } as const;
 
-export type ExportoptionsV1ExcludeTypesV1 = typeof ExportoptionsV1ExcludeTypesV1[keyof typeof ExportoptionsV1ExcludeTypesV1];
-export const ExportoptionsV1IncludeTypesV1 = {
+export type ExportoptionsExcludeTypesEnum = typeof ExportoptionsExcludeTypesEnum[keyof typeof ExportoptionsExcludeTypesEnum];
+export const ExportoptionsIncludeTypesEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestConfig: 'ACCESS_REQUEST_CONFIG',
     AttrSyncSourceConfig: 'ATTR_SYNC_SOURCE_CONFIG',
@@ -215,41 +215,41 @@ export const ExportoptionsV1IncludeTypesV1 = {
     Workflow: 'WORKFLOW'
 } as const;
 
-export type ExportoptionsV1IncludeTypesV1 = typeof ExportoptionsV1IncludeTypesV1[keyof typeof ExportoptionsV1IncludeTypesV1];
+export type ExportoptionsIncludeTypesEnum = typeof ExportoptionsIncludeTypesEnum[keyof typeof ExportoptionsIncludeTypesEnum];
 
 /**
  * 
  * @export
- * @interface ExportpayloadV1
+ * @interface Exportpayload
  */
-export interface ExportpayloadV1 {
+export interface Exportpayload {
     /**
      * Optional user defined description/name for export job.
      * @type {string}
-     * @memberof ExportpayloadV1
+     * @memberof Exportpayload
      */
     'description'?: string;
     /**
      * Object type names to be excluded from an sp-config export command.
      * @type {Array<string>}
-     * @memberof ExportpayloadV1
+     * @memberof Exportpayload
      */
-    'excludeTypes'?: Array<ExportpayloadV1ExcludeTypesV1>;
+    'excludeTypes'?: Array<ExportpayloadExcludeTypesEnum>;
     /**
      * Object type names to be included in an sp-config export command. IncludeTypes takes precedence over excludeTypes.
      * @type {Array<string>}
-     * @memberof ExportpayloadV1
+     * @memberof Exportpayload
      */
-    'includeTypes'?: Array<ExportpayloadV1IncludeTypesV1>;
+    'includeTypes'?: Array<ExportpayloadIncludeTypesEnum>;
     /**
      * Additional options targeting specific objects related to each item in the includeTypes field
-     * @type {{ [key: string]: ObjectexportimportoptionsV1; }}
-     * @memberof ExportpayloadV1
+     * @type {{ [key: string]: Objectexportimportoptions; }}
+     * @memberof Exportpayload
      */
-    'objectOptions'?: { [key: string]: ObjectexportimportoptionsV1; };
+    'objectOptions'?: { [key: string]: Objectexportimportoptions; };
 }
 
-export const ExportpayloadV1ExcludeTypesV1 = {
+export const ExportpayloadExcludeTypesEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestConfig: 'ACCESS_REQUEST_CONFIG',
     AttrSyncSourceConfig: 'ATTR_SYNC_SOURCE_CONFIG',
@@ -277,8 +277,8 @@ export const ExportpayloadV1ExcludeTypesV1 = {
     Workflow: 'WORKFLOW'
 } as const;
 
-export type ExportpayloadV1ExcludeTypesV1 = typeof ExportpayloadV1ExcludeTypesV1[keyof typeof ExportpayloadV1ExcludeTypesV1];
-export const ExportpayloadV1IncludeTypesV1 = {
+export type ExportpayloadExcludeTypesEnum = typeof ExportpayloadExcludeTypesEnum[keyof typeof ExportpayloadExcludeTypesEnum];
+export const ExportpayloadIncludeTypesEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestConfig: 'ACCESS_REQUEST_CONFIG',
     AttrSyncSourceConfig: 'ATTR_SYNC_SOURCE_CONFIG',
@@ -306,54 +306,54 @@ export const ExportpayloadV1IncludeTypesV1 = {
     Workflow: 'WORKFLOW'
 } as const;
 
-export type ExportpayloadV1IncludeTypesV1 = typeof ExportpayloadV1IncludeTypesV1[keyof typeof ExportpayloadV1IncludeTypesV1];
+export type ExportpayloadIncludeTypesEnum = typeof ExportpayloadIncludeTypesEnum[keyof typeof ExportpayloadIncludeTypesEnum];
 
 /**
  * 
  * @export
- * @interface ImportSpConfigV1RequestV1
+ * @interface ImportSpConfigV1Request
  */
-export interface ImportSpConfigV1RequestV1 {
+export interface ImportSpConfigV1Request {
     /**
      * JSON file containing the objects to be imported.
      * @type {File}
-     * @memberof ImportSpConfigV1RequestV1
+     * @memberof ImportSpConfigV1Request
      */
     'data': File;
     /**
      * 
-     * @type {ImportoptionsV1}
-     * @memberof ImportSpConfigV1RequestV1
+     * @type {Importoptions}
+     * @memberof ImportSpConfigV1Request
      */
-    'options'?: ImportoptionsV1;
+    'options'?: Importoptions;
 }
 /**
  * Object created or updated by import.
  * @export
- * @interface ImportobjectV1
+ * @interface Importobject
  */
-export interface ImportobjectV1 {
+export interface Importobject {
     /**
      * DTO type of object created or updated by import.
      * @type {string}
-     * @memberof ImportobjectV1
+     * @memberof Importobject
      */
-    'type'?: ImportobjectV1TypeV1;
+    'type'?: ImportobjectTypeEnum;
     /**
      * ID of object created or updated by import.
      * @type {string}
-     * @memberof ImportobjectV1
+     * @memberof Importobject
      */
     'id'?: string;
     /**
      * Display name of object created or updated by import.
      * @type {string}
-     * @memberof ImportobjectV1
+     * @memberof Importobject
      */
     'name'?: string;
 }
 
-export const ImportobjectV1TypeV1 = {
+export const ImportobjectTypeEnum = {
     ConnectorRule: 'CONNECTOR_RULE',
     IdentityObjectConfig: 'IDENTITY_OBJECT_CONFIG',
     IdentityProfile: 'IDENTITY_PROFILE',
@@ -363,47 +363,47 @@ export const ImportobjectV1TypeV1 = {
     TriggerSubscription: 'TRIGGER_SUBSCRIPTION'
 } as const;
 
-export type ImportobjectV1TypeV1 = typeof ImportobjectV1TypeV1[keyof typeof ImportobjectV1TypeV1];
+export type ImportobjectTypeEnum = typeof ImportobjectTypeEnum[keyof typeof ImportobjectTypeEnum];
 
 /**
  * 
  * @export
- * @interface ImportoptionsV1
+ * @interface Importoptions
  */
-export interface ImportoptionsV1 {
+export interface Importoptions {
     /**
      * Object type names to be excluded from an sp-config export command.
      * @type {Array<string>}
-     * @memberof ImportoptionsV1
+     * @memberof Importoptions
      */
-    'excludeTypes'?: Array<ImportoptionsV1ExcludeTypesV1>;
+    'excludeTypes'?: Array<ImportoptionsExcludeTypesEnum>;
     /**
      * Object type names to be included in an sp-config export command. IncludeTypes takes precedence over excludeTypes.
      * @type {Array<string>}
-     * @memberof ImportoptionsV1
+     * @memberof Importoptions
      */
-    'includeTypes'?: Array<ImportoptionsV1IncludeTypesV1>;
+    'includeTypes'?: Array<ImportoptionsIncludeTypesEnum>;
     /**
      * Additional options targeting specific objects related to each item in the includeTypes field
-     * @type {{ [key: string]: ObjectexportimportoptionsV1; }}
-     * @memberof ImportoptionsV1
+     * @type {{ [key: string]: Objectexportimportoptions; }}
+     * @memberof Importoptions
      */
-    'objectOptions'?: { [key: string]: ObjectexportimportoptionsV1; };
+    'objectOptions'?: { [key: string]: Objectexportimportoptions; };
     /**
      * List of object types that can be used to resolve references on import.
      * @type {Array<string>}
-     * @memberof ImportoptionsV1
+     * @memberof Importoptions
      */
-    'defaultReferences'?: Array<ImportoptionsV1DefaultReferencesV1>;
+    'defaultReferences'?: Array<ImportoptionsDefaultReferencesEnum>;
     /**
      * By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. If excludeBackup is true, the backup will not be performed.
      * @type {boolean}
-     * @memberof ImportoptionsV1
+     * @memberof Importoptions
      */
     'excludeBackup'?: boolean;
 }
 
-export const ImportoptionsV1ExcludeTypesV1 = {
+export const ImportoptionsExcludeTypesEnum = {
     ConnectorRule: 'CONNECTOR_RULE',
     IdentityObjectConfig: 'IDENTITY_OBJECT_CONFIG',
     IdentityProfile: 'IDENTITY_PROFILE',
@@ -413,8 +413,8 @@ export const ImportoptionsV1ExcludeTypesV1 = {
     TriggerSubscription: 'TRIGGER_SUBSCRIPTION'
 } as const;
 
-export type ImportoptionsV1ExcludeTypesV1 = typeof ImportoptionsV1ExcludeTypesV1[keyof typeof ImportoptionsV1ExcludeTypesV1];
-export const ImportoptionsV1IncludeTypesV1 = {
+export type ImportoptionsExcludeTypesEnum = typeof ImportoptionsExcludeTypesEnum[keyof typeof ImportoptionsExcludeTypesEnum];
+export const ImportoptionsIncludeTypesEnum = {
     ConnectorRule: 'CONNECTOR_RULE',
     IdentityObjectConfig: 'IDENTITY_OBJECT_CONFIG',
     IdentityProfile: 'IDENTITY_PROFILE',
@@ -424,8 +424,8 @@ export const ImportoptionsV1IncludeTypesV1 = {
     TriggerSubscription: 'TRIGGER_SUBSCRIPTION'
 } as const;
 
-export type ImportoptionsV1IncludeTypesV1 = typeof ImportoptionsV1IncludeTypesV1[keyof typeof ImportoptionsV1IncludeTypesV1];
-export const ImportoptionsV1DefaultReferencesV1 = {
+export type ImportoptionsIncludeTypesEnum = typeof ImportoptionsIncludeTypesEnum[keyof typeof ImportoptionsIncludeTypesEnum];
+export const ImportoptionsDefaultReferencesEnum = {
     ConnectorRule: 'CONNECTOR_RULE',
     IdentityObjectConfig: 'IDENTITY_OBJECT_CONFIG',
     IdentityProfile: 'IDENTITY_PROFILE',
@@ -435,7 +435,7 @@ export const ImportoptionsV1DefaultReferencesV1 = {
     TriggerSubscription: 'TRIGGER_SUBSCRIPTION'
 } as const;
 
-export type ImportoptionsV1DefaultReferencesV1 = typeof ImportoptionsV1DefaultReferencesV1[keyof typeof ImportoptionsV1DefaultReferencesV1];
+export type ImportoptionsDefaultReferencesEnum = typeof ImportoptionsDefaultReferencesEnum[keyof typeof ImportoptionsDefaultReferencesEnum];
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -443,91 +443,91 @@ export type ImportoptionsV1DefaultReferencesV1 = typeof ImportoptionsV1DefaultRe
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface ObjectexportimportoptionsV1
+ * @interface Objectexportimportoptions
  */
-export interface ObjectexportimportoptionsV1 {
+export interface Objectexportimportoptions {
     /**
      * Object ids to be included in an import or export.
      * @type {Array<string>}
-     * @memberof ObjectexportimportoptionsV1
+     * @memberof Objectexportimportoptions
      */
     'includedIds'?: Array<string>;
     /**
      * Object names to be included in an import or export.
      * @type {Array<string>}
-     * @memberof ObjectexportimportoptionsV1
+     * @memberof Objectexportimportoptions
      */
     'includedNames'?: Array<string>;
 }
 /**
  * Response model for import of a single object.
  * @export
- * @interface Objectimportresult2V1
+ * @interface Objectimportresult2
  */
-export interface Objectimportresult2V1 {
+export interface Objectimportresult2 {
     /**
      * Informational messages returned from the target service on import.
-     * @type {Array<Spconfigmessage2V1>}
-     * @memberof Objectimportresult2V1
+     * @type {Array<Spconfigmessage2>}
+     * @memberof Objectimportresult2
      */
-    'infos': Array<Spconfigmessage2V1>;
+    'infos': Array<Spconfigmessage2>;
     /**
      * Warning messages returned from the target service on import.
-     * @type {Array<Spconfigmessage2V1>}
-     * @memberof Objectimportresult2V1
+     * @type {Array<Spconfigmessage2>}
+     * @memberof Objectimportresult2
      */
-    'warnings': Array<Spconfigmessage2V1>;
+    'warnings': Array<Spconfigmessage2>;
     /**
      * Error messages returned from the target service on import.
-     * @type {Array<Spconfigmessage2V1>}
-     * @memberof Objectimportresult2V1
+     * @type {Array<Spconfigmessage2>}
+     * @memberof Objectimportresult2
      */
-    'errors': Array<Spconfigmessage2V1>;
+    'errors': Array<Spconfigmessage2>;
     /**
      * References to objects that were created or updated by the import.
-     * @type {Array<ImportobjectV1>}
-     * @memberof Objectimportresult2V1
+     * @type {Array<Importobject>}
+     * @memberof Objectimportresult2
      */
-    'importedObjects': Array<ImportobjectV1>;
+    'importedObjects': Array<Importobject>;
 }
 /**
  * Self block for imported/exported object.
  * @export
- * @interface SelfimportexportdtoV1
+ * @interface Selfimportexportdto
  */
-export interface SelfimportexportdtoV1 {
+export interface Selfimportexportdto {
     /**
      * Imported/exported object\'s DTO type. Import is currently only possible with the CONNECTOR_RULE, IDENTITY_OBJECT_CONFIG, IDENTITY_PROFILE, RULE, SOURCE, TRANSFORM, and TRIGGER_SUBSCRIPTION object types.
      * @type {string}
-     * @memberof SelfimportexportdtoV1
+     * @memberof Selfimportexportdto
      */
-    'type'?: SelfimportexportdtoV1TypeV1;
+    'type'?: SelfimportexportdtoTypeEnum;
     /**
      * Imported/exported object\'s ID.
      * @type {string}
-     * @memberof SelfimportexportdtoV1
+     * @memberof Selfimportexportdto
      */
     'id'?: string;
     /**
      * Imported/exported object\'s display name.
      * @type {string}
-     * @memberof SelfimportexportdtoV1
+     * @memberof Selfimportexportdto
      */
     'name'?: string;
 }
 
-export const SelfimportexportdtoV1TypeV1 = {
+export const SelfimportexportdtoTypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestConfig: 'ACCESS_REQUEST_CONFIG',
     AttrSyncSourceConfig: 'ATTR_SYNC_SOURCE_CONFIG',
@@ -555,59 +555,59 @@ export const SelfimportexportdtoV1TypeV1 = {
     Workflow: 'WORKFLOW'
 } as const;
 
-export type SelfimportexportdtoV1TypeV1 = typeof SelfimportexportdtoV1TypeV1[keyof typeof SelfimportexportdtoV1TypeV1];
+export type SelfimportexportdtoTypeEnum = typeof SelfimportexportdtoTypeEnum[keyof typeof SelfimportexportdtoTypeEnum];
 
 /**
  * 
  * @export
- * @interface SpconfigexportjobV1
+ * @interface Spconfigexportjob
  */
-export interface SpconfigexportjobV1 {
+export interface Spconfigexportjob {
     /**
      * Unique id assigned to this job.
      * @type {string}
-     * @memberof SpconfigexportjobV1
+     * @memberof Spconfigexportjob
      */
     'jobId': string;
     /**
      * Status of the job.
      * @type {string}
-     * @memberof SpconfigexportjobV1
+     * @memberof Spconfigexportjob
      */
-    'status': SpconfigexportjobV1StatusV1;
+    'status': SpconfigexportjobStatusEnum;
     /**
      * Type of the job, either export or import.
      * @type {string}
-     * @memberof SpconfigexportjobV1
+     * @memberof Spconfigexportjob
      */
-    'type': SpconfigexportjobV1TypeV1;
+    'type': SpconfigexportjobTypeEnum;
     /**
      * The time until which the artifacts will be available for download.
      * @type {string}
-     * @memberof SpconfigexportjobV1
+     * @memberof Spconfigexportjob
      */
     'expiration'?: string;
     /**
      * The time the job was started.
      * @type {string}
-     * @memberof SpconfigexportjobV1
+     * @memberof Spconfigexportjob
      */
     'created': string;
     /**
      * The time of the last update to the job.
      * @type {string}
-     * @memberof SpconfigexportjobV1
+     * @memberof Spconfigexportjob
      */
     'modified': string;
     /**
      * Optional user defined description/name for export job.
      * @type {string}
-     * @memberof SpconfigexportjobV1
+     * @memberof Spconfigexportjob
      */
     'description'?: string;
 }
 
-export const SpconfigexportjobV1StatusV1 = {
+export const SpconfigexportjobStatusEnum = {
     NotStarted: 'NOT_STARTED',
     InProgress: 'IN_PROGRESS',
     Complete: 'COMPLETE',
@@ -615,71 +615,71 @@ export const SpconfigexportjobV1StatusV1 = {
     Failed: 'FAILED'
 } as const;
 
-export type SpconfigexportjobV1StatusV1 = typeof SpconfigexportjobV1StatusV1[keyof typeof SpconfigexportjobV1StatusV1];
-export const SpconfigexportjobV1TypeV1 = {
+export type SpconfigexportjobStatusEnum = typeof SpconfigexportjobStatusEnum[keyof typeof SpconfigexportjobStatusEnum];
+export const SpconfigexportjobTypeEnum = {
     Export: 'EXPORT',
     Import: 'IMPORT'
 } as const;
 
-export type SpconfigexportjobV1TypeV1 = typeof SpconfigexportjobV1TypeV1[keyof typeof SpconfigexportjobV1TypeV1];
+export type SpconfigexportjobTypeEnum = typeof SpconfigexportjobTypeEnum[keyof typeof SpconfigexportjobTypeEnum];
 
 /**
  * 
  * @export
- * @interface SpconfigexportjobstatusV1
+ * @interface Spconfigexportjobstatus
  */
-export interface SpconfigexportjobstatusV1 {
+export interface Spconfigexportjobstatus {
     /**
      * Unique id assigned to this job.
      * @type {string}
-     * @memberof SpconfigexportjobstatusV1
+     * @memberof Spconfigexportjobstatus
      */
     'jobId': string;
     /**
      * Status of the job.
      * @type {string}
-     * @memberof SpconfigexportjobstatusV1
+     * @memberof Spconfigexportjobstatus
      */
-    'status': SpconfigexportjobstatusV1StatusV1;
+    'status': SpconfigexportjobstatusStatusEnum;
     /**
      * Type of the job, either export or import.
      * @type {string}
-     * @memberof SpconfigexportjobstatusV1
+     * @memberof Spconfigexportjobstatus
      */
-    'type': SpconfigexportjobstatusV1TypeV1;
+    'type': SpconfigexportjobstatusTypeEnum;
     /**
      * The time until which the artifacts will be available for download.
      * @type {string}
-     * @memberof SpconfigexportjobstatusV1
+     * @memberof Spconfigexportjobstatus
      */
     'expiration'?: string;
     /**
      * The time the job was started.
      * @type {string}
-     * @memberof SpconfigexportjobstatusV1
+     * @memberof Spconfigexportjobstatus
      */
     'created': string;
     /**
      * The time of the last update to the job.
      * @type {string}
-     * @memberof SpconfigexportjobstatusV1
+     * @memberof Spconfigexportjobstatus
      */
     'modified': string;
     /**
      * Optional user defined description/name for export job.
      * @type {string}
-     * @memberof SpconfigexportjobstatusV1
+     * @memberof Spconfigexportjobstatus
      */
     'description'?: string;
     /**
      * The time the job was completed.
      * @type {string}
-     * @memberof SpconfigexportjobstatusV1
+     * @memberof Spconfigexportjobstatus
      */
     'completed'?: string;
 }
 
-export const SpconfigexportjobstatusV1StatusV1 = {
+export const SpconfigexportjobstatusStatusEnum = {
     NotStarted: 'NOT_STARTED',
     InProgress: 'IN_PROGRESS',
     Complete: 'COMPLETE',
@@ -687,114 +687,114 @@ export const SpconfigexportjobstatusV1StatusV1 = {
     Failed: 'FAILED'
 } as const;
 
-export type SpconfigexportjobstatusV1StatusV1 = typeof SpconfigexportjobstatusV1StatusV1[keyof typeof SpconfigexportjobstatusV1StatusV1];
-export const SpconfigexportjobstatusV1TypeV1 = {
+export type SpconfigexportjobstatusStatusEnum = typeof SpconfigexportjobstatusStatusEnum[keyof typeof SpconfigexportjobstatusStatusEnum];
+export const SpconfigexportjobstatusTypeEnum = {
     Export: 'EXPORT',
     Import: 'IMPORT'
 } as const;
 
-export type SpconfigexportjobstatusV1TypeV1 = typeof SpconfigexportjobstatusV1TypeV1[keyof typeof SpconfigexportjobstatusV1TypeV1];
+export type SpconfigexportjobstatusTypeEnum = typeof SpconfigexportjobstatusTypeEnum[keyof typeof SpconfigexportjobstatusTypeEnum];
 
 /**
  * Response model for config export download response.
  * @export
- * @interface SpconfigexportresultsV1
+ * @interface Spconfigexportresults
  */
-export interface SpconfigexportresultsV1 {
+export interface Spconfigexportresults {
     /**
      * Current version of the export results object.
      * @type {number}
-     * @memberof SpconfigexportresultsV1
+     * @memberof Spconfigexportresults
      */
     'version'?: number;
     /**
      * Time the export was completed.
      * @type {string}
-     * @memberof SpconfigexportresultsV1
+     * @memberof Spconfigexportresults
      */
     'timestamp'?: string;
     /**
      * Name of the tenant where this export originated.
      * @type {string}
-     * @memberof SpconfigexportresultsV1
+     * @memberof Spconfigexportresults
      */
     'tenant'?: string;
     /**
      * Optional user defined description/name for export job.
      * @type {string}
-     * @memberof SpconfigexportresultsV1
+     * @memberof Spconfigexportresults
      */
     'description'?: string;
     /**
      * 
-     * @type {ExportoptionsV1}
-     * @memberof SpconfigexportresultsV1
+     * @type {Exportoptions}
+     * @memberof Spconfigexportresults
      */
-    'options'?: ExportoptionsV1;
+    'options'?: Exportoptions;
     /**
      * 
-     * @type {Array<ConfigobjectV1>}
-     * @memberof SpconfigexportresultsV1
+     * @type {Array<Configobject>}
+     * @memberof Spconfigexportresults
      */
-    'objects'?: Array<ConfigobjectV1>;
+    'objects'?: Array<Configobject>;
 }
 /**
  * 
  * @export
- * @interface SpconfigimportjobstatusV1
+ * @interface Spconfigimportjobstatus
  */
-export interface SpconfigimportjobstatusV1 {
+export interface Spconfigimportjobstatus {
     /**
      * Unique id assigned to this job.
      * @type {string}
-     * @memberof SpconfigimportjobstatusV1
+     * @memberof Spconfigimportjobstatus
      */
     'jobId': string;
     /**
      * Status of the job.
      * @type {string}
-     * @memberof SpconfigimportjobstatusV1
+     * @memberof Spconfigimportjobstatus
      */
-    'status': SpconfigimportjobstatusV1StatusV1;
+    'status': SpconfigimportjobstatusStatusEnum;
     /**
      * Type of the job, either export or import.
      * @type {string}
-     * @memberof SpconfigimportjobstatusV1
+     * @memberof Spconfigimportjobstatus
      */
-    'type': SpconfigimportjobstatusV1TypeV1;
+    'type': SpconfigimportjobstatusTypeEnum;
     /**
      * The time until which the artifacts will be available for download.
      * @type {string}
-     * @memberof SpconfigimportjobstatusV1
+     * @memberof Spconfigimportjobstatus
      */
     'expiration'?: string;
     /**
      * The time the job was started.
      * @type {string}
-     * @memberof SpconfigimportjobstatusV1
+     * @memberof Spconfigimportjobstatus
      */
     'created': string;
     /**
      * The time of the last update to the job.
      * @type {string}
-     * @memberof SpconfigimportjobstatusV1
+     * @memberof Spconfigimportjobstatus
      */
     'modified': string;
     /**
      * This message contains additional information about the overall status of the job.
      * @type {string}
-     * @memberof SpconfigimportjobstatusV1
+     * @memberof Spconfigimportjobstatus
      */
     'message'?: string;
     /**
      * The time the job was completed.
      * @type {string}
-     * @memberof SpconfigimportjobstatusV1
+     * @memberof Spconfigimportjobstatus
      */
     'completed'?: string;
 }
 
-export const SpconfigimportjobstatusV1StatusV1 = {
+export const SpconfigimportjobstatusStatusEnum = {
     NotStarted: 'NOT_STARTED',
     InProgress: 'IN_PROGRESS',
     Complete: 'COMPLETE',
@@ -802,78 +802,78 @@ export const SpconfigimportjobstatusV1StatusV1 = {
     Failed: 'FAILED'
 } as const;
 
-export type SpconfigimportjobstatusV1StatusV1 = typeof SpconfigimportjobstatusV1StatusV1[keyof typeof SpconfigimportjobstatusV1StatusV1];
-export const SpconfigimportjobstatusV1TypeV1 = {
+export type SpconfigimportjobstatusStatusEnum = typeof SpconfigimportjobstatusStatusEnum[keyof typeof SpconfigimportjobstatusStatusEnum];
+export const SpconfigimportjobstatusTypeEnum = {
     Export: 'EXPORT',
     Import: 'IMPORT'
 } as const;
 
-export type SpconfigimportjobstatusV1TypeV1 = typeof SpconfigimportjobstatusV1TypeV1[keyof typeof SpconfigimportjobstatusV1TypeV1];
+export type SpconfigimportjobstatusTypeEnum = typeof SpconfigimportjobstatusTypeEnum[keyof typeof SpconfigimportjobstatusTypeEnum];
 
 /**
  * Response Body for Config Import command.
  * @export
- * @interface SpconfigimportresultsV1
+ * @interface Spconfigimportresults
  */
-export interface SpconfigimportresultsV1 {
+export interface Spconfigimportresults {
     /**
      * The results of an object configuration import job.
-     * @type {{ [key: string]: Objectimportresult2V1; }}
-     * @memberof SpconfigimportresultsV1
+     * @type {{ [key: string]: Objectimportresult2; }}
+     * @memberof Spconfigimportresults
      */
-    'results': { [key: string]: Objectimportresult2V1; };
+    'results': { [key: string]: Objectimportresult2; };
     /**
      * If a backup was performed before the import, this will contain the jobId of the backup job. This id can be used to retrieve the json file of the backup export.
      * @type {string}
-     * @memberof SpconfigimportresultsV1
+     * @memberof Spconfigimportresults
      */
     'exportJobId'?: string;
 }
 /**
  * 
  * @export
- * @interface SpconfigjobV1
+ * @interface Spconfigjob
  */
-export interface SpconfigjobV1 {
+export interface Spconfigjob {
     /**
      * Unique id assigned to this job.
      * @type {string}
-     * @memberof SpconfigjobV1
+     * @memberof Spconfigjob
      */
     'jobId': string;
     /**
      * Status of the job.
      * @type {string}
-     * @memberof SpconfigjobV1
+     * @memberof Spconfigjob
      */
-    'status': SpconfigjobV1StatusV1;
+    'status': SpconfigjobStatusEnum;
     /**
      * Type of the job, either export or import.
      * @type {string}
-     * @memberof SpconfigjobV1
+     * @memberof Spconfigjob
      */
-    'type': SpconfigjobV1TypeV1;
+    'type': SpconfigjobTypeEnum;
     /**
      * The time until which the artifacts will be available for download.
      * @type {string}
-     * @memberof SpconfigjobV1
+     * @memberof Spconfigjob
      */
     'expiration'?: string;
     /**
      * The time the job was started.
      * @type {string}
-     * @memberof SpconfigjobV1
+     * @memberof Spconfigjob
      */
     'created': string;
     /**
      * The time of the last update to the job.
      * @type {string}
-     * @memberof SpconfigjobV1
+     * @memberof Spconfigjob
      */
     'modified': string;
 }
 
-export const SpconfigjobV1StatusV1 = {
+export const SpconfigjobStatusEnum = {
     NotStarted: 'NOT_STARTED',
     InProgress: 'IN_PROGRESS',
     Complete: 'COMPLETE',
@@ -881,177 +881,177 @@ export const SpconfigjobV1StatusV1 = {
     Failed: 'FAILED'
 } as const;
 
-export type SpconfigjobV1StatusV1 = typeof SpconfigjobV1StatusV1[keyof typeof SpconfigjobV1StatusV1];
-export const SpconfigjobV1TypeV1 = {
+export type SpconfigjobStatusEnum = typeof SpconfigjobStatusEnum[keyof typeof SpconfigjobStatusEnum];
+export const SpconfigjobTypeEnum = {
     Export: 'EXPORT',
     Import: 'IMPORT'
 } as const;
 
-export type SpconfigjobV1TypeV1 = typeof SpconfigjobV1TypeV1[keyof typeof SpconfigjobV1TypeV1];
+export type SpconfigjobTypeEnum = typeof SpconfigjobTypeEnum[keyof typeof SpconfigjobTypeEnum];
 
 /**
  * Message model for Config Import/Export.
  * @export
- * @interface Spconfigmessage2V1
+ * @interface Spconfigmessage2
  */
-export interface Spconfigmessage2V1 {
+export interface Spconfigmessage2 {
     /**
      * Message key.
      * @type {string}
-     * @memberof Spconfigmessage2V1
+     * @memberof Spconfigmessage2
      */
     'key': string;
     /**
      * Message text.
      * @type {string}
-     * @memberof Spconfigmessage2V1
+     * @memberof Spconfigmessage2
      */
     'text': string;
     /**
      * Message details if any, in key:value pairs.
      * @type {{ [key: string]: object; }}
-     * @memberof Spconfigmessage2V1
+     * @memberof Spconfigmessage2
      */
     'details': { [key: string]: object; };
 }
 /**
  * Response model for object configuration.
  * @export
- * @interface SpconfigobjectV1
+ * @interface Spconfigobject
  */
-export interface SpconfigobjectV1 {
+export interface Spconfigobject {
     /**
      * Object type the configuration is for.
      * @type {string}
-     * @memberof SpconfigobjectV1
+     * @memberof Spconfigobject
      */
     'objectType'?: string;
     /**
      * List of JSON paths within an exported object of this type, representing references that must be resolved.
      * @type {Array<string>}
-     * @memberof SpconfigobjectV1
+     * @memberof Spconfigobject
      */
     'referenceExtractors'?: Array<string> | null;
     /**
      * Indicates whether this type of object will be JWS signed and cannot be modified before import.
      * @type {boolean}
-     * @memberof SpconfigobjectV1
+     * @memberof Spconfigobject
      */
     'signatureRequired'?: boolean;
     /**
      * Indicates whether this object type must be always be resolved by ID.
      * @type {boolean}
-     * @memberof SpconfigobjectV1
+     * @memberof Spconfigobject
      */
     'alwaysResolveById'?: boolean;
     /**
      * Indicates whether this is a legacy object.
      * @type {boolean}
-     * @memberof SpconfigobjectV1
+     * @memberof Spconfigobject
      */
     'legacyObject'?: boolean;
     /**
      * Indicates whether there is only one object of this type.
      * @type {boolean}
-     * @memberof SpconfigobjectV1
+     * @memberof Spconfigobject
      */
     'onePerTenant'?: boolean;
     /**
      * Indicates whether the object can be exported or is just a reference object.
      * @type {boolean}
-     * @memberof SpconfigobjectV1
+     * @memberof Spconfigobject
      */
     'exportable'?: boolean;
     /**
      * 
-     * @type {SpconfigrulesV1}
-     * @memberof SpconfigobjectV1
+     * @type {Spconfigrules}
+     * @memberof Spconfigobject
      */
-    'rules'?: SpconfigrulesV1;
+    'rules'?: Spconfigrules;
 }
 /**
  * Format of Config Hub object rules.
  * @export
- * @interface SpconfigruleV1
+ * @interface Spconfigrule
  */
-export interface SpconfigruleV1 {
+export interface Spconfigrule {
     /**
      * JSONPath expression denoting the path within the object where a value substitution should be applied.
      * @type {string}
-     * @memberof SpconfigruleV1
+     * @memberof Spconfigrule
      */
     'path'?: string;
     /**
      * 
-     * @type {SpconfigruleValueV1}
-     * @memberof SpconfigruleV1
+     * @type {SpconfigruleValue}
+     * @memberof Spconfigrule
      */
-    'value'?: SpconfigruleValueV1 | null;
+    'value'?: SpconfigruleValue | null;
     /**
      * Draft modes the rule will apply to.
      * @type {Array<string>}
-     * @memberof SpconfigruleV1
+     * @memberof Spconfigrule
      */
-    'modes'?: Array<SpconfigruleV1ModesV1>;
+    'modes'?: Array<SpconfigruleModesEnum>;
 }
 
-export const SpconfigruleV1ModesV1 = {
+export const SpconfigruleModesEnum = {
     Restore: 'RESTORE',
     Promote: 'PROMOTE',
     Upload: 'UPLOAD'
 } as const;
 
-export type SpconfigruleV1ModesV1 = typeof SpconfigruleV1ModesV1[keyof typeof SpconfigruleV1ModesV1];
+export type SpconfigruleModesEnum = typeof SpconfigruleModesEnum[keyof typeof SpconfigruleModesEnum];
 
 /**
  * Value to be assigned at the jsonPath location within the object.
  * @export
- * @interface SpconfigruleValueV1
+ * @interface SpconfigruleValue
  */
-export interface SpconfigruleValueV1 {
+export interface SpconfigruleValue {
 }
 /**
  * Rules to be applied to the config object during the draft process.
  * @export
- * @interface SpconfigrulesV1
+ * @interface Spconfigrules
  */
-export interface SpconfigrulesV1 {
+export interface Spconfigrules {
     /**
      * 
-     * @type {Array<SpconfigruleV1>}
-     * @memberof SpconfigrulesV1
+     * @type {Array<Spconfigrule>}
+     * @memberof Spconfigrules
      */
-    'takeFromTargetRules'?: Array<SpconfigruleV1>;
+    'takeFromTargetRules'?: Array<Spconfigrule>;
     /**
      * 
-     * @type {Array<SpconfigruleV1>}
-     * @memberof SpconfigrulesV1
+     * @type {Array<Spconfigrule>}
+     * @memberof Spconfigrules
      */
-    'defaultRules'?: Array<SpconfigruleV1>;
+    'defaultRules'?: Array<Spconfigrule>;
     /**
      * Indicates whether the object can be edited.
      * @type {boolean}
-     * @memberof SpconfigrulesV1
+     * @memberof Spconfigrules
      */
     'editable'?: boolean;
 }
 
 /**
- * SPConfigV1Api - axios parameter creator
+ * SPConfigApi - axios parameter creator
  * @export
  */
-export const SPConfigV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const SPConfigApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This post will export objects from the tenant to a JSON configuration file. For more information about the object types that currently support export functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/docs/extensibility/configuration-management/saas-configuration#supported-objects).
          * @summary Initiates configuration objects export job
-         * @param {ExportpayloadV1} exportpayloadV1 Export options control what will be included in the export.
+         * @param {Exportpayload} exportpayload Export options control what will be included in the export.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        exportSpConfigV1: async (exportpayloadV1: ExportpayloadV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'exportpayloadV1' is not null or undefined
-            assertParamExists('exportSpConfigV1', 'exportpayloadV1', exportpayloadV1)
+        exportSpConfigV1: async (exportpayload: Exportpayload, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'exportpayload' is not null or undefined
+            assertParamExists('exportSpConfigV1', 'exportpayload', exportpayload)
             const localVarPath = `/sp-config/v1/export`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1071,7 +1071,7 @@ export const SPConfigV1ApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(exportpayloadV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(exportpayload, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1219,11 +1219,11 @@ export const SPConfigV1ApiAxiosParamCreator = function (configuration?: Configur
          * @summary Initiates configuration objects import job
          * @param {File} data JSON file containing the objects to be imported.
          * @param {boolean} [preview] This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \&quot;true\&quot;, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported. 
-         * @param {ImportoptionsV1} [_options] 
+         * @param {Importoptions} [_options] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        importSpConfigV1: async (data: File, preview?: boolean, _options?: ImportoptionsV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        importSpConfigV1: async (data: File, preview?: boolean, _options?: Importoptions, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'data' is not null or undefined
             assertParamExists('importSpConfigV1', 'data', data)
             const localVarPath = `/sp-config/v1/import`;
@@ -1299,23 +1299,23 @@ export const SPConfigV1ApiAxiosParamCreator = function (configuration?: Configur
 };
 
 /**
- * SPConfigV1Api - functional programming interface
+ * SPConfigApi - functional programming interface
  * @export
  */
-export const SPConfigV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = SPConfigV1ApiAxiosParamCreator(configuration)
+export const SPConfigApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SPConfigApiAxiosParamCreator(configuration)
     return {
         /**
          * This post will export objects from the tenant to a JSON configuration file. For more information about the object types that currently support export functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/docs/extensibility/configuration-management/saas-configuration#supported-objects).
          * @summary Initiates configuration objects export job
-         * @param {ExportpayloadV1} exportpayloadV1 Export options control what will be included in the export.
+         * @param {Exportpayload} exportpayload Export options control what will be included in the export.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async exportSpConfigV1(exportpayloadV1: ExportpayloadV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpconfigexportjobV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.exportSpConfigV1(exportpayloadV1, axiosOptions);
+        async exportSpConfigV1(exportpayload: Exportpayload, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Spconfigexportjob>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.exportSpConfigV1(exportpayload, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SPConfigV1Api.exportSpConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SPConfigApi.exportSpConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1325,10 +1325,10 @@ export const SPConfigV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSpConfigExportStatusV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpconfigexportjobstatusV1>> {
+        async getSpConfigExportStatusV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Spconfigexportjobstatus>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSpConfigExportStatusV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SPConfigV1Api.getSpConfigExportStatusV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SPConfigApi.getSpConfigExportStatusV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1338,10 +1338,10 @@ export const SPConfigV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSpConfigExportV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpconfigexportresultsV1>> {
+        async getSpConfigExportV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Spconfigexportresults>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSpConfigExportV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SPConfigV1Api.getSpConfigExportV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SPConfigApi.getSpConfigExportV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1351,10 +1351,10 @@ export const SPConfigV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSpConfigImportStatusV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpconfigimportjobstatusV1>> {
+        async getSpConfigImportStatusV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Spconfigimportjobstatus>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSpConfigImportStatusV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SPConfigV1Api.getSpConfigImportStatusV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SPConfigApi.getSpConfigImportStatusV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1364,10 +1364,10 @@ export const SPConfigV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSpConfigImportV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpconfigimportresultsV1>> {
+        async getSpConfigImportV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Spconfigimportresults>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSpConfigImportV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SPConfigV1Api.getSpConfigImportV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SPConfigApi.getSpConfigImportV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1375,14 +1375,14 @@ export const SPConfigV1ApiFp = function(configuration?: Configuration) {
          * @summary Initiates configuration objects import job
          * @param {File} data JSON file containing the objects to be imported.
          * @param {boolean} [preview] This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \&quot;true\&quot;, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported. 
-         * @param {ImportoptionsV1} [_options] 
+         * @param {Importoptions} [_options] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importSpConfigV1(data: File, preview?: boolean, _options?: ImportoptionsV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpconfigjobV1>> {
+        async importSpConfigV1(data: File, preview?: boolean, _options?: Importoptions, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Spconfigjob>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.importSpConfigV1(data, preview, _options, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SPConfigV1Api.importSpConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SPConfigApi.importSpConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1391,80 +1391,80 @@ export const SPConfigV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listSpConfigObjectsV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SpconfigobjectV1>>> {
+        async listSpConfigObjectsV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Spconfigobject>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listSpConfigObjectsV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SPConfigV1Api.listSpConfigObjectsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SPConfigApi.listSpConfigObjectsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * SPConfigV1Api - factory interface
+ * SPConfigApi - factory interface
  * @export
  */
-export const SPConfigV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = SPConfigV1ApiFp(configuration)
+export const SPConfigApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SPConfigApiFp(configuration)
     return {
         /**
          * This post will export objects from the tenant to a JSON configuration file. For more information about the object types that currently support export functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/docs/extensibility/configuration-management/saas-configuration#supported-objects).
          * @summary Initiates configuration objects export job
-         * @param {SPConfigV1ApiExportSpConfigV1Request} requestParameters Request parameters.
+         * @param {SPConfigApiExportSpConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        exportSpConfigV1(requestParameters: SPConfigV1ApiExportSpConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SpconfigexportjobV1> {
-            return localVarFp.exportSpConfigV1(requestParameters.exportpayloadV1, axiosOptions).then((request) => request(axios, basePath));
+        exportSpConfigV1(requestParameters: SPConfigApiExportSpConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Spconfigexportjob> {
+            return localVarFp.exportSpConfigV1(requestParameters.exportpayload, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets the status of the export job identified by the `id` parameter. The request will need one of the following security scopes: - sp:config:read - sp:config:manage
          * @summary Get export job status
-         * @param {SPConfigV1ApiGetSpConfigExportStatusV1Request} requestParameters Request parameters.
+         * @param {SPConfigApiGetSpConfigExportStatusV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSpConfigExportStatusV1(requestParameters: SPConfigV1ApiGetSpConfigExportStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SpconfigexportjobstatusV1> {
+        getSpConfigExportStatusV1(requestParameters: SPConfigApiGetSpConfigExportStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Spconfigexportjobstatus> {
             return localVarFp.getSpConfigExportStatusV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint gets the export file resulting from the export job with the requested `id` and downloads it to a file. The request will need one of the following security scopes: - sp:config:read - sp:config:manage
          * @summary Download export job result.
-         * @param {SPConfigV1ApiGetSpConfigExportV1Request} requestParameters Request parameters.
+         * @param {SPConfigApiGetSpConfigExportV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSpConfigExportV1(requestParameters: SPConfigV1ApiGetSpConfigExportV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SpconfigexportresultsV1> {
+        getSpConfigExportV1(requestParameters: SPConfigApiGetSpConfigExportV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Spconfigexportresults> {
             return localVarFp.getSpConfigExportV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * \'This gets the status of the import job identified by the `id` parameter.   For more information about the object types that currently support import functionality,  refer to [SaaS Configuration](https://developer.sailpoint.com/docs/extensibility/configuration-management/saas-configuration#supported-objects).\' 
          * @summary Get import job status
-         * @param {SPConfigV1ApiGetSpConfigImportStatusV1Request} requestParameters Request parameters.
+         * @param {SPConfigApiGetSpConfigImportStatusV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSpConfigImportStatusV1(requestParameters: SPConfigV1ApiGetSpConfigImportStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SpconfigimportjobstatusV1> {
+        getSpConfigImportStatusV1(requestParameters: SPConfigApiGetSpConfigImportStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Spconfigimportjobstatus> {
             return localVarFp.getSpConfigImportStatusV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets import file resulting from the import job with the requested id and downloads it to a file. The downloaded file will contain the results of the import operation, including any error, warning or informational messages associated with the import. The request will need the following security scope: - sp:config:manage
          * @summary Download import job result
-         * @param {SPConfigV1ApiGetSpConfigImportV1Request} requestParameters Request parameters.
+         * @param {SPConfigApiGetSpConfigImportV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSpConfigImportV1(requestParameters: SPConfigV1ApiGetSpConfigImportV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SpconfigimportresultsV1> {
+        getSpConfigImportV1(requestParameters: SPConfigApiGetSpConfigImportV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Spconfigimportresults> {
             return localVarFp.getSpConfigImportV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This post will import objects from a JSON configuration file into a tenant. By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed. The backup can be skipped by setting \"excludeBackup\" to true in the import options. If a backup is performed, the id of the backup will be provided in the ImportResult as the \"exportJobId\". This can be downloaded  using the `/sp-config/export/{exportJobId}/download` endpoint.  You cannot currently import from the Non-Employee Lifecycle Management (NELM) source. You cannot use this endpoint to back up or store NELM data.   For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/docs/extensibility/configuration-management/saas-configuration#supported-objects). 
          * @summary Initiates configuration objects import job
-         * @param {SPConfigV1ApiImportSpConfigV1Request} requestParameters Request parameters.
+         * @param {SPConfigApiImportSpConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        importSpConfigV1(requestParameters: SPConfigV1ApiImportSpConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SpconfigjobV1> {
+        importSpConfigV1(requestParameters: SPConfigApiImportSpConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Spconfigjob> {
             return localVarFp.importSpConfigV1(requestParameters.data, requestParameters.preview, requestParameters._options, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1473,187 +1473,187 @@ export const SPConfigV1ApiFactory = function (configuration?: Configuration, bas
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listSpConfigObjectsV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SpconfigobjectV1>> {
+        listSpConfigObjectsV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Spconfigobject>> {
             return localVarFp.listSpConfigObjectsV1(axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for exportSpConfigV1 operation in SPConfigV1Api.
+ * Request parameters for exportSpConfigV1 operation in SPConfigApi.
  * @export
- * @interface SPConfigV1ApiExportSpConfigV1Request
+ * @interface SPConfigApiExportSpConfigV1Request
  */
-export interface SPConfigV1ApiExportSpConfigV1Request {
+export interface SPConfigApiExportSpConfigV1Request {
     /**
      * Export options control what will be included in the export.
-     * @type {ExportpayloadV1}
-     * @memberof SPConfigV1ApiExportSpConfigV1
+     * @type {Exportpayload}
+     * @memberof SPConfigApiExportSpConfigV1
      */
-    readonly exportpayloadV1: ExportpayloadV1
+    readonly exportpayload: Exportpayload
 }
 
 /**
- * Request parameters for getSpConfigExportStatusV1 operation in SPConfigV1Api.
+ * Request parameters for getSpConfigExportStatusV1 operation in SPConfigApi.
  * @export
- * @interface SPConfigV1ApiGetSpConfigExportStatusV1Request
+ * @interface SPConfigApiGetSpConfigExportStatusV1Request
  */
-export interface SPConfigV1ApiGetSpConfigExportStatusV1Request {
+export interface SPConfigApiGetSpConfigExportStatusV1Request {
     /**
      * The ID of the export job whose status will be returned.
      * @type {string}
-     * @memberof SPConfigV1ApiGetSpConfigExportStatusV1
+     * @memberof SPConfigApiGetSpConfigExportStatusV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getSpConfigExportV1 operation in SPConfigV1Api.
+ * Request parameters for getSpConfigExportV1 operation in SPConfigApi.
  * @export
- * @interface SPConfigV1ApiGetSpConfigExportV1Request
+ * @interface SPConfigApiGetSpConfigExportV1Request
  */
-export interface SPConfigV1ApiGetSpConfigExportV1Request {
+export interface SPConfigApiGetSpConfigExportV1Request {
     /**
      * The ID of the export job whose results will be downloaded.
      * @type {string}
-     * @memberof SPConfigV1ApiGetSpConfigExportV1
+     * @memberof SPConfigApiGetSpConfigExportV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getSpConfigImportStatusV1 operation in SPConfigV1Api.
+ * Request parameters for getSpConfigImportStatusV1 operation in SPConfigApi.
  * @export
- * @interface SPConfigV1ApiGetSpConfigImportStatusV1Request
+ * @interface SPConfigApiGetSpConfigImportStatusV1Request
  */
-export interface SPConfigV1ApiGetSpConfigImportStatusV1Request {
+export interface SPConfigApiGetSpConfigImportStatusV1Request {
     /**
      * The ID of the import job whose status will be returned.
      * @type {string}
-     * @memberof SPConfigV1ApiGetSpConfigImportStatusV1
+     * @memberof SPConfigApiGetSpConfigImportStatusV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getSpConfigImportV1 operation in SPConfigV1Api.
+ * Request parameters for getSpConfigImportV1 operation in SPConfigApi.
  * @export
- * @interface SPConfigV1ApiGetSpConfigImportV1Request
+ * @interface SPConfigApiGetSpConfigImportV1Request
  */
-export interface SPConfigV1ApiGetSpConfigImportV1Request {
+export interface SPConfigApiGetSpConfigImportV1Request {
     /**
      * The ID of the import job whose results will be downloaded.
      * @type {string}
-     * @memberof SPConfigV1ApiGetSpConfigImportV1
+     * @memberof SPConfigApiGetSpConfigImportV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for importSpConfigV1 operation in SPConfigV1Api.
+ * Request parameters for importSpConfigV1 operation in SPConfigApi.
  * @export
- * @interface SPConfigV1ApiImportSpConfigV1Request
+ * @interface SPConfigApiImportSpConfigV1Request
  */
-export interface SPConfigV1ApiImportSpConfigV1Request {
+export interface SPConfigApiImportSpConfigV1Request {
     /**
      * JSON file containing the objects to be imported.
      * @type {File}
-     * @memberof SPConfigV1ApiImportSpConfigV1
+     * @memberof SPConfigApiImportSpConfigV1
      */
     readonly data: File
 
     /**
      * This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \&quot;true\&quot;, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported. 
      * @type {boolean}
-     * @memberof SPConfigV1ApiImportSpConfigV1
+     * @memberof SPConfigApiImportSpConfigV1
      */
     readonly preview?: boolean
 
     /**
      * 
-     * @type {ImportoptionsV1}
-     * @memberof SPConfigV1ApiImportSpConfigV1
+     * @type {Importoptions}
+     * @memberof SPConfigApiImportSpConfigV1
      */
-    readonly _options?: ImportoptionsV1
+    readonly _options?: Importoptions
 }
 
 /**
- * SPConfigV1Api - object-oriented interface
+ * SPConfigApi - object-oriented interface
  * @export
- * @class SPConfigV1Api
+ * @class SPConfigApi
  * @extends {BaseAPI}
  */
-export class SPConfigV1Api extends BaseAPI {
+export class SPConfigApi extends BaseAPI {
     /**
      * This post will export objects from the tenant to a JSON configuration file. For more information about the object types that currently support export functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/docs/extensibility/configuration-management/saas-configuration#supported-objects).
      * @summary Initiates configuration objects export job
-     * @param {SPConfigV1ApiExportSpConfigV1Request} requestParameters Request parameters.
+     * @param {SPConfigApiExportSpConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SPConfigV1Api
+     * @memberof SPConfigApi
      */
-    public exportSpConfigV1(requestParameters: SPConfigV1ApiExportSpConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SPConfigV1ApiFp(this.configuration).exportSpConfigV1(requestParameters.exportpayloadV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public exportSpConfigV1(requestParameters: SPConfigApiExportSpConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SPConfigApiFp(this.configuration).exportSpConfigV1(requestParameters.exportpayload, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets the status of the export job identified by the `id` parameter. The request will need one of the following security scopes: - sp:config:read - sp:config:manage
      * @summary Get export job status
-     * @param {SPConfigV1ApiGetSpConfigExportStatusV1Request} requestParameters Request parameters.
+     * @param {SPConfigApiGetSpConfigExportStatusV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SPConfigV1Api
+     * @memberof SPConfigApi
      */
-    public getSpConfigExportStatusV1(requestParameters: SPConfigV1ApiGetSpConfigExportStatusV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SPConfigV1ApiFp(this.configuration).getSpConfigExportStatusV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSpConfigExportStatusV1(requestParameters: SPConfigApiGetSpConfigExportStatusV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SPConfigApiFp(this.configuration).getSpConfigExportStatusV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint gets the export file resulting from the export job with the requested `id` and downloads it to a file. The request will need one of the following security scopes: - sp:config:read - sp:config:manage
      * @summary Download export job result.
-     * @param {SPConfigV1ApiGetSpConfigExportV1Request} requestParameters Request parameters.
+     * @param {SPConfigApiGetSpConfigExportV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SPConfigV1Api
+     * @memberof SPConfigApi
      */
-    public getSpConfigExportV1(requestParameters: SPConfigV1ApiGetSpConfigExportV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SPConfigV1ApiFp(this.configuration).getSpConfigExportV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSpConfigExportV1(requestParameters: SPConfigApiGetSpConfigExportV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SPConfigApiFp(this.configuration).getSpConfigExportV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * \'This gets the status of the import job identified by the `id` parameter.   For more information about the object types that currently support import functionality,  refer to [SaaS Configuration](https://developer.sailpoint.com/docs/extensibility/configuration-management/saas-configuration#supported-objects).\' 
      * @summary Get import job status
-     * @param {SPConfigV1ApiGetSpConfigImportStatusV1Request} requestParameters Request parameters.
+     * @param {SPConfigApiGetSpConfigImportStatusV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SPConfigV1Api
+     * @memberof SPConfigApi
      */
-    public getSpConfigImportStatusV1(requestParameters: SPConfigV1ApiGetSpConfigImportStatusV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SPConfigV1ApiFp(this.configuration).getSpConfigImportStatusV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSpConfigImportStatusV1(requestParameters: SPConfigApiGetSpConfigImportStatusV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SPConfigApiFp(this.configuration).getSpConfigImportStatusV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets import file resulting from the import job with the requested id and downloads it to a file. The downloaded file will contain the results of the import operation, including any error, warning or informational messages associated with the import. The request will need the following security scope: - sp:config:manage
      * @summary Download import job result
-     * @param {SPConfigV1ApiGetSpConfigImportV1Request} requestParameters Request parameters.
+     * @param {SPConfigApiGetSpConfigImportV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SPConfigV1Api
+     * @memberof SPConfigApi
      */
-    public getSpConfigImportV1(requestParameters: SPConfigV1ApiGetSpConfigImportV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SPConfigV1ApiFp(this.configuration).getSpConfigImportV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSpConfigImportV1(requestParameters: SPConfigApiGetSpConfigImportV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SPConfigApiFp(this.configuration).getSpConfigImportV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This post will import objects from a JSON configuration file into a tenant. By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed. The backup can be skipped by setting \"excludeBackup\" to true in the import options. If a backup is performed, the id of the backup will be provided in the ImportResult as the \"exportJobId\". This can be downloaded  using the `/sp-config/export/{exportJobId}/download` endpoint.  You cannot currently import from the Non-Employee Lifecycle Management (NELM) source. You cannot use this endpoint to back up or store NELM data.   For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/docs/extensibility/configuration-management/saas-configuration#supported-objects). 
      * @summary Initiates configuration objects import job
-     * @param {SPConfigV1ApiImportSpConfigV1Request} requestParameters Request parameters.
+     * @param {SPConfigApiImportSpConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SPConfigV1Api
+     * @memberof SPConfigApi
      */
-    public importSpConfigV1(requestParameters: SPConfigV1ApiImportSpConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SPConfigV1ApiFp(this.configuration).importSpConfigV1(requestParameters.data, requestParameters.preview, requestParameters._options, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public importSpConfigV1(requestParameters: SPConfigApiImportSpConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SPConfigApiFp(this.configuration).importSpConfigV1(requestParameters.data, requestParameters.preview, requestParameters._options, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1661,10 +1661,10 @@ export class SPConfigV1Api extends BaseAPI {
      * @summary List config objects
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SPConfigV1Api
+     * @memberof SPConfigApi
      */
     public listSpConfigObjectsV1(axiosOptions?: RawAxiosRequestConfig) {
-        return SPConfigV1ApiFp(this.configuration).listSpConfigObjectsV1(axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SPConfigApiFp(this.configuration).listSpConfigObjectsV1(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

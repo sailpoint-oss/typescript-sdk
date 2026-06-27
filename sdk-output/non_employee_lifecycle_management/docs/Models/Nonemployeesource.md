@@ -1,26 +1,26 @@
 ---
-id: v1-nonemployeesource-v1
-title: NonemployeesourceV1
-pagination_label: NonemployeesourceV1
-sidebar_label: NonemployeesourceV1
+id: v1-nonemployeesource
+title: Nonemployeesource
+pagination_label: Nonemployeesource
+sidebar_label: Nonemployeesource
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'NonemployeesourceV1', 'v1NonemployeesourceV1']
-slug: /tools/sdk/typescript/non_employee_lifecycle_management/models/nonemployeesource-v1
-tags: ['SDK', 'Software Development Kit', 'NonemployeesourceV1', 'v1NonemployeesourceV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Nonemployeesource', 'v1Nonemployeesource']
+slug: /tools/sdk/typescript/non_employee_lifecycle_management/models/nonemployeesource
+tags: ['SDK', 'Software Development Kit', 'Nonemployeesource', 'v1Nonemployeesource']
 ---
 
-# NonemployeesourceV1
+# Nonemployeesource
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **(optional)** **string** | Non-Employee source id. | [default to undefined]
-**sourceId** | **(optional)** **string** | Source Id associated with this non-employee source. | [default to undefined]
-**name** | **(optional)** **string** | Source name associated with this non-employee source. | [default to undefined]
-**description** | **(optional)** **string** | Source description associated with this non-employee source. | [default to undefined]
-**approvers** | **(optional)** **Array&lt;NonemployeeidentityreferencewithidV1&gt;** | List of approvers | [default to undefined]
-**accountManagers** | **(optional)** **Array&lt;NonemployeeidentityreferencewithidV1&gt;** | List of account managers | [default to undefined]
-**modified** | **(optional)** **string** | When the request was last modified. | [default to undefined]
-**created** | **(optional)** **string** | When the request was created. | [default to undefined]
+**id** | **(optional)** `string` | Non-Employee source id. | [default to undefined]
+**sourceId** | **(optional)** `string` | Source Id associated with this non-employee source. | [default to undefined]
+**name** | **(optional)** `string` | Source name associated with this non-employee source. | [default to undefined]
+**description** | **(optional)** `string` | Source description associated with this non-employee source. | [default to undefined]
+**approvers** | **(optional)** `Array<Nonemployeeidentityreferencewithid>` | List of approvers | [default to undefined]
+**accountManagers** | **(optional)** `Array<Nonemployeeidentityreferencewithid>` | List of account managers | [default to undefined]
+**modified** | **(optional)** `string` | When the request was last modified. | [default to undefined]
+**created** | **(optional)** `string` | When the request was created. | [default to undefined]
 

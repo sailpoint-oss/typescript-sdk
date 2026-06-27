@@ -26,135 +26,135 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface BrandingitemV1
+ * @interface Brandingitem
  */
-export interface BrandingitemV1 {
+export interface Brandingitem {
     /**
      * name of branding item
      * @type {string}
-     * @memberof BrandingitemV1
+     * @memberof Brandingitem
      */
     'name'?: string;
     /**
      * product name
      * @type {string}
-     * @memberof BrandingitemV1
+     * @memberof Brandingitem
      */
     'productName'?: string | null;
     /**
      * hex value of color for action button
      * @type {string}
-     * @memberof BrandingitemV1
+     * @memberof Brandingitem
      */
     'actionButtonColor'?: string | null;
     /**
      * hex value of color for link
      * @type {string}
-     * @memberof BrandingitemV1
+     * @memberof Brandingitem
      */
     'activeLinkColor'?: string | null;
     /**
      * hex value of color for navigation bar
      * @type {string}
-     * @memberof BrandingitemV1
+     * @memberof Brandingitem
      */
     'navigationColor'?: string | null;
     /**
      * email from address
      * @type {string}
-     * @memberof BrandingitemV1
+     * @memberof Brandingitem
      */
     'emailFromAddress'?: string | null;
     /**
      * url to standard logo
      * @type {string}
-     * @memberof BrandingitemV1
+     * @memberof Brandingitem
      */
     'standardLogoURL'?: string | null;
     /**
      * login information message
      * @type {string}
-     * @memberof BrandingitemV1
+     * @memberof Brandingitem
      */
     'loginInformationalMessage'?: string | null;
 }
 /**
  * 
  * @export
- * @interface BrandingitemcreateV1
+ * @interface Brandingitemcreate
  */
-export interface BrandingitemcreateV1 {
+export interface Brandingitemcreate {
     /**
      * name of branding item
      * @type {string}
-     * @memberof BrandingitemcreateV1
+     * @memberof Brandingitemcreate
      */
     'name': string;
     /**
      * product name
      * @type {string}
-     * @memberof BrandingitemcreateV1
+     * @memberof Brandingitemcreate
      */
     'productName': string | null;
     /**
      * hex value of color for action button
      * @type {string}
-     * @memberof BrandingitemcreateV1
+     * @memberof Brandingitemcreate
      */
     'actionButtonColor'?: string;
     /**
      * hex value of color for link
      * @type {string}
-     * @memberof BrandingitemcreateV1
+     * @memberof Brandingitemcreate
      */
     'activeLinkColor'?: string;
     /**
      * hex value of color for navigation bar
      * @type {string}
-     * @memberof BrandingitemcreateV1
+     * @memberof Brandingitemcreate
      */
     'navigationColor'?: string;
     /**
      * email from address
      * @type {string}
-     * @memberof BrandingitemcreateV1
+     * @memberof Brandingitemcreate
      */
     'emailFromAddress'?: string;
     /**
      * login information message
      * @type {string}
-     * @memberof BrandingitemcreateV1
+     * @memberof Brandingitemcreate
      */
     'loginInformationalMessage'?: string;
     /**
      * png file with logo
      * @type {File}
-     * @memberof BrandingitemcreateV1
+     * @memberof Brandingitemcreate
      */
     'fileStandard'?: File;
 }
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -163,57 +163,57 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetBrandingListV1401ResponseV1
+ * @interface GetBrandingListV1401Response
  */
-export interface GetBrandingListV1401ResponseV1 {
+export interface GetBrandingListV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetBrandingListV1401ResponseV1
+     * @memberof GetBrandingListV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetBrandingListV1429ResponseV1
+ * @interface GetBrandingListV1429Response
  */
-export interface GetBrandingListV1429ResponseV1 {
+export interface GetBrandingListV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetBrandingListV1429ResponseV1
+     * @memberof GetBrandingListV1429Response
      */
     'message'?: any;
 }
@@ -223,20 +223,20 @@ export interface GetBrandingListV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 
 /**
- * BrandingV1Api - axios parameter creator
+ * BrandingApi - axios parameter creator
  * @export
  */
-export const BrandingV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const BrandingApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This API endpoint creates a branding item.
@@ -500,11 +500,11 @@ export const BrandingV1ApiAxiosParamCreator = function (configuration?: Configur
 };
 
 /**
- * BrandingV1Api - functional programming interface
+ * BrandingApi - functional programming interface
  * @export
  */
-export const BrandingV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = BrandingV1ApiAxiosParamCreator(configuration)
+export const BrandingApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = BrandingApiAxiosParamCreator(configuration)
     return {
         /**
          * This API endpoint creates a branding item.
@@ -520,10 +520,10 @@ export const BrandingV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createBrandingItemV1(name: string, productName: string | null, actionButtonColor?: string, activeLinkColor?: string, navigationColor?: string, emailFromAddress?: string, loginInformationalMessage?: string, fileStandard?: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BrandingitemV1>> {
+        async createBrandingItemV1(name: string, productName: string | null, actionButtonColor?: string, activeLinkColor?: string, navigationColor?: string, emailFromAddress?: string, loginInformationalMessage?: string, fileStandard?: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Brandingitem>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createBrandingItemV1(name, productName, actionButtonColor, activeLinkColor, navigationColor, emailFromAddress, loginInformationalMessage, fileStandard, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['BrandingV1Api.createBrandingItemV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['BrandingApi.createBrandingItemV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -536,7 +536,7 @@ export const BrandingV1ApiFp = function(configuration?: Configuration) {
         async deleteBrandingV1(name: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteBrandingV1(name, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['BrandingV1Api.deleteBrandingV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['BrandingApi.deleteBrandingV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -545,10 +545,10 @@ export const BrandingV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getBrandingListV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BrandingitemV1>>> {
+        async getBrandingListV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Brandingitem>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getBrandingListV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['BrandingV1Api.getBrandingListV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['BrandingApi.getBrandingListV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -558,10 +558,10 @@ export const BrandingV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getBrandingV1(name: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BrandingitemV1>> {
+        async getBrandingV1(name: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Brandingitem>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getBrandingV1(name, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['BrandingV1Api.getBrandingV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['BrandingApi.getBrandingV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -579,40 +579,40 @@ export const BrandingV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setBrandingItemV1(name: string, name2: string, productName: string | null, actionButtonColor?: string, activeLinkColor?: string, navigationColor?: string, emailFromAddress?: string, loginInformationalMessage?: string, fileStandard?: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BrandingitemV1>> {
+        async setBrandingItemV1(name: string, name2: string, productName: string | null, actionButtonColor?: string, activeLinkColor?: string, navigationColor?: string, emailFromAddress?: string, loginInformationalMessage?: string, fileStandard?: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Brandingitem>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.setBrandingItemV1(name, name2, productName, actionButtonColor, activeLinkColor, navigationColor, emailFromAddress, loginInformationalMessage, fileStandard, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['BrandingV1Api.setBrandingItemV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['BrandingApi.setBrandingItemV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * BrandingV1Api - factory interface
+ * BrandingApi - factory interface
  * @export
  */
-export const BrandingV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = BrandingV1ApiFp(configuration)
+export const BrandingApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = BrandingApiFp(configuration)
     return {
         /**
          * This API endpoint creates a branding item.
          * @summary Create a branding item
-         * @param {BrandingV1ApiCreateBrandingItemV1Request} requestParameters Request parameters.
+         * @param {BrandingApiCreateBrandingItemV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createBrandingItemV1(requestParameters: BrandingV1ApiCreateBrandingItemV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<BrandingitemV1> {
+        createBrandingItemV1(requestParameters: BrandingApiCreateBrandingItemV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Brandingitem> {
             return localVarFp.createBrandingItemV1(requestParameters.name, requestParameters.productName, requestParameters.actionButtonColor, requestParameters.activeLinkColor, requestParameters.navigationColor, requestParameters.emailFromAddress, requestParameters.loginInformationalMessage, requestParameters.fileStandard, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API endpoint delete information for an existing branding item by name.    
          * @summary Delete a branding item
-         * @param {BrandingV1ApiDeleteBrandingV1Request} requestParameters Request parameters.
+         * @param {BrandingApiDeleteBrandingV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteBrandingV1(requestParameters: BrandingV1ApiDeleteBrandingV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteBrandingV1(requestParameters: BrandingApiDeleteBrandingV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteBrandingV1(requestParameters.name, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -621,222 +621,222 @@ export const BrandingV1ApiFactory = function (configuration?: Configuration, bas
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getBrandingListV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<BrandingitemV1>> {
+        getBrandingListV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Brandingitem>> {
             return localVarFp.getBrandingListV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API endpoint retrieves information for an existing branding item by name.    
          * @summary Get a branding item
-         * @param {BrandingV1ApiGetBrandingV1Request} requestParameters Request parameters.
+         * @param {BrandingApiGetBrandingV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getBrandingV1(requestParameters: BrandingV1ApiGetBrandingV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<BrandingitemV1> {
+        getBrandingV1(requestParameters: BrandingApiGetBrandingV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Brandingitem> {
             return localVarFp.getBrandingV1(requestParameters.name, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API endpoint updates information for an existing branding item.
          * @summary Update a branding item
-         * @param {BrandingV1ApiSetBrandingItemV1Request} requestParameters Request parameters.
+         * @param {BrandingApiSetBrandingItemV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setBrandingItemV1(requestParameters: BrandingV1ApiSetBrandingItemV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<BrandingitemV1> {
+        setBrandingItemV1(requestParameters: BrandingApiSetBrandingItemV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Brandingitem> {
             return localVarFp.setBrandingItemV1(requestParameters.name, requestParameters.name2, requestParameters.productName, requestParameters.actionButtonColor, requestParameters.activeLinkColor, requestParameters.navigationColor, requestParameters.emailFromAddress, requestParameters.loginInformationalMessage, requestParameters.fileStandard, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createBrandingItemV1 operation in BrandingV1Api.
+ * Request parameters for createBrandingItemV1 operation in BrandingApi.
  * @export
- * @interface BrandingV1ApiCreateBrandingItemV1Request
+ * @interface BrandingApiCreateBrandingItemV1Request
  */
-export interface BrandingV1ApiCreateBrandingItemV1Request {
+export interface BrandingApiCreateBrandingItemV1Request {
     /**
      * name of branding item
      * @type {string}
-     * @memberof BrandingV1ApiCreateBrandingItemV1
+     * @memberof BrandingApiCreateBrandingItemV1
      */
     readonly name: string
 
     /**
      * product name
      * @type {string}
-     * @memberof BrandingV1ApiCreateBrandingItemV1
+     * @memberof BrandingApiCreateBrandingItemV1
      */
     readonly productName: string | null
 
     /**
      * hex value of color for action button
      * @type {string}
-     * @memberof BrandingV1ApiCreateBrandingItemV1
+     * @memberof BrandingApiCreateBrandingItemV1
      */
     readonly actionButtonColor?: string
 
     /**
      * hex value of color for link
      * @type {string}
-     * @memberof BrandingV1ApiCreateBrandingItemV1
+     * @memberof BrandingApiCreateBrandingItemV1
      */
     readonly activeLinkColor?: string
 
     /**
      * hex value of color for navigation bar
      * @type {string}
-     * @memberof BrandingV1ApiCreateBrandingItemV1
+     * @memberof BrandingApiCreateBrandingItemV1
      */
     readonly navigationColor?: string
 
     /**
      * email from address
      * @type {string}
-     * @memberof BrandingV1ApiCreateBrandingItemV1
+     * @memberof BrandingApiCreateBrandingItemV1
      */
     readonly emailFromAddress?: string
 
     /**
      * login information message
      * @type {string}
-     * @memberof BrandingV1ApiCreateBrandingItemV1
+     * @memberof BrandingApiCreateBrandingItemV1
      */
     readonly loginInformationalMessage?: string
 
     /**
      * png file with logo
      * @type {File}
-     * @memberof BrandingV1ApiCreateBrandingItemV1
+     * @memberof BrandingApiCreateBrandingItemV1
      */
     readonly fileStandard?: File
 }
 
 /**
- * Request parameters for deleteBrandingV1 operation in BrandingV1Api.
+ * Request parameters for deleteBrandingV1 operation in BrandingApi.
  * @export
- * @interface BrandingV1ApiDeleteBrandingV1Request
+ * @interface BrandingApiDeleteBrandingV1Request
  */
-export interface BrandingV1ApiDeleteBrandingV1Request {
+export interface BrandingApiDeleteBrandingV1Request {
     /**
      * The name of the branding item to be deleted
      * @type {string}
-     * @memberof BrandingV1ApiDeleteBrandingV1
+     * @memberof BrandingApiDeleteBrandingV1
      */
     readonly name: string
 }
 
 /**
- * Request parameters for getBrandingV1 operation in BrandingV1Api.
+ * Request parameters for getBrandingV1 operation in BrandingApi.
  * @export
- * @interface BrandingV1ApiGetBrandingV1Request
+ * @interface BrandingApiGetBrandingV1Request
  */
-export interface BrandingV1ApiGetBrandingV1Request {
+export interface BrandingApiGetBrandingV1Request {
     /**
      * The name of the branding item to be retrieved
      * @type {string}
-     * @memberof BrandingV1ApiGetBrandingV1
+     * @memberof BrandingApiGetBrandingV1
      */
     readonly name: string
 }
 
 /**
- * Request parameters for setBrandingItemV1 operation in BrandingV1Api.
+ * Request parameters for setBrandingItemV1 operation in BrandingApi.
  * @export
- * @interface BrandingV1ApiSetBrandingItemV1Request
+ * @interface BrandingApiSetBrandingItemV1Request
  */
-export interface BrandingV1ApiSetBrandingItemV1Request {
+export interface BrandingApiSetBrandingItemV1Request {
     /**
      * The name of the branding item to be retrieved
      * @type {string}
-     * @memberof BrandingV1ApiSetBrandingItemV1
+     * @memberof BrandingApiSetBrandingItemV1
      */
     readonly name: string
 
     /**
      * name of branding item
      * @type {string}
-     * @memberof BrandingV1ApiSetBrandingItemV1
+     * @memberof BrandingApiSetBrandingItemV1
      */
     readonly name2: string
 
     /**
      * product name
      * @type {string}
-     * @memberof BrandingV1ApiSetBrandingItemV1
+     * @memberof BrandingApiSetBrandingItemV1
      */
     readonly productName: string | null
 
     /**
      * hex value of color for action button
      * @type {string}
-     * @memberof BrandingV1ApiSetBrandingItemV1
+     * @memberof BrandingApiSetBrandingItemV1
      */
     readonly actionButtonColor?: string
 
     /**
      * hex value of color for link
      * @type {string}
-     * @memberof BrandingV1ApiSetBrandingItemV1
+     * @memberof BrandingApiSetBrandingItemV1
      */
     readonly activeLinkColor?: string
 
     /**
      * hex value of color for navigation bar
      * @type {string}
-     * @memberof BrandingV1ApiSetBrandingItemV1
+     * @memberof BrandingApiSetBrandingItemV1
      */
     readonly navigationColor?: string
 
     /**
      * email from address
      * @type {string}
-     * @memberof BrandingV1ApiSetBrandingItemV1
+     * @memberof BrandingApiSetBrandingItemV1
      */
     readonly emailFromAddress?: string
 
     /**
      * login information message
      * @type {string}
-     * @memberof BrandingV1ApiSetBrandingItemV1
+     * @memberof BrandingApiSetBrandingItemV1
      */
     readonly loginInformationalMessage?: string
 
     /**
      * png file with logo
      * @type {File}
-     * @memberof BrandingV1ApiSetBrandingItemV1
+     * @memberof BrandingApiSetBrandingItemV1
      */
     readonly fileStandard?: File
 }
 
 /**
- * BrandingV1Api - object-oriented interface
+ * BrandingApi - object-oriented interface
  * @export
- * @class BrandingV1Api
+ * @class BrandingApi
  * @extends {BaseAPI}
  */
-export class BrandingV1Api extends BaseAPI {
+export class BrandingApi extends BaseAPI {
     /**
      * This API endpoint creates a branding item.
      * @summary Create a branding item
-     * @param {BrandingV1ApiCreateBrandingItemV1Request} requestParameters Request parameters.
+     * @param {BrandingApiCreateBrandingItemV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof BrandingV1Api
+     * @memberof BrandingApi
      */
-    public createBrandingItemV1(requestParameters: BrandingV1ApiCreateBrandingItemV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return BrandingV1ApiFp(this.configuration).createBrandingItemV1(requestParameters.name, requestParameters.productName, requestParameters.actionButtonColor, requestParameters.activeLinkColor, requestParameters.navigationColor, requestParameters.emailFromAddress, requestParameters.loginInformationalMessage, requestParameters.fileStandard, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createBrandingItemV1(requestParameters: BrandingApiCreateBrandingItemV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return BrandingApiFp(this.configuration).createBrandingItemV1(requestParameters.name, requestParameters.productName, requestParameters.actionButtonColor, requestParameters.activeLinkColor, requestParameters.navigationColor, requestParameters.emailFromAddress, requestParameters.loginInformationalMessage, requestParameters.fileStandard, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API endpoint delete information for an existing branding item by name.    
      * @summary Delete a branding item
-     * @param {BrandingV1ApiDeleteBrandingV1Request} requestParameters Request parameters.
+     * @param {BrandingApiDeleteBrandingV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof BrandingV1Api
+     * @memberof BrandingApi
      */
-    public deleteBrandingV1(requestParameters: BrandingV1ApiDeleteBrandingV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return BrandingV1ApiFp(this.configuration).deleteBrandingV1(requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteBrandingV1(requestParameters: BrandingApiDeleteBrandingV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return BrandingApiFp(this.configuration).deleteBrandingV1(requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -844,34 +844,34 @@ export class BrandingV1Api extends BaseAPI {
      * @summary List of branding items
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof BrandingV1Api
+     * @memberof BrandingApi
      */
     public getBrandingListV1(axiosOptions?: RawAxiosRequestConfig) {
-        return BrandingV1ApiFp(this.configuration).getBrandingListV1(axiosOptions).then((request) => request(this.axios, this.basePath));
+        return BrandingApiFp(this.configuration).getBrandingListV1(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API endpoint retrieves information for an existing branding item by name.    
      * @summary Get a branding item
-     * @param {BrandingV1ApiGetBrandingV1Request} requestParameters Request parameters.
+     * @param {BrandingApiGetBrandingV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof BrandingV1Api
+     * @memberof BrandingApi
      */
-    public getBrandingV1(requestParameters: BrandingV1ApiGetBrandingV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return BrandingV1ApiFp(this.configuration).getBrandingV1(requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getBrandingV1(requestParameters: BrandingApiGetBrandingV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return BrandingApiFp(this.configuration).getBrandingV1(requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API endpoint updates information for an existing branding item.
      * @summary Update a branding item
-     * @param {BrandingV1ApiSetBrandingItemV1Request} requestParameters Request parameters.
+     * @param {BrandingApiSetBrandingItemV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof BrandingV1Api
+     * @memberof BrandingApi
      */
-    public setBrandingItemV1(requestParameters: BrandingV1ApiSetBrandingItemV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return BrandingV1ApiFp(this.configuration).setBrandingItemV1(requestParameters.name, requestParameters.name2, requestParameters.productName, requestParameters.actionButtonColor, requestParameters.activeLinkColor, requestParameters.navigationColor, requestParameters.emailFromAddress, requestParameters.loginInformationalMessage, requestParameters.fileStandard, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public setBrandingItemV1(requestParameters: BrandingApiSetBrandingItemV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return BrandingApiFp(this.configuration).setBrandingItemV1(requestParameters.name, requestParameters.name2, requestParameters.productName, requestParameters.actionButtonColor, requestParameters.activeLinkColor, requestParameters.navigationColor, requestParameters.emailFromAddress, requestParameters.loginInformationalMessage, requestParameters.fileStandard, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

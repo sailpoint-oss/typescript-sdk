@@ -1,19 +1,19 @@
 ---
-id: v1-processidentitiesrequest-v1
-title: ProcessidentitiesrequestV1
-pagination_label: ProcessidentitiesrequestV1
-sidebar_label: ProcessidentitiesrequestV1
+id: v1-processidentitiesrequest
+title: Processidentitiesrequest
+pagination_label: Processidentitiesrequest
+sidebar_label: Processidentitiesrequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ProcessidentitiesrequestV1', 'v1ProcessidentitiesrequestV1']
-slug: /tools/sdk/typescript/identities/models/processidentitiesrequest-v1
-tags: ['SDK', 'Software Development Kit', 'ProcessidentitiesrequestV1', 'v1ProcessidentitiesrequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Processidentitiesrequest', 'v1Processidentitiesrequest']
+slug: /tools/sdk/typescript/identities/models/processidentitiesrequest
+tags: ['SDK', 'Software Development Kit', 'Processidentitiesrequest', 'v1Processidentitiesrequest']
 ---
 
-# ProcessidentitiesrequestV1
+# Processidentitiesrequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identityIds** | **(optional)** **Array&lt;string&gt;** | List of up to 250 identity IDs to process. | [default to undefined]
+**identityIds** | **(optional)** `Array<string>` | List of up to 250 identity IDs to process. | [default to undefined]
 

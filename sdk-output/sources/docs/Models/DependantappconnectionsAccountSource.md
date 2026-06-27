@@ -1,20 +1,20 @@
 ---
-id: v1-dependantappconnections-account-source-v1
-title: DependantappconnectionsAccountSourceV1
-pagination_label: DependantappconnectionsAccountSourceV1
-sidebar_label: DependantappconnectionsAccountSourceV1
+id: v1-dependantappconnections-account-source
+title: DependantappconnectionsAccountSource
+pagination_label: DependantappconnectionsAccountSource
+sidebar_label: DependantappconnectionsAccountSource
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'DependantappconnectionsAccountSourceV1', 'v1DependantappconnectionsAccountSourceV1']
-slug: /tools/sdk/typescript/sources/models/dependantappconnections-account-source-v1
-tags: ['SDK', 'Software Development Kit', 'DependantappconnectionsAccountSourceV1', 'v1DependantappconnectionsAccountSourceV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'DependantappconnectionsAccountSource', 'v1DependantappconnectionsAccountSource']
+slug: /tools/sdk/typescript/sources/models/dependantappconnections-account-source
+tags: ['SDK', 'Software Development Kit', 'DependantappconnectionsAccountSource', 'v1DependantappconnectionsAccountSource']
 ---
 
-# DependantappconnectionsAccountSourceV1
+# DependantappconnectionsAccountSource
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**useForPasswordManagement** | **(optional)** **boolean** | Use this Account Source for password management | [default to false]
-**passwordPolicies** | **(optional)** **Array&lt;DependantappconnectionsAccountSourcePasswordPoliciesInnerV1&gt;** | A list of Password Policies for this Account Source | [default to undefined]
+**useForPasswordManagement** | **(optional)** `boolean` | Use this Account Source for password management | [default to false]
+**passwordPolicies** | **(optional)** `Array<DependantappconnectionsAccountSourcePasswordPoliciesInner>` | A list of Password Policies for this Account Source | [default to undefined]
 

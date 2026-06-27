@@ -1,19 +1,19 @@
 ---
-id: v1-put-password-dictionary-v1-request-v1
-title: PutPasswordDictionaryV1RequestV1
-pagination_label: PutPasswordDictionaryV1RequestV1
-sidebar_label: PutPasswordDictionaryV1RequestV1
+id: v1-put-password-dictionary-v1-request
+title: PutPasswordDictionaryV1Request
+pagination_label: PutPasswordDictionaryV1Request
+sidebar_label: PutPasswordDictionaryV1Request
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'PutPasswordDictionaryV1RequestV1', 'v1PutPasswordDictionaryV1RequestV1']
-slug: /tools/sdk/typescript/password_dictionary/models/put-password-dictionary-v1-request-v1
-tags: ['SDK', 'Software Development Kit', 'PutPasswordDictionaryV1RequestV1', 'v1PutPasswordDictionaryV1RequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'PutPasswordDictionaryV1Request', 'v1PutPasswordDictionaryV1Request']
+slug: /tools/sdk/typescript/password_dictionary/models/put-password-dictionary-v1-request
+tags: ['SDK', 'Software Development Kit', 'PutPasswordDictionaryV1Request', 'v1PutPasswordDictionaryV1Request']
 ---
 
-# PutPasswordDictionaryV1RequestV1
+# PutPasswordDictionaryV1Request
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**file** | **(optional)** **File** |  | [default to undefined]
+**file** | **(optional)** `File` |  | [default to undefined]
 

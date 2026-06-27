@@ -1,8 +1,8 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
-BrandingV1Api.md
-BrandingV1ApideveloperSite_code_examples.yaml
+BrandingApi.md
+BrandingApideveloperSite_code_examples.yaml
 Brandingitem.md
 Brandingitemcreate.md
 Errormessagedto.md

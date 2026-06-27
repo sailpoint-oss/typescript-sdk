@@ -1,19 +1,19 @@
 ---
-id: v1-campaigngenerated-v1
-title: CampaigngeneratedV1
-pagination_label: CampaigngeneratedV1
-sidebar_label: CampaigngeneratedV1
+id: v1-campaigngenerated
+title: Campaigngenerated
+pagination_label: Campaigngenerated
+sidebar_label: Campaigngenerated
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'CampaigngeneratedV1', 'v1CampaigngeneratedV1']
-slug: /tools/sdk/typescript/triggers/models/campaigngenerated-v1
-tags: ['SDK', 'Software Development Kit', 'CampaigngeneratedV1', 'v1CampaigngeneratedV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Campaigngenerated', 'v1Campaigngenerated']
+slug: /tools/sdk/typescript/triggers/models/campaigngenerated
+tags: ['SDK', 'Software Development Kit', 'Campaigngenerated', 'v1Campaigngenerated']
 ---
 
-# CampaigngeneratedV1
+# Campaigngenerated
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**campaign** | **CampaigngeneratedCampaignV1** |  | [default to undefined]
+**campaign** | `CampaigngeneratedCampaign` |  | [default to undefined]
 

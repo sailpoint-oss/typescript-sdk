@@ -4,13 +4,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/tenant_context/methods/tenant-context#get-tenant-context-v1
       source: |
-        import { TenantContextV1Api } from 'sailpoint-api-client';
+        import { TenantContextApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new TenantContextV1Api(configuration);
-        const result = await apiInstance.getTenantContextV1();
+        const configuration = new Configuration();
+        const apiInstance = new TenantContextApi(configuration);
+        const result = await apiInstance.getTenantContextV1({  });
         console.log(result);
 - path: /tenant-context/v1
   method: PATCH
@@ -18,12 +17,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/tenant_context/methods/tenant-context#patch-tenant-context-v1
       source: |
-        import { TenantContextV1Api } from 'sailpoint-api-client';
+        import { TenantContextApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new TenantContextV1Api(configuration);
-        const jsonpatchoperationV1: JsonpatchoperationV1 = [{"op":"add","path":"/Key/IAS","value":"Integrated Automation System"},{"op":"replace","path":"/Key/IAS","value":"International Accounting Standards"},{"op":"remove","path":"/Key/NDR"}]; // JsonpatchoperationV1 | 
-        const result = await apiInstance.patchTenantContextV1(jsonpatchoperationV1);
+        const configuration = new Configuration();
+        const apiInstance = new TenantContextApi(configuration);
+        const jsonpatchoperation: Jsonpatchoperation = [{"op":"add","path":"/Key/IAS","value":"Integrated Automation System"},{"op":"replace","path":"/Key/IAS","value":"International Accounting Standards"},{"op":"remove","path":"/Key/NDR"}]; // Jsonpatchoperation | 
+        const result = await apiInstance.patchTenantContextV1({ jsonpatchoperation: jsonpatchoperation });
         console.log(result);

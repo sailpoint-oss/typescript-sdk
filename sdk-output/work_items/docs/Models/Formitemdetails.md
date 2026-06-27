@@ -1,19 +1,19 @@
 ---
-id: v1-formitemdetails-v1
-title: FormitemdetailsV1
-pagination_label: FormitemdetailsV1
-sidebar_label: FormitemdetailsV1
+id: v1-formitemdetails
+title: Formitemdetails
+pagination_label: Formitemdetails
+sidebar_label: Formitemdetails
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'FormitemdetailsV1', 'v1FormitemdetailsV1']
-slug: /tools/sdk/typescript/work_items/models/formitemdetails-v1
-tags: ['SDK', 'Software Development Kit', 'FormitemdetailsV1', 'v1FormitemdetailsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Formitemdetails', 'v1Formitemdetails']
+slug: /tools/sdk/typescript/work_items/models/formitemdetails
+tags: ['SDK', 'Software Development Kit', 'Formitemdetails', 'v1Formitemdetails']
 ---
 
-# FormitemdetailsV1
+# Formitemdetails
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **(optional)** **string** | Name of the FormItem | [default to undefined]
+**name** | **(optional)** `string` | Name of the FormItem | [default to undefined]
 

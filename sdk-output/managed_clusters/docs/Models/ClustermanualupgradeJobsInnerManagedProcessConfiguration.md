@@ -1,23 +1,23 @@
 ---
-id: v1-clustermanualupgrade-jobs-inner-managed-process-configuration-v1
-title: ClustermanualupgradeJobsInnerManagedProcessConfigurationV1
-pagination_label: ClustermanualupgradeJobsInnerManagedProcessConfigurationV1
-sidebar_label: ClustermanualupgradeJobsInnerManagedProcessConfigurationV1
+id: v1-clustermanualupgrade-jobs-inner-managed-process-configuration
+title: ClustermanualupgradeJobsInnerManagedProcessConfiguration
+pagination_label: ClustermanualupgradeJobsInnerManagedProcessConfiguration
+sidebar_label: ClustermanualupgradeJobsInnerManagedProcessConfiguration
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ClustermanualupgradeJobsInnerManagedProcessConfigurationV1', 'v1ClustermanualupgradeJobsInnerManagedProcessConfigurationV1']
-slug: /tools/sdk/typescript/managed_clusters/models/clustermanualupgrade-jobs-inner-managed-process-configuration-v1
-tags: ['SDK', 'Software Development Kit', 'ClustermanualupgradeJobsInnerManagedProcessConfigurationV1', 'v1ClustermanualupgradeJobsInnerManagedProcessConfigurationV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ClustermanualupgradeJobsInnerManagedProcessConfiguration', 'v1ClustermanualupgradeJobsInnerManagedProcessConfiguration']
+slug: /tools/sdk/typescript/managed_clusters/models/clustermanualupgrade-jobs-inner-managed-process-configuration
+tags: ['SDK', 'Software Development Kit', 'ClustermanualupgradeJobsInnerManagedProcessConfiguration', 'v1ClustermanualupgradeJobsInnerManagedProcessConfiguration']
 ---
 
-# ClustermanualupgradeJobsInnerManagedProcessConfigurationV1
+# ClustermanualupgradeJobsInnerManagedProcessConfiguration
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**charon** | **(optional)** **ClustermanualupgradeJobsInnerManagedProcessConfigurationCharonV1** |  | [default to undefined]
-**ccg** | **(optional)** **ClustermanualupgradeJobsInnerManagedProcessConfigurationCcgV1** |  | [default to undefined]
-**otel_agent** | **(optional)** **ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgentV1** |  | [default to undefined]
-**relay** | **(optional)** **ClustermanualupgradeJobsInnerManagedProcessConfigurationRelayV1** |  | [default to undefined]
-**toolbox** | **(optional)** **ClustermanualupgradeJobsInnerManagedProcessConfigurationToolboxV1** |  | [default to undefined]
+**charon** | **(optional)** `ClustermanualupgradeJobsInnerManagedProcessConfigurationCharon` |  | [default to undefined]
+**ccg** | **(optional)** `ClustermanualupgradeJobsInnerManagedProcessConfigurationCcg` |  | [default to undefined]
+**otel_agent** | **(optional)** `ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgent` |  | [default to undefined]
+**relay** | **(optional)** `ClustermanualupgradeJobsInnerManagedProcessConfigurationRelay` |  | [default to undefined]
+**toolbox** | **(optional)** `ClustermanualupgradeJobsInnerManagedProcessConfigurationToolbox` |  | [default to undefined]
 

@@ -1,20 +1,20 @@
 ---
-id: v1-accessrequestresponse-v1
-title: AccessrequestresponseV1
-pagination_label: AccessrequestresponseV1
-sidebar_label: AccessrequestresponseV1
+id: v1-accessrequestresponse
+title: Accessrequestresponse
+pagination_label: Accessrequestresponse
+sidebar_label: Accessrequestresponse
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccessrequestresponseV1', 'v1AccessrequestresponseV1']
-slug: /tools/sdk/typescript/access_requests/models/accessrequestresponse-v1
-tags: ['SDK', 'Software Development Kit', 'AccessrequestresponseV1', 'v1AccessrequestresponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accessrequestresponse', 'v1Accessrequestresponse']
+slug: /tools/sdk/typescript/access_requests/models/accessrequestresponse
+tags: ['SDK', 'Software Development Kit', 'Accessrequestresponse', 'v1Accessrequestresponse']
 ---
 
-# AccessrequestresponseV1
+# Accessrequestresponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**newRequests** | **(optional)** **Array&lt;AccessrequesttrackingV1&gt;** | A list of new access request tracking data mapped to the values requested. | [default to undefined]
-**existingRequests** | **(optional)** **Array&lt;AccessrequesttrackingV1&gt;** | A list of existing access request tracking data mapped to the values requested.  This indicates access has already been requested for this item. | [default to undefined]
+**newRequests** | **(optional)** `Array<Accessrequesttracking>` | A list of new access request tracking data mapped to the values requested. | [default to undefined]
+**existingRequests** | **(optional)** `Array<Accessrequesttracking>` | A list of existing access request tracking data mapped to the values requested.  This indicates access has already been requested for this item. | [default to undefined]
 

@@ -26,87 +26,87 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface BasecommondtoV1
+ * @interface Basecommondto
  */
-export interface BasecommondtoV1 {
+export interface Basecommondto {
     /**
      * System-generated unique ID of the Object
      * @type {string}
-     * @memberof BasecommondtoV1
+     * @memberof Basecommondto
      */
     'id'?: string;
     /**
      * Name of the Object
      * @type {string}
-     * @memberof BasecommondtoV1
+     * @memberof Basecommondto
      */
     'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
-     * @memberof BasecommondtoV1
+     * @memberof Basecommondto
      */
     'created'?: string;
     /**
      * Last modification date of the Object
      * @type {string}
-     * @memberof BasecommondtoV1
+     * @memberof Basecommondto
      */
     'modified'?: string;
 }
 /**
  * 
  * @export
- * @interface CreateMachineAccountSubtypeV1RequestV1
+ * @interface CreateMachineAccountSubtypeV1Request
  */
-export interface CreateMachineAccountSubtypeV1RequestV1 {
+export interface CreateMachineAccountSubtypeV1Request {
     /**
      * Technical name of the subtype.
      * @type {string}
-     * @memberof CreateMachineAccountSubtypeV1RequestV1
+     * @memberof CreateMachineAccountSubtypeV1Request
      */
     'technicalName': string;
     /**
      * Display name of the subtype.
      * @type {string}
-     * @memberof CreateMachineAccountSubtypeV1RequestV1
+     * @memberof CreateMachineAccountSubtypeV1Request
      */
     'displayName': string;
     /**
      * Description of the subtype.
      * @type {string}
-     * @memberof CreateMachineAccountSubtypeV1RequestV1
+     * @memberof CreateMachineAccountSubtypeV1Request
      */
     'description': string;
     /**
      * Type of the subtype.
      * @type {string}
-     * @memberof CreateMachineAccountSubtypeV1RequestV1
+     * @memberof CreateMachineAccountSubtypeV1Request
      */
     'type'?: string;
 }
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -115,57 +115,57 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface ListMachineAccountsV1401ResponseV1
+ * @interface ListMachineAccountsV1401Response
  */
-export interface ListMachineAccountsV1401ResponseV1 {
+export interface ListMachineAccountsV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListMachineAccountsV1401ResponseV1
+     * @memberof ListMachineAccountsV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ListMachineAccountsV1429ResponseV1
+ * @interface ListMachineAccountsV1429Response
  */
-export interface ListMachineAccountsV1429ResponseV1 {
+export interface ListMachineAccountsV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListMachineAccountsV1429ResponseV1
+     * @memberof ListMachineAccountsV1429Response
      */
     'message'?: any;
 }
@@ -175,234 +175,234 @@ export interface ListMachineAccountsV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface MachineaccountV1
+ * @interface Machineaccount
  */
-export interface MachineaccountV1 {
+export interface Machineaccount {
     /**
      * System-generated unique ID of the Object
      * @type {string}
-     * @memberof MachineaccountV1
+     * @memberof Machineaccount
      */
     'id'?: string;
     /**
      * Name of the Object
      * @type {string}
-     * @memberof MachineaccountV1
+     * @memberof Machineaccount
      */
     'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
-     * @memberof MachineaccountV1
+     * @memberof Machineaccount
      */
     'created'?: string;
     /**
      * Last modification date of the Object
      * @type {string}
-     * @memberof MachineaccountV1
+     * @memberof Machineaccount
      */
     'modified'?: string;
     /**
      * A description of the machine account
      * @type {string}
-     * @memberof MachineaccountV1
+     * @memberof Machineaccount
      */
     'description'?: string | null;
     /**
      * The unique ID of the machine account generated by the source system
      * @type {string}
-     * @memberof MachineaccountV1
+     * @memberof Machineaccount
      */
     'nativeIdentity': string;
     /**
      * The unique ID of the account as determined by the account schema
      * @type {string}
-     * @memberof MachineaccountV1
+     * @memberof Machineaccount
      */
     'uuid'?: string | null;
     /**
      * Classification Method
      * @type {string}
-     * @memberof MachineaccountV1
+     * @memberof Machineaccount
      */
-    'classificationMethod': MachineaccountV1ClassificationMethodV1;
+    'classificationMethod': MachineaccountClassificationMethodEnum;
     /**
      * The machine identity this account is associated with
      * @type {any}
-     * @memberof MachineaccountV1
+     * @memberof Machineaccount
      */
     'machineIdentity'?: any;
     /**
      * The identity who owns this account.
      * @type {any}
-     * @memberof MachineaccountV1
+     * @memberof Machineaccount
      */
     'ownerIdentity'?: any | null;
     /**
      * The connection type of the source this account is from
      * @type {string}
-     * @memberof MachineaccountV1
+     * @memberof Machineaccount
      */
     'accessType'?: string;
     /**
      * The sub-type
      * @type {string}
-     * @memberof MachineaccountV1
+     * @memberof Machineaccount
      */
     'subtype'?: string | null;
     /**
      * Environment
      * @type {string}
-     * @memberof MachineaccountV1
+     * @memberof Machineaccount
      */
     'environment'?: string | null;
     /**
      * Custom attributes specific to the machine account
      * @type {{ [key: string]: any; }}
-     * @memberof MachineaccountV1
+     * @memberof Machineaccount
      */
     'attributes'?: { [key: string]: any; } | null;
     /**
      * The connector attributes for the account
      * @type {{ [key: string]: any; }}
-     * @memberof MachineaccountV1
+     * @memberof Machineaccount
      */
     'connectorAttributes': { [key: string]: any; } | null;
     /**
      * Indicates if the account has been manually correlated to an identity
      * @type {boolean}
-     * @memberof MachineaccountV1
+     * @memberof Machineaccount
      */
     'manuallyCorrelated'?: boolean;
     /**
      * Indicates if the account has been manually edited
      * @type {boolean}
-     * @memberof MachineaccountV1
+     * @memberof Machineaccount
      */
     'manuallyEdited': boolean;
     /**
      * Indicates if the account is currently locked
      * @type {boolean}
-     * @memberof MachineaccountV1
+     * @memberof Machineaccount
      */
     'locked': boolean;
     /**
      * Indicates if the account is enabled
      * @type {boolean}
-     * @memberof MachineaccountV1
+     * @memberof Machineaccount
      */
     'enabled': boolean;
     /**
      * Indicates if the account has entitlements
      * @type {boolean}
-     * @memberof MachineaccountV1
+     * @memberof Machineaccount
      */
     'hasEntitlements': boolean;
     /**
      * The source this machine account belongs to.
      * @type {any}
-     * @memberof MachineaccountV1
+     * @memberof Machineaccount
      */
     'source': any;
 }
 
-export const MachineaccountV1ClassificationMethodV1 = {
+export const MachineaccountClassificationMethodEnum = {
     Source: 'SOURCE',
     Criteria: 'CRITERIA',
     Discovery: 'DISCOVERY',
     Manual: 'MANUAL'
 } as const;
 
-export type MachineaccountV1ClassificationMethodV1 = typeof MachineaccountV1ClassificationMethodV1[keyof typeof MachineaccountV1ClassificationMethodV1];
+export type MachineaccountClassificationMethodEnum = typeof MachineaccountClassificationMethodEnum[keyof typeof MachineaccountClassificationMethodEnum];
 
 /**
  * 
  * @export
- * @interface SourcesubtypeV1
+ * @interface Sourcesubtype
  */
-export interface SourcesubtypeV1 {
+export interface Sourcesubtype {
     /**
      * Unique identifier for the subtype.
      * @type {string}
-     * @memberof SourcesubtypeV1
+     * @memberof Sourcesubtype
      */
     'id'?: string;
     /**
      * The ID of the source.
      * @type {string}
-     * @memberof SourcesubtypeV1
+     * @memberof Sourcesubtype
      */
     'sourceId'?: string;
     /**
      * Technical name of the subtype.
      * @type {string}
-     * @memberof SourcesubtypeV1
+     * @memberof Sourcesubtype
      */
     'technicalName': string;
     /**
      * Display name of the subtype.
      * @type {string}
-     * @memberof SourcesubtypeV1
+     * @memberof Sourcesubtype
      */
     'displayName': string;
     /**
      * Description of the subtype.
      * @type {string}
-     * @memberof SourcesubtypeV1
+     * @memberof Sourcesubtype
      */
     'description': string;
     /**
      * Creation timestamp.
      * @type {string}
-     * @memberof SourcesubtypeV1
+     * @memberof Sourcesubtype
      */
     'created'?: string;
     /**
      * Last modified timestamp.
      * @type {string}
-     * @memberof SourcesubtypeV1
+     * @memberof Sourcesubtype
      */
     'modified'?: string;
     /**
      * Type of the subtype. Either MACHINE OR null.
      * @type {string}
-     * @memberof SourcesubtypeV1
+     * @memberof Sourcesubtype
      */
     'type'?: string;
 }
 
 /**
- * MachineAccountsV1Api - axios parameter creator
+ * MachineAccountsApi - axios parameter creator
  * @export
  */
-export const MachineAccountsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const MachineAccountsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Create a new machine account subtype for a source.
          * @summary Create subtype
          * @param {string} sourceId The ID of the source.
-         * @param {CreateMachineAccountSubtypeV1RequestV1} createMachineAccountSubtypeV1RequestV1 
+         * @param {CreateMachineAccountSubtypeV1Request} createMachineAccountSubtypeV1Request 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @deprecated
          * @throws {RequiredError}
          */
-        createMachineAccountSubtypeV1: async (sourceId: string, createMachineAccountSubtypeV1RequestV1: CreateMachineAccountSubtypeV1RequestV1, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createMachineAccountSubtypeV1: async (sourceId: string, createMachineAccountSubtypeV1Request: CreateMachineAccountSubtypeV1Request, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('createMachineAccountSubtypeV1', 'sourceId', sourceId)
-            // verify required parameter 'createMachineAccountSubtypeV1RequestV1' is not null or undefined
-            assertParamExists('createMachineAccountSubtypeV1', 'createMachineAccountSubtypeV1RequestV1', createMachineAccountSubtypeV1RequestV1)
+            // verify required parameter 'createMachineAccountSubtypeV1Request' is not null or undefined
+            assertParamExists('createMachineAccountSubtypeV1', 'createMachineAccountSubtypeV1Request', createMachineAccountSubtypeV1Request)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -430,7 +430,7 @@ export const MachineAccountsV1ApiAxiosParamCreator = function (configuration?: C
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createMachineAccountSubtypeV1RequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(createMachineAccountSubtypeV1Request, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -852,26 +852,26 @@ export const MachineAccountsV1ApiAxiosParamCreator = function (configuration?: C
 };
 
 /**
- * MachineAccountsV1Api - functional programming interface
+ * MachineAccountsApi - functional programming interface
  * @export
  */
-export const MachineAccountsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = MachineAccountsV1ApiAxiosParamCreator(configuration)
+export const MachineAccountsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = MachineAccountsApiAxiosParamCreator(configuration)
     return {
         /**
          * Create a new machine account subtype for a source.
          * @summary Create subtype
          * @param {string} sourceId The ID of the source.
-         * @param {CreateMachineAccountSubtypeV1RequestV1} createMachineAccountSubtypeV1RequestV1 
+         * @param {CreateMachineAccountSubtypeV1Request} createMachineAccountSubtypeV1Request 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @deprecated
          * @throws {RequiredError}
          */
-        async createMachineAccountSubtypeV1(sourceId: string, createMachineAccountSubtypeV1RequestV1: CreateMachineAccountSubtypeV1RequestV1, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourcesubtypeV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createMachineAccountSubtypeV1(sourceId, createMachineAccountSubtypeV1RequestV1, xSailPointExperimental, axiosOptions);
+        async createMachineAccountSubtypeV1(sourceId: string, createMachineAccountSubtypeV1Request: CreateMachineAccountSubtypeV1Request, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sourcesubtype>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createMachineAccountSubtypeV1(sourceId, createMachineAccountSubtypeV1Request, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MachineAccountsV1Api.createMachineAccountSubtypeV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.createMachineAccountSubtypeV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -887,7 +887,7 @@ export const MachineAccountsV1ApiFp = function(configuration?: Configuration) {
         async deleteMachineAccountSubtypeByTechnicalNameV1(sourceId: string, technicalName: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMachineAccountSubtypeByTechnicalNameV1(sourceId, technicalName, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MachineAccountsV1Api.deleteMachineAccountSubtypeByTechnicalNameV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.deleteMachineAccountSubtypeByTechnicalNameV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -899,10 +899,10 @@ export const MachineAccountsV1ApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async getMachineAccountSubtypeByIdV1(subtypeId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourcesubtypeV1>> {
+        async getMachineAccountSubtypeByIdV1(subtypeId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sourcesubtype>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMachineAccountSubtypeByIdV1(subtypeId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MachineAccountsV1Api.getMachineAccountSubtypeByIdV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.getMachineAccountSubtypeByIdV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -915,10 +915,10 @@ export const MachineAccountsV1ApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async getMachineAccountSubtypeByTechnicalNameV1(sourceId: string, technicalName: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourcesubtypeV1>> {
+        async getMachineAccountSubtypeByTechnicalNameV1(sourceId: string, technicalName: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sourcesubtype>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMachineAccountSubtypeByTechnicalNameV1(sourceId, technicalName, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MachineAccountsV1Api.getMachineAccountSubtypeByTechnicalNameV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.getMachineAccountSubtypeByTechnicalNameV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -929,10 +929,10 @@ export const MachineAccountsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getMachineAccountV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineaccountV1>> {
+        async getMachineAccountV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Machineaccount>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMachineAccountV1(id, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MachineAccountsV1Api.getMachineAccountV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.getMachineAccountV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -949,10 +949,10 @@ export const MachineAccountsV1ApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async listMachineAccountSubtypesV1(sourceId: string, filters?: string, sorters?: string, xSailPointExperimental?: string, count?: boolean, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SourcesubtypeV1>>> {
+        async listMachineAccountSubtypesV1(sourceId: string, filters?: string, sorters?: string, xSailPointExperimental?: string, count?: boolean, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Sourcesubtype>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listMachineAccountSubtypesV1(sourceId, filters, sorters, xSailPointExperimental, count, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MachineAccountsV1Api.listMachineAccountSubtypesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.listMachineAccountSubtypesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -967,10 +967,10 @@ export const MachineAccountsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listMachineAccountsV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MachineaccountV1>>> {
+        async listMachineAccountsV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Machineaccount>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listMachineAccountsV1(limit, offset, count, filters, sorters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MachineAccountsV1Api.listMachineAccountsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.listMachineAccountsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -984,10 +984,10 @@ export const MachineAccountsV1ApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async patchMachineAccountSubtypeByTechnicalNameV1(sourceId: string, technicalName: string, requestBody: Array<object>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourcesubtypeV1>> {
+        async patchMachineAccountSubtypeByTechnicalNameV1(sourceId: string, technicalName: string, requestBody: Array<object>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sourcesubtype>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchMachineAccountSubtypeByTechnicalNameV1(sourceId, technicalName, requestBody, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MachineAccountsV1Api.patchMachineAccountSubtypeByTechnicalNameV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.patchMachineAccountSubtypeByTechnicalNameV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -999,534 +999,534 @@ export const MachineAccountsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateMachineAccountV1(id: string, requestBody: Array<object>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineaccountV1>> {
+        async updateMachineAccountV1(id: string, requestBody: Array<object>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Machineaccount>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateMachineAccountV1(id, requestBody, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MachineAccountsV1Api.updateMachineAccountV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.updateMachineAccountV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * MachineAccountsV1Api - factory interface
+ * MachineAccountsApi - factory interface
  * @export
  */
-export const MachineAccountsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = MachineAccountsV1ApiFp(configuration)
+export const MachineAccountsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = MachineAccountsApiFp(configuration)
     return {
         /**
          * Create a new machine account subtype for a source.
          * @summary Create subtype
-         * @param {MachineAccountsV1ApiCreateMachineAccountSubtypeV1Request} requestParameters Request parameters.
+         * @param {MachineAccountsApiCreateMachineAccountSubtypeV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @deprecated
          * @throws {RequiredError}
          */
-        createMachineAccountSubtypeV1(requestParameters: MachineAccountsV1ApiCreateMachineAccountSubtypeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourcesubtypeV1> {
-            return localVarFp.createMachineAccountSubtypeV1(requestParameters.sourceId, requestParameters.createMachineAccountSubtypeV1RequestV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        createMachineAccountSubtypeV1(requestParameters: MachineAccountsApiCreateMachineAccountSubtypeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sourcesubtype> {
+            return localVarFp.createMachineAccountSubtypeV1(requestParameters.sourceId, requestParameters.createMachineAccountSubtypeV1Request, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Delete a machine account subtype by source ID and technical name.
          * @summary Delete subtype
-         * @param {MachineAccountsV1ApiDeleteMachineAccountSubtypeByTechnicalNameV1Request} requestParameters Request parameters.
+         * @param {MachineAccountsApiDeleteMachineAccountSubtypeByTechnicalNameV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @deprecated
          * @throws {RequiredError}
          */
-        deleteMachineAccountSubtypeByTechnicalNameV1(requestParameters: MachineAccountsV1ApiDeleteMachineAccountSubtypeByTechnicalNameV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteMachineAccountSubtypeByTechnicalNameV1(requestParameters: MachineAccountsApiDeleteMachineAccountSubtypeByTechnicalNameV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteMachineAccountSubtypeByTechnicalNameV1(requestParameters.sourceId, requestParameters.technicalName, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get a machine account subtype by its unique ID.
          * @summary Retrieve subtype by subtype id
-         * @param {MachineAccountsV1ApiGetMachineAccountSubtypeByIdV1Request} requestParameters Request parameters.
+         * @param {MachineAccountsApiGetMachineAccountSubtypeByIdV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @deprecated
          * @throws {RequiredError}
          */
-        getMachineAccountSubtypeByIdV1(requestParameters: MachineAccountsV1ApiGetMachineAccountSubtypeByIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourcesubtypeV1> {
+        getMachineAccountSubtypeByIdV1(requestParameters: MachineAccountsApiGetMachineAccountSubtypeByIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sourcesubtype> {
             return localVarFp.getMachineAccountSubtypeByIdV1(requestParameters.subtypeId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get a machine account subtype by source ID and technical name.
          * @summary Retrieve subtype by source and technicalName
-         * @param {MachineAccountsV1ApiGetMachineAccountSubtypeByTechnicalNameV1Request} requestParameters Request parameters.
+         * @param {MachineAccountsApiGetMachineAccountSubtypeByTechnicalNameV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @deprecated
          * @throws {RequiredError}
          */
-        getMachineAccountSubtypeByTechnicalNameV1(requestParameters: MachineAccountsV1ApiGetMachineAccountSubtypeByTechnicalNameV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourcesubtypeV1> {
+        getMachineAccountSubtypeByTechnicalNameV1(requestParameters: MachineAccountsApiGetMachineAccountSubtypeByTechnicalNameV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sourcesubtype> {
             return localVarFp.getMachineAccountSubtypeByTechnicalNameV1(requestParameters.sourceId, requestParameters.technicalName, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to return the details for a single machine account by its ID.  
          * @summary Get machine account details
-         * @param {MachineAccountsV1ApiGetMachineAccountV1Request} requestParameters Request parameters.
+         * @param {MachineAccountsApiGetMachineAccountV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getMachineAccountV1(requestParameters: MachineAccountsV1ApiGetMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineaccountV1> {
+        getMachineAccountV1(requestParameters: MachineAccountsApiGetMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Machineaccount> {
             return localVarFp.getMachineAccountV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get all machine account subtypes for a given source.
          * @summary Retrieve all subtypes by source
-         * @param {MachineAccountsV1ApiListMachineAccountSubtypesV1Request} requestParameters Request parameters.
+         * @param {MachineAccountsApiListMachineAccountSubtypesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @deprecated
          * @throws {RequiredError}
          */
-        listMachineAccountSubtypesV1(requestParameters: MachineAccountsV1ApiListMachineAccountSubtypesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SourcesubtypeV1>> {
+        listMachineAccountSubtypesV1(requestParameters: MachineAccountsApiListMachineAccountSubtypesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Sourcesubtype>> {
             return localVarFp.listMachineAccountSubtypesV1(requestParameters.sourceId, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This returns a list of machine accounts.  
          * @summary List machine accounts
-         * @param {MachineAccountsV1ApiListMachineAccountsV1Request} requestParameters Request parameters.
+         * @param {MachineAccountsApiListMachineAccountsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listMachineAccountsV1(requestParameters: MachineAccountsV1ApiListMachineAccountsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<MachineaccountV1>> {
+        listMachineAccountsV1(requestParameters: MachineAccountsApiListMachineAccountsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Machineaccount>> {
             return localVarFp.listMachineAccountsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Update fields of a machine account subtype by source ID and technical name. Patchable fields include: `displayName`, `description`.
          * @summary Patch subtype
-         * @param {MachineAccountsV1ApiPatchMachineAccountSubtypeByTechnicalNameV1Request} requestParameters Request parameters.
+         * @param {MachineAccountsApiPatchMachineAccountSubtypeByTechnicalNameV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @deprecated
          * @throws {RequiredError}
          */
-        patchMachineAccountSubtypeByTechnicalNameV1(requestParameters: MachineAccountsV1ApiPatchMachineAccountSubtypeByTechnicalNameV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourcesubtypeV1> {
+        patchMachineAccountSubtypeByTechnicalNameV1(requestParameters: MachineAccountsApiPatchMachineAccountSubtypeByTechnicalNameV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sourcesubtype> {
             return localVarFp.patchMachineAccountSubtypeByTechnicalNameV1(requestParameters.sourceId, requestParameters.technicalName, requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to update machine accounts details.  
          * @summary Update machine account details
-         * @param {MachineAccountsV1ApiUpdateMachineAccountV1Request} requestParameters Request parameters.
+         * @param {MachineAccountsApiUpdateMachineAccountV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateMachineAccountV1(requestParameters: MachineAccountsV1ApiUpdateMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineaccountV1> {
+        updateMachineAccountV1(requestParameters: MachineAccountsApiUpdateMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Machineaccount> {
             return localVarFp.updateMachineAccountV1(requestParameters.id, requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createMachineAccountSubtypeV1 operation in MachineAccountsV1Api.
+ * Request parameters for createMachineAccountSubtypeV1 operation in MachineAccountsApi.
  * @export
- * @interface MachineAccountsV1ApiCreateMachineAccountSubtypeV1Request
+ * @interface MachineAccountsApiCreateMachineAccountSubtypeV1Request
  */
-export interface MachineAccountsV1ApiCreateMachineAccountSubtypeV1Request {
+export interface MachineAccountsApiCreateMachineAccountSubtypeV1Request {
     /**
      * The ID of the source.
      * @type {string}
-     * @memberof MachineAccountsV1ApiCreateMachineAccountSubtypeV1
+     * @memberof MachineAccountsApiCreateMachineAccountSubtypeV1
      */
     readonly sourceId: string
 
     /**
      * 
-     * @type {CreateMachineAccountSubtypeV1RequestV1}
-     * @memberof MachineAccountsV1ApiCreateMachineAccountSubtypeV1
+     * @type {CreateMachineAccountSubtypeV1Request}
+     * @memberof MachineAccountsApiCreateMachineAccountSubtypeV1
      */
-    readonly createMachineAccountSubtypeV1RequestV1: CreateMachineAccountSubtypeV1RequestV1
+    readonly createMachineAccountSubtypeV1Request: CreateMachineAccountSubtypeV1Request
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof MachineAccountsV1ApiCreateMachineAccountSubtypeV1
+     * @memberof MachineAccountsApiCreateMachineAccountSubtypeV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for deleteMachineAccountSubtypeByTechnicalNameV1 operation in MachineAccountsV1Api.
+ * Request parameters for deleteMachineAccountSubtypeByTechnicalNameV1 operation in MachineAccountsApi.
  * @export
- * @interface MachineAccountsV1ApiDeleteMachineAccountSubtypeByTechnicalNameV1Request
+ * @interface MachineAccountsApiDeleteMachineAccountSubtypeByTechnicalNameV1Request
  */
-export interface MachineAccountsV1ApiDeleteMachineAccountSubtypeByTechnicalNameV1Request {
+export interface MachineAccountsApiDeleteMachineAccountSubtypeByTechnicalNameV1Request {
     /**
      * The ID of the source.
      * @type {string}
-     * @memberof MachineAccountsV1ApiDeleteMachineAccountSubtypeByTechnicalNameV1
+     * @memberof MachineAccountsApiDeleteMachineAccountSubtypeByTechnicalNameV1
      */
     readonly sourceId: string
 
     /**
      * The technical name of the subtype.
      * @type {string}
-     * @memberof MachineAccountsV1ApiDeleteMachineAccountSubtypeByTechnicalNameV1
+     * @memberof MachineAccountsApiDeleteMachineAccountSubtypeByTechnicalNameV1
      */
     readonly technicalName: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof MachineAccountsV1ApiDeleteMachineAccountSubtypeByTechnicalNameV1
+     * @memberof MachineAccountsApiDeleteMachineAccountSubtypeByTechnicalNameV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getMachineAccountSubtypeByIdV1 operation in MachineAccountsV1Api.
+ * Request parameters for getMachineAccountSubtypeByIdV1 operation in MachineAccountsApi.
  * @export
- * @interface MachineAccountsV1ApiGetMachineAccountSubtypeByIdV1Request
+ * @interface MachineAccountsApiGetMachineAccountSubtypeByIdV1Request
  */
-export interface MachineAccountsV1ApiGetMachineAccountSubtypeByIdV1Request {
+export interface MachineAccountsApiGetMachineAccountSubtypeByIdV1Request {
     /**
      * The ID of the machine account subtype.
      * @type {string}
-     * @memberof MachineAccountsV1ApiGetMachineAccountSubtypeByIdV1
+     * @memberof MachineAccountsApiGetMachineAccountSubtypeByIdV1
      */
     readonly subtypeId: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof MachineAccountsV1ApiGetMachineAccountSubtypeByIdV1
+     * @memberof MachineAccountsApiGetMachineAccountSubtypeByIdV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getMachineAccountSubtypeByTechnicalNameV1 operation in MachineAccountsV1Api.
+ * Request parameters for getMachineAccountSubtypeByTechnicalNameV1 operation in MachineAccountsApi.
  * @export
- * @interface MachineAccountsV1ApiGetMachineAccountSubtypeByTechnicalNameV1Request
+ * @interface MachineAccountsApiGetMachineAccountSubtypeByTechnicalNameV1Request
  */
-export interface MachineAccountsV1ApiGetMachineAccountSubtypeByTechnicalNameV1Request {
+export interface MachineAccountsApiGetMachineAccountSubtypeByTechnicalNameV1Request {
     /**
      * The ID of the source.
      * @type {string}
-     * @memberof MachineAccountsV1ApiGetMachineAccountSubtypeByTechnicalNameV1
+     * @memberof MachineAccountsApiGetMachineAccountSubtypeByTechnicalNameV1
      */
     readonly sourceId: string
 
     /**
      * The technical name of the subtype.
      * @type {string}
-     * @memberof MachineAccountsV1ApiGetMachineAccountSubtypeByTechnicalNameV1
+     * @memberof MachineAccountsApiGetMachineAccountSubtypeByTechnicalNameV1
      */
     readonly technicalName: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof MachineAccountsV1ApiGetMachineAccountSubtypeByTechnicalNameV1
+     * @memberof MachineAccountsApiGetMachineAccountSubtypeByTechnicalNameV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getMachineAccountV1 operation in MachineAccountsV1Api.
+ * Request parameters for getMachineAccountV1 operation in MachineAccountsApi.
  * @export
- * @interface MachineAccountsV1ApiGetMachineAccountV1Request
+ * @interface MachineAccountsApiGetMachineAccountV1Request
  */
-export interface MachineAccountsV1ApiGetMachineAccountV1Request {
+export interface MachineAccountsApiGetMachineAccountV1Request {
     /**
      * Machine Account ID.
      * @type {string}
-     * @memberof MachineAccountsV1ApiGetMachineAccountV1
+     * @memberof MachineAccountsApiGetMachineAccountV1
      */
     readonly id: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof MachineAccountsV1ApiGetMachineAccountV1
+     * @memberof MachineAccountsApiGetMachineAccountV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for listMachineAccountSubtypesV1 operation in MachineAccountsV1Api.
+ * Request parameters for listMachineAccountSubtypesV1 operation in MachineAccountsApi.
  * @export
- * @interface MachineAccountsV1ApiListMachineAccountSubtypesV1Request
+ * @interface MachineAccountsApiListMachineAccountSubtypesV1Request
  */
-export interface MachineAccountsV1ApiListMachineAccountSubtypesV1Request {
+export interface MachineAccountsApiListMachineAccountSubtypesV1Request {
     /**
      * The ID of the source.
      * @type {string}
-     * @memberof MachineAccountsV1ApiListMachineAccountSubtypesV1
+     * @memberof MachineAccountsApiListMachineAccountSubtypesV1
      */
     readonly sourceId: string
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw*
      * @type {string}
-     * @memberof MachineAccountsV1ApiListMachineAccountSubtypesV1
+     * @memberof MachineAccountsApiListMachineAccountSubtypesV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName**
      * @type {string}
-     * @memberof MachineAccountsV1ApiListMachineAccountSubtypesV1
+     * @memberof MachineAccountsApiListMachineAccountSubtypesV1
      */
     readonly sorters?: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof MachineAccountsV1ApiListMachineAccountSubtypesV1
+     * @memberof MachineAccountsApiListMachineAccountSubtypesV1
      */
     readonly xSailPointExperimental?: string
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof MachineAccountsV1ApiListMachineAccountSubtypesV1
+     * @memberof MachineAccountsApiListMachineAccountSubtypesV1
      */
     readonly count?: boolean
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof MachineAccountsV1ApiListMachineAccountSubtypesV1
+     * @memberof MachineAccountsApiListMachineAccountSubtypesV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof MachineAccountsV1ApiListMachineAccountSubtypesV1
+     * @memberof MachineAccountsApiListMachineAccountSubtypesV1
      */
     readonly offset?: number
 }
 
 /**
- * Request parameters for listMachineAccountsV1 operation in MachineAccountsV1Api.
+ * Request parameters for listMachineAccountsV1 operation in MachineAccountsApi.
  * @export
- * @interface MachineAccountsV1ApiListMachineAccountsV1Request
+ * @interface MachineAccountsApiListMachineAccountsV1Request
  */
-export interface MachineAccountsV1ApiListMachineAccountsV1Request {
+export interface MachineAccountsApiListMachineAccountsV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof MachineAccountsV1ApiListMachineAccountsV1
+     * @memberof MachineAccountsApiListMachineAccountsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof MachineAccountsV1ApiListMachineAccountsV1
+     * @memberof MachineAccountsApiListMachineAccountsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof MachineAccountsV1ApiListMachineAccountsV1
+     * @memberof MachineAccountsApiListMachineAccountsV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **uuid**: *eq, in*  **description**: *eq, in, sw*  **machineIdentity.id**: *eq, in*  **machineIdentity.name**: *eq, in, sw*  **subtype.technicalName**: *eq, in, sw*  **subtype.displayName**: *eq, in, sw*  **accessType**: *eq, in, sw*  **environment**: *eq, in, sw*  **ownerIdentity**: *eq, in*  **ownerIdentity.id**: *eq, in*  **ownerIdentity.name**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **enabled**: *eq*  **locked**: *eq*  **hasEntitlements**: *eq*  **attributes**: *eq*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **created**: *eq, gt, lt, ge, le*  **modified**: *eq, gt, lt, ge, le*
      * @type {string}
-     * @memberof MachineAccountsV1ApiListMachineAccountsV1
+     * @memberof MachineAccountsApiListMachineAccountsV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, nativeIdentity, ownerIdentity, uuid, description, machineIdentity.id, machineIdentity.name, subtype.technicalName, subtype.displayName, accessType, environment, manuallyCorrelated, enabled, locked, hasEntitlements, ownerIdentity.id, ownerIdentity.name, attributes, source.id, source.name, created, modified**
      * @type {string}
-     * @memberof MachineAccountsV1ApiListMachineAccountsV1
+     * @memberof MachineAccountsApiListMachineAccountsV1
      */
     readonly sorters?: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof MachineAccountsV1ApiListMachineAccountsV1
+     * @memberof MachineAccountsApiListMachineAccountsV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for patchMachineAccountSubtypeByTechnicalNameV1 operation in MachineAccountsV1Api.
+ * Request parameters for patchMachineAccountSubtypeByTechnicalNameV1 operation in MachineAccountsApi.
  * @export
- * @interface MachineAccountsV1ApiPatchMachineAccountSubtypeByTechnicalNameV1Request
+ * @interface MachineAccountsApiPatchMachineAccountSubtypeByTechnicalNameV1Request
  */
-export interface MachineAccountsV1ApiPatchMachineAccountSubtypeByTechnicalNameV1Request {
+export interface MachineAccountsApiPatchMachineAccountSubtypeByTechnicalNameV1Request {
     /**
      * The ID of the source.
      * @type {string}
-     * @memberof MachineAccountsV1ApiPatchMachineAccountSubtypeByTechnicalNameV1
+     * @memberof MachineAccountsApiPatchMachineAccountSubtypeByTechnicalNameV1
      */
     readonly sourceId: string
 
     /**
      * The technical name of the subtype.
      * @type {string}
-     * @memberof MachineAccountsV1ApiPatchMachineAccountSubtypeByTechnicalNameV1
+     * @memberof MachineAccountsApiPatchMachineAccountSubtypeByTechnicalNameV1
      */
     readonly technicalName: string
 
     /**
      * A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
      * @type {Array<object>}
-     * @memberof MachineAccountsV1ApiPatchMachineAccountSubtypeByTechnicalNameV1
+     * @memberof MachineAccountsApiPatchMachineAccountSubtypeByTechnicalNameV1
      */
     readonly requestBody: Array<object>
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof MachineAccountsV1ApiPatchMachineAccountSubtypeByTechnicalNameV1
+     * @memberof MachineAccountsApiPatchMachineAccountSubtypeByTechnicalNameV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for updateMachineAccountV1 operation in MachineAccountsV1Api.
+ * Request parameters for updateMachineAccountV1 operation in MachineAccountsApi.
  * @export
- * @interface MachineAccountsV1ApiUpdateMachineAccountV1Request
+ * @interface MachineAccountsApiUpdateMachineAccountV1Request
  */
-export interface MachineAccountsV1ApiUpdateMachineAccountV1Request {
+export interface MachineAccountsApiUpdateMachineAccountV1Request {
     /**
      * Machine Account ID.
      * @type {string}
-     * @memberof MachineAccountsV1ApiUpdateMachineAccountV1
+     * @memberof MachineAccountsApiUpdateMachineAccountV1
      */
     readonly id: string
 
     /**
      * A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable:           * description           * ownerIdentity           * subType           * accessType           * environment           * attributes           * classificationMethod           * manuallyEdited           * nativeIdentity           * uuid           * source           * manuallyCorrelated           * enabled           * locked           * hasEntitlements           * connectorAttributes
      * @type {Array<object>}
-     * @memberof MachineAccountsV1ApiUpdateMachineAccountV1
+     * @memberof MachineAccountsApiUpdateMachineAccountV1
      */
     readonly requestBody: Array<object>
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof MachineAccountsV1ApiUpdateMachineAccountV1
+     * @memberof MachineAccountsApiUpdateMachineAccountV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * MachineAccountsV1Api - object-oriented interface
+ * MachineAccountsApi - object-oriented interface
  * @export
- * @class MachineAccountsV1Api
+ * @class MachineAccountsApi
  * @extends {BaseAPI}
  */
-export class MachineAccountsV1Api extends BaseAPI {
+export class MachineAccountsApi extends BaseAPI {
     /**
      * Create a new machine account subtype for a source.
      * @summary Create subtype
-     * @param {MachineAccountsV1ApiCreateMachineAccountSubtypeV1Request} requestParameters Request parameters.
+     * @param {MachineAccountsApiCreateMachineAccountSubtypeV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @deprecated
      * @throws {RequiredError}
-     * @memberof MachineAccountsV1Api
+     * @memberof MachineAccountsApi
      */
-    public createMachineAccountSubtypeV1(requestParameters: MachineAccountsV1ApiCreateMachineAccountSubtypeV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineAccountsV1ApiFp(this.configuration).createMachineAccountSubtypeV1(requestParameters.sourceId, requestParameters.createMachineAccountSubtypeV1RequestV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createMachineAccountSubtypeV1(requestParameters: MachineAccountsApiCreateMachineAccountSubtypeV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).createMachineAccountSubtypeV1(requestParameters.sourceId, requestParameters.createMachineAccountSubtypeV1Request, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Delete a machine account subtype by source ID and technical name.
      * @summary Delete subtype
-     * @param {MachineAccountsV1ApiDeleteMachineAccountSubtypeByTechnicalNameV1Request} requestParameters Request parameters.
+     * @param {MachineAccountsApiDeleteMachineAccountSubtypeByTechnicalNameV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @deprecated
      * @throws {RequiredError}
-     * @memberof MachineAccountsV1Api
+     * @memberof MachineAccountsApi
      */
-    public deleteMachineAccountSubtypeByTechnicalNameV1(requestParameters: MachineAccountsV1ApiDeleteMachineAccountSubtypeByTechnicalNameV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineAccountsV1ApiFp(this.configuration).deleteMachineAccountSubtypeByTechnicalNameV1(requestParameters.sourceId, requestParameters.technicalName, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteMachineAccountSubtypeByTechnicalNameV1(requestParameters: MachineAccountsApiDeleteMachineAccountSubtypeByTechnicalNameV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).deleteMachineAccountSubtypeByTechnicalNameV1(requestParameters.sourceId, requestParameters.technicalName, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get a machine account subtype by its unique ID.
      * @summary Retrieve subtype by subtype id
-     * @param {MachineAccountsV1ApiGetMachineAccountSubtypeByIdV1Request} requestParameters Request parameters.
+     * @param {MachineAccountsApiGetMachineAccountSubtypeByIdV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @deprecated
      * @throws {RequiredError}
-     * @memberof MachineAccountsV1Api
+     * @memberof MachineAccountsApi
      */
-    public getMachineAccountSubtypeByIdV1(requestParameters: MachineAccountsV1ApiGetMachineAccountSubtypeByIdV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineAccountsV1ApiFp(this.configuration).getMachineAccountSubtypeByIdV1(requestParameters.subtypeId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getMachineAccountSubtypeByIdV1(requestParameters: MachineAccountsApiGetMachineAccountSubtypeByIdV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).getMachineAccountSubtypeByIdV1(requestParameters.subtypeId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get a machine account subtype by source ID and technical name.
      * @summary Retrieve subtype by source and technicalName
-     * @param {MachineAccountsV1ApiGetMachineAccountSubtypeByTechnicalNameV1Request} requestParameters Request parameters.
+     * @param {MachineAccountsApiGetMachineAccountSubtypeByTechnicalNameV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @deprecated
      * @throws {RequiredError}
-     * @memberof MachineAccountsV1Api
+     * @memberof MachineAccountsApi
      */
-    public getMachineAccountSubtypeByTechnicalNameV1(requestParameters: MachineAccountsV1ApiGetMachineAccountSubtypeByTechnicalNameV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineAccountsV1ApiFp(this.configuration).getMachineAccountSubtypeByTechnicalNameV1(requestParameters.sourceId, requestParameters.technicalName, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getMachineAccountSubtypeByTechnicalNameV1(requestParameters: MachineAccountsApiGetMachineAccountSubtypeByTechnicalNameV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).getMachineAccountSubtypeByTechnicalNameV1(requestParameters.sourceId, requestParameters.technicalName, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to return the details for a single machine account by its ID.  
      * @summary Get machine account details
-     * @param {MachineAccountsV1ApiGetMachineAccountV1Request} requestParameters Request parameters.
+     * @param {MachineAccountsApiGetMachineAccountV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MachineAccountsV1Api
+     * @memberof MachineAccountsApi
      */
-    public getMachineAccountV1(requestParameters: MachineAccountsV1ApiGetMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineAccountsV1ApiFp(this.configuration).getMachineAccountV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getMachineAccountV1(requestParameters: MachineAccountsApiGetMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).getMachineAccountV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get all machine account subtypes for a given source.
      * @summary Retrieve all subtypes by source
-     * @param {MachineAccountsV1ApiListMachineAccountSubtypesV1Request} requestParameters Request parameters.
+     * @param {MachineAccountsApiListMachineAccountSubtypesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @deprecated
      * @throws {RequiredError}
-     * @memberof MachineAccountsV1Api
+     * @memberof MachineAccountsApi
      */
-    public listMachineAccountSubtypesV1(requestParameters: MachineAccountsV1ApiListMachineAccountSubtypesV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineAccountsV1ApiFp(this.configuration).listMachineAccountSubtypesV1(requestParameters.sourceId, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listMachineAccountSubtypesV1(requestParameters: MachineAccountsApiListMachineAccountSubtypesV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).listMachineAccountSubtypesV1(requestParameters.sourceId, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This returns a list of machine accounts.  
      * @summary List machine accounts
-     * @param {MachineAccountsV1ApiListMachineAccountsV1Request} requestParameters Request parameters.
+     * @param {MachineAccountsApiListMachineAccountsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MachineAccountsV1Api
+     * @memberof MachineAccountsApi
      */
-    public listMachineAccountsV1(requestParameters: MachineAccountsV1ApiListMachineAccountsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineAccountsV1ApiFp(this.configuration).listMachineAccountsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listMachineAccountsV1(requestParameters: MachineAccountsApiListMachineAccountsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).listMachineAccountsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Update fields of a machine account subtype by source ID and technical name. Patchable fields include: `displayName`, `description`.
      * @summary Patch subtype
-     * @param {MachineAccountsV1ApiPatchMachineAccountSubtypeByTechnicalNameV1Request} requestParameters Request parameters.
+     * @param {MachineAccountsApiPatchMachineAccountSubtypeByTechnicalNameV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @deprecated
      * @throws {RequiredError}
-     * @memberof MachineAccountsV1Api
+     * @memberof MachineAccountsApi
      */
-    public patchMachineAccountSubtypeByTechnicalNameV1(requestParameters: MachineAccountsV1ApiPatchMachineAccountSubtypeByTechnicalNameV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineAccountsV1ApiFp(this.configuration).patchMachineAccountSubtypeByTechnicalNameV1(requestParameters.sourceId, requestParameters.technicalName, requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchMachineAccountSubtypeByTechnicalNameV1(requestParameters: MachineAccountsApiPatchMachineAccountSubtypeByTechnicalNameV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).patchMachineAccountSubtypeByTechnicalNameV1(requestParameters.sourceId, requestParameters.technicalName, requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to update machine accounts details.  
      * @summary Update machine account details
-     * @param {MachineAccountsV1ApiUpdateMachineAccountV1Request} requestParameters Request parameters.
+     * @param {MachineAccountsApiUpdateMachineAccountV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MachineAccountsV1Api
+     * @memberof MachineAccountsApi
      */
-    public updateMachineAccountV1(requestParameters: MachineAccountsV1ApiUpdateMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineAccountsV1ApiFp(this.configuration).updateMachineAccountV1(requestParameters.id, requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateMachineAccountV1(requestParameters: MachineAccountsApiUpdateMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).updateMachineAccountV1(requestParameters.id, requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

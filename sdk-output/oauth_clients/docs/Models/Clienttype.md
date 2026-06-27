@@ -1,15 +1,15 @@
 ---
-id: v1-clienttype-v1
-title: ClienttypeV1
-pagination_label: ClienttypeV1
-sidebar_label: ClienttypeV1
+id: v1-clienttype
+title: Clienttype
+pagination_label: Clienttype
+sidebar_label: Clienttype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ClienttypeV1', 'v1ClienttypeV1']
-slug: /tools/sdk/typescript/oauth_clients/models/clienttype-v1
-tags: ['SDK', 'Software Development Kit', 'ClienttypeV1', 'v1ClienttypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Clienttype', 'v1Clienttype']
+slug: /tools/sdk/typescript/oauth_clients/models/clienttype
+tags: ['SDK', 'Software Development Kit', 'Clienttype', 'v1Clienttype']
 ---
 
-# ClienttypeV1
+# Clienttype
 
 ## Enum
 

@@ -1,20 +1,20 @@
 ---
-id: v1-identityassociationdetails-association-details-inner-v1
-title: IdentityassociationdetailsAssociationDetailsInnerV1
-pagination_label: IdentityassociationdetailsAssociationDetailsInnerV1
-sidebar_label: IdentityassociationdetailsAssociationDetailsInnerV1
+id: v1-identityassociationdetails-association-details-inner
+title: IdentityassociationdetailsAssociationDetailsInner
+pagination_label: IdentityassociationdetailsAssociationDetailsInner
+sidebar_label: IdentityassociationdetailsAssociationDetailsInner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'IdentityassociationdetailsAssociationDetailsInnerV1', 'v1IdentityassociationdetailsAssociationDetailsInnerV1']
-slug: /tools/sdk/typescript/identities/models/identityassociationdetails-association-details-inner-v1
-tags: ['SDK', 'Software Development Kit', 'IdentityassociationdetailsAssociationDetailsInnerV1', 'v1IdentityassociationdetailsAssociationDetailsInnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'IdentityassociationdetailsAssociationDetailsInner', 'v1IdentityassociationdetailsAssociationDetailsInner']
+slug: /tools/sdk/typescript/identities/models/identityassociationdetails-association-details-inner
+tags: ['SDK', 'Software Development Kit', 'IdentityassociationdetailsAssociationDetailsInner', 'v1IdentityassociationdetailsAssociationDetailsInner']
 ---
 
-# IdentityassociationdetailsAssociationDetailsInnerV1
+# IdentityassociationdetailsAssociationDetailsInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**associationType** | **(optional)** **string** | association type with the identity | [default to undefined]
-**entities** | **(optional)** **Array&lt;IdentityentitiesV1&gt;** | the specific resource this identity has ownership on | [default to undefined]
+**associationType** | **(optional)** `string` | association type with the identity | [default to undefined]
+**entities** | **(optional)** `Array<Identityentities>` | the specific resource this identity has ownership on | [default to undefined]
 

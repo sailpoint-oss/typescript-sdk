@@ -26,113 +26,113 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface BoundV1
+ * @interface Bound
  */
-export interface BoundV1 {
+export interface Bound {
     /**
      * The value of the range\'s endpoint.
      * @type {string}
-     * @memberof BoundV1
+     * @memberof Bound
      */
     'value': string;
     /**
      * Indicates if the endpoint is included in the range.
      * @type {boolean}
-     * @memberof BoundV1
+     * @memberof Bound
      */
     'inclusive'?: boolean;
 }
 /**
  * 
  * @export
- * @interface ColumnV1
+ * @interface Column
  */
-export interface ColumnV1 {
+export interface Column {
     /**
      * The name of the field. 
      * @type {string}
-     * @memberof ColumnV1
+     * @memberof Column
      */
     'field': string;
     /**
      * The value of the header. 
      * @type {string}
-     * @memberof ColumnV1
+     * @memberof Column
      */
     'header'?: string;
 }
 /**
  * 
  * @export
- * @interface CreateSavedSearchV1RequestV1
+ * @interface CreateSavedSearchV1Request
  */
-export interface CreateSavedSearchV1RequestV1 {
+export interface CreateSavedSearchV1Request {
     /**
      * The name of the saved search. 
      * @type {string}
-     * @memberof CreateSavedSearchV1RequestV1
+     * @memberof CreateSavedSearchV1Request
      */
     'name'?: string;
     /**
      * The description of the saved search. 
      * @type {string}
-     * @memberof CreateSavedSearchV1RequestV1
+     * @memberof CreateSavedSearchV1Request
      */
     'description'?: string | null;
     /**
      * A date-time in ISO-8601 format
      * @type {string}
-     * @memberof CreateSavedSearchV1RequestV1
+     * @memberof CreateSavedSearchV1Request
      */
     'created'?: string | null;
     /**
      * A date-time in ISO-8601 format
      * @type {string}
-     * @memberof CreateSavedSearchV1RequestV1
+     * @memberof CreateSavedSearchV1Request
      */
     'modified'?: string | null;
     /**
      * The names of the Elasticsearch indices in which to search. 
-     * @type {Array<IndexV1>}
-     * @memberof CreateSavedSearchV1RequestV1
+     * @type {Array<Index>}
+     * @memberof CreateSavedSearchV1Request
      */
-    'indices': Array<IndexV1>;
+    'indices': Array<Index>;
     /**
      * The columns to be returned (specifies the order in which they will be presented) for each document type.  The currently supported document types are: _accessprofile_, _accountactivity_, _account_, _aggregation_, _entitlement_, _event_, _identity_, and _role_. 
-     * @type {{ [key: string]: Array<ColumnV1>; }}
-     * @memberof CreateSavedSearchV1RequestV1
+     * @type {{ [key: string]: Array<Column>; }}
+     * @memberof CreateSavedSearchV1Request
      */
-    'columns'?: { [key: string]: Array<ColumnV1>; };
+    'columns'?: { [key: string]: Array<Column>; };
     /**
      * The search query using Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL. 
      * @type {string}
-     * @memberof CreateSavedSearchV1RequestV1
+     * @memberof CreateSavedSearchV1Request
      */
     'query': string;
     /**
      * The fields to be searched against in a multi-field query. 
      * @type {Array<string>}
-     * @memberof CreateSavedSearchV1RequestV1
+     * @memberof CreateSavedSearchV1Request
      */
     'fields'?: Array<string> | null;
     /**
      * Sort by index. This takes precedence over the `sort` property. 
      * @type {{ [key: string]: Array<string>; }}
-     * @memberof CreateSavedSearchV1RequestV1
+     * @memberof CreateSavedSearchV1Request
      */
     'orderBy'?: { [key: string]: Array<string>; } | null;
     /**
      * The fields to be used to sort the search results. 
      * @type {Array<string>}
-     * @memberof CreateSavedSearchV1RequestV1
+     * @memberof CreateSavedSearchV1Request
      */
     'sort'?: Array<string> | null;
     /**
      * 
-     * @type {SavedsearchdetailFiltersV1}
-     * @memberof CreateSavedSearchV1RequestV1
+     * @type {SavedsearchdetailFilters}
+     * @memberof CreateSavedSearchV1Request
      */
-    'filters'?: SavedsearchdetailFiltersV1 | null;
+    'filters'?: SavedsearchdetailFilters | null;
 }
 /**
  * An enumeration of the types of DTOs supported within the IdentityNow infrastructure.
@@ -140,7 +140,7 @@ export interface CreateSavedSearchV1RequestV1 {
  * @enum {string}
  */
 
-export const DtotypeV1 = {
+export const Dtotype = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
@@ -172,31 +172,31 @@ export const DtotypeV1 = {
     Workgroup: 'WORKGROUP'
 } as const;
 
-export type DtotypeV1 = typeof DtotypeV1[keyof typeof DtotypeV1];
+export type Dtotype = typeof Dtotype[keyof typeof Dtotype];
 
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -205,62 +205,62 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface FilterV1
+ * @interface Filter
  */
-export interface FilterV1 {
+export interface Filter {
     /**
      * 
-     * @type {FiltertypeV1}
-     * @memberof FilterV1
+     * @type {Filtertype}
+     * @memberof Filter
      */
-    'type'?: FiltertypeV1;
+    'type'?: Filtertype;
     /**
      * 
-     * @type {RangeV1}
-     * @memberof FilterV1
+     * @type {Range}
+     * @memberof Filter
      */
-    'range'?: RangeV1;
+    'range'?: Range;
     /**
      * The terms to be filtered.
      * @type {Array<string>}
-     * @memberof FilterV1
+     * @memberof Filter
      */
     'terms'?: Array<string>;
     /**
      * Indicates if the filter excludes results.
      * @type {boolean}
-     * @memberof FilterV1
+     * @memberof Filter
      */
     'exclude'?: boolean;
 }
@@ -272,13 +272,13 @@ export interface FilterV1 {
  * @enum {string}
  */
 
-export const FiltertypeV1 = {
+export const Filtertype = {
     Exists: 'EXISTS',
     Range: 'RANGE',
     Terms: 'TERMS'
 } as const;
 
-export type FiltertypeV1 = typeof FiltertypeV1[keyof typeof FiltertypeV1];
+export type Filtertype = typeof Filtertype[keyof typeof Filtertype];
 
 
 /**
@@ -287,7 +287,7 @@ export type FiltertypeV1 = typeof FiltertypeV1[keyof typeof FiltertypeV1];
  * @enum {string}
  */
 
-export const IndexV1 = {
+export const Index = {
     Accessprofiles: 'accessprofiles',
     Accountactivities: 'accountactivities',
     Entitlements: 'entitlements',
@@ -297,32 +297,32 @@ export const IndexV1 = {
     Star: '*'
 } as const;
 
-export type IndexV1 = typeof IndexV1[keyof typeof IndexV1];
+export type Index = typeof Index[keyof typeof Index];
 
 
 /**
  * 
  * @export
- * @interface ListSavedSearchesV1401ResponseV1
+ * @interface ListSavedSearchesV1401Response
  */
-export interface ListSavedSearchesV1401ResponseV1 {
+export interface ListSavedSearchesV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListSavedSearchesV1401ResponseV1
+     * @memberof ListSavedSearchesV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ListSavedSearchesV1429ResponseV1
+ * @interface ListSavedSearchesV1429Response
  */
-export interface ListSavedSearchesV1429ResponseV1 {
+export interface ListSavedSearchesV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListSavedSearchesV1429ResponseV1
+     * @memberof ListSavedSearchesV1429Response
      */
     'message'?: any;
 }
@@ -332,158 +332,219 @@ export interface ListSavedSearchesV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * The range of values to be filtered.
  * @export
- * @interface RangeV1
+ * @interface Range
  */
-export interface RangeV1 {
+export interface Range {
     /**
      * 
-     * @type {BoundV1}
-     * @memberof RangeV1
+     * @type {Bound}
+     * @memberof Range
      */
-    'lower'?: BoundV1;
+    'lower'?: Bound;
     /**
      * 
-     * @type {BoundV1}
-     * @memberof RangeV1
+     * @type {Bound}
+     * @memberof Range
      */
-    'upper'?: BoundV1;
+    'upper'?: Bound;
 }
 /**
  * 
  * @export
- * @interface SavedsearchV1
+ * @interface Savedsearch
  */
-export interface SavedsearchV1 {
+export interface Savedsearch {
     /**
      * The name of the saved search. 
      * @type {string}
-     * @memberof SavedsearchV1
+     * @memberof Savedsearch
      */
     'name'?: string;
     /**
      * The description of the saved search. 
      * @type {string}
-     * @memberof SavedsearchV1
+     * @memberof Savedsearch
      */
     'description'?: string | null;
     /**
      * A date-time in ISO-8601 format
      * @type {string}
-     * @memberof SavedsearchV1
+     * @memberof Savedsearch
      */
     'created'?: string | null;
     /**
      * A date-time in ISO-8601 format
      * @type {string}
-     * @memberof SavedsearchV1
+     * @memberof Savedsearch
      */
     'modified'?: string | null;
     /**
      * The names of the Elasticsearch indices in which to search. 
-     * @type {Array<IndexV1>}
-     * @memberof SavedsearchV1
+     * @type {Array<Index>}
+     * @memberof Savedsearch
      */
-    'indices': Array<IndexV1>;
+    'indices': Array<Index>;
     /**
      * The columns to be returned (specifies the order in which they will be presented) for each document type.  The currently supported document types are: _accessprofile_, _accountactivity_, _account_, _aggregation_, _entitlement_, _event_, _identity_, and _role_. 
-     * @type {{ [key: string]: Array<ColumnV1>; }}
-     * @memberof SavedsearchV1
+     * @type {{ [key: string]: Array<Column>; }}
+     * @memberof Savedsearch
      */
-    'columns'?: { [key: string]: Array<ColumnV1>; };
+    'columns'?: { [key: string]: Array<Column>; };
     /**
      * The search query using Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL. 
      * @type {string}
-     * @memberof SavedsearchV1
+     * @memberof Savedsearch
      */
     'query': string;
     /**
      * The fields to be searched against in a multi-field query. 
      * @type {Array<string>}
-     * @memberof SavedsearchV1
+     * @memberof Savedsearch
      */
     'fields'?: Array<string> | null;
     /**
      * Sort by index. This takes precedence over the `sort` property. 
      * @type {{ [key: string]: Array<string>; }}
-     * @memberof SavedsearchV1
+     * @memberof Savedsearch
      */
     'orderBy'?: { [key: string]: Array<string>; } | null;
     /**
      * The fields to be used to sort the search results. 
      * @type {Array<string>}
-     * @memberof SavedsearchV1
+     * @memberof Savedsearch
      */
     'sort'?: Array<string> | null;
     /**
      * 
-     * @type {SavedsearchdetailFiltersV1}
-     * @memberof SavedsearchV1
+     * @type {SavedsearchdetailFilters}
+     * @memberof Savedsearch
      */
-    'filters'?: SavedsearchdetailFiltersV1 | null;
+    'filters'?: SavedsearchdetailFilters | null;
     /**
      * The saved search ID. 
      * @type {string}
-     * @memberof SavedsearchV1
+     * @memberof Savedsearch
      */
     'id'?: string;
     /**
      * 
-     * @type {TypedreferenceV1}
-     * @memberof SavedsearchV1
+     * @type {Typedreference}
+     * @memberof Savedsearch
      */
-    'owner'?: TypedreferenceV1;
+    'owner'?: Typedreference;
     /**
      * The ID of the identity that owns this saved search.
      * @type {string}
-     * @memberof SavedsearchV1
+     * @memberof Savedsearch
      */
     'ownerId'?: string;
     /**
      * Whether this saved search is visible to anyone but the owner. This field will always be false as there is no way to set a saved search as public at this time.
      * @type {boolean}
-     * @memberof SavedsearchV1
+     * @memberof Savedsearch
      */
     'public'?: boolean;
 }
 /**
  * 
  * @export
- * @interface SavedsearchdetailFiltersV1
+ * @interface Savedsearchdetail
  */
-export interface SavedsearchdetailFiltersV1 {
+export interface Savedsearchdetail {
+    /**
+     * A date-time in ISO-8601 format
+     * @type {string}
+     * @memberof Savedsearchdetail
+     */
+    'created'?: string | null;
+    /**
+     * A date-time in ISO-8601 format
+     * @type {string}
+     * @memberof Savedsearchdetail
+     */
+    'modified'?: string | null;
+    /**
+     * The names of the Elasticsearch indices in which to search. 
+     * @type {Array<Index>}
+     * @memberof Savedsearchdetail
+     */
+    'indices': Array<Index>;
+    /**
+     * The columns to be returned (specifies the order in which they will be presented) for each document type.  The currently supported document types are: _accessprofile_, _accountactivity_, _account_, _aggregation_, _entitlement_, _event_, _identity_, and _role_. 
+     * @type {{ [key: string]: Array<Column>; }}
+     * @memberof Savedsearchdetail
+     */
+    'columns'?: { [key: string]: Array<Column>; };
+    /**
+     * The search query using Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL. 
+     * @type {string}
+     * @memberof Savedsearchdetail
+     */
+    'query': string;
+    /**
+     * The fields to be searched against in a multi-field query. 
+     * @type {Array<string>}
+     * @memberof Savedsearchdetail
+     */
+    'fields'?: Array<string> | null;
+    /**
+     * Sort by index. This takes precedence over the `sort` property. 
+     * @type {{ [key: string]: Array<string>; }}
+     * @memberof Savedsearchdetail
+     */
+    'orderBy'?: { [key: string]: Array<string>; } | null;
+    /**
+     * The fields to be used to sort the search results. 
+     * @type {Array<string>}
+     * @memberof Savedsearchdetail
+     */
+    'sort'?: Array<string> | null;
     /**
      * 
-     * @type {FiltertypeV1}
-     * @memberof SavedsearchdetailFiltersV1
+     * @type {SavedsearchdetailFilters}
+     * @memberof Savedsearchdetail
      */
-    'type'?: FiltertypeV1;
+    'filters'?: SavedsearchdetailFilters | null;
+}
+/**
+ * 
+ * @export
+ * @interface SavedsearchdetailFilters
+ */
+export interface SavedsearchdetailFilters {
     /**
      * 
-     * @type {RangeV1}
-     * @memberof SavedsearchdetailFiltersV1
+     * @type {Filtertype}
+     * @memberof SavedsearchdetailFilters
      */
-    'range'?: RangeV1;
+    'type'?: Filtertype;
+    /**
+     * 
+     * @type {Range}
+     * @memberof SavedsearchdetailFilters
+     */
+    'range'?: Range;
     /**
      * The terms to be filtered.
      * @type {Array<string>}
-     * @memberof SavedsearchdetailFiltersV1
+     * @memberof SavedsearchdetailFilters
      */
     'terms'?: Array<string>;
     /**
      * Indicates if the filter excludes results.
      * @type {boolean}
-     * @memberof SavedsearchdetailFiltersV1
+     * @memberof SavedsearchdetailFilters
      */
     'exclude'?: boolean;
 }
@@ -492,124 +553,63 @@ export interface SavedsearchdetailFiltersV1 {
 /**
  * 
  * @export
- * @interface SavedsearchdetailV1
+ * @interface Savedsearchname
  */
-export interface SavedsearchdetailV1 {
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof SavedsearchdetailV1
-     */
-    'created'?: string | null;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof SavedsearchdetailV1
-     */
-    'modified'?: string | null;
-    /**
-     * The names of the Elasticsearch indices in which to search. 
-     * @type {Array<IndexV1>}
-     * @memberof SavedsearchdetailV1
-     */
-    'indices': Array<IndexV1>;
-    /**
-     * The columns to be returned (specifies the order in which they will be presented) for each document type.  The currently supported document types are: _accessprofile_, _accountactivity_, _account_, _aggregation_, _entitlement_, _event_, _identity_, and _role_. 
-     * @type {{ [key: string]: Array<ColumnV1>; }}
-     * @memberof SavedsearchdetailV1
-     */
-    'columns'?: { [key: string]: Array<ColumnV1>; };
-    /**
-     * The search query using Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL. 
-     * @type {string}
-     * @memberof SavedsearchdetailV1
-     */
-    'query': string;
-    /**
-     * The fields to be searched against in a multi-field query. 
-     * @type {Array<string>}
-     * @memberof SavedsearchdetailV1
-     */
-    'fields'?: Array<string> | null;
-    /**
-     * Sort by index. This takes precedence over the `sort` property. 
-     * @type {{ [key: string]: Array<string>; }}
-     * @memberof SavedsearchdetailV1
-     */
-    'orderBy'?: { [key: string]: Array<string>; } | null;
-    /**
-     * The fields to be used to sort the search results. 
-     * @type {Array<string>}
-     * @memberof SavedsearchdetailV1
-     */
-    'sort'?: Array<string> | null;
-    /**
-     * 
-     * @type {SavedsearchdetailFiltersV1}
-     * @memberof SavedsearchdetailV1
-     */
-    'filters'?: SavedsearchdetailFiltersV1 | null;
-}
-/**
- * 
- * @export
- * @interface SavedsearchnameV1
- */
-export interface SavedsearchnameV1 {
+export interface Savedsearchname {
     /**
      * The name of the saved search. 
      * @type {string}
-     * @memberof SavedsearchnameV1
+     * @memberof Savedsearchname
      */
     'name'?: string;
     /**
      * The description of the saved search. 
      * @type {string}
-     * @memberof SavedsearchnameV1
+     * @memberof Savedsearchname
      */
     'description'?: string | null;
 }
 /**
  * 
  * @export
- * @interface SearchargumentsV1
+ * @interface Searcharguments
  */
-export interface SearchargumentsV1 {
+export interface Searcharguments {
     /**
      * The ID of the scheduled search that triggered the saved search execution. 
      * @type {string}
-     * @memberof SearchargumentsV1
+     * @memberof Searcharguments
      */
     'scheduleId'?: string;
     /**
      * The owner of the scheduled search being tested. 
-     * @type {TypedreferenceV1}
-     * @memberof SearchargumentsV1
+     * @type {Typedreference}
+     * @memberof Searcharguments
      */
-    'owner'?: TypedreferenceV1;
+    'owner'?: Typedreference;
     /**
      * The email recipients of the scheduled search being tested. 
-     * @type {Array<TypedreferenceV1>}
-     * @memberof SearchargumentsV1
+     * @type {Array<Typedreference>}
+     * @memberof Searcharguments
      */
-    'recipients'?: Array<TypedreferenceV1>;
+    'recipients'?: Array<Typedreference>;
 }
 /**
  * A typed reference to the object. 
  * @export
- * @interface TypedreferenceV1
+ * @interface Typedreference
  */
-export interface TypedreferenceV1 {
+export interface Typedreference {
     /**
      * 
-     * @type {DtotypeV1}
-     * @memberof TypedreferenceV1
+     * @type {Dtotype}
+     * @memberof Typedreference
      */
-    'type': DtotypeV1;
+    'type': Dtotype;
     /**
      * The id of the object. 
      * @type {string}
-     * @memberof TypedreferenceV1
+     * @memberof Typedreference
      */
     'id': string;
 }
@@ -617,21 +617,21 @@ export interface TypedreferenceV1 {
 
 
 /**
- * SavedSearchV1Api - axios parameter creator
+ * SavedSearchApi - axios parameter creator
  * @export
  */
-export const SavedSearchV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const SavedSearchApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Creates a new saved search. 
          * @summary Create a saved search
-         * @param {CreateSavedSearchV1RequestV1} createSavedSearchV1RequestV1 The saved search to persist.
+         * @param {CreateSavedSearchV1Request} createSavedSearchV1Request The saved search to persist.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createSavedSearchV1: async (createSavedSearchV1RequestV1: CreateSavedSearchV1RequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'createSavedSearchV1RequestV1' is not null or undefined
-            assertParamExists('createSavedSearchV1', 'createSavedSearchV1RequestV1', createSavedSearchV1RequestV1)
+        createSavedSearchV1: async (createSavedSearchV1Request: CreateSavedSearchV1Request, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'createSavedSearchV1Request' is not null or undefined
+            assertParamExists('createSavedSearchV1', 'createSavedSearchV1Request', createSavedSearchV1Request)
             const localVarPath = `/saved-searches/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -651,7 +651,7 @@ export const SavedSearchV1ApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createSavedSearchV1RequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(createSavedSearchV1Request, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -696,15 +696,15 @@ export const SavedSearchV1ApiAxiosParamCreator = function (configuration?: Confi
          * Executes the specified saved search. 
          * @summary Execute a saved search by id
          * @param {string} id ID of the requested document.
-         * @param {SearchargumentsV1} searchargumentsV1 When saved search execution is triggered by a scheduled search, *scheduleId* will specify the ID of the triggering scheduled search.  If *scheduleId* is not specified (when execution is triggered by a UI test), the *owner* and *recipients* arguments must be provided. 
+         * @param {Searcharguments} searcharguments When saved search execution is triggered by a scheduled search, *scheduleId* will specify the ID of the triggering scheduled search.  If *scheduleId* is not specified (when execution is triggered by a UI test), the *owner* and *recipients* arguments must be provided. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        executeSavedSearchV1: async (id: string, searchargumentsV1: SearchargumentsV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        executeSavedSearchV1: async (id: string, searcharguments: Searcharguments, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('executeSavedSearchV1', 'id', id)
-            // verify required parameter 'searchargumentsV1' is not null or undefined
-            assertParamExists('executeSavedSearchV1', 'searchargumentsV1', searchargumentsV1)
+            // verify required parameter 'searcharguments' is not null or undefined
+            assertParamExists('executeSavedSearchV1', 'searcharguments', searcharguments)
             const localVarPath = `/saved-searches/v1/{id}/execute`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -725,7 +725,7 @@ export const SavedSearchV1ApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(searchargumentsV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(searcharguments, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -820,15 +820,15 @@ export const SavedSearchV1ApiAxiosParamCreator = function (configuration?: Confi
          * Updates an existing saved search.   >**NOTE: You cannot update the `owner` of the saved search.** 
          * @summary Updates an existing saved search 
          * @param {string} id ID of the requested document.
-         * @param {SavedsearchV1} savedsearchV1 The saved search to persist.
+         * @param {Savedsearch} savedsearch The saved search to persist.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putSavedSearchV1: async (id: string, savedsearchV1: SavedsearchV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putSavedSearchV1: async (id: string, savedsearch: Savedsearch, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('putSavedSearchV1', 'id', id)
-            // verify required parameter 'savedsearchV1' is not null or undefined
-            assertParamExists('putSavedSearchV1', 'savedsearchV1', savedsearchV1)
+            // verify required parameter 'savedsearch' is not null or undefined
+            assertParamExists('putSavedSearchV1', 'savedsearch', savedsearch)
             const localVarPath = `/saved-searches/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -849,7 +849,7 @@ export const SavedSearchV1ApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(savedsearchV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(savedsearch, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -860,23 +860,23 @@ export const SavedSearchV1ApiAxiosParamCreator = function (configuration?: Confi
 };
 
 /**
- * SavedSearchV1Api - functional programming interface
+ * SavedSearchApi - functional programming interface
  * @export
  */
-export const SavedSearchV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = SavedSearchV1ApiAxiosParamCreator(configuration)
+export const SavedSearchApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SavedSearchApiAxiosParamCreator(configuration)
     return {
         /**
          * Creates a new saved search. 
          * @summary Create a saved search
-         * @param {CreateSavedSearchV1RequestV1} createSavedSearchV1RequestV1 The saved search to persist.
+         * @param {CreateSavedSearchV1Request} createSavedSearchV1Request The saved search to persist.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSavedSearchV1(createSavedSearchV1RequestV1: CreateSavedSearchV1RequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SavedsearchV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSavedSearchV1(createSavedSearchV1RequestV1, axiosOptions);
+        async createSavedSearchV1(createSavedSearchV1Request: CreateSavedSearchV1Request, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Savedsearch>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSavedSearchV1(createSavedSearchV1Request, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SavedSearchV1Api.createSavedSearchV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SavedSearchApi.createSavedSearchV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -889,21 +889,21 @@ export const SavedSearchV1ApiFp = function(configuration?: Configuration) {
         async deleteSavedSearchV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSavedSearchV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SavedSearchV1Api.deleteSavedSearchV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SavedSearchApi.deleteSavedSearchV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Executes the specified saved search. 
          * @summary Execute a saved search by id
          * @param {string} id ID of the requested document.
-         * @param {SearchargumentsV1} searchargumentsV1 When saved search execution is triggered by a scheduled search, *scheduleId* will specify the ID of the triggering scheduled search.  If *scheduleId* is not specified (when execution is triggered by a UI test), the *owner* and *recipients* arguments must be provided. 
+         * @param {Searcharguments} searcharguments When saved search execution is triggered by a scheduled search, *scheduleId* will specify the ID of the triggering scheduled search.  If *scheduleId* is not specified (when execution is triggered by a UI test), the *owner* and *recipients* arguments must be provided. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async executeSavedSearchV1(id: string, searchargumentsV1: SearchargumentsV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.executeSavedSearchV1(id, searchargumentsV1, axiosOptions);
+        async executeSavedSearchV1(id: string, searcharguments: Searcharguments, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.executeSavedSearchV1(id, searcharguments, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SavedSearchV1Api.executeSavedSearchV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SavedSearchApi.executeSavedSearchV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -913,10 +913,10 @@ export const SavedSearchV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSavedSearchV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SavedsearchV1>> {
+        async getSavedSearchV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Savedsearch>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSavedSearchV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SavedSearchV1Api.getSavedSearchV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SavedSearchApi.getSavedSearchV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -929,295 +929,295 @@ export const SavedSearchV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listSavedSearchesV1(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SavedsearchV1>>> {
+        async listSavedSearchesV1(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Savedsearch>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listSavedSearchesV1(offset, limit, count, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SavedSearchV1Api.listSavedSearchesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SavedSearchApi.listSavedSearchesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Updates an existing saved search.   >**NOTE: You cannot update the `owner` of the saved search.** 
          * @summary Updates an existing saved search 
          * @param {string} id ID of the requested document.
-         * @param {SavedsearchV1} savedsearchV1 The saved search to persist.
+         * @param {Savedsearch} savedsearch The saved search to persist.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putSavedSearchV1(id: string, savedsearchV1: SavedsearchV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SavedsearchV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putSavedSearchV1(id, savedsearchV1, axiosOptions);
+        async putSavedSearchV1(id: string, savedsearch: Savedsearch, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Savedsearch>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putSavedSearchV1(id, savedsearch, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SavedSearchV1Api.putSavedSearchV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SavedSearchApi.putSavedSearchV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * SavedSearchV1Api - factory interface
+ * SavedSearchApi - factory interface
  * @export
  */
-export const SavedSearchV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = SavedSearchV1ApiFp(configuration)
+export const SavedSearchApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SavedSearchApiFp(configuration)
     return {
         /**
          * Creates a new saved search. 
          * @summary Create a saved search
-         * @param {SavedSearchV1ApiCreateSavedSearchV1Request} requestParameters Request parameters.
+         * @param {SavedSearchApiCreateSavedSearchV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createSavedSearchV1(requestParameters: SavedSearchV1ApiCreateSavedSearchV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SavedsearchV1> {
-            return localVarFp.createSavedSearchV1(requestParameters.createSavedSearchV1RequestV1, axiosOptions).then((request) => request(axios, basePath));
+        createSavedSearchV1(requestParameters: SavedSearchApiCreateSavedSearchV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Savedsearch> {
+            return localVarFp.createSavedSearchV1(requestParameters.createSavedSearchV1Request, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Deletes the specified saved search. 
          * @summary Delete document by id
-         * @param {SavedSearchV1ApiDeleteSavedSearchV1Request} requestParameters Request parameters.
+         * @param {SavedSearchApiDeleteSavedSearchV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteSavedSearchV1(requestParameters: SavedSearchV1ApiDeleteSavedSearchV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteSavedSearchV1(requestParameters: SavedSearchApiDeleteSavedSearchV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteSavedSearchV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Executes the specified saved search. 
          * @summary Execute a saved search by id
-         * @param {SavedSearchV1ApiExecuteSavedSearchV1Request} requestParameters Request parameters.
+         * @param {SavedSearchApiExecuteSavedSearchV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        executeSavedSearchV1(requestParameters: SavedSearchV1ApiExecuteSavedSearchV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.executeSavedSearchV1(requestParameters.id, requestParameters.searchargumentsV1, axiosOptions).then((request) => request(axios, basePath));
+        executeSavedSearchV1(requestParameters: SavedSearchApiExecuteSavedSearchV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.executeSavedSearchV1(requestParameters.id, requestParameters.searcharguments, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Returns the specified saved search. 
          * @summary Return saved search by id
-         * @param {SavedSearchV1ApiGetSavedSearchV1Request} requestParameters Request parameters.
+         * @param {SavedSearchApiGetSavedSearchV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSavedSearchV1(requestParameters: SavedSearchV1ApiGetSavedSearchV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SavedsearchV1> {
+        getSavedSearchV1(requestParameters: SavedSearchApiGetSavedSearchV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Savedsearch> {
             return localVarFp.getSavedSearchV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Returns a list of saved searches. 
          * @summary A list of saved searches
-         * @param {SavedSearchV1ApiListSavedSearchesV1Request} requestParameters Request parameters.
+         * @param {SavedSearchApiListSavedSearchesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listSavedSearchesV1(requestParameters: SavedSearchV1ApiListSavedSearchesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SavedsearchV1>> {
+        listSavedSearchesV1(requestParameters: SavedSearchApiListSavedSearchesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Savedsearch>> {
             return localVarFp.listSavedSearchesV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Updates an existing saved search.   >**NOTE: You cannot update the `owner` of the saved search.** 
          * @summary Updates an existing saved search 
-         * @param {SavedSearchV1ApiPutSavedSearchV1Request} requestParameters Request parameters.
+         * @param {SavedSearchApiPutSavedSearchV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putSavedSearchV1(requestParameters: SavedSearchV1ApiPutSavedSearchV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SavedsearchV1> {
-            return localVarFp.putSavedSearchV1(requestParameters.id, requestParameters.savedsearchV1, axiosOptions).then((request) => request(axios, basePath));
+        putSavedSearchV1(requestParameters: SavedSearchApiPutSavedSearchV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Savedsearch> {
+            return localVarFp.putSavedSearchV1(requestParameters.id, requestParameters.savedsearch, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createSavedSearchV1 operation in SavedSearchV1Api.
+ * Request parameters for createSavedSearchV1 operation in SavedSearchApi.
  * @export
- * @interface SavedSearchV1ApiCreateSavedSearchV1Request
+ * @interface SavedSearchApiCreateSavedSearchV1Request
  */
-export interface SavedSearchV1ApiCreateSavedSearchV1Request {
+export interface SavedSearchApiCreateSavedSearchV1Request {
     /**
      * The saved search to persist.
-     * @type {CreateSavedSearchV1RequestV1}
-     * @memberof SavedSearchV1ApiCreateSavedSearchV1
+     * @type {CreateSavedSearchV1Request}
+     * @memberof SavedSearchApiCreateSavedSearchV1
      */
-    readonly createSavedSearchV1RequestV1: CreateSavedSearchV1RequestV1
+    readonly createSavedSearchV1Request: CreateSavedSearchV1Request
 }
 
 /**
- * Request parameters for deleteSavedSearchV1 operation in SavedSearchV1Api.
+ * Request parameters for deleteSavedSearchV1 operation in SavedSearchApi.
  * @export
- * @interface SavedSearchV1ApiDeleteSavedSearchV1Request
+ * @interface SavedSearchApiDeleteSavedSearchV1Request
  */
-export interface SavedSearchV1ApiDeleteSavedSearchV1Request {
+export interface SavedSearchApiDeleteSavedSearchV1Request {
     /**
      * ID of the requested document.
      * @type {string}
-     * @memberof SavedSearchV1ApiDeleteSavedSearchV1
+     * @memberof SavedSearchApiDeleteSavedSearchV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for executeSavedSearchV1 operation in SavedSearchV1Api.
+ * Request parameters for executeSavedSearchV1 operation in SavedSearchApi.
  * @export
- * @interface SavedSearchV1ApiExecuteSavedSearchV1Request
+ * @interface SavedSearchApiExecuteSavedSearchV1Request
  */
-export interface SavedSearchV1ApiExecuteSavedSearchV1Request {
+export interface SavedSearchApiExecuteSavedSearchV1Request {
     /**
      * ID of the requested document.
      * @type {string}
-     * @memberof SavedSearchV1ApiExecuteSavedSearchV1
+     * @memberof SavedSearchApiExecuteSavedSearchV1
      */
     readonly id: string
 
     /**
      * When saved search execution is triggered by a scheduled search, *scheduleId* will specify the ID of the triggering scheduled search.  If *scheduleId* is not specified (when execution is triggered by a UI test), the *owner* and *recipients* arguments must be provided. 
-     * @type {SearchargumentsV1}
-     * @memberof SavedSearchV1ApiExecuteSavedSearchV1
+     * @type {Searcharguments}
+     * @memberof SavedSearchApiExecuteSavedSearchV1
      */
-    readonly searchargumentsV1: SearchargumentsV1
+    readonly searcharguments: Searcharguments
 }
 
 /**
- * Request parameters for getSavedSearchV1 operation in SavedSearchV1Api.
+ * Request parameters for getSavedSearchV1 operation in SavedSearchApi.
  * @export
- * @interface SavedSearchV1ApiGetSavedSearchV1Request
+ * @interface SavedSearchApiGetSavedSearchV1Request
  */
-export interface SavedSearchV1ApiGetSavedSearchV1Request {
+export interface SavedSearchApiGetSavedSearchV1Request {
     /**
      * ID of the requested document.
      * @type {string}
-     * @memberof SavedSearchV1ApiGetSavedSearchV1
+     * @memberof SavedSearchApiGetSavedSearchV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for listSavedSearchesV1 operation in SavedSearchV1Api.
+ * Request parameters for listSavedSearchesV1 operation in SavedSearchApi.
  * @export
- * @interface SavedSearchV1ApiListSavedSearchesV1Request
+ * @interface SavedSearchApiListSavedSearchesV1Request
  */
-export interface SavedSearchV1ApiListSavedSearchesV1Request {
+export interface SavedSearchApiListSavedSearchesV1Request {
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof SavedSearchV1ApiListSavedSearchesV1
+     * @memberof SavedSearchApiListSavedSearchesV1
      */
     readonly offset?: number
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof SavedSearchV1ApiListSavedSearchesV1
+     * @memberof SavedSearchApiListSavedSearchesV1
      */
     readonly limit?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof SavedSearchV1ApiListSavedSearchesV1
+     * @memberof SavedSearchApiListSavedSearchesV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq*
      * @type {string}
-     * @memberof SavedSearchV1ApiListSavedSearchesV1
+     * @memberof SavedSearchApiListSavedSearchesV1
      */
     readonly filters?: string
 }
 
 /**
- * Request parameters for putSavedSearchV1 operation in SavedSearchV1Api.
+ * Request parameters for putSavedSearchV1 operation in SavedSearchApi.
  * @export
- * @interface SavedSearchV1ApiPutSavedSearchV1Request
+ * @interface SavedSearchApiPutSavedSearchV1Request
  */
-export interface SavedSearchV1ApiPutSavedSearchV1Request {
+export interface SavedSearchApiPutSavedSearchV1Request {
     /**
      * ID of the requested document.
      * @type {string}
-     * @memberof SavedSearchV1ApiPutSavedSearchV1
+     * @memberof SavedSearchApiPutSavedSearchV1
      */
     readonly id: string
 
     /**
      * The saved search to persist.
-     * @type {SavedsearchV1}
-     * @memberof SavedSearchV1ApiPutSavedSearchV1
+     * @type {Savedsearch}
+     * @memberof SavedSearchApiPutSavedSearchV1
      */
-    readonly savedsearchV1: SavedsearchV1
+    readonly savedsearch: Savedsearch
 }
 
 /**
- * SavedSearchV1Api - object-oriented interface
+ * SavedSearchApi - object-oriented interface
  * @export
- * @class SavedSearchV1Api
+ * @class SavedSearchApi
  * @extends {BaseAPI}
  */
-export class SavedSearchV1Api extends BaseAPI {
+export class SavedSearchApi extends BaseAPI {
     /**
      * Creates a new saved search. 
      * @summary Create a saved search
-     * @param {SavedSearchV1ApiCreateSavedSearchV1Request} requestParameters Request parameters.
+     * @param {SavedSearchApiCreateSavedSearchV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SavedSearchV1Api
+     * @memberof SavedSearchApi
      */
-    public createSavedSearchV1(requestParameters: SavedSearchV1ApiCreateSavedSearchV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SavedSearchV1ApiFp(this.configuration).createSavedSearchV1(requestParameters.createSavedSearchV1RequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createSavedSearchV1(requestParameters: SavedSearchApiCreateSavedSearchV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).createSavedSearchV1(requestParameters.createSavedSearchV1Request, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Deletes the specified saved search. 
      * @summary Delete document by id
-     * @param {SavedSearchV1ApiDeleteSavedSearchV1Request} requestParameters Request parameters.
+     * @param {SavedSearchApiDeleteSavedSearchV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SavedSearchV1Api
+     * @memberof SavedSearchApi
      */
-    public deleteSavedSearchV1(requestParameters: SavedSearchV1ApiDeleteSavedSearchV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SavedSearchV1ApiFp(this.configuration).deleteSavedSearchV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteSavedSearchV1(requestParameters: SavedSearchApiDeleteSavedSearchV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).deleteSavedSearchV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Executes the specified saved search. 
      * @summary Execute a saved search by id
-     * @param {SavedSearchV1ApiExecuteSavedSearchV1Request} requestParameters Request parameters.
+     * @param {SavedSearchApiExecuteSavedSearchV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SavedSearchV1Api
+     * @memberof SavedSearchApi
      */
-    public executeSavedSearchV1(requestParameters: SavedSearchV1ApiExecuteSavedSearchV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SavedSearchV1ApiFp(this.configuration).executeSavedSearchV1(requestParameters.id, requestParameters.searchargumentsV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public executeSavedSearchV1(requestParameters: SavedSearchApiExecuteSavedSearchV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).executeSavedSearchV1(requestParameters.id, requestParameters.searcharguments, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Returns the specified saved search. 
      * @summary Return saved search by id
-     * @param {SavedSearchV1ApiGetSavedSearchV1Request} requestParameters Request parameters.
+     * @param {SavedSearchApiGetSavedSearchV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SavedSearchV1Api
+     * @memberof SavedSearchApi
      */
-    public getSavedSearchV1(requestParameters: SavedSearchV1ApiGetSavedSearchV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SavedSearchV1ApiFp(this.configuration).getSavedSearchV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSavedSearchV1(requestParameters: SavedSearchApiGetSavedSearchV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).getSavedSearchV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Returns a list of saved searches. 
      * @summary A list of saved searches
-     * @param {SavedSearchV1ApiListSavedSearchesV1Request} requestParameters Request parameters.
+     * @param {SavedSearchApiListSavedSearchesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SavedSearchV1Api
+     * @memberof SavedSearchApi
      */
-    public listSavedSearchesV1(requestParameters: SavedSearchV1ApiListSavedSearchesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return SavedSearchV1ApiFp(this.configuration).listSavedSearchesV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listSavedSearchesV1(requestParameters: SavedSearchApiListSavedSearchesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).listSavedSearchesV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Updates an existing saved search.   >**NOTE: You cannot update the `owner` of the saved search.** 
      * @summary Updates an existing saved search 
-     * @param {SavedSearchV1ApiPutSavedSearchV1Request} requestParameters Request parameters.
+     * @param {SavedSearchApiPutSavedSearchV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SavedSearchV1Api
+     * @memberof SavedSearchApi
      */
-    public putSavedSearchV1(requestParameters: SavedSearchV1ApiPutSavedSearchV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SavedSearchV1ApiFp(this.configuration).putSavedSearchV1(requestParameters.id, requestParameters.savedsearchV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putSavedSearchV1(requestParameters: SavedSearchApiPutSavedSearchV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).putSavedSearchV1(requestParameters.id, requestParameters.savedsearch, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

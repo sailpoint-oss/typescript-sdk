@@ -1,15 +1,15 @@
 ---
-id: v1-workitemtypemanualworkitems-v1
-title: WorkitemtypemanualworkitemsV1
-pagination_label: WorkitemtypemanualworkitemsV1
-sidebar_label: WorkitemtypemanualworkitemsV1
+id: v1-workitemtypemanualworkitems
+title: Workitemtypemanualworkitems
+pagination_label: Workitemtypemanualworkitems
+sidebar_label: Workitemtypemanualworkitems
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'WorkitemtypemanualworkitemsV1', 'v1WorkitemtypemanualworkitemsV1']
-slug: /tools/sdk/typescript/work_items/models/workitemtypemanualworkitems-v1
-tags: ['SDK', 'Software Development Kit', 'WorkitemtypemanualworkitemsV1', 'v1WorkitemtypemanualworkitemsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Workitemtypemanualworkitems', 'v1Workitemtypemanualworkitems']
+slug: /tools/sdk/typescript/work_items/models/workitemtypemanualworkitems
+tags: ['SDK', 'Software Development Kit', 'Workitemtypemanualworkitems', 'v1Workitemtypemanualworkitems']
 ---
 
-# WorkitemtypemanualworkitemsV1
+# Workitemtypemanualworkitems
 
 ## Enum
 

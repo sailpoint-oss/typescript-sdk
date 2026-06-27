@@ -1,20 +1,20 @@
 ---
-id: v1-evaluateresponse-v1
-title: EvaluateresponseV1
-pagination_label: EvaluateresponseV1
-sidebar_label: EvaluateresponseV1
+id: v1-evaluateresponse
+title: Evaluateresponse
+pagination_label: Evaluateresponse
+sidebar_label: Evaluateresponse
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'EvaluateresponseV1', 'v1EvaluateresponseV1']
-slug: /tools/sdk/typescript/work_reassignment/models/evaluateresponse-v1
-tags: ['SDK', 'Software Development Kit', 'EvaluateresponseV1', 'v1EvaluateresponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Evaluateresponse', 'v1Evaluateresponse']
+slug: /tools/sdk/typescript/work_reassignment/models/evaluateresponse
+tags: ['SDK', 'Software Development Kit', 'Evaluateresponse', 'v1Evaluateresponse']
 ---
 
-# EvaluateresponseV1
+# Evaluateresponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**reassignToId** | **(optional)** **string** | The Identity ID which should be the recipient of any work items sent to a specific identity & work type | [default to undefined]
-**lookupTrail** | **(optional)** **Array&lt;LookupstepV1&gt;** | List of Reassignments found by looking up the next `TargetIdentity` in a ReassignmentConfiguration | [default to undefined]
+**reassignToId** | **(optional)** `string` | The Identity ID which should be the recipient of any work items sent to a specific identity & work type | [default to undefined]
+**lookupTrail** | **(optional)** `Array<Lookupstep>` | List of Reassignments found by looking up the next `TargetIdentity` in a ReassignmentConfiguration | [default to undefined]
 

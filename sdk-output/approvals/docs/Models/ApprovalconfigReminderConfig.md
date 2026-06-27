@@ -1,22 +1,22 @@
 ---
-id: v1-approvalconfig-reminder-config-v1
-title: ApprovalconfigReminderConfigV1
-pagination_label: ApprovalconfigReminderConfigV1
-sidebar_label: ApprovalconfigReminderConfigV1
+id: v1-approvalconfig-reminder-config
+title: ApprovalconfigReminderConfig
+pagination_label: ApprovalconfigReminderConfig
+sidebar_label: ApprovalconfigReminderConfig
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ApprovalconfigReminderConfigV1', 'v1ApprovalconfigReminderConfigV1']
-slug: /tools/sdk/typescript/approvals/models/approvalconfig-reminder-config-v1
-tags: ['SDK', 'Software Development Kit', 'ApprovalconfigReminderConfigV1', 'v1ApprovalconfigReminderConfigV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ApprovalconfigReminderConfig', 'v1ApprovalconfigReminderConfig']
+slug: /tools/sdk/typescript/approvals/models/approvalconfig-reminder-config
+tags: ['SDK', 'Software Development Kit', 'ApprovalconfigReminderConfig', 'v1ApprovalconfigReminderConfig']
 ---
 
-# ApprovalconfigReminderConfigV1
+# ApprovalconfigReminderConfig
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**enabled** | **(optional)** **boolean** | Indicates if reminders are enabled. | [default to false]
-**daysUntilFirstReminder** | **(optional)** **number** | Number of days until the first reminder. | [default to undefined]
-**reminderCronSchedule** | **(optional)** **string** | Cron schedule for reminders. | [default to undefined]
-**maxReminders** | **(optional)** **number** | Maximum number of reminders. Max is 20. | [default to undefined]
+**enabled** | **(optional)** `boolean` | Indicates if reminders are enabled. | [default to false]
+**daysUntilFirstReminder** | **(optional)** `number` | Number of days until the first reminder. | [default to undefined]
+**reminderCronSchedule** | **(optional)** `string` | Cron schedule for reminders. | [default to undefined]
+**maxReminders** | **(optional)** `number` | Maximum number of reminders. Max is 20. | [default to undefined]
 

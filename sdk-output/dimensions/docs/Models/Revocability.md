@@ -1,19 +1,19 @@
 ---
-id: v1-revocability-v1
-title: RevocabilityV1
-pagination_label: RevocabilityV1
-sidebar_label: RevocabilityV1
+id: v1-revocability
+title: Revocability
+pagination_label: Revocability
+sidebar_label: Revocability
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RevocabilityV1', 'v1RevocabilityV1']
-slug: /tools/sdk/typescript/dimensions/models/revocability-v1
-tags: ['SDK', 'Software Development Kit', 'RevocabilityV1', 'v1RevocabilityV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Revocability', 'v1Revocability']
+slug: /tools/sdk/typescript/dimensions/models/revocability
+tags: ['SDK', 'Software Development Kit', 'Revocability', 'v1Revocability']
 ---
 
-# RevocabilityV1
+# Revocability
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**approvalSchemes** | **(optional)** **Array&lt;AccessprofileapprovalschemeV1&gt;** | List describing the steps involved in approving the revocation request. | [default to undefined]
+**approvalSchemes** | **(optional)** `Array<Accessprofileapprovalscheme>` | List describing the steps involved in approving the revocation request. | [default to undefined]
 

@@ -1,15 +1,15 @@
 ---
-id: v1-reassignmenttype-v1
-title: ReassignmenttypeV1
-pagination_label: ReassignmenttypeV1
-sidebar_label: ReassignmenttypeV1
+id: v1-reassignmenttype
+title: Reassignmenttype
+pagination_label: Reassignmenttype
+sidebar_label: Reassignmenttype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ReassignmenttypeV1', 'v1ReassignmenttypeV1']
-slug: /tools/sdk/typescript/access_request_approvals/models/reassignmenttype-v1
-tags: ['SDK', 'Software Development Kit', 'ReassignmenttypeV1', 'v1ReassignmenttypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Reassignmenttype', 'v1Reassignmenttype']
+slug: /tools/sdk/typescript/access_request_approvals/models/reassignmenttype
+tags: ['SDK', 'Software Development Kit', 'Reassignmenttype', 'v1Reassignmenttype']
 ---
 
-# ReassignmenttypeV1
+# Reassignmenttype
 
 ## Enum
 

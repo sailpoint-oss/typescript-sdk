@@ -1,15 +1,15 @@
 ---
-id: v1-workitemstate-v1
-title: WorkitemstateV1
-pagination_label: WorkitemstateV1
-sidebar_label: WorkitemstateV1
+id: v1-workitemstate
+title: Workitemstate
+pagination_label: Workitemstate
+sidebar_label: Workitemstate
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'WorkitemstateV1', 'v1WorkitemstateV1']
-slug: /tools/sdk/typescript/work_items/models/workitemstate-v1
-tags: ['SDK', 'Software Development Kit', 'WorkitemstateV1', 'v1WorkitemstateV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Workitemstate', 'v1Workitemstate']
+slug: /tools/sdk/typescript/work_items/models/workitemstate
+tags: ['SDK', 'Software Development Kit', 'Workitemstate', 'v1Workitemstate']
 ---
 
-# WorkitemstateV1
+# Workitemstate
 
 ## Enum
 

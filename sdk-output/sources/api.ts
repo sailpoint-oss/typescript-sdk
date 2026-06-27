@@ -26,68 +26,194 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * detailed information about account delete approval config
  * @export
- * @interface AccountdeleteconfigdtoV1
+ * @interface Accountdeleteconfigdto
  */
-export interface AccountdeleteconfigdtoV1 {
+export interface Accountdeleteconfigdto {
     /**
      * Specifies if an account deletion request requires approval.
      * @type {boolean}
-     * @memberof AccountdeleteconfigdtoV1
+     * @memberof Accountdeleteconfigdto
      */
     'approvalRequired'?: boolean;
     /**
      * 
-     * @type {ApprovalconfigV1}
-     * @memberof AccountdeleteconfigdtoV1
+     * @type {Approvalconfig}
+     * @memberof Accountdeleteconfigdto
      */
-    'approvalConfig'?: ApprovalconfigV1;
+    'approvalConfig'?: Approvalconfig;
 }
+/**
+ * Approval config Object
+ * @export
+ * @interface Approvalconfig
+ */
+export interface Approvalconfig {
+    /**
+     * 
+     * @type {ApprovalconfigReminderConfig}
+     * @memberof Approvalconfig
+     */
+    'reminderConfig'?: ApprovalconfigReminderConfig;
+    /**
+     * 
+     * @type {ApprovalconfigEscalationConfig}
+     * @memberof Approvalconfig
+     */
+    'escalationConfig'?: ApprovalconfigEscalationConfig;
+    /**
+     * 
+     * @type {ApprovalconfigTimeoutConfig}
+     * @memberof Approvalconfig
+     */
+    'timeoutConfig'?: ApprovalconfigTimeoutConfig;
+    /**
+     * 
+     * @type {ApprovalconfigCronTimezone}
+     * @memberof Approvalconfig
+     */
+    'cronTimezone'?: ApprovalconfigCronTimezone;
+    /**
+     * If the approval request has an approvalCriteria of SERIAL this chain will be used to determine the assignment order.
+     * @type {Array<ApprovalconfigSerialChainInner>}
+     * @memberof Approvalconfig
+     */
+    'serialChain'?: Array<ApprovalconfigSerialChainInner>;
+    /**
+     * Determines whether a comment is required when approving or rejecting the approval request.
+     * @type {string}
+     * @memberof Approvalconfig
+     */
+    'requiresComment'?: ApprovalconfigRequiresCommentEnum;
+    /**
+     * 
+     * @type {ApprovalconfigFallbackApprover}
+     * @memberof Approvalconfig
+     */
+    'fallbackApprover'?: ApprovalconfigFallbackApprover;
+    /**
+     * Specifies how to treat the identity type \"MANAGER_OF\" when the requestee is a machine identity.
+     * @type {string}
+     * @memberof Approvalconfig
+     */
+    'machineIdentityManagerAssignment'?: ApprovalconfigMachineIdentityManagerAssignmentEnum;
+    /**
+     * When true, all approvals will be created with the status \"PASSED\".
+     * @type {boolean}
+     * @memberof Approvalconfig
+     */
+    'circumventApprovalProcess'?: boolean;
+    /**
+     * OFF will prevent the approval request from being assigned to the requester or requestee by assigning it to their manager instead. DIRECT will cause approval requests to be auto-approved when assigned directly and only to the requester. INDIRECT will auto-approve when the requester appears anywhere in the list of approvers, including in a governance group. This field will only be effective if requestedTarget.reauthRequired is set to false, otherwise the approval will have to be manually approved.
+     * @type {string}
+     * @memberof Approvalconfig
+     */
+    'autoApprove'?: ApprovalconfigAutoApproveEnum;
+}
+
+export const ApprovalconfigRequiresCommentEnum = {
+    Approval: 'APPROVAL',
+    Rejection: 'REJECTION',
+    All: 'ALL',
+    Off: 'OFF'
+} as const;
+
+export type ApprovalconfigRequiresCommentEnum = typeof ApprovalconfigRequiresCommentEnum[keyof typeof ApprovalconfigRequiresCommentEnum];
+export const ApprovalconfigMachineIdentityManagerAssignmentEnum = {
+    ManagerOfRequester: 'MANAGER_OF_REQUESTER',
+    MachineIdentityOwner: 'MACHINE_IDENTITY_OWNER',
+    ManagerOfMachineIdentityOwner: 'MANAGER_OF_MACHINE_IDENTITY_OWNER',
+    RequestedTargetOwner: 'REQUESTED_TARGET_OWNER',
+    ManagerOfRequestedTargetOwner: 'MANAGER_OF_REQUESTED_TARGET_OWNER',
+    AccountOwner: 'ACCOUNT_OWNER',
+    ManagerOfAccountOwner: 'MANAGER_OF_ACCOUNT_OWNER'
+} as const;
+
+export type ApprovalconfigMachineIdentityManagerAssignmentEnum = typeof ApprovalconfigMachineIdentityManagerAssignmentEnum[keyof typeof ApprovalconfigMachineIdentityManagerAssignmentEnum];
+export const ApprovalconfigAutoApproveEnum = {
+    Off: 'OFF',
+    Direct: 'DIRECT',
+    Indirect: 'INDIRECT'
+} as const;
+
+export type ApprovalconfigAutoApproveEnum = typeof ApprovalconfigAutoApproveEnum[keyof typeof ApprovalconfigAutoApproveEnum];
+
 /**
  * Timezone configuration for cron schedules.
  * @export
- * @interface ApprovalconfigCronTimezoneV1
+ * @interface ApprovalconfigCronTimezone
  */
-export interface ApprovalconfigCronTimezoneV1 {
+export interface ApprovalconfigCronTimezone {
     /**
      * Timezone location for cron schedules.
      * @type {string}
-     * @memberof ApprovalconfigCronTimezoneV1
+     * @memberof ApprovalconfigCronTimezone
      */
     'location'?: string;
     /**
      * Timezone offset for cron schedules.
      * @type {string}
-     * @memberof ApprovalconfigCronTimezoneV1
+     * @memberof ApprovalconfigCronTimezone
      */
     'offset'?: string;
 }
 /**
+ * Configuration for escalations.
+ * @export
+ * @interface ApprovalconfigEscalationConfig
+ */
+export interface ApprovalconfigEscalationConfig {
+    /**
+     * Indicates if escalations are enabled.
+     * @type {boolean}
+     * @memberof ApprovalconfigEscalationConfig
+     */
+    'enabled'?: boolean;
+    /**
+     * Number of days until the first escalation.
+     * @type {number}
+     * @memberof ApprovalconfigEscalationConfig
+     */
+    'daysUntilFirstEscalation'?: number;
+    /**
+     * Cron schedule for escalations.
+     * @type {string}
+     * @memberof ApprovalconfigEscalationConfig
+     */
+    'escalationCronSchedule'?: string;
+    /**
+     * Escalation chain configuration.
+     * @type {Array<ApprovalconfigEscalationConfigEscalationChainInner>}
+     * @memberof ApprovalconfigEscalationConfig
+     */
+    'escalationChain'?: Array<ApprovalconfigEscalationConfigEscalationChainInner>;
+}
+/**
  * 
  * @export
- * @interface ApprovalconfigEscalationConfigEscalationChainInnerV1
+ * @interface ApprovalconfigEscalationConfigEscalationChainInner
  */
-export interface ApprovalconfigEscalationConfigEscalationChainInnerV1 {
+export interface ApprovalconfigEscalationConfigEscalationChainInner {
     /**
      * Starting at 1 defines the order in which the identities will get assigned
      * @type {number}
-     * @memberof ApprovalconfigEscalationConfigEscalationChainInnerV1
+     * @memberof ApprovalconfigEscalationConfigEscalationChainInner
      */
     'tier'?: number;
     /**
      * Optional Identity ID of the type of identity defined in the \'identityType\' field.
      * @type {string}
-     * @memberof ApprovalconfigEscalationConfigEscalationChainInnerV1
+     * @memberof ApprovalconfigEscalationConfigEscalationChainInner
      */
     'identityId'?: string;
     /**
      * Type of identityId in the escalation chain.
      * @type {string}
-     * @memberof ApprovalconfigEscalationConfigEscalationChainInnerV1
+     * @memberof ApprovalconfigEscalationConfigEscalationChainInner
      */
-    'identityType'?: ApprovalconfigEscalationConfigEscalationChainInnerV1IdentityTypeV1;
+    'identityType'?: ApprovalconfigEscalationConfigEscalationChainInnerIdentityTypeEnum;
 }
 
-export const ApprovalconfigEscalationConfigEscalationChainInnerV1IdentityTypeV1 = {
+export const ApprovalconfigEscalationConfigEscalationChainInnerIdentityTypeEnum = {
     Identity: 'IDENTITY',
     ManagerOf: 'MANAGER_OF',
     AccountOwner: 'ACCOUNT_OWNER',
@@ -112,60 +238,29 @@ export const ApprovalconfigEscalationConfigEscalationChainInnerV1IdentityTypeV1 
     SourcePrimaryOwner: 'SOURCE_PRIMARY_OWNER'
 } as const;
 
-export type ApprovalconfigEscalationConfigEscalationChainInnerV1IdentityTypeV1 = typeof ApprovalconfigEscalationConfigEscalationChainInnerV1IdentityTypeV1[keyof typeof ApprovalconfigEscalationConfigEscalationChainInnerV1IdentityTypeV1];
+export type ApprovalconfigEscalationConfigEscalationChainInnerIdentityTypeEnum = typeof ApprovalconfigEscalationConfigEscalationChainInnerIdentityTypeEnum[keyof typeof ApprovalconfigEscalationConfigEscalationChainInnerIdentityTypeEnum];
 
-/**
- * Configuration for escalations.
- * @export
- * @interface ApprovalconfigEscalationConfigV1
- */
-export interface ApprovalconfigEscalationConfigV1 {
-    /**
-     * Indicates if escalations are enabled.
-     * @type {boolean}
-     * @memberof ApprovalconfigEscalationConfigV1
-     */
-    'enabled'?: boolean;
-    /**
-     * Number of days until the first escalation.
-     * @type {number}
-     * @memberof ApprovalconfigEscalationConfigV1
-     */
-    'daysUntilFirstEscalation'?: number;
-    /**
-     * Cron schedule for escalations.
-     * @type {string}
-     * @memberof ApprovalconfigEscalationConfigV1
-     */
-    'escalationCronSchedule'?: string;
-    /**
-     * Escalation chain configuration.
-     * @type {Array<ApprovalconfigEscalationConfigEscalationChainInnerV1>}
-     * @memberof ApprovalconfigEscalationConfigV1
-     */
-    'escalationChain'?: Array<ApprovalconfigEscalationConfigEscalationChainInnerV1>;
-}
 /**
  * Configuration for fallback approver. Used if the user cannot be found for whatever reason and escalation config does not exist.
  * @export
- * @interface ApprovalconfigFallbackApproverV1
+ * @interface ApprovalconfigFallbackApprover
  */
-export interface ApprovalconfigFallbackApproverV1 {
+export interface ApprovalconfigFallbackApprover {
     /**
      * Optional Identity ID of the type of identity defined in the \'type\' field.
      * @type {string}
-     * @memberof ApprovalconfigFallbackApproverV1
+     * @memberof ApprovalconfigFallbackApprover
      */
     'identityID'?: string;
     /**
      * Type of identityID for the fallback approver.
      * @type {string}
-     * @memberof ApprovalconfigFallbackApproverV1
+     * @memberof ApprovalconfigFallbackApprover
      */
-    'type'?: ApprovalconfigFallbackApproverV1TypeV1;
+    'type'?: ApprovalconfigFallbackApproverTypeEnum;
 }
 
-export const ApprovalconfigFallbackApproverV1TypeV1 = {
+export const ApprovalconfigFallbackApproverTypeEnum = {
     Identity: 'IDENTITY',
     ManagerOf: 'MANAGER_OF',
     AccountOwner: 'ACCOUNT_OWNER',
@@ -192,66 +287,66 @@ export const ApprovalconfigFallbackApproverV1TypeV1 = {
     RequestedTargetPrimaryOwner: 'REQUESTED_TARGET_PRIMARY_OWNER'
 } as const;
 
-export type ApprovalconfigFallbackApproverV1TypeV1 = typeof ApprovalconfigFallbackApproverV1TypeV1[keyof typeof ApprovalconfigFallbackApproverV1TypeV1];
+export type ApprovalconfigFallbackApproverTypeEnum = typeof ApprovalconfigFallbackApproverTypeEnum[keyof typeof ApprovalconfigFallbackApproverTypeEnum];
 
 /**
  * Configuration for reminders.
  * @export
- * @interface ApprovalconfigReminderConfigV1
+ * @interface ApprovalconfigReminderConfig
  */
-export interface ApprovalconfigReminderConfigV1 {
+export interface ApprovalconfigReminderConfig {
     /**
      * Indicates if reminders are enabled.
      * @type {boolean}
-     * @memberof ApprovalconfigReminderConfigV1
+     * @memberof ApprovalconfigReminderConfig
      */
     'enabled'?: boolean;
     /**
      * Number of days until the first reminder.
      * @type {number}
-     * @memberof ApprovalconfigReminderConfigV1
+     * @memberof ApprovalconfigReminderConfig
      */
     'daysUntilFirstReminder'?: number;
     /**
      * Cron schedule for reminders.
      * @type {string}
-     * @memberof ApprovalconfigReminderConfigV1
+     * @memberof ApprovalconfigReminderConfig
      */
     'reminderCronSchedule'?: string;
     /**
      * Maximum number of reminders. Max is 20.
      * @type {number}
-     * @memberof ApprovalconfigReminderConfigV1
+     * @memberof ApprovalconfigReminderConfig
      */
     'maxReminders'?: number;
 }
 /**
  * 
  * @export
- * @interface ApprovalconfigSerialChainInnerV1
+ * @interface ApprovalconfigSerialChainInner
  */
-export interface ApprovalconfigSerialChainInnerV1 {
+export interface ApprovalconfigSerialChainInner {
     /**
      * Starting at 1 defines the order in which the identities will get assigned
      * @type {number}
-     * @memberof ApprovalconfigSerialChainInnerV1
+     * @memberof ApprovalconfigSerialChainInner
      */
     'tier'?: number;
     /**
      * Optional Identity ID of the type of identity defined in the \'identityType\' field.
      * @type {string}
-     * @memberof ApprovalconfigSerialChainInnerV1
+     * @memberof ApprovalconfigSerialChainInner
      */
     'identityId'?: string;
     /**
      * Type of identityId in the serial chain.
      * @type {string}
-     * @memberof ApprovalconfigSerialChainInnerV1
+     * @memberof ApprovalconfigSerialChainInner
      */
-    'identityType'?: ApprovalconfigSerialChainInnerV1IdentityTypeV1;
+    'identityType'?: ApprovalconfigSerialChainInnerIdentityTypeEnum;
 }
 
-export const ApprovalconfigSerialChainInnerV1IdentityTypeV1 = {
+export const ApprovalconfigSerialChainInnerIdentityTypeEnum = {
     Identity: 'IDENTITY',
     GovernanceGroup: 'GOVERNANCE_GROUP',
     ManagerOf: 'MANAGER_OF',
@@ -291,231 +386,136 @@ export const ApprovalconfigSerialChainInnerV1IdentityTypeV1 = {
     RequestedTargetAllOwnerGroup: 'REQUESTED_TARGET_ALL_OWNER_GROUP'
 } as const;
 
-export type ApprovalconfigSerialChainInnerV1IdentityTypeV1 = typeof ApprovalconfigSerialChainInnerV1IdentityTypeV1[keyof typeof ApprovalconfigSerialChainInnerV1IdentityTypeV1];
+export type ApprovalconfigSerialChainInnerIdentityTypeEnum = typeof ApprovalconfigSerialChainInnerIdentityTypeEnum[keyof typeof ApprovalconfigSerialChainInnerIdentityTypeEnum];
 
 /**
  * TimeoutConfig contains configurations around when the approval request should expire.
  * @export
- * @interface ApprovalconfigTimeoutConfigV1
+ * @interface ApprovalconfigTimeoutConfig
  */
-export interface ApprovalconfigTimeoutConfigV1 {
+export interface ApprovalconfigTimeoutConfig {
     /**
      * Indicates if timeout is enabled.
      * @type {boolean}
-     * @memberof ApprovalconfigTimeoutConfigV1
+     * @memberof ApprovalconfigTimeoutConfig
      */
     'enabled'?: boolean;
     /**
      * Number of days until approval request times out. Max value is 90.
      * @type {number}
-     * @memberof ApprovalconfigTimeoutConfigV1
+     * @memberof ApprovalconfigTimeoutConfig
      */
     'daysUntilTimeout'?: number;
     /**
      * Result of timeout.
      * @type {string}
-     * @memberof ApprovalconfigTimeoutConfigV1
+     * @memberof ApprovalconfigTimeoutConfig
      */
-    'timeoutResult'?: ApprovalconfigTimeoutConfigV1TimeoutResultV1;
+    'timeoutResult'?: ApprovalconfigTimeoutConfigTimeoutResultEnum;
 }
 
-export const ApprovalconfigTimeoutConfigV1TimeoutResultV1 = {
+export const ApprovalconfigTimeoutConfigTimeoutResultEnum = {
     Expired: 'EXPIRED',
     Approved: 'APPROVED'
 } as const;
 
-export type ApprovalconfigTimeoutConfigV1TimeoutResultV1 = typeof ApprovalconfigTimeoutConfigV1TimeoutResultV1[keyof typeof ApprovalconfigTimeoutConfigV1TimeoutResultV1];
-
-/**
- * Approval config Object
- * @export
- * @interface ApprovalconfigV1
- */
-export interface ApprovalconfigV1 {
-    /**
-     * 
-     * @type {ApprovalconfigReminderConfigV1}
-     * @memberof ApprovalconfigV1
-     */
-    'reminderConfig'?: ApprovalconfigReminderConfigV1;
-    /**
-     * 
-     * @type {ApprovalconfigEscalationConfigV1}
-     * @memberof ApprovalconfigV1
-     */
-    'escalationConfig'?: ApprovalconfigEscalationConfigV1;
-    /**
-     * 
-     * @type {ApprovalconfigTimeoutConfigV1}
-     * @memberof ApprovalconfigV1
-     */
-    'timeoutConfig'?: ApprovalconfigTimeoutConfigV1;
-    /**
-     * 
-     * @type {ApprovalconfigCronTimezoneV1}
-     * @memberof ApprovalconfigV1
-     */
-    'cronTimezone'?: ApprovalconfigCronTimezoneV1;
-    /**
-     * If the approval request has an approvalCriteria of SERIAL this chain will be used to determine the assignment order.
-     * @type {Array<ApprovalconfigSerialChainInnerV1>}
-     * @memberof ApprovalconfigV1
-     */
-    'serialChain'?: Array<ApprovalconfigSerialChainInnerV1>;
-    /**
-     * Determines whether a comment is required when approving or rejecting the approval request.
-     * @type {string}
-     * @memberof ApprovalconfigV1
-     */
-    'requiresComment'?: ApprovalconfigV1RequiresCommentV1;
-    /**
-     * 
-     * @type {ApprovalconfigFallbackApproverV1}
-     * @memberof ApprovalconfigV1
-     */
-    'fallbackApprover'?: ApprovalconfigFallbackApproverV1;
-    /**
-     * Specifies how to treat the identity type \"MANAGER_OF\" when the requestee is a machine identity.
-     * @type {string}
-     * @memberof ApprovalconfigV1
-     */
-    'machineIdentityManagerAssignment'?: ApprovalconfigV1MachineIdentityManagerAssignmentV1;
-    /**
-     * When true, all approvals will be created with the status \"PASSED\".
-     * @type {boolean}
-     * @memberof ApprovalconfigV1
-     */
-    'circumventApprovalProcess'?: boolean;
-    /**
-     * OFF will prevent the approval request from being assigned to the requester or requestee by assigning it to their manager instead. DIRECT will cause approval requests to be auto-approved when assigned directly and only to the requester. INDIRECT will auto-approve when the requester appears anywhere in the list of approvers, including in a governance group. This field will only be effective if requestedTarget.reauthRequired is set to false, otherwise the approval will have to be manually approved.
-     * @type {string}
-     * @memberof ApprovalconfigV1
-     */
-    'autoApprove'?: ApprovalconfigV1AutoApproveV1;
-}
-
-export const ApprovalconfigV1RequiresCommentV1 = {
-    Approval: 'APPROVAL',
-    Rejection: 'REJECTION',
-    All: 'ALL',
-    Off: 'OFF'
-} as const;
-
-export type ApprovalconfigV1RequiresCommentV1 = typeof ApprovalconfigV1RequiresCommentV1[keyof typeof ApprovalconfigV1RequiresCommentV1];
-export const ApprovalconfigV1MachineIdentityManagerAssignmentV1 = {
-    ManagerOfRequester: 'MANAGER_OF_REQUESTER',
-    MachineIdentityOwner: 'MACHINE_IDENTITY_OWNER',
-    ManagerOfMachineIdentityOwner: 'MANAGER_OF_MACHINE_IDENTITY_OWNER',
-    RequestedTargetOwner: 'REQUESTED_TARGET_OWNER',
-    ManagerOfRequestedTargetOwner: 'MANAGER_OF_REQUESTED_TARGET_OWNER',
-    AccountOwner: 'ACCOUNT_OWNER',
-    ManagerOfAccountOwner: 'MANAGER_OF_ACCOUNT_OWNER'
-} as const;
-
-export type ApprovalconfigV1MachineIdentityManagerAssignmentV1 = typeof ApprovalconfigV1MachineIdentityManagerAssignmentV1[keyof typeof ApprovalconfigV1MachineIdentityManagerAssignmentV1];
-export const ApprovalconfigV1AutoApproveV1 = {
-    Off: 'OFF',
-    Direct: 'DIRECT',
-    Indirect: 'INDIRECT'
-} as const;
-
-export type ApprovalconfigV1AutoApproveV1 = typeof ApprovalconfigV1AutoApproveV1[keyof typeof ApprovalconfigV1AutoApproveV1];
+export type ApprovalconfigTimeoutConfigTimeoutResultEnum = typeof ApprovalconfigTimeoutConfigTimeoutResultEnum[keyof typeof ApprovalconfigTimeoutConfigTimeoutResultEnum];
 
 /**
  * 
  * @export
- * @interface ArrayInnerV1
+ * @interface ArrayInner
  */
-export interface ArrayInnerV1 {
+export interface ArrayInner {
 }
-/**
- * A reference to the schema on the source to the attribute values map to.
- * @export
- * @interface AttributedefinitionSchemaV1
- */
-export interface AttributedefinitionSchemaV1 {
-    /**
-     * The type of object being referenced
-     * @type {string}
-     * @memberof AttributedefinitionSchemaV1
-     */
-    'type'?: AttributedefinitionSchemaV1TypeV1;
-    /**
-     * The object ID this reference applies to.
-     * @type {string}
-     * @memberof AttributedefinitionSchemaV1
-     */
-    'id'?: string;
-    /**
-     * The human-readable display name of the object.
-     * @type {string}
-     * @memberof AttributedefinitionSchemaV1
-     */
-    'name'?: string;
-}
-
-export const AttributedefinitionSchemaV1TypeV1 = {
-    ConnectorSchema: 'CONNECTOR_SCHEMA'
-} as const;
-
-export type AttributedefinitionSchemaV1TypeV1 = typeof AttributedefinitionSchemaV1TypeV1[keyof typeof AttributedefinitionSchemaV1TypeV1];
-
 /**
  * 
  * @export
- * @interface AttributedefinitionV1
+ * @interface Attributedefinition
  */
-export interface AttributedefinitionV1 {
+export interface Attributedefinition {
     /**
      * The name of the attribute.
      * @type {string}
-     * @memberof AttributedefinitionV1
+     * @memberof Attributedefinition
      */
     'name'?: string;
     /**
      * Attribute name in the native system.
      * @type {string}
-     * @memberof AttributedefinitionV1
+     * @memberof Attributedefinition
      */
     'nativeName'?: string | null;
     /**
      * 
-     * @type {AttributedefinitiontypeV1}
-     * @memberof AttributedefinitionV1
+     * @type {Attributedefinitiontype}
+     * @memberof Attributedefinition
      */
-    'type'?: AttributedefinitiontypeV1;
+    'type'?: Attributedefinitiontype;
     /**
      * 
-     * @type {AttributedefinitionSchemaV1}
-     * @memberof AttributedefinitionV1
+     * @type {AttributedefinitionSchema}
+     * @memberof Attributedefinition
      */
-    'schema'?: AttributedefinitionSchemaV1 | null;
+    'schema'?: AttributedefinitionSchema | null;
     /**
      * A human-readable description of the attribute.
      * @type {string}
-     * @memberof AttributedefinitionV1
+     * @memberof Attributedefinition
      */
     'description'?: string;
     /**
      * Flag indicating whether or not the attribute is multi-valued.
      * @type {boolean}
-     * @memberof AttributedefinitionV1
+     * @memberof Attributedefinition
      */
     'isMulti'?: boolean;
     /**
      * Flag indicating whether or not the attribute is an entitlement.
      * @type {boolean}
-     * @memberof AttributedefinitionV1
+     * @memberof Attributedefinition
      */
     'isEntitlement'?: boolean;
     /**
      * Flag indicating whether or not the attribute represents a group. This can only be `true` if `isEntitlement` is also `true` **and** there is a schema defined for the attribute.. 
      * @type {boolean}
-     * @memberof AttributedefinitionV1
+     * @memberof Attributedefinition
      */
     'isGroup'?: boolean;
 }
 
+
+/**
+ * A reference to the schema on the source to the attribute values map to.
+ * @export
+ * @interface AttributedefinitionSchema
+ */
+export interface AttributedefinitionSchema {
+    /**
+     * The type of object being referenced
+     * @type {string}
+     * @memberof AttributedefinitionSchema
+     */
+    'type'?: AttributedefinitionSchemaTypeEnum;
+    /**
+     * The object ID this reference applies to.
+     * @type {string}
+     * @memberof AttributedefinitionSchema
+     */
+    'id'?: string;
+    /**
+     * The human-readable display name of the object.
+     * @type {string}
+     * @memberof AttributedefinitionSchema
+     */
+    'name'?: string;
+}
+
+export const AttributedefinitionSchemaTypeEnum = {
+    ConnectorSchema: 'CONNECTOR_SCHEMA'
+} as const;
+
+export type AttributedefinitionSchemaTypeEnum = typeof AttributedefinitionSchemaTypeEnum[keyof typeof AttributedefinitionSchemaTypeEnum];
 
 /**
  * The underlying type of the value which an AttributeDefinition represents.
@@ -523,7 +523,7 @@ export interface AttributedefinitionV1 {
  * @enum {string}
  */
 
-export const AttributedefinitiontypeV1 = {
+export const Attributedefinitiontype = {
     String: 'STRING',
     Long: 'LONG',
     Int: 'INT',
@@ -531,113 +531,113 @@ export const AttributedefinitiontypeV1 = {
     Date: 'DATE'
 } as const;
 
-export type AttributedefinitiontypeV1 = typeof AttributedefinitiontypeV1[keyof typeof AttributedefinitiontypeV1];
+export type Attributedefinitiontype = typeof Attributedefinitiontype[keyof typeof Attributedefinitiontype];
 
 
 /**
  * Target source for attribute synchronization.
  * @export
- * @interface AttrsyncsourceV1
+ * @interface Attrsyncsource
  */
-export interface AttrsyncsourceV1 {
+export interface Attrsyncsource {
     /**
      * DTO type of target source for attribute synchronization.
      * @type {string}
-     * @memberof AttrsyncsourceV1
+     * @memberof Attrsyncsource
      */
-    'type'?: AttrsyncsourceV1TypeV1;
+    'type'?: AttrsyncsourceTypeEnum;
     /**
      * ID of target source for attribute synchronization.
      * @type {string}
-     * @memberof AttrsyncsourceV1
+     * @memberof Attrsyncsource
      */
     'id'?: string;
     /**
      * Human-readable name of target source for attribute synchronization.
      * @type {string}
-     * @memberof AttrsyncsourceV1
+     * @memberof Attrsyncsource
      */
     'name'?: string | null;
 }
 
-export const AttrsyncsourceV1TypeV1 = {
+export const AttrsyncsourceTypeEnum = {
     Source: 'SOURCE'
 } as const;
 
-export type AttrsyncsourceV1TypeV1 = typeof AttrsyncsourceV1TypeV1[keyof typeof AttrsyncsourceV1TypeV1];
+export type AttrsyncsourceTypeEnum = typeof AttrsyncsourceTypeEnum[keyof typeof AttrsyncsourceTypeEnum];
 
 /**
  * Specification of source attribute sync mapping configuration for an identity attribute
  * @export
- * @interface AttrsyncsourceattributeconfigV1
+ * @interface Attrsyncsourceattributeconfig
  */
-export interface AttrsyncsourceattributeconfigV1 {
+export interface Attrsyncsourceattributeconfig {
     /**
      * Name of the identity attribute
      * @type {string}
-     * @memberof AttrsyncsourceattributeconfigV1
+     * @memberof Attrsyncsourceattributeconfig
      */
     'name': string;
     /**
      * Display name of the identity attribute
      * @type {string}
-     * @memberof AttrsyncsourceattributeconfigV1
+     * @memberof Attrsyncsourceattributeconfig
      */
     'displayName': string;
     /**
      * Determines whether or not the attribute is enabled for synchronization
      * @type {boolean}
-     * @memberof AttrsyncsourceattributeconfigV1
+     * @memberof Attrsyncsourceattributeconfig
      */
     'enabled': boolean;
     /**
      * Name of the source account attribute to which the identity attribute value will be synchronized if enabled
      * @type {string}
-     * @memberof AttrsyncsourceattributeconfigV1
+     * @memberof Attrsyncsourceattributeconfig
      */
     'target': string;
 }
 /**
  * Specification of attribute sync configuration for a source
  * @export
- * @interface AttrsyncsourceconfigV1
+ * @interface Attrsyncsourceconfig
  */
-export interface AttrsyncsourceconfigV1 {
+export interface Attrsyncsourceconfig {
     /**
      * 
-     * @type {AttrsyncsourceV1}
-     * @memberof AttrsyncsourceconfigV1
+     * @type {Attrsyncsource}
+     * @memberof Attrsyncsourceconfig
      */
-    'source': AttrsyncsourceV1;
+    'source': Attrsyncsource;
     /**
      * Attribute synchronization configuration for specific identity attributes in the context of a source
-     * @type {Array<AttrsyncsourceattributeconfigV1>}
-     * @memberof AttrsyncsourceconfigV1
+     * @type {Array<Attrsyncsourceattributeconfig>}
+     * @memberof Attrsyncsourceconfig
      */
-    'attributes': Array<AttrsyncsourceattributeconfigV1>;
+    'attributes': Array<Attrsyncsourceattributeconfig>;
 }
 /**
  * 
  * @export
- * @interface BasereferencedtoV1
+ * @interface Basereferencedto
  */
-export interface BasereferencedtoV1 {
+export interface Basereferencedto {
     /**
      * 
-     * @type {DtotypeV1}
-     * @memberof BasereferencedtoV1
+     * @type {Dtotype}
+     * @memberof Basereferencedto
      */
-    'type'?: DtotypeV1;
+    'type'?: Dtotype;
     /**
      * ID of the object to which this reference applies
      * @type {string}
-     * @memberof BasereferencedtoV1
+     * @memberof Basereferencedto
      */
     'id'?: string;
     /**
      * Human-readable display name of the object to which this reference applies
      * @type {string}
-     * @memberof BasereferencedtoV1
+     * @memberof Basereferencedto
      */
     'name'?: string;
 }
@@ -646,362 +646,362 @@ export interface BasereferencedtoV1 {
 /**
  * 
  * @export
- * @interface ConnectordetailV1
+ * @interface Connectordetail
  */
-export interface ConnectordetailV1 {
+export interface Connectordetail {
     /**
      * The connector name
      * @type {string}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'name'?: string;
     /**
      * The connector type
      * @type {string}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'type'?: string;
     /**
      * The connector class name
      * @type {string}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'className'?: string;
     /**
      * The connector script name
      * @type {string}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'scriptName'?: string;
     /**
      * The connector application xml
      * @type {string}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'applicationXml'?: string;
     /**
      * The connector correlation config xml
      * @type {string}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'correlationConfigXml'?: string;
     /**
      * The connector source config xml
      * @type {string}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'sourceConfigXml'?: string;
     /**
      * The connector source config
      * @type {string}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'sourceConfig'?: string | null;
     /**
      * The connector source config origin
      * @type {string}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'sourceConfigFrom'?: string | null;
     /**
      * storage path key for this connector
      * @type {string}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     's3Location'?: string;
     /**
      * The list of uploaded files supported by the connector. If there was any executable files uploaded to thee connector. Typically this be empty as the executable be uploaded at source creation.
      * @type {Array<string>}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'uploadedFiles'?: Array<string> | null;
     /**
      * true if the source is file upload
      * @type {boolean}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'fileUpload'?: boolean;
     /**
      * true if the source is a direct connect source
      * @type {boolean}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'directConnect'?: boolean;
     /**
      * A map containing translation attributes by loacale key
      * @type {{ [key: string]: any; }}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'translationProperties'?: { [key: string]: any; };
     /**
      * A map containing metadata pertinent to the UI to be used
      * @type {{ [key: string]: any; }}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'connectorMetadata'?: { [key: string]: any; };
     /**
      * The connector status
      * @type {string}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
-    'status'?: ConnectordetailV1StatusV1;
+    'status'?: ConnectordetailStatusEnum;
 }
 
-export const ConnectordetailV1StatusV1 = {
+export const ConnectordetailStatusEnum = {
     Deprecated: 'DEPRECATED',
     Development: 'DEVELOPMENT',
     Demo: 'DEMO',
     Released: 'RELEASED'
 } as const;
 
-export type ConnectordetailV1StatusV1 = typeof ConnectordetailV1StatusV1[keyof typeof ConnectordetailV1StatusV1];
-
-/**
- * The attribute assignment of the correlation configuration.
- * @export
- * @interface CorrelationconfigAttributeAssignmentsInnerV1
- */
-export interface CorrelationconfigAttributeAssignmentsInnerV1 {
-    /**
-     * The property of the attribute assignment.
-     * @type {string}
-     * @memberof CorrelationconfigAttributeAssignmentsInnerV1
-     */
-    'property'?: string;
-    /**
-     * The value of the attribute assignment.
-     * @type {string}
-     * @memberof CorrelationconfigAttributeAssignmentsInnerV1
-     */
-    'value'?: string;
-    /**
-     * The operation of the attribute assignment.
-     * @type {string}
-     * @memberof CorrelationconfigAttributeAssignmentsInnerV1
-     */
-    'operation'?: CorrelationconfigAttributeAssignmentsInnerV1OperationV1;
-    /**
-     * Whether or not the it\'s a complex attribute assignment.
-     * @type {boolean}
-     * @memberof CorrelationconfigAttributeAssignmentsInnerV1
-     */
-    'complex'?: boolean;
-    /**
-     * Whether or not the attribute assignment should ignore case.
-     * @type {boolean}
-     * @memberof CorrelationconfigAttributeAssignmentsInnerV1
-     */
-    'ignoreCase'?: boolean;
-    /**
-     * The match mode of the attribute assignment.
-     * @type {string}
-     * @memberof CorrelationconfigAttributeAssignmentsInnerV1
-     */
-    'matchMode'?: CorrelationconfigAttributeAssignmentsInnerV1MatchModeV1;
-    /**
-     * The filter string of the attribute assignment.
-     * @type {string}
-     * @memberof CorrelationconfigAttributeAssignmentsInnerV1
-     */
-    'filterString'?: string;
-}
-
-export const CorrelationconfigAttributeAssignmentsInnerV1OperationV1 = {
-    Eq: 'EQ'
-} as const;
-
-export type CorrelationconfigAttributeAssignmentsInnerV1OperationV1 = typeof CorrelationconfigAttributeAssignmentsInnerV1OperationV1[keyof typeof CorrelationconfigAttributeAssignmentsInnerV1OperationV1];
-export const CorrelationconfigAttributeAssignmentsInnerV1MatchModeV1 = {
-    Anywhere: 'ANYWHERE',
-    Start: 'START',
-    End: 'END'
-} as const;
-
-export type CorrelationconfigAttributeAssignmentsInnerV1MatchModeV1 = typeof CorrelationconfigAttributeAssignmentsInnerV1MatchModeV1[keyof typeof CorrelationconfigAttributeAssignmentsInnerV1MatchModeV1];
+export type ConnectordetailStatusEnum = typeof ConnectordetailStatusEnum[keyof typeof ConnectordetailStatusEnum];
 
 /**
  * Source configuration information that is used by correlation process.
  * @export
- * @interface CorrelationconfigV1
+ * @interface Correlationconfig
  */
-export interface CorrelationconfigV1 {
+export interface Correlationconfig {
     /**
      * The ID of the correlation configuration.
      * @type {string}
-     * @memberof CorrelationconfigV1
+     * @memberof Correlationconfig
      */
     'id'?: string | null;
     /**
      * The name of the correlation configuration.
      * @type {string}
-     * @memberof CorrelationconfigV1
+     * @memberof Correlationconfig
      */
     'name'?: string | null;
     /**
      * The list of attribute assignments of the correlation configuration.
-     * @type {Array<CorrelationconfigAttributeAssignmentsInnerV1>}
-     * @memberof CorrelationconfigV1
+     * @type {Array<CorrelationconfigAttributeAssignmentsInner>}
+     * @memberof Correlationconfig
      */
-    'attributeAssignments'?: Array<CorrelationconfigAttributeAssignmentsInnerV1> | null;
+    'attributeAssignments'?: Array<CorrelationconfigAttributeAssignmentsInner> | null;
 }
+/**
+ * The attribute assignment of the correlation configuration.
+ * @export
+ * @interface CorrelationconfigAttributeAssignmentsInner
+ */
+export interface CorrelationconfigAttributeAssignmentsInner {
+    /**
+     * The property of the attribute assignment.
+     * @type {string}
+     * @memberof CorrelationconfigAttributeAssignmentsInner
+     */
+    'property'?: string;
+    /**
+     * The value of the attribute assignment.
+     * @type {string}
+     * @memberof CorrelationconfigAttributeAssignmentsInner
+     */
+    'value'?: string;
+    /**
+     * The operation of the attribute assignment.
+     * @type {string}
+     * @memberof CorrelationconfigAttributeAssignmentsInner
+     */
+    'operation'?: CorrelationconfigAttributeAssignmentsInnerOperationEnum;
+    /**
+     * Whether or not the it\'s a complex attribute assignment.
+     * @type {boolean}
+     * @memberof CorrelationconfigAttributeAssignmentsInner
+     */
+    'complex'?: boolean;
+    /**
+     * Whether or not the attribute assignment should ignore case.
+     * @type {boolean}
+     * @memberof CorrelationconfigAttributeAssignmentsInner
+     */
+    'ignoreCase'?: boolean;
+    /**
+     * The match mode of the attribute assignment.
+     * @type {string}
+     * @memberof CorrelationconfigAttributeAssignmentsInner
+     */
+    'matchMode'?: CorrelationconfigAttributeAssignmentsInnerMatchModeEnum;
+    /**
+     * The filter string of the attribute assignment.
+     * @type {string}
+     * @memberof CorrelationconfigAttributeAssignmentsInner
+     */
+    'filterString'?: string;
+}
+
+export const CorrelationconfigAttributeAssignmentsInnerOperationEnum = {
+    Eq: 'EQ'
+} as const;
+
+export type CorrelationconfigAttributeAssignmentsInnerOperationEnum = typeof CorrelationconfigAttributeAssignmentsInnerOperationEnum[keyof typeof CorrelationconfigAttributeAssignmentsInnerOperationEnum];
+export const CorrelationconfigAttributeAssignmentsInnerMatchModeEnum = {
+    Anywhere: 'ANYWHERE',
+    Start: 'START',
+    End: 'END'
+} as const;
+
+export type CorrelationconfigAttributeAssignmentsInnerMatchModeEnum = typeof CorrelationconfigAttributeAssignmentsInnerMatchModeEnum[keyof typeof CorrelationconfigAttributeAssignmentsInnerMatchModeEnum];
+
 /**
  * 
  * @export
- * @interface DeleteSourceV1202ResponseV1
+ * @interface DeleteSourceV1202Response
  */
-export interface DeleteSourceV1202ResponseV1 {
+export interface DeleteSourceV1202Response {
     /**
      * Type of object being referenced.
      * @type {string}
-     * @memberof DeleteSourceV1202ResponseV1
+     * @memberof DeleteSourceV1202Response
      */
-    'type'?: DeleteSourceV1202ResponseV1TypeV1;
+    'type'?: DeleteSourceV1202ResponseTypeEnum;
     /**
      * Task result ID.
      * @type {string}
-     * @memberof DeleteSourceV1202ResponseV1
+     * @memberof DeleteSourceV1202Response
      */
     'id'?: string;
     /**
      * Task result\'s human-readable display name (this should be null/empty).
      * @type {string}
-     * @memberof DeleteSourceV1202ResponseV1
+     * @memberof DeleteSourceV1202Response
      */
     'name'?: string;
 }
 
-export const DeleteSourceV1202ResponseV1TypeV1 = {
+export const DeleteSourceV1202ResponseTypeEnum = {
     TaskResult: 'TASK_RESULT'
 } as const;
 
-export type DeleteSourceV1202ResponseV1TypeV1 = typeof DeleteSourceV1202ResponseV1TypeV1[keyof typeof DeleteSourceV1202ResponseV1TypeV1];
+export type DeleteSourceV1202ResponseTypeEnum = typeof DeleteSourceV1202ResponseTypeEnum[keyof typeof DeleteSourceV1202ResponseTypeEnum];
 
 /**
  * 
  * @export
- * @interface DependantappconnectionsAccountSourcePasswordPoliciesInnerV1
+ * @interface Dependantappconnections
  */
-export interface DependantappconnectionsAccountSourcePasswordPoliciesInnerV1 {
-    /**
-     * DTO type
-     * @type {string}
-     * @memberof DependantappconnectionsAccountSourcePasswordPoliciesInnerV1
-     */
-    'type'?: string;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof DependantappconnectionsAccountSourcePasswordPoliciesInnerV1
-     */
-    'id'?: string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof DependantappconnectionsAccountSourcePasswordPoliciesInnerV1
-     */
-    'name'?: string;
-}
-/**
- * The Account Source of the connected Application
- * @export
- * @interface DependantappconnectionsAccountSourceV1
- */
-export interface DependantappconnectionsAccountSourceV1 {
-    /**
-     * Use this Account Source for password management
-     * @type {boolean}
-     * @memberof DependantappconnectionsAccountSourceV1
-     */
-    'useForPasswordManagement'?: boolean;
-    /**
-     * A list of Password Policies for this Account Source
-     * @type {Array<DependantappconnectionsAccountSourcePasswordPoliciesInnerV1>}
-     * @memberof DependantappconnectionsAccountSourceV1
-     */
-    'passwordPolicies'?: Array<DependantappconnectionsAccountSourcePasswordPoliciesInnerV1>;
-}
-/**
- * 
- * @export
- * @interface DependantappconnectionsV1
- */
-export interface DependantappconnectionsV1 {
+export interface Dependantappconnections {
     /**
      * Id of the connected Application
      * @type {string}
-     * @memberof DependantappconnectionsV1
+     * @memberof Dependantappconnections
      */
     'cloudAppId'?: string;
     /**
      * Description of the connected Application
      * @type {string}
-     * @memberof DependantappconnectionsV1
+     * @memberof Dependantappconnections
      */
     'description'?: string;
     /**
      * Is the Application enabled
      * @type {boolean}
-     * @memberof DependantappconnectionsV1
+     * @memberof Dependantappconnections
      */
     'enabled'?: boolean;
     /**
      * Is Provisioning enabled for connected Application
      * @type {boolean}
-     * @memberof DependantappconnectionsV1
+     * @memberof Dependantappconnections
      */
     'provisionRequestEnabled'?: boolean;
     /**
      * 
-     * @type {DependantappconnectionsAccountSourceV1}
-     * @memberof DependantappconnectionsV1
+     * @type {DependantappconnectionsAccountSource}
+     * @memberof Dependantappconnections
      */
-    'accountSource'?: DependantappconnectionsAccountSourceV1;
+    'accountSource'?: DependantappconnectionsAccountSource;
     /**
      * The amount of launchers for connected Application (long type)
      * @type {number}
-     * @memberof DependantappconnectionsV1
+     * @memberof Dependantappconnections
      */
     'launcherCount'?: number;
     /**
      * Is Provisioning enabled for connected Application
      * @type {boolean}
-     * @memberof DependantappconnectionsV1
+     * @memberof Dependantappconnections
      */
     'matchAllAccount'?: boolean;
     /**
      * The owner of the connected Application
-     * @type {Array<BasereferencedtoV1>}
-     * @memberof DependantappconnectionsV1
+     * @type {Array<Basereferencedto>}
+     * @memberof Dependantappconnections
      */
-    'owner'?: Array<BasereferencedtoV1>;
+    'owner'?: Array<Basereferencedto>;
     /**
      * Is App Center enabled for connected Application
      * @type {boolean}
-     * @memberof DependantappconnectionsV1
+     * @memberof Dependantappconnections
      */
     'appCenterEnabled'?: boolean;
 }
 /**
+ * The Account Source of the connected Application
+ * @export
+ * @interface DependantappconnectionsAccountSource
+ */
+export interface DependantappconnectionsAccountSource {
+    /**
+     * Use this Account Source for password management
+     * @type {boolean}
+     * @memberof DependantappconnectionsAccountSource
+     */
+    'useForPasswordManagement'?: boolean;
+    /**
+     * A list of Password Policies for this Account Source
+     * @type {Array<DependantappconnectionsAccountSourcePasswordPoliciesInner>}
+     * @memberof DependantappconnectionsAccountSource
+     */
+    'passwordPolicies'?: Array<DependantappconnectionsAccountSourcePasswordPoliciesInner>;
+}
+/**
  * 
  * @export
- * @interface DependantconnectionsmissingdtoV1
+ * @interface DependantappconnectionsAccountSourcePasswordPoliciesInner
  */
-export interface DependantconnectionsmissingdtoV1 {
+export interface DependantappconnectionsAccountSourcePasswordPoliciesInner {
+    /**
+     * DTO type
+     * @type {string}
+     * @memberof DependantappconnectionsAccountSourcePasswordPoliciesInner
+     */
+    'type'?: string;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof DependantappconnectionsAccountSourcePasswordPoliciesInner
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof DependantappconnectionsAccountSourcePasswordPoliciesInner
+     */
+    'name'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface Dependantconnectionsmissingdto
+ */
+export interface Dependantconnectionsmissingdto {
     /**
      * The type of dependency type that is missing in the SourceConnections
      * @type {string}
-     * @memberof DependantconnectionsmissingdtoV1
+     * @memberof Dependantconnectionsmissingdto
      */
-    'dependencyType'?: DependantconnectionsmissingdtoV1DependencyTypeV1;
+    'dependencyType'?: DependantconnectionsmissingdtoDependencyTypeEnum;
     /**
      * The reason why this dependency is missing
      * @type {string}
-     * @memberof DependantconnectionsmissingdtoV1
+     * @memberof Dependantconnectionsmissingdto
      */
     'reason'?: string;
 }
 
-export const DependantconnectionsmissingdtoV1DependencyTypeV1 = {
+export const DependantconnectionsmissingdtoDependencyTypeEnum = {
     IdentityProfiles: 'identityProfiles',
     CredentialProfiles: 'credentialProfiles',
     MappingProfiles: 'mappingProfiles',
@@ -1010,7 +1010,7 @@ export const DependantconnectionsmissingdtoV1DependencyTypeV1 = {
     DependantApps: 'dependantApps'
 } as const;
 
-export type DependantconnectionsmissingdtoV1DependencyTypeV1 = typeof DependantconnectionsmissingdtoV1DependencyTypeV1[keyof typeof DependantconnectionsmissingdtoV1DependencyTypeV1];
+export type DependantconnectionsmissingdtoDependencyTypeEnum = typeof DependantconnectionsmissingdtoDependencyTypeEnum[keyof typeof DependantconnectionsmissingdtoDependencyTypeEnum];
 
 /**
  * An enumeration of the types of DTOs supported within the IdentityNow infrastructure.
@@ -1018,7 +1018,7 @@ export type DependantconnectionsmissingdtoV1DependencyTypeV1 = typeof Dependantc
  * @enum {string}
  */
 
-export const DtotypeV1 = {
+export const Dtotype = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
@@ -1050,102 +1050,102 @@ export const DtotypeV1 = {
     Workgroup: 'WORKGROUP'
 } as const;
 
-export type DtotypeV1 = typeof DtotypeV1[keyof typeof DtotypeV1];
+export type Dtotype = typeof Dtotype[keyof typeof Dtotype];
 
 
 /**
+ * 
+ * @export
+ * @interface Entitlementaccessrequestconfig
+ */
+export interface Entitlementaccessrequestconfig {
+    /**
+     * Ordered list of approval steps for the access request. Empty when no approval is required.
+     * @type {Array<Entitlementapprovalscheme>}
+     * @memberof Entitlementaccessrequestconfig
+     */
+    'approvalSchemes'?: Array<Entitlementapprovalscheme>;
+    /**
+     * If the requester must provide a comment during access request.
+     * @type {boolean}
+     * @memberof Entitlementaccessrequestconfig
+     */
+    'requestCommentRequired'?: boolean;
+    /**
+     * If the reviewer must provide a comment when denying the access request.
+     * @type {boolean}
+     * @memberof Entitlementaccessrequestconfig
+     */
+    'denialCommentRequired'?: boolean;
+    /**
+     * Is Reauthorization Required
+     * @type {boolean}
+     * @memberof Entitlementaccessrequestconfig
+     */
+    'reauthorizationRequired'?: boolean;
+    /**
+     * If true, then remove date or sunset date is required in access request of the entitlement.
+     * @type {boolean}
+     * @memberof Entitlementaccessrequestconfig
+     */
+    'requireEndDate'?: boolean;
+    /**
+     * 
+     * @type {EntitlementaccessrequestconfigMaxPermittedAccessDuration}
+     * @memberof Entitlementaccessrequestconfig
+     */
+    'maxPermittedAccessDuration'?: EntitlementaccessrequestconfigMaxPermittedAccessDuration | null;
+}
+/**
  * The maximum duration for which the access is permitted.
  * @export
- * @interface EntitlementaccessrequestconfigMaxPermittedAccessDurationV1
+ * @interface EntitlementaccessrequestconfigMaxPermittedAccessDuration
  */
-export interface EntitlementaccessrequestconfigMaxPermittedAccessDurationV1 {
+export interface EntitlementaccessrequestconfigMaxPermittedAccessDuration {
     /**
      * The numeric value of the duration.
      * @type {number}
-     * @memberof EntitlementaccessrequestconfigMaxPermittedAccessDurationV1
+     * @memberof EntitlementaccessrequestconfigMaxPermittedAccessDuration
      */
     'value'?: number;
     /**
      * The time unit for the duration.
      * @type {string}
-     * @memberof EntitlementaccessrequestconfigMaxPermittedAccessDurationV1
+     * @memberof EntitlementaccessrequestconfigMaxPermittedAccessDuration
      */
-    'timeUnit'?: EntitlementaccessrequestconfigMaxPermittedAccessDurationV1TimeUnitV1;
+    'timeUnit'?: EntitlementaccessrequestconfigMaxPermittedAccessDurationTimeUnitEnum;
 }
 
-export const EntitlementaccessrequestconfigMaxPermittedAccessDurationV1TimeUnitV1 = {
+export const EntitlementaccessrequestconfigMaxPermittedAccessDurationTimeUnitEnum = {
     Hours: 'HOURS',
     Days: 'DAYS',
     Weeks: 'WEEKS',
     Months: 'MONTHS'
 } as const;
 
-export type EntitlementaccessrequestconfigMaxPermittedAccessDurationV1TimeUnitV1 = typeof EntitlementaccessrequestconfigMaxPermittedAccessDurationV1TimeUnitV1[keyof typeof EntitlementaccessrequestconfigMaxPermittedAccessDurationV1TimeUnitV1];
+export type EntitlementaccessrequestconfigMaxPermittedAccessDurationTimeUnitEnum = typeof EntitlementaccessrequestconfigMaxPermittedAccessDurationTimeUnitEnum[keyof typeof EntitlementaccessrequestconfigMaxPermittedAccessDurationTimeUnitEnum];
 
 /**
  * 
  * @export
- * @interface EntitlementaccessrequestconfigV1
+ * @interface Entitlementapprovalscheme
  */
-export interface EntitlementaccessrequestconfigV1 {
-    /**
-     * Ordered list of approval steps for the access request. Empty when no approval is required.
-     * @type {Array<EntitlementapprovalschemeV1>}
-     * @memberof EntitlementaccessrequestconfigV1
-     */
-    'approvalSchemes'?: Array<EntitlementapprovalschemeV1>;
-    /**
-     * If the requester must provide a comment during access request.
-     * @type {boolean}
-     * @memberof EntitlementaccessrequestconfigV1
-     */
-    'requestCommentRequired'?: boolean;
-    /**
-     * If the reviewer must provide a comment when denying the access request.
-     * @type {boolean}
-     * @memberof EntitlementaccessrequestconfigV1
-     */
-    'denialCommentRequired'?: boolean;
-    /**
-     * Is Reauthorization Required
-     * @type {boolean}
-     * @memberof EntitlementaccessrequestconfigV1
-     */
-    'reauthorizationRequired'?: boolean;
-    /**
-     * If true, then remove date or sunset date is required in access request of the entitlement.
-     * @type {boolean}
-     * @memberof EntitlementaccessrequestconfigV1
-     */
-    'requireEndDate'?: boolean;
-    /**
-     * 
-     * @type {EntitlementaccessrequestconfigMaxPermittedAccessDurationV1}
-     * @memberof EntitlementaccessrequestconfigV1
-     */
-    'maxPermittedAccessDuration'?: EntitlementaccessrequestconfigMaxPermittedAccessDurationV1 | null;
-}
-/**
- * 
- * @export
- * @interface EntitlementapprovalschemeV1
- */
-export interface EntitlementapprovalschemeV1 {
+export interface Entitlementapprovalscheme {
     /**
      * Describes the individual or group that is responsible for an approval step. Values are as follows.  **ENTITLEMENT_OWNER**: Owner of the associated Entitlement  **SOURCE_OWNER**: Owner of the associated Source  **MANAGER**: Manager of the Identity for whom the request is being made  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field  **WORKFLOW**: A Workflow, the ID of which is specified by the **approverId** field, Workflows are exclusive to other types of approvals and License required.     
      * @type {string}
-     * @memberof EntitlementapprovalschemeV1
+     * @memberof Entitlementapprovalscheme
      */
-    'approverType'?: EntitlementapprovalschemeV1ApproverTypeV1;
+    'approverType'?: EntitlementapprovalschemeApproverTypeEnum;
     /**
      * Id of the specific approver, used only when approverType is GOVERNANCE_GROUP or WORKFLOW
      * @type {string}
-     * @memberof EntitlementapprovalschemeV1
+     * @memberof Entitlementapprovalscheme
      */
     'approverId'?: string | null;
 }
 
-export const EntitlementapprovalschemeV1ApproverTypeV1 = {
+export const EntitlementapprovalschemeApproverTypeEnum = {
     EntitlementOwner: 'ENTITLEMENT_OWNER',
     SourceOwner: 'SOURCE_OWNER',
     Manager: 'MANAGER',
@@ -1153,43 +1153,43 @@ export const EntitlementapprovalschemeV1ApproverTypeV1 = {
     Workflow: 'WORKFLOW'
 } as const;
 
-export type EntitlementapprovalschemeV1ApproverTypeV1 = typeof EntitlementapprovalschemeV1ApproverTypeV1[keyof typeof EntitlementapprovalschemeV1ApproverTypeV1];
+export type EntitlementapprovalschemeApproverTypeEnum = typeof EntitlementapprovalschemeApproverTypeEnum[keyof typeof EntitlementapprovalschemeApproverTypeEnum];
 
 /**
  * 
  * @export
- * @interface EntitlementrevocationrequestconfigV1
+ * @interface Entitlementrevocationrequestconfig
  */
-export interface EntitlementrevocationrequestconfigV1 {
+export interface Entitlementrevocationrequestconfig {
     /**
      * Ordered list of approval steps for the access request. Empty when no approval is required.
-     * @type {Array<EntitlementapprovalschemeV1>}
-     * @memberof EntitlementrevocationrequestconfigV1
+     * @type {Array<Entitlementapprovalscheme>}
+     * @memberof Entitlementrevocationrequestconfig
      */
-    'approvalSchemes'?: Array<EntitlementapprovalschemeV1>;
+    'approvalSchemes'?: Array<Entitlementapprovalscheme>;
 }
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -1198,79 +1198,79 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface FielddetailsdtoV1
+ * @interface Fielddetailsdto
  */
-export interface FielddetailsdtoV1 {
+export interface Fielddetailsdto {
     /**
      * The name of the attribute.
      * @type {string}
-     * @memberof FielddetailsdtoV1
+     * @memberof Fielddetailsdto
      */
     'name'?: string;
     /**
      * The transform to apply to the field
      * @type {object}
-     * @memberof FielddetailsdtoV1
+     * @memberof Fielddetailsdto
      */
     'transform'?: object;
     /**
      * Attributes required for the transform
      * @type {object}
-     * @memberof FielddetailsdtoV1
+     * @memberof Fielddetailsdto
      */
     'attributes'?: object;
     /**
      * Flag indicating whether or not the attribute is required.
      * @type {boolean}
-     * @memberof FielddetailsdtoV1
+     * @memberof Fielddetailsdto
      */
     'isRequired'?: boolean;
     /**
      * The type of the attribute.  string: For text-based data.  int: For whole numbers.  long: For larger whole numbers.  date: For date and time values.  boolean: For true/false values.  secret: For sensitive data like passwords, which will be masked and encrypted. 
      * @type {string}
-     * @memberof FielddetailsdtoV1
+     * @memberof Fielddetailsdto
      */
-    'type'?: FielddetailsdtoV1TypeV1;
+    'type'?: FielddetailsdtoTypeEnum;
     /**
      * Flag indicating whether or not the attribute is multi-valued.
      * @type {boolean}
-     * @memberof FielddetailsdtoV1
+     * @memberof Fielddetailsdto
      */
     'isMultiValued'?: boolean;
 }
 
-export const FielddetailsdtoV1TypeV1 = {
+export const FielddetailsdtoTypeEnum = {
     String: 'string',
     Int: 'int',
     Long: 'long',
@@ -1279,105 +1279,105 @@ export const FielddetailsdtoV1TypeV1 = {
     Secret: 'secret'
 } as const;
 
-export type FielddetailsdtoV1TypeV1 = typeof FielddetailsdtoV1TypeV1[keyof typeof FielddetailsdtoV1TypeV1];
+export type FielddetailsdtoTypeEnum = typeof FielddetailsdtoTypeEnum[keyof typeof FielddetailsdtoTypeEnum];
 
 /**
  * 
  * @export
- * @interface IdentityprofilesconnectionsV1
+ * @interface Identityprofilesconnections
  */
-export interface IdentityprofilesconnectionsV1 {
+export interface Identityprofilesconnections {
     /**
      * ID of the IdentityProfile this reference applies
      * @type {string}
-     * @memberof IdentityprofilesconnectionsV1
+     * @memberof Identityprofilesconnections
      */
     'id'?: string;
     /**
      * Human-readable display name of the IdentityProfile to which this reference applies
      * @type {string}
-     * @memberof IdentityprofilesconnectionsV1
+     * @memberof Identityprofilesconnections
      */
     'name'?: string;
     /**
      * The Number of Identities managed by this IdentityProfile
      * @type {number}
-     * @memberof IdentityprofilesconnectionsV1
+     * @memberof Identityprofilesconnections
      */
     'identityCount'?: number;
 }
 /**
  * 
  * @export
- * @interface ImportAccountsSchemaV1RequestV1
+ * @interface ImportAccountsSchemaV1Request
  */
-export interface ImportAccountsSchemaV1RequestV1 {
+export interface ImportAccountsSchemaV1Request {
     /**
      * 
      * @type {File}
-     * @memberof ImportAccountsSchemaV1RequestV1
+     * @memberof ImportAccountsSchemaV1Request
      */
     'file'?: File;
 }
 /**
  * 
  * @export
- * @interface ImportAccountsV1RequestV1
+ * @interface ImportAccountsV1Request
  */
-export interface ImportAccountsV1RequestV1 {
+export interface ImportAccountsV1Request {
     /**
      * The CSV file containing the source accounts to aggregate.
      * @type {File}
-     * @memberof ImportAccountsV1RequestV1
+     * @memberof ImportAccountsV1Request
      */
     'file'?: File;
     /**
      * Use this flag to reprocess every account whether or not the data has changed.
      * @type {string}
-     * @memberof ImportAccountsV1RequestV1
+     * @memberof ImportAccountsV1Request
      */
     'disableOptimization'?: string;
 }
 /**
  * 
  * @export
- * @interface ImportEntitlementsV1RequestV1
+ * @interface ImportEntitlementsV1Request
  */
-export interface ImportEntitlementsV1RequestV1 {
+export interface ImportEntitlementsV1Request {
     /**
      * The CSV file containing the source entitlements to aggregate.
      * @type {File}
-     * @memberof ImportEntitlementsV1RequestV1
+     * @memberof ImportEntitlementsV1Request
      */
     'file'?: File;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface JsonpatchoperationV1
+ * @interface Jsonpatchoperation
  */
-export interface JsonpatchoperationV1 {
+export interface Jsonpatchoperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
-    'op': JsonpatchoperationV1OpV1;
+    'op': JsonpatchoperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValueV1}
-     * @memberof JsonpatchoperationV1
+     * @type {JsonpatchoperationValue}
+     * @memberof Jsonpatchoperation
      */
-    'value'?: JsonpatchoperationValueV1;
+    'value'?: JsonpatchoperationValue;
 }
 
-export const JsonpatchoperationV1OpV1 = {
+export const JsonpatchoperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -1386,220 +1386,428 @@ export const JsonpatchoperationV1OpV1 = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationV1OpV1 = typeof JsonpatchoperationV1OpV1[keyof typeof JsonpatchoperationV1OpV1];
+export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
 
 /**
- * @type JsonpatchoperationValueV1
+ * @type JsonpatchoperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number | object | string;
+export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * 
  * @export
- * @interface ListSourcesV1401ResponseV1
+ * @interface ListSourcesV1401Response
  */
-export interface ListSourcesV1401ResponseV1 {
+export interface ListSourcesV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListSourcesV1401ResponseV1
+     * @memberof ListSourcesV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ListSourcesV1429ResponseV1
+ * @interface ListSourcesV1429Response
  */
-export interface ListSourcesV1429ResponseV1 {
+export interface ListSourcesV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListSourcesV1429ResponseV1
+     * @memberof ListSourcesV1429Response
      */
     'message'?: any;
 }
 /**
+ * 
+ * @export
+ * @interface Loadaccountstask
+ */
+export interface Loadaccountstask {
+    /**
+     * The status of the result
+     * @type {boolean}
+     * @memberof Loadaccountstask
+     */
+    'success'?: boolean;
+    /**
+     * 
+     * @type {LoadaccountstaskTask}
+     * @memberof Loadaccountstask
+     */
+    'task'?: LoadaccountstaskTask;
+}
+/**
+ * 
+ * @export
+ * @interface LoadaccountstaskTask
+ */
+export interface LoadaccountstaskTask {
+    /**
+     * System-generated unique ID of the task this taskStatus represents
+     * @type {string}
+     * @memberof LoadaccountstaskTask
+     */
+    'id'?: string;
+    /**
+     * Type of task this task represents
+     * @type {string}
+     * @memberof LoadaccountstaskTask
+     */
+    'type'?: string;
+    /**
+     * The name of the aggregation process
+     * @type {string}
+     * @memberof LoadaccountstaskTask
+     */
+    'name'?: string;
+    /**
+     * The description of the task
+     * @type {string}
+     * @memberof LoadaccountstaskTask
+     */
+    'description'?: string;
+    /**
+     * The user who initiated the task
+     * @type {string}
+     * @memberof LoadaccountstaskTask
+     */
+    'launcher'?: string;
+    /**
+     * The Task creation date
+     * @type {string}
+     * @memberof LoadaccountstaskTask
+     */
+    'created'?: string;
+    /**
+     * The task start date
+     * @type {string}
+     * @memberof LoadaccountstaskTask
+     */
+    'launched'?: string | null;
+    /**
+     * The task completion date
+     * @type {string}
+     * @memberof LoadaccountstaskTask
+     */
+    'completed'?: string | null;
+    /**
+     * Task completion status.
+     * @type {string}
+     * @memberof LoadaccountstaskTask
+     */
+    'completionStatus'?: LoadaccountstaskTaskCompletionStatusEnum | null;
+    /**
+     * Name of the parent task if exists.
+     * @type {string}
+     * @memberof LoadaccountstaskTask
+     */
+    'parentName'?: string | null;
+    /**
+     * List of the messages dedicated to the report.  From task definition perspective here usually should be warnings or errors.
+     * @type {Array<LoadaccountstaskTaskMessagesInner>}
+     * @memberof LoadaccountstaskTask
+     */
+    'messages'?: Array<LoadaccountstaskTaskMessagesInner>;
+    /**
+     * Current task state.
+     * @type {string}
+     * @memberof LoadaccountstaskTask
+     */
+    'progress'?: string | null;
+    /**
+     * 
+     * @type {LoadaccountstaskTaskAttributes}
+     * @memberof LoadaccountstaskTask
+     */
+    'attributes'?: LoadaccountstaskTaskAttributes;
+    /**
+     * Return values from the task
+     * @type {Array<LoadaccountstaskTaskReturnsInner>}
+     * @memberof LoadaccountstaskTask
+     */
+    'returns'?: Array<LoadaccountstaskTaskReturnsInner>;
+}
+
+export const LoadaccountstaskTaskCompletionStatusEnum = {
+    Success: 'SUCCESS',
+    Warning: 'WARNING',
+    Error: 'ERROR',
+    Terminated: 'TERMINATED',
+    TempError: 'TEMP_ERROR'
+} as const;
+
+export type LoadaccountstaskTaskCompletionStatusEnum = typeof LoadaccountstaskTaskCompletionStatusEnum[keyof typeof LoadaccountstaskTaskCompletionStatusEnum];
+
+/**
  * Extra attributes map(dictionary) for the task.
  * @export
- * @interface LoadaccountstaskTaskAttributesV1
+ * @interface LoadaccountstaskTaskAttributes
  */
-export interface LoadaccountstaskTaskAttributesV1 {
+export interface LoadaccountstaskTaskAttributes {
     [key: string]: object | any;
 
     /**
      * The id of the source
      * @type {string}
-     * @memberof LoadaccountstaskTaskAttributesV1
+     * @memberof LoadaccountstaskTaskAttributes
      */
     'appId'?: string;
     /**
      * The indicator if the aggregation process was enabled/disabled for the aggregation job
      * @type {string}
-     * @memberof LoadaccountstaskTaskAttributesV1
+     * @memberof LoadaccountstaskTaskAttributes
      */
     'optimizedAggregation'?: string;
 }
 /**
  * 
  * @export
- * @interface LoadaccountstaskTaskMessagesInnerV1
+ * @interface LoadaccountstaskTaskMessagesInner
  */
-export interface LoadaccountstaskTaskMessagesInnerV1 {
+export interface LoadaccountstaskTaskMessagesInner {
     /**
      * Type of the message.
      * @type {string}
-     * @memberof LoadaccountstaskTaskMessagesInnerV1
+     * @memberof LoadaccountstaskTaskMessagesInner
      */
-    'type'?: LoadaccountstaskTaskMessagesInnerV1TypeV1;
+    'type'?: LoadaccountstaskTaskMessagesInnerTypeEnum;
     /**
      * Flag whether message is an error.
      * @type {boolean}
-     * @memberof LoadaccountstaskTaskMessagesInnerV1
+     * @memberof LoadaccountstaskTaskMessagesInner
      */
     'error'?: boolean;
     /**
      * Flag whether message is a warning.
      * @type {boolean}
-     * @memberof LoadaccountstaskTaskMessagesInnerV1
+     * @memberof LoadaccountstaskTaskMessagesInner
      */
     'warning'?: boolean;
     /**
      * Message string identifier.
      * @type {string}
-     * @memberof LoadaccountstaskTaskMessagesInnerV1
+     * @memberof LoadaccountstaskTaskMessagesInner
      */
     'key'?: string;
     /**
      * Message context with the locale based language.
      * @type {string}
-     * @memberof LoadaccountstaskTaskMessagesInnerV1
+     * @memberof LoadaccountstaskTaskMessagesInner
      */
     'localizedText'?: string;
 }
 
-export const LoadaccountstaskTaskMessagesInnerV1TypeV1 = {
+export const LoadaccountstaskTaskMessagesInnerTypeEnum = {
     Info: 'INFO',
     Warn: 'WARN',
     Error: 'ERROR'
 } as const;
 
-export type LoadaccountstaskTaskMessagesInnerV1TypeV1 = typeof LoadaccountstaskTaskMessagesInnerV1TypeV1[keyof typeof LoadaccountstaskTaskMessagesInnerV1TypeV1];
+export type LoadaccountstaskTaskMessagesInnerTypeEnum = typeof LoadaccountstaskTaskMessagesInnerTypeEnum[keyof typeof LoadaccountstaskTaskMessagesInnerTypeEnum];
 
 /**
  * 
  * @export
- * @interface LoadaccountstaskTaskReturnsInnerV1
+ * @interface LoadaccountstaskTaskReturnsInner
  */
-export interface LoadaccountstaskTaskReturnsInnerV1 {
+export interface LoadaccountstaskTaskReturnsInner {
     /**
      * The display label of the return value
      * @type {string}
-     * @memberof LoadaccountstaskTaskReturnsInnerV1
+     * @memberof LoadaccountstaskTaskReturnsInner
      */
     'displayLabel'?: string;
     /**
      * The attribute name of the return value
      * @type {string}
-     * @memberof LoadaccountstaskTaskReturnsInnerV1
+     * @memberof LoadaccountstaskTaskReturnsInner
      */
     'attributeName'?: string;
 }
 /**
  * 
  * @export
- * @interface LoadaccountstaskTaskV1
+ * @interface Loadentitlementtask
  */
-export interface LoadaccountstaskTaskV1 {
+export interface Loadentitlementtask {
     /**
      * System-generated unique ID of the task this taskStatus represents
      * @type {string}
-     * @memberof LoadaccountstaskTaskV1
+     * @memberof Loadentitlementtask
      */
     'id'?: string;
     /**
      * Type of task this task represents
      * @type {string}
-     * @memberof LoadaccountstaskTaskV1
+     * @memberof Loadentitlementtask
      */
     'type'?: string;
     /**
-     * The name of the aggregation process
+     * The name of the task
      * @type {string}
-     * @memberof LoadaccountstaskTaskV1
+     * @memberof Loadentitlementtask
      */
-    'name'?: string;
+    'uniqueName'?: string;
     /**
      * The description of the task
      * @type {string}
-     * @memberof LoadaccountstaskTaskV1
+     * @memberof Loadentitlementtask
      */
     'description'?: string;
     /**
      * The user who initiated the task
      * @type {string}
-     * @memberof LoadaccountstaskTaskV1
+     * @memberof Loadentitlementtask
+     */
+    'launcher'?: string;
+    /**
+     * The creation date of the task
+     * @type {string}
+     * @memberof Loadentitlementtask
+     */
+    'created'?: string;
+    /**
+     * Return values from the task
+     * @type {Array<LoadentitlementtaskReturnsInner>}
+     * @memberof Loadentitlementtask
+     */
+    'returns'?: Array<LoadentitlementtaskReturnsInner>;
+}
+/**
+ * 
+ * @export
+ * @interface LoadentitlementtaskReturnsInner
+ */
+export interface LoadentitlementtaskReturnsInner {
+    /**
+     * The display label for the return value
+     * @type {string}
+     * @memberof LoadentitlementtaskReturnsInner
+     */
+    'displayLabel'?: string;
+    /**
+     * The attribute name for the return value
+     * @type {string}
+     * @memberof LoadentitlementtaskReturnsInner
+     */
+    'attributeName'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface Loaduncorrelatedaccountstask
+ */
+export interface Loaduncorrelatedaccountstask {
+    /**
+     * The status of the result
+     * @type {boolean}
+     * @memberof Loaduncorrelatedaccountstask
+     */
+    'success'?: boolean;
+    /**
+     * 
+     * @type {LoaduncorrelatedaccountstaskTask}
+     * @memberof Loaduncorrelatedaccountstask
+     */
+    'task'?: LoaduncorrelatedaccountstaskTask;
+}
+/**
+ * 
+ * @export
+ * @interface LoaduncorrelatedaccountstaskTask
+ */
+export interface LoaduncorrelatedaccountstaskTask {
+    /**
+     * System-generated unique ID of the task this taskStatus represents
+     * @type {string}
+     * @memberof LoaduncorrelatedaccountstaskTask
+     */
+    'id'?: string;
+    /**
+     * Type of task this task represents
+     * @type {string}
+     * @memberof LoaduncorrelatedaccountstaskTask
+     */
+    'type'?: string;
+    /**
+     * The name of uncorrelated accounts process
+     * @type {string}
+     * @memberof LoaduncorrelatedaccountstaskTask
+     */
+    'name'?: string;
+    /**
+     * The description of the task
+     * @type {string}
+     * @memberof LoaduncorrelatedaccountstaskTask
+     */
+    'description'?: string;
+    /**
+     * The user who initiated the task
+     * @type {string}
+     * @memberof LoaduncorrelatedaccountstaskTask
      */
     'launcher'?: string;
     /**
      * The Task creation date
      * @type {string}
-     * @memberof LoadaccountstaskTaskV1
+     * @memberof LoaduncorrelatedaccountstaskTask
      */
     'created'?: string;
     /**
      * The task start date
      * @type {string}
-     * @memberof LoadaccountstaskTaskV1
+     * @memberof LoaduncorrelatedaccountstaskTask
      */
     'launched'?: string | null;
     /**
      * The task completion date
      * @type {string}
-     * @memberof LoadaccountstaskTaskV1
+     * @memberof LoaduncorrelatedaccountstaskTask
      */
     'completed'?: string | null;
     /**
      * Task completion status.
      * @type {string}
-     * @memberof LoadaccountstaskTaskV1
+     * @memberof LoaduncorrelatedaccountstaskTask
      */
-    'completionStatus'?: LoadaccountstaskTaskV1CompletionStatusV1 | null;
+    'completionStatus'?: LoaduncorrelatedaccountstaskTaskCompletionStatusEnum | null;
     /**
      * Name of the parent task if exists.
      * @type {string}
-     * @memberof LoadaccountstaskTaskV1
+     * @memberof LoaduncorrelatedaccountstaskTask
      */
     'parentName'?: string | null;
     /**
      * List of the messages dedicated to the report.  From task definition perspective here usually should be warnings or errors.
-     * @type {Array<LoadaccountstaskTaskMessagesInnerV1>}
-     * @memberof LoadaccountstaskTaskV1
+     * @type {Array<LoaduncorrelatedaccountstaskTaskMessagesInner>}
+     * @memberof LoaduncorrelatedaccountstaskTask
      */
-    'messages'?: Array<LoadaccountstaskTaskMessagesInnerV1>;
+    'messages'?: Array<LoaduncorrelatedaccountstaskTaskMessagesInner>;
     /**
      * Current task state.
      * @type {string}
-     * @memberof LoadaccountstaskTaskV1
+     * @memberof LoaduncorrelatedaccountstaskTask
      */
     'progress'?: string | null;
     /**
      * 
-     * @type {LoadaccountstaskTaskAttributesV1}
-     * @memberof LoadaccountstaskTaskV1
+     * @type {LoaduncorrelatedaccountstaskTaskAttributes}
+     * @memberof LoaduncorrelatedaccountstaskTask
      */
-    'attributes'?: LoadaccountstaskTaskAttributesV1;
+    'attributes'?: LoaduncorrelatedaccountstaskTaskAttributes;
     /**
      * Return values from the task
-     * @type {Array<LoadaccountstaskTaskReturnsInnerV1>}
-     * @memberof LoadaccountstaskTaskV1
+     * @type {object}
+     * @memberof LoaduncorrelatedaccountstaskTask
      */
-    'returns'?: Array<LoadaccountstaskTaskReturnsInnerV1>;
+    'returns'?: object;
 }
 
-export const LoadaccountstaskTaskV1CompletionStatusV1 = {
+export const LoaduncorrelatedaccountstaskTaskCompletionStatusEnum = {
     Success: 'SUCCESS',
     Warning: 'WARNING',
     Error: 'ERROR',
@@ -1607,705 +1815,497 @@ export const LoadaccountstaskTaskV1CompletionStatusV1 = {
     TempError: 'TEMP_ERROR'
 } as const;
 
-export type LoadaccountstaskTaskV1CompletionStatusV1 = typeof LoadaccountstaskTaskV1CompletionStatusV1[keyof typeof LoadaccountstaskTaskV1CompletionStatusV1];
+export type LoaduncorrelatedaccountstaskTaskCompletionStatusEnum = typeof LoaduncorrelatedaccountstaskTaskCompletionStatusEnum[keyof typeof LoaduncorrelatedaccountstaskTaskCompletionStatusEnum];
 
-/**
- * 
- * @export
- * @interface LoadaccountstaskV1
- */
-export interface LoadaccountstaskV1 {
-    /**
-     * The status of the result
-     * @type {boolean}
-     * @memberof LoadaccountstaskV1
-     */
-    'success'?: boolean;
-    /**
-     * 
-     * @type {LoadaccountstaskTaskV1}
-     * @memberof LoadaccountstaskV1
-     */
-    'task'?: LoadaccountstaskTaskV1;
-}
-/**
- * 
- * @export
- * @interface LoadentitlementtaskReturnsInnerV1
- */
-export interface LoadentitlementtaskReturnsInnerV1 {
-    /**
-     * The display label for the return value
-     * @type {string}
-     * @memberof LoadentitlementtaskReturnsInnerV1
-     */
-    'displayLabel'?: string;
-    /**
-     * The attribute name for the return value
-     * @type {string}
-     * @memberof LoadentitlementtaskReturnsInnerV1
-     */
-    'attributeName'?: string;
-}
-/**
- * 
- * @export
- * @interface LoadentitlementtaskV1
- */
-export interface LoadentitlementtaskV1 {
-    /**
-     * System-generated unique ID of the task this taskStatus represents
-     * @type {string}
-     * @memberof LoadentitlementtaskV1
-     */
-    'id'?: string;
-    /**
-     * Type of task this task represents
-     * @type {string}
-     * @memberof LoadentitlementtaskV1
-     */
-    'type'?: string;
-    /**
-     * The name of the task
-     * @type {string}
-     * @memberof LoadentitlementtaskV1
-     */
-    'uniqueName'?: string;
-    /**
-     * The description of the task
-     * @type {string}
-     * @memberof LoadentitlementtaskV1
-     */
-    'description'?: string;
-    /**
-     * The user who initiated the task
-     * @type {string}
-     * @memberof LoadentitlementtaskV1
-     */
-    'launcher'?: string;
-    /**
-     * The creation date of the task
-     * @type {string}
-     * @memberof LoadentitlementtaskV1
-     */
-    'created'?: string;
-    /**
-     * Return values from the task
-     * @type {Array<LoadentitlementtaskReturnsInnerV1>}
-     * @memberof LoadentitlementtaskV1
-     */
-    'returns'?: Array<LoadentitlementtaskReturnsInnerV1>;
-}
 /**
  * Extra attributes map(dictionary) for the task.
  * @export
- * @interface LoaduncorrelatedaccountstaskTaskAttributesV1
+ * @interface LoaduncorrelatedaccountstaskTaskAttributes
  */
-export interface LoaduncorrelatedaccountstaskTaskAttributesV1 {
+export interface LoaduncorrelatedaccountstaskTaskAttributes {
     /**
      * The id of qpoc job
      * @type {string}
-     * @memberof LoaduncorrelatedaccountstaskTaskAttributesV1
+     * @memberof LoaduncorrelatedaccountstaskTaskAttributes
      */
     'qpocJobId'?: string;
     /**
      * the task start delay value
      * @type {any}
-     * @memberof LoaduncorrelatedaccountstaskTaskAttributesV1
+     * @memberof LoaduncorrelatedaccountstaskTaskAttributes
      */
     'taskStartDelay'?: any;
 }
 /**
  * 
  * @export
- * @interface LoaduncorrelatedaccountstaskTaskMessagesInnerV1
+ * @interface LoaduncorrelatedaccountstaskTaskMessagesInner
  */
-export interface LoaduncorrelatedaccountstaskTaskMessagesInnerV1 {
+export interface LoaduncorrelatedaccountstaskTaskMessagesInner {
     /**
      * Type of the message.
      * @type {string}
-     * @memberof LoaduncorrelatedaccountstaskTaskMessagesInnerV1
+     * @memberof LoaduncorrelatedaccountstaskTaskMessagesInner
      */
-    'type'?: LoaduncorrelatedaccountstaskTaskMessagesInnerV1TypeV1;
+    'type'?: LoaduncorrelatedaccountstaskTaskMessagesInnerTypeEnum;
     /**
      * Flag whether message is an error.
      * @type {boolean}
-     * @memberof LoaduncorrelatedaccountstaskTaskMessagesInnerV1
+     * @memberof LoaduncorrelatedaccountstaskTaskMessagesInner
      */
     'error'?: boolean;
     /**
      * Flag whether message is a warning.
      * @type {boolean}
-     * @memberof LoaduncorrelatedaccountstaskTaskMessagesInnerV1
+     * @memberof LoaduncorrelatedaccountstaskTaskMessagesInner
      */
     'warning'?: boolean;
     /**
      * Message string identifier.
      * @type {string}
-     * @memberof LoaduncorrelatedaccountstaskTaskMessagesInnerV1
+     * @memberof LoaduncorrelatedaccountstaskTaskMessagesInner
      */
     'key'?: string;
     /**
      * Message context with the locale based language.
      * @type {string}
-     * @memberof LoaduncorrelatedaccountstaskTaskMessagesInnerV1
+     * @memberof LoaduncorrelatedaccountstaskTaskMessagesInner
      */
     'localizedText'?: string;
 }
 
-export const LoaduncorrelatedaccountstaskTaskMessagesInnerV1TypeV1 = {
+export const LoaduncorrelatedaccountstaskTaskMessagesInnerTypeEnum = {
     Info: 'INFO',
     Warn: 'WARN',
     Error: 'ERROR'
 } as const;
 
-export type LoaduncorrelatedaccountstaskTaskMessagesInnerV1TypeV1 = typeof LoaduncorrelatedaccountstaskTaskMessagesInnerV1TypeV1[keyof typeof LoaduncorrelatedaccountstaskTaskMessagesInnerV1TypeV1];
+export type LoaduncorrelatedaccountstaskTaskMessagesInnerTypeEnum = typeof LoaduncorrelatedaccountstaskTaskMessagesInnerTypeEnum[keyof typeof LoaduncorrelatedaccountstaskTaskMessagesInnerTypeEnum];
 
-/**
- * 
- * @export
- * @interface LoaduncorrelatedaccountstaskTaskV1
- */
-export interface LoaduncorrelatedaccountstaskTaskV1 {
-    /**
-     * System-generated unique ID of the task this taskStatus represents
-     * @type {string}
-     * @memberof LoaduncorrelatedaccountstaskTaskV1
-     */
-    'id'?: string;
-    /**
-     * Type of task this task represents
-     * @type {string}
-     * @memberof LoaduncorrelatedaccountstaskTaskV1
-     */
-    'type'?: string;
-    /**
-     * The name of uncorrelated accounts process
-     * @type {string}
-     * @memberof LoaduncorrelatedaccountstaskTaskV1
-     */
-    'name'?: string;
-    /**
-     * The description of the task
-     * @type {string}
-     * @memberof LoaduncorrelatedaccountstaskTaskV1
-     */
-    'description'?: string;
-    /**
-     * The user who initiated the task
-     * @type {string}
-     * @memberof LoaduncorrelatedaccountstaskTaskV1
-     */
-    'launcher'?: string;
-    /**
-     * The Task creation date
-     * @type {string}
-     * @memberof LoaduncorrelatedaccountstaskTaskV1
-     */
-    'created'?: string;
-    /**
-     * The task start date
-     * @type {string}
-     * @memberof LoaduncorrelatedaccountstaskTaskV1
-     */
-    'launched'?: string | null;
-    /**
-     * The task completion date
-     * @type {string}
-     * @memberof LoaduncorrelatedaccountstaskTaskV1
-     */
-    'completed'?: string | null;
-    /**
-     * Task completion status.
-     * @type {string}
-     * @memberof LoaduncorrelatedaccountstaskTaskV1
-     */
-    'completionStatus'?: LoaduncorrelatedaccountstaskTaskV1CompletionStatusV1 | null;
-    /**
-     * Name of the parent task if exists.
-     * @type {string}
-     * @memberof LoaduncorrelatedaccountstaskTaskV1
-     */
-    'parentName'?: string | null;
-    /**
-     * List of the messages dedicated to the report.  From task definition perspective here usually should be warnings or errors.
-     * @type {Array<LoaduncorrelatedaccountstaskTaskMessagesInnerV1>}
-     * @memberof LoaduncorrelatedaccountstaskTaskV1
-     */
-    'messages'?: Array<LoaduncorrelatedaccountstaskTaskMessagesInnerV1>;
-    /**
-     * Current task state.
-     * @type {string}
-     * @memberof LoaduncorrelatedaccountstaskTaskV1
-     */
-    'progress'?: string | null;
-    /**
-     * 
-     * @type {LoaduncorrelatedaccountstaskTaskAttributesV1}
-     * @memberof LoaduncorrelatedaccountstaskTaskV1
-     */
-    'attributes'?: LoaduncorrelatedaccountstaskTaskAttributesV1;
-    /**
-     * Return values from the task
-     * @type {object}
-     * @memberof LoaduncorrelatedaccountstaskTaskV1
-     */
-    'returns'?: object;
-}
-
-export const LoaduncorrelatedaccountstaskTaskV1CompletionStatusV1 = {
-    Success: 'SUCCESS',
-    Warning: 'WARNING',
-    Error: 'ERROR',
-    Terminated: 'TERMINATED',
-    TempError: 'TEMP_ERROR'
-} as const;
-
-export type LoaduncorrelatedaccountstaskTaskV1CompletionStatusV1 = typeof LoaduncorrelatedaccountstaskTaskV1CompletionStatusV1[keyof typeof LoaduncorrelatedaccountstaskTaskV1CompletionStatusV1];
-
-/**
- * 
- * @export
- * @interface LoaduncorrelatedaccountstaskV1
- */
-export interface LoaduncorrelatedaccountstaskV1 {
-    /**
-     * The status of the result
-     * @type {boolean}
-     * @memberof LoaduncorrelatedaccountstaskV1
-     */
-    'success'?: boolean;
-    /**
-     * 
-     * @type {LoaduncorrelatedaccountstaskTaskV1}
-     * @memberof LoaduncorrelatedaccountstaskV1
-     */
-    'task'?: LoaduncorrelatedaccountstaskTaskV1;
-}
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
  * @export
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface ManagercorrelationmappingV1
+ * @interface Managercorrelationmapping
  */
-export interface ManagercorrelationmappingV1 {
+export interface Managercorrelationmapping {
     /**
      * Name of the attribute to use for manager correlation. The value found on the account attribute will be used to lookup the manager\'s identity.
      * @type {string}
-     * @memberof ManagercorrelationmappingV1
+     * @memberof Managercorrelationmapping
      */
     'accountAttributeName'?: string;
     /**
      * Name of the identity attribute to search when trying to find a manager using the value from the accountAttribute.
      * @type {string}
-     * @memberof ManagercorrelationmappingV1
+     * @memberof Managercorrelationmapping
      */
     'identityAttributeName'?: string;
 }
 /**
  * Source configuration information for Native Change Detection that is read and used by account aggregation process.
  * @export
- * @interface NativechangedetectionconfigV1
+ * @interface Nativechangedetectionconfig
  */
-export interface NativechangedetectionconfigV1 {
+export interface Nativechangedetectionconfig {
     /**
      * A flag indicating if Native Change Detection is enabled for a source.
      * @type {boolean}
-     * @memberof NativechangedetectionconfigV1
+     * @memberof Nativechangedetectionconfig
      */
     'enabled'?: boolean;
     /**
      * Operation types for which Native Change Detection is enabled for a source.
      * @type {Array<string>}
-     * @memberof NativechangedetectionconfigV1
+     * @memberof Nativechangedetectionconfig
      */
-    'operations'?: Array<NativechangedetectionconfigV1OperationsV1>;
+    'operations'?: Array<NativechangedetectionconfigOperationsEnum>;
     /**
      * A flag indicating that all entitlements participate in Native Change Detection.
      * @type {boolean}
-     * @memberof NativechangedetectionconfigV1
+     * @memberof Nativechangedetectionconfig
      */
     'allEntitlements'?: boolean;
     /**
      * A flag indicating that all non-entitlement account attributes participate in Native Change Detection.
      * @type {boolean}
-     * @memberof NativechangedetectionconfigV1
+     * @memberof Nativechangedetectionconfig
      */
     'allNonEntitlementAttributes'?: boolean;
     /**
      * If allEntitlements flag is off this field lists entitlements that participate in Native Change Detection.
      * @type {Array<string>}
-     * @memberof NativechangedetectionconfigV1
+     * @memberof Nativechangedetectionconfig
      */
     'selectedEntitlements'?: Array<string>;
     /**
      * If allNonEntitlementAttributes flag is off this field lists non-entitlement account attributes that participate in Native Change Detection.
      * @type {Array<string>}
-     * @memberof NativechangedetectionconfigV1
+     * @memberof Nativechangedetectionconfig
      */
     'selectedNonEntitlementAttributes'?: Array<string>;
 }
 
-export const NativechangedetectionconfigV1OperationsV1 = {
+export const NativechangedetectionconfigOperationsEnum = {
     AccountUpdated: 'ACCOUNT_UPDATED',
     AccountCreated: 'ACCOUNT_CREATED',
     AccountDeleted: 'ACCOUNT_DELETED'
 } as const;
 
-export type NativechangedetectionconfigV1OperationsV1 = typeof NativechangedetectionconfigV1OperationsV1[keyof typeof NativechangedetectionconfigV1OperationsV1];
+export type NativechangedetectionconfigOperationsEnum = typeof NativechangedetectionconfigOperationsEnum[keyof typeof NativechangedetectionconfigOperationsEnum];
 
 /**
  * 
  * @export
- * @interface PasswordpolicyholdersdtoInnerV1
+ * @interface PasswordpolicyholdersdtoInner
  */
-export interface PasswordpolicyholdersdtoInnerV1 {
+export interface PasswordpolicyholdersdtoInner {
     /**
      * The password policy Id.
      * @type {string}
-     * @memberof PasswordpolicyholdersdtoInnerV1
+     * @memberof PasswordpolicyholdersdtoInner
      */
     'policyId'?: string;
     /**
      * The name of the password policy.
      * @type {string}
-     * @memberof PasswordpolicyholdersdtoInnerV1
+     * @memberof PasswordpolicyholdersdtoInner
      */
     'policyName'?: string;
     /**
      * 
-     * @type {PasswordpolicyholdersdtoattributesV1}
-     * @memberof PasswordpolicyholdersdtoInnerV1
+     * @type {Passwordpolicyholdersdtoattributes}
+     * @memberof PasswordpolicyholdersdtoInner
      */
-    'selectors'?: PasswordpolicyholdersdtoattributesV1;
+    'selectors'?: Passwordpolicyholdersdtoattributes;
 }
 /**
  * 
  * @export
- * @interface PasswordpolicyholdersdtoattributesIdentityAttrInnerV1
+ * @interface Passwordpolicyholdersdtoattributes
  */
-export interface PasswordpolicyholdersdtoattributesIdentityAttrInnerV1 {
+export interface Passwordpolicyholdersdtoattributes {
+    /**
+     * Attributes of PasswordPolicyHoldersDto
+     * @type {Array<PasswordpolicyholdersdtoattributesIdentityAttrInner>}
+     * @memberof Passwordpolicyholdersdtoattributes
+     */
+    'identityAttr'?: Array<PasswordpolicyholdersdtoattributesIdentityAttrInner>;
+}
+/**
+ * 
+ * @export
+ * @interface PasswordpolicyholdersdtoattributesIdentityAttrInner
+ */
+export interface PasswordpolicyholdersdtoattributesIdentityAttrInner {
     /**
      * Attribute\'s name
      * @type {string}
-     * @memberof PasswordpolicyholdersdtoattributesIdentityAttrInnerV1
+     * @memberof PasswordpolicyholdersdtoattributesIdentityAttrInner
      */
     'name'?: string;
     /**
      * Attribute\'s value
      * @type {string}
-     * @memberof PasswordpolicyholdersdtoattributesIdentityAttrInnerV1
+     * @memberof PasswordpolicyholdersdtoattributesIdentityAttrInner
      */
     'value'?: string;
 }
 /**
  * 
  * @export
- * @interface PasswordpolicyholdersdtoattributesV1
+ * @interface Provisioningpolicydto
  */
-export interface PasswordpolicyholdersdtoattributesV1 {
-    /**
-     * Attributes of PasswordPolicyHoldersDto
-     * @type {Array<PasswordpolicyholdersdtoattributesIdentityAttrInnerV1>}
-     * @memberof PasswordpolicyholdersdtoattributesV1
-     */
-    'identityAttr'?: Array<PasswordpolicyholdersdtoattributesIdentityAttrInnerV1>;
-}
-/**
- * 
- * @export
- * @interface ProvisioningpolicydtoV1
- */
-export interface ProvisioningpolicydtoV1 {
+export interface Provisioningpolicydto {
     /**
      * the provisioning policy name
      * @type {string}
-     * @memberof ProvisioningpolicydtoV1
+     * @memberof Provisioningpolicydto
      */
     'name': string | null;
     /**
      * the description of the provisioning policy
      * @type {string}
-     * @memberof ProvisioningpolicydtoV1
+     * @memberof Provisioningpolicydto
      */
     'description'?: string;
     /**
      * 
-     * @type {UsagetypeV1}
-     * @memberof ProvisioningpolicydtoV1
+     * @type {Usagetype}
+     * @memberof Provisioningpolicydto
      */
-    'usageType'?: UsagetypeV1;
+    'usageType'?: Usagetype;
     /**
      * 
-     * @type {Array<FielddetailsdtoV1>}
-     * @memberof ProvisioningpolicydtoV1
+     * @type {Array<Fielddetailsdto>}
+     * @memberof Provisioningpolicydto
      */
-    'fields'?: Array<FielddetailsdtoV1>;
+    'fields'?: Array<Fielddetailsdto>;
 }
 
 
 /**
  * Representation of the object which is returned from source connectors.
  * @export
- * @interface ResourceobjectV1
+ * @interface Resourceobject
  */
-export interface ResourceobjectV1 {
+export interface Resourceobject {
     /**
      * Identifier of the specific instance where this object resides.
      * @type {string}
-     * @memberof ResourceobjectV1
+     * @memberof Resourceobject
      */
     'instance'?: string;
     /**
      * Native identity of the object in the Source.
      * @type {string}
-     * @memberof ResourceobjectV1
+     * @memberof Resourceobject
      */
     'identity'?: string;
     /**
      * Universal unique identifier of the object in the Source.
      * @type {string}
-     * @memberof ResourceobjectV1
+     * @memberof Resourceobject
      */
     'uuid'?: string;
     /**
      * Native identity that the object has previously.
      * @type {string}
-     * @memberof ResourceobjectV1
+     * @memberof Resourceobject
      */
     'previousIdentity'?: string;
     /**
      * Display name for this object.
      * @type {string}
-     * @memberof ResourceobjectV1
+     * @memberof Resourceobject
      */
     'name'?: string;
     /**
      * Type of object.
      * @type {string}
-     * @memberof ResourceobjectV1
+     * @memberof Resourceobject
      */
     'objectType'?: string;
     /**
      * A flag indicating that this is an incomplete object. Used in special cases where the connector has to return account information in several phases and the objects might not have a complete set of all account attributes. The attributes in this object will replace the corresponding attributes in the Link, but no other Link attributes will be changed.
      * @type {boolean}
-     * @memberof ResourceobjectV1
+     * @memberof Resourceobject
      */
     'incomplete'?: boolean;
     /**
      * A flag indicating that this is an incremental change object. This is similar to incomplete but it also means that the values of any multi-valued attributes in this object should be merged with the existing values in the Link rather than replacing the existing Link value.
      * @type {boolean}
-     * @memberof ResourceobjectV1
+     * @memberof Resourceobject
      */
     'incremental'?: boolean;
     /**
      * A flag indicating that this object has been deleted. This is set only when doing delta aggregation and the connector supports detection of native deletes.
      * @type {boolean}
-     * @memberof ResourceobjectV1
+     * @memberof Resourceobject
      */
     'delete'?: boolean;
     /**
      * A flag set indicating that the values in the attributes represent things to remove rather than things to add. Setting this implies incremental. The values which are always for multi-valued attributes are removed from the current values.
      * @type {boolean}
-     * @memberof ResourceobjectV1
+     * @memberof Resourceobject
      */
     'remove'?: boolean;
     /**
      * A list of attribute names that are not included in this object. This is only used with SMConnector and will only contain \"groups\".
      * @type {Array<string>}
-     * @memberof ResourceobjectV1
+     * @memberof Resourceobject
      */
     'missing'?: Array<string>;
     /**
      * Attributes of this ResourceObject.
      * @type {object}
-     * @memberof ResourceobjectV1
+     * @memberof Resourceobject
      */
     'attributes'?: object;
     /**
      * In Aggregation, for sparse object the count for total accounts scanned identities updated is not incremented.
      * @type {boolean}
-     * @memberof ResourceobjectV1
+     * @memberof Resourceobject
      */
     'finalUpdate'?: boolean;
 }
 /**
  * Request model for peek resource objects from source connectors.
  * @export
- * @interface ResourceobjectsrequestV1
+ * @interface Resourceobjectsrequest
  */
-export interface ResourceobjectsrequestV1 {
+export interface Resourceobjectsrequest {
     /**
      * The type of resource objects to iterate over.
      * @type {string}
-     * @memberof ResourceobjectsrequestV1
+     * @memberof Resourceobjectsrequest
      */
     'objectType'?: string;
     /**
      * The maximum number of resource objects to iterate over and return.
      * @type {number}
-     * @memberof ResourceobjectsrequestV1
+     * @memberof Resourceobjectsrequest
      */
     'maxCount'?: number;
 }
 /**
  * Response model for peek resource objects from source connectors.
  * @export
- * @interface ResourceobjectsresponseV1
+ * @interface Resourceobjectsresponse
  */
-export interface ResourceobjectsresponseV1 {
+export interface Resourceobjectsresponse {
     /**
      * ID of the source
      * @type {string}
-     * @memberof ResourceobjectsresponseV1
+     * @memberof Resourceobjectsresponse
      */
     'id'?: string;
     /**
      * Name of the source
      * @type {string}
-     * @memberof ResourceobjectsresponseV1
+     * @memberof Resourceobjectsresponse
      */
     'name'?: string;
     /**
      * The number of objects that were fetched by the connector.
      * @type {number}
-     * @memberof ResourceobjectsresponseV1
+     * @memberof Resourceobjectsresponse
      */
     'objectCount'?: number;
     /**
      * The number of milliseconds spent on the entire request.
      * @type {number}
-     * @memberof ResourceobjectsresponseV1
+     * @memberof Resourceobjectsresponse
      */
     'elapsedMillis'?: number;
     /**
      * Fetched objects from the source connector.
-     * @type {Array<ResourceobjectV1>}
-     * @memberof ResourceobjectsresponseV1
+     * @type {Array<Resourceobject>}
+     * @memberof Resourceobjectsresponse
      */
-    'resourceObjects'?: Array<ResourceobjectV1>;
+    'resourceObjects'?: Array<Resourceobject>;
 }
 /**
  * 
  * @export
- * @interface Schedule3V1
+ * @interface Schedule3
  */
-export interface Schedule3V1 {
+export interface Schedule3 {
     /**
      * The type of the Schedule.
      * @type {string}
-     * @memberof Schedule3V1
+     * @memberof Schedule3
      */
-    'type': Schedule3V1TypeV1;
+    'type': Schedule3TypeEnum;
     /**
      * The cron expression of the schedule.
      * @type {string}
-     * @memberof Schedule3V1
+     * @memberof Schedule3
      */
     'cronExpression': string;
 }
 
-export const Schedule3V1TypeV1 = {
+export const Schedule3TypeEnum = {
     AccountAggregation: 'ACCOUNT_AGGREGATION',
     GroupAggregation: 'GROUP_AGGREGATION'
 } as const;
 
-export type Schedule3V1TypeV1 = typeof Schedule3V1TypeV1[keyof typeof Schedule3V1TypeV1];
+export type Schedule3TypeEnum = typeof Schedule3TypeEnum[keyof typeof Schedule3TypeEnum];
 
 /**
  * 
  * @export
- * @interface SchemaV1
+ * @interface Schema
  */
-export interface SchemaV1 {
+export interface Schema {
     /**
      * The id of the Schema.
      * @type {string}
-     * @memberof SchemaV1
+     * @memberof Schema
      */
     'id'?: string;
     /**
      * The name of the Schema.
      * @type {string}
-     * @memberof SchemaV1
+     * @memberof Schema
      */
     'name'?: string;
     /**
      * The name of the object type on the native system that the schema represents.
      * @type {string}
-     * @memberof SchemaV1
+     * @memberof Schema
      */
     'nativeObjectType'?: string;
     /**
      * The name of the attribute used to calculate the unique identifier for an object in the schema.
      * @type {string}
-     * @memberof SchemaV1
+     * @memberof Schema
      */
     'identityAttribute'?: string;
     /**
      * The name of the attribute used to calculate the display value for an object in the schema.
      * @type {string}
-     * @memberof SchemaV1
+     * @memberof Schema
      */
     'displayAttribute'?: string;
     /**
      * The name of the attribute whose values represent other objects in a hierarchy. Only relevant to group schemas.
      * @type {string}
-     * @memberof SchemaV1
+     * @memberof Schema
      */
     'hierarchyAttribute'?: string | null;
     /**
      * Flag indicating whether or not the include permissions with the object data when aggregating the schema.
      * @type {boolean}
-     * @memberof SchemaV1
+     * @memberof Schema
      */
     'includePermissions'?: boolean;
     /**
      * Optional features that can be supported by a source. Modifying the features array may cause source configuration errors that are unsupportable. It is recommended to not modify this array for SailPoint supported connectors. * AUTHENTICATE: The source supports pass-through authentication. * COMPOSITE: The source supports composite source creation. * DIRECT_PERMISSIONS: The source supports returning DirectPermissions. * DISCOVER_SCHEMA: The source supports discovering schemas for users and groups. * ENABLE The source supports reading if an account is enabled or disabled. * MANAGER_LOOKUP: The source supports looking up managers as they are encountered in a feed. This is the opposite of NO_RANDOM_ACCESS. * NO_RANDOM_ACCESS: The source does not support random access and the getObject() methods should not be called and expected to perform. * PROXY: The source can serve as a proxy for another source. When an source has a proxy, all connector calls made with that source are redirected through the connector for the proxy source. * SEARCH * TEMPLATE * UNLOCK: The source supports reading if an account is locked or unlocked. * UNSTRUCTURED_TARGETS: The source supports returning unstructured Targets. * SHAREPOINT_TARGET: The source supports returning unstructured Target data for SharePoint. It will be typically used by AD, LDAP sources. * PROVISIONING: The source can both read and write accounts. Having this feature implies that the provision() method is implemented. It also means that direct and target permissions can also be provisioned if they can be returned by aggregation. * GROUP_PROVISIONING: The source can both read and write groups. Having this feature implies that the provision() method is implemented. * SYNC_PROVISIONING: The source can provision accounts synchronously. * PASSWORD: The source can provision password changes. Since sources can never read passwords, this is should only be used in conjunction with the PROVISIONING feature. * CURRENT_PASSWORD: Some source types support verification of the current password * ACCOUNT_ONLY_REQUEST: The source supports requesting accounts without entitlements. * ADDITIONAL_ACCOUNT_REQUEST: The source supports requesting additional accounts. * NO_AGGREGATION: A source that does not support aggregation. * GROUPS_HAVE_MEMBERS: The source models group memberships with a member attribute on the group object rather than a groups attribute on the account object. This effects the implementation of delta account aggregation. * NO_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for accounts. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for accounts. * NO_GROUP_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for groups. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for groups. * NO_UNSTRUCTURED_TARGETS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING. * NO_DIRECT_PERMISSIONS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING. * USES_UUID: Connectivity 2.0 flag used to indicate that the connector supports a compound naming structure. * PREFER_UUID: Used in ISC Provisioning AND Aggregation to decide if it should prefer account.uuid to account.nativeIdentity when data is read in through aggregation OR pushed out through provisioning. * ARM_SECURITY_EXTRACT: Indicates the application supports Security extracts for ARM * ARM_UTILIZATION_EXTRACT: Indicates the application supports Utilization extracts for ARM * ARM_CHANGELOG_EXTRACT: Indicates the application supports Change-log extracts for ARM
      * @type {Array<string>}
-     * @memberof SchemaV1
+     * @memberof Schema
      */
-    'features'?: Array<SchemaV1FeaturesV1>;
+    'features'?: Array<SchemaFeaturesEnum>;
     /**
      * Holds any extra configuration data that the schema may require.
      * @type {object}
-     * @memberof SchemaV1
+     * @memberof Schema
      */
     'configuration'?: object;
     /**
      * The attribute definitions which form the schema.
-     * @type {Array<AttributedefinitionV1>}
-     * @memberof SchemaV1
+     * @type {Array<Attributedefinition>}
+     * @memberof Schema
      */
-    'attributes'?: Array<AttributedefinitionV1>;
+    'attributes'?: Array<Attributedefinition>;
     /**
      * The date the Schema was created.
      * @type {string}
-     * @memberof SchemaV1
+     * @memberof Schema
      */
     'created'?: string;
     /**
      * The date the Schema was last modified.
      * @type {string}
-     * @memberof SchemaV1
+     * @memberof Schema
      */
     'modified'?: string | null;
 }
 
-export const SchemaV1FeaturesV1 = {
+export const SchemaFeaturesEnum = {
     Authenticate: 'AUTHENTICATE',
     Composite: 'COMPOSITE',
     DirectPermissions: 'DIRECT_PERMISSIONS',
@@ -2341,510 +2341,203 @@ export const SchemaV1FeaturesV1 = {
     Delete: 'DELETE'
 } as const;
 
-export type SchemaV1FeaturesV1 = typeof SchemaV1FeaturesV1[keyof typeof SchemaV1FeaturesV1];
-
-/**
- * Reference to account correlation config object.
- * @export
- * @interface SourceAccountCorrelationConfigV1
- */
-export interface SourceAccountCorrelationConfigV1 {
-    /**
-     * Type of object being referenced.
-     * @type {string}
-     * @memberof SourceAccountCorrelationConfigV1
-     */
-    'type'?: SourceAccountCorrelationConfigV1TypeV1;
-    /**
-     * Account correlation config ID.
-     * @type {string}
-     * @memberof SourceAccountCorrelationConfigV1
-     */
-    'id'?: string;
-    /**
-     * Account correlation config\'s human-readable display name.
-     * @type {string}
-     * @memberof SourceAccountCorrelationConfigV1
-     */
-    'name'?: string;
-}
-
-export const SourceAccountCorrelationConfigV1TypeV1 = {
-    AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG'
-} as const;
-
-export type SourceAccountCorrelationConfigV1TypeV1 = typeof SourceAccountCorrelationConfigV1TypeV1[keyof typeof SourceAccountCorrelationConfigV1TypeV1];
-
-/**
- * Reference to a rule that can do COMPLEX correlation. Only use this rule when you can\'t use accountCorrelationConfig.
- * @export
- * @interface SourceAccountCorrelationRuleV1
- */
-export interface SourceAccountCorrelationRuleV1 {
-    /**
-     * Type of object being referenced.
-     * @type {string}
-     * @memberof SourceAccountCorrelationRuleV1
-     */
-    'type'?: SourceAccountCorrelationRuleV1TypeV1;
-    /**
-     * Rule ID.
-     * @type {string}
-     * @memberof SourceAccountCorrelationRuleV1
-     */
-    'id'?: string;
-    /**
-     * Rule\'s human-readable display name.
-     * @type {string}
-     * @memberof SourceAccountCorrelationRuleV1
-     */
-    'name'?: string;
-}
-
-export const SourceAccountCorrelationRuleV1TypeV1 = {
-    Rule: 'RULE'
-} as const;
-
-export type SourceAccountCorrelationRuleV1TypeV1 = typeof SourceAccountCorrelationRuleV1TypeV1[keyof typeof SourceAccountCorrelationRuleV1TypeV1];
-
-/**
- * Rule that runs on the CCG and allows for customization of provisioning plans before the API calls the connector. 
- * @export
- * @interface SourceBeforeProvisioningRuleV1
- */
-export interface SourceBeforeProvisioningRuleV1 {
-    /**
-     * Type of object being referenced.
-     * @type {string}
-     * @memberof SourceBeforeProvisioningRuleV1
-     */
-    'type'?: SourceBeforeProvisioningRuleV1TypeV1;
-    /**
-     * Rule ID.
-     * @type {string}
-     * @memberof SourceBeforeProvisioningRuleV1
-     */
-    'id'?: string;
-    /**
-     * Rule\'s human-readable display name.
-     * @type {string}
-     * @memberof SourceBeforeProvisioningRuleV1
-     */
-    'name'?: string;
-}
-
-export const SourceBeforeProvisioningRuleV1TypeV1 = {
-    Rule: 'RULE'
-} as const;
-
-export type SourceBeforeProvisioningRuleV1TypeV1 = typeof SourceBeforeProvisioningRuleV1TypeV1[keyof typeof SourceBeforeProvisioningRuleV1TypeV1];
-
-/**
- * Reference to the source\'s associated cluster.
- * @export
- * @interface SourceClusterV1
- */
-export interface SourceClusterV1 {
-    /**
-     * Type of object being referenced.
-     * @type {string}
-     * @memberof SourceClusterV1
-     */
-    'type': SourceClusterV1TypeV1;
-    /**
-     * Cluster ID.
-     * @type {string}
-     * @memberof SourceClusterV1
-     */
-    'id': string;
-    /**
-     * Cluster\'s human-readable display name.
-     * @type {string}
-     * @memberof SourceClusterV1
-     */
-    'name': string;
-}
-
-export const SourceClusterV1TypeV1 = {
-    Cluster: 'CLUSTER'
-} as const;
-
-export type SourceClusterV1TypeV1 = typeof SourceClusterV1TypeV1[keyof typeof SourceClusterV1TypeV1];
-
-/**
- * Reference to management workgroup for the source.
- * @export
- * @interface SourceManagementWorkgroupV1
- */
-export interface SourceManagementWorkgroupV1 {
-    /**
-     * Type of object being referenced.
-     * @type {string}
-     * @memberof SourceManagementWorkgroupV1
-     */
-    'type'?: SourceManagementWorkgroupV1TypeV1;
-    /**
-     * Management workgroup ID.
-     * @type {string}
-     * @memberof SourceManagementWorkgroupV1
-     */
-    'id'?: string;
-    /**
-     * Management workgroup\'s human-readable display name.
-     * @type {string}
-     * @memberof SourceManagementWorkgroupV1
-     */
-    'name'?: string;
-}
-
-export const SourceManagementWorkgroupV1TypeV1 = {
-    GovernanceGroup: 'GOVERNANCE_GROUP'
-} as const;
-
-export type SourceManagementWorkgroupV1TypeV1 = typeof SourceManagementWorkgroupV1TypeV1[keyof typeof SourceManagementWorkgroupV1TypeV1];
+export type SchemaFeaturesEnum = typeof SchemaFeaturesEnum[keyof typeof SchemaFeaturesEnum];
 
 /**
  * 
  * @export
- * @interface SourceManagerCorrelationMappingV1
+ * @interface Source
  */
-export interface SourceManagerCorrelationMappingV1 {
-    /**
-     * Name of the attribute to use for manager correlation. The value found on the account attribute will be used to lookup the manager\'s identity.
-     * @type {string}
-     * @memberof SourceManagerCorrelationMappingV1
-     */
-    'accountAttributeName'?: string;
-    /**
-     * Name of the identity attribute to search when trying to find a manager using the value from the accountAttribute.
-     * @type {string}
-     * @memberof SourceManagerCorrelationMappingV1
-     */
-    'identityAttributeName'?: string;
-}
-/**
- * Reference to the ManagerCorrelationRule. Only use this rule when a simple filter isn\'t sufficient.
- * @export
- * @interface SourceManagerCorrelationRuleV1
- */
-export interface SourceManagerCorrelationRuleV1 {
-    /**
-     * Type of object being referenced.
-     * @type {string}
-     * @memberof SourceManagerCorrelationRuleV1
-     */
-    'type'?: SourceManagerCorrelationRuleV1TypeV1;
-    /**
-     * Rule ID.
-     * @type {string}
-     * @memberof SourceManagerCorrelationRuleV1
-     */
-    'id'?: string;
-    /**
-     * Rule\'s human-readable display name.
-     * @type {string}
-     * @memberof SourceManagerCorrelationRuleV1
-     */
-    'name'?: string;
-}
-
-export const SourceManagerCorrelationRuleV1TypeV1 = {
-    Rule: 'RULE'
-} as const;
-
-export type SourceManagerCorrelationRuleV1TypeV1 = typeof SourceManagerCorrelationRuleV1TypeV1[keyof typeof SourceManagerCorrelationRuleV1TypeV1];
-
-/**
- * Reference to identity object who owns the source.
- * @export
- * @interface SourceOwnerV1
- */
-export interface SourceOwnerV1 {
-    /**
-     * Type of object being referenced.
-     * @type {string}
-     * @memberof SourceOwnerV1
-     */
-    'type'?: SourceOwnerV1TypeV1;
-    /**
-     * Owner identity\'s ID.
-     * @type {string}
-     * @memberof SourceOwnerV1
-     */
-    'id'?: string;
-    /**
-     * Owner identity\'s human-readable display name.
-     * @type {string}
-     * @memberof SourceOwnerV1
-     */
-    'name'?: string;
-}
-
-export const SourceOwnerV1TypeV1 = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type SourceOwnerV1TypeV1 = typeof SourceOwnerV1TypeV1[keyof typeof SourceOwnerV1TypeV1];
-
-/**
- * 
- * @export
- * @interface SourcePasswordPoliciesInnerV1
- */
-export interface SourcePasswordPoliciesInnerV1 {
-    /**
-     * Type of object being referenced.
-     * @type {string}
-     * @memberof SourcePasswordPoliciesInnerV1
-     */
-    'type'?: SourcePasswordPoliciesInnerV1TypeV1;
-    /**
-     * Policy ID.
-     * @type {string}
-     * @memberof SourcePasswordPoliciesInnerV1
-     */
-    'id'?: string;
-    /**
-     * Policy\'s human-readable display name.
-     * @type {string}
-     * @memberof SourcePasswordPoliciesInnerV1
-     */
-    'name'?: string;
-}
-
-export const SourcePasswordPoliciesInnerV1TypeV1 = {
-    PasswordPolicy: 'PASSWORD_POLICY'
-} as const;
-
-export type SourcePasswordPoliciesInnerV1TypeV1 = typeof SourcePasswordPoliciesInnerV1TypeV1[keyof typeof SourcePasswordPoliciesInnerV1TypeV1];
-
-/**
- * 
- * @export
- * @interface SourceSchemasInnerV1
- */
-export interface SourceSchemasInnerV1 {
-    /**
-     * Type of object being referenced.
-     * @type {string}
-     * @memberof SourceSchemasInnerV1
-     */
-    'type'?: SourceSchemasInnerV1TypeV1;
-    /**
-     * Schema ID.
-     * @type {string}
-     * @memberof SourceSchemasInnerV1
-     */
-    'id'?: string;
-    /**
-     * Schema\'s human-readable display name.
-     * @type {string}
-     * @memberof SourceSchemasInnerV1
-     */
-    'name'?: string;
-}
-
-export const SourceSchemasInnerV1TypeV1 = {
-    ConnectorSchema: 'CONNECTOR_SCHEMA'
-} as const;
-
-export type SourceSchemasInnerV1TypeV1 = typeof SourceSchemasInnerV1TypeV1[keyof typeof SourceSchemasInnerV1TypeV1];
-
-/**
- * 
- * @export
- * @interface SourceV1
- */
-export interface SourceV1 {
+export interface Source {
     /**
      * Source ID.
      * @type {string}
-     * @memberof SourceV1
+     * @memberof Source
      */
     'id'?: string;
     /**
      * Source\'s human-readable name.
      * @type {string}
-     * @memberof SourceV1
+     * @memberof Source
      */
     'name': string;
     /**
      * Source\'s human-readable description.
      * @type {string}
-     * @memberof SourceV1
+     * @memberof Source
      */
     'description'?: string;
     /**
      * 
-     * @type {SourceOwnerV1}
-     * @memberof SourceV1
+     * @type {SourceOwner}
+     * @memberof Source
      */
-    'owner': SourceOwnerV1 | null;
+    'owner': SourceOwner | null;
     /**
      * 
-     * @type {SourceClusterV1}
-     * @memberof SourceV1
+     * @type {SourceCluster}
+     * @memberof Source
      */
-    'cluster'?: SourceClusterV1 | null;
+    'cluster'?: SourceCluster | null;
     /**
      * 
-     * @type {SourceAccountCorrelationConfigV1}
-     * @memberof SourceV1
+     * @type {SourceAccountCorrelationConfig}
+     * @memberof Source
      */
-    'accountCorrelationConfig'?: SourceAccountCorrelationConfigV1 | null;
+    'accountCorrelationConfig'?: SourceAccountCorrelationConfig | null;
     /**
      * 
-     * @type {SourceAccountCorrelationRuleV1}
-     * @memberof SourceV1
+     * @type {SourceAccountCorrelationRule}
+     * @memberof Source
      */
-    'accountCorrelationRule'?: SourceAccountCorrelationRuleV1 | null;
+    'accountCorrelationRule'?: SourceAccountCorrelationRule | null;
     /**
      * 
-     * @type {SourceManagerCorrelationMappingV1}
-     * @memberof SourceV1
+     * @type {SourceManagerCorrelationMapping}
+     * @memberof Source
      */
-    'managerCorrelationMapping'?: SourceManagerCorrelationMappingV1;
+    'managerCorrelationMapping'?: SourceManagerCorrelationMapping;
     /**
      * 
-     * @type {SourceManagerCorrelationRuleV1}
-     * @memberof SourceV1
+     * @type {SourceManagerCorrelationRule}
+     * @memberof Source
      */
-    'managerCorrelationRule'?: SourceManagerCorrelationRuleV1 | null;
+    'managerCorrelationRule'?: SourceManagerCorrelationRule | null;
     /**
      * 
-     * @type {SourceBeforeProvisioningRuleV1}
-     * @memberof SourceV1
+     * @type {SourceBeforeProvisioningRule}
+     * @memberof Source
      */
-    'beforeProvisioningRule'?: SourceBeforeProvisioningRuleV1 | null;
+    'beforeProvisioningRule'?: SourceBeforeProvisioningRule | null;
     /**
      * List of references to schema objects.
-     * @type {Array<SourceSchemasInnerV1>}
-     * @memberof SourceV1
+     * @type {Array<SourceSchemasInner>}
+     * @memberof Source
      */
-    'schemas'?: Array<SourceSchemasInnerV1>;
+    'schemas'?: Array<SourceSchemasInner>;
     /**
      * List of references to the associated PasswordPolicy objects.
-     * @type {Array<SourcePasswordPoliciesInnerV1>}
-     * @memberof SourceV1
+     * @type {Array<SourcePasswordPoliciesInner>}
+     * @memberof Source
      */
-    'passwordPolicies'?: Array<SourcePasswordPoliciesInnerV1> | null;
+    'passwordPolicies'?: Array<SourcePasswordPoliciesInner> | null;
     /**
      * Optional features that can be supported by a source. Modifying the features array may cause source configuration errors that are unsupportable. It is recommended to not modify this array for SailPoint supported connectors. * AUTHENTICATE: The source supports pass-through authentication. * COMPOSITE: The source supports composite source creation. * DIRECT_PERMISSIONS: The source supports returning DirectPermissions. * DISCOVER_SCHEMA: The source supports discovering schemas for users and groups. * ENABLE The source supports reading if an account is enabled or disabled. * MANAGER_LOOKUP: The source supports looking up managers as they are encountered in a feed. This is the opposite of NO_RANDOM_ACCESS. * NO_RANDOM_ACCESS: The source does not support random access and the getObject() methods should not be called and expected to perform. * PROXY: The source can serve as a proxy for another source. When an source has a proxy, all connector calls made with that source are redirected through the connector for the proxy source. * SEARCH * TEMPLATE * UNLOCK: The source supports reading if an account is locked or unlocked. * UNSTRUCTURED_TARGETS: The source supports returning unstructured Targets. * SHAREPOINT_TARGET: The source supports returning unstructured Target data for SharePoint. It will be typically used by AD, LDAP sources. * PROVISIONING: The source can both read and write accounts. Having this feature implies that the provision() method is implemented. It also means that direct and target permissions can also be provisioned if they can be returned by aggregation. * GROUP_PROVISIONING: The source can both read and write groups. Having this feature implies that the provision() method is implemented. * SYNC_PROVISIONING: The source can provision accounts synchronously. * PASSWORD: The source can provision password changes. Since sources can never read passwords, this is should only be used in conjunction with the PROVISIONING feature. * CURRENT_PASSWORD: Some source types support verification of the current password * ACCOUNT_ONLY_REQUEST: The source supports requesting accounts without entitlements. * ADDITIONAL_ACCOUNT_REQUEST: The source supports requesting additional accounts. * NO_AGGREGATION: A source that does not support aggregation. * GROUPS_HAVE_MEMBERS: The source models group memberships with a member attribute on the group object rather than a groups attribute on the account object. This effects the implementation of delta account aggregation. * NO_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for accounts. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for accounts. * NO_GROUP_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for groups. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for groups. * NO_UNSTRUCTURED_TARGETS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING. * NO_DIRECT_PERMISSIONS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING. * USES_UUID: Connectivity 2.0 flag used to indicate that the connector supports a compound naming structure. * PREFER_UUID: Used in ISC Provisioning AND Aggregation to decide if it should prefer account.uuid to account.nativeIdentity when data is read in through aggregation OR pushed out through provisioning. * ARM_SECURITY_EXTRACT: Indicates the application supports Security extracts for ARM * ARM_UTILIZATION_EXTRACT: Indicates the application supports Utilization extracts for ARM * ARM_CHANGELOG_EXTRACT: Indicates the application supports Change-log extracts for ARM
      * @type {Array<string>}
-     * @memberof SourceV1
+     * @memberof Source
      */
-    'features'?: Array<SourceV1FeaturesV1>;
+    'features'?: Array<SourceFeaturesEnum>;
     /**
      * Specifies the type of system being managed e.g. Active Directory, Workday, etc.. If you are creating a delimited file source, you must set the `provisionasCsv` query parameter to `true`. 
      * @type {string}
-     * @memberof SourceV1
+     * @memberof Source
      */
     'type'?: string;
     /**
      * Connector script name.
      * @type {string}
-     * @memberof SourceV1
+     * @memberof Source
      */
     'connector': string;
     /**
      * Fully qualified name of the Java class that implements the connector interface.
      * @type {string}
-     * @memberof SourceV1
+     * @memberof Source
      */
     'connectorClass'?: string;
     /**
      * Connector specific configuration. This configuration will differ from type to type.
      * @type {object}
-     * @memberof SourceV1
+     * @memberof Source
      */
     'connectorAttributes'?: object;
     /**
      * Number from 0 to 100 that specifies when to skip the delete phase.
      * @type {number}
-     * @memberof SourceV1
+     * @memberof Source
      */
     'deleteThreshold'?: number;
     /**
      * When this is true, it indicates that the source is referenced by an identity profile.
      * @type {boolean}
-     * @memberof SourceV1
+     * @memberof Source
      */
     'authoritative'?: boolean;
     /**
      * 
-     * @type {SourceManagementWorkgroupV1}
-     * @memberof SourceV1
+     * @type {SourceManagementWorkgroup}
+     * @memberof Source
      */
-    'managementWorkgroup'?: SourceManagementWorkgroupV1 | null;
+    'managementWorkgroup'?: SourceManagementWorkgroup | null;
     /**
      * When this is true, it indicates that the source is healthy.
      * @type {boolean}
-     * @memberof SourceV1
+     * @memberof Source
      */
     'healthy'?: boolean;
     /**
      * Status identifier that gives specific information about why a source is or isn\'t healthy. 
      * @type {string}
-     * @memberof SourceV1
+     * @memberof Source
      */
-    'status'?: SourceV1StatusV1;
+    'status'?: SourceStatusEnum;
     /**
      * Timestamp that shows when a source health check was last performed.
      * @type {string}
-     * @memberof SourceV1
+     * @memberof Source
      */
     'since'?: string;
     /**
      * Connector ID
      * @type {string}
-     * @memberof SourceV1
+     * @memberof Source
      */
     'connectorId'?: string;
     /**
      * Name of the connector that was chosen during source creation.
      * @type {string}
-     * @memberof SourceV1
+     * @memberof Source
      */
     'connectorName'?: string;
     /**
      * Type of connection (direct or file).
      * @type {string}
-     * @memberof SourceV1
+     * @memberof Source
      */
     'connectionType'?: string;
     /**
      * Connector implementation ID.
      * @type {string}
-     * @memberof SourceV1
+     * @memberof Source
      */
     'connectorImplementationId'?: string;
     /**
      * Date-time when the source was created
      * @type {string}
-     * @memberof SourceV1
+     * @memberof Source
      */
     'created'?: string;
     /**
      * Date-time when the source was last modified.
      * @type {string}
-     * @memberof SourceV1
+     * @memberof Source
      */
     'modified'?: string;
     /**
      * If this is true, it enables a credential provider for the source. If credentialProvider is turned on,  then the source can use credential provider(s) to fetch credentials.
      * @type {boolean}
-     * @memberof SourceV1
+     * @memberof Source
      */
     'credentialProviderEnabled'?: boolean;
     /**
      * Source category (e.g. null, CredentialProvider).
      * @type {string}
-     * @memberof SourceV1
+     * @memberof Source
      */
     'category'?: string | null;
 }
 
-export const SourceV1FeaturesV1 = {
+export const SourceFeaturesEnum = {
     Authenticate: 'AUTHENTICATE',
     Composite: 'COMPOSITE',
     DirectPermissions: 'DIRECT_PERMISSIONS',
@@ -2880,8 +2573,8 @@ export const SourceV1FeaturesV1 = {
     Delete: 'DELETE'
 } as const;
 
-export type SourceV1FeaturesV1 = typeof SourceV1FeaturesV1[keyof typeof SourceV1FeaturesV1];
-export const SourceV1StatusV1 = {
+export type SourceFeaturesEnum = typeof SourceFeaturesEnum[keyof typeof SourceFeaturesEnum];
+export const SourceStatusEnum = {
     SourceStateErrorAccountFileImport: 'SOURCE_STATE_ERROR_ACCOUNT_FILE_IMPORT',
     SourceStateErrorCluster: 'SOURCE_STATE_ERROR_CLUSTER',
     SourceStateErrorSource: 'SOURCE_STATE_ERROR_SOURCE',
@@ -2895,145 +2588,452 @@ export const SourceV1StatusV1 = {
     SourceStateUncheckedSourceNoAccounts: 'SOURCE_STATE_UNCHECKED_SOURCE_NO_ACCOUNTS'
 } as const;
 
-export type SourceV1StatusV1 = typeof SourceV1StatusV1[keyof typeof SourceV1StatusV1];
+export type SourceStatusEnum = typeof SourceStatusEnum[keyof typeof SourceStatusEnum];
+
+/**
+ * Reference to account correlation config object.
+ * @export
+ * @interface SourceAccountCorrelationConfig
+ */
+export interface SourceAccountCorrelationConfig {
+    /**
+     * Type of object being referenced.
+     * @type {string}
+     * @memberof SourceAccountCorrelationConfig
+     */
+    'type'?: SourceAccountCorrelationConfigTypeEnum;
+    /**
+     * Account correlation config ID.
+     * @type {string}
+     * @memberof SourceAccountCorrelationConfig
+     */
+    'id'?: string;
+    /**
+     * Account correlation config\'s human-readable display name.
+     * @type {string}
+     * @memberof SourceAccountCorrelationConfig
+     */
+    'name'?: string;
+}
+
+export const SourceAccountCorrelationConfigTypeEnum = {
+    AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG'
+} as const;
+
+export type SourceAccountCorrelationConfigTypeEnum = typeof SourceAccountCorrelationConfigTypeEnum[keyof typeof SourceAccountCorrelationConfigTypeEnum];
+
+/**
+ * Reference to a rule that can do COMPLEX correlation. Only use this rule when you can\'t use accountCorrelationConfig.
+ * @export
+ * @interface SourceAccountCorrelationRule
+ */
+export interface SourceAccountCorrelationRule {
+    /**
+     * Type of object being referenced.
+     * @type {string}
+     * @memberof SourceAccountCorrelationRule
+     */
+    'type'?: SourceAccountCorrelationRuleTypeEnum;
+    /**
+     * Rule ID.
+     * @type {string}
+     * @memberof SourceAccountCorrelationRule
+     */
+    'id'?: string;
+    /**
+     * Rule\'s human-readable display name.
+     * @type {string}
+     * @memberof SourceAccountCorrelationRule
+     */
+    'name'?: string;
+}
+
+export const SourceAccountCorrelationRuleTypeEnum = {
+    Rule: 'RULE'
+} as const;
+
+export type SourceAccountCorrelationRuleTypeEnum = typeof SourceAccountCorrelationRuleTypeEnum[keyof typeof SourceAccountCorrelationRuleTypeEnum];
+
+/**
+ * Rule that runs on the CCG and allows for customization of provisioning plans before the API calls the connector. 
+ * @export
+ * @interface SourceBeforeProvisioningRule
+ */
+export interface SourceBeforeProvisioningRule {
+    /**
+     * Type of object being referenced.
+     * @type {string}
+     * @memberof SourceBeforeProvisioningRule
+     */
+    'type'?: SourceBeforeProvisioningRuleTypeEnum;
+    /**
+     * Rule ID.
+     * @type {string}
+     * @memberof SourceBeforeProvisioningRule
+     */
+    'id'?: string;
+    /**
+     * Rule\'s human-readable display name.
+     * @type {string}
+     * @memberof SourceBeforeProvisioningRule
+     */
+    'name'?: string;
+}
+
+export const SourceBeforeProvisioningRuleTypeEnum = {
+    Rule: 'RULE'
+} as const;
+
+export type SourceBeforeProvisioningRuleTypeEnum = typeof SourceBeforeProvisioningRuleTypeEnum[keyof typeof SourceBeforeProvisioningRuleTypeEnum];
+
+/**
+ * Reference to the source\'s associated cluster.
+ * @export
+ * @interface SourceCluster
+ */
+export interface SourceCluster {
+    /**
+     * Type of object being referenced.
+     * @type {string}
+     * @memberof SourceCluster
+     */
+    'type': SourceClusterTypeEnum;
+    /**
+     * Cluster ID.
+     * @type {string}
+     * @memberof SourceCluster
+     */
+    'id': string;
+    /**
+     * Cluster\'s human-readable display name.
+     * @type {string}
+     * @memberof SourceCluster
+     */
+    'name': string;
+}
+
+export const SourceClusterTypeEnum = {
+    Cluster: 'CLUSTER'
+} as const;
+
+export type SourceClusterTypeEnum = typeof SourceClusterTypeEnum[keyof typeof SourceClusterTypeEnum];
+
+/**
+ * Reference to management workgroup for the source.
+ * @export
+ * @interface SourceManagementWorkgroup
+ */
+export interface SourceManagementWorkgroup {
+    /**
+     * Type of object being referenced.
+     * @type {string}
+     * @memberof SourceManagementWorkgroup
+     */
+    'type'?: SourceManagementWorkgroupTypeEnum;
+    /**
+     * Management workgroup ID.
+     * @type {string}
+     * @memberof SourceManagementWorkgroup
+     */
+    'id'?: string;
+    /**
+     * Management workgroup\'s human-readable display name.
+     * @type {string}
+     * @memberof SourceManagementWorkgroup
+     */
+    'name'?: string;
+}
+
+export const SourceManagementWorkgroupTypeEnum = {
+    GovernanceGroup: 'GOVERNANCE_GROUP'
+} as const;
+
+export type SourceManagementWorkgroupTypeEnum = typeof SourceManagementWorkgroupTypeEnum[keyof typeof SourceManagementWorkgroupTypeEnum];
 
 /**
  * 
  * @export
- * @interface SourceconnectionsdtoV1
+ * @interface SourceManagerCorrelationMapping
  */
-export interface SourceconnectionsdtoV1 {
+export interface SourceManagerCorrelationMapping {
+    /**
+     * Name of the attribute to use for manager correlation. The value found on the account attribute will be used to lookup the manager\'s identity.
+     * @type {string}
+     * @memberof SourceManagerCorrelationMapping
+     */
+    'accountAttributeName'?: string;
+    /**
+     * Name of the identity attribute to search when trying to find a manager using the value from the accountAttribute.
+     * @type {string}
+     * @memberof SourceManagerCorrelationMapping
+     */
+    'identityAttributeName'?: string;
+}
+/**
+ * Reference to the ManagerCorrelationRule. Only use this rule when a simple filter isn\'t sufficient.
+ * @export
+ * @interface SourceManagerCorrelationRule
+ */
+export interface SourceManagerCorrelationRule {
+    /**
+     * Type of object being referenced.
+     * @type {string}
+     * @memberof SourceManagerCorrelationRule
+     */
+    'type'?: SourceManagerCorrelationRuleTypeEnum;
+    /**
+     * Rule ID.
+     * @type {string}
+     * @memberof SourceManagerCorrelationRule
+     */
+    'id'?: string;
+    /**
+     * Rule\'s human-readable display name.
+     * @type {string}
+     * @memberof SourceManagerCorrelationRule
+     */
+    'name'?: string;
+}
+
+export const SourceManagerCorrelationRuleTypeEnum = {
+    Rule: 'RULE'
+} as const;
+
+export type SourceManagerCorrelationRuleTypeEnum = typeof SourceManagerCorrelationRuleTypeEnum[keyof typeof SourceManagerCorrelationRuleTypeEnum];
+
+/**
+ * Reference to identity object who owns the source.
+ * @export
+ * @interface SourceOwner
+ */
+export interface SourceOwner {
+    /**
+     * Type of object being referenced.
+     * @type {string}
+     * @memberof SourceOwner
+     */
+    'type'?: SourceOwnerTypeEnum;
+    /**
+     * Owner identity\'s ID.
+     * @type {string}
+     * @memberof SourceOwner
+     */
+    'id'?: string;
+    /**
+     * Owner identity\'s human-readable display name.
+     * @type {string}
+     * @memberof SourceOwner
+     */
+    'name'?: string;
+}
+
+export const SourceOwnerTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type SourceOwnerTypeEnum = typeof SourceOwnerTypeEnum[keyof typeof SourceOwnerTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface SourcePasswordPoliciesInner
+ */
+export interface SourcePasswordPoliciesInner {
+    /**
+     * Type of object being referenced.
+     * @type {string}
+     * @memberof SourcePasswordPoliciesInner
+     */
+    'type'?: SourcePasswordPoliciesInnerTypeEnum;
+    /**
+     * Policy ID.
+     * @type {string}
+     * @memberof SourcePasswordPoliciesInner
+     */
+    'id'?: string;
+    /**
+     * Policy\'s human-readable display name.
+     * @type {string}
+     * @memberof SourcePasswordPoliciesInner
+     */
+    'name'?: string;
+}
+
+export const SourcePasswordPoliciesInnerTypeEnum = {
+    PasswordPolicy: 'PASSWORD_POLICY'
+} as const;
+
+export type SourcePasswordPoliciesInnerTypeEnum = typeof SourcePasswordPoliciesInnerTypeEnum[keyof typeof SourcePasswordPoliciesInnerTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface SourceSchemasInner
+ */
+export interface SourceSchemasInner {
+    /**
+     * Type of object being referenced.
+     * @type {string}
+     * @memberof SourceSchemasInner
+     */
+    'type'?: SourceSchemasInnerTypeEnum;
+    /**
+     * Schema ID.
+     * @type {string}
+     * @memberof SourceSchemasInner
+     */
+    'id'?: string;
+    /**
+     * Schema\'s human-readable display name.
+     * @type {string}
+     * @memberof SourceSchemasInner
+     */
+    'name'?: string;
+}
+
+export const SourceSchemasInnerTypeEnum = {
+    ConnectorSchema: 'CONNECTOR_SCHEMA'
+} as const;
+
+export type SourceSchemasInnerTypeEnum = typeof SourceSchemasInnerTypeEnum[keyof typeof SourceSchemasInnerTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface Sourceconnectionsdto
+ */
+export interface Sourceconnectionsdto {
     /**
      * The IdentityProfile attached to this source
-     * @type {Array<IdentityprofilesconnectionsV1>}
-     * @memberof SourceconnectionsdtoV1
+     * @type {Array<Identityprofilesconnections>}
+     * @memberof Sourceconnectionsdto
      */
-    'identityProfiles'?: Array<IdentityprofilesconnectionsV1>;
+    'identityProfiles'?: Array<Identityprofilesconnections>;
     /**
      * Name of the CredentialProfile attached to this source
      * @type {Array<string>}
-     * @memberof SourceconnectionsdtoV1
+     * @memberof Sourceconnectionsdto
      */
     'credentialProfiles'?: Array<string>;
     /**
      * The attributes attached to this source
      * @type {Array<string>}
-     * @memberof SourceconnectionsdtoV1
+     * @memberof Sourceconnectionsdto
      */
     'sourceAttributes'?: Array<string>;
     /**
      * The profiles attached to this source
      * @type {Array<string>}
-     * @memberof SourceconnectionsdtoV1
+     * @memberof Sourceconnectionsdto
      */
     'mappingProfiles'?: Array<string>;
     /**
      * A list of custom transforms associated with this source. A transform will be considered associated with a source if any attributes of the transform specify the source as the sourceName.
-     * @type {Array<TransformreadV1>}
-     * @memberof SourceconnectionsdtoV1
+     * @type {Array<Transformread>}
+     * @memberof Sourceconnectionsdto
      */
-    'dependentCustomTransforms'?: Array<TransformreadV1>;
+    'dependentCustomTransforms'?: Array<Transformread>;
     /**
      * 
-     * @type {Array<DependantappconnectionsV1>}
-     * @memberof SourceconnectionsdtoV1
+     * @type {Array<Dependantappconnections>}
+     * @memberof Sourceconnectionsdto
      */
-    'dependentApps'?: Array<DependantappconnectionsV1>;
+    'dependentApps'?: Array<Dependantappconnections>;
     /**
      * 
-     * @type {Array<DependantconnectionsmissingdtoV1>}
-     * @memberof SourceconnectionsdtoV1
+     * @type {Array<Dependantconnectionsmissingdto>}
+     * @memberof Sourceconnectionsdto
      */
-    'missingDependents'?: Array<DependantconnectionsmissingdtoV1>;
+    'missingDependents'?: Array<Dependantconnectionsmissingdto>;
 }
 /**
  * Entitlement Request Configuration
  * @export
- * @interface SourceentitlementrequestconfigV1
+ * @interface Sourceentitlementrequestconfig
  */
-export interface SourceentitlementrequestconfigV1 {
+export interface Sourceentitlementrequestconfig {
     /**
      * 
-     * @type {EntitlementaccessrequestconfigV1}
-     * @memberof SourceentitlementrequestconfigV1
+     * @type {Entitlementaccessrequestconfig}
+     * @memberof Sourceentitlementrequestconfig
      */
-    'accessRequestConfig'?: EntitlementaccessrequestconfigV1;
+    'accessRequestConfig'?: Entitlementaccessrequestconfig;
     /**
      * 
-     * @type {EntitlementrevocationrequestconfigV1}
-     * @memberof SourceentitlementrequestconfigV1
+     * @type {Entitlementrevocationrequestconfig}
+     * @memberof Sourceentitlementrequestconfig
      */
-    'revocationRequestConfig'?: EntitlementrevocationrequestconfigV1;
+    'revocationRequestConfig'?: Entitlementrevocationrequestconfig;
 }
 /**
  * Dto for source health data
  * @export
- * @interface SourcehealthdtoV1
+ * @interface Sourcehealthdto
  */
-export interface SourcehealthdtoV1 {
+export interface Sourcehealthdto {
     /**
      * the id of the Source
      * @type {string}
-     * @memberof SourcehealthdtoV1
+     * @memberof Sourcehealthdto
      */
     'id'?: string;
     /**
      * Specifies the type of system being managed e.g. Active Directory, Workday, etc.. If you are creating a Delimited File source, you must set the `provisionasCsv` query parameter to `true`. 
      * @type {string}
-     * @memberof SourcehealthdtoV1
+     * @memberof Sourcehealthdto
      */
     'type'?: string;
     /**
      * the name of the source
      * @type {string}
-     * @memberof SourcehealthdtoV1
+     * @memberof Sourcehealthdto
      */
     'name'?: string;
     /**
      * source\'s org
      * @type {string}
-     * @memberof SourcehealthdtoV1
+     * @memberof Sourcehealthdto
      */
     'org'?: string;
     /**
      * Is the source authoritative
      * @type {boolean}
-     * @memberof SourcehealthdtoV1
+     * @memberof Sourcehealthdto
      */
     'isAuthoritative'?: boolean;
     /**
      * Is the source in a cluster
      * @type {boolean}
-     * @memberof SourcehealthdtoV1
+     * @memberof Sourcehealthdto
      */
     'isCluster'?: boolean;
     /**
      * source\'s hostname
      * @type {string}
-     * @memberof SourcehealthdtoV1
+     * @memberof Sourcehealthdto
      */
     'hostname'?: string;
     /**
      * source\'s pod
      * @type {string}
-     * @memberof SourcehealthdtoV1
+     * @memberof Sourcehealthdto
      */
     'pod'?: string;
     /**
      * The version of the iqService
      * @type {string}
-     * @memberof SourcehealthdtoV1
+     * @memberof Sourcehealthdto
      */
     'iqServiceVersion'?: string | null;
     /**
      * connection test result
      * @type {string}
-     * @memberof SourcehealthdtoV1
+     * @memberof Sourcehealthdto
      */
-    'status'?: SourcehealthdtoV1StatusV1;
+    'status'?: SourcehealthdtoStatusEnum;
 }
 
-export const SourcehealthdtoV1StatusV1 = {
+export const SourcehealthdtoStatusEnum = {
     SourceStateErrorCluster: 'SOURCE_STATE_ERROR_CLUSTER',
     SourceStateErrorSource: 'SOURCE_STATE_ERROR_SOURCE',
     SourceStateErrorVa: 'SOURCE_STATE_ERROR_VA',
@@ -3047,166 +3047,166 @@ export const SourcehealthdtoV1StatusV1 = {
     SourceStateErrorAccountFileImport: 'SOURCE_STATE_ERROR_ACCOUNT_FILE_IMPORT'
 } as const;
 
-export type SourcehealthdtoV1StatusV1 = typeof SourcehealthdtoV1StatusV1[keyof typeof SourcehealthdtoV1StatusV1];
+export type SourcehealthdtoStatusEnum = typeof SourcehealthdtoStatusEnum[keyof typeof SourcehealthdtoStatusEnum];
 
 /**
  * 
  * @export
- * @interface SourcesyncjobV1
+ * @interface Sourcesyncjob
  */
-export interface SourcesyncjobV1 {
+export interface Sourcesyncjob {
     /**
      * Job ID.
      * @type {string}
-     * @memberof SourcesyncjobV1
+     * @memberof Sourcesyncjob
      */
     'id': string;
     /**
      * The job status.
      * @type {string}
-     * @memberof SourcesyncjobV1
+     * @memberof Sourcesyncjob
      */
-    'status': SourcesyncjobV1StatusV1;
+    'status': SourcesyncjobStatusEnum;
     /**
      * 
-     * @type {SourcesyncpayloadV1}
-     * @memberof SourcesyncjobV1
+     * @type {Sourcesyncpayload}
+     * @memberof Sourcesyncjob
      */
-    'payload': SourcesyncpayloadV1;
+    'payload': Sourcesyncpayload;
 }
 
-export const SourcesyncjobV1StatusV1 = {
+export const SourcesyncjobStatusEnum = {
     Queued: 'QUEUED',
     InProgress: 'IN_PROGRESS',
     Success: 'SUCCESS',
     Error: 'ERROR'
 } as const;
 
-export type SourcesyncjobV1StatusV1 = typeof SourcesyncjobV1StatusV1[keyof typeof SourcesyncjobV1StatusV1];
+export type SourcesyncjobStatusEnum = typeof SourcesyncjobStatusEnum[keyof typeof SourcesyncjobStatusEnum];
 
 /**
  * 
  * @export
- * @interface SourcesyncpayloadV1
+ * @interface Sourcesyncpayload
  */
-export interface SourcesyncpayloadV1 {
+export interface Sourcesyncpayload {
     /**
      * Payload type.
      * @type {string}
-     * @memberof SourcesyncpayloadV1
+     * @memberof Sourcesyncpayload
      */
     'type': string;
     /**
      * Payload type.
      * @type {string}
-     * @memberof SourcesyncpayloadV1
+     * @memberof Sourcesyncpayload
      */
     'dataJson': string;
 }
 /**
  * Response model for connection check, configuration test and ping of source connectors.
  * @export
- * @interface StatusresponseV1
+ * @interface Statusresponse
  */
-export interface StatusresponseV1 {
+export interface Statusresponse {
     /**
      * ID of the source
      * @type {string}
-     * @memberof StatusresponseV1
+     * @memberof Statusresponse
      */
     'id'?: string;
     /**
      * Name of the source
      * @type {string}
-     * @memberof StatusresponseV1
+     * @memberof Statusresponse
      */
     'name'?: string;
     /**
      * The status of the health check.
      * @type {string}
-     * @memberof StatusresponseV1
+     * @memberof Statusresponse
      */
-    'status'?: StatusresponseV1StatusV1;
+    'status'?: StatusresponseStatusEnum;
     /**
      * The number of milliseconds spent on the entire request.
      * @type {number}
-     * @memberof StatusresponseV1
+     * @memberof Statusresponse
      */
     'elapsedMillis'?: number;
     /**
      * The document contains the results of the health check. The schema of this document depends on the type of source used. 
      * @type {object}
-     * @memberof StatusresponseV1
+     * @memberof Statusresponse
      */
     'details'?: object;
 }
 
-export const StatusresponseV1StatusV1 = {
+export const StatusresponseStatusEnum = {
     Success: 'SUCCESS',
     Failure: 'FAILURE'
 } as const;
 
-export type StatusresponseV1StatusV1 = typeof StatusresponseV1StatusV1[keyof typeof StatusresponseV1StatusV1];
+export type StatusresponseStatusEnum = typeof StatusresponseStatusEnum[keyof typeof StatusresponseStatusEnum];
 
 /**
  * Task result.
  * @export
- * @interface TaskresultdtoV1
+ * @interface Taskresultdto
  */
-export interface TaskresultdtoV1 {
+export interface Taskresultdto {
     /**
      * Task result DTO type.
      * @type {string}
-     * @memberof TaskresultdtoV1
+     * @memberof Taskresultdto
      */
-    'type'?: TaskresultdtoV1TypeV1;
+    'type'?: TaskresultdtoTypeEnum;
     /**
      * Task result ID.
      * @type {string}
-     * @memberof TaskresultdtoV1
+     * @memberof Taskresultdto
      */
     'id'?: string;
     /**
      * Task result display name.
      * @type {string}
-     * @memberof TaskresultdtoV1
+     * @memberof Taskresultdto
      */
     'name'?: string | null;
 }
 
-export const TaskresultdtoV1TypeV1 = {
+export const TaskresultdtoTypeEnum = {
     TaskResult: 'TASK_RESULT'
 } as const;
 
-export type TaskresultdtoV1TypeV1 = typeof TaskresultdtoV1TypeV1[keyof typeof TaskresultdtoV1TypeV1];
+export type TaskresultdtoTypeEnum = typeof TaskresultdtoTypeEnum[keyof typeof TaskresultdtoTypeEnum];
 
 /**
  * The representation of an internally- or customer-defined transform.
  * @export
- * @interface TransformV1
+ * @interface Transform
  */
-export interface TransformV1 {
+export interface Transform {
     /**
      * Unique name of this transform
      * @type {string}
-     * @memberof TransformV1
+     * @memberof Transform
      */
     'name': string;
     /**
      * The type of transform operation
      * @type {string}
-     * @memberof TransformV1
+     * @memberof Transform
      */
-    'type': TransformV1TypeV1;
+    'type': TransformTypeEnum;
     /**
      * Meta-data about the transform. Values in this list are specific to the type of transform to be executed.
      * @type {object}
-     * @memberof TransformV1
+     * @memberof Transform
      */
     'attributes': object | null;
 }
 
-export const TransformV1TypeV1 = {
+export const TransformTypeEnum = {
     AccountAttribute: 'accountAttribute',
     Base64Decode: 'base64Decode',
     Base64Encode: 'base64Encode',
@@ -3244,47 +3244,47 @@ export const TransformV1TypeV1 = {
     Rfc5646: 'rfc5646'
 } as const;
 
-export type TransformV1TypeV1 = typeof TransformV1TypeV1[keyof typeof TransformV1TypeV1];
+export type TransformTypeEnum = typeof TransformTypeEnum[keyof typeof TransformTypeEnum];
 
 /**
  * 
  * @export
- * @interface TransformreadV1
+ * @interface Transformread
  */
-export interface TransformreadV1 {
+export interface Transformread {
     /**
      * Unique name of this transform
      * @type {string}
-     * @memberof TransformreadV1
+     * @memberof Transformread
      */
     'name': string;
     /**
      * The type of transform operation
      * @type {string}
-     * @memberof TransformreadV1
+     * @memberof Transformread
      */
-    'type': TransformreadV1TypeV1;
+    'type': TransformreadTypeEnum;
     /**
      * Meta-data about the transform. Values in this list are specific to the type of transform to be executed.
      * @type {object}
-     * @memberof TransformreadV1
+     * @memberof Transformread
      */
     'attributes': object | null;
     /**
      * Unique ID of this transform
      * @type {string}
-     * @memberof TransformreadV1
+     * @memberof Transformread
      */
     'id': string;
     /**
      * Indicates whether this is an internal SailPoint-created transform or a customer-created transform
      * @type {boolean}
-     * @memberof TransformreadV1
+     * @memberof Transformread
      */
     'internal': boolean;
 }
 
-export const TransformreadV1TypeV1 = {
+export const TransformreadTypeEnum = {
     AccountAttribute: 'accountAttribute',
     Base64Decode: 'base64Decode',
     Base64Encode: 'base64Encode',
@@ -3322,7 +3322,7 @@ export const TransformreadV1TypeV1 = {
     Rfc5646: 'rfc5646'
 } as const;
 
-export type TransformreadV1TypeV1 = typeof TransformreadV1TypeV1[keyof typeof TransformreadV1TypeV1];
+export type TransformreadTypeEnum = typeof TransformreadTypeEnum[keyof typeof TransformreadTypeEnum];
 
 /**
  * The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
@@ -3330,7 +3330,7 @@ export type TransformreadV1TypeV1 = typeof TransformreadV1TypeV1[keyof typeof Tr
  * @enum {string}
  */
 
-export const UsagetypeV1 = {
+export const Usagetype = {
     Create: 'CREATE',
     Update: 'UPDATE',
     Enable: 'ENABLE',
@@ -3349,29 +3349,29 @@ export const UsagetypeV1 = {
     ChangePassword: 'CHANGE_PASSWORD'
 } as const;
 
-export type UsagetypeV1 = typeof UsagetypeV1[keyof typeof UsagetypeV1];
+export type Usagetype = typeof Usagetype[keyof typeof Usagetype];
 
 
 
 /**
- * SourcesV1Api - axios parameter creator
+ * SourcesApi - axios parameter creator
  * @export
  */
-export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const SourcesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
          * @summary Create provisioning policy
          * @param {string} sourceId The Source id
-         * @param {ProvisioningpolicydtoV1} provisioningpolicydtoV1 
+         * @param {Provisioningpolicydto} provisioningpolicydto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createProvisioningPolicyV1: async (sourceId: string, provisioningpolicydtoV1: ProvisioningpolicydtoV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createProvisioningPolicyV1: async (sourceId: string, provisioningpolicydto: Provisioningpolicydto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('createProvisioningPolicyV1', 'sourceId', sourceId)
-            // verify required parameter 'provisioningpolicydtoV1' is not null or undefined
-            assertParamExists('createProvisioningPolicyV1', 'provisioningpolicydtoV1', provisioningpolicydtoV1)
+            // verify required parameter 'provisioningpolicydto' is not null or undefined
+            assertParamExists('createProvisioningPolicyV1', 'provisioningpolicydto', provisioningpolicydto)
             const localVarPath = `/sources/v1/{sourceId}/provisioning-policies`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -3392,7 +3392,7 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(provisioningpolicydtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(provisioningpolicydto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -3403,15 +3403,15 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
          * Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC). 
          * @summary Create schedule on source
          * @param {string} sourceId Source ID.
-         * @param {Schedule3V1} schedule3V1 
+         * @param {Schedule3} schedule3 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createSourceScheduleV1: async (sourceId: string, schedule3V1: Schedule3V1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createSourceScheduleV1: async (sourceId: string, schedule3: Schedule3, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('createSourceScheduleV1', 'sourceId', sourceId)
-            // verify required parameter 'schedule3V1' is not null or undefined
-            assertParamExists('createSourceScheduleV1', 'schedule3V1', schedule3V1)
+            // verify required parameter 'schedule3' is not null or undefined
+            assertParamExists('createSourceScheduleV1', 'schedule3', schedule3)
             const localVarPath = `/sources/v1/{sourceId}/schedules`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -3432,7 +3432,7 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(schedule3V1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(schedule3, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -3443,15 +3443,15 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
          * Use this API to create a new schema on the specified source in Identity Security Cloud (ISC). 
          * @summary Create schema on source
          * @param {string} sourceId Source ID.
-         * @param {SchemaV1} schemaV1 
+         * @param {Schema} schema 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createSourceSchemaV1: async (sourceId: string, schemaV1: SchemaV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createSourceSchemaV1: async (sourceId: string, schema: Schema, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('createSourceSchemaV1', 'sourceId', sourceId)
-            // verify required parameter 'schemaV1' is not null or undefined
-            assertParamExists('createSourceSchemaV1', 'schemaV1', schemaV1)
+            // verify required parameter 'schema' is not null or undefined
+            assertParamExists('createSourceSchemaV1', 'schema', schema)
             const localVarPath = `/sources/v1/{sourceId}/schemas`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -3472,7 +3472,7 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(schemaV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(schema, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -3482,14 +3482,14 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
         /**
          * This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow.
          * @summary Creates a source in identitynow.
-         * @param {SourceV1} sourceV1 
+         * @param {Source} source 
          * @param {boolean} [provisionAsCsv] If this parameter is &#x60;true&#x60;, it configures the source as a Delimited File (CSV) source. Setting this to &#x60;true&#x60; will automatically set the &#x60;type&#x60; of the source to &#x60;DelimitedFile&#x60;.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don\&#39;t set this query parameter and you attempt to set the &#x60;type&#x60; attribute directly, the request won\&#39;t correctly generate the source.  
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createSourceV1: async (sourceV1: SourceV1, provisionAsCsv?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'sourceV1' is not null or undefined
-            assertParamExists('createSourceV1', 'sourceV1', sourceV1)
+        createSourceV1: async (source: Source, provisionAsCsv?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'source' is not null or undefined
+            assertParamExists('createSourceV1', 'source', source)
             const localVarPath = `/sources/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -3513,7 +3513,7 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(sourceV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(source, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -3592,11 +3592,11 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
          * Deletes the provisioning policy with the specified usage on an application.
          * @summary Delete provisioning policy by usagetype
          * @param {string} sourceId The Source ID.
-         * @param {UsagetypeV1} usageType The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
+         * @param {Usagetype} usageType The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteProvisioningPolicyV1: async (sourceId: string, usageType: UsagetypeV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteProvisioningPolicyV1: async (sourceId: string, usageType: Usagetype, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('deleteProvisioningPolicyV1', 'sourceId', sourceId)
             // verify required parameter 'usageType' is not null or undefined
@@ -3630,11 +3630,11 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
          * 
          * @summary Delete source schedule by type.
          * @param {string} sourceId The Source id.
-         * @param {DeleteSourceScheduleV1ScheduleTypeV1} scheduleType The Schedule type.
+         * @param {DeleteSourceScheduleV1ScheduleTypeEnum} scheduleType The Schedule type.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteSourceScheduleV1: async (sourceId: string, scheduleType: DeleteSourceScheduleV1ScheduleTypeV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteSourceScheduleV1: async (sourceId: string, scheduleType: DeleteSourceScheduleV1ScheduleTypeEnum, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('deleteSourceScheduleV1', 'sourceId', sourceId)
             // verify required parameter 'scheduleType' is not null or undefined
@@ -3949,11 +3949,11 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
          * This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow.
          * @summary Get provisioning policy by usagetype
          * @param {string} sourceId The Source ID.
-         * @param {UsagetypeV1} usageType The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
+         * @param {Usagetype} usageType The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getProvisioningPolicyV1: async (sourceId: string, usageType: UsagetypeV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getProvisioningPolicyV1: async (sourceId: string, usageType: Usagetype, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('getProvisioningPolicyV1', 'sourceId', sourceId)
             // verify required parameter 'usageType' is not null or undefined
@@ -4029,11 +4029,11 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
          * Looks up and returns the source config for the requested source id after populating the source config values and applying language translations.
          * @summary Gets source config with language-translations
          * @param {string} id The Source id
-         * @param {GetSourceConfigV1LocaleV1} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {GetSourceConfigV1LocaleEnum} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSourceConfigV1: async (id: string, locale?: GetSourceConfigV1LocaleV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSourceConfigV1: async (id: string, locale?: GetSourceConfigV1LocaleEnum, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getSourceConfigV1', 'id', id)
             const localVarPath = `/sources/v1/{id}/connectors/source-config`
@@ -4178,11 +4178,11 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
          * Get the source schedule by type in Identity Security Cloud (ISC). 
          * @summary Get source schedule by type
          * @param {string} sourceId The Source id.
-         * @param {GetSourceScheduleV1ScheduleTypeV1} scheduleType The Schedule type.
+         * @param {GetSourceScheduleV1ScheduleTypeEnum} scheduleType The Schedule type.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSourceScheduleV1: async (sourceId: string, scheduleType: GetSourceScheduleV1ScheduleTypeV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSourceScheduleV1: async (sourceId: string, scheduleType: GetSourceScheduleV1ScheduleTypeEnum, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('getSourceScheduleV1', 'sourceId', sourceId)
             // verify required parameter 'scheduleType' is not null or undefined
@@ -4288,12 +4288,12 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
          * Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
          * @summary List schemas on source
          * @param {string} sourceId Source ID.
-         * @param {GetSourceSchemasV1IncludeTypesV1} [includeTypes] If set to \&#39;group\&#39;, then the account schema is filtered and only group schemas are returned. Only a value of \&#39;group\&#39; is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas.
+         * @param {GetSourceSchemasV1IncludeTypesEnum} [includeTypes] If set to \&#39;group\&#39;, then the account schema is filtered and only group schemas are returned. Only a value of \&#39;group\&#39; is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas.
          * @param {string} [includeNames] A comma-separated list of schema names to filter result.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSourceSchemasV1: async (sourceId: string, includeTypes?: GetSourceSchemasV1IncludeTypesV1, includeNames?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSourceSchemasV1: async (sourceId: string, includeTypes?: GetSourceSchemasV1IncludeTypesEnum, includeNames?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('getSourceSchemasV1', 'sourceId', sourceId)
             const localVarPath = `/sources/v1/{sourceId}/schemas`
@@ -4826,15 +4826,15 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
          * Replaces the correlation configuration for the source specified by the given ID with the configuration provided in the request body.
          * @summary Update source correlation configuration
          * @param {string} id The source id
-         * @param {CorrelationconfigV1} correlationconfigV1 
+         * @param {Correlationconfig} correlationconfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putCorrelationConfigV1: async (id: string, correlationconfigV1: CorrelationconfigV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putCorrelationConfigV1: async (id: string, correlationconfig: Correlationconfig, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('putCorrelationConfigV1', 'id', id)
-            // verify required parameter 'correlationconfigV1' is not null or undefined
-            assertParamExists('putCorrelationConfigV1', 'correlationconfigV1', correlationconfigV1)
+            // verify required parameter 'correlationconfig' is not null or undefined
+            assertParamExists('putCorrelationConfigV1', 'correlationconfig', correlationconfig)
             const localVarPath = `/sources/v1/{id}/correlation-config`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -4855,7 +4855,7 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(correlationconfigV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(correlationconfig, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -4866,15 +4866,15 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
          * Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.
          * @summary Update native change detection configuration
          * @param {string} sourceId The source id
-         * @param {NativechangedetectionconfigV1} nativechangedetectionconfigV1 
+         * @param {Nativechangedetectionconfig} nativechangedetectionconfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putNativeChangeDetectionConfigV1: async (sourceId: string, nativechangedetectionconfigV1: NativechangedetectionconfigV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putNativeChangeDetectionConfigV1: async (sourceId: string, nativechangedetectionconfig: Nativechangedetectionconfig, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('putNativeChangeDetectionConfigV1', 'sourceId', sourceId)
-            // verify required parameter 'nativechangedetectionconfigV1' is not null or undefined
-            assertParamExists('putNativeChangeDetectionConfigV1', 'nativechangedetectionconfigV1', nativechangedetectionconfigV1)
+            // verify required parameter 'nativechangedetectionconfig' is not null or undefined
+            assertParamExists('putNativeChangeDetectionConfigV1', 'nativechangedetectionconfig', nativechangedetectionconfig)
             const localVarPath = `/sources/v1/{sourceId}/native-change-detection-config`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -4895,7 +4895,7 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(nativechangedetectionconfigV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(nativechangedetectionconfig, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -4906,18 +4906,18 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
          * This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
          * @summary Update provisioning policy by usagetype
          * @param {string} sourceId The Source ID.
-         * @param {UsagetypeV1} usageType The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
-         * @param {ProvisioningpolicydtoV1} provisioningpolicydtoV1 
+         * @param {Usagetype} usageType The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
+         * @param {Provisioningpolicydto} provisioningpolicydto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putProvisioningPolicyV1: async (sourceId: string, usageType: UsagetypeV1, provisioningpolicydtoV1: ProvisioningpolicydtoV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putProvisioningPolicyV1: async (sourceId: string, usageType: Usagetype, provisioningpolicydto: Provisioningpolicydto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('putProvisioningPolicyV1', 'sourceId', sourceId)
             // verify required parameter 'usageType' is not null or undefined
             assertParamExists('putProvisioningPolicyV1', 'usageType', usageType)
-            // verify required parameter 'provisioningpolicydtoV1' is not null or undefined
-            assertParamExists('putProvisioningPolicyV1', 'provisioningpolicydtoV1', provisioningpolicydtoV1)
+            // verify required parameter 'provisioningpolicydto' is not null or undefined
+            assertParamExists('putProvisioningPolicyV1', 'provisioningpolicydto', provisioningpolicydto)
             const localVarPath = `/sources/v1/{sourceId}/provisioning-policies/{usageType}`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
                 .replace(`{${"usageType"}}`, encodeURIComponent(String(usageType)));
@@ -4939,7 +4939,7 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(provisioningpolicydtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(provisioningpolicydto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -4950,16 +4950,16 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
          * Replaces the attribute synchronization configuration for the source specified by the given ID with the configuration provided in the request body. Only the \"enabled\" field of the values in the \"attributes\" array is mutable. Attempting to change other attributes or add new values to the \"attributes\" array will result in an error. 
          * @summary Update attribute sync config
          * @param {string} id The source id
-         * @param {AttrsyncsourceconfigV1} attrsyncsourceconfigV1 
+         * @param {Attrsyncsourceconfig} attrsyncsourceconfig 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putSourceAttrSyncConfigV1: async (id: string, attrsyncsourceconfigV1: AttrsyncsourceconfigV1, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putSourceAttrSyncConfigV1: async (id: string, attrsyncsourceconfig: Attrsyncsourceconfig, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('putSourceAttrSyncConfigV1', 'id', id)
-            // verify required parameter 'attrsyncsourceconfigV1' is not null or undefined
-            assertParamExists('putSourceAttrSyncConfigV1', 'attrsyncsourceconfigV1', attrsyncsourceconfigV1)
+            // verify required parameter 'attrsyncsourceconfig' is not null or undefined
+            assertParamExists('putSourceAttrSyncConfigV1', 'attrsyncsourceconfig', attrsyncsourceconfig)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -4987,7 +4987,7 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(attrsyncsourceconfigV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(attrsyncsourceconfig, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -4999,17 +4999,17 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
          * @summary Update source schema (full)
          * @param {string} sourceId The Source id.
          * @param {string} schemaId The Schema id.
-         * @param {SchemaV1} schemaV1 
+         * @param {Schema} schema 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putSourceSchemaV1: async (sourceId: string, schemaId: string, schemaV1: SchemaV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putSourceSchemaV1: async (sourceId: string, schemaId: string, schema: Schema, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('putSourceSchemaV1', 'sourceId', sourceId)
             // verify required parameter 'schemaId' is not null or undefined
             assertParamExists('putSourceSchemaV1', 'schemaId', schemaId)
-            // verify required parameter 'schemaV1' is not null or undefined
-            assertParamExists('putSourceSchemaV1', 'schemaV1', schemaV1)
+            // verify required parameter 'schema' is not null or undefined
+            assertParamExists('putSourceSchemaV1', 'schema', schema)
             const localVarPath = `/sources/v1/{sourceId}/schemas/{schemaId}`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
                 .replace(`{${"schemaId"}}`, encodeURIComponent(String(schemaId)));
@@ -5031,7 +5031,7 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(schemaV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(schema, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5042,15 +5042,15 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
          * Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
          * @summary Update source (full)
          * @param {string} id Source ID.
-         * @param {SourceV1} sourceV1 
+         * @param {Source} source 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putSourceV1: async (id: string, sourceV1: SourceV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putSourceV1: async (id: string, source: Source, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('putSourceV1', 'id', id)
-            // verify required parameter 'sourceV1' is not null or undefined
-            assertParamExists('putSourceV1', 'sourceV1', sourceV1)
+            // verify required parameter 'source' is not null or undefined
+            assertParamExists('putSourceV1', 'source', source)
             const localVarPath = `/sources/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -5071,7 +5071,7 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(sourceV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(source, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5082,15 +5082,15 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
          * Retrieves a sample of data returned from account and group aggregation requests.
          * @summary Peek source connector\'s resource objects
          * @param {string} sourceId The ID of the Source
-         * @param {ResourceobjectsrequestV1} resourceobjectsrequestV1 
+         * @param {Resourceobjectsrequest} resourceobjectsrequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchResourceObjectsV1: async (sourceId: string, resourceobjectsrequestV1: ResourceobjectsrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        searchResourceObjectsV1: async (sourceId: string, resourceobjectsrequest: Resourceobjectsrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('searchResourceObjectsV1', 'sourceId', sourceId)
-            // verify required parameter 'resourceobjectsrequestV1' is not null or undefined
-            assertParamExists('searchResourceObjectsV1', 'resourceobjectsrequestV1', resourceobjectsrequestV1)
+            // verify required parameter 'resourceobjectsrequest' is not null or undefined
+            assertParamExists('searchResourceObjectsV1', 'resourceobjectsrequest', resourceobjectsrequest)
             const localVarPath = `/sources/v1/{sourceId}/connector/peek-resource-objects`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -5111,7 +5111,7 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(resourceobjectsrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(resourceobjectsrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5232,15 +5232,15 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
          * Updates the approval configuration for deleting human accounts for a specific source, identified by source ID. This endpoint allows administrators to modify settings such as whether approval is required, who the approvers are, and other approval-related options. The update is performed using a JSON Patch payload, and the response returns the updated AccountDeleteConfigDto object reflecting the new approval workflow configuration. 
          * @summary Human Account Deletion Approval Config
          * @param {string} sourceId Human account source ID.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 The JSONPatch payload used to update the object.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation The JSONPatch payload used to update the object.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateAccountDeletionApprovalConfigV1: async (sourceId: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateAccountDeletionApprovalConfigV1: async (sourceId: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('updateAccountDeletionApprovalConfigV1', 'sourceId', sourceId)
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('updateAccountDeletionApprovalConfigV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('updateAccountDeletionApprovalConfigV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/sources/v1/{sourceId}/approval-config/account-delete`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -5261,7 +5261,7 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5272,15 +5272,15 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
          * Use this endpoint to update the machine account deletion approval configuration for a specific source. The update is performed using a JSON Patch payload, which allows partial modifications to the approval config. This operation is typically used to change approval requirements, approvers, or comments settings for machine account deletion. The endpoint expects the source ID as a path parameter and a valid JSON Patch array in the request body. 
          * @summary Machine Account Deletion Approval Config
          * @param {string} sourceId machine account source ID.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 The JSONPatch payload used to update the object.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation The JSONPatch payload used to update the object.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateMachineAccountDeletionApprovalConfigV1: async (sourceId: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateMachineAccountDeletionApprovalConfigV1: async (sourceId: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('updateMachineAccountDeletionApprovalConfigV1', 'sourceId', sourceId)
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('updateMachineAccountDeletionApprovalConfigV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('updateMachineAccountDeletionApprovalConfigV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/sources/v1/{sourceId}/approval-config/machine-account-delete`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -5301,7 +5301,7 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5312,15 +5312,15 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
          * This API can be used to set up or update Password Policy in IdentityNow for the specified Source. Source must support PASSWORD feature. 
          * @summary Update password policy
          * @param {string} sourceId The Source id
-         * @param {Array<PasswordpolicyholdersdtoInnerV1>} passwordpolicyholdersdtoInnerV1 
+         * @param {Array<PasswordpolicyholdersdtoInner>} passwordpolicyholdersdtoInner 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updatePasswordPolicyHoldersV1: async (sourceId: string, passwordpolicyholdersdtoInnerV1: Array<PasswordpolicyholdersdtoInnerV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updatePasswordPolicyHoldersV1: async (sourceId: string, passwordpolicyholdersdtoInner: Array<PasswordpolicyholdersdtoInner>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('updatePasswordPolicyHoldersV1', 'sourceId', sourceId)
-            // verify required parameter 'passwordpolicyholdersdtoInnerV1' is not null or undefined
-            assertParamExists('updatePasswordPolicyHoldersV1', 'passwordpolicyholdersdtoInnerV1', passwordpolicyholdersdtoInnerV1)
+            // verify required parameter 'passwordpolicyholdersdtoInner' is not null or undefined
+            assertParamExists('updatePasswordPolicyHoldersV1', 'passwordpolicyholdersdtoInner', passwordpolicyholdersdtoInner)
             const localVarPath = `/sources/v1/{sourceId}/password-policies`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -5341,7 +5341,7 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(passwordpolicyholdersdtoInnerV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(passwordpolicyholdersdtoInner, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5352,15 +5352,15 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
          * This end-point updates a list of provisioning policies on the specified source in IdentityNow.
          * @summary Bulk update provisioning policies
          * @param {string} sourceId The Source id.
-         * @param {Array<ProvisioningpolicydtoV1>} provisioningpolicydtoV1 
+         * @param {Array<Provisioningpolicydto>} provisioningpolicydto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateProvisioningPoliciesInBulkV1: async (sourceId: string, provisioningpolicydtoV1: Array<ProvisioningpolicydtoV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateProvisioningPoliciesInBulkV1: async (sourceId: string, provisioningpolicydto: Array<Provisioningpolicydto>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('updateProvisioningPoliciesInBulkV1', 'sourceId', sourceId)
-            // verify required parameter 'provisioningpolicydtoV1' is not null or undefined
-            assertParamExists('updateProvisioningPoliciesInBulkV1', 'provisioningpolicydtoV1', provisioningpolicydtoV1)
+            // verify required parameter 'provisioningpolicydto' is not null or undefined
+            assertParamExists('updateProvisioningPoliciesInBulkV1', 'provisioningpolicydto', provisioningpolicydto)
             const localVarPath = `/sources/v1/{sourceId}/provisioning-policies/bulk-update`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -5381,7 +5381,7 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(provisioningpolicydtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(provisioningpolicydto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5392,18 +5392,18 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
          * This API selectively updates an existing Provisioning Policy using a JSONPatch payload. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
          * @summary Partial update of provisioning policy
          * @param {string} sourceId The Source id.
-         * @param {UsagetypeV1} usageType The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 The JSONPatch payload used to update the schema.
+         * @param {Usagetype} usageType The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation The JSONPatch payload used to update the schema.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateProvisioningPolicyV1: async (sourceId: string, usageType: UsagetypeV1, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateProvisioningPolicyV1: async (sourceId: string, usageType: Usagetype, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('updateProvisioningPolicyV1', 'sourceId', sourceId)
             // verify required parameter 'usageType' is not null or undefined
             assertParamExists('updateProvisioningPolicyV1', 'usageType', usageType)
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('updateProvisioningPolicyV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('updateProvisioningPolicyV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/sources/v1/{sourceId}/provisioning-policies/{usageType}`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
                 .replace(`{${"usageType"}}`, encodeURIComponent(String(usageType)));
@@ -5425,7 +5425,7 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5436,16 +5436,16 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
          * This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
          * @summary Update source entitlement request configuration
          * @param {string} id The Source id
-         * @param {SourceentitlementrequestconfigV1} sourceentitlementrequestconfigV1 
+         * @param {Sourceentitlementrequestconfig} sourceentitlementrequestconfig 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateSourceEntitlementRequestConfigV1: async (id: string, sourceentitlementrequestconfigV1: SourceentitlementrequestconfigV1, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateSourceEntitlementRequestConfigV1: async (id: string, sourceentitlementrequestconfig: Sourceentitlementrequestconfig, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateSourceEntitlementRequestConfigV1', 'id', id)
-            // verify required parameter 'sourceentitlementrequestconfigV1' is not null or undefined
-            assertParamExists('updateSourceEntitlementRequestConfigV1', 'sourceentitlementrequestconfigV1', sourceentitlementrequestconfigV1)
+            // verify required parameter 'sourceentitlementrequestconfig' is not null or undefined
+            assertParamExists('updateSourceEntitlementRequestConfigV1', 'sourceentitlementrequestconfig', sourceentitlementrequestconfig)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -5473,7 +5473,7 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(sourceentitlementrequestconfigV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(sourceentitlementrequestconfig, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5484,18 +5484,18 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
          * Use this API to selectively update an existing Schedule using a JSONPatch payload.   The following schedule fields are immutable and cannot be updated:  - type 
          * @summary Update source schedule (partial)
          * @param {string} sourceId The Source id.
-         * @param {UpdateSourceScheduleV1ScheduleTypeV1} scheduleType The Schedule type.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 The JSONPatch payload used to update the schedule.
+         * @param {UpdateSourceScheduleV1ScheduleTypeEnum} scheduleType The Schedule type.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation The JSONPatch payload used to update the schedule.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateSourceScheduleV1: async (sourceId: string, scheduleType: UpdateSourceScheduleV1ScheduleTypeV1, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateSourceScheduleV1: async (sourceId: string, scheduleType: UpdateSourceScheduleV1ScheduleTypeEnum, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('updateSourceScheduleV1', 'sourceId', sourceId)
             // verify required parameter 'scheduleType' is not null or undefined
             assertParamExists('updateSourceScheduleV1', 'scheduleType', scheduleType)
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('updateSourceScheduleV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('updateSourceScheduleV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/sources/v1/{sourceId}/schedules/{scheduleType}`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
                 .replace(`{${"scheduleType"}}`, encodeURIComponent(String(scheduleType)));
@@ -5517,7 +5517,7 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5529,17 +5529,17 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
          * @summary Update source schema (partial)
          * @param {string} sourceId The Source id.
          * @param {string} schemaId The Schema id.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 The JSONPatch payload used to update the schema.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation The JSONPatch payload used to update the schema.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateSourceSchemaV1: async (sourceId: string, schemaId: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateSourceSchemaV1: async (sourceId: string, schemaId: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('updateSourceSchemaV1', 'sourceId', sourceId)
             // verify required parameter 'schemaId' is not null or undefined
             assertParamExists('updateSourceSchemaV1', 'schemaId', schemaId)
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('updateSourceSchemaV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('updateSourceSchemaV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/sources/v1/{sourceId}/schemas/{schemaId}`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
                 .replace(`{${"schemaId"}}`, encodeURIComponent(String(schemaId)));
@@ -5561,7 +5561,7 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5572,15 +5572,15 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
          * Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
          * @summary Update source (partial)
          * @param {string} id Source ID.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateSourceV1: async (id: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateSourceV1: async (id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateSourceV1', 'id', id)
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('updateSourceV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('updateSourceV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/sources/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -5601,7 +5601,7 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5612,66 +5612,66 @@ export const SourcesV1ApiAxiosParamCreator = function (configuration?: Configura
 };
 
 /**
- * SourcesV1Api - functional programming interface
+ * SourcesApi - functional programming interface
  * @export
  */
-export const SourcesV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = SourcesV1ApiAxiosParamCreator(configuration)
+export const SourcesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SourcesApiAxiosParamCreator(configuration)
     return {
         /**
          * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
          * @summary Create provisioning policy
          * @param {string} sourceId The Source id
-         * @param {ProvisioningpolicydtoV1} provisioningpolicydtoV1 
+         * @param {Provisioningpolicydto} provisioningpolicydto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createProvisioningPolicyV1(sourceId: string, provisioningpolicydtoV1: ProvisioningpolicydtoV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningpolicydtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createProvisioningPolicyV1(sourceId, provisioningpolicydtoV1, axiosOptions);
+        async createProvisioningPolicyV1(sourceId: string, provisioningpolicydto: Provisioningpolicydto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Provisioningpolicydto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createProvisioningPolicyV1(sourceId, provisioningpolicydto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.createProvisioningPolicyV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.createProvisioningPolicyV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC). 
          * @summary Create schedule on source
          * @param {string} sourceId Source ID.
-         * @param {Schedule3V1} schedule3V1 
+         * @param {Schedule3} schedule3 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSourceScheduleV1(sourceId: string, schedule3V1: Schedule3V1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schedule3V1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSourceScheduleV1(sourceId, schedule3V1, axiosOptions);
+        async createSourceScheduleV1(sourceId: string, schedule3: Schedule3, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schedule3>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSourceScheduleV1(sourceId, schedule3, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.createSourceScheduleV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.createSourceScheduleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Use this API to create a new schema on the specified source in Identity Security Cloud (ISC). 
          * @summary Create schema on source
          * @param {string} sourceId Source ID.
-         * @param {SchemaV1} schemaV1 
+         * @param {Schema} schema 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSourceSchemaV1(sourceId: string, schemaV1: SchemaV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSourceSchemaV1(sourceId, schemaV1, axiosOptions);
+        async createSourceSchemaV1(sourceId: string, schema: Schema, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSourceSchemaV1(sourceId, schema, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.createSourceSchemaV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.createSourceSchemaV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow.
          * @summary Creates a source in identitynow.
-         * @param {SourceV1} sourceV1 
+         * @param {Source} source 
          * @param {boolean} [provisionAsCsv] If this parameter is &#x60;true&#x60;, it configures the source as a Delimited File (CSV) source. Setting this to &#x60;true&#x60; will automatically set the &#x60;type&#x60; of the source to &#x60;DelimitedFile&#x60;.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don\&#39;t set this query parameter and you attempt to set the &#x60;type&#x60; attribute directly, the request won\&#39;t correctly generate the source.  
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSourceV1(sourceV1: SourceV1, provisionAsCsv?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSourceV1(sourceV1, provisionAsCsv, axiosOptions);
+        async createSourceV1(source: Source, provisionAsCsv?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Source>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSourceV1(source, provisionAsCsv, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.createSourceV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.createSourceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -5681,10 +5681,10 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteAccountsAsyncV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskresultdtoV1>> {
+        async deleteAccountsAsyncV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Taskresultdto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccountsAsyncV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.deleteAccountsAsyncV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.deleteAccountsAsyncV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -5697,35 +5697,35 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
         async deleteNativeChangeDetectionConfigV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNativeChangeDetectionConfigV1(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.deleteNativeChangeDetectionConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.deleteNativeChangeDetectionConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Deletes the provisioning policy with the specified usage on an application.
          * @summary Delete provisioning policy by usagetype
          * @param {string} sourceId The Source ID.
-         * @param {UsagetypeV1} usageType The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
+         * @param {Usagetype} usageType The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteProvisioningPolicyV1(sourceId: string, usageType: UsagetypeV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async deleteProvisioningPolicyV1(sourceId: string, usageType: Usagetype, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProvisioningPolicyV1(sourceId, usageType, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.deleteProvisioningPolicyV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.deleteProvisioningPolicyV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * 
          * @summary Delete source schedule by type.
          * @param {string} sourceId The Source id.
-         * @param {DeleteSourceScheduleV1ScheduleTypeV1} scheduleType The Schedule type.
+         * @param {DeleteSourceScheduleV1ScheduleTypeEnum} scheduleType The Schedule type.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteSourceScheduleV1(sourceId: string, scheduleType: DeleteSourceScheduleV1ScheduleTypeV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async deleteSourceScheduleV1(sourceId: string, scheduleType: DeleteSourceScheduleV1ScheduleTypeEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSourceScheduleV1(sourceId, scheduleType, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.deleteSourceScheduleV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.deleteSourceScheduleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -5739,7 +5739,7 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
         async deleteSourceSchemaV1(sourceId: string, schemaId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSourceSchemaV1(sourceId, schemaId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.deleteSourceSchemaV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.deleteSourceSchemaV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -5749,10 +5749,10 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteSourceV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DeleteSourceV1202ResponseV1>> {
+        async deleteSourceV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DeleteSourceV1202Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSourceV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.deleteSourceV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.deleteSourceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -5762,10 +5762,10 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccountDeleteApprovalConfigV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountdeleteconfigdtoV1>> {
+        async getAccountDeleteApprovalConfigV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accountdeleteconfigdto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountDeleteApprovalConfigV1(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.getAccountDeleteApprovalConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getAccountDeleteApprovalConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -5778,7 +5778,7 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
         async getAccountsSchemaV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountsSchemaV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.getAccountsSchemaV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getAccountsSchemaV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -5788,10 +5788,10 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCorrelationConfigV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CorrelationconfigV1>> {
+        async getCorrelationConfigV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Correlationconfig>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCorrelationConfigV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.getCorrelationConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getCorrelationConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -5805,7 +5805,7 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
         async getEntitlementsSchemaV1(id: string, schemaName?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlementsSchemaV1(id, schemaName, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.getEntitlementsSchemaV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getEntitlementsSchemaV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -5815,10 +5815,10 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getMachineAccountDeletionApprovalConfigBySourceV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountdeleteconfigdtoV1>> {
+        async getMachineAccountDeletionApprovalConfigBySourceV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accountdeleteconfigdto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMachineAccountDeletionApprovalConfigBySourceV1(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.getMachineAccountDeletionApprovalConfigBySourceV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getMachineAccountDeletionApprovalConfigBySourceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -5828,24 +5828,24 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNativeChangeDetectionConfigV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NativechangedetectionconfigV1>> {
+        async getNativeChangeDetectionConfigV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Nativechangedetectionconfig>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNativeChangeDetectionConfigV1(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.getNativeChangeDetectionConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getNativeChangeDetectionConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow.
          * @summary Get provisioning policy by usagetype
          * @param {string} sourceId The Source ID.
-         * @param {UsagetypeV1} usageType The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
+         * @param {Usagetype} usageType The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getProvisioningPolicyV1(sourceId: string, usageType: UsagetypeV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningpolicydtoV1>> {
+        async getProvisioningPolicyV1(sourceId: string, usageType: Usagetype, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Provisioningpolicydto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProvisioningPolicyV1(sourceId, usageType, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.getProvisioningPolicyV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getProvisioningPolicyV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -5856,24 +5856,24 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourceAttrSyncConfigV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AttrsyncsourceconfigV1>> {
+        async getSourceAttrSyncConfigV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Attrsyncsourceconfig>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceAttrSyncConfigV1(id, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.getSourceAttrSyncConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getSourceAttrSyncConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Looks up and returns the source config for the requested source id after populating the source config values and applying language translations.
          * @summary Gets source config with language-translations
          * @param {string} id The Source id
-         * @param {GetSourceConfigV1LocaleV1} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {GetSourceConfigV1LocaleEnum} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourceConfigV1(id: string, locale?: GetSourceConfigV1LocaleV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectordetailV1>> {
+        async getSourceConfigV1(id: string, locale?: GetSourceConfigV1LocaleEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Connectordetail>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceConfigV1(id, locale, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.getSourceConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getSourceConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -5883,10 +5883,10 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourceConnectionsV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceconnectionsdtoV1>> {
+        async getSourceConnectionsV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sourceconnectionsdto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceConnectionsV1(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.getSourceConnectionsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getSourceConnectionsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -5897,10 +5897,10 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourceEntitlementRequestConfigV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceentitlementrequestconfigV1>> {
+        async getSourceEntitlementRequestConfigV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sourceentitlementrequestconfig>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceEntitlementRequestConfigV1(id, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.getSourceEntitlementRequestConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getSourceEntitlementRequestConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -5910,24 +5910,24 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourceHealthV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourcehealthdtoV1>> {
+        async getSourceHealthV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sourcehealthdto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceHealthV1(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.getSourceHealthV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getSourceHealthV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Get the source schedule by type in Identity Security Cloud (ISC). 
          * @summary Get source schedule by type
          * @param {string} sourceId The Source id.
-         * @param {GetSourceScheduleV1ScheduleTypeV1} scheduleType The Schedule type.
+         * @param {GetSourceScheduleV1ScheduleTypeEnum} scheduleType The Schedule type.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourceScheduleV1(sourceId: string, scheduleType: GetSourceScheduleV1ScheduleTypeV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schedule3V1>> {
+        async getSourceScheduleV1(sourceId: string, scheduleType: GetSourceScheduleV1ScheduleTypeEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schedule3>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceScheduleV1(sourceId, scheduleType, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.getSourceScheduleV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getSourceScheduleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -5937,10 +5937,10 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourceSchedulesV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Schedule3V1>>> {
+        async getSourceSchedulesV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Schedule3>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceSchedulesV1(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.getSourceSchedulesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getSourceSchedulesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -5951,25 +5951,25 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourceSchemaV1(sourceId: string, schemaId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaV1>> {
+        async getSourceSchemaV1(sourceId: string, schemaId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceSchemaV1(sourceId, schemaId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.getSourceSchemaV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getSourceSchemaV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
          * @summary List schemas on source
          * @param {string} sourceId Source ID.
-         * @param {GetSourceSchemasV1IncludeTypesV1} [includeTypes] If set to \&#39;group\&#39;, then the account schema is filtered and only group schemas are returned. Only a value of \&#39;group\&#39; is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas.
+         * @param {GetSourceSchemasV1IncludeTypesEnum} [includeTypes] If set to \&#39;group\&#39;, then the account schema is filtered and only group schemas are returned. Only a value of \&#39;group\&#39; is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas.
          * @param {string} [includeNames] A comma-separated list of schema names to filter result.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourceSchemasV1(sourceId: string, includeTypes?: GetSourceSchemasV1IncludeTypesV1, includeNames?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SchemaV1>>> {
+        async getSourceSchemasV1(sourceId: string, includeTypes?: GetSourceSchemasV1IncludeTypesEnum, includeNames?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Schema>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceSchemasV1(sourceId, includeTypes, includeNames, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.getSourceSchemasV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getSourceSchemasV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -5979,10 +5979,10 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourceV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceV1>> {
+        async getSourceV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Source>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.getSourceV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getSourceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -5993,10 +5993,10 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importAccountsSchemaV1(id: string, file?: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaV1>> {
+        async importAccountsSchemaV1(id: string, file?: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.importAccountsSchemaV1(id, file, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.importAccountsSchemaV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.importAccountsSchemaV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -6008,10 +6008,10 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importAccountsV1(id: string, file?: File, disableOptimization?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LoadaccountstaskV1>> {
+        async importAccountsV1(id: string, file?: File, disableOptimization?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Loadaccountstask>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.importAccountsV1(id, file, disableOptimization, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.importAccountsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.importAccountsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -6022,10 +6022,10 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importConnectorFileV1(sourceId: string, file?: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceV1>> {
+        async importConnectorFileV1(sourceId: string, file?: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Source>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.importConnectorFileV1(sourceId, file, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.importConnectorFileV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.importConnectorFileV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -6037,10 +6037,10 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importEntitlementsSchemaV1(id: string, schemaName?: string, file?: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaV1>> {
+        async importEntitlementsSchemaV1(id: string, schemaName?: string, file?: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.importEntitlementsSchemaV1(id, schemaName, file, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.importEntitlementsSchemaV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.importEntitlementsSchemaV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -6051,10 +6051,10 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importEntitlementsV1(sourceId: string, file?: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LoadentitlementtaskV1>> {
+        async importEntitlementsV1(sourceId: string, file?: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Loadentitlementtask>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.importEntitlementsV1(sourceId, file, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.importEntitlementsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.importEntitlementsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -6065,10 +6065,10 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importUncorrelatedAccountsV1(id: string, file?: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LoaduncorrelatedaccountstaskV1>> {
+        async importUncorrelatedAccountsV1(id: string, file?: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Loaduncorrelatedaccountstask>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.importUncorrelatedAccountsV1(id, file, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.importUncorrelatedAccountsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.importUncorrelatedAccountsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -6081,10 +6081,10 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listPasswordPolicyHoldersOnSourceV1(sourceId: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PasswordpolicyholdersdtoInnerV1>>> {
+        async listPasswordPolicyHoldersOnSourceV1(sourceId: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PasswordpolicyholdersdtoInner>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listPasswordPolicyHoldersOnSourceV1(sourceId, offset, limit, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.listPasswordPolicyHoldersOnSourceV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.listPasswordPolicyHoldersOnSourceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -6096,10 +6096,10 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listProvisioningPoliciesV1(sourceId: string, offset?: number, limit?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProvisioningpolicydtoV1>>> {
+        async listProvisioningPoliciesV1(sourceId: string, offset?: number, limit?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Provisioningpolicydto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listProvisioningPoliciesV1(sourceId, offset, limit, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.listProvisioningPoliciesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.listProvisioningPoliciesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -6115,10 +6115,10 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listSourcesV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSubadmin?: string, includeIDNSource?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SourceV1>>> {
+        async listSourcesV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSubadmin?: string, includeIDNSource?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Source>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listSourcesV1(limit, offset, count, filters, sorters, forSubadmin, includeIDNSource, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.listSourcesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.listSourcesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -6128,68 +6128,68 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async pingClusterV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatusresponseV1>> {
+        async pingClusterV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Statusresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.pingClusterV1(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.pingClusterV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.pingClusterV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Replaces the correlation configuration for the source specified by the given ID with the configuration provided in the request body.
          * @summary Update source correlation configuration
          * @param {string} id The source id
-         * @param {CorrelationconfigV1} correlationconfigV1 
+         * @param {Correlationconfig} correlationconfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putCorrelationConfigV1(id: string, correlationconfigV1: CorrelationconfigV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CorrelationconfigV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putCorrelationConfigV1(id, correlationconfigV1, axiosOptions);
+        async putCorrelationConfigV1(id: string, correlationconfig: Correlationconfig, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Correlationconfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putCorrelationConfigV1(id, correlationconfig, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.putCorrelationConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.putCorrelationConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.
          * @summary Update native change detection configuration
          * @param {string} sourceId The source id
-         * @param {NativechangedetectionconfigV1} nativechangedetectionconfigV1 
+         * @param {Nativechangedetectionconfig} nativechangedetectionconfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putNativeChangeDetectionConfigV1(sourceId: string, nativechangedetectionconfigV1: NativechangedetectionconfigV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NativechangedetectionconfigV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putNativeChangeDetectionConfigV1(sourceId, nativechangedetectionconfigV1, axiosOptions);
+        async putNativeChangeDetectionConfigV1(sourceId: string, nativechangedetectionconfig: Nativechangedetectionconfig, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Nativechangedetectionconfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putNativeChangeDetectionConfigV1(sourceId, nativechangedetectionconfig, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.putNativeChangeDetectionConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.putNativeChangeDetectionConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
          * @summary Update provisioning policy by usagetype
          * @param {string} sourceId The Source ID.
-         * @param {UsagetypeV1} usageType The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
-         * @param {ProvisioningpolicydtoV1} provisioningpolicydtoV1 
+         * @param {Usagetype} usageType The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
+         * @param {Provisioningpolicydto} provisioningpolicydto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putProvisioningPolicyV1(sourceId: string, usageType: UsagetypeV1, provisioningpolicydtoV1: ProvisioningpolicydtoV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningpolicydtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putProvisioningPolicyV1(sourceId, usageType, provisioningpolicydtoV1, axiosOptions);
+        async putProvisioningPolicyV1(sourceId: string, usageType: Usagetype, provisioningpolicydto: Provisioningpolicydto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Provisioningpolicydto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putProvisioningPolicyV1(sourceId, usageType, provisioningpolicydto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.putProvisioningPolicyV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.putProvisioningPolicyV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Replaces the attribute synchronization configuration for the source specified by the given ID with the configuration provided in the request body. Only the \"enabled\" field of the values in the \"attributes\" array is mutable. Attempting to change other attributes or add new values to the \"attributes\" array will result in an error. 
          * @summary Update attribute sync config
          * @param {string} id The source id
-         * @param {AttrsyncsourceconfigV1} attrsyncsourceconfigV1 
+         * @param {Attrsyncsourceconfig} attrsyncsourceconfig 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putSourceAttrSyncConfigV1(id: string, attrsyncsourceconfigV1: AttrsyncsourceconfigV1, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AttrsyncsourceconfigV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putSourceAttrSyncConfigV1(id, attrsyncsourceconfigV1, xSailPointExperimental, axiosOptions);
+        async putSourceAttrSyncConfigV1(id: string, attrsyncsourceconfig: Attrsyncsourceconfig, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Attrsyncsourceconfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putSourceAttrSyncConfigV1(id, attrsyncsourceconfig, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.putSourceAttrSyncConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.putSourceAttrSyncConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -6197,42 +6197,42 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @summary Update source schema (full)
          * @param {string} sourceId The Source id.
          * @param {string} schemaId The Schema id.
-         * @param {SchemaV1} schemaV1 
+         * @param {Schema} schema 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putSourceSchemaV1(sourceId: string, schemaId: string, schemaV1: SchemaV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putSourceSchemaV1(sourceId, schemaId, schemaV1, axiosOptions);
+        async putSourceSchemaV1(sourceId: string, schemaId: string, schema: Schema, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putSourceSchemaV1(sourceId, schemaId, schema, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.putSourceSchemaV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.putSourceSchemaV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
          * @summary Update source (full)
          * @param {string} id Source ID.
-         * @param {SourceV1} sourceV1 
+         * @param {Source} source 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putSourceV1(id: string, sourceV1: SourceV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putSourceV1(id, sourceV1, axiosOptions);
+        async putSourceV1(id: string, source: Source, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Source>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putSourceV1(id, source, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.putSourceV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.putSourceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Retrieves a sample of data returned from account and group aggregation requests.
          * @summary Peek source connector\'s resource objects
          * @param {string} sourceId The ID of the Source
-         * @param {ResourceobjectsrequestV1} resourceobjectsrequestV1 
+         * @param {Resourceobjectsrequest} resourceobjectsrequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchResourceObjectsV1(sourceId: string, resourceobjectsrequestV1: ResourceobjectsrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResourceobjectsresponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchResourceObjectsV1(sourceId, resourceobjectsrequestV1, axiosOptions);
+        async searchResourceObjectsV1(sourceId: string, resourceobjectsrequest: Resourceobjectsrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Resourceobjectsresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchResourceObjectsV1(sourceId, resourceobjectsrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.searchResourceObjectsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.searchResourceObjectsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -6243,10 +6243,10 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async syncAttributesForSourceV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourcesyncjobV1>> {
+        async syncAttributesForSourceV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sourcesyncjob>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.syncAttributesForSourceV1(id, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.syncAttributesForSourceV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.syncAttributesForSourceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -6256,10 +6256,10 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async testSourceConfigurationV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatusresponseV1>> {
+        async testSourceConfigurationV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Statusresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.testSourceConfigurationV1(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.testSourceConfigurationV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.testSourceConfigurationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -6269,111 +6269,111 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async testSourceConnectionV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatusresponseV1>> {
+        async testSourceConnectionV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Statusresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.testSourceConnectionV1(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.testSourceConnectionV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.testSourceConnectionV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Updates the approval configuration for deleting human accounts for a specific source, identified by source ID. This endpoint allows administrators to modify settings such as whether approval is required, who the approvers are, and other approval-related options. The update is performed using a JSON Patch payload, and the response returns the updated AccountDeleteConfigDto object reflecting the new approval workflow configuration. 
          * @summary Human Account Deletion Approval Config
          * @param {string} sourceId Human account source ID.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 The JSONPatch payload used to update the object.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation The JSONPatch payload used to update the object.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateAccountDeletionApprovalConfigV1(sourceId: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountdeleteconfigdtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccountDeletionApprovalConfigV1(sourceId, jsonpatchoperationV1, axiosOptions);
+        async updateAccountDeletionApprovalConfigV1(sourceId: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accountdeleteconfigdto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccountDeletionApprovalConfigV1(sourceId, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.updateAccountDeletionApprovalConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.updateAccountDeletionApprovalConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Use this endpoint to update the machine account deletion approval configuration for a specific source. The update is performed using a JSON Patch payload, which allows partial modifications to the approval config. This operation is typically used to change approval requirements, approvers, or comments settings for machine account deletion. The endpoint expects the source ID as a path parameter and a valid JSON Patch array in the request body. 
          * @summary Machine Account Deletion Approval Config
          * @param {string} sourceId machine account source ID.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 The JSONPatch payload used to update the object.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation The JSONPatch payload used to update the object.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateMachineAccountDeletionApprovalConfigV1(sourceId: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountdeleteconfigdtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateMachineAccountDeletionApprovalConfigV1(sourceId, jsonpatchoperationV1, axiosOptions);
+        async updateMachineAccountDeletionApprovalConfigV1(sourceId: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accountdeleteconfigdto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateMachineAccountDeletionApprovalConfigV1(sourceId, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.updateMachineAccountDeletionApprovalConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.updateMachineAccountDeletionApprovalConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API can be used to set up or update Password Policy in IdentityNow for the specified Source. Source must support PASSWORD feature. 
          * @summary Update password policy
          * @param {string} sourceId The Source id
-         * @param {Array<PasswordpolicyholdersdtoInnerV1>} passwordpolicyholdersdtoInnerV1 
+         * @param {Array<PasswordpolicyholdersdtoInner>} passwordpolicyholdersdtoInner 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updatePasswordPolicyHoldersV1(sourceId: string, passwordpolicyholdersdtoInnerV1: Array<PasswordpolicyholdersdtoInnerV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PasswordpolicyholdersdtoInnerV1>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePasswordPolicyHoldersV1(sourceId, passwordpolicyholdersdtoInnerV1, axiosOptions);
+        async updatePasswordPolicyHoldersV1(sourceId: string, passwordpolicyholdersdtoInner: Array<PasswordpolicyholdersdtoInner>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PasswordpolicyholdersdtoInner>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePasswordPolicyHoldersV1(sourceId, passwordpolicyholdersdtoInner, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.updatePasswordPolicyHoldersV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.updatePasswordPolicyHoldersV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This end-point updates a list of provisioning policies on the specified source in IdentityNow.
          * @summary Bulk update provisioning policies
          * @param {string} sourceId The Source id.
-         * @param {Array<ProvisioningpolicydtoV1>} provisioningpolicydtoV1 
+         * @param {Array<Provisioningpolicydto>} provisioningpolicydto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateProvisioningPoliciesInBulkV1(sourceId: string, provisioningpolicydtoV1: Array<ProvisioningpolicydtoV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProvisioningpolicydtoV1>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProvisioningPoliciesInBulkV1(sourceId, provisioningpolicydtoV1, axiosOptions);
+        async updateProvisioningPoliciesInBulkV1(sourceId: string, provisioningpolicydto: Array<Provisioningpolicydto>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Provisioningpolicydto>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProvisioningPoliciesInBulkV1(sourceId, provisioningpolicydto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.updateProvisioningPoliciesInBulkV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.updateProvisioningPoliciesInBulkV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API selectively updates an existing Provisioning Policy using a JSONPatch payload. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
          * @summary Partial update of provisioning policy
          * @param {string} sourceId The Source id.
-         * @param {UsagetypeV1} usageType The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 The JSONPatch payload used to update the schema.
+         * @param {Usagetype} usageType The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation The JSONPatch payload used to update the schema.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateProvisioningPolicyV1(sourceId: string, usageType: UsagetypeV1, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningpolicydtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProvisioningPolicyV1(sourceId, usageType, jsonpatchoperationV1, axiosOptions);
+        async updateProvisioningPolicyV1(sourceId: string, usageType: Usagetype, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Provisioningpolicydto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProvisioningPolicyV1(sourceId, usageType, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.updateProvisioningPolicyV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.updateProvisioningPolicyV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
          * @summary Update source entitlement request configuration
          * @param {string} id The Source id
-         * @param {SourceentitlementrequestconfigV1} sourceentitlementrequestconfigV1 
+         * @param {Sourceentitlementrequestconfig} sourceentitlementrequestconfig 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateSourceEntitlementRequestConfigV1(id: string, sourceentitlementrequestconfigV1: SourceentitlementrequestconfigV1, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceentitlementrequestconfigV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceEntitlementRequestConfigV1(id, sourceentitlementrequestconfigV1, xSailPointExperimental, axiosOptions);
+        async updateSourceEntitlementRequestConfigV1(id: string, sourceentitlementrequestconfig: Sourceentitlementrequestconfig, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sourceentitlementrequestconfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceEntitlementRequestConfigV1(id, sourceentitlementrequestconfig, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.updateSourceEntitlementRequestConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.updateSourceEntitlementRequestConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Use this API to selectively update an existing Schedule using a JSONPatch payload.   The following schedule fields are immutable and cannot be updated:  - type 
          * @summary Update source schedule (partial)
          * @param {string} sourceId The Source id.
-         * @param {UpdateSourceScheduleV1ScheduleTypeV1} scheduleType The Schedule type.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 The JSONPatch payload used to update the schedule.
+         * @param {UpdateSourceScheduleV1ScheduleTypeEnum} scheduleType The Schedule type.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation The JSONPatch payload used to update the schedule.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateSourceScheduleV1(sourceId: string, scheduleType: UpdateSourceScheduleV1ScheduleTypeV1, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schedule3V1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceScheduleV1(sourceId, scheduleType, jsonpatchoperationV1, axiosOptions);
+        async updateSourceScheduleV1(sourceId: string, scheduleType: UpdateSourceScheduleV1ScheduleTypeEnum, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schedule3>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceScheduleV1(sourceId, scheduleType, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.updateSourceScheduleV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.updateSourceScheduleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -6381,2492 +6381,2492 @@ export const SourcesV1ApiFp = function(configuration?: Configuration) {
          * @summary Update source schema (partial)
          * @param {string} sourceId The Source id.
          * @param {string} schemaId The Schema id.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 The JSONPatch payload used to update the schema.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation The JSONPatch payload used to update the schema.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateSourceSchemaV1(sourceId: string, schemaId: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceSchemaV1(sourceId, schemaId, jsonpatchoperationV1, axiosOptions);
+        async updateSourceSchemaV1(sourceId: string, schemaId: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceSchemaV1(sourceId, schemaId, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.updateSourceSchemaV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.updateSourceSchemaV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
          * @summary Update source (partial)
          * @param {string} id Source ID.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateSourceV1(id: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceV1(id, jsonpatchoperationV1, axiosOptions);
+        async updateSourceV1(id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Source>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceV1(id, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourcesV1Api.updateSourceV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.updateSourceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * SourcesV1Api - factory interface
+ * SourcesApi - factory interface
  * @export
  */
-export const SourcesV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = SourcesV1ApiFp(configuration)
+export const SourcesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SourcesApiFp(configuration)
     return {
         /**
          * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
          * @summary Create provisioning policy
-         * @param {SourcesV1ApiCreateProvisioningPolicyV1Request} requestParameters Request parameters.
+         * @param {SourcesApiCreateProvisioningPolicyV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createProvisioningPolicyV1(requestParameters: SourcesV1ApiCreateProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ProvisioningpolicydtoV1> {
-            return localVarFp.createProvisioningPolicyV1(requestParameters.sourceId, requestParameters.provisioningpolicydtoV1, axiosOptions).then((request) => request(axios, basePath));
+        createProvisioningPolicyV1(requestParameters: SourcesApiCreateProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Provisioningpolicydto> {
+            return localVarFp.createProvisioningPolicyV1(requestParameters.sourceId, requestParameters.provisioningpolicydto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC). 
          * @summary Create schedule on source
-         * @param {SourcesV1ApiCreateSourceScheduleV1Request} requestParameters Request parameters.
+         * @param {SourcesApiCreateSourceScheduleV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createSourceScheduleV1(requestParameters: SourcesV1ApiCreateSourceScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Schedule3V1> {
-            return localVarFp.createSourceScheduleV1(requestParameters.sourceId, requestParameters.schedule3V1, axiosOptions).then((request) => request(axios, basePath));
+        createSourceScheduleV1(requestParameters: SourcesApiCreateSourceScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Schedule3> {
+            return localVarFp.createSourceScheduleV1(requestParameters.sourceId, requestParameters.schedule3, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to create a new schema on the specified source in Identity Security Cloud (ISC). 
          * @summary Create schema on source
-         * @param {SourcesV1ApiCreateSourceSchemaV1Request} requestParameters Request parameters.
+         * @param {SourcesApiCreateSourceSchemaV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createSourceSchemaV1(requestParameters: SourcesV1ApiCreateSourceSchemaV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SchemaV1> {
-            return localVarFp.createSourceSchemaV1(requestParameters.sourceId, requestParameters.schemaV1, axiosOptions).then((request) => request(axios, basePath));
+        createSourceSchemaV1(requestParameters: SourcesApiCreateSourceSchemaV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Schema> {
+            return localVarFp.createSourceSchemaV1(requestParameters.sourceId, requestParameters.schema, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow.
          * @summary Creates a source in identitynow.
-         * @param {SourcesV1ApiCreateSourceV1Request} requestParameters Request parameters.
+         * @param {SourcesApiCreateSourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createSourceV1(requestParameters: SourcesV1ApiCreateSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceV1> {
-            return localVarFp.createSourceV1(requestParameters.sourceV1, requestParameters.provisionAsCsv, axiosOptions).then((request) => request(axios, basePath));
+        createSourceV1(requestParameters: SourcesApiCreateSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Source> {
+            return localVarFp.createSourceV1(requestParameters.source, requestParameters.provisionAsCsv, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this endpoint to remove all accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.  This endpoint is good for: * Removing accounts that no longer exist on the source. * Removing accounts that won\'t be aggregated following updates to the source configuration. * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc. 
          * @summary Remove all accounts in source
-         * @param {SourcesV1ApiDeleteAccountsAsyncV1Request} requestParameters Request parameters.
+         * @param {SourcesApiDeleteAccountsAsyncV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAccountsAsyncV1(requestParameters: SourcesV1ApiDeleteAccountsAsyncV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TaskresultdtoV1> {
+        deleteAccountsAsyncV1(requestParameters: SourcesApiDeleteAccountsAsyncV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Taskresultdto> {
             return localVarFp.deleteAccountsAsyncV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Deletes the native change detection configuration for the source specified by the given ID.
          * @summary Delete native change detection configuration
-         * @param {SourcesV1ApiDeleteNativeChangeDetectionConfigV1Request} requestParameters Request parameters.
+         * @param {SourcesApiDeleteNativeChangeDetectionConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteNativeChangeDetectionConfigV1(requestParameters: SourcesV1ApiDeleteNativeChangeDetectionConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteNativeChangeDetectionConfigV1(requestParameters: SourcesApiDeleteNativeChangeDetectionConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteNativeChangeDetectionConfigV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Deletes the provisioning policy with the specified usage on an application.
          * @summary Delete provisioning policy by usagetype
-         * @param {SourcesV1ApiDeleteProvisioningPolicyV1Request} requestParameters Request parameters.
+         * @param {SourcesApiDeleteProvisioningPolicyV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteProvisioningPolicyV1(requestParameters: SourcesV1ApiDeleteProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteProvisioningPolicyV1(requestParameters: SourcesApiDeleteProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteProvisioningPolicyV1(requestParameters.sourceId, requestParameters.usageType, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Delete source schedule by type.
-         * @param {SourcesV1ApiDeleteSourceScheduleV1Request} requestParameters Request parameters.
+         * @param {SourcesApiDeleteSourceScheduleV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteSourceScheduleV1(requestParameters: SourcesV1ApiDeleteSourceScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteSourceScheduleV1(requestParameters: SourcesApiDeleteSourceScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteSourceScheduleV1(requestParameters.sourceId, requestParameters.scheduleType, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Delete source schema by id
-         * @param {SourcesV1ApiDeleteSourceSchemaV1Request} requestParameters Request parameters.
+         * @param {SourcesApiDeleteSourceSchemaV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteSourceSchemaV1(requestParameters: SourcesV1ApiDeleteSourceSchemaV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteSourceSchemaV1(requestParameters: SourcesApiDeleteSourceSchemaV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteSourceSchemaV1(requestParameters.sourceId, requestParameters.schemaId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to delete a specific source in Identity Security Cloud (ISC). The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
          * @summary Delete source by id
-         * @param {SourcesV1ApiDeleteSourceV1Request} requestParameters Request parameters.
+         * @param {SourcesApiDeleteSourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteSourceV1(requestParameters: SourcesV1ApiDeleteSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<DeleteSourceV1202ResponseV1> {
+        deleteSourceV1(requestParameters: SourcesApiDeleteSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<DeleteSourceV1202Response> {
             return localVarFp.deleteSourceV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * The endpoint retrieves the approval configuration for deleting human accounts from a specified source. It returns details such as whether approval is required, who the approvers are, and any additional approval settings. This helps administrators understand and manage the approval workflow for human account deletions in their organization. The response is provided as an AccountDeleteConfigDto object. 
          * @summary Human Account Deletion Approval Config
-         * @param {SourcesV1ApiGetAccountDeleteApprovalConfigV1Request} requestParameters Request parameters.
+         * @param {SourcesApiGetAccountDeleteApprovalConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAccountDeleteApprovalConfigV1(requestParameters: SourcesV1ApiGetAccountDeleteApprovalConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountdeleteconfigdtoV1> {
+        getAccountDeleteApprovalConfigV1(requestParameters: SourcesApiGetAccountDeleteApprovalConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accountdeleteconfigdto> {
             return localVarFp.getAccountDeleteApprovalConfigV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API downloads the CSV schema that defines the account attributes on a source. >**NOTE: This API is designated only for Delimited File sources.**
          * @summary Downloads source accounts schema template
-         * @param {SourcesV1ApiGetAccountsSchemaV1Request} requestParameters Request parameters.
+         * @param {SourcesApiGetAccountsSchemaV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAccountsSchemaV1(requestParameters: SourcesV1ApiGetAccountsSchemaV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        getAccountsSchemaV1(requestParameters: SourcesApiGetAccountsSchemaV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.getAccountsSchemaV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the existing correlation configuration for a source specified by the given ID.
          * @summary Get source correlation configuration
-         * @param {SourcesV1ApiGetCorrelationConfigV1Request} requestParameters Request parameters.
+         * @param {SourcesApiGetCorrelationConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCorrelationConfigV1(requestParameters: SourcesV1ApiGetCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CorrelationconfigV1> {
+        getCorrelationConfigV1(requestParameters: SourcesApiGetCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Correlationconfig> {
             return localVarFp.getCorrelationConfigV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API downloads the CSV schema that defines the entitlement attributes on a source.  >**NOTE: This API is designated only for Delimited File sources.**
          * @summary Downloads source entitlements schema template
-         * @param {SourcesV1ApiGetEntitlementsSchemaV1Request} requestParameters Request parameters.
+         * @param {SourcesApiGetEntitlementsSchemaV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getEntitlementsSchemaV1(requestParameters: SourcesV1ApiGetEntitlementsSchemaV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        getEntitlementsSchemaV1(requestParameters: SourcesApiGetEntitlementsSchemaV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.getEntitlementsSchemaV1(requestParameters.id, requestParameters.schemaName, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Retrieves the machine account deletion approval configuration for a specific source. This endpoint returns details about the approval requirements, approvers, and comment settings that govern the deletion of machine accounts associated with the given source ID.
          * @summary Machine Account Deletion Approval Config
-         * @param {SourcesV1ApiGetMachineAccountDeletionApprovalConfigBySourceV1Request} requestParameters Request parameters.
+         * @param {SourcesApiGetMachineAccountDeletionApprovalConfigBySourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getMachineAccountDeletionApprovalConfigBySourceV1(requestParameters: SourcesV1ApiGetMachineAccountDeletionApprovalConfigBySourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountdeleteconfigdtoV1> {
+        getMachineAccountDeletionApprovalConfigBySourceV1(requestParameters: SourcesApiGetMachineAccountDeletionApprovalConfigBySourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accountdeleteconfigdto> {
             return localVarFp.getMachineAccountDeletionApprovalConfigBySourceV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the existing native change detection configuration for a source specified by the given ID.
          * @summary Native change detection configuration
-         * @param {SourcesV1ApiGetNativeChangeDetectionConfigV1Request} requestParameters Request parameters.
+         * @param {SourcesApiGetNativeChangeDetectionConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getNativeChangeDetectionConfigV1(requestParameters: SourcesV1ApiGetNativeChangeDetectionConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NativechangedetectionconfigV1> {
+        getNativeChangeDetectionConfigV1(requestParameters: SourcesApiGetNativeChangeDetectionConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Nativechangedetectionconfig> {
             return localVarFp.getNativeChangeDetectionConfigV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow.
          * @summary Get provisioning policy by usagetype
-         * @param {SourcesV1ApiGetProvisioningPolicyV1Request} requestParameters Request parameters.
+         * @param {SourcesApiGetProvisioningPolicyV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getProvisioningPolicyV1(requestParameters: SourcesV1ApiGetProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ProvisioningpolicydtoV1> {
+        getProvisioningPolicyV1(requestParameters: SourcesApiGetProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Provisioningpolicydto> {
             return localVarFp.getProvisioningPolicyV1(requestParameters.sourceId, requestParameters.usageType, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the existing attribute synchronization configuration for a source specified by the given ID. The response contains all attributes, regardless of whether they enabled or not.
          * @summary Attribute sync config
-         * @param {SourcesV1ApiGetSourceAttrSyncConfigV1Request} requestParameters Request parameters.
+         * @param {SourcesApiGetSourceAttrSyncConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSourceAttrSyncConfigV1(requestParameters: SourcesV1ApiGetSourceAttrSyncConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AttrsyncsourceconfigV1> {
+        getSourceAttrSyncConfigV1(requestParameters: SourcesApiGetSourceAttrSyncConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Attrsyncsourceconfig> {
             return localVarFp.getSourceAttrSyncConfigV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Looks up and returns the source config for the requested source id after populating the source config values and applying language translations.
          * @summary Gets source config with language-translations
-         * @param {SourcesV1ApiGetSourceConfigV1Request} requestParameters Request parameters.
+         * @param {SourcesApiGetSourceConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSourceConfigV1(requestParameters: SourcesV1ApiGetSourceConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ConnectordetailV1> {
+        getSourceConfigV1(requestParameters: SourcesApiGetSourceConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Connectordetail> {
             return localVarFp.getSourceConfigV1(requestParameters.id, requestParameters.locale, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC).
          * @summary Get source connections by id
-         * @param {SourcesV1ApiGetSourceConnectionsV1Request} requestParameters Request parameters.
+         * @param {SourcesApiGetSourceConnectionsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSourceConnectionsV1(requestParameters: SourcesV1ApiGetSourceConnectionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceconnectionsdtoV1> {
+        getSourceConnectionsV1(requestParameters: SourcesApiGetSourceConnectionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sourceconnectionsdto> {
             return localVarFp.getSourceConnectionsV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
          * @summary Get source entitlement request configuration
-         * @param {SourcesV1ApiGetSourceEntitlementRequestConfigV1Request} requestParameters Request parameters.
+         * @param {SourcesApiGetSourceEntitlementRequestConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSourceEntitlementRequestConfigV1(requestParameters: SourcesV1ApiGetSourceEntitlementRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceentitlementrequestconfigV1> {
+        getSourceEntitlementRequestConfigV1(requestParameters: SourcesApiGetSourceEntitlementRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sourceentitlementrequestconfig> {
             return localVarFp.getSourceEntitlementRequestConfigV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint fetches source health by source\'s id
          * @summary Fetches source health by id
-         * @param {SourcesV1ApiGetSourceHealthV1Request} requestParameters Request parameters.
+         * @param {SourcesApiGetSourceHealthV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSourceHealthV1(requestParameters: SourcesV1ApiGetSourceHealthV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourcehealthdtoV1> {
+        getSourceHealthV1(requestParameters: SourcesApiGetSourceHealthV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sourcehealthdto> {
             return localVarFp.getSourceHealthV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get the source schedule by type in Identity Security Cloud (ISC). 
          * @summary Get source schedule by type
-         * @param {SourcesV1ApiGetSourceScheduleV1Request} requestParameters Request parameters.
+         * @param {SourcesApiGetSourceScheduleV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSourceScheduleV1(requestParameters: SourcesV1ApiGetSourceScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Schedule3V1> {
+        getSourceScheduleV1(requestParameters: SourcesApiGetSourceScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Schedule3> {
             return localVarFp.getSourceScheduleV1(requestParameters.sourceId, requestParameters.scheduleType, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to list the schedules that exist on the specified source in Identity Security Cloud (ISC). :::info This endpoint uses a **cron expression** to schedule a task, following standard **cron job syntax**.  For example, `0 0 12 1/1 * ? *` runs the task **daily at 12:00 PM**.  **Days of the week are represented as 1-7 (Sunday-Saturday).** ::: 
          * @summary List schedules on source
-         * @param {SourcesV1ApiGetSourceSchedulesV1Request} requestParameters Request parameters.
+         * @param {SourcesApiGetSourceSchedulesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSourceSchedulesV1(requestParameters: SourcesV1ApiGetSourceSchedulesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Schedule3V1>> {
+        getSourceSchedulesV1(requestParameters: SourcesApiGetSourceSchedulesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Schedule3>> {
             return localVarFp.getSourceSchedulesV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get the Source Schema by ID in IdentityNow. 
          * @summary Get source schema by id
-         * @param {SourcesV1ApiGetSourceSchemaV1Request} requestParameters Request parameters.
+         * @param {SourcesApiGetSourceSchemaV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSourceSchemaV1(requestParameters: SourcesV1ApiGetSourceSchemaV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SchemaV1> {
+        getSourceSchemaV1(requestParameters: SourcesApiGetSourceSchemaV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Schema> {
             return localVarFp.getSourceSchemaV1(requestParameters.sourceId, requestParameters.schemaId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
          * @summary List schemas on source
-         * @param {SourcesV1ApiGetSourceSchemasV1Request} requestParameters Request parameters.
+         * @param {SourcesApiGetSourceSchemasV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSourceSchemasV1(requestParameters: SourcesV1ApiGetSourceSchemasV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SchemaV1>> {
+        getSourceSchemasV1(requestParameters: SourcesApiGetSourceSchemasV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Schema>> {
             return localVarFp.getSourceSchemasV1(requestParameters.sourceId, requestParameters.includeTypes, requestParameters.includeNames, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
          * @summary Get source by id
-         * @param {SourcesV1ApiGetSourceV1Request} requestParameters Request parameters.
+         * @param {SourcesApiGetSourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSourceV1(requestParameters: SourcesV1ApiGetSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceV1> {
+        getSourceV1(requestParameters: SourcesApiGetSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Source> {
             return localVarFp.getSourceV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API uploads a source schema template file to configure a source\'s account attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Account Schema** -> **Options** -> **Download Schema**  >**NOTE: This API is designated only for Delimited File sources.**
          * @summary Uploads source accounts schema template
-         * @param {SourcesV1ApiImportAccountsSchemaV1Request} requestParameters Request parameters.
+         * @param {SourcesApiImportAccountsSchemaV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        importAccountsSchemaV1(requestParameters: SourcesV1ApiImportAccountsSchemaV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SchemaV1> {
+        importAccountsSchemaV1(requestParameters: SourcesApiImportAccountsSchemaV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Schema> {
             return localVarFp.importAccountsSchemaV1(requestParameters.id, requestParameters.file, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Starts an account aggregation on the specified source.  If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
          * @summary Account aggregation
-         * @param {SourcesV1ApiImportAccountsV1Request} requestParameters Request parameters.
+         * @param {SourcesApiImportAccountsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        importAccountsV1(requestParameters: SourcesV1ApiImportAccountsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<LoadaccountstaskV1> {
+        importAccountsV1(requestParameters: SourcesApiImportAccountsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Loadaccountstask> {
             return localVarFp.importAccountsV1(requestParameters.id, requestParameters.file, requestParameters.disableOptimization, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This uploads a supplemental source connector file (like jdbc driver jars) to a source\'s S3 bucket. This also sends ETS and Audit events.
          * @summary Upload connector file to source
-         * @param {SourcesV1ApiImportConnectorFileV1Request} requestParameters Request parameters.
+         * @param {SourcesApiImportConnectorFileV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        importConnectorFileV1(requestParameters: SourcesV1ApiImportConnectorFileV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceV1> {
+        importConnectorFileV1(requestParameters: SourcesApiImportConnectorFileV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Source> {
             return localVarFp.importConnectorFileV1(requestParameters.sourceId, requestParameters.file, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API uploads a source schema template file to configure a source\'s entitlement attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Import Entitlements** -> **Download**  >**NOTE: This API is designated only for Delimited File sources.**
          * @summary Uploads source entitlements schema template
-         * @param {SourcesV1ApiImportEntitlementsSchemaV1Request} requestParameters Request parameters.
+         * @param {SourcesApiImportEntitlementsSchemaV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        importEntitlementsSchemaV1(requestParameters: SourcesV1ApiImportEntitlementsSchemaV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SchemaV1> {
+        importEntitlementsSchemaV1(requestParameters: SourcesApiImportEntitlementsSchemaV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Schema> {
             return localVarFp.importEntitlementsSchemaV1(requestParameters.id, requestParameters.schemaName, requestParameters.file, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Starts an entitlement aggregation on the specified source.  If the target source is a delimited file source, then the CSV file needs to be included in the request body.  You will also need to set the Content-Type header to `multipart/form-data`. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Entitlement aggregation
-         * @param {SourcesV1ApiImportEntitlementsV1Request} requestParameters Request parameters.
+         * @param {SourcesApiImportEntitlementsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        importEntitlementsV1(requestParameters: SourcesV1ApiImportEntitlementsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<LoadentitlementtaskV1> {
+        importEntitlementsV1(requestParameters: SourcesApiImportEntitlementsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Loadentitlementtask> {
             return localVarFp.importEntitlementsV1(requestParameters.sourceId, requestParameters.file, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * File is required for upload. You will also need to set the Content-Type header to `multipart/form-data`
          * @summary Process uncorrelated accounts
-         * @param {SourcesV1ApiImportUncorrelatedAccountsV1Request} requestParameters Request parameters.
+         * @param {SourcesApiImportUncorrelatedAccountsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        importUncorrelatedAccountsV1(requestParameters: SourcesV1ApiImportUncorrelatedAccountsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<LoaduncorrelatedaccountstaskV1> {
+        importUncorrelatedAccountsV1(requestParameters: SourcesApiImportUncorrelatedAccountsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Loaduncorrelatedaccountstask> {
             return localVarFp.importUncorrelatedAccountsV1(requestParameters.id, requestParameters.file, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API can be used to get Password Policy in IdentityNow for the specified Source. Source must support PASSWORD feature. 
          * @summary Get Password Policy for source
-         * @param {SourcesV1ApiListPasswordPolicyHoldersOnSourceV1Request} requestParameters Request parameters.
+         * @param {SourcesApiListPasswordPolicyHoldersOnSourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listPasswordPolicyHoldersOnSourceV1(requestParameters: SourcesV1ApiListPasswordPolicyHoldersOnSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<PasswordpolicyholdersdtoInnerV1>> {
+        listPasswordPolicyHoldersOnSourceV1(requestParameters: SourcesApiListPasswordPolicyHoldersOnSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<PasswordpolicyholdersdtoInner>> {
             return localVarFp.listPasswordPolicyHoldersOnSourceV1(requestParameters.sourceId, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point lists all the ProvisioningPolicies in IdentityNow.
          * @summary Lists provisioningpolicies
-         * @param {SourcesV1ApiListProvisioningPoliciesV1Request} requestParameters Request parameters.
+         * @param {SourcesApiListProvisioningPoliciesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listProvisioningPoliciesV1(requestParameters: SourcesV1ApiListProvisioningPoliciesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ProvisioningpolicydtoV1>> {
+        listProvisioningPoliciesV1(requestParameters: SourcesApiListProvisioningPoliciesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Provisioningpolicydto>> {
             return localVarFp.listProvisioningPoliciesV1(requestParameters.sourceId, requestParameters.offset, requestParameters.limit, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point lists all the sources in IdentityNow.
          * @summary Lists all sources in identitynow.
-         * @param {SourcesV1ApiListSourcesV1Request} requestParameters Request parameters.
+         * @param {SourcesApiListSourcesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listSourcesV1(requestParameters: SourcesV1ApiListSourcesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SourceV1>> {
+        listSourcesV1(requestParameters: SourcesApiListSourcesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Source>> {
             return localVarFp.listSourcesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSubadmin, requestParameters.includeIDNSource, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint validates that the cluster being used by the source is reachable from IdentityNow.
          * @summary Ping cluster for source connector
-         * @param {SourcesV1ApiPingClusterV1Request} requestParameters Request parameters.
+         * @param {SourcesApiPingClusterV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        pingClusterV1(requestParameters: SourcesV1ApiPingClusterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<StatusresponseV1> {
+        pingClusterV1(requestParameters: SourcesApiPingClusterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Statusresponse> {
             return localVarFp.pingClusterV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Replaces the correlation configuration for the source specified by the given ID with the configuration provided in the request body.
          * @summary Update source correlation configuration
-         * @param {SourcesV1ApiPutCorrelationConfigV1Request} requestParameters Request parameters.
+         * @param {SourcesApiPutCorrelationConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putCorrelationConfigV1(requestParameters: SourcesV1ApiPutCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CorrelationconfigV1> {
-            return localVarFp.putCorrelationConfigV1(requestParameters.id, requestParameters.correlationconfigV1, axiosOptions).then((request) => request(axios, basePath));
+        putCorrelationConfigV1(requestParameters: SourcesApiPutCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Correlationconfig> {
+            return localVarFp.putCorrelationConfigV1(requestParameters.id, requestParameters.correlationconfig, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.
          * @summary Update native change detection configuration
-         * @param {SourcesV1ApiPutNativeChangeDetectionConfigV1Request} requestParameters Request parameters.
+         * @param {SourcesApiPutNativeChangeDetectionConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putNativeChangeDetectionConfigV1(requestParameters: SourcesV1ApiPutNativeChangeDetectionConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<NativechangedetectionconfigV1> {
-            return localVarFp.putNativeChangeDetectionConfigV1(requestParameters.sourceId, requestParameters.nativechangedetectionconfigV1, axiosOptions).then((request) => request(axios, basePath));
+        putNativeChangeDetectionConfigV1(requestParameters: SourcesApiPutNativeChangeDetectionConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Nativechangedetectionconfig> {
+            return localVarFp.putNativeChangeDetectionConfigV1(requestParameters.sourceId, requestParameters.nativechangedetectionconfig, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
          * @summary Update provisioning policy by usagetype
-         * @param {SourcesV1ApiPutProvisioningPolicyV1Request} requestParameters Request parameters.
+         * @param {SourcesApiPutProvisioningPolicyV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putProvisioningPolicyV1(requestParameters: SourcesV1ApiPutProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ProvisioningpolicydtoV1> {
-            return localVarFp.putProvisioningPolicyV1(requestParameters.sourceId, requestParameters.usageType, requestParameters.provisioningpolicydtoV1, axiosOptions).then((request) => request(axios, basePath));
+        putProvisioningPolicyV1(requestParameters: SourcesApiPutProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Provisioningpolicydto> {
+            return localVarFp.putProvisioningPolicyV1(requestParameters.sourceId, requestParameters.usageType, requestParameters.provisioningpolicydto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Replaces the attribute synchronization configuration for the source specified by the given ID with the configuration provided in the request body. Only the \"enabled\" field of the values in the \"attributes\" array is mutable. Attempting to change other attributes or add new values to the \"attributes\" array will result in an error. 
          * @summary Update attribute sync config
-         * @param {SourcesV1ApiPutSourceAttrSyncConfigV1Request} requestParameters Request parameters.
+         * @param {SourcesApiPutSourceAttrSyncConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putSourceAttrSyncConfigV1(requestParameters: SourcesV1ApiPutSourceAttrSyncConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AttrsyncsourceconfigV1> {
-            return localVarFp.putSourceAttrSyncConfigV1(requestParameters.id, requestParameters.attrsyncsourceconfigV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        putSourceAttrSyncConfigV1(requestParameters: SourcesApiPutSourceAttrSyncConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Attrsyncsourceconfig> {
+            return localVarFp.putSourceAttrSyncConfigV1(requestParameters.id, requestParameters.attrsyncsourceconfig, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API will completely replace an existing Schema with the submitted payload. Some fields of the Schema cannot be updated. These fields are listed below.  * id * name * created * modified  Any attempt to modify these fields will result in an error response with a status code of 400.  > `id` must remain in the request body, but it cannot be changed.  If `id` is omitted from the request body, the result will be a 400 error. 
          * @summary Update source schema (full)
-         * @param {SourcesV1ApiPutSourceSchemaV1Request} requestParameters Request parameters.
+         * @param {SourcesApiPutSourceSchemaV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putSourceSchemaV1(requestParameters: SourcesV1ApiPutSourceSchemaV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SchemaV1> {
-            return localVarFp.putSourceSchemaV1(requestParameters.sourceId, requestParameters.schemaId, requestParameters.schemaV1, axiosOptions).then((request) => request(axios, basePath));
+        putSourceSchemaV1(requestParameters: SourcesApiPutSourceSchemaV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Schema> {
+            return localVarFp.putSourceSchemaV1(requestParameters.sourceId, requestParameters.schemaId, requestParameters.schema, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
          * @summary Update source (full)
-         * @param {SourcesV1ApiPutSourceV1Request} requestParameters Request parameters.
+         * @param {SourcesApiPutSourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putSourceV1(requestParameters: SourcesV1ApiPutSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceV1> {
-            return localVarFp.putSourceV1(requestParameters.id, requestParameters.sourceV1, axiosOptions).then((request) => request(axios, basePath));
+        putSourceV1(requestParameters: SourcesApiPutSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Source> {
+            return localVarFp.putSourceV1(requestParameters.id, requestParameters.source, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Retrieves a sample of data returned from account and group aggregation requests.
          * @summary Peek source connector\'s resource objects
-         * @param {SourcesV1ApiSearchResourceObjectsV1Request} requestParameters Request parameters.
+         * @param {SourcesApiSearchResourceObjectsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchResourceObjectsV1(requestParameters: SourcesV1ApiSearchResourceObjectsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ResourceobjectsresponseV1> {
-            return localVarFp.searchResourceObjectsV1(requestParameters.sourceId, requestParameters.resourceobjectsrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        searchResourceObjectsV1(requestParameters: SourcesApiSearchResourceObjectsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Resourceobjectsresponse> {
+            return localVarFp.searchResourceObjectsV1(requestParameters.sourceId, requestParameters.resourceobjectsrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point performs attribute synchronization for a selected source.
          * @summary Synchronize single source attributes.
-         * @param {SourcesV1ApiSyncAttributesForSourceV1Request} requestParameters Request parameters.
+         * @param {SourcesApiSyncAttributesForSourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        syncAttributesForSourceV1(requestParameters: SourcesV1ApiSyncAttributesForSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourcesyncjobV1> {
+        syncAttributesForSourceV1(requestParameters: SourcesApiSyncAttributesForSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sourcesyncjob> {
             return localVarFp.syncAttributesForSourceV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint performs a more detailed validation of the source\'\'s configuration that can take longer than the lighter weight credential validation performed by the checkConnection API.
          * @summary Test configuration for source connector
-         * @param {SourcesV1ApiTestSourceConfigurationV1Request} requestParameters Request parameters.
+         * @param {SourcesApiTestSourceConfigurationV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        testSourceConfigurationV1(requestParameters: SourcesV1ApiTestSourceConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<StatusresponseV1> {
+        testSourceConfigurationV1(requestParameters: SourcesApiTestSourceConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Statusresponse> {
             return localVarFp.testSourceConfigurationV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint validates that the configured credentials are valid and will properly authenticate with the source identified by the sourceId path parameter.
          * @summary Check connection for source connector.
-         * @param {SourcesV1ApiTestSourceConnectionV1Request} requestParameters Request parameters.
+         * @param {SourcesApiTestSourceConnectionV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        testSourceConnectionV1(requestParameters: SourcesV1ApiTestSourceConnectionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<StatusresponseV1> {
+        testSourceConnectionV1(requestParameters: SourcesApiTestSourceConnectionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Statusresponse> {
             return localVarFp.testSourceConnectionV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Updates the approval configuration for deleting human accounts for a specific source, identified by source ID. This endpoint allows administrators to modify settings such as whether approval is required, who the approvers are, and other approval-related options. The update is performed using a JSON Patch payload, and the response returns the updated AccountDeleteConfigDto object reflecting the new approval workflow configuration. 
          * @summary Human Account Deletion Approval Config
-         * @param {SourcesV1ApiUpdateAccountDeletionApprovalConfigV1Request} requestParameters Request parameters.
+         * @param {SourcesApiUpdateAccountDeletionApprovalConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateAccountDeletionApprovalConfigV1(requestParameters: SourcesV1ApiUpdateAccountDeletionApprovalConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountdeleteconfigdtoV1> {
-            return localVarFp.updateAccountDeletionApprovalConfigV1(requestParameters.sourceId, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        updateAccountDeletionApprovalConfigV1(requestParameters: SourcesApiUpdateAccountDeletionApprovalConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accountdeleteconfigdto> {
+            return localVarFp.updateAccountDeletionApprovalConfigV1(requestParameters.sourceId, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this endpoint to update the machine account deletion approval configuration for a specific source. The update is performed using a JSON Patch payload, which allows partial modifications to the approval config. This operation is typically used to change approval requirements, approvers, or comments settings for machine account deletion. The endpoint expects the source ID as a path parameter and a valid JSON Patch array in the request body. 
          * @summary Machine Account Deletion Approval Config
-         * @param {SourcesV1ApiUpdateMachineAccountDeletionApprovalConfigV1Request} requestParameters Request parameters.
+         * @param {SourcesApiUpdateMachineAccountDeletionApprovalConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateMachineAccountDeletionApprovalConfigV1(requestParameters: SourcesV1ApiUpdateMachineAccountDeletionApprovalConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountdeleteconfigdtoV1> {
-            return localVarFp.updateMachineAccountDeletionApprovalConfigV1(requestParameters.sourceId, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        updateMachineAccountDeletionApprovalConfigV1(requestParameters: SourcesApiUpdateMachineAccountDeletionApprovalConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accountdeleteconfigdto> {
+            return localVarFp.updateMachineAccountDeletionApprovalConfigV1(requestParameters.sourceId, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API can be used to set up or update Password Policy in IdentityNow for the specified Source. Source must support PASSWORD feature. 
          * @summary Update password policy
-         * @param {SourcesV1ApiUpdatePasswordPolicyHoldersV1Request} requestParameters Request parameters.
+         * @param {SourcesApiUpdatePasswordPolicyHoldersV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updatePasswordPolicyHoldersV1(requestParameters: SourcesV1ApiUpdatePasswordPolicyHoldersV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<PasswordpolicyholdersdtoInnerV1>> {
-            return localVarFp.updatePasswordPolicyHoldersV1(requestParameters.sourceId, requestParameters.passwordpolicyholdersdtoInnerV1, axiosOptions).then((request) => request(axios, basePath));
+        updatePasswordPolicyHoldersV1(requestParameters: SourcesApiUpdatePasswordPolicyHoldersV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<PasswordpolicyholdersdtoInner>> {
+            return localVarFp.updatePasswordPolicyHoldersV1(requestParameters.sourceId, requestParameters.passwordpolicyholdersdtoInner, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point updates a list of provisioning policies on the specified source in IdentityNow.
          * @summary Bulk update provisioning policies
-         * @param {SourcesV1ApiUpdateProvisioningPoliciesInBulkV1Request} requestParameters Request parameters.
+         * @param {SourcesApiUpdateProvisioningPoliciesInBulkV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateProvisioningPoliciesInBulkV1(requestParameters: SourcesV1ApiUpdateProvisioningPoliciesInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ProvisioningpolicydtoV1>> {
-            return localVarFp.updateProvisioningPoliciesInBulkV1(requestParameters.sourceId, requestParameters.provisioningpolicydtoV1, axiosOptions).then((request) => request(axios, basePath));
+        updateProvisioningPoliciesInBulkV1(requestParameters: SourcesApiUpdateProvisioningPoliciesInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Provisioningpolicydto>> {
+            return localVarFp.updateProvisioningPoliciesInBulkV1(requestParameters.sourceId, requestParameters.provisioningpolicydto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API selectively updates an existing Provisioning Policy using a JSONPatch payload. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
          * @summary Partial update of provisioning policy
-         * @param {SourcesV1ApiUpdateProvisioningPolicyV1Request} requestParameters Request parameters.
+         * @param {SourcesApiUpdateProvisioningPolicyV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateProvisioningPolicyV1(requestParameters: SourcesV1ApiUpdateProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ProvisioningpolicydtoV1> {
-            return localVarFp.updateProvisioningPolicyV1(requestParameters.sourceId, requestParameters.usageType, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        updateProvisioningPolicyV1(requestParameters: SourcesApiUpdateProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Provisioningpolicydto> {
+            return localVarFp.updateProvisioningPolicyV1(requestParameters.sourceId, requestParameters.usageType, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
          * @summary Update source entitlement request configuration
-         * @param {SourcesV1ApiUpdateSourceEntitlementRequestConfigV1Request} requestParameters Request parameters.
+         * @param {SourcesApiUpdateSourceEntitlementRequestConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateSourceEntitlementRequestConfigV1(requestParameters: SourcesV1ApiUpdateSourceEntitlementRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceentitlementrequestconfigV1> {
-            return localVarFp.updateSourceEntitlementRequestConfigV1(requestParameters.id, requestParameters.sourceentitlementrequestconfigV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        updateSourceEntitlementRequestConfigV1(requestParameters: SourcesApiUpdateSourceEntitlementRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sourceentitlementrequestconfig> {
+            return localVarFp.updateSourceEntitlementRequestConfigV1(requestParameters.id, requestParameters.sourceentitlementrequestconfig, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to selectively update an existing Schedule using a JSONPatch payload.   The following schedule fields are immutable and cannot be updated:  - type 
          * @summary Update source schedule (partial)
-         * @param {SourcesV1ApiUpdateSourceScheduleV1Request} requestParameters Request parameters.
+         * @param {SourcesApiUpdateSourceScheduleV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateSourceScheduleV1(requestParameters: SourcesV1ApiUpdateSourceScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Schedule3V1> {
-            return localVarFp.updateSourceScheduleV1(requestParameters.sourceId, requestParameters.scheduleType, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        updateSourceScheduleV1(requestParameters: SourcesApiUpdateSourceScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Schedule3> {
+            return localVarFp.updateSourceScheduleV1(requestParameters.sourceId, requestParameters.scheduleType, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-source-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ``` 
          * @summary Update source schema (partial)
-         * @param {SourcesV1ApiUpdateSourceSchemaV1Request} requestParameters Request parameters.
+         * @param {SourcesApiUpdateSourceSchemaV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateSourceSchemaV1(requestParameters: SourcesV1ApiUpdateSourceSchemaV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SchemaV1> {
-            return localVarFp.updateSourceSchemaV1(requestParameters.sourceId, requestParameters.schemaId, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        updateSourceSchemaV1(requestParameters: SourcesApiUpdateSourceSchemaV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Schema> {
+            return localVarFp.updateSourceSchemaV1(requestParameters.sourceId, requestParameters.schemaId, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
          * @summary Update source (partial)
-         * @param {SourcesV1ApiUpdateSourceV1Request} requestParameters Request parameters.
+         * @param {SourcesApiUpdateSourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateSourceV1(requestParameters: SourcesV1ApiUpdateSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceV1> {
-            return localVarFp.updateSourceV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        updateSourceV1(requestParameters: SourcesApiUpdateSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Source> {
+            return localVarFp.updateSourceV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createProvisioningPolicyV1 operation in SourcesV1Api.
+ * Request parameters for createProvisioningPolicyV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiCreateProvisioningPolicyV1Request
+ * @interface SourcesApiCreateProvisioningPolicyV1Request
  */
-export interface SourcesV1ApiCreateProvisioningPolicyV1Request {
+export interface SourcesApiCreateProvisioningPolicyV1Request {
     /**
      * The Source id
      * @type {string}
-     * @memberof SourcesV1ApiCreateProvisioningPolicyV1
+     * @memberof SourcesApiCreateProvisioningPolicyV1
      */
     readonly sourceId: string
 
     /**
      * 
-     * @type {ProvisioningpolicydtoV1}
-     * @memberof SourcesV1ApiCreateProvisioningPolicyV1
+     * @type {Provisioningpolicydto}
+     * @memberof SourcesApiCreateProvisioningPolicyV1
      */
-    readonly provisioningpolicydtoV1: ProvisioningpolicydtoV1
+    readonly provisioningpolicydto: Provisioningpolicydto
 }
 
 /**
- * Request parameters for createSourceScheduleV1 operation in SourcesV1Api.
+ * Request parameters for createSourceScheduleV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiCreateSourceScheduleV1Request
+ * @interface SourcesApiCreateSourceScheduleV1Request
  */
-export interface SourcesV1ApiCreateSourceScheduleV1Request {
+export interface SourcesApiCreateSourceScheduleV1Request {
     /**
      * Source ID.
      * @type {string}
-     * @memberof SourcesV1ApiCreateSourceScheduleV1
+     * @memberof SourcesApiCreateSourceScheduleV1
      */
     readonly sourceId: string
 
     /**
      * 
-     * @type {Schedule3V1}
-     * @memberof SourcesV1ApiCreateSourceScheduleV1
+     * @type {Schedule3}
+     * @memberof SourcesApiCreateSourceScheduleV1
      */
-    readonly schedule3V1: Schedule3V1
+    readonly schedule3: Schedule3
 }
 
 /**
- * Request parameters for createSourceSchemaV1 operation in SourcesV1Api.
+ * Request parameters for createSourceSchemaV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiCreateSourceSchemaV1Request
+ * @interface SourcesApiCreateSourceSchemaV1Request
  */
-export interface SourcesV1ApiCreateSourceSchemaV1Request {
+export interface SourcesApiCreateSourceSchemaV1Request {
     /**
      * Source ID.
      * @type {string}
-     * @memberof SourcesV1ApiCreateSourceSchemaV1
+     * @memberof SourcesApiCreateSourceSchemaV1
      */
     readonly sourceId: string
 
     /**
      * 
-     * @type {SchemaV1}
-     * @memberof SourcesV1ApiCreateSourceSchemaV1
+     * @type {Schema}
+     * @memberof SourcesApiCreateSourceSchemaV1
      */
-    readonly schemaV1: SchemaV1
+    readonly schema: Schema
 }
 
 /**
- * Request parameters for createSourceV1 operation in SourcesV1Api.
+ * Request parameters for createSourceV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiCreateSourceV1Request
+ * @interface SourcesApiCreateSourceV1Request
  */
-export interface SourcesV1ApiCreateSourceV1Request {
+export interface SourcesApiCreateSourceV1Request {
     /**
      * 
-     * @type {SourceV1}
-     * @memberof SourcesV1ApiCreateSourceV1
+     * @type {Source}
+     * @memberof SourcesApiCreateSourceV1
      */
-    readonly sourceV1: SourceV1
+    readonly source: Source
 
     /**
      * If this parameter is &#x60;true&#x60;, it configures the source as a Delimited File (CSV) source. Setting this to &#x60;true&#x60; will automatically set the &#x60;type&#x60; of the source to &#x60;DelimitedFile&#x60;.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don\&#39;t set this query parameter and you attempt to set the &#x60;type&#x60; attribute directly, the request won\&#39;t correctly generate the source.  
      * @type {boolean}
-     * @memberof SourcesV1ApiCreateSourceV1
+     * @memberof SourcesApiCreateSourceV1
      */
     readonly provisionAsCsv?: boolean
 }
 
 /**
- * Request parameters for deleteAccountsAsyncV1 operation in SourcesV1Api.
+ * Request parameters for deleteAccountsAsyncV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiDeleteAccountsAsyncV1Request
+ * @interface SourcesApiDeleteAccountsAsyncV1Request
  */
-export interface SourcesV1ApiDeleteAccountsAsyncV1Request {
+export interface SourcesApiDeleteAccountsAsyncV1Request {
     /**
      * The source id
      * @type {string}
-     * @memberof SourcesV1ApiDeleteAccountsAsyncV1
+     * @memberof SourcesApiDeleteAccountsAsyncV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for deleteNativeChangeDetectionConfigV1 operation in SourcesV1Api.
+ * Request parameters for deleteNativeChangeDetectionConfigV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiDeleteNativeChangeDetectionConfigV1Request
+ * @interface SourcesApiDeleteNativeChangeDetectionConfigV1Request
  */
-export interface SourcesV1ApiDeleteNativeChangeDetectionConfigV1Request {
+export interface SourcesApiDeleteNativeChangeDetectionConfigV1Request {
     /**
      * The source id
      * @type {string}
-     * @memberof SourcesV1ApiDeleteNativeChangeDetectionConfigV1
+     * @memberof SourcesApiDeleteNativeChangeDetectionConfigV1
      */
     readonly sourceId: string
 }
 
 /**
- * Request parameters for deleteProvisioningPolicyV1 operation in SourcesV1Api.
+ * Request parameters for deleteProvisioningPolicyV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiDeleteProvisioningPolicyV1Request
+ * @interface SourcesApiDeleteProvisioningPolicyV1Request
  */
-export interface SourcesV1ApiDeleteProvisioningPolicyV1Request {
+export interface SourcesApiDeleteProvisioningPolicyV1Request {
     /**
      * The Source ID.
      * @type {string}
-     * @memberof SourcesV1ApiDeleteProvisioningPolicyV1
+     * @memberof SourcesApiDeleteProvisioningPolicyV1
      */
     readonly sourceId: string
 
     /**
      * The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
-     * @type {UsagetypeV1}
-     * @memberof SourcesV1ApiDeleteProvisioningPolicyV1
+     * @type {Usagetype}
+     * @memberof SourcesApiDeleteProvisioningPolicyV1
      */
-    readonly usageType: UsagetypeV1
+    readonly usageType: Usagetype
 }
 
 /**
- * Request parameters for deleteSourceScheduleV1 operation in SourcesV1Api.
+ * Request parameters for deleteSourceScheduleV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiDeleteSourceScheduleV1Request
+ * @interface SourcesApiDeleteSourceScheduleV1Request
  */
-export interface SourcesV1ApiDeleteSourceScheduleV1Request {
+export interface SourcesApiDeleteSourceScheduleV1Request {
     /**
      * The Source id.
      * @type {string}
-     * @memberof SourcesV1ApiDeleteSourceScheduleV1
+     * @memberof SourcesApiDeleteSourceScheduleV1
      */
     readonly sourceId: string
 
     /**
      * The Schedule type.
      * @type {'ACCOUNT_AGGREGATION' | 'GROUP_AGGREGATION'}
-     * @memberof SourcesV1ApiDeleteSourceScheduleV1
+     * @memberof SourcesApiDeleteSourceScheduleV1
      */
-    readonly scheduleType: DeleteSourceScheduleV1ScheduleTypeV1
+    readonly scheduleType: DeleteSourceScheduleV1ScheduleTypeEnum
 }
 
 /**
- * Request parameters for deleteSourceSchemaV1 operation in SourcesV1Api.
+ * Request parameters for deleteSourceSchemaV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiDeleteSourceSchemaV1Request
+ * @interface SourcesApiDeleteSourceSchemaV1Request
  */
-export interface SourcesV1ApiDeleteSourceSchemaV1Request {
+export interface SourcesApiDeleteSourceSchemaV1Request {
     /**
      * The Source id.
      * @type {string}
-     * @memberof SourcesV1ApiDeleteSourceSchemaV1
+     * @memberof SourcesApiDeleteSourceSchemaV1
      */
     readonly sourceId: string
 
     /**
      * The Schema id.
      * @type {string}
-     * @memberof SourcesV1ApiDeleteSourceSchemaV1
+     * @memberof SourcesApiDeleteSourceSchemaV1
      */
     readonly schemaId: string
 }
 
 /**
- * Request parameters for deleteSourceV1 operation in SourcesV1Api.
+ * Request parameters for deleteSourceV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiDeleteSourceV1Request
+ * @interface SourcesApiDeleteSourceV1Request
  */
-export interface SourcesV1ApiDeleteSourceV1Request {
+export interface SourcesApiDeleteSourceV1Request {
     /**
      * Source ID.
      * @type {string}
-     * @memberof SourcesV1ApiDeleteSourceV1
+     * @memberof SourcesApiDeleteSourceV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getAccountDeleteApprovalConfigV1 operation in SourcesV1Api.
+ * Request parameters for getAccountDeleteApprovalConfigV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiGetAccountDeleteApprovalConfigV1Request
+ * @interface SourcesApiGetAccountDeleteApprovalConfigV1Request
  */
-export interface SourcesV1ApiGetAccountDeleteApprovalConfigV1Request {
+export interface SourcesApiGetAccountDeleteApprovalConfigV1Request {
     /**
      * The Source id
      * @type {string}
-     * @memberof SourcesV1ApiGetAccountDeleteApprovalConfigV1
+     * @memberof SourcesApiGetAccountDeleteApprovalConfigV1
      */
     readonly sourceId: string
 }
 
 /**
- * Request parameters for getAccountsSchemaV1 operation in SourcesV1Api.
+ * Request parameters for getAccountsSchemaV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiGetAccountsSchemaV1Request
+ * @interface SourcesApiGetAccountsSchemaV1Request
  */
-export interface SourcesV1ApiGetAccountsSchemaV1Request {
+export interface SourcesApiGetAccountsSchemaV1Request {
     /**
      * The Source id
      * @type {string}
-     * @memberof SourcesV1ApiGetAccountsSchemaV1
+     * @memberof SourcesApiGetAccountsSchemaV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getCorrelationConfigV1 operation in SourcesV1Api.
+ * Request parameters for getCorrelationConfigV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiGetCorrelationConfigV1Request
+ * @interface SourcesApiGetCorrelationConfigV1Request
  */
-export interface SourcesV1ApiGetCorrelationConfigV1Request {
+export interface SourcesApiGetCorrelationConfigV1Request {
     /**
      * The source id
      * @type {string}
-     * @memberof SourcesV1ApiGetCorrelationConfigV1
+     * @memberof SourcesApiGetCorrelationConfigV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getEntitlementsSchemaV1 operation in SourcesV1Api.
+ * Request parameters for getEntitlementsSchemaV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiGetEntitlementsSchemaV1Request
+ * @interface SourcesApiGetEntitlementsSchemaV1Request
  */
-export interface SourcesV1ApiGetEntitlementsSchemaV1Request {
+export interface SourcesApiGetEntitlementsSchemaV1Request {
     /**
      * The Source id
      * @type {string}
-     * @memberof SourcesV1ApiGetEntitlementsSchemaV1
+     * @memberof SourcesApiGetEntitlementsSchemaV1
      */
     readonly id: string
 
     /**
      * Name of entitlement schema
      * @type {string}
-     * @memberof SourcesV1ApiGetEntitlementsSchemaV1
+     * @memberof SourcesApiGetEntitlementsSchemaV1
      */
     readonly schemaName?: string
 }
 
 /**
- * Request parameters for getMachineAccountDeletionApprovalConfigBySourceV1 operation in SourcesV1Api.
+ * Request parameters for getMachineAccountDeletionApprovalConfigBySourceV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiGetMachineAccountDeletionApprovalConfigBySourceV1Request
+ * @interface SourcesApiGetMachineAccountDeletionApprovalConfigBySourceV1Request
  */
-export interface SourcesV1ApiGetMachineAccountDeletionApprovalConfigBySourceV1Request {
+export interface SourcesApiGetMachineAccountDeletionApprovalConfigBySourceV1Request {
     /**
      * source id.
      * @type {string}
-     * @memberof SourcesV1ApiGetMachineAccountDeletionApprovalConfigBySourceV1
+     * @memberof SourcesApiGetMachineAccountDeletionApprovalConfigBySourceV1
      */
     readonly sourceId: string
 }
 
 /**
- * Request parameters for getNativeChangeDetectionConfigV1 operation in SourcesV1Api.
+ * Request parameters for getNativeChangeDetectionConfigV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiGetNativeChangeDetectionConfigV1Request
+ * @interface SourcesApiGetNativeChangeDetectionConfigV1Request
  */
-export interface SourcesV1ApiGetNativeChangeDetectionConfigV1Request {
+export interface SourcesApiGetNativeChangeDetectionConfigV1Request {
     /**
      * The source id
      * @type {string}
-     * @memberof SourcesV1ApiGetNativeChangeDetectionConfigV1
+     * @memberof SourcesApiGetNativeChangeDetectionConfigV1
      */
     readonly sourceId: string
 }
 
 /**
- * Request parameters for getProvisioningPolicyV1 operation in SourcesV1Api.
+ * Request parameters for getProvisioningPolicyV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiGetProvisioningPolicyV1Request
+ * @interface SourcesApiGetProvisioningPolicyV1Request
  */
-export interface SourcesV1ApiGetProvisioningPolicyV1Request {
+export interface SourcesApiGetProvisioningPolicyV1Request {
     /**
      * The Source ID.
      * @type {string}
-     * @memberof SourcesV1ApiGetProvisioningPolicyV1
+     * @memberof SourcesApiGetProvisioningPolicyV1
      */
     readonly sourceId: string
 
     /**
      * The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
-     * @type {UsagetypeV1}
-     * @memberof SourcesV1ApiGetProvisioningPolicyV1
+     * @type {Usagetype}
+     * @memberof SourcesApiGetProvisioningPolicyV1
      */
-    readonly usageType: UsagetypeV1
+    readonly usageType: Usagetype
 }
 
 /**
- * Request parameters for getSourceAttrSyncConfigV1 operation in SourcesV1Api.
+ * Request parameters for getSourceAttrSyncConfigV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiGetSourceAttrSyncConfigV1Request
+ * @interface SourcesApiGetSourceAttrSyncConfigV1Request
  */
-export interface SourcesV1ApiGetSourceAttrSyncConfigV1Request {
+export interface SourcesApiGetSourceAttrSyncConfigV1Request {
     /**
      * The source id
      * @type {string}
-     * @memberof SourcesV1ApiGetSourceAttrSyncConfigV1
+     * @memberof SourcesApiGetSourceAttrSyncConfigV1
      */
     readonly id: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof SourcesV1ApiGetSourceAttrSyncConfigV1
+     * @memberof SourcesApiGetSourceAttrSyncConfigV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getSourceConfigV1 operation in SourcesV1Api.
+ * Request parameters for getSourceConfigV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiGetSourceConfigV1Request
+ * @interface SourcesApiGetSourceConfigV1Request
  */
-export interface SourcesV1ApiGetSourceConfigV1Request {
+export interface SourcesApiGetSourceConfigV1Request {
     /**
      * The Source id
      * @type {string}
-     * @memberof SourcesV1ApiGetSourceConfigV1
+     * @memberof SourcesApiGetSourceConfigV1
      */
     readonly id: string
 
     /**
      * The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
      * @type {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'}
-     * @memberof SourcesV1ApiGetSourceConfigV1
+     * @memberof SourcesApiGetSourceConfigV1
      */
-    readonly locale?: GetSourceConfigV1LocaleV1
+    readonly locale?: GetSourceConfigV1LocaleEnum
 }
 
 /**
- * Request parameters for getSourceConnectionsV1 operation in SourcesV1Api.
+ * Request parameters for getSourceConnectionsV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiGetSourceConnectionsV1Request
+ * @interface SourcesApiGetSourceConnectionsV1Request
  */
-export interface SourcesV1ApiGetSourceConnectionsV1Request {
+export interface SourcesApiGetSourceConnectionsV1Request {
     /**
      * Source ID.
      * @type {string}
-     * @memberof SourcesV1ApiGetSourceConnectionsV1
+     * @memberof SourcesApiGetSourceConnectionsV1
      */
     readonly sourceId: string
 }
 
 /**
- * Request parameters for getSourceEntitlementRequestConfigV1 operation in SourcesV1Api.
+ * Request parameters for getSourceEntitlementRequestConfigV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiGetSourceEntitlementRequestConfigV1Request
+ * @interface SourcesApiGetSourceEntitlementRequestConfigV1Request
  */
-export interface SourcesV1ApiGetSourceEntitlementRequestConfigV1Request {
+export interface SourcesApiGetSourceEntitlementRequestConfigV1Request {
     /**
      * The Source id
      * @type {string}
-     * @memberof SourcesV1ApiGetSourceEntitlementRequestConfigV1
+     * @memberof SourcesApiGetSourceEntitlementRequestConfigV1
      */
     readonly id: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof SourcesV1ApiGetSourceEntitlementRequestConfigV1
+     * @memberof SourcesApiGetSourceEntitlementRequestConfigV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getSourceHealthV1 operation in SourcesV1Api.
+ * Request parameters for getSourceHealthV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiGetSourceHealthV1Request
+ * @interface SourcesApiGetSourceHealthV1Request
  */
-export interface SourcesV1ApiGetSourceHealthV1Request {
+export interface SourcesApiGetSourceHealthV1Request {
     /**
      * The Source id.
      * @type {string}
-     * @memberof SourcesV1ApiGetSourceHealthV1
+     * @memberof SourcesApiGetSourceHealthV1
      */
     readonly sourceId: string
 }
 
 /**
- * Request parameters for getSourceScheduleV1 operation in SourcesV1Api.
+ * Request parameters for getSourceScheduleV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiGetSourceScheduleV1Request
+ * @interface SourcesApiGetSourceScheduleV1Request
  */
-export interface SourcesV1ApiGetSourceScheduleV1Request {
+export interface SourcesApiGetSourceScheduleV1Request {
     /**
      * The Source id.
      * @type {string}
-     * @memberof SourcesV1ApiGetSourceScheduleV1
+     * @memberof SourcesApiGetSourceScheduleV1
      */
     readonly sourceId: string
 
     /**
      * The Schedule type.
      * @type {'ACCOUNT_AGGREGATION' | 'GROUP_AGGREGATION'}
-     * @memberof SourcesV1ApiGetSourceScheduleV1
+     * @memberof SourcesApiGetSourceScheduleV1
      */
-    readonly scheduleType: GetSourceScheduleV1ScheduleTypeV1
+    readonly scheduleType: GetSourceScheduleV1ScheduleTypeEnum
 }
 
 /**
- * Request parameters for getSourceSchedulesV1 operation in SourcesV1Api.
+ * Request parameters for getSourceSchedulesV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiGetSourceSchedulesV1Request
+ * @interface SourcesApiGetSourceSchedulesV1Request
  */
-export interface SourcesV1ApiGetSourceSchedulesV1Request {
+export interface SourcesApiGetSourceSchedulesV1Request {
     /**
      * Source ID.
      * @type {string}
-     * @memberof SourcesV1ApiGetSourceSchedulesV1
+     * @memberof SourcesApiGetSourceSchedulesV1
      */
     readonly sourceId: string
 }
 
 /**
- * Request parameters for getSourceSchemaV1 operation in SourcesV1Api.
+ * Request parameters for getSourceSchemaV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiGetSourceSchemaV1Request
+ * @interface SourcesApiGetSourceSchemaV1Request
  */
-export interface SourcesV1ApiGetSourceSchemaV1Request {
+export interface SourcesApiGetSourceSchemaV1Request {
     /**
      * The Source id.
      * @type {string}
-     * @memberof SourcesV1ApiGetSourceSchemaV1
+     * @memberof SourcesApiGetSourceSchemaV1
      */
     readonly sourceId: string
 
     /**
      * The Schema id.
      * @type {string}
-     * @memberof SourcesV1ApiGetSourceSchemaV1
+     * @memberof SourcesApiGetSourceSchemaV1
      */
     readonly schemaId: string
 }
 
 /**
- * Request parameters for getSourceSchemasV1 operation in SourcesV1Api.
+ * Request parameters for getSourceSchemasV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiGetSourceSchemasV1Request
+ * @interface SourcesApiGetSourceSchemasV1Request
  */
-export interface SourcesV1ApiGetSourceSchemasV1Request {
+export interface SourcesApiGetSourceSchemasV1Request {
     /**
      * Source ID.
      * @type {string}
-     * @memberof SourcesV1ApiGetSourceSchemasV1
+     * @memberof SourcesApiGetSourceSchemasV1
      */
     readonly sourceId: string
 
     /**
      * If set to \&#39;group\&#39;, then the account schema is filtered and only group schemas are returned. Only a value of \&#39;group\&#39; is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas.
      * @type {'group' | 'user'}
-     * @memberof SourcesV1ApiGetSourceSchemasV1
+     * @memberof SourcesApiGetSourceSchemasV1
      */
-    readonly includeTypes?: GetSourceSchemasV1IncludeTypesV1
+    readonly includeTypes?: GetSourceSchemasV1IncludeTypesEnum
 
     /**
      * A comma-separated list of schema names to filter result.
      * @type {string}
-     * @memberof SourcesV1ApiGetSourceSchemasV1
+     * @memberof SourcesApiGetSourceSchemasV1
      */
     readonly includeNames?: string
 }
 
 /**
- * Request parameters for getSourceV1 operation in SourcesV1Api.
+ * Request parameters for getSourceV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiGetSourceV1Request
+ * @interface SourcesApiGetSourceV1Request
  */
-export interface SourcesV1ApiGetSourceV1Request {
+export interface SourcesApiGetSourceV1Request {
     /**
      * Source ID.
      * @type {string}
-     * @memberof SourcesV1ApiGetSourceV1
+     * @memberof SourcesApiGetSourceV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for importAccountsSchemaV1 operation in SourcesV1Api.
+ * Request parameters for importAccountsSchemaV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiImportAccountsSchemaV1Request
+ * @interface SourcesApiImportAccountsSchemaV1Request
  */
-export interface SourcesV1ApiImportAccountsSchemaV1Request {
+export interface SourcesApiImportAccountsSchemaV1Request {
     /**
      * The Source id
      * @type {string}
-     * @memberof SourcesV1ApiImportAccountsSchemaV1
+     * @memberof SourcesApiImportAccountsSchemaV1
      */
     readonly id: string
 
     /**
      * 
      * @type {File}
-     * @memberof SourcesV1ApiImportAccountsSchemaV1
+     * @memberof SourcesApiImportAccountsSchemaV1
      */
     readonly file?: File
 }
 
 /**
- * Request parameters for importAccountsV1 operation in SourcesV1Api.
+ * Request parameters for importAccountsV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiImportAccountsV1Request
+ * @interface SourcesApiImportAccountsV1Request
  */
-export interface SourcesV1ApiImportAccountsV1Request {
+export interface SourcesApiImportAccountsV1Request {
     /**
      * Source Id
      * @type {string}
-     * @memberof SourcesV1ApiImportAccountsV1
+     * @memberof SourcesApiImportAccountsV1
      */
     readonly id: string
 
     /**
      * The CSV file containing the source accounts to aggregate.
      * @type {File}
-     * @memberof SourcesV1ApiImportAccountsV1
+     * @memberof SourcesApiImportAccountsV1
      */
     readonly file?: File
 
     /**
      * Use this flag to reprocess every account whether or not the data has changed.
      * @type {string}
-     * @memberof SourcesV1ApiImportAccountsV1
+     * @memberof SourcesApiImportAccountsV1
      */
     readonly disableOptimization?: string
 }
 
 /**
- * Request parameters for importConnectorFileV1 operation in SourcesV1Api.
+ * Request parameters for importConnectorFileV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiImportConnectorFileV1Request
+ * @interface SourcesApiImportConnectorFileV1Request
  */
-export interface SourcesV1ApiImportConnectorFileV1Request {
+export interface SourcesApiImportConnectorFileV1Request {
     /**
      * The Source id.
      * @type {string}
-     * @memberof SourcesV1ApiImportConnectorFileV1
+     * @memberof SourcesApiImportConnectorFileV1
      */
     readonly sourceId: string
 
     /**
      * 
      * @type {File}
-     * @memberof SourcesV1ApiImportConnectorFileV1
+     * @memberof SourcesApiImportConnectorFileV1
      */
     readonly file?: File
 }
 
 /**
- * Request parameters for importEntitlementsSchemaV1 operation in SourcesV1Api.
+ * Request parameters for importEntitlementsSchemaV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiImportEntitlementsSchemaV1Request
+ * @interface SourcesApiImportEntitlementsSchemaV1Request
  */
-export interface SourcesV1ApiImportEntitlementsSchemaV1Request {
+export interface SourcesApiImportEntitlementsSchemaV1Request {
     /**
      * The Source id
      * @type {string}
-     * @memberof SourcesV1ApiImportEntitlementsSchemaV1
+     * @memberof SourcesApiImportEntitlementsSchemaV1
      */
     readonly id: string
 
     /**
      * Name of entitlement schema
      * @type {string}
-     * @memberof SourcesV1ApiImportEntitlementsSchemaV1
+     * @memberof SourcesApiImportEntitlementsSchemaV1
      */
     readonly schemaName?: string
 
     /**
      * 
      * @type {File}
-     * @memberof SourcesV1ApiImportEntitlementsSchemaV1
+     * @memberof SourcesApiImportEntitlementsSchemaV1
      */
     readonly file?: File
 }
 
 /**
- * Request parameters for importEntitlementsV1 operation in SourcesV1Api.
+ * Request parameters for importEntitlementsV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiImportEntitlementsV1Request
+ * @interface SourcesApiImportEntitlementsV1Request
  */
-export interface SourcesV1ApiImportEntitlementsV1Request {
+export interface SourcesApiImportEntitlementsV1Request {
     /**
      * Source Id
      * @type {string}
-     * @memberof SourcesV1ApiImportEntitlementsV1
+     * @memberof SourcesApiImportEntitlementsV1
      */
     readonly sourceId: string
 
     /**
      * The CSV file containing the source entitlements to aggregate.
      * @type {File}
-     * @memberof SourcesV1ApiImportEntitlementsV1
+     * @memberof SourcesApiImportEntitlementsV1
      */
     readonly file?: File
 }
 
 /**
- * Request parameters for importUncorrelatedAccountsV1 operation in SourcesV1Api.
+ * Request parameters for importUncorrelatedAccountsV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiImportUncorrelatedAccountsV1Request
+ * @interface SourcesApiImportUncorrelatedAccountsV1Request
  */
-export interface SourcesV1ApiImportUncorrelatedAccountsV1Request {
+export interface SourcesApiImportUncorrelatedAccountsV1Request {
     /**
      * Source Id
      * @type {string}
-     * @memberof SourcesV1ApiImportUncorrelatedAccountsV1
+     * @memberof SourcesApiImportUncorrelatedAccountsV1
      */
     readonly id: string
 
     /**
      * 
      * @type {File}
-     * @memberof SourcesV1ApiImportUncorrelatedAccountsV1
+     * @memberof SourcesApiImportUncorrelatedAccountsV1
      */
     readonly file?: File
 }
 
 /**
- * Request parameters for listPasswordPolicyHoldersOnSourceV1 operation in SourcesV1Api.
+ * Request parameters for listPasswordPolicyHoldersOnSourceV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiListPasswordPolicyHoldersOnSourceV1Request
+ * @interface SourcesApiListPasswordPolicyHoldersOnSourceV1Request
  */
-export interface SourcesV1ApiListPasswordPolicyHoldersOnSourceV1Request {
+export interface SourcesApiListPasswordPolicyHoldersOnSourceV1Request {
     /**
      * The Source id
      * @type {string}
-     * @memberof SourcesV1ApiListPasswordPolicyHoldersOnSourceV1
+     * @memberof SourcesApiListPasswordPolicyHoldersOnSourceV1
      */
     readonly sourceId: string
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof SourcesV1ApiListPasswordPolicyHoldersOnSourceV1
+     * @memberof SourcesApiListPasswordPolicyHoldersOnSourceV1
      */
     readonly offset?: number
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof SourcesV1ApiListPasswordPolicyHoldersOnSourceV1
+     * @memberof SourcesApiListPasswordPolicyHoldersOnSourceV1
      */
     readonly limit?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof SourcesV1ApiListPasswordPolicyHoldersOnSourceV1
+     * @memberof SourcesApiListPasswordPolicyHoldersOnSourceV1
      */
     readonly count?: boolean
 }
 
 /**
- * Request parameters for listProvisioningPoliciesV1 operation in SourcesV1Api.
+ * Request parameters for listProvisioningPoliciesV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiListProvisioningPoliciesV1Request
+ * @interface SourcesApiListProvisioningPoliciesV1Request
  */
-export interface SourcesV1ApiListProvisioningPoliciesV1Request {
+export interface SourcesApiListProvisioningPoliciesV1Request {
     /**
      * The Source id
      * @type {string}
-     * @memberof SourcesV1ApiListProvisioningPoliciesV1
+     * @memberof SourcesApiListProvisioningPoliciesV1
      */
     readonly sourceId: string
 
     /**
      * Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
      * @type {number}
-     * @memberof SourcesV1ApiListProvisioningPoliciesV1
+     * @memberof SourcesApiListProvisioningPoliciesV1
      */
     readonly offset?: number
 
     /**
      * Limit        Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
      * @type {number}
-     * @memberof SourcesV1ApiListProvisioningPoliciesV1
+     * @memberof SourcesApiListProvisioningPoliciesV1
      */
     readonly limit?: number
 }
 
 /**
- * Request parameters for listSourcesV1 operation in SourcesV1Api.
+ * Request parameters for listSourcesV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiListSourcesV1Request
+ * @interface SourcesApiListSourcesV1Request
  */
-export interface SourcesV1ApiListSourcesV1Request {
+export interface SourcesApiListSourcesV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof SourcesV1ApiListSourcesV1
+     * @memberof SourcesApiListSourcesV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof SourcesV1ApiListSourcesV1
+     * @memberof SourcesApiListSourcesV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof SourcesV1ApiListSourcesV1
+     * @memberof SourcesApiListSourcesV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **name**: *co, eq, in, sw, ge, gt, ne, isnull*  **type**: *eq, in, ge, gt, ne, isnull, sw*  **owner.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **features**: *ca, co*  **created**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **modified**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **description**: *eq, sw*  **authoritative**: *eq, ne, isnull*  **healthy**: *isnull*  **status**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **connectionType**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **connectorName**: *eq, ge, gt, in, ne, isnull, sw*  **category**: *co, eq, ge, gt, in, le, lt, ne, sw*
      * @type {string}
-     * @memberof SourcesV1ApiListSourcesV1
+     * @memberof SourcesApiListSourcesV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status, id, description, owner.id, accountCorrelationConfig.id, accountCorrelationConfig.name, managerCorrelationRule.type, managerCorrelationRule.id, managerCorrelationRule.name, authoritative, managementWorkgroup.id, connectorName, connectionType**
      * @type {string}
-     * @memberof SourcesV1ApiListSourcesV1
+     * @memberof SourcesApiListSourcesV1
      */
     readonly sorters?: string
 
     /**
      * Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned.
      * @type {string}
-     * @memberof SourcesV1ApiListSourcesV1
+     * @memberof SourcesApiListSourcesV1
      */
     readonly forSubadmin?: string
 
     /**
      * Include the IdentityNow source in the response.
      * @type {boolean}
-     * @memberof SourcesV1ApiListSourcesV1
+     * @memberof SourcesApiListSourcesV1
      */
     readonly includeIDNSource?: boolean
 }
 
 /**
- * Request parameters for pingClusterV1 operation in SourcesV1Api.
+ * Request parameters for pingClusterV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiPingClusterV1Request
+ * @interface SourcesApiPingClusterV1Request
  */
-export interface SourcesV1ApiPingClusterV1Request {
+export interface SourcesApiPingClusterV1Request {
     /**
      * The ID of the Source
      * @type {string}
-     * @memberof SourcesV1ApiPingClusterV1
+     * @memberof SourcesApiPingClusterV1
      */
     readonly sourceId: string
 }
 
 /**
- * Request parameters for putCorrelationConfigV1 operation in SourcesV1Api.
+ * Request parameters for putCorrelationConfigV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiPutCorrelationConfigV1Request
+ * @interface SourcesApiPutCorrelationConfigV1Request
  */
-export interface SourcesV1ApiPutCorrelationConfigV1Request {
+export interface SourcesApiPutCorrelationConfigV1Request {
     /**
      * The source id
      * @type {string}
-     * @memberof SourcesV1ApiPutCorrelationConfigV1
+     * @memberof SourcesApiPutCorrelationConfigV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {CorrelationconfigV1}
-     * @memberof SourcesV1ApiPutCorrelationConfigV1
+     * @type {Correlationconfig}
+     * @memberof SourcesApiPutCorrelationConfigV1
      */
-    readonly correlationconfigV1: CorrelationconfigV1
+    readonly correlationconfig: Correlationconfig
 }
 
 /**
- * Request parameters for putNativeChangeDetectionConfigV1 operation in SourcesV1Api.
+ * Request parameters for putNativeChangeDetectionConfigV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiPutNativeChangeDetectionConfigV1Request
+ * @interface SourcesApiPutNativeChangeDetectionConfigV1Request
  */
-export interface SourcesV1ApiPutNativeChangeDetectionConfigV1Request {
+export interface SourcesApiPutNativeChangeDetectionConfigV1Request {
     /**
      * The source id
      * @type {string}
-     * @memberof SourcesV1ApiPutNativeChangeDetectionConfigV1
+     * @memberof SourcesApiPutNativeChangeDetectionConfigV1
      */
     readonly sourceId: string
 
     /**
      * 
-     * @type {NativechangedetectionconfigV1}
-     * @memberof SourcesV1ApiPutNativeChangeDetectionConfigV1
+     * @type {Nativechangedetectionconfig}
+     * @memberof SourcesApiPutNativeChangeDetectionConfigV1
      */
-    readonly nativechangedetectionconfigV1: NativechangedetectionconfigV1
+    readonly nativechangedetectionconfig: Nativechangedetectionconfig
 }
 
 /**
- * Request parameters for putProvisioningPolicyV1 operation in SourcesV1Api.
+ * Request parameters for putProvisioningPolicyV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiPutProvisioningPolicyV1Request
+ * @interface SourcesApiPutProvisioningPolicyV1Request
  */
-export interface SourcesV1ApiPutProvisioningPolicyV1Request {
+export interface SourcesApiPutProvisioningPolicyV1Request {
     /**
      * The Source ID.
      * @type {string}
-     * @memberof SourcesV1ApiPutProvisioningPolicyV1
+     * @memberof SourcesApiPutProvisioningPolicyV1
      */
     readonly sourceId: string
 
     /**
      * The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
-     * @type {UsagetypeV1}
-     * @memberof SourcesV1ApiPutProvisioningPolicyV1
+     * @type {Usagetype}
+     * @memberof SourcesApiPutProvisioningPolicyV1
      */
-    readonly usageType: UsagetypeV1
+    readonly usageType: Usagetype
 
     /**
      * 
-     * @type {ProvisioningpolicydtoV1}
-     * @memberof SourcesV1ApiPutProvisioningPolicyV1
+     * @type {Provisioningpolicydto}
+     * @memberof SourcesApiPutProvisioningPolicyV1
      */
-    readonly provisioningpolicydtoV1: ProvisioningpolicydtoV1
+    readonly provisioningpolicydto: Provisioningpolicydto
 }
 
 /**
- * Request parameters for putSourceAttrSyncConfigV1 operation in SourcesV1Api.
+ * Request parameters for putSourceAttrSyncConfigV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiPutSourceAttrSyncConfigV1Request
+ * @interface SourcesApiPutSourceAttrSyncConfigV1Request
  */
-export interface SourcesV1ApiPutSourceAttrSyncConfigV1Request {
+export interface SourcesApiPutSourceAttrSyncConfigV1Request {
     /**
      * The source id
      * @type {string}
-     * @memberof SourcesV1ApiPutSourceAttrSyncConfigV1
+     * @memberof SourcesApiPutSourceAttrSyncConfigV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {AttrsyncsourceconfigV1}
-     * @memberof SourcesV1ApiPutSourceAttrSyncConfigV1
+     * @type {Attrsyncsourceconfig}
+     * @memberof SourcesApiPutSourceAttrSyncConfigV1
      */
-    readonly attrsyncsourceconfigV1: AttrsyncsourceconfigV1
+    readonly attrsyncsourceconfig: Attrsyncsourceconfig
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof SourcesV1ApiPutSourceAttrSyncConfigV1
+     * @memberof SourcesApiPutSourceAttrSyncConfigV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for putSourceSchemaV1 operation in SourcesV1Api.
+ * Request parameters for putSourceSchemaV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiPutSourceSchemaV1Request
+ * @interface SourcesApiPutSourceSchemaV1Request
  */
-export interface SourcesV1ApiPutSourceSchemaV1Request {
+export interface SourcesApiPutSourceSchemaV1Request {
     /**
      * The Source id.
      * @type {string}
-     * @memberof SourcesV1ApiPutSourceSchemaV1
+     * @memberof SourcesApiPutSourceSchemaV1
      */
     readonly sourceId: string
 
     /**
      * The Schema id.
      * @type {string}
-     * @memberof SourcesV1ApiPutSourceSchemaV1
+     * @memberof SourcesApiPutSourceSchemaV1
      */
     readonly schemaId: string
 
     /**
      * 
-     * @type {SchemaV1}
-     * @memberof SourcesV1ApiPutSourceSchemaV1
+     * @type {Schema}
+     * @memberof SourcesApiPutSourceSchemaV1
      */
-    readonly schemaV1: SchemaV1
+    readonly schema: Schema
 }
 
 /**
- * Request parameters for putSourceV1 operation in SourcesV1Api.
+ * Request parameters for putSourceV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiPutSourceV1Request
+ * @interface SourcesApiPutSourceV1Request
  */
-export interface SourcesV1ApiPutSourceV1Request {
+export interface SourcesApiPutSourceV1Request {
     /**
      * Source ID.
      * @type {string}
-     * @memberof SourcesV1ApiPutSourceV1
+     * @memberof SourcesApiPutSourceV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {SourceV1}
-     * @memberof SourcesV1ApiPutSourceV1
+     * @type {Source}
+     * @memberof SourcesApiPutSourceV1
      */
-    readonly sourceV1: SourceV1
+    readonly source: Source
 }
 
 /**
- * Request parameters for searchResourceObjectsV1 operation in SourcesV1Api.
+ * Request parameters for searchResourceObjectsV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiSearchResourceObjectsV1Request
+ * @interface SourcesApiSearchResourceObjectsV1Request
  */
-export interface SourcesV1ApiSearchResourceObjectsV1Request {
+export interface SourcesApiSearchResourceObjectsV1Request {
     /**
      * The ID of the Source
      * @type {string}
-     * @memberof SourcesV1ApiSearchResourceObjectsV1
+     * @memberof SourcesApiSearchResourceObjectsV1
      */
     readonly sourceId: string
 
     /**
      * 
-     * @type {ResourceobjectsrequestV1}
-     * @memberof SourcesV1ApiSearchResourceObjectsV1
+     * @type {Resourceobjectsrequest}
+     * @memberof SourcesApiSearchResourceObjectsV1
      */
-    readonly resourceobjectsrequestV1: ResourceobjectsrequestV1
+    readonly resourceobjectsrequest: Resourceobjectsrequest
 }
 
 /**
- * Request parameters for syncAttributesForSourceV1 operation in SourcesV1Api.
+ * Request parameters for syncAttributesForSourceV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiSyncAttributesForSourceV1Request
+ * @interface SourcesApiSyncAttributesForSourceV1Request
  */
-export interface SourcesV1ApiSyncAttributesForSourceV1Request {
+export interface SourcesApiSyncAttributesForSourceV1Request {
     /**
      * The Source id
      * @type {string}
-     * @memberof SourcesV1ApiSyncAttributesForSourceV1
+     * @memberof SourcesApiSyncAttributesForSourceV1
      */
     readonly id: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof SourcesV1ApiSyncAttributesForSourceV1
+     * @memberof SourcesApiSyncAttributesForSourceV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for testSourceConfigurationV1 operation in SourcesV1Api.
+ * Request parameters for testSourceConfigurationV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiTestSourceConfigurationV1Request
+ * @interface SourcesApiTestSourceConfigurationV1Request
  */
-export interface SourcesV1ApiTestSourceConfigurationV1Request {
+export interface SourcesApiTestSourceConfigurationV1Request {
     /**
      * The ID of the Source
      * @type {string}
-     * @memberof SourcesV1ApiTestSourceConfigurationV1
+     * @memberof SourcesApiTestSourceConfigurationV1
      */
     readonly sourceId: string
 }
 
 /**
- * Request parameters for testSourceConnectionV1 operation in SourcesV1Api.
+ * Request parameters for testSourceConnectionV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiTestSourceConnectionV1Request
+ * @interface SourcesApiTestSourceConnectionV1Request
  */
-export interface SourcesV1ApiTestSourceConnectionV1Request {
+export interface SourcesApiTestSourceConnectionV1Request {
     /**
      * The ID of the Source.
      * @type {string}
-     * @memberof SourcesV1ApiTestSourceConnectionV1
+     * @memberof SourcesApiTestSourceConnectionV1
      */
     readonly sourceId: string
 }
 
 /**
- * Request parameters for updateAccountDeletionApprovalConfigV1 operation in SourcesV1Api.
+ * Request parameters for updateAccountDeletionApprovalConfigV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiUpdateAccountDeletionApprovalConfigV1Request
+ * @interface SourcesApiUpdateAccountDeletionApprovalConfigV1Request
  */
-export interface SourcesV1ApiUpdateAccountDeletionApprovalConfigV1Request {
+export interface SourcesApiUpdateAccountDeletionApprovalConfigV1Request {
     /**
      * Human account source ID.
      * @type {string}
-     * @memberof SourcesV1ApiUpdateAccountDeletionApprovalConfigV1
+     * @memberof SourcesApiUpdateAccountDeletionApprovalConfigV1
      */
     readonly sourceId: string
 
     /**
      * The JSONPatch payload used to update the object.
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof SourcesV1ApiUpdateAccountDeletionApprovalConfigV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof SourcesApiUpdateAccountDeletionApprovalConfigV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * Request parameters for updateMachineAccountDeletionApprovalConfigV1 operation in SourcesV1Api.
+ * Request parameters for updateMachineAccountDeletionApprovalConfigV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiUpdateMachineAccountDeletionApprovalConfigV1Request
+ * @interface SourcesApiUpdateMachineAccountDeletionApprovalConfigV1Request
  */
-export interface SourcesV1ApiUpdateMachineAccountDeletionApprovalConfigV1Request {
+export interface SourcesApiUpdateMachineAccountDeletionApprovalConfigV1Request {
     /**
      * machine account source ID.
      * @type {string}
-     * @memberof SourcesV1ApiUpdateMachineAccountDeletionApprovalConfigV1
+     * @memberof SourcesApiUpdateMachineAccountDeletionApprovalConfigV1
      */
     readonly sourceId: string
 
     /**
      * The JSONPatch payload used to update the object.
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof SourcesV1ApiUpdateMachineAccountDeletionApprovalConfigV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof SourcesApiUpdateMachineAccountDeletionApprovalConfigV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * Request parameters for updatePasswordPolicyHoldersV1 operation in SourcesV1Api.
+ * Request parameters for updatePasswordPolicyHoldersV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiUpdatePasswordPolicyHoldersV1Request
+ * @interface SourcesApiUpdatePasswordPolicyHoldersV1Request
  */
-export interface SourcesV1ApiUpdatePasswordPolicyHoldersV1Request {
+export interface SourcesApiUpdatePasswordPolicyHoldersV1Request {
     /**
      * The Source id
      * @type {string}
-     * @memberof SourcesV1ApiUpdatePasswordPolicyHoldersV1
+     * @memberof SourcesApiUpdatePasswordPolicyHoldersV1
      */
     readonly sourceId: string
 
     /**
      * 
-     * @type {Array<PasswordpolicyholdersdtoInnerV1>}
-     * @memberof SourcesV1ApiUpdatePasswordPolicyHoldersV1
+     * @type {Array<PasswordpolicyholdersdtoInner>}
+     * @memberof SourcesApiUpdatePasswordPolicyHoldersV1
      */
-    readonly passwordpolicyholdersdtoInnerV1: Array<PasswordpolicyholdersdtoInnerV1>
+    readonly passwordpolicyholdersdtoInner: Array<PasswordpolicyholdersdtoInner>
 }
 
 /**
- * Request parameters for updateProvisioningPoliciesInBulkV1 operation in SourcesV1Api.
+ * Request parameters for updateProvisioningPoliciesInBulkV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiUpdateProvisioningPoliciesInBulkV1Request
+ * @interface SourcesApiUpdateProvisioningPoliciesInBulkV1Request
  */
-export interface SourcesV1ApiUpdateProvisioningPoliciesInBulkV1Request {
+export interface SourcesApiUpdateProvisioningPoliciesInBulkV1Request {
     /**
      * The Source id.
      * @type {string}
-     * @memberof SourcesV1ApiUpdateProvisioningPoliciesInBulkV1
+     * @memberof SourcesApiUpdateProvisioningPoliciesInBulkV1
      */
     readonly sourceId: string
 
     /**
      * 
-     * @type {Array<ProvisioningpolicydtoV1>}
-     * @memberof SourcesV1ApiUpdateProvisioningPoliciesInBulkV1
+     * @type {Array<Provisioningpolicydto>}
+     * @memberof SourcesApiUpdateProvisioningPoliciesInBulkV1
      */
-    readonly provisioningpolicydtoV1: Array<ProvisioningpolicydtoV1>
+    readonly provisioningpolicydto: Array<Provisioningpolicydto>
 }
 
 /**
- * Request parameters for updateProvisioningPolicyV1 operation in SourcesV1Api.
+ * Request parameters for updateProvisioningPolicyV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiUpdateProvisioningPolicyV1Request
+ * @interface SourcesApiUpdateProvisioningPolicyV1Request
  */
-export interface SourcesV1ApiUpdateProvisioningPolicyV1Request {
+export interface SourcesApiUpdateProvisioningPolicyV1Request {
     /**
      * The Source id.
      * @type {string}
-     * @memberof SourcesV1ApiUpdateProvisioningPolicyV1
+     * @memberof SourcesApiUpdateProvisioningPolicyV1
      */
     readonly sourceId: string
 
     /**
      * The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
-     * @type {UsagetypeV1}
-     * @memberof SourcesV1ApiUpdateProvisioningPolicyV1
+     * @type {Usagetype}
+     * @memberof SourcesApiUpdateProvisioningPolicyV1
      */
-    readonly usageType: UsagetypeV1
+    readonly usageType: Usagetype
 
     /**
      * The JSONPatch payload used to update the schema.
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof SourcesV1ApiUpdateProvisioningPolicyV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof SourcesApiUpdateProvisioningPolicyV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * Request parameters for updateSourceEntitlementRequestConfigV1 operation in SourcesV1Api.
+ * Request parameters for updateSourceEntitlementRequestConfigV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiUpdateSourceEntitlementRequestConfigV1Request
+ * @interface SourcesApiUpdateSourceEntitlementRequestConfigV1Request
  */
-export interface SourcesV1ApiUpdateSourceEntitlementRequestConfigV1Request {
+export interface SourcesApiUpdateSourceEntitlementRequestConfigV1Request {
     /**
      * The Source id
      * @type {string}
-     * @memberof SourcesV1ApiUpdateSourceEntitlementRequestConfigV1
+     * @memberof SourcesApiUpdateSourceEntitlementRequestConfigV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {SourceentitlementrequestconfigV1}
-     * @memberof SourcesV1ApiUpdateSourceEntitlementRequestConfigV1
+     * @type {Sourceentitlementrequestconfig}
+     * @memberof SourcesApiUpdateSourceEntitlementRequestConfigV1
      */
-    readonly sourceentitlementrequestconfigV1: SourceentitlementrequestconfigV1
+    readonly sourceentitlementrequestconfig: Sourceentitlementrequestconfig
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof SourcesV1ApiUpdateSourceEntitlementRequestConfigV1
+     * @memberof SourcesApiUpdateSourceEntitlementRequestConfigV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for updateSourceScheduleV1 operation in SourcesV1Api.
+ * Request parameters for updateSourceScheduleV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiUpdateSourceScheduleV1Request
+ * @interface SourcesApiUpdateSourceScheduleV1Request
  */
-export interface SourcesV1ApiUpdateSourceScheduleV1Request {
+export interface SourcesApiUpdateSourceScheduleV1Request {
     /**
      * The Source id.
      * @type {string}
-     * @memberof SourcesV1ApiUpdateSourceScheduleV1
+     * @memberof SourcesApiUpdateSourceScheduleV1
      */
     readonly sourceId: string
 
     /**
      * The Schedule type.
      * @type {'ACCOUNT_AGGREGATION' | 'GROUP_AGGREGATION'}
-     * @memberof SourcesV1ApiUpdateSourceScheduleV1
+     * @memberof SourcesApiUpdateSourceScheduleV1
      */
-    readonly scheduleType: UpdateSourceScheduleV1ScheduleTypeV1
+    readonly scheduleType: UpdateSourceScheduleV1ScheduleTypeEnum
 
     /**
      * The JSONPatch payload used to update the schedule.
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof SourcesV1ApiUpdateSourceScheduleV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof SourcesApiUpdateSourceScheduleV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * Request parameters for updateSourceSchemaV1 operation in SourcesV1Api.
+ * Request parameters for updateSourceSchemaV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiUpdateSourceSchemaV1Request
+ * @interface SourcesApiUpdateSourceSchemaV1Request
  */
-export interface SourcesV1ApiUpdateSourceSchemaV1Request {
+export interface SourcesApiUpdateSourceSchemaV1Request {
     /**
      * The Source id.
      * @type {string}
-     * @memberof SourcesV1ApiUpdateSourceSchemaV1
+     * @memberof SourcesApiUpdateSourceSchemaV1
      */
     readonly sourceId: string
 
     /**
      * The Schema id.
      * @type {string}
-     * @memberof SourcesV1ApiUpdateSourceSchemaV1
+     * @memberof SourcesApiUpdateSourceSchemaV1
      */
     readonly schemaId: string
 
     /**
      * The JSONPatch payload used to update the schema.
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof SourcesV1ApiUpdateSourceSchemaV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof SourcesApiUpdateSourceSchemaV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * Request parameters for updateSourceV1 operation in SourcesV1Api.
+ * Request parameters for updateSourceV1 operation in SourcesApi.
  * @export
- * @interface SourcesV1ApiUpdateSourceV1Request
+ * @interface SourcesApiUpdateSourceV1Request
  */
-export interface SourcesV1ApiUpdateSourceV1Request {
+export interface SourcesApiUpdateSourceV1Request {
     /**
      * Source ID.
      * @type {string}
-     * @memberof SourcesV1ApiUpdateSourceV1
+     * @memberof SourcesApiUpdateSourceV1
      */
     readonly id: string
 
     /**
      * A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof SourcesV1ApiUpdateSourceV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof SourcesApiUpdateSourceV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * SourcesV1Api - object-oriented interface
+ * SourcesApi - object-oriented interface
  * @export
- * @class SourcesV1Api
+ * @class SourcesApi
  * @extends {BaseAPI}
  */
-export class SourcesV1Api extends BaseAPI {
+export class SourcesApi extends BaseAPI {
     /**
      * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
      * @summary Create provisioning policy
-     * @param {SourcesV1ApiCreateProvisioningPolicyV1Request} requestParameters Request parameters.
+     * @param {SourcesApiCreateProvisioningPolicyV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public createProvisioningPolicyV1(requestParameters: SourcesV1ApiCreateProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).createProvisioningPolicyV1(requestParameters.sourceId, requestParameters.provisioningpolicydtoV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createProvisioningPolicyV1(requestParameters: SourcesApiCreateProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).createProvisioningPolicyV1(requestParameters.sourceId, requestParameters.provisioningpolicydto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC). 
      * @summary Create schedule on source
-     * @param {SourcesV1ApiCreateSourceScheduleV1Request} requestParameters Request parameters.
+     * @param {SourcesApiCreateSourceScheduleV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public createSourceScheduleV1(requestParameters: SourcesV1ApiCreateSourceScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).createSourceScheduleV1(requestParameters.sourceId, requestParameters.schedule3V1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createSourceScheduleV1(requestParameters: SourcesApiCreateSourceScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).createSourceScheduleV1(requestParameters.sourceId, requestParameters.schedule3, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to create a new schema on the specified source in Identity Security Cloud (ISC). 
      * @summary Create schema on source
-     * @param {SourcesV1ApiCreateSourceSchemaV1Request} requestParameters Request parameters.
+     * @param {SourcesApiCreateSourceSchemaV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public createSourceSchemaV1(requestParameters: SourcesV1ApiCreateSourceSchemaV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).createSourceSchemaV1(requestParameters.sourceId, requestParameters.schemaV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createSourceSchemaV1(requestParameters: SourcesApiCreateSourceSchemaV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).createSourceSchemaV1(requestParameters.sourceId, requestParameters.schema, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow.
      * @summary Creates a source in identitynow.
-     * @param {SourcesV1ApiCreateSourceV1Request} requestParameters Request parameters.
+     * @param {SourcesApiCreateSourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public createSourceV1(requestParameters: SourcesV1ApiCreateSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).createSourceV1(requestParameters.sourceV1, requestParameters.provisionAsCsv, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createSourceV1(requestParameters: SourcesApiCreateSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).createSourceV1(requestParameters.source, requestParameters.provisionAsCsv, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this endpoint to remove all accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.  This endpoint is good for: * Removing accounts that no longer exist on the source. * Removing accounts that won\'t be aggregated following updates to the source configuration. * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc. 
      * @summary Remove all accounts in source
-     * @param {SourcesV1ApiDeleteAccountsAsyncV1Request} requestParameters Request parameters.
+     * @param {SourcesApiDeleteAccountsAsyncV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public deleteAccountsAsyncV1(requestParameters: SourcesV1ApiDeleteAccountsAsyncV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).deleteAccountsAsyncV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteAccountsAsyncV1(requestParameters: SourcesApiDeleteAccountsAsyncV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).deleteAccountsAsyncV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Deletes the native change detection configuration for the source specified by the given ID.
      * @summary Delete native change detection configuration
-     * @param {SourcesV1ApiDeleteNativeChangeDetectionConfigV1Request} requestParameters Request parameters.
+     * @param {SourcesApiDeleteNativeChangeDetectionConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public deleteNativeChangeDetectionConfigV1(requestParameters: SourcesV1ApiDeleteNativeChangeDetectionConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).deleteNativeChangeDetectionConfigV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteNativeChangeDetectionConfigV1(requestParameters: SourcesApiDeleteNativeChangeDetectionConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).deleteNativeChangeDetectionConfigV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Deletes the provisioning policy with the specified usage on an application.
      * @summary Delete provisioning policy by usagetype
-     * @param {SourcesV1ApiDeleteProvisioningPolicyV1Request} requestParameters Request parameters.
+     * @param {SourcesApiDeleteProvisioningPolicyV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public deleteProvisioningPolicyV1(requestParameters: SourcesV1ApiDeleteProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).deleteProvisioningPolicyV1(requestParameters.sourceId, requestParameters.usageType, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteProvisioningPolicyV1(requestParameters: SourcesApiDeleteProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).deleteProvisioningPolicyV1(requestParameters.sourceId, requestParameters.usageType, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Delete source schedule by type.
-     * @param {SourcesV1ApiDeleteSourceScheduleV1Request} requestParameters Request parameters.
+     * @param {SourcesApiDeleteSourceScheduleV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public deleteSourceScheduleV1(requestParameters: SourcesV1ApiDeleteSourceScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).deleteSourceScheduleV1(requestParameters.sourceId, requestParameters.scheduleType, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteSourceScheduleV1(requestParameters: SourcesApiDeleteSourceScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).deleteSourceScheduleV1(requestParameters.sourceId, requestParameters.scheduleType, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Delete source schema by id
-     * @param {SourcesV1ApiDeleteSourceSchemaV1Request} requestParameters Request parameters.
+     * @param {SourcesApiDeleteSourceSchemaV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public deleteSourceSchemaV1(requestParameters: SourcesV1ApiDeleteSourceSchemaV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).deleteSourceSchemaV1(requestParameters.sourceId, requestParameters.schemaId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteSourceSchemaV1(requestParameters: SourcesApiDeleteSourceSchemaV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).deleteSourceSchemaV1(requestParameters.sourceId, requestParameters.schemaId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to delete a specific source in Identity Security Cloud (ISC). The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
      * @summary Delete source by id
-     * @param {SourcesV1ApiDeleteSourceV1Request} requestParameters Request parameters.
+     * @param {SourcesApiDeleteSourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public deleteSourceV1(requestParameters: SourcesV1ApiDeleteSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).deleteSourceV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteSourceV1(requestParameters: SourcesApiDeleteSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).deleteSourceV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * The endpoint retrieves the approval configuration for deleting human accounts from a specified source. It returns details such as whether approval is required, who the approvers are, and any additional approval settings. This helps administrators understand and manage the approval workflow for human account deletions in their organization. The response is provided as an AccountDeleteConfigDto object. 
      * @summary Human Account Deletion Approval Config
-     * @param {SourcesV1ApiGetAccountDeleteApprovalConfigV1Request} requestParameters Request parameters.
+     * @param {SourcesApiGetAccountDeleteApprovalConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public getAccountDeleteApprovalConfigV1(requestParameters: SourcesV1ApiGetAccountDeleteApprovalConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).getAccountDeleteApprovalConfigV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getAccountDeleteApprovalConfigV1(requestParameters: SourcesApiGetAccountDeleteApprovalConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getAccountDeleteApprovalConfigV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API downloads the CSV schema that defines the account attributes on a source. >**NOTE: This API is designated only for Delimited File sources.**
      * @summary Downloads source accounts schema template
-     * @param {SourcesV1ApiGetAccountsSchemaV1Request} requestParameters Request parameters.
+     * @param {SourcesApiGetAccountsSchemaV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public getAccountsSchemaV1(requestParameters: SourcesV1ApiGetAccountsSchemaV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).getAccountsSchemaV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getAccountsSchemaV1(requestParameters: SourcesApiGetAccountsSchemaV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getAccountsSchemaV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the existing correlation configuration for a source specified by the given ID.
      * @summary Get source correlation configuration
-     * @param {SourcesV1ApiGetCorrelationConfigV1Request} requestParameters Request parameters.
+     * @param {SourcesApiGetCorrelationConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public getCorrelationConfigV1(requestParameters: SourcesV1ApiGetCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).getCorrelationConfigV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getCorrelationConfigV1(requestParameters: SourcesApiGetCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getCorrelationConfigV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API downloads the CSV schema that defines the entitlement attributes on a source.  >**NOTE: This API is designated only for Delimited File sources.**
      * @summary Downloads source entitlements schema template
-     * @param {SourcesV1ApiGetEntitlementsSchemaV1Request} requestParameters Request parameters.
+     * @param {SourcesApiGetEntitlementsSchemaV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public getEntitlementsSchemaV1(requestParameters: SourcesV1ApiGetEntitlementsSchemaV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).getEntitlementsSchemaV1(requestParameters.id, requestParameters.schemaName, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getEntitlementsSchemaV1(requestParameters: SourcesApiGetEntitlementsSchemaV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getEntitlementsSchemaV1(requestParameters.id, requestParameters.schemaName, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Retrieves the machine account deletion approval configuration for a specific source. This endpoint returns details about the approval requirements, approvers, and comment settings that govern the deletion of machine accounts associated with the given source ID.
      * @summary Machine Account Deletion Approval Config
-     * @param {SourcesV1ApiGetMachineAccountDeletionApprovalConfigBySourceV1Request} requestParameters Request parameters.
+     * @param {SourcesApiGetMachineAccountDeletionApprovalConfigBySourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public getMachineAccountDeletionApprovalConfigBySourceV1(requestParameters: SourcesV1ApiGetMachineAccountDeletionApprovalConfigBySourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).getMachineAccountDeletionApprovalConfigBySourceV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getMachineAccountDeletionApprovalConfigBySourceV1(requestParameters: SourcesApiGetMachineAccountDeletionApprovalConfigBySourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getMachineAccountDeletionApprovalConfigBySourceV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the existing native change detection configuration for a source specified by the given ID.
      * @summary Native change detection configuration
-     * @param {SourcesV1ApiGetNativeChangeDetectionConfigV1Request} requestParameters Request parameters.
+     * @param {SourcesApiGetNativeChangeDetectionConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public getNativeChangeDetectionConfigV1(requestParameters: SourcesV1ApiGetNativeChangeDetectionConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).getNativeChangeDetectionConfigV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getNativeChangeDetectionConfigV1(requestParameters: SourcesApiGetNativeChangeDetectionConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getNativeChangeDetectionConfigV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow.
      * @summary Get provisioning policy by usagetype
-     * @param {SourcesV1ApiGetProvisioningPolicyV1Request} requestParameters Request parameters.
+     * @param {SourcesApiGetProvisioningPolicyV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public getProvisioningPolicyV1(requestParameters: SourcesV1ApiGetProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).getProvisioningPolicyV1(requestParameters.sourceId, requestParameters.usageType, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getProvisioningPolicyV1(requestParameters: SourcesApiGetProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getProvisioningPolicyV1(requestParameters.sourceId, requestParameters.usageType, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the existing attribute synchronization configuration for a source specified by the given ID. The response contains all attributes, regardless of whether they enabled or not.
      * @summary Attribute sync config
-     * @param {SourcesV1ApiGetSourceAttrSyncConfigV1Request} requestParameters Request parameters.
+     * @param {SourcesApiGetSourceAttrSyncConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public getSourceAttrSyncConfigV1(requestParameters: SourcesV1ApiGetSourceAttrSyncConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).getSourceAttrSyncConfigV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSourceAttrSyncConfigV1(requestParameters: SourcesApiGetSourceAttrSyncConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSourceAttrSyncConfigV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Looks up and returns the source config for the requested source id after populating the source config values and applying language translations.
      * @summary Gets source config with language-translations
-     * @param {SourcesV1ApiGetSourceConfigV1Request} requestParameters Request parameters.
+     * @param {SourcesApiGetSourceConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public getSourceConfigV1(requestParameters: SourcesV1ApiGetSourceConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).getSourceConfigV1(requestParameters.id, requestParameters.locale, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSourceConfigV1(requestParameters: SourcesApiGetSourceConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSourceConfigV1(requestParameters.id, requestParameters.locale, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC).
      * @summary Get source connections by id
-     * @param {SourcesV1ApiGetSourceConnectionsV1Request} requestParameters Request parameters.
+     * @param {SourcesApiGetSourceConnectionsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public getSourceConnectionsV1(requestParameters: SourcesV1ApiGetSourceConnectionsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).getSourceConnectionsV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSourceConnectionsV1(requestParameters: SourcesApiGetSourceConnectionsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSourceConnectionsV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
      * @summary Get source entitlement request configuration
-     * @param {SourcesV1ApiGetSourceEntitlementRequestConfigV1Request} requestParameters Request parameters.
+     * @param {SourcesApiGetSourceEntitlementRequestConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public getSourceEntitlementRequestConfigV1(requestParameters: SourcesV1ApiGetSourceEntitlementRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).getSourceEntitlementRequestConfigV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSourceEntitlementRequestConfigV1(requestParameters: SourcesApiGetSourceEntitlementRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSourceEntitlementRequestConfigV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint fetches source health by source\'s id
      * @summary Fetches source health by id
-     * @param {SourcesV1ApiGetSourceHealthV1Request} requestParameters Request parameters.
+     * @param {SourcesApiGetSourceHealthV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public getSourceHealthV1(requestParameters: SourcesV1ApiGetSourceHealthV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).getSourceHealthV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSourceHealthV1(requestParameters: SourcesApiGetSourceHealthV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSourceHealthV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get the source schedule by type in Identity Security Cloud (ISC). 
      * @summary Get source schedule by type
-     * @param {SourcesV1ApiGetSourceScheduleV1Request} requestParameters Request parameters.
+     * @param {SourcesApiGetSourceScheduleV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public getSourceScheduleV1(requestParameters: SourcesV1ApiGetSourceScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).getSourceScheduleV1(requestParameters.sourceId, requestParameters.scheduleType, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSourceScheduleV1(requestParameters: SourcesApiGetSourceScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSourceScheduleV1(requestParameters.sourceId, requestParameters.scheduleType, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to list the schedules that exist on the specified source in Identity Security Cloud (ISC). :::info This endpoint uses a **cron expression** to schedule a task, following standard **cron job syntax**.  For example, `0 0 12 1/1 * ? *` runs the task **daily at 12:00 PM**.  **Days of the week are represented as 1-7 (Sunday-Saturday).** ::: 
      * @summary List schedules on source
-     * @param {SourcesV1ApiGetSourceSchedulesV1Request} requestParameters Request parameters.
+     * @param {SourcesApiGetSourceSchedulesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public getSourceSchedulesV1(requestParameters: SourcesV1ApiGetSourceSchedulesV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).getSourceSchedulesV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSourceSchedulesV1(requestParameters: SourcesApiGetSourceSchedulesV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSourceSchedulesV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get the Source Schema by ID in IdentityNow. 
      * @summary Get source schema by id
-     * @param {SourcesV1ApiGetSourceSchemaV1Request} requestParameters Request parameters.
+     * @param {SourcesApiGetSourceSchemaV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public getSourceSchemaV1(requestParameters: SourcesV1ApiGetSourceSchemaV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).getSourceSchemaV1(requestParameters.sourceId, requestParameters.schemaId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSourceSchemaV1(requestParameters: SourcesApiGetSourceSchemaV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSourceSchemaV1(requestParameters.sourceId, requestParameters.schemaId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
      * @summary List schemas on source
-     * @param {SourcesV1ApiGetSourceSchemasV1Request} requestParameters Request parameters.
+     * @param {SourcesApiGetSourceSchemasV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public getSourceSchemasV1(requestParameters: SourcesV1ApiGetSourceSchemasV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).getSourceSchemasV1(requestParameters.sourceId, requestParameters.includeTypes, requestParameters.includeNames, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSourceSchemasV1(requestParameters: SourcesApiGetSourceSchemasV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSourceSchemasV1(requestParameters.sourceId, requestParameters.includeTypes, requestParameters.includeNames, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
      * @summary Get source by id
-     * @param {SourcesV1ApiGetSourceV1Request} requestParameters Request parameters.
+     * @param {SourcesApiGetSourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public getSourceV1(requestParameters: SourcesV1ApiGetSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).getSourceV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSourceV1(requestParameters: SourcesApiGetSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSourceV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API uploads a source schema template file to configure a source\'s account attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Account Schema** -> **Options** -> **Download Schema**  >**NOTE: This API is designated only for Delimited File sources.**
      * @summary Uploads source accounts schema template
-     * @param {SourcesV1ApiImportAccountsSchemaV1Request} requestParameters Request parameters.
+     * @param {SourcesApiImportAccountsSchemaV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public importAccountsSchemaV1(requestParameters: SourcesV1ApiImportAccountsSchemaV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).importAccountsSchemaV1(requestParameters.id, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public importAccountsSchemaV1(requestParameters: SourcesApiImportAccountsSchemaV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).importAccountsSchemaV1(requestParameters.id, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Starts an account aggregation on the specified source.  If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
      * @summary Account aggregation
-     * @param {SourcesV1ApiImportAccountsV1Request} requestParameters Request parameters.
+     * @param {SourcesApiImportAccountsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public importAccountsV1(requestParameters: SourcesV1ApiImportAccountsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).importAccountsV1(requestParameters.id, requestParameters.file, requestParameters.disableOptimization, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public importAccountsV1(requestParameters: SourcesApiImportAccountsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).importAccountsV1(requestParameters.id, requestParameters.file, requestParameters.disableOptimization, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This uploads a supplemental source connector file (like jdbc driver jars) to a source\'s S3 bucket. This also sends ETS and Audit events.
      * @summary Upload connector file to source
-     * @param {SourcesV1ApiImportConnectorFileV1Request} requestParameters Request parameters.
+     * @param {SourcesApiImportConnectorFileV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public importConnectorFileV1(requestParameters: SourcesV1ApiImportConnectorFileV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).importConnectorFileV1(requestParameters.sourceId, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public importConnectorFileV1(requestParameters: SourcesApiImportConnectorFileV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).importConnectorFileV1(requestParameters.sourceId, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API uploads a source schema template file to configure a source\'s entitlement attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Import Entitlements** -> **Download**  >**NOTE: This API is designated only for Delimited File sources.**
      * @summary Uploads source entitlements schema template
-     * @param {SourcesV1ApiImportEntitlementsSchemaV1Request} requestParameters Request parameters.
+     * @param {SourcesApiImportEntitlementsSchemaV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public importEntitlementsSchemaV1(requestParameters: SourcesV1ApiImportEntitlementsSchemaV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).importEntitlementsSchemaV1(requestParameters.id, requestParameters.schemaName, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public importEntitlementsSchemaV1(requestParameters: SourcesApiImportEntitlementsSchemaV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).importEntitlementsSchemaV1(requestParameters.id, requestParameters.schemaName, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Starts an entitlement aggregation on the specified source.  If the target source is a delimited file source, then the CSV file needs to be included in the request body.  You will also need to set the Content-Type header to `multipart/form-data`. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary Entitlement aggregation
-     * @param {SourcesV1ApiImportEntitlementsV1Request} requestParameters Request parameters.
+     * @param {SourcesApiImportEntitlementsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public importEntitlementsV1(requestParameters: SourcesV1ApiImportEntitlementsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).importEntitlementsV1(requestParameters.sourceId, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public importEntitlementsV1(requestParameters: SourcesApiImportEntitlementsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).importEntitlementsV1(requestParameters.sourceId, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * File is required for upload. You will also need to set the Content-Type header to `multipart/form-data`
      * @summary Process uncorrelated accounts
-     * @param {SourcesV1ApiImportUncorrelatedAccountsV1Request} requestParameters Request parameters.
+     * @param {SourcesApiImportUncorrelatedAccountsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public importUncorrelatedAccountsV1(requestParameters: SourcesV1ApiImportUncorrelatedAccountsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).importUncorrelatedAccountsV1(requestParameters.id, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public importUncorrelatedAccountsV1(requestParameters: SourcesApiImportUncorrelatedAccountsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).importUncorrelatedAccountsV1(requestParameters.id, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API can be used to get Password Policy in IdentityNow for the specified Source. Source must support PASSWORD feature. 
      * @summary Get Password Policy for source
-     * @param {SourcesV1ApiListPasswordPolicyHoldersOnSourceV1Request} requestParameters Request parameters.
+     * @param {SourcesApiListPasswordPolicyHoldersOnSourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public listPasswordPolicyHoldersOnSourceV1(requestParameters: SourcesV1ApiListPasswordPolicyHoldersOnSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).listPasswordPolicyHoldersOnSourceV1(requestParameters.sourceId, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listPasswordPolicyHoldersOnSourceV1(requestParameters: SourcesApiListPasswordPolicyHoldersOnSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).listPasswordPolicyHoldersOnSourceV1(requestParameters.sourceId, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point lists all the ProvisioningPolicies in IdentityNow.
      * @summary Lists provisioningpolicies
-     * @param {SourcesV1ApiListProvisioningPoliciesV1Request} requestParameters Request parameters.
+     * @param {SourcesApiListProvisioningPoliciesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public listProvisioningPoliciesV1(requestParameters: SourcesV1ApiListProvisioningPoliciesV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).listProvisioningPoliciesV1(requestParameters.sourceId, requestParameters.offset, requestParameters.limit, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listProvisioningPoliciesV1(requestParameters: SourcesApiListProvisioningPoliciesV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).listProvisioningPoliciesV1(requestParameters.sourceId, requestParameters.offset, requestParameters.limit, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point lists all the sources in IdentityNow.
      * @summary Lists all sources in identitynow.
-     * @param {SourcesV1ApiListSourcesV1Request} requestParameters Request parameters.
+     * @param {SourcesApiListSourcesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public listSourcesV1(requestParameters: SourcesV1ApiListSourcesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).listSourcesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSubadmin, requestParameters.includeIDNSource, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listSourcesV1(requestParameters: SourcesApiListSourcesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).listSourcesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSubadmin, requestParameters.includeIDNSource, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint validates that the cluster being used by the source is reachable from IdentityNow.
      * @summary Ping cluster for source connector
-     * @param {SourcesV1ApiPingClusterV1Request} requestParameters Request parameters.
+     * @param {SourcesApiPingClusterV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public pingClusterV1(requestParameters: SourcesV1ApiPingClusterV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).pingClusterV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public pingClusterV1(requestParameters: SourcesApiPingClusterV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).pingClusterV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Replaces the correlation configuration for the source specified by the given ID with the configuration provided in the request body.
      * @summary Update source correlation configuration
-     * @param {SourcesV1ApiPutCorrelationConfigV1Request} requestParameters Request parameters.
+     * @param {SourcesApiPutCorrelationConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public putCorrelationConfigV1(requestParameters: SourcesV1ApiPutCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).putCorrelationConfigV1(requestParameters.id, requestParameters.correlationconfigV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putCorrelationConfigV1(requestParameters: SourcesApiPutCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).putCorrelationConfigV1(requestParameters.id, requestParameters.correlationconfig, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.
      * @summary Update native change detection configuration
-     * @param {SourcesV1ApiPutNativeChangeDetectionConfigV1Request} requestParameters Request parameters.
+     * @param {SourcesApiPutNativeChangeDetectionConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public putNativeChangeDetectionConfigV1(requestParameters: SourcesV1ApiPutNativeChangeDetectionConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).putNativeChangeDetectionConfigV1(requestParameters.sourceId, requestParameters.nativechangedetectionconfigV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putNativeChangeDetectionConfigV1(requestParameters: SourcesApiPutNativeChangeDetectionConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).putNativeChangeDetectionConfigV1(requestParameters.sourceId, requestParameters.nativechangedetectionconfig, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
      * @summary Update provisioning policy by usagetype
-     * @param {SourcesV1ApiPutProvisioningPolicyV1Request} requestParameters Request parameters.
+     * @param {SourcesApiPutProvisioningPolicyV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public putProvisioningPolicyV1(requestParameters: SourcesV1ApiPutProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).putProvisioningPolicyV1(requestParameters.sourceId, requestParameters.usageType, requestParameters.provisioningpolicydtoV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putProvisioningPolicyV1(requestParameters: SourcesApiPutProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).putProvisioningPolicyV1(requestParameters.sourceId, requestParameters.usageType, requestParameters.provisioningpolicydto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Replaces the attribute synchronization configuration for the source specified by the given ID with the configuration provided in the request body. Only the \"enabled\" field of the values in the \"attributes\" array is mutable. Attempting to change other attributes or add new values to the \"attributes\" array will result in an error. 
      * @summary Update attribute sync config
-     * @param {SourcesV1ApiPutSourceAttrSyncConfigV1Request} requestParameters Request parameters.
+     * @param {SourcesApiPutSourceAttrSyncConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public putSourceAttrSyncConfigV1(requestParameters: SourcesV1ApiPutSourceAttrSyncConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).putSourceAttrSyncConfigV1(requestParameters.id, requestParameters.attrsyncsourceconfigV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putSourceAttrSyncConfigV1(requestParameters: SourcesApiPutSourceAttrSyncConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).putSourceAttrSyncConfigV1(requestParameters.id, requestParameters.attrsyncsourceconfig, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API will completely replace an existing Schema with the submitted payload. Some fields of the Schema cannot be updated. These fields are listed below.  * id * name * created * modified  Any attempt to modify these fields will result in an error response with a status code of 400.  > `id` must remain in the request body, but it cannot be changed.  If `id` is omitted from the request body, the result will be a 400 error. 
      * @summary Update source schema (full)
-     * @param {SourcesV1ApiPutSourceSchemaV1Request} requestParameters Request parameters.
+     * @param {SourcesApiPutSourceSchemaV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public putSourceSchemaV1(requestParameters: SourcesV1ApiPutSourceSchemaV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).putSourceSchemaV1(requestParameters.sourceId, requestParameters.schemaId, requestParameters.schemaV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putSourceSchemaV1(requestParameters: SourcesApiPutSourceSchemaV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).putSourceSchemaV1(requestParameters.sourceId, requestParameters.schemaId, requestParameters.schema, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
      * @summary Update source (full)
-     * @param {SourcesV1ApiPutSourceV1Request} requestParameters Request parameters.
+     * @param {SourcesApiPutSourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public putSourceV1(requestParameters: SourcesV1ApiPutSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).putSourceV1(requestParameters.id, requestParameters.sourceV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putSourceV1(requestParameters: SourcesApiPutSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).putSourceV1(requestParameters.id, requestParameters.source, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Retrieves a sample of data returned from account and group aggregation requests.
      * @summary Peek source connector\'s resource objects
-     * @param {SourcesV1ApiSearchResourceObjectsV1Request} requestParameters Request parameters.
+     * @param {SourcesApiSearchResourceObjectsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public searchResourceObjectsV1(requestParameters: SourcesV1ApiSearchResourceObjectsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).searchResourceObjectsV1(requestParameters.sourceId, requestParameters.resourceobjectsrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public searchResourceObjectsV1(requestParameters: SourcesApiSearchResourceObjectsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).searchResourceObjectsV1(requestParameters.sourceId, requestParameters.resourceobjectsrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point performs attribute synchronization for a selected source.
      * @summary Synchronize single source attributes.
-     * @param {SourcesV1ApiSyncAttributesForSourceV1Request} requestParameters Request parameters.
+     * @param {SourcesApiSyncAttributesForSourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public syncAttributesForSourceV1(requestParameters: SourcesV1ApiSyncAttributesForSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).syncAttributesForSourceV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public syncAttributesForSourceV1(requestParameters: SourcesApiSyncAttributesForSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).syncAttributesForSourceV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint performs a more detailed validation of the source\'\'s configuration that can take longer than the lighter weight credential validation performed by the checkConnection API.
      * @summary Test configuration for source connector
-     * @param {SourcesV1ApiTestSourceConfigurationV1Request} requestParameters Request parameters.
+     * @param {SourcesApiTestSourceConfigurationV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public testSourceConfigurationV1(requestParameters: SourcesV1ApiTestSourceConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).testSourceConfigurationV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public testSourceConfigurationV1(requestParameters: SourcesApiTestSourceConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).testSourceConfigurationV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint validates that the configured credentials are valid and will properly authenticate with the source identified by the sourceId path parameter.
      * @summary Check connection for source connector.
-     * @param {SourcesV1ApiTestSourceConnectionV1Request} requestParameters Request parameters.
+     * @param {SourcesApiTestSourceConnectionV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public testSourceConnectionV1(requestParameters: SourcesV1ApiTestSourceConnectionV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).testSourceConnectionV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public testSourceConnectionV1(requestParameters: SourcesApiTestSourceConnectionV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).testSourceConnectionV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Updates the approval configuration for deleting human accounts for a specific source, identified by source ID. This endpoint allows administrators to modify settings such as whether approval is required, who the approvers are, and other approval-related options. The update is performed using a JSON Patch payload, and the response returns the updated AccountDeleteConfigDto object reflecting the new approval workflow configuration. 
      * @summary Human Account Deletion Approval Config
-     * @param {SourcesV1ApiUpdateAccountDeletionApprovalConfigV1Request} requestParameters Request parameters.
+     * @param {SourcesApiUpdateAccountDeletionApprovalConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public updateAccountDeletionApprovalConfigV1(requestParameters: SourcesV1ApiUpdateAccountDeletionApprovalConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).updateAccountDeletionApprovalConfigV1(requestParameters.sourceId, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateAccountDeletionApprovalConfigV1(requestParameters: SourcesApiUpdateAccountDeletionApprovalConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).updateAccountDeletionApprovalConfigV1(requestParameters.sourceId, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this endpoint to update the machine account deletion approval configuration for a specific source. The update is performed using a JSON Patch payload, which allows partial modifications to the approval config. This operation is typically used to change approval requirements, approvers, or comments settings for machine account deletion. The endpoint expects the source ID as a path parameter and a valid JSON Patch array in the request body. 
      * @summary Machine Account Deletion Approval Config
-     * @param {SourcesV1ApiUpdateMachineAccountDeletionApprovalConfigV1Request} requestParameters Request parameters.
+     * @param {SourcesApiUpdateMachineAccountDeletionApprovalConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public updateMachineAccountDeletionApprovalConfigV1(requestParameters: SourcesV1ApiUpdateMachineAccountDeletionApprovalConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).updateMachineAccountDeletionApprovalConfigV1(requestParameters.sourceId, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateMachineAccountDeletionApprovalConfigV1(requestParameters: SourcesApiUpdateMachineAccountDeletionApprovalConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).updateMachineAccountDeletionApprovalConfigV1(requestParameters.sourceId, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API can be used to set up or update Password Policy in IdentityNow for the specified Source. Source must support PASSWORD feature. 
      * @summary Update password policy
-     * @param {SourcesV1ApiUpdatePasswordPolicyHoldersV1Request} requestParameters Request parameters.
+     * @param {SourcesApiUpdatePasswordPolicyHoldersV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public updatePasswordPolicyHoldersV1(requestParameters: SourcesV1ApiUpdatePasswordPolicyHoldersV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).updatePasswordPolicyHoldersV1(requestParameters.sourceId, requestParameters.passwordpolicyholdersdtoInnerV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updatePasswordPolicyHoldersV1(requestParameters: SourcesApiUpdatePasswordPolicyHoldersV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).updatePasswordPolicyHoldersV1(requestParameters.sourceId, requestParameters.passwordpolicyholdersdtoInner, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point updates a list of provisioning policies on the specified source in IdentityNow.
      * @summary Bulk update provisioning policies
-     * @param {SourcesV1ApiUpdateProvisioningPoliciesInBulkV1Request} requestParameters Request parameters.
+     * @param {SourcesApiUpdateProvisioningPoliciesInBulkV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public updateProvisioningPoliciesInBulkV1(requestParameters: SourcesV1ApiUpdateProvisioningPoliciesInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).updateProvisioningPoliciesInBulkV1(requestParameters.sourceId, requestParameters.provisioningpolicydtoV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateProvisioningPoliciesInBulkV1(requestParameters: SourcesApiUpdateProvisioningPoliciesInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).updateProvisioningPoliciesInBulkV1(requestParameters.sourceId, requestParameters.provisioningpolicydto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API selectively updates an existing Provisioning Policy using a JSONPatch payload. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
      * @summary Partial update of provisioning policy
-     * @param {SourcesV1ApiUpdateProvisioningPolicyV1Request} requestParameters Request parameters.
+     * @param {SourcesApiUpdateProvisioningPolicyV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public updateProvisioningPolicyV1(requestParameters: SourcesV1ApiUpdateProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).updateProvisioningPolicyV1(requestParameters.sourceId, requestParameters.usageType, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateProvisioningPolicyV1(requestParameters: SourcesApiUpdateProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).updateProvisioningPolicyV1(requestParameters.sourceId, requestParameters.usageType, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
      * @summary Update source entitlement request configuration
-     * @param {SourcesV1ApiUpdateSourceEntitlementRequestConfigV1Request} requestParameters Request parameters.
+     * @param {SourcesApiUpdateSourceEntitlementRequestConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public updateSourceEntitlementRequestConfigV1(requestParameters: SourcesV1ApiUpdateSourceEntitlementRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).updateSourceEntitlementRequestConfigV1(requestParameters.id, requestParameters.sourceentitlementrequestconfigV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateSourceEntitlementRequestConfigV1(requestParameters: SourcesApiUpdateSourceEntitlementRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).updateSourceEntitlementRequestConfigV1(requestParameters.id, requestParameters.sourceentitlementrequestconfig, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to selectively update an existing Schedule using a JSONPatch payload.   The following schedule fields are immutable and cannot be updated:  - type 
      * @summary Update source schedule (partial)
-     * @param {SourcesV1ApiUpdateSourceScheduleV1Request} requestParameters Request parameters.
+     * @param {SourcesApiUpdateSourceScheduleV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public updateSourceScheduleV1(requestParameters: SourcesV1ApiUpdateSourceScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).updateSourceScheduleV1(requestParameters.sourceId, requestParameters.scheduleType, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateSourceScheduleV1(requestParameters: SourcesApiUpdateSourceScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).updateSourceScheduleV1(requestParameters.sourceId, requestParameters.scheduleType, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-source-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ``` 
      * @summary Update source schema (partial)
-     * @param {SourcesV1ApiUpdateSourceSchemaV1Request} requestParameters Request parameters.
+     * @param {SourcesApiUpdateSourceSchemaV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public updateSourceSchemaV1(requestParameters: SourcesV1ApiUpdateSourceSchemaV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).updateSourceSchemaV1(requestParameters.sourceId, requestParameters.schemaId, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateSourceSchemaV1(requestParameters: SourcesApiUpdateSourceSchemaV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).updateSourceSchemaV1(requestParameters.sourceId, requestParameters.schemaId, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
      * @summary Update source (partial)
-     * @param {SourcesV1ApiUpdateSourceV1Request} requestParameters Request parameters.
+     * @param {SourcesApiUpdateSourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourcesV1Api
+     * @memberof SourcesApi
      */
-    public updateSourceV1(requestParameters: SourcesV1ApiUpdateSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesV1ApiFp(this.configuration).updateSourceV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateSourceV1(requestParameters: SourcesApiUpdateSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).updateSourceV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
 /**
  * @export
  */
-export const DeleteSourceScheduleV1ScheduleTypeV1 = {
+export const DeleteSourceScheduleV1ScheduleTypeEnum = {
     AccountAggregation: 'ACCOUNT_AGGREGATION',
     GroupAggregation: 'GROUP_AGGREGATION'
 } as const;
-export type DeleteSourceScheduleV1ScheduleTypeV1 = typeof DeleteSourceScheduleV1ScheduleTypeV1[keyof typeof DeleteSourceScheduleV1ScheduleTypeV1];
+export type DeleteSourceScheduleV1ScheduleTypeEnum = typeof DeleteSourceScheduleV1ScheduleTypeEnum[keyof typeof DeleteSourceScheduleV1ScheduleTypeEnum];
 /**
  * @export
  */
-export const GetSourceConfigV1LocaleV1 = {
+export const GetSourceConfigV1LocaleEnum = {
     De: 'de',
     False: 'false',
     Fi: 'fi',
@@ -8887,30 +8887,30 @@ export const GetSourceConfigV1LocaleV1 = {
     Da: 'da',
     Nl: 'nl'
 } as const;
-export type GetSourceConfigV1LocaleV1 = typeof GetSourceConfigV1LocaleV1[keyof typeof GetSourceConfigV1LocaleV1];
+export type GetSourceConfigV1LocaleEnum = typeof GetSourceConfigV1LocaleEnum[keyof typeof GetSourceConfigV1LocaleEnum];
 /**
  * @export
  */
-export const GetSourceScheduleV1ScheduleTypeV1 = {
+export const GetSourceScheduleV1ScheduleTypeEnum = {
     AccountAggregation: 'ACCOUNT_AGGREGATION',
     GroupAggregation: 'GROUP_AGGREGATION'
 } as const;
-export type GetSourceScheduleV1ScheduleTypeV1 = typeof GetSourceScheduleV1ScheduleTypeV1[keyof typeof GetSourceScheduleV1ScheduleTypeV1];
+export type GetSourceScheduleV1ScheduleTypeEnum = typeof GetSourceScheduleV1ScheduleTypeEnum[keyof typeof GetSourceScheduleV1ScheduleTypeEnum];
 /**
  * @export
  */
-export const GetSourceSchemasV1IncludeTypesV1 = {
+export const GetSourceSchemasV1IncludeTypesEnum = {
     Group: 'group',
     User: 'user'
 } as const;
-export type GetSourceSchemasV1IncludeTypesV1 = typeof GetSourceSchemasV1IncludeTypesV1[keyof typeof GetSourceSchemasV1IncludeTypesV1];
+export type GetSourceSchemasV1IncludeTypesEnum = typeof GetSourceSchemasV1IncludeTypesEnum[keyof typeof GetSourceSchemasV1IncludeTypesEnum];
 /**
  * @export
  */
-export const UpdateSourceScheduleV1ScheduleTypeV1 = {
+export const UpdateSourceScheduleV1ScheduleTypeEnum = {
     AccountAggregation: 'ACCOUNT_AGGREGATION',
     GroupAggregation: 'GROUP_AGGREGATION'
 } as const;
-export type UpdateSourceScheduleV1ScheduleTypeV1 = typeof UpdateSourceScheduleV1ScheduleTypeV1[keyof typeof UpdateSourceScheduleV1ScheduleTypeV1];
+export type UpdateSourceScheduleV1ScheduleTypeEnum = typeof UpdateSourceScheduleV1ScheduleTypeEnum[keyof typeof UpdateSourceScheduleV1ScheduleTypeEnum];
 
 

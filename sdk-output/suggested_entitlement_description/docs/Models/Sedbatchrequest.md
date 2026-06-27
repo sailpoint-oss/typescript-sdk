@@ -1,21 +1,21 @@
 ---
-id: v1-sedbatchrequest-v1
-title: SedbatchrequestV1
-pagination_label: SedbatchrequestV1
-sidebar_label: SedbatchrequestV1
+id: v1-sedbatchrequest
+title: Sedbatchrequest
+pagination_label: Sedbatchrequest
+sidebar_label: Sedbatchrequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SedbatchrequestV1', 'v1SedbatchrequestV1']
-slug: /tools/sdk/typescript/suggested_entitlement_description/models/sedbatchrequest-v1
-tags: ['SDK', 'Software Development Kit', 'SedbatchrequestV1', 'v1SedbatchrequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Sedbatchrequest', 'v1Sedbatchrequest']
+slug: /tools/sdk/typescript/suggested_entitlement_description/models/sedbatchrequest
+tags: ['SDK', 'Software Development Kit', 'Sedbatchrequest', 'v1Sedbatchrequest']
 ---
 
-# SedbatchrequestV1
+# Sedbatchrequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**entitlements** | **(optional)** **Array&lt;string&gt;** | list of entitlement ids | [default to undefined]
-**seds** | **(optional)** **Array&lt;string&gt;** | list of sed ids | [default to undefined]
+**entitlements** | **(optional)** `Array<string>` | list of entitlement ids | [default to undefined]
+**seds** | **(optional)** `Array<string>` | list of sed ids | [default to undefined]
 **searchCriteria** | **(optional)**  | Search criteria for the batch request. | [default to undefined]
 

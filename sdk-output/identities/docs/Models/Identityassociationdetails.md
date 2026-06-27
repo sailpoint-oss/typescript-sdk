@@ -1,20 +1,20 @@
 ---
-id: v1-identityassociationdetails-v1
-title: IdentityassociationdetailsV1
-pagination_label: IdentityassociationdetailsV1
-sidebar_label: IdentityassociationdetailsV1
+id: v1-identityassociationdetails
+title: Identityassociationdetails
+pagination_label: Identityassociationdetails
+sidebar_label: Identityassociationdetails
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'IdentityassociationdetailsV1', 'v1IdentityassociationdetailsV1']
-slug: /tools/sdk/typescript/identities/models/identityassociationdetails-v1
-tags: ['SDK', 'Software Development Kit', 'IdentityassociationdetailsV1', 'v1IdentityassociationdetailsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Identityassociationdetails', 'v1Identityassociationdetails']
+slug: /tools/sdk/typescript/identities/models/identityassociationdetails
+tags: ['SDK', 'Software Development Kit', 'Identityassociationdetails', 'v1Identityassociationdetails']
 ---
 
-# IdentityassociationdetailsV1
+# Identityassociationdetails
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **(optional)** **string** | any additional context information of the http call result | [default to undefined]
-**associationDetails** | **(optional)** **Array&lt;IdentityassociationdetailsAssociationDetailsInnerV1&gt;** | list of all the resource associations for the identity | [default to undefined]
+**message** | **(optional)** `string` | any additional context information of the http call result | [default to undefined]
+**associationDetails** | **(optional)** `Array<IdentityassociationdetailsAssociationDetailsInner>` | list of all the resource associations for the identity | [default to undefined]
 

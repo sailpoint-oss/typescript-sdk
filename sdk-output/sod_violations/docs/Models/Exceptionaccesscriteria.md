@@ -1,20 +1,20 @@
 ---
-id: v1-exceptionaccesscriteria-v1
-title: ExceptionaccesscriteriaV1
-pagination_label: ExceptionaccesscriteriaV1
-sidebar_label: ExceptionaccesscriteriaV1
+id: v1-exceptionaccesscriteria
+title: Exceptionaccesscriteria
+pagination_label: Exceptionaccesscriteria
+sidebar_label: Exceptionaccesscriteria
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ExceptionaccesscriteriaV1', 'v1ExceptionaccesscriteriaV1']
-slug: /tools/sdk/typescript/sod_violations/models/exceptionaccesscriteria-v1
-tags: ['SDK', 'Software Development Kit', 'ExceptionaccesscriteriaV1', 'v1ExceptionaccesscriteriaV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Exceptionaccesscriteria', 'v1Exceptionaccesscriteria']
+slug: /tools/sdk/typescript/sod_violations/models/exceptionaccesscriteria
+tags: ['SDK', 'Software Development Kit', 'Exceptionaccesscriteria', 'v1Exceptionaccesscriteria']
 ---
 
-# ExceptionaccesscriteriaV1
+# Exceptionaccesscriteria
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**leftCriteria** | **(optional)** **ExceptioncriteriaV1** |  | [default to undefined]
-**rightCriteria** | **(optional)** **ExceptioncriteriaV1** |  | [default to undefined]
+**leftCriteria** | **(optional)** `Exceptioncriteria` |  | [default to undefined]
+**rightCriteria** | **(optional)** `Exceptioncriteria` |  | [default to undefined]
 

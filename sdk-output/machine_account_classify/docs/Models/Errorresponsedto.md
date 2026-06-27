@@ -1,22 +1,22 @@
 ---
-id: v1-errorresponsedto-v1
-title: ErrorresponsedtoV1
-pagination_label: ErrorresponsedtoV1
-sidebar_label: ErrorresponsedtoV1
+id: v1-errorresponsedto
+title: Errorresponsedto
+pagination_label: Errorresponsedto
+sidebar_label: Errorresponsedto
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ErrorresponsedtoV1', 'v1ErrorresponsedtoV1']
-slug: /tools/sdk/typescript/machine_account_classify/models/errorresponsedto-v1
-tags: ['SDK', 'Software Development Kit', 'ErrorresponsedtoV1', 'v1ErrorresponsedtoV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Errorresponsedto', 'v1Errorresponsedto']
+slug: /tools/sdk/typescript/machine_account_classify/models/errorresponsedto
+tags: ['SDK', 'Software Development Kit', 'Errorresponsedto', 'v1Errorresponsedto']
 ---
 
-# ErrorresponsedtoV1
+# Errorresponsedto
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**detailCode** | **(optional)** **string** | Fine-grained error code providing more detail of the error. | [default to undefined]
-**trackingId** | **(optional)** **string** | Unique tracking id for the error. | [default to undefined]
-**messages** | **(optional)** **Array&lt;ErrormessagedtoV1&gt;** | Generic localized reason for error | [default to undefined]
-**causes** | **(optional)** **Array&lt;ErrormessagedtoV1&gt;** | Plain-text descriptive reasons to provide additional detail to the text provided in the messages field | [default to undefined]
+**detailCode** | **(optional)** `string` | Fine-grained error code providing more detail of the error. | [default to undefined]
+**trackingId** | **(optional)** `string` | Unique tracking id for the error. | [default to undefined]
+**messages** | **(optional)** `Array<Errormessagedto>` | Generic localized reason for error | [default to undefined]
+**causes** | **(optional)** `Array<Errormessagedto>` | Plain-text descriptive reasons to provide additional detail to the text provided in the messages field | [default to undefined]
 

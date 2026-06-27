@@ -1,22 +1,22 @@
 ---
-id: v1-sodexemptcriteria-v1
-title: SodexemptcriteriaV1
-pagination_label: SodexemptcriteriaV1
-sidebar_label: SodexemptcriteriaV1
+id: v1-sodexemptcriteria
+title: Sodexemptcriteria
+pagination_label: Sodexemptcriteria
+sidebar_label: Sodexemptcriteria
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SodexemptcriteriaV1', 'v1SodexemptcriteriaV1']
-slug: /tools/sdk/typescript/access_request_approvals/models/sodexemptcriteria-v1
-tags: ['SDK', 'Software Development Kit', 'SodexemptcriteriaV1', 'v1SodexemptcriteriaV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Sodexemptcriteria', 'v1Sodexemptcriteria']
+slug: /tools/sdk/typescript/access_request_approvals/models/sodexemptcriteria
+tags: ['SDK', 'Software Development Kit', 'Sodexemptcriteria', 'v1Sodexemptcriteria']
 ---
 
-# SodexemptcriteriaV1
+# Sodexemptcriteria
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**existing** | **(optional)** **boolean** | If the entitlement already belonged to the user or not. | [default to false]
-**type** | **(optional)** **DtotypeV1** |  | [default to undefined]
-**id** | **(optional)** **string** | Entitlement ID | [default to undefined]
-**name** | **(optional)** **string** | Entitlement name | [default to undefined]
+**existing** | **(optional)** `boolean` | If the entitlement already belonged to the user or not. | [default to false]
+**type** | **(optional)** `Dtotype` |  | [default to undefined]
+**id** | **(optional)** `string` | Entitlement ID | [default to undefined]
+**name** | **(optional)** `string` | Entitlement name | [default to undefined]
 

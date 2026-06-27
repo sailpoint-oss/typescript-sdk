@@ -1,19 +1,19 @@
 ---
-id: v1-bulkapproveentitlementrecommendationrequest-v1
-title: BulkapproveentitlementrecommendationrequestV1
-pagination_label: BulkapproveentitlementrecommendationrequestV1
-sidebar_label: BulkapproveentitlementrecommendationrequestV1
+id: v1-bulkapproveentitlementrecommendationrequest
+title: Bulkapproveentitlementrecommendationrequest
+pagination_label: Bulkapproveentitlementrecommendationrequest
+sidebar_label: Bulkapproveentitlementrecommendationrequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'BulkapproveentitlementrecommendationrequestV1', 'v1BulkapproveentitlementrecommendationrequestV1']
-slug: /tools/sdk/typescript/suggested_entitlement_description/models/bulkapproveentitlementrecommendationrequest-v1
-tags: ['SDK', 'Software Development Kit', 'BulkapproveentitlementrecommendationrequestV1', 'v1BulkapproveentitlementrecommendationrequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Bulkapproveentitlementrecommendationrequest', 'v1Bulkapproveentitlementrecommendationrequest']
+slug: /tools/sdk/typescript/suggested_entitlement_description/models/bulkapproveentitlementrecommendationrequest
+tags: ['SDK', 'Software Development Kit', 'Bulkapproveentitlementrecommendationrequest', 'v1Bulkapproveentitlementrecommendationrequest']
 ---
 
-# BulkapproveentitlementrecommendationrequestV1
+# Bulkapproveentitlementrecommendationrequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | **Array&lt;BulkapproveentitlementrecommendationitemV1&gt;** | The list of recommendation items to approve. | [default to undefined]
+**items** | `Array<Bulkapproveentitlementrecommendationitem>` | The list of recommendation items to approve. | [default to undefined]
 

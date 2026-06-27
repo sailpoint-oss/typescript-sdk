@@ -1,19 +1,19 @@
 ---
-id: v1-entitlementrecommendationassignresult-v1
-title: EntitlementrecommendationassignresultV1
-pagination_label: EntitlementrecommendationassignresultV1
-sidebar_label: EntitlementrecommendationassignresultV1
+id: v1-entitlementrecommendationassignresult
+title: Entitlementrecommendationassignresult
+pagination_label: Entitlementrecommendationassignresult
+sidebar_label: Entitlementrecommendationassignresult
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'EntitlementrecommendationassignresultV1', 'v1EntitlementrecommendationassignresultV1']
-slug: /tools/sdk/typescript/suggested_entitlement_description/models/entitlementrecommendationassignresult-v1
-tags: ['SDK', 'Software Development Kit', 'EntitlementrecommendationassignresultV1', 'v1EntitlementrecommendationassignresultV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Entitlementrecommendationassignresult', 'v1Entitlementrecommendationassignresult']
+slug: /tools/sdk/typescript/suggested_entitlement_description/models/entitlementrecommendationassignresult
+tags: ['SDK', 'Software Development Kit', 'Entitlementrecommendationassignresult', 'v1Entitlementrecommendationassignresult']
 ---
 
-# EntitlementrecommendationassignresultV1
+# Entitlementrecommendationassignresult
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**batchId** | **(optional)** **string** | The unique identifier of the assignment batch created by this request. | [default to undefined]
+**batchId** | **(optional)** `string` | The unique identifier of the assignment batch created by this request. | [default to undefined]
 

@@ -11,8 +11,8 @@ Localeorigin.md
 Product.md
 README.md
 Tenant.md
-TenantV1Api.md
-TenantV1ApideveloperSite_code_examples.yaml
+TenantApi.md
+TenantApideveloperSite_code_examples.yaml
 api.ts
 base.ts
 common.ts

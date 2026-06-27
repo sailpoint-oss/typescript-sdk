@@ -1,24 +1,24 @@
 ---
-id: v1-workflowbody-v1
-title: WorkflowbodyV1
-pagination_label: WorkflowbodyV1
-sidebar_label: WorkflowbodyV1
+id: v1-workflowbody
+title: Workflowbody
+pagination_label: Workflowbody
+sidebar_label: Workflowbody
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'WorkflowbodyV1', 'v1WorkflowbodyV1']
-slug: /tools/sdk/typescript/workflows/models/workflowbody-v1
-tags: ['SDK', 'Software Development Kit', 'WorkflowbodyV1', 'v1WorkflowbodyV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Workflowbody', 'v1Workflowbody']
+slug: /tools/sdk/typescript/workflows/models/workflowbody
+tags: ['SDK', 'Software Development Kit', 'Workflowbody', 'v1Workflowbody']
 ---
 
-# WorkflowbodyV1
+# Workflowbody
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **(optional)** **string** | The name of the workflow | [default to undefined]
-**owner** | **(optional)** **WorkflowbodyOwnerV1** |  | [default to undefined]
-**description** | **(optional)** **string** | Description of what the workflow accomplishes | [default to undefined]
-**definition** | **(optional)** **WorkflowdefinitionV1** |  | [default to undefined]
-**enabled** | **(optional)** **boolean** | Enable or disable the workflow.  Workflows cannot be created in an enabled state. | [default to false]
-**trigger** | **(optional)** **WorkflowtriggerV1** |  | [default to undefined]
+**name** | **(optional)** `string` | The name of the workflow | [default to undefined]
+**owner** | **(optional)** `WorkflowbodyOwner` |  | [default to undefined]
+**description** | **(optional)** `string` | Description of what the workflow accomplishes | [default to undefined]
+**definition** | **(optional)** `Workflowdefinition` |  | [default to undefined]
+**enabled** | **(optional)** `boolean` | Enable or disable the workflow.  Workflows cannot be created in an enabled state. | [default to false]
+**trigger** | **(optional)** `Workflowtrigger` |  | [default to undefined]
 

@@ -1,19 +1,19 @@
 ---
-id: v1-list-accounts-v1401-response-v1
-title: ListAccountsV1401ResponseV1
-pagination_label: ListAccountsV1401ResponseV1
-sidebar_label: ListAccountsV1401ResponseV1
+id: v1-list-accounts-v1401-response
+title: ListAccountsV1401Response
+pagination_label: ListAccountsV1401Response
+sidebar_label: ListAccountsV1401Response
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ListAccountsV1401ResponseV1', 'v1ListAccountsV1401ResponseV1']
-slug: /tools/sdk/typescript/accounts/models/list-accounts-v1401-response-v1
-tags: ['SDK', 'Software Development Kit', 'ListAccountsV1401ResponseV1', 'v1ListAccountsV1401ResponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ListAccountsV1401Response', 'v1ListAccountsV1401Response']
+slug: /tools/sdk/typescript/accounts/models/list-accounts-v1401-response
+tags: ['SDK', 'Software Development Kit', 'ListAccountsV1401Response', 'v1ListAccountsV1401Response']
 ---
 
-# ListAccountsV1401ResponseV1
+# ListAccountsV1401Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**error** | **(optional)** **any** | A message describing the error | [default to undefined]
+**error** | **(optional)** `any` | A message describing the error | [default to undefined]
 

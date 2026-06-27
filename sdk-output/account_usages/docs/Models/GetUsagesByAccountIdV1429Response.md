@@ -1,19 +1,19 @@
 ---
-id: v1-get-usages-by-account-id-v1429-response-v1
-title: GetUsagesByAccountIdV1429ResponseV1
-pagination_label: GetUsagesByAccountIdV1429ResponseV1
-sidebar_label: GetUsagesByAccountIdV1429ResponseV1
+id: v1-get-usages-by-account-id-v1429-response
+title: GetUsagesByAccountIdV1429Response
+pagination_label: GetUsagesByAccountIdV1429Response
+sidebar_label: GetUsagesByAccountIdV1429Response
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'GetUsagesByAccountIdV1429ResponseV1', 'v1GetUsagesByAccountIdV1429ResponseV1']
-slug: /tools/sdk/typescript/account_usages/models/get-usages-by-account-id-v1429-response-v1
-tags: ['SDK', 'Software Development Kit', 'GetUsagesByAccountIdV1429ResponseV1', 'v1GetUsagesByAccountIdV1429ResponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'GetUsagesByAccountIdV1429Response', 'v1GetUsagesByAccountIdV1429Response']
+slug: /tools/sdk/typescript/account_usages/models/get-usages-by-account-id-v1429-response
+tags: ['SDK', 'Software Development Kit', 'GetUsagesByAccountIdV1429Response', 'v1GetUsagesByAccountIdV1429Response']
 ---
 
-# GetUsagesByAccountIdV1429ResponseV1
+# GetUsagesByAccountIdV1429Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **(optional)** **any** | A message describing the error | [default to undefined]
+**message** | **(optional)** `any` | A message describing the error | [default to undefined]
 

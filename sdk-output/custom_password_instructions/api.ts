@@ -26,30 +26,30 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface CustompasswordinstructionV1
+ * @interface Custompasswordinstruction
  */
-export interface CustompasswordinstructionV1 {
+export interface Custompasswordinstruction {
     /**
      * The page ID that represents the page for forget user name, reset password and unlock account flow.
      * @type {string}
-     * @memberof CustompasswordinstructionV1
+     * @memberof Custompasswordinstruction
      */
-    'pageId'?: CustompasswordinstructionV1PageIdV1;
+    'pageId'?: CustompasswordinstructionPageIdEnum;
     /**
      * The custom instructions for the specified page. Allow basic HTML format and maximum length is 1000 characters. The custom instructions will be sanitized to avoid attacks. If the customization text includes a link, like `<A HREF=\\\"URL\\\">...</A>` clicking on this will open the link on the current browser page. If you want your link to be redirected to a different page, please redirect it to \"_blank\" like this: `<a href=\\\"URL\" target=\\\"_blank\\\" >link</a>`. This will open a new tab when the link is clicked. Notice we\'re only supporting _blank as the redirection target. 
      * @type {string}
-     * @memberof CustompasswordinstructionV1
+     * @memberof Custompasswordinstruction
      */
     'pageContent'?: string;
     /**
      * The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\".
      * @type {string}
-     * @memberof CustompasswordinstructionV1
+     * @memberof Custompasswordinstruction
      */
     'locale'?: string;
 }
 
-export const CustompasswordinstructionV1PageIdV1 = {
+export const CustompasswordinstructionPageIdEnum = {
     ChangePasswordEnterPassword: 'change-password:enter-password',
     ChangePasswordFinish: 'change-password:finish',
     FlowSelectionSelect: 'flow-selection:select',
@@ -64,30 +64,30 @@ export const CustompasswordinstructionV1PageIdV1 = {
     UnlockAccountFinish: 'unlock-account:finish'
 } as const;
 
-export type CustompasswordinstructionV1PageIdV1 = typeof CustompasswordinstructionV1PageIdV1[keyof typeof CustompasswordinstructionV1PageIdV1];
+export type CustompasswordinstructionPageIdEnum = typeof CustompasswordinstructionPageIdEnum[keyof typeof CustompasswordinstructionPageIdEnum];
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -96,33 +96,33 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -130,32 +130,32 @@ export interface ErrorresponsedtoV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 
 /**
- * CustomPasswordInstructionsV1Api - axios parameter creator
+ * CustomPasswordInstructionsApi - axios parameter creator
  * @export
  */
-export const CustomPasswordInstructionsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const CustomPasswordInstructionsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This API creates the custom password instructions for the specified page ID.
          * @summary Create custom password instructions
-         * @param {CustompasswordinstructionV1} custompasswordinstructionV1 
+         * @param {Custompasswordinstruction} custompasswordinstruction 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createCustomPasswordInstructionsV1: async (custompasswordinstructionV1: CustompasswordinstructionV1, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'custompasswordinstructionV1' is not null or undefined
-            assertParamExists('createCustomPasswordInstructionsV1', 'custompasswordinstructionV1', custompasswordinstructionV1)
+        createCustomPasswordInstructionsV1: async (custompasswordinstruction: Custompasswordinstruction, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'custompasswordinstruction' is not null or undefined
+            assertParamExists('createCustomPasswordInstructionsV1', 'custompasswordinstruction', custompasswordinstruction)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -182,7 +182,7 @@ export const CustomPasswordInstructionsV1ApiAxiosParamCreator = function (config
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(custompasswordinstructionV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(custompasswordinstruction, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -192,13 +192,13 @@ export const CustomPasswordInstructionsV1ApiAxiosParamCreator = function (config
         /**
          * This API delete the custom password instructions for the specified page ID.
          * @summary Delete custom password instructions by page id
-         * @param {DeleteCustomPasswordInstructionsV1PageIdV1} pageId The page ID of custom password instructions to delete.
+         * @param {DeleteCustomPasswordInstructionsV1PageIdEnum} pageId The page ID of custom password instructions to delete.
          * @param {string} [locale] The locale for the custom instructions, a BCP47 language tag. The default value is \\\&quot;default\\\&quot;.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteCustomPasswordInstructionsV1: async (pageId: DeleteCustomPasswordInstructionsV1PageIdV1, locale?: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteCustomPasswordInstructionsV1: async (pageId: DeleteCustomPasswordInstructionsV1PageIdEnum, locale?: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'pageId' is not null or undefined
             assertParamExists('deleteCustomPasswordInstructionsV1', 'pageId', pageId)
             if (xSailPointExperimental === undefined) {
@@ -239,13 +239,13 @@ export const CustomPasswordInstructionsV1ApiAxiosParamCreator = function (config
         /**
          * This API returns the custom password instructions for the specified page ID.
          * @summary Get custom password instructions by page id
-         * @param {GetCustomPasswordInstructionsV1PageIdV1} pageId The page ID of custom password instructions to query.
+         * @param {GetCustomPasswordInstructionsV1PageIdEnum} pageId The page ID of custom password instructions to query.
          * @param {string} [locale] The locale for the custom instructions, a BCP47 language tag. The default value is \\\&quot;default\\\&quot;.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCustomPasswordInstructionsV1: async (pageId: GetCustomPasswordInstructionsV1PageIdV1, locale?: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getCustomPasswordInstructionsV1: async (pageId: GetCustomPasswordInstructionsV1PageIdEnum, locale?: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'pageId' is not null or undefined
             assertParamExists('getCustomPasswordInstructionsV1', 'pageId', pageId)
             if (xSailPointExperimental === undefined) {
@@ -287,224 +287,224 @@ export const CustomPasswordInstructionsV1ApiAxiosParamCreator = function (config
 };
 
 /**
- * CustomPasswordInstructionsV1Api - functional programming interface
+ * CustomPasswordInstructionsApi - functional programming interface
  * @export
  */
-export const CustomPasswordInstructionsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = CustomPasswordInstructionsV1ApiAxiosParamCreator(configuration)
+export const CustomPasswordInstructionsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = CustomPasswordInstructionsApiAxiosParamCreator(configuration)
     return {
         /**
          * This API creates the custom password instructions for the specified page ID.
          * @summary Create custom password instructions
-         * @param {CustompasswordinstructionV1} custompasswordinstructionV1 
+         * @param {Custompasswordinstruction} custompasswordinstruction 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createCustomPasswordInstructionsV1(custompasswordinstructionV1: CustompasswordinstructionV1, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustompasswordinstructionV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createCustomPasswordInstructionsV1(custompasswordinstructionV1, xSailPointExperimental, axiosOptions);
+        async createCustomPasswordInstructionsV1(custompasswordinstruction: Custompasswordinstruction, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Custompasswordinstruction>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCustomPasswordInstructionsV1(custompasswordinstruction, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomPasswordInstructionsV1Api.createCustomPasswordInstructionsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomPasswordInstructionsApi.createCustomPasswordInstructionsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API delete the custom password instructions for the specified page ID.
          * @summary Delete custom password instructions by page id
-         * @param {DeleteCustomPasswordInstructionsV1PageIdV1} pageId The page ID of custom password instructions to delete.
+         * @param {DeleteCustomPasswordInstructionsV1PageIdEnum} pageId The page ID of custom password instructions to delete.
          * @param {string} [locale] The locale for the custom instructions, a BCP47 language tag. The default value is \\\&quot;default\\\&quot;.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteCustomPasswordInstructionsV1(pageId: DeleteCustomPasswordInstructionsV1PageIdV1, locale?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async deleteCustomPasswordInstructionsV1(pageId: DeleteCustomPasswordInstructionsV1PageIdEnum, locale?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCustomPasswordInstructionsV1(pageId, locale, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomPasswordInstructionsV1Api.deleteCustomPasswordInstructionsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomPasswordInstructionsApi.deleteCustomPasswordInstructionsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API returns the custom password instructions for the specified page ID.
          * @summary Get custom password instructions by page id
-         * @param {GetCustomPasswordInstructionsV1PageIdV1} pageId The page ID of custom password instructions to query.
+         * @param {GetCustomPasswordInstructionsV1PageIdEnum} pageId The page ID of custom password instructions to query.
          * @param {string} [locale] The locale for the custom instructions, a BCP47 language tag. The default value is \\\&quot;default\\\&quot;.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCustomPasswordInstructionsV1(pageId: GetCustomPasswordInstructionsV1PageIdV1, locale?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustompasswordinstructionV1>> {
+        async getCustomPasswordInstructionsV1(pageId: GetCustomPasswordInstructionsV1PageIdEnum, locale?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Custompasswordinstruction>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomPasswordInstructionsV1(pageId, locale, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomPasswordInstructionsV1Api.getCustomPasswordInstructionsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomPasswordInstructionsApi.getCustomPasswordInstructionsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * CustomPasswordInstructionsV1Api - factory interface
+ * CustomPasswordInstructionsApi - factory interface
  * @export
  */
-export const CustomPasswordInstructionsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = CustomPasswordInstructionsV1ApiFp(configuration)
+export const CustomPasswordInstructionsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = CustomPasswordInstructionsApiFp(configuration)
     return {
         /**
          * This API creates the custom password instructions for the specified page ID.
          * @summary Create custom password instructions
-         * @param {CustomPasswordInstructionsV1ApiCreateCustomPasswordInstructionsV1Request} requestParameters Request parameters.
+         * @param {CustomPasswordInstructionsApiCreateCustomPasswordInstructionsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createCustomPasswordInstructionsV1(requestParameters: CustomPasswordInstructionsV1ApiCreateCustomPasswordInstructionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CustompasswordinstructionV1> {
-            return localVarFp.createCustomPasswordInstructionsV1(requestParameters.custompasswordinstructionV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        createCustomPasswordInstructionsV1(requestParameters: CustomPasswordInstructionsApiCreateCustomPasswordInstructionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Custompasswordinstruction> {
+            return localVarFp.createCustomPasswordInstructionsV1(requestParameters.custompasswordinstruction, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API delete the custom password instructions for the specified page ID.
          * @summary Delete custom password instructions by page id
-         * @param {CustomPasswordInstructionsV1ApiDeleteCustomPasswordInstructionsV1Request} requestParameters Request parameters.
+         * @param {CustomPasswordInstructionsApiDeleteCustomPasswordInstructionsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteCustomPasswordInstructionsV1(requestParameters: CustomPasswordInstructionsV1ApiDeleteCustomPasswordInstructionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteCustomPasswordInstructionsV1(requestParameters: CustomPasswordInstructionsApiDeleteCustomPasswordInstructionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteCustomPasswordInstructionsV1(requestParameters.pageId, requestParameters.locale, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the custom password instructions for the specified page ID.
          * @summary Get custom password instructions by page id
-         * @param {CustomPasswordInstructionsV1ApiGetCustomPasswordInstructionsV1Request} requestParameters Request parameters.
+         * @param {CustomPasswordInstructionsApiGetCustomPasswordInstructionsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCustomPasswordInstructionsV1(requestParameters: CustomPasswordInstructionsV1ApiGetCustomPasswordInstructionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CustompasswordinstructionV1> {
+        getCustomPasswordInstructionsV1(requestParameters: CustomPasswordInstructionsApiGetCustomPasswordInstructionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Custompasswordinstruction> {
             return localVarFp.getCustomPasswordInstructionsV1(requestParameters.pageId, requestParameters.locale, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createCustomPasswordInstructionsV1 operation in CustomPasswordInstructionsV1Api.
+ * Request parameters for createCustomPasswordInstructionsV1 operation in CustomPasswordInstructionsApi.
  * @export
- * @interface CustomPasswordInstructionsV1ApiCreateCustomPasswordInstructionsV1Request
+ * @interface CustomPasswordInstructionsApiCreateCustomPasswordInstructionsV1Request
  */
-export interface CustomPasswordInstructionsV1ApiCreateCustomPasswordInstructionsV1Request {
+export interface CustomPasswordInstructionsApiCreateCustomPasswordInstructionsV1Request {
     /**
      * 
-     * @type {CustompasswordinstructionV1}
-     * @memberof CustomPasswordInstructionsV1ApiCreateCustomPasswordInstructionsV1
+     * @type {Custompasswordinstruction}
+     * @memberof CustomPasswordInstructionsApiCreateCustomPasswordInstructionsV1
      */
-    readonly custompasswordinstructionV1: CustompasswordinstructionV1
+    readonly custompasswordinstruction: Custompasswordinstruction
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof CustomPasswordInstructionsV1ApiCreateCustomPasswordInstructionsV1
+     * @memberof CustomPasswordInstructionsApiCreateCustomPasswordInstructionsV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for deleteCustomPasswordInstructionsV1 operation in CustomPasswordInstructionsV1Api.
+ * Request parameters for deleteCustomPasswordInstructionsV1 operation in CustomPasswordInstructionsApi.
  * @export
- * @interface CustomPasswordInstructionsV1ApiDeleteCustomPasswordInstructionsV1Request
+ * @interface CustomPasswordInstructionsApiDeleteCustomPasswordInstructionsV1Request
  */
-export interface CustomPasswordInstructionsV1ApiDeleteCustomPasswordInstructionsV1Request {
+export interface CustomPasswordInstructionsApiDeleteCustomPasswordInstructionsV1Request {
     /**
      * The page ID of custom password instructions to delete.
      * @type {'change-password:enter-password' | 'change-password:finish' | 'flow-selection:select' | 'forget-username:user-email' | 'mfa:enter-code' | 'mfa:enter-kba' | 'mfa:select' | 'reset-password:enter-password' | 'reset-password:enter-username' | 'reset-password:finish' | 'unlock-account:enter-username' | 'unlock-account:finish'}
-     * @memberof CustomPasswordInstructionsV1ApiDeleteCustomPasswordInstructionsV1
+     * @memberof CustomPasswordInstructionsApiDeleteCustomPasswordInstructionsV1
      */
-    readonly pageId: DeleteCustomPasswordInstructionsV1PageIdV1
+    readonly pageId: DeleteCustomPasswordInstructionsV1PageIdEnum
 
     /**
      * The locale for the custom instructions, a BCP47 language tag. The default value is \\\&quot;default\\\&quot;.
      * @type {string}
-     * @memberof CustomPasswordInstructionsV1ApiDeleteCustomPasswordInstructionsV1
+     * @memberof CustomPasswordInstructionsApiDeleteCustomPasswordInstructionsV1
      */
     readonly locale?: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof CustomPasswordInstructionsV1ApiDeleteCustomPasswordInstructionsV1
+     * @memberof CustomPasswordInstructionsApiDeleteCustomPasswordInstructionsV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getCustomPasswordInstructionsV1 operation in CustomPasswordInstructionsV1Api.
+ * Request parameters for getCustomPasswordInstructionsV1 operation in CustomPasswordInstructionsApi.
  * @export
- * @interface CustomPasswordInstructionsV1ApiGetCustomPasswordInstructionsV1Request
+ * @interface CustomPasswordInstructionsApiGetCustomPasswordInstructionsV1Request
  */
-export interface CustomPasswordInstructionsV1ApiGetCustomPasswordInstructionsV1Request {
+export interface CustomPasswordInstructionsApiGetCustomPasswordInstructionsV1Request {
     /**
      * The page ID of custom password instructions to query.
      * @type {'change-password:enter-password' | 'change-password:finish' | 'flow-selection:select' | 'forget-username:user-email' | 'mfa:enter-code' | 'mfa:enter-kba' | 'mfa:select' | 'reset-password:enter-password' | 'reset-password:enter-username' | 'reset-password:finish' | 'unlock-account:enter-username' | 'unlock-account:finish'}
-     * @memberof CustomPasswordInstructionsV1ApiGetCustomPasswordInstructionsV1
+     * @memberof CustomPasswordInstructionsApiGetCustomPasswordInstructionsV1
      */
-    readonly pageId: GetCustomPasswordInstructionsV1PageIdV1
+    readonly pageId: GetCustomPasswordInstructionsV1PageIdEnum
 
     /**
      * The locale for the custom instructions, a BCP47 language tag. The default value is \\\&quot;default\\\&quot;.
      * @type {string}
-     * @memberof CustomPasswordInstructionsV1ApiGetCustomPasswordInstructionsV1
+     * @memberof CustomPasswordInstructionsApiGetCustomPasswordInstructionsV1
      */
     readonly locale?: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof CustomPasswordInstructionsV1ApiGetCustomPasswordInstructionsV1
+     * @memberof CustomPasswordInstructionsApiGetCustomPasswordInstructionsV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * CustomPasswordInstructionsV1Api - object-oriented interface
+ * CustomPasswordInstructionsApi - object-oriented interface
  * @export
- * @class CustomPasswordInstructionsV1Api
+ * @class CustomPasswordInstructionsApi
  * @extends {BaseAPI}
  */
-export class CustomPasswordInstructionsV1Api extends BaseAPI {
+export class CustomPasswordInstructionsApi extends BaseAPI {
     /**
      * This API creates the custom password instructions for the specified page ID.
      * @summary Create custom password instructions
-     * @param {CustomPasswordInstructionsV1ApiCreateCustomPasswordInstructionsV1Request} requestParameters Request parameters.
+     * @param {CustomPasswordInstructionsApiCreateCustomPasswordInstructionsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomPasswordInstructionsV1Api
+     * @memberof CustomPasswordInstructionsApi
      */
-    public createCustomPasswordInstructionsV1(requestParameters: CustomPasswordInstructionsV1ApiCreateCustomPasswordInstructionsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomPasswordInstructionsV1ApiFp(this.configuration).createCustomPasswordInstructionsV1(requestParameters.custompasswordinstructionV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createCustomPasswordInstructionsV1(requestParameters: CustomPasswordInstructionsApiCreateCustomPasswordInstructionsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomPasswordInstructionsApiFp(this.configuration).createCustomPasswordInstructionsV1(requestParameters.custompasswordinstruction, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API delete the custom password instructions for the specified page ID.
      * @summary Delete custom password instructions by page id
-     * @param {CustomPasswordInstructionsV1ApiDeleteCustomPasswordInstructionsV1Request} requestParameters Request parameters.
+     * @param {CustomPasswordInstructionsApiDeleteCustomPasswordInstructionsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomPasswordInstructionsV1Api
+     * @memberof CustomPasswordInstructionsApi
      */
-    public deleteCustomPasswordInstructionsV1(requestParameters: CustomPasswordInstructionsV1ApiDeleteCustomPasswordInstructionsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomPasswordInstructionsV1ApiFp(this.configuration).deleteCustomPasswordInstructionsV1(requestParameters.pageId, requestParameters.locale, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteCustomPasswordInstructionsV1(requestParameters: CustomPasswordInstructionsApiDeleteCustomPasswordInstructionsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomPasswordInstructionsApiFp(this.configuration).deleteCustomPasswordInstructionsV1(requestParameters.pageId, requestParameters.locale, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the custom password instructions for the specified page ID.
      * @summary Get custom password instructions by page id
-     * @param {CustomPasswordInstructionsV1ApiGetCustomPasswordInstructionsV1Request} requestParameters Request parameters.
+     * @param {CustomPasswordInstructionsApiGetCustomPasswordInstructionsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomPasswordInstructionsV1Api
+     * @memberof CustomPasswordInstructionsApi
      */
-    public getCustomPasswordInstructionsV1(requestParameters: CustomPasswordInstructionsV1ApiGetCustomPasswordInstructionsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomPasswordInstructionsV1ApiFp(this.configuration).getCustomPasswordInstructionsV1(requestParameters.pageId, requestParameters.locale, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getCustomPasswordInstructionsV1(requestParameters: CustomPasswordInstructionsApiGetCustomPasswordInstructionsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomPasswordInstructionsApiFp(this.configuration).getCustomPasswordInstructionsV1(requestParameters.pageId, requestParameters.locale, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
 /**
  * @export
  */
-export const DeleteCustomPasswordInstructionsV1PageIdV1 = {
+export const DeleteCustomPasswordInstructionsV1PageIdEnum = {
     ChangePasswordEnterPassword: 'change-password:enter-password',
     ChangePasswordFinish: 'change-password:finish',
     FlowSelectionSelect: 'flow-selection:select',
@@ -518,11 +518,11 @@ export const DeleteCustomPasswordInstructionsV1PageIdV1 = {
     UnlockAccountEnterUsername: 'unlock-account:enter-username',
     UnlockAccountFinish: 'unlock-account:finish'
 } as const;
-export type DeleteCustomPasswordInstructionsV1PageIdV1 = typeof DeleteCustomPasswordInstructionsV1PageIdV1[keyof typeof DeleteCustomPasswordInstructionsV1PageIdV1];
+export type DeleteCustomPasswordInstructionsV1PageIdEnum = typeof DeleteCustomPasswordInstructionsV1PageIdEnum[keyof typeof DeleteCustomPasswordInstructionsV1PageIdEnum];
 /**
  * @export
  */
-export const GetCustomPasswordInstructionsV1PageIdV1 = {
+export const GetCustomPasswordInstructionsV1PageIdEnum = {
     ChangePasswordEnterPassword: 'change-password:enter-password',
     ChangePasswordFinish: 'change-password:finish',
     FlowSelectionSelect: 'flow-selection:select',
@@ -536,6 +536,6 @@ export const GetCustomPasswordInstructionsV1PageIdV1 = {
     UnlockAccountEnterUsername: 'unlock-account:enter-username',
     UnlockAccountFinish: 'unlock-account:finish'
 } as const;
-export type GetCustomPasswordInstructionsV1PageIdV1 = typeof GetCustomPasswordInstructionsV1PageIdV1[keyof typeof GetCustomPasswordInstructionsV1PageIdV1];
+export type GetCustomPasswordInstructionsV1PageIdEnum = typeof GetCustomPasswordInstructionsV1PageIdEnum[keyof typeof GetCustomPasswordInstructionsV1PageIdEnum];
 
 

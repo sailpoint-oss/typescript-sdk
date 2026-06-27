@@ -1,15 +1,15 @@
 ---
-id: v1-subscriptiontype-v1
-title: SubscriptiontypeV1
-pagination_label: SubscriptiontypeV1
-sidebar_label: SubscriptiontypeV1
+id: v1-subscriptiontype
+title: Subscriptiontype
+pagination_label: Subscriptiontype
+sidebar_label: Subscriptiontype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SubscriptiontypeV1', 'v1SubscriptiontypeV1']
-slug: /tools/sdk/typescript/triggers/models/subscriptiontype-v1
-tags: ['SDK', 'Software Development Kit', 'SubscriptiontypeV1', 'v1SubscriptiontypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Subscriptiontype', 'v1Subscriptiontype']
+slug: /tools/sdk/typescript/triggers/models/subscriptiontype
+tags: ['SDK', 'Software Development Kit', 'Subscriptiontype', 'v1Subscriptiontype']
 ---
 
-# SubscriptiontypeV1
+# Subscriptiontype
 
 ## Enum
 

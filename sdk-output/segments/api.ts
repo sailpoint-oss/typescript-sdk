@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -53,135 +53,135 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface ExpressionChildrenInnerV1
+ * @interface Expression
  */
-export interface ExpressionChildrenInnerV1 {
+export interface Expression {
     /**
      * Operator for the expression
      * @type {string}
-     * @memberof ExpressionChildrenInnerV1
+     * @memberof Expression
      */
-    'operator'?: ExpressionChildrenInnerV1OperatorV1;
+    'operator'?: ExpressionOperatorEnum;
     /**
      * Name for the attribute
      * @type {string}
-     * @memberof ExpressionChildrenInnerV1
+     * @memberof Expression
      */
     'attribute'?: string | null;
     /**
      * 
-     * @type {ValueV1}
-     * @memberof ExpressionChildrenInnerV1
+     * @type {Value}
+     * @memberof Expression
      */
-    'value'?: ValueV1 | null;
+    'value'?: Value | null;
+    /**
+     * List of expressions
+     * @type {Array<ExpressionChildrenInner>}
+     * @memberof Expression
+     */
+    'children'?: Array<ExpressionChildrenInner> | null;
+}
+
+export const ExpressionOperatorEnum = {
+    And: 'AND',
+    Equals: 'EQUALS'
+} as const;
+
+export type ExpressionOperatorEnum = typeof ExpressionOperatorEnum[keyof typeof ExpressionOperatorEnum];
+
+/**
+ * 
+ * @export
+ * @interface ExpressionChildrenInner
+ */
+export interface ExpressionChildrenInner {
+    /**
+     * Operator for the expression
+     * @type {string}
+     * @memberof ExpressionChildrenInner
+     */
+    'operator'?: ExpressionChildrenInnerOperatorEnum;
+    /**
+     * Name for the attribute
+     * @type {string}
+     * @memberof ExpressionChildrenInner
+     */
+    'attribute'?: string | null;
+    /**
+     * 
+     * @type {Value}
+     * @memberof ExpressionChildrenInner
+     */
+    'value'?: Value | null;
     /**
      * There cannot be anymore nested children. This will always be null.
      * @type {string}
-     * @memberof ExpressionChildrenInnerV1
+     * @memberof ExpressionChildrenInner
      */
     'children'?: string | null;
 }
 
-export const ExpressionChildrenInnerV1OperatorV1 = {
+export const ExpressionChildrenInnerOperatorEnum = {
     And: 'AND',
     Equals: 'EQUALS'
 } as const;
 
-export type ExpressionChildrenInnerV1OperatorV1 = typeof ExpressionChildrenInnerV1OperatorV1[keyof typeof ExpressionChildrenInnerV1OperatorV1];
+export type ExpressionChildrenInnerOperatorEnum = typeof ExpressionChildrenInnerOperatorEnum[keyof typeof ExpressionChildrenInnerOperatorEnum];
 
 /**
  * 
  * @export
- * @interface ExpressionV1
+ * @interface ListSegmentsV1401Response
  */
-export interface ExpressionV1 {
-    /**
-     * Operator for the expression
-     * @type {string}
-     * @memberof ExpressionV1
-     */
-    'operator'?: ExpressionV1OperatorV1;
-    /**
-     * Name for the attribute
-     * @type {string}
-     * @memberof ExpressionV1
-     */
-    'attribute'?: string | null;
-    /**
-     * 
-     * @type {ValueV1}
-     * @memberof ExpressionV1
-     */
-    'value'?: ValueV1 | null;
-    /**
-     * List of expressions
-     * @type {Array<ExpressionChildrenInnerV1>}
-     * @memberof ExpressionV1
-     */
-    'children'?: Array<ExpressionChildrenInnerV1> | null;
-}
-
-export const ExpressionV1OperatorV1 = {
-    And: 'AND',
-    Equals: 'EQUALS'
-} as const;
-
-export type ExpressionV1OperatorV1 = typeof ExpressionV1OperatorV1[keyof typeof ExpressionV1OperatorV1];
-
-/**
- * 
- * @export
- * @interface ListSegmentsV1401ResponseV1
- */
-export interface ListSegmentsV1401ResponseV1 {
+export interface ListSegmentsV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListSegmentsV1401ResponseV1
+     * @memberof ListSegmentsV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ListSegmentsV1429ResponseV1
+ * @interface ListSegmentsV1429Response
  */
-export interface ListSegmentsV1429ResponseV1 {
+export interface ListSegmentsV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListSegmentsV1429ResponseV1
+     * @memberof ListSegmentsV1429Response
      */
     'message'?: any;
 }
@@ -191,163 +191,163 @@ export interface ListSegmentsV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * The owner of this object.
  * @export
- * @interface OwnerreferencesegmentsV1
+ * @interface Ownerreferencesegments
  */
-export interface OwnerreferencesegmentsV1 {
+export interface Ownerreferencesegments {
     /**
      * Owner type. This field must be either left null or set to \'IDENTITY\' on input, otherwise a 400 Bad Request error will result.
      * @type {string}
-     * @memberof OwnerreferencesegmentsV1
+     * @memberof Ownerreferencesegments
      */
-    'type'?: OwnerreferencesegmentsV1TypeV1;
+    'type'?: OwnerreferencesegmentsTypeEnum;
     /**
      * Identity id
      * @type {string}
-     * @memberof OwnerreferencesegmentsV1
+     * @memberof Ownerreferencesegments
      */
     'id'?: string;
     /**
      * Human-readable display name of the owner. It may be left null or omitted in a POST or PATCH. If set, it must match the current value of the owner\'s display name, otherwise a 400 Bad Request error will result.
      * @type {string}
-     * @memberof OwnerreferencesegmentsV1
+     * @memberof Ownerreferencesegments
      */
     'name'?: string;
 }
 
-export const OwnerreferencesegmentsV1TypeV1 = {
+export const OwnerreferencesegmentsTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type OwnerreferencesegmentsV1TypeV1 = typeof OwnerreferencesegmentsV1TypeV1[keyof typeof OwnerreferencesegmentsV1TypeV1];
+export type OwnerreferencesegmentsTypeEnum = typeof OwnerreferencesegmentsTypeEnum[keyof typeof OwnerreferencesegmentsTypeEnum];
 
 /**
  * 
  * @export
- * @interface SegmentV1
+ * @interface Segment
  */
-export interface SegmentV1 {
+export interface Segment {
     /**
      * The segment\'s ID.
      * @type {string}
-     * @memberof SegmentV1
+     * @memberof Segment
      */
     'id'?: string;
     /**
      * The segment\'s business name.
      * @type {string}
-     * @memberof SegmentV1
+     * @memberof Segment
      */
     'name'?: string;
     /**
      * The time when the segment is created.
      * @type {string}
-     * @memberof SegmentV1
+     * @memberof Segment
      */
     'created'?: string;
     /**
      * The time when the segment is modified.
      * @type {string}
-     * @memberof SegmentV1
+     * @memberof Segment
      */
     'modified'?: string;
     /**
      * The segment\'s optional description.
      * @type {string}
-     * @memberof SegmentV1
+     * @memberof Segment
      */
     'description'?: string;
     /**
      * 
-     * @type {OwnerreferencesegmentsV1}
-     * @memberof SegmentV1
+     * @type {Ownerreferencesegments}
+     * @memberof Segment
      */
-    'owner'?: OwnerreferencesegmentsV1 | null;
+    'owner'?: Ownerreferencesegments | null;
     /**
      * 
-     * @type {SegmentVisibilityCriteriaV1}
-     * @memberof SegmentV1
+     * @type {SegmentVisibilityCriteria}
+     * @memberof Segment
      */
-    'visibilityCriteria'?: SegmentVisibilityCriteriaV1;
+    'visibilityCriteria'?: SegmentVisibilityCriteria;
     /**
      * This boolean indicates whether the segment is currently active. Inactive segments have no effect.
      * @type {boolean}
-     * @memberof SegmentV1
+     * @memberof Segment
      */
     'active'?: boolean;
 }
 /**
  * 
  * @export
- * @interface SegmentVisibilityCriteriaV1
+ * @interface SegmentVisibilityCriteria
  */
-export interface SegmentVisibilityCriteriaV1 {
+export interface SegmentVisibilityCriteria {
     /**
      * 
-     * @type {ExpressionV1}
-     * @memberof SegmentVisibilityCriteriaV1
+     * @type {Expression}
+     * @memberof SegmentVisibilityCriteria
      */
-    'expression'?: ExpressionV1;
+    'expression'?: Expression;
 }
 /**
  * 
  * @export
- * @interface ValueV1
+ * @interface Value
  */
-export interface ValueV1 {
+export interface Value {
     /**
      * The type of attribute value
      * @type {string}
-     * @memberof ValueV1
+     * @memberof Value
      */
     'type'?: string;
     /**
      * The attribute value
      * @type {string}
-     * @memberof ValueV1
+     * @memberof Value
      */
     'value'?: string;
 }
 /**
  * 
  * @export
- * @interface VisibilitycriteriaV1
+ * @interface Visibilitycriteria
  */
-export interface VisibilitycriteriaV1 {
+export interface Visibilitycriteria {
     /**
      * 
-     * @type {ExpressionV1}
-     * @memberof VisibilitycriteriaV1
+     * @type {Expression}
+     * @memberof Visibilitycriteria
      */
-    'expression'?: ExpressionV1;
+    'expression'?: Expression;
 }
 
 /**
- * SegmentsV1Api - axios parameter creator
+ * SegmentsApi - axios parameter creator
  * @export
  */
-export const SegmentsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const SegmentsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This API creates a segment.  >**Note:** Segment definitions may take time to propagate to all identities.
          * @summary Create segment
-         * @param {SegmentV1} segmentV1 
+         * @param {Segment} segment 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createSegmentV1: async (segmentV1: SegmentV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'segmentV1' is not null or undefined
-            assertParamExists('createSegmentV1', 'segmentV1', segmentV1)
+        createSegmentV1: async (segment: Segment, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'segment' is not null or undefined
+            assertParamExists('createSegmentV1', 'segment', segment)
             const localVarPath = `/segments/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -367,7 +367,7 @@ export const SegmentsV1ApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(segmentV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(segment, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -531,23 +531,23 @@ export const SegmentsV1ApiAxiosParamCreator = function (configuration?: Configur
 };
 
 /**
- * SegmentsV1Api - functional programming interface
+ * SegmentsApi - functional programming interface
  * @export
  */
-export const SegmentsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = SegmentsV1ApiAxiosParamCreator(configuration)
+export const SegmentsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SegmentsApiAxiosParamCreator(configuration)
     return {
         /**
          * This API creates a segment.  >**Note:** Segment definitions may take time to propagate to all identities.
          * @summary Create segment
-         * @param {SegmentV1} segmentV1 
+         * @param {Segment} segment 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSegmentV1(segmentV1: SegmentV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SegmentV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSegmentV1(segmentV1, axiosOptions);
+        async createSegmentV1(segment: Segment, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Segment>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSegmentV1(segment, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SegmentsV1Api.createSegmentV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SegmentsApi.createSegmentV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -560,7 +560,7 @@ export const SegmentsV1ApiFp = function(configuration?: Configuration) {
         async deleteSegmentV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSegmentV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SegmentsV1Api.deleteSegmentV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SegmentsApi.deleteSegmentV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -570,10 +570,10 @@ export const SegmentsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSegmentV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SegmentV1>> {
+        async getSegmentV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Segment>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSegmentV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SegmentsV1Api.getSegmentV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SegmentsApi.getSegmentV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -585,10 +585,10 @@ export const SegmentsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listSegmentsV1(limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SegmentV1>>> {
+        async listSegmentsV1(limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Segment>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listSegmentsV1(limit, offset, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SegmentsV1Api.listSegmentsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SegmentsApi.listSegmentsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -599,231 +599,231 @@ export const SegmentsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchSegmentV1(id: string, requestBody: Array<object>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SegmentV1>> {
+        async patchSegmentV1(id: string, requestBody: Array<object>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Segment>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchSegmentV1(id, requestBody, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SegmentsV1Api.patchSegmentV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SegmentsApi.patchSegmentV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * SegmentsV1Api - factory interface
+ * SegmentsApi - factory interface
  * @export
  */
-export const SegmentsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = SegmentsV1ApiFp(configuration)
+export const SegmentsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SegmentsApiFp(configuration)
     return {
         /**
          * This API creates a segment.  >**Note:** Segment definitions may take time to propagate to all identities.
          * @summary Create segment
-         * @param {SegmentsV1ApiCreateSegmentV1Request} requestParameters Request parameters.
+         * @param {SegmentsApiCreateSegmentV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createSegmentV1(requestParameters: SegmentsV1ApiCreateSegmentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SegmentV1> {
-            return localVarFp.createSegmentV1(requestParameters.segmentV1, axiosOptions).then((request) => request(axios, basePath));
+        createSegmentV1(requestParameters: SegmentsApiCreateSegmentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Segment> {
+            return localVarFp.createSegmentV1(requestParameters.segment, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API deletes the segment specified by the given ID. >**Note:** that segment deletion may take some time to become effective.    
          * @summary Delete segment by id
-         * @param {SegmentsV1ApiDeleteSegmentV1Request} requestParameters Request parameters.
+         * @param {SegmentsApiDeleteSegmentV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteSegmentV1(requestParameters: SegmentsV1ApiDeleteSegmentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteSegmentV1(requestParameters: SegmentsApiDeleteSegmentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteSegmentV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the segment specified by the given ID.
          * @summary Get segment by id
-         * @param {SegmentsV1ApiGetSegmentV1Request} requestParameters Request parameters.
+         * @param {SegmentsApiGetSegmentV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSegmentV1(requestParameters: SegmentsV1ApiGetSegmentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SegmentV1> {
+        getSegmentV1(requestParameters: SegmentsApiGetSegmentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Segment> {
             return localVarFp.getSegmentV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of all segments. 
          * @summary List segments
-         * @param {SegmentsV1ApiListSegmentsV1Request} requestParameters Request parameters.
+         * @param {SegmentsApiListSegmentsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listSegmentsV1(requestParameters: SegmentsV1ApiListSegmentsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SegmentV1>> {
+        listSegmentsV1(requestParameters: SegmentsApiListSegmentsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Segment>> {
             return localVarFp.listSegmentsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. >**Note:** Changes to a segment may take some time to propagate to all identities.
          * @summary Update segment
-         * @param {SegmentsV1ApiPatchSegmentV1Request} requestParameters Request parameters.
+         * @param {SegmentsApiPatchSegmentV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchSegmentV1(requestParameters: SegmentsV1ApiPatchSegmentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SegmentV1> {
+        patchSegmentV1(requestParameters: SegmentsApiPatchSegmentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Segment> {
             return localVarFp.patchSegmentV1(requestParameters.id, requestParameters.requestBody, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createSegmentV1 operation in SegmentsV1Api.
+ * Request parameters for createSegmentV1 operation in SegmentsApi.
  * @export
- * @interface SegmentsV1ApiCreateSegmentV1Request
+ * @interface SegmentsApiCreateSegmentV1Request
  */
-export interface SegmentsV1ApiCreateSegmentV1Request {
+export interface SegmentsApiCreateSegmentV1Request {
     /**
      * 
-     * @type {SegmentV1}
-     * @memberof SegmentsV1ApiCreateSegmentV1
+     * @type {Segment}
+     * @memberof SegmentsApiCreateSegmentV1
      */
-    readonly segmentV1: SegmentV1
+    readonly segment: Segment
 }
 
 /**
- * Request parameters for deleteSegmentV1 operation in SegmentsV1Api.
+ * Request parameters for deleteSegmentV1 operation in SegmentsApi.
  * @export
- * @interface SegmentsV1ApiDeleteSegmentV1Request
+ * @interface SegmentsApiDeleteSegmentV1Request
  */
-export interface SegmentsV1ApiDeleteSegmentV1Request {
+export interface SegmentsApiDeleteSegmentV1Request {
     /**
      * The segment ID to delete.
      * @type {string}
-     * @memberof SegmentsV1ApiDeleteSegmentV1
+     * @memberof SegmentsApiDeleteSegmentV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getSegmentV1 operation in SegmentsV1Api.
+ * Request parameters for getSegmentV1 operation in SegmentsApi.
  * @export
- * @interface SegmentsV1ApiGetSegmentV1Request
+ * @interface SegmentsApiGetSegmentV1Request
  */
-export interface SegmentsV1ApiGetSegmentV1Request {
+export interface SegmentsApiGetSegmentV1Request {
     /**
      * The segment ID to retrieve.
      * @type {string}
-     * @memberof SegmentsV1ApiGetSegmentV1
+     * @memberof SegmentsApiGetSegmentV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for listSegmentsV1 operation in SegmentsV1Api.
+ * Request parameters for listSegmentsV1 operation in SegmentsApi.
  * @export
- * @interface SegmentsV1ApiListSegmentsV1Request
+ * @interface SegmentsApiListSegmentsV1Request
  */
-export interface SegmentsV1ApiListSegmentsV1Request {
+export interface SegmentsApiListSegmentsV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof SegmentsV1ApiListSegmentsV1
+     * @memberof SegmentsApiListSegmentsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof SegmentsV1ApiListSegmentsV1
+     * @memberof SegmentsApiListSegmentsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof SegmentsV1ApiListSegmentsV1
+     * @memberof SegmentsApiListSegmentsV1
      */
     readonly count?: boolean
 }
 
 /**
- * Request parameters for patchSegmentV1 operation in SegmentsV1Api.
+ * Request parameters for patchSegmentV1 operation in SegmentsApi.
  * @export
- * @interface SegmentsV1ApiPatchSegmentV1Request
+ * @interface SegmentsApiPatchSegmentV1Request
  */
-export interface SegmentsV1ApiPatchSegmentV1Request {
+export interface SegmentsApiPatchSegmentV1Request {
     /**
      * The segment ID to modify.
      * @type {string}
-     * @memberof SegmentsV1ApiPatchSegmentV1
+     * @memberof SegmentsApiPatchSegmentV1
      */
     readonly id: string
 
     /**
      * A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * owner * visibilityCriteria * active 
      * @type {Array<object>}
-     * @memberof SegmentsV1ApiPatchSegmentV1
+     * @memberof SegmentsApiPatchSegmentV1
      */
     readonly requestBody: Array<object>
 }
 
 /**
- * SegmentsV1Api - object-oriented interface
+ * SegmentsApi - object-oriented interface
  * @export
- * @class SegmentsV1Api
+ * @class SegmentsApi
  * @extends {BaseAPI}
  */
-export class SegmentsV1Api extends BaseAPI {
+export class SegmentsApi extends BaseAPI {
     /**
      * This API creates a segment.  >**Note:** Segment definitions may take time to propagate to all identities.
      * @summary Create segment
-     * @param {SegmentsV1ApiCreateSegmentV1Request} requestParameters Request parameters.
+     * @param {SegmentsApiCreateSegmentV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SegmentsV1Api
+     * @memberof SegmentsApi
      */
-    public createSegmentV1(requestParameters: SegmentsV1ApiCreateSegmentV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SegmentsV1ApiFp(this.configuration).createSegmentV1(requestParameters.segmentV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createSegmentV1(requestParameters: SegmentsApiCreateSegmentV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SegmentsApiFp(this.configuration).createSegmentV1(requestParameters.segment, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API deletes the segment specified by the given ID. >**Note:** that segment deletion may take some time to become effective.    
      * @summary Delete segment by id
-     * @param {SegmentsV1ApiDeleteSegmentV1Request} requestParameters Request parameters.
+     * @param {SegmentsApiDeleteSegmentV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SegmentsV1Api
+     * @memberof SegmentsApi
      */
-    public deleteSegmentV1(requestParameters: SegmentsV1ApiDeleteSegmentV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SegmentsV1ApiFp(this.configuration).deleteSegmentV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteSegmentV1(requestParameters: SegmentsApiDeleteSegmentV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SegmentsApiFp(this.configuration).deleteSegmentV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the segment specified by the given ID.
      * @summary Get segment by id
-     * @param {SegmentsV1ApiGetSegmentV1Request} requestParameters Request parameters.
+     * @param {SegmentsApiGetSegmentV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SegmentsV1Api
+     * @memberof SegmentsApi
      */
-    public getSegmentV1(requestParameters: SegmentsV1ApiGetSegmentV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SegmentsV1ApiFp(this.configuration).getSegmentV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSegmentV1(requestParameters: SegmentsApiGetSegmentV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SegmentsApiFp(this.configuration).getSegmentV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a list of all segments. 
      * @summary List segments
-     * @param {SegmentsV1ApiListSegmentsV1Request} requestParameters Request parameters.
+     * @param {SegmentsApiListSegmentsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SegmentsV1Api
+     * @memberof SegmentsApi
      */
-    public listSegmentsV1(requestParameters: SegmentsV1ApiListSegmentsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return SegmentsV1ApiFp(this.configuration).listSegmentsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listSegmentsV1(requestParameters: SegmentsApiListSegmentsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return SegmentsApiFp(this.configuration).listSegmentsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. >**Note:** Changes to a segment may take some time to propagate to all identities.
      * @summary Update segment
-     * @param {SegmentsV1ApiPatchSegmentV1Request} requestParameters Request parameters.
+     * @param {SegmentsApiPatchSegmentV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SegmentsV1Api
+     * @memberof SegmentsApi
      */
-    public patchSegmentV1(requestParameters: SegmentsV1ApiPatchSegmentV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SegmentsV1ApiFp(this.configuration).patchSegmentV1(requestParameters.id, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchSegmentV1(requestParameters: SegmentsApiPatchSegmentV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SegmentsApiFp(this.configuration).patchSegmentV1(requestParameters.id, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

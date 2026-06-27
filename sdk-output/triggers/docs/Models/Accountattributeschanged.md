@@ -1,22 +1,22 @@
 ---
-id: v1-accountattributeschanged-v1
-title: AccountattributeschangedV1
-pagination_label: AccountattributeschangedV1
-sidebar_label: AccountattributeschangedV1
+id: v1-accountattributeschanged
+title: Accountattributeschanged
+pagination_label: Accountattributeschanged
+sidebar_label: Accountattributeschanged
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccountattributeschangedV1', 'v1AccountattributeschangedV1']
-slug: /tools/sdk/typescript/triggers/models/accountattributeschanged-v1
-tags: ['SDK', 'Software Development Kit', 'AccountattributeschangedV1', 'v1AccountattributeschangedV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accountattributeschanged', 'v1Accountattributeschanged']
+slug: /tools/sdk/typescript/triggers/models/accountattributeschanged
+tags: ['SDK', 'Software Development Kit', 'Accountattributeschanged', 'v1Accountattributeschanged']
 ---
 
-# AccountattributeschangedV1
+# Accountattributeschanged
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identity** | **AccountattributeschangedIdentityV1** |  | [default to undefined]
-**source** | **AccountattributeschangedSourceV1** |  | [default to undefined]
-**account** | **AccountattributeschangedAccountV1** |  | [default to undefined]
-**changes** | **Array&lt;AccountattributeschangedChangesInnerV1&gt;** | A list of attributes that changed. | [default to undefined]
+**identity** | `AccountattributeschangedIdentity` |  | [default to undefined]
+**source** | `AccountattributeschangedSource` |  | [default to undefined]
+**account** | `AccountattributeschangedAccount` |  | [default to undefined]
+**changes** | `Array<AccountattributeschangedChangesInner>` | A list of attributes that changed. | [default to undefined]
 

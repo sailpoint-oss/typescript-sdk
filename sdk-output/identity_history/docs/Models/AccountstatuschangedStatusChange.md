@@ -1,20 +1,20 @@
 ---
-id: v1-accountstatuschanged-status-change-v1
-title: AccountstatuschangedStatusChangeV1
-pagination_label: AccountstatuschangedStatusChangeV1
-sidebar_label: AccountstatuschangedStatusChangeV1
+id: v1-accountstatuschanged-status-change
+title: AccountstatuschangedStatusChange
+pagination_label: AccountstatuschangedStatusChange
+sidebar_label: AccountstatuschangedStatusChange
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccountstatuschangedStatusChangeV1', 'v1AccountstatuschangedStatusChangeV1']
-slug: /tools/sdk/typescript/identity_history/models/accountstatuschanged-status-change-v1
-tags: ['SDK', 'Software Development Kit', 'AccountstatuschangedStatusChangeV1', 'v1AccountstatuschangedStatusChangeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'AccountstatuschangedStatusChange', 'v1AccountstatuschangedStatusChange']
+slug: /tools/sdk/typescript/identity_history/models/accountstatuschanged-status-change
+tags: ['SDK', 'Software Development Kit', 'AccountstatuschangedStatusChange', 'v1AccountstatuschangedStatusChange']
 ---
 
-# AccountstatuschangedStatusChangeV1
+# AccountstatuschangedStatusChange
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**previousStatus** | **(optional)** **string** | the previous status of the account | [default to undefined]
-**newStatus** | **(optional)** **string** | the new status of the account | [default to undefined]
+**previousStatus** | **(optional)** `string` | the previous status of the account | [default to undefined]
+**newStatus** | **(optional)** `string` | the new status of the account | [default to undefined]
 

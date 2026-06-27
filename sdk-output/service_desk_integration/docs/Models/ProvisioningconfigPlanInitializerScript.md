@@ -1,19 +1,19 @@
 ---
-id: v1-provisioningconfig-plan-initializer-script-v1
-title: ProvisioningconfigPlanInitializerScriptV1
-pagination_label: ProvisioningconfigPlanInitializerScriptV1
-sidebar_label: ProvisioningconfigPlanInitializerScriptV1
+id: v1-provisioningconfig-plan-initializer-script
+title: ProvisioningconfigPlanInitializerScript
+pagination_label: ProvisioningconfigPlanInitializerScript
+sidebar_label: ProvisioningconfigPlanInitializerScript
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ProvisioningconfigPlanInitializerScriptV1', 'v1ProvisioningconfigPlanInitializerScriptV1']
-slug: /tools/sdk/typescript/service_desk_integration/models/provisioningconfig-plan-initializer-script-v1
-tags: ['SDK', 'Software Development Kit', 'ProvisioningconfigPlanInitializerScriptV1', 'v1ProvisioningconfigPlanInitializerScriptV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ProvisioningconfigPlanInitializerScript', 'v1ProvisioningconfigPlanInitializerScript']
+slug: /tools/sdk/typescript/service_desk_integration/models/provisioningconfig-plan-initializer-script
+tags: ['SDK', 'Software Development Kit', 'ProvisioningconfigPlanInitializerScript', 'v1ProvisioningconfigPlanInitializerScript']
 ---
 
-# ProvisioningconfigPlanInitializerScriptV1
+# ProvisioningconfigPlanInitializerScript
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**source** | **(optional)** **string** | This is a Rule that allows provisioning instruction changes. | [default to undefined]
+**source** | **(optional)** `string` | This is a Rule that allows provisioning instruction changes. | [default to undefined]
 

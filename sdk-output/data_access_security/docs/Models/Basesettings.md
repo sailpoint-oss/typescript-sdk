@@ -1,20 +1,20 @@
 ---
-id: v1-basesettings-v1
-title: BasesettingsV1
-pagination_label: BasesettingsV1
-sidebar_label: BasesettingsV1
+id: v1-basesettings
+title: Basesettings
+pagination_label: Basesettings
+sidebar_label: Basesettings
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'BasesettingsV1', 'v1BasesettingsV1']
-slug: /tools/sdk/typescript/data_access_security/models/basesettings-v1
-tags: ['SDK', 'Software Development Kit', 'BasesettingsV1', 'v1BasesettingsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Basesettings', 'v1Basesettings']
+slug: /tools/sdk/typescript/data_access_security/models/basesettings
+tags: ['SDK', 'Software Development Kit', 'Basesettings', 'v1Basesettings']
 ---
 
-# BasesettingsV1
+# Basesettings
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**isEnabled** | **(optional)** **boolean** | Indicates whether the feature or configuration is enabled. | [default to false]
-**clusterId** | **(optional)** **string** | The identifier of the cluster associated with this configuration, if applicable. | [default to undefined]
+**isEnabled** | **(optional)** `boolean` | Indicates whether the feature or configuration is enabled. | [default to false]
+**clusterId** | **(optional)** `string` | The identifier of the cluster associated with this configuration, if applicable. | [default to undefined]
 

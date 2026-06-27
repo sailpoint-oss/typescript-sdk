@@ -1,20 +1,20 @@
 ---
-id: v1-commonaccessidstatus-v1
-title: CommonaccessidstatusV1
-pagination_label: CommonaccessidstatusV1
-sidebar_label: CommonaccessidstatusV1
+id: v1-commonaccessidstatus
+title: Commonaccessidstatus
+pagination_label: Commonaccessidstatus
+sidebar_label: Commonaccessidstatus
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'CommonaccessidstatusV1', 'v1CommonaccessidstatusV1']
-slug: /tools/sdk/typescript/iai_common_access/models/commonaccessidstatus-v1
-tags: ['SDK', 'Software Development Kit', 'CommonaccessidstatusV1', 'v1CommonaccessidstatusV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Commonaccessidstatus', 'v1Commonaccessidstatus']
+slug: /tools/sdk/typescript/iai_common_access/models/commonaccessidstatus
+tags: ['SDK', 'Software Development Kit', 'Commonaccessidstatus', 'v1Commonaccessidstatus']
 ---
 
-# CommonaccessidstatusV1
+# Commonaccessidstatus
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**confirmedIds** | **(optional)** **Array&lt;string&gt;** | List of confirmed common access ids. | [default to undefined]
-**deniedIds** | **(optional)** **Array&lt;string&gt;** | List of denied common access ids. | [default to undefined]
+**confirmedIds** | **(optional)** `Array<string>` | List of confirmed common access ids. | [default to undefined]
+**deniedIds** | **(optional)** `Array<string>` | List of denied common access ids. | [default to undefined]
 

@@ -1,19 +1,19 @@
 ---
-id: v1-jwks-v1
-title: JwksV1
-pagination_label: JwksV1
-sidebar_label: JwksV1
+id: v1-jwks
+title: Jwks
+pagination_label: Jwks
+sidebar_label: Jwks
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'JwksV1', 'v1JwksV1']
-slug: /tools/sdk/typescript/shared_signals_framework_ssf/models/jwks-v1
-tags: ['SDK', 'Software Development Kit', 'JwksV1', 'v1JwksV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Jwks', 'v1Jwks']
+slug: /tools/sdk/typescript/shared_signals_framework_ssf/models/jwks
+tags: ['SDK', 'Software Development Kit', 'Jwks', 'v1Jwks']
 ---
 
-# JwksV1
+# Jwks
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**keys** | **Array&lt;JwkV1&gt;** | Array of JSON Web Keys. | [default to undefined]
+**keys** | `Array<Jwk>` | Array of JSON Web Keys. | [default to undefined]
 

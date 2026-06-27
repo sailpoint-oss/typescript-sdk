@@ -26,56 +26,56 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface BasecommondtoV1
+ * @interface Basecommondto
  */
-export interface BasecommondtoV1 {
+export interface Basecommondto {
     /**
      * System-generated unique ID of the Object
      * @type {string}
-     * @memberof BasecommondtoV1
+     * @memberof Basecommondto
      */
     'id'?: string;
     /**
      * Name of the Object
      * @type {string}
-     * @memberof BasecommondtoV1
+     * @memberof Basecommondto
      */
     'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
-     * @memberof BasecommondtoV1
+     * @memberof Basecommondto
      */
     'created'?: string;
     /**
      * Last modification date of the Object
      * @type {string}
-     * @memberof BasecommondtoV1
+     * @memberof Basecommondto
      */
     'modified'?: string;
 }
 /**
  * 
  * @export
- * @interface BasereferencedtoV1
+ * @interface Basereferencedto
  */
-export interface BasereferencedtoV1 {
+export interface Basereferencedto {
     /**
      * 
-     * @type {DtotypeV1}
-     * @memberof BasereferencedtoV1
+     * @type {Dtotype}
+     * @memberof Basereferencedto
      */
-    'type'?: DtotypeV1;
+    'type'?: Dtotype;
     /**
      * ID of the object to which this reference applies
      * @type {string}
-     * @memberof BasereferencedtoV1
+     * @memberof Basereferencedto
      */
     'id'?: string;
     /**
      * Human-readable display name of the object to which this reference applies
      * @type {string}
-     * @memberof BasereferencedtoV1
+     * @memberof Basereferencedto
      */
     'name'?: string;
 }
@@ -87,7 +87,7 @@ export interface BasereferencedtoV1 {
  * @enum {string}
  */
 
-export const DtotypeV1 = {
+export const Dtotype = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
@@ -119,31 +119,31 @@ export const DtotypeV1 = {
     Workgroup: 'WORKGROUP'
 } as const;
 
-export type DtotypeV1 = typeof DtotypeV1[keyof typeof DtotypeV1];
+export type Dtotype = typeof Dtotype[keyof typeof Dtotype];
 
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -152,57 +152,57 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface ListMachineIdentitiesV1401ResponseV1
+ * @interface ListMachineIdentitiesV1401Response
  */
-export interface ListMachineIdentitiesV1401ResponseV1 {
+export interface ListMachineIdentitiesV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListMachineIdentitiesV1401ResponseV1
+     * @memberof ListMachineIdentitiesV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ListMachineIdentitiesV1429ResponseV1
+ * @interface ListMachineIdentitiesV1429Response
  */
-export interface ListMachineIdentitiesV1429ResponseV1 {
+export interface ListMachineIdentitiesV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListMachineIdentitiesV1429ResponseV1
+     * @memberof ListMachineIdentitiesV1429Response
      */
     'message'?: any;
 }
@@ -212,216 +212,349 @@ export interface ListMachineIdentitiesV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * Localized error message to indicate a failed invocation or error if any.
  * @export
- * @interface LocalizedmessageV1
+ * @interface Localizedmessage
  */
-export interface LocalizedmessageV1 {
+export interface Localizedmessage {
     /**
      * Message locale
      * @type {string}
-     * @memberof LocalizedmessageV1
+     * @memberof Localizedmessage
      */
     'locale': string;
     /**
      * Message text
      * @type {string}
-     * @memberof LocalizedmessageV1
+     * @memberof Localizedmessage
      */
     'message': string;
 }
 /**
  * The owner configuration associated to the machine identity
  * @export
- * @interface MachineIdentityDtoOwnersV1
+ * @interface MachineIdentityDtoOwners
  */
-export interface MachineIdentityDtoOwnersV1 {
+export interface MachineIdentityDtoOwners {
     /**
      * Defines the identity which is selected as the primary owner
      * @type {object}
-     * @memberof MachineIdentityDtoOwnersV1
+     * @memberof MachineIdentityDtoOwners
      */
     'primaryIdentity': object;
     /**
      * Defines the identities which are selected as secondary owners
-     * @type {Array<BasereferencedtoV1>}
-     * @memberof MachineIdentityDtoOwnersV1
+     * @type {Array<Basereferencedto>}
+     * @memberof MachineIdentityDtoOwners
      */
-    'secondaryIdentities': Array<BasereferencedtoV1>;
+    'secondaryIdentities': Array<Basereferencedto>;
 }
 /**
  * 
  * @export
- * @interface MachineIdentityRequestUserEntitlementsV1
+ * @interface MachineIdentityRequestUserEntitlements
  */
-export interface MachineIdentityRequestUserEntitlementsV1 {
+export interface MachineIdentityRequestUserEntitlements {
     /**
      * The ID of the entitlement
      * @type {string}
-     * @memberof MachineIdentityRequestUserEntitlementsV1
+     * @memberof MachineIdentityRequestUserEntitlements
      */
     'entitlementId': string;
     /**
      * The source ID of the entitlement
      * @type {string}
-     * @memberof MachineIdentityRequestUserEntitlementsV1
+     * @memberof MachineIdentityRequestUserEntitlements
      */
     'sourceId': string;
 }
 /**
  * 
  * @export
- * @interface MachineIdentityResponseUserEntitlementsV1
+ * @interface MachineIdentityResponseUserEntitlements
  */
-export interface MachineIdentityResponseUserEntitlementsV1 {
+export interface MachineIdentityResponseUserEntitlements {
     /**
      * The source ID of the entitlement
      * @type {string}
-     * @memberof MachineIdentityResponseUserEntitlementsV1
+     * @memberof MachineIdentityResponseUserEntitlements
      */
     'sourceId'?: string;
     /**
      * The ID of the entitlement
      * @type {string}
-     * @memberof MachineIdentityResponseUserEntitlementsV1
+     * @memberof MachineIdentityResponseUserEntitlements
      */
     'entitlementId'?: string;
     /**
      * The display name of the entitlement
      * @type {string}
-     * @memberof MachineIdentityResponseUserEntitlementsV1
+     * @memberof MachineIdentityResponseUserEntitlements
      */
     'displayName'?: string;
     /**
      * The source of the entitlement
      * @type {object}
-     * @memberof MachineIdentityResponseUserEntitlementsV1
+     * @memberof MachineIdentityResponseUserEntitlements
      */
     'source'?: object;
 }
 /**
  * 
  * @export
- * @interface MachineidentityV1
+ * @interface Machineidentity
  */
-export interface MachineidentityV1 {
+export interface Machineidentity {
     /**
      * System-generated unique ID of the Object
      * @type {string}
-     * @memberof MachineidentityV1
+     * @memberof Machineidentity
      */
     'id'?: string;
     /**
      * Name of the Object
      * @type {string}
-     * @memberof MachineidentityV1
+     * @memberof Machineidentity
      */
     'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
-     * @memberof MachineidentityV1
+     * @memberof Machineidentity
      */
     'created'?: string;
     /**
      * Last modification date of the Object
      * @type {string}
-     * @memberof MachineidentityV1
+     * @memberof Machineidentity
      */
     'modified'?: string;
     /**
      * The native identity associated to the machine identity directly aggregated from a source
      * @type {string}
-     * @memberof MachineidentityV1
+     * @memberof Machineidentity
      */
     'nativeIdentity': string;
     /**
      * Description of machine identity
      * @type {string}
-     * @memberof MachineidentityV1
+     * @memberof Machineidentity
      */
     'description'?: string;
     /**
      * A map of custom machine identity attributes
      * @type {object}
-     * @memberof MachineidentityV1
+     * @memberof Machineidentity
      */
     'attributes'?: object;
     /**
      * The subtype value associated to the machine identity
      * @type {string}
-     * @memberof MachineidentityV1
+     * @memberof Machineidentity
      */
     'subtype': string;
     /**
      * 
-     * @type {MachineIdentityDtoOwnersV1}
-     * @memberof MachineidentityV1
+     * @type {MachineIdentityDtoOwners}
+     * @memberof Machineidentity
      */
-    'owners'?: MachineIdentityDtoOwnersV1;
+    'owners'?: MachineIdentityDtoOwners;
     /**
      * The source id associated to the machine identity
      * @type {string}
-     * @memberof MachineidentityV1
+     * @memberof Machineidentity
      */
     'sourceId'?: string;
     /**
      * The UUID associated to the machine identity directly aggregated from a source
      * @type {string}
-     * @memberof MachineidentityV1
+     * @memberof Machineidentity
      */
     'uuid'?: string;
 }
 /**
  * 
  * @export
- * @interface MachineidentityaggregationrequestV1
+ * @interface Machineidentityaggregationrequest
  */
-export interface MachineidentityaggregationrequestV1 {
+export interface Machineidentityaggregationrequest {
     /**
      * List of dataset Ids to aggregate machine identities
      * @type {Array<string>}
-     * @memberof MachineidentityaggregationrequestV1
+     * @memberof Machineidentityaggregationrequest
      */
     'datasetIds': Array<string>;
     /**
      * Flag to disable optimization for the aggregation. Defaults to false when not provided. When set to true, it disables aggregation optimizations and may increase processing time.
      * @type {boolean}
-     * @memberof MachineidentityaggregationrequestV1
+     * @memberof Machineidentityaggregationrequest
      */
     'disableOptimization'?: boolean;
 }
 /**
- * The target(source) of the aggregation
+ * 
  * @export
- * @interface MachineidentityaggregationresponseTargetV1
+ * @interface Machineidentityaggregationresponse
  */
-export interface MachineidentityaggregationresponseTargetV1 {
+export interface Machineidentityaggregationresponse {
+    /**
+     * System-generated unique ID of the Object
+     * @type {string}
+     * @memberof Machineidentityaggregationresponse
+     */
+    'id'?: string;
+    /**
+     * Type of task for aggregation
+     * @type {string}
+     * @memberof Machineidentityaggregationresponse
+     */
+    'type'?: MachineidentityaggregationresponseTypeEnum;
+    /**
+     * Name of the task for aggregation
+     * @type {string}
+     * @memberof Machineidentityaggregationresponse
+     */
+    'uniqueName'?: string;
+    /**
+     * Description of the aggregation
+     * @type {string}
+     * @memberof Machineidentityaggregationresponse
+     */
+    'description'?: string;
+    /**
+     * Name of the parent of the task for aggregation
+     * @type {string}
+     * @memberof Machineidentityaggregationresponse
+     */
+    'parentName'?: string | null;
+    /**
+     * Service to execute the aggregation
+     * @type {string}
+     * @memberof Machineidentityaggregationresponse
+     */
+    'launcher'?: string;
     /**
      * 
-     * @type {DtotypeV1}
-     * @memberof MachineidentityaggregationresponseTargetV1
+     * @type {MachineidentityaggregationresponseTarget}
+     * @memberof Machineidentityaggregationresponse
      */
-    'type'?: DtotypeV1;
+    'target'?: MachineidentityaggregationresponseTarget;
+    /**
+     * Creation date of the aggregation
+     * @type {string}
+     * @memberof Machineidentityaggregationresponse
+     */
+    'created'?: string;
+    /**
+     * Last modification date of the aggregation
+     * @type {string}
+     * @memberof Machineidentityaggregationresponse
+     */
+    'modified'?: string;
+    /**
+     * Launch date of the aggregation
+     * @type {string}
+     * @memberof Machineidentityaggregationresponse
+     */
+    'launched'?: string | null;
+    /**
+     * Completion date of the aggregation
+     * @type {string}
+     * @memberof Machineidentityaggregationresponse
+     */
+    'completed'?: string | null;
+    /**
+     * 
+     * @type {Taskdefinitionsummary}
+     * @memberof Machineidentityaggregationresponse
+     */
+    'taskDefinitionSummary'?: Taskdefinitionsummary;
+    /**
+     * Completion status of the aggregation
+     * @type {string}
+     * @memberof Machineidentityaggregationresponse
+     */
+    'completionStatus'?: MachineidentityaggregationresponseCompletionStatusEnum | null;
+    /**
+     * Messages associated with the aggregation
+     * @type {Array<Taskstatusmessage>}
+     * @memberof Machineidentityaggregationresponse
+     */
+    'messages'?: Array<Taskstatusmessage>;
+    /**
+     * Return values associated with the aggregation
+     * @type {Array<Taskreturndetails>}
+     * @memberof Machineidentityaggregationresponse
+     */
+    'returns'?: Array<Taskreturndetails>;
+    /**
+     * Attributes of the aggregation
+     * @type {{ [key: string]: any; }}
+     * @memberof Machineidentityaggregationresponse
+     */
+    'attributes'?: { [key: string]: any; };
+    /**
+     * Current progress of aggregation
+     * @type {string}
+     * @memberof Machineidentityaggregationresponse
+     */
+    'progress'?: string | null;
+    /**
+     * Current percentage completion of aggregation
+     * @type {number}
+     * @memberof Machineidentityaggregationresponse
+     */
+    'percentComplete'?: number;
+}
+
+export const MachineidentityaggregationresponseTypeEnum = {
+    Quartz: 'QUARTZ',
+    Qpoc: 'QPOC',
+    QueuedTask: 'QUEUED_TASK'
+} as const;
+
+export type MachineidentityaggregationresponseTypeEnum = typeof MachineidentityaggregationresponseTypeEnum[keyof typeof MachineidentityaggregationresponseTypeEnum];
+export const MachineidentityaggregationresponseCompletionStatusEnum = {
+    Success: 'SUCCESS',
+    Warning: 'WARNING',
+    Error: 'ERROR',
+    Terminated: 'TERMINATED',
+    Temperror: 'TEMPERROR'
+} as const;
+
+export type MachineidentityaggregationresponseCompletionStatusEnum = typeof MachineidentityaggregationresponseCompletionStatusEnum[keyof typeof MachineidentityaggregationresponseCompletionStatusEnum];
+
+/**
+ * The target(source) of the aggregation
+ * @export
+ * @interface MachineidentityaggregationresponseTarget
+ */
+export interface MachineidentityaggregationresponseTarget {
+    /**
+     * 
+     * @type {Dtotype}
+     * @memberof MachineidentityaggregationresponseTarget
+     */
+    'type'?: Dtotype;
     /**
      * ID of the object to which this reference applies
      * @type {string}
-     * @memberof MachineidentityaggregationresponseTargetV1
+     * @memberof MachineidentityaggregationresponseTarget
      */
     'id'?: string;
     /**
      * Human-readable display name of the object to which this reference applies
      * @type {string}
-     * @memberof MachineidentityaggregationresponseTargetV1
+     * @memberof MachineidentityaggregationresponseTarget
      */
     'name'?: string;
 }
@@ -430,340 +563,244 @@ export interface MachineidentityaggregationresponseTargetV1 {
 /**
  * 
  * @export
- * @interface MachineidentityaggregationresponseV1
+ * @interface Machineidentityrequest
  */
-export interface MachineidentityaggregationresponseV1 {
+export interface Machineidentityrequest {
     /**
      * System-generated unique ID of the Object
      * @type {string}
-     * @memberof MachineidentityaggregationresponseV1
-     */
-    'id'?: string;
-    /**
-     * Type of task for aggregation
-     * @type {string}
-     * @memberof MachineidentityaggregationresponseV1
-     */
-    'type'?: MachineidentityaggregationresponseV1TypeV1;
-    /**
-     * Name of the task for aggregation
-     * @type {string}
-     * @memberof MachineidentityaggregationresponseV1
-     */
-    'uniqueName'?: string;
-    /**
-     * Description of the aggregation
-     * @type {string}
-     * @memberof MachineidentityaggregationresponseV1
-     */
-    'description'?: string;
-    /**
-     * Name of the parent of the task for aggregation
-     * @type {string}
-     * @memberof MachineidentityaggregationresponseV1
-     */
-    'parentName'?: string | null;
-    /**
-     * Service to execute the aggregation
-     * @type {string}
-     * @memberof MachineidentityaggregationresponseV1
-     */
-    'launcher'?: string;
-    /**
-     * 
-     * @type {MachineidentityaggregationresponseTargetV1}
-     * @memberof MachineidentityaggregationresponseV1
-     */
-    'target'?: MachineidentityaggregationresponseTargetV1;
-    /**
-     * Creation date of the aggregation
-     * @type {string}
-     * @memberof MachineidentityaggregationresponseV1
-     */
-    'created'?: string;
-    /**
-     * Last modification date of the aggregation
-     * @type {string}
-     * @memberof MachineidentityaggregationresponseV1
-     */
-    'modified'?: string;
-    /**
-     * Launch date of the aggregation
-     * @type {string}
-     * @memberof MachineidentityaggregationresponseV1
-     */
-    'launched'?: string | null;
-    /**
-     * Completion date of the aggregation
-     * @type {string}
-     * @memberof MachineidentityaggregationresponseV1
-     */
-    'completed'?: string | null;
-    /**
-     * 
-     * @type {TaskdefinitionsummaryV1}
-     * @memberof MachineidentityaggregationresponseV1
-     */
-    'taskDefinitionSummary'?: TaskdefinitionsummaryV1;
-    /**
-     * Completion status of the aggregation
-     * @type {string}
-     * @memberof MachineidentityaggregationresponseV1
-     */
-    'completionStatus'?: MachineidentityaggregationresponseV1CompletionStatusV1 | null;
-    /**
-     * Messages associated with the aggregation
-     * @type {Array<TaskstatusmessageV1>}
-     * @memberof MachineidentityaggregationresponseV1
-     */
-    'messages'?: Array<TaskstatusmessageV1>;
-    /**
-     * Return values associated with the aggregation
-     * @type {Array<TaskreturndetailsV1>}
-     * @memberof MachineidentityaggregationresponseV1
-     */
-    'returns'?: Array<TaskreturndetailsV1>;
-    /**
-     * Attributes of the aggregation
-     * @type {{ [key: string]: any; }}
-     * @memberof MachineidentityaggregationresponseV1
-     */
-    'attributes'?: { [key: string]: any; };
-    /**
-     * Current progress of aggregation
-     * @type {string}
-     * @memberof MachineidentityaggregationresponseV1
-     */
-    'progress'?: string | null;
-    /**
-     * Current percentage completion of aggregation
-     * @type {number}
-     * @memberof MachineidentityaggregationresponseV1
-     */
-    'percentComplete'?: number;
-}
-
-export const MachineidentityaggregationresponseV1TypeV1 = {
-    Quartz: 'QUARTZ',
-    Qpoc: 'QPOC',
-    QueuedTask: 'QUEUED_TASK'
-} as const;
-
-export type MachineidentityaggregationresponseV1TypeV1 = typeof MachineidentityaggregationresponseV1TypeV1[keyof typeof MachineidentityaggregationresponseV1TypeV1];
-export const MachineidentityaggregationresponseV1CompletionStatusV1 = {
-    Success: 'SUCCESS',
-    Warning: 'WARNING',
-    Error: 'ERROR',
-    Terminated: 'TERMINATED',
-    Temperror: 'TEMPERROR'
-} as const;
-
-export type MachineidentityaggregationresponseV1CompletionStatusV1 = typeof MachineidentityaggregationresponseV1CompletionStatusV1[keyof typeof MachineidentityaggregationresponseV1CompletionStatusV1];
-
-/**
- * 
- * @export
- * @interface MachineidentityrequestV1
- */
-export interface MachineidentityrequestV1 {
-    /**
-     * System-generated unique ID of the Object
-     * @type {string}
-     * @memberof MachineidentityrequestV1
+     * @memberof Machineidentityrequest
      */
     'id'?: string;
     /**
      * Name of the Object
      * @type {string}
-     * @memberof MachineidentityrequestV1
+     * @memberof Machineidentityrequest
      */
     'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
-     * @memberof MachineidentityrequestV1
+     * @memberof Machineidentityrequest
      */
     'created'?: string;
     /**
      * Last modification date of the Object
      * @type {string}
-     * @memberof MachineidentityrequestV1
+     * @memberof Machineidentityrequest
      */
     'modified'?: string;
     /**
      * The native identity associated to the machine identity directly aggregated from a source
      * @type {string}
-     * @memberof MachineidentityrequestV1
+     * @memberof Machineidentityrequest
      */
     'nativeIdentity': string;
     /**
      * Description of machine identity
      * @type {string}
-     * @memberof MachineidentityrequestV1
+     * @memberof Machineidentityrequest
      */
     'description'?: string;
     /**
      * A map of custom machine identity attributes
      * @type {object}
-     * @memberof MachineidentityrequestV1
+     * @memberof Machineidentityrequest
      */
     'attributes'?: object;
     /**
      * The subtype value associated to the machine identity
      * @type {string}
-     * @memberof MachineidentityrequestV1
+     * @memberof Machineidentityrequest
      */
     'subtype': string;
     /**
      * 
-     * @type {MachineIdentityDtoOwnersV1}
-     * @memberof MachineidentityrequestV1
+     * @type {MachineIdentityDtoOwners}
+     * @memberof Machineidentityrequest
      */
-    'owners'?: MachineIdentityDtoOwnersV1;
+    'owners'?: MachineIdentityDtoOwners;
     /**
      * The source id associated to the machine identity
      * @type {string}
-     * @memberof MachineidentityrequestV1
+     * @memberof Machineidentityrequest
      */
     'sourceId'?: string;
     /**
      * The UUID associated to the machine identity directly aggregated from a source
      * @type {string}
-     * @memberof MachineidentityrequestV1
+     * @memberof Machineidentityrequest
      */
     'uuid'?: string;
     /**
      * The user entitlements associated to the machine identity
-     * @type {Array<MachineIdentityRequestUserEntitlementsV1>}
-     * @memberof MachineidentityrequestV1
+     * @type {Array<MachineIdentityRequestUserEntitlements>}
+     * @memberof Machineidentityrequest
      */
-    'userEntitlements'?: Array<MachineIdentityRequestUserEntitlementsV1>;
+    'userEntitlements'?: Array<MachineIdentityRequestUserEntitlements>;
 }
 /**
  * 
  * @export
- * @interface MachineidentityresponseV1
+ * @interface Machineidentityresponse
  */
-export interface MachineidentityresponseV1 {
+export interface Machineidentityresponse {
     /**
      * System-generated unique ID of the Object
      * @type {string}
-     * @memberof MachineidentityresponseV1
+     * @memberof Machineidentityresponse
      */
     'id'?: string;
     /**
      * Name of the Object
      * @type {string}
-     * @memberof MachineidentityresponseV1
+     * @memberof Machineidentityresponse
      */
     'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
-     * @memberof MachineidentityresponseV1
+     * @memberof Machineidentityresponse
      */
     'created'?: string;
     /**
      * Last modification date of the Object
      * @type {string}
-     * @memberof MachineidentityresponseV1
+     * @memberof Machineidentityresponse
      */
     'modified'?: string;
     /**
      * The native identity associated to the machine identity directly aggregated from a source
      * @type {string}
-     * @memberof MachineidentityresponseV1
+     * @memberof Machineidentityresponse
      */
     'nativeIdentity': string;
     /**
      * Description of machine identity
      * @type {string}
-     * @memberof MachineidentityresponseV1
+     * @memberof Machineidentityresponse
      */
     'description'?: string;
     /**
      * A map of custom machine identity attributes
      * @type {object}
-     * @memberof MachineidentityresponseV1
+     * @memberof Machineidentityresponse
      */
     'attributes'?: object;
     /**
      * The subtype value associated to the machine identity
      * @type {string}
-     * @memberof MachineidentityresponseV1
+     * @memberof Machineidentityresponse
      */
     'subtype': string;
     /**
      * 
-     * @type {MachineIdentityDtoOwnersV1}
-     * @memberof MachineidentityresponseV1
+     * @type {MachineIdentityDtoOwners}
+     * @memberof Machineidentityresponse
      */
-    'owners'?: MachineIdentityDtoOwnersV1;
+    'owners'?: MachineIdentityDtoOwners;
     /**
      * The source id associated to the machine identity
      * @type {string}
-     * @memberof MachineidentityresponseV1
+     * @memberof Machineidentityresponse
      */
     'sourceId'?: string;
     /**
      * The UUID associated to the machine identity directly aggregated from a source
      * @type {string}
-     * @memberof MachineidentityresponseV1
+     * @memberof Machineidentityresponse
      */
     'uuid'?: string;
     /**
      * Indicates if the machine identity has been manually edited
      * @type {boolean}
-     * @memberof MachineidentityresponseV1
+     * @memberof Machineidentityresponse
      */
     'manuallyEdited'?: boolean;
     /**
      * Indicates if the machine identity has been manually created
      * @type {boolean}
-     * @memberof MachineidentityresponseV1
+     * @memberof Machineidentityresponse
      */
     'manuallyCreated'?: boolean;
     /**
      * The source of the machine identity
      * @type {object}
-     * @memberof MachineidentityresponseV1
+     * @memberof Machineidentityresponse
      */
     'source'?: object;
     /**
      * The dataset id associated to the source in which the identity was retrieved from
      * @type {string}
-     * @memberof MachineidentityresponseV1
+     * @memberof Machineidentityresponse
      */
     'datasetId'?: string;
     /**
      * The user entitlements associated to the machine identity
-     * @type {Array<MachineIdentityResponseUserEntitlementsV1>}
-     * @memberof MachineidentityresponseV1
+     * @type {Array<MachineIdentityResponseUserEntitlements>}
+     * @memberof Machineidentityresponse
      */
-    'userEntitlements'?: Array<MachineIdentityResponseUserEntitlementsV1>;
+    'userEntitlements'?: Array<MachineIdentityResponseUserEntitlements>;
+}
+/**
+ * 
+ * @export
+ * @interface Machineidentityuserentitlementresponse
+ */
+export interface Machineidentityuserentitlementresponse {
+    /**
+     * System-generated unique ID of the Object
+     * @type {string}
+     * @memberof Machineidentityuserentitlementresponse
+     */
+    'id'?: string;
+    /**
+     * System-generated unique ID of the Machine Identity
+     * @type {string}
+     * @memberof Machineidentityuserentitlementresponse
+     */
+    'machineIdentityId'?: string;
+    /**
+     * 
+     * @type {MachineidentityuserentitlementresponseSource}
+     * @memberof Machineidentityuserentitlementresponse
+     */
+    'source'?: MachineidentityuserentitlementresponseSource;
+    /**
+     * 
+     * @type {MachineidentityuserentitlementresponseEntitlement}
+     * @memberof Machineidentityuserentitlementresponse
+     */
+    'entitlement'?: MachineidentityuserentitlementresponseEntitlement;
+    /**
+     * Creation date of the Object
+     * @type {string}
+     * @memberof Machineidentityuserentitlementresponse
+     */
+    'created'?: string;
 }
 /**
  * The user entitlement
  * @export
- * @interface MachineidentityuserentitlementresponseEntitlementV1
+ * @interface MachineidentityuserentitlementresponseEntitlement
  */
-export interface MachineidentityuserentitlementresponseEntitlementV1 {
+export interface MachineidentityuserentitlementresponseEntitlement {
     /**
      * 
-     * @type {DtotypeV1}
-     * @memberof MachineidentityuserentitlementresponseEntitlementV1
+     * @type {Dtotype}
+     * @memberof MachineidentityuserentitlementresponseEntitlement
      */
-    'type'?: DtotypeV1;
+    'type'?: Dtotype;
     /**
      * ID of the object to which this reference applies
      * @type {string}
-     * @memberof MachineidentityuserentitlementresponseEntitlementV1
+     * @memberof MachineidentityuserentitlementresponseEntitlement
      */
     'id'?: string;
     /**
      * Human-readable display name of the object to which this reference applies
      * @type {string}
-     * @memberof MachineidentityuserentitlementresponseEntitlementV1
+     * @memberof MachineidentityuserentitlementresponseEntitlement
      */
     'name'?: string;
 }
@@ -772,194 +809,157 @@ export interface MachineidentityuserentitlementresponseEntitlementV1 {
 /**
  * The source of the user entitlement
  * @export
- * @interface MachineidentityuserentitlementresponseSourceV1
+ * @interface MachineidentityuserentitlementresponseSource
  */
-export interface MachineidentityuserentitlementresponseSourceV1 {
+export interface MachineidentityuserentitlementresponseSource {
     /**
      * 
-     * @type {DtotypeV1}
-     * @memberof MachineidentityuserentitlementresponseSourceV1
+     * @type {Dtotype}
+     * @memberof MachineidentityuserentitlementresponseSource
      */
-    'type'?: DtotypeV1;
+    'type'?: Dtotype;
     /**
      * ID of the object to which this reference applies
      * @type {string}
-     * @memberof MachineidentityuserentitlementresponseSourceV1
+     * @memberof MachineidentityuserentitlementresponseSource
      */
     'id'?: string;
     /**
      * Human-readable display name of the object to which this reference applies
      * @type {string}
-     * @memberof MachineidentityuserentitlementresponseSourceV1
+     * @memberof MachineidentityuserentitlementresponseSource
      */
     'name'?: string;
 }
 
 
 /**
- * 
- * @export
- * @interface MachineidentityuserentitlementresponseV1
- */
-export interface MachineidentityuserentitlementresponseV1 {
-    /**
-     * System-generated unique ID of the Object
-     * @type {string}
-     * @memberof MachineidentityuserentitlementresponseV1
-     */
-    'id'?: string;
-    /**
-     * System-generated unique ID of the Machine Identity
-     * @type {string}
-     * @memberof MachineidentityuserentitlementresponseV1
-     */
-    'machineIdentityId'?: string;
-    /**
-     * 
-     * @type {MachineidentityuserentitlementresponseSourceV1}
-     * @memberof MachineidentityuserentitlementresponseV1
-     */
-    'source'?: MachineidentityuserentitlementresponseSourceV1;
-    /**
-     * 
-     * @type {MachineidentityuserentitlementresponseEntitlementV1}
-     * @memberof MachineidentityuserentitlementresponseV1
-     */
-    'entitlement'?: MachineidentityuserentitlementresponseEntitlementV1;
-    /**
-     * Creation date of the Object
-     * @type {string}
-     * @memberof MachineidentityuserentitlementresponseV1
-     */
-    'created'?: string;
-}
-/**
  * Definition of a type of task, used to invoke tasks
  * @export
- * @interface TaskdefinitionsummaryV1
+ * @interface Taskdefinitionsummary
  */
-export interface TaskdefinitionsummaryV1 {
+export interface Taskdefinitionsummary {
     /**
      * System-generated unique ID of the TaskDefinition
      * @type {string}
-     * @memberof TaskdefinitionsummaryV1
+     * @memberof Taskdefinitionsummary
      */
     'id': string;
     /**
      * Name of the TaskDefinition
      * @type {string}
-     * @memberof TaskdefinitionsummaryV1
+     * @memberof Taskdefinitionsummary
      */
     'uniqueName': string;
     /**
      * Description of the TaskDefinition
      * @type {string}
-     * @memberof TaskdefinitionsummaryV1
+     * @memberof Taskdefinitionsummary
      */
     'description': string | null;
     /**
      * Name of the parent of the TaskDefinition
      * @type {string}
-     * @memberof TaskdefinitionsummaryV1
+     * @memberof Taskdefinitionsummary
      */
     'parentName': string;
     /**
      * Executor of the TaskDefinition
      * @type {string}
-     * @memberof TaskdefinitionsummaryV1
+     * @memberof Taskdefinitionsummary
      */
     'executor': string | null;
     /**
      * Formal parameters of the TaskDefinition, without values
      * @type {{ [key: string]: any; }}
-     * @memberof TaskdefinitionsummaryV1
+     * @memberof Taskdefinitionsummary
      */
     'arguments': { [key: string]: any; };
 }
 /**
  * Task return details
  * @export
- * @interface TaskreturndetailsV1
+ * @interface Taskreturndetails
  */
-export interface TaskreturndetailsV1 {
+export interface Taskreturndetails {
     /**
      * Display name of the TaskReturnDetails
      * @type {string}
-     * @memberof TaskreturndetailsV1
+     * @memberof Taskreturndetails
      */
     'name': string;
     /**
      * Attribute the TaskReturnDetails is for
      * @type {string}
-     * @memberof TaskreturndetailsV1
+     * @memberof Taskreturndetails
      */
     'attributeName': string;
 }
 /**
- * 
- * @export
- * @interface TaskstatusmessageParametersInnerV1
- */
-export interface TaskstatusmessageParametersInnerV1 {
-}
-/**
  * TaskStatus Message
  * @export
- * @interface TaskstatusmessageV1
+ * @interface Taskstatusmessage
  */
-export interface TaskstatusmessageV1 {
+export interface Taskstatusmessage {
     /**
      * Type of the message
      * @type {string}
-     * @memberof TaskstatusmessageV1
+     * @memberof Taskstatusmessage
      */
-    'type': TaskstatusmessageV1TypeV1;
+    'type': TaskstatusmessageTypeEnum;
     /**
      * 
-     * @type {LocalizedmessageV1}
-     * @memberof TaskstatusmessageV1
+     * @type {Localizedmessage}
+     * @memberof Taskstatusmessage
      */
-    'localizedText': LocalizedmessageV1 | null;
+    'localizedText': Localizedmessage | null;
     /**
      * Key of the message
      * @type {string}
-     * @memberof TaskstatusmessageV1
+     * @memberof Taskstatusmessage
      */
     'key': string;
     /**
      * Message parameters for internationalization
-     * @type {Array<TaskstatusmessageParametersInnerV1>}
-     * @memberof TaskstatusmessageV1
+     * @type {Array<TaskstatusmessageParametersInner>}
+     * @memberof Taskstatusmessage
      */
-    'parameters': Array<TaskstatusmessageParametersInnerV1> | null;
+    'parameters': Array<TaskstatusmessageParametersInner> | null;
 }
 
-export const TaskstatusmessageV1TypeV1 = {
+export const TaskstatusmessageTypeEnum = {
     Info: 'INFO',
     Warn: 'WARN',
     Error: 'ERROR'
 } as const;
 
-export type TaskstatusmessageV1TypeV1 = typeof TaskstatusmessageV1TypeV1[keyof typeof TaskstatusmessageV1TypeV1];
-
+export type TaskstatusmessageTypeEnum = typeof TaskstatusmessageTypeEnum[keyof typeof TaskstatusmessageTypeEnum];
 
 /**
- * MachineIdentitiesV1Api - axios parameter creator
+ * 
+ * @export
+ * @interface TaskstatusmessageParametersInner
+ */
+export interface TaskstatusmessageParametersInner {
+}
+
+/**
+ * MachineIdentitiesApi - axios parameter creator
  * @export
  */
-export const MachineIdentitiesV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Use this API to create a machine identity. The maximum supported length for the description field is 2000 characters.
          * @summary Create machine identity
-         * @param {MachineidentityrequestV1} machineidentityrequestV1 
+         * @param {Machineidentityrequest} machineidentityrequest 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createMachineIdentityV1: async (machineidentityrequestV1: MachineidentityrequestV1, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'machineidentityrequestV1' is not null or undefined
-            assertParamExists('createMachineIdentityV1', 'machineidentityrequestV1', machineidentityrequestV1)
+        createMachineIdentityV1: async (machineidentityrequest: Machineidentityrequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'machineidentityrequest' is not null or undefined
+            assertParamExists('createMachineIdentityV1', 'machineidentityrequest', machineidentityrequest)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -986,7 +986,7 @@ export const MachineIdentitiesV1ApiAxiosParamCreator = function (configuration?:
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(machineidentityrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(machineidentityrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1207,16 +1207,16 @@ export const MachineIdentitiesV1ApiAxiosParamCreator = function (configuration?:
          * Starts a machine identity (AI Agents) aggregation on the specified source.
          * @summary Start machine identity aggregation
          * @param {string} sourceId Source ID.
-         * @param {MachineidentityaggregationrequestV1} machineidentityaggregationrequestV1 
+         * @param {Machineidentityaggregationrequest} machineidentityaggregationrequest 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startMachineIdentityAggregationV1: async (sourceId: string, machineidentityaggregationrequestV1: MachineidentityaggregationrequestV1, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        startMachineIdentityAggregationV1: async (sourceId: string, machineidentityaggregationrequest: Machineidentityaggregationrequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('startMachineIdentityAggregationV1', 'sourceId', sourceId)
-            // verify required parameter 'machineidentityaggregationrequestV1' is not null or undefined
-            assertParamExists('startMachineIdentityAggregationV1', 'machineidentityaggregationrequestV1', machineidentityaggregationrequestV1)
+            // verify required parameter 'machineidentityaggregationrequest' is not null or undefined
+            assertParamExists('startMachineIdentityAggregationV1', 'machineidentityaggregationrequest', machineidentityaggregationrequest)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -1244,7 +1244,7 @@ export const MachineIdentitiesV1ApiAxiosParamCreator = function (configuration?:
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(machineidentityaggregationrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(machineidentityaggregationrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1303,24 +1303,24 @@ export const MachineIdentitiesV1ApiAxiosParamCreator = function (configuration?:
 };
 
 /**
- * MachineIdentitiesV1Api - functional programming interface
+ * MachineIdentitiesApi - functional programming interface
  * @export
  */
-export const MachineIdentitiesV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = MachineIdentitiesV1ApiAxiosParamCreator(configuration)
+export const MachineIdentitiesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = MachineIdentitiesApiAxiosParamCreator(configuration)
     return {
         /**
          * Use this API to create a machine identity. The maximum supported length for the description field is 2000 characters.
          * @summary Create machine identity
-         * @param {MachineidentityrequestV1} machineidentityrequestV1 
+         * @param {Machineidentityrequest} machineidentityrequest 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createMachineIdentityV1(machineidentityrequestV1: MachineidentityrequestV1, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineidentityresponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createMachineIdentityV1(machineidentityrequestV1, xSailPointExperimental, axiosOptions);
+        async createMachineIdentityV1(machineidentityrequest: Machineidentityrequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Machineidentityresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createMachineIdentityV1(machineidentityrequest, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesV1Api.createMachineIdentityV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.createMachineIdentityV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1334,7 +1334,7 @@ export const MachineIdentitiesV1ApiFp = function(configuration?: Configuration) 
         async deleteMachineIdentityV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMachineIdentityV1(id, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesV1Api.deleteMachineIdentityV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.deleteMachineIdentityV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1345,10 +1345,10 @@ export const MachineIdentitiesV1ApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getMachineIdentityV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineidentityresponseV1>> {
+        async getMachineIdentityV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Machineidentityresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMachineIdentityV1(id, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesV1Api.getMachineIdentityV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.getMachineIdentityV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1363,10 +1363,10 @@ export const MachineIdentitiesV1ApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listMachineIdentitiesV1(filters?: string, sorters?: string, xSailPointExperimental?: string, count?: boolean, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MachineidentityresponseV1>>> {
+        async listMachineIdentitiesV1(filters?: string, sorters?: string, xSailPointExperimental?: string, count?: boolean, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Machineidentityresponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listMachineIdentitiesV1(filters, sorters, xSailPointExperimental, count, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesV1Api.listMachineIdentitiesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.listMachineIdentitiesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1381,25 +1381,25 @@ export const MachineIdentitiesV1ApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listMachineIdentityUserEntitlementsV1(filters?: string, sorters?: string, xSailPointExperimental?: string, count?: boolean, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MachineidentityuserentitlementresponseV1>>> {
+        async listMachineIdentityUserEntitlementsV1(filters?: string, sorters?: string, xSailPointExperimental?: string, count?: boolean, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Machineidentityuserentitlementresponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listMachineIdentityUserEntitlementsV1(filters, sorters, xSailPointExperimental, count, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesV1Api.listMachineIdentityUserEntitlementsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.listMachineIdentityUserEntitlementsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Starts a machine identity (AI Agents) aggregation on the specified source.
          * @summary Start machine identity aggregation
          * @param {string} sourceId Source ID.
-         * @param {MachineidentityaggregationrequestV1} machineidentityaggregationrequestV1 
+         * @param {Machineidentityaggregationrequest} machineidentityaggregationrequest 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startMachineIdentityAggregationV1(sourceId: string, machineidentityaggregationrequestV1: MachineidentityaggregationrequestV1, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineidentityaggregationresponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startMachineIdentityAggregationV1(sourceId, machineidentityaggregationrequestV1, xSailPointExperimental, axiosOptions);
+        async startMachineIdentityAggregationV1(sourceId: string, machineidentityaggregationrequest: Machineidentityaggregationrequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Machineidentityaggregationresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startMachineIdentityAggregationV1(sourceId, machineidentityaggregationrequest, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesV1Api.startMachineIdentityAggregationV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.startMachineIdentityAggregationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1411,401 +1411,401 @@ export const MachineIdentitiesV1ApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateMachineIdentityV1(id: string, requestBody: Array<object>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineidentityresponseV1>> {
+        async updateMachineIdentityV1(id: string, requestBody: Array<object>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Machineidentityresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateMachineIdentityV1(id, requestBody, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesV1Api.updateMachineIdentityV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.updateMachineIdentityV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * MachineIdentitiesV1Api - factory interface
+ * MachineIdentitiesApi - factory interface
  * @export
  */
-export const MachineIdentitiesV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = MachineIdentitiesV1ApiFp(configuration)
+export const MachineIdentitiesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = MachineIdentitiesApiFp(configuration)
     return {
         /**
          * Use this API to create a machine identity. The maximum supported length for the description field is 2000 characters.
          * @summary Create machine identity
-         * @param {MachineIdentitiesV1ApiCreateMachineIdentityV1Request} requestParameters Request parameters.
+         * @param {MachineIdentitiesApiCreateMachineIdentityV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createMachineIdentityV1(requestParameters: MachineIdentitiesV1ApiCreateMachineIdentityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineidentityresponseV1> {
-            return localVarFp.createMachineIdentityV1(requestParameters.machineidentityrequestV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        createMachineIdentityV1(requestParameters: MachineIdentitiesApiCreateMachineIdentityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Machineidentityresponse> {
+            return localVarFp.createMachineIdentityV1(requestParameters.machineidentityrequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * The API returns successful response if the requested machine identity was deleted.
          * @summary Delete machine identity
-         * @param {MachineIdentitiesV1ApiDeleteMachineIdentityV1Request} requestParameters Request parameters.
+         * @param {MachineIdentitiesApiDeleteMachineIdentityV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteMachineIdentityV1(requestParameters: MachineIdentitiesV1ApiDeleteMachineIdentityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteMachineIdentityV1(requestParameters: MachineIdentitiesApiDeleteMachineIdentityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteMachineIdentityV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a single machine identity using the Machine Identity ID.
          * @summary Get machine identity details
-         * @param {MachineIdentitiesV1ApiGetMachineIdentityV1Request} requestParameters Request parameters.
+         * @param {MachineIdentitiesApiGetMachineIdentityV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getMachineIdentityV1(requestParameters: MachineIdentitiesV1ApiGetMachineIdentityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineidentityresponseV1> {
+        getMachineIdentityV1(requestParameters: MachineIdentitiesApiGetMachineIdentityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Machineidentityresponse> {
             return localVarFp.getMachineIdentityV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of machine identities.
          * @summary List machine identities
-         * @param {MachineIdentitiesV1ApiListMachineIdentitiesV1Request} requestParameters Request parameters.
+         * @param {MachineIdentitiesApiListMachineIdentitiesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listMachineIdentitiesV1(requestParameters: MachineIdentitiesV1ApiListMachineIdentitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<MachineidentityresponseV1>> {
+        listMachineIdentitiesV1(requestParameters: MachineIdentitiesApiListMachineIdentitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Machineidentityresponse>> {
             return localVarFp.listMachineIdentitiesV1(requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of user entitlements associated with machine identities.
          * @summary List machine identity\'s user entitlements
-         * @param {MachineIdentitiesV1ApiListMachineIdentityUserEntitlementsV1Request} requestParameters Request parameters.
+         * @param {MachineIdentitiesApiListMachineIdentityUserEntitlementsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listMachineIdentityUserEntitlementsV1(requestParameters: MachineIdentitiesV1ApiListMachineIdentityUserEntitlementsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<MachineidentityuserentitlementresponseV1>> {
+        listMachineIdentityUserEntitlementsV1(requestParameters: MachineIdentitiesApiListMachineIdentityUserEntitlementsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Machineidentityuserentitlementresponse>> {
             return localVarFp.listMachineIdentityUserEntitlementsV1(requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Starts a machine identity (AI Agents) aggregation on the specified source.
          * @summary Start machine identity aggregation
-         * @param {MachineIdentitiesV1ApiStartMachineIdentityAggregationV1Request} requestParameters Request parameters.
+         * @param {MachineIdentitiesApiStartMachineIdentityAggregationV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startMachineIdentityAggregationV1(requestParameters: MachineIdentitiesV1ApiStartMachineIdentityAggregationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineidentityaggregationresponseV1> {
-            return localVarFp.startMachineIdentityAggregationV1(requestParameters.sourceId, requestParameters.machineidentityaggregationrequestV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        startMachineIdentityAggregationV1(requestParameters: MachineIdentitiesApiStartMachineIdentityAggregationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Machineidentityaggregationresponse> {
+            return localVarFp.startMachineIdentityAggregationV1(requestParameters.sourceId, requestParameters.machineidentityaggregationrequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to update machine identity details. 
          * @summary Update machine identity details
-         * @param {MachineIdentitiesV1ApiUpdateMachineIdentityV1Request} requestParameters Request parameters.
+         * @param {MachineIdentitiesApiUpdateMachineIdentityV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateMachineIdentityV1(requestParameters: MachineIdentitiesV1ApiUpdateMachineIdentityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineidentityresponseV1> {
+        updateMachineIdentityV1(requestParameters: MachineIdentitiesApiUpdateMachineIdentityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Machineidentityresponse> {
             return localVarFp.updateMachineIdentityV1(requestParameters.id, requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createMachineIdentityV1 operation in MachineIdentitiesV1Api.
+ * Request parameters for createMachineIdentityV1 operation in MachineIdentitiesApi.
  * @export
- * @interface MachineIdentitiesV1ApiCreateMachineIdentityV1Request
+ * @interface MachineIdentitiesApiCreateMachineIdentityV1Request
  */
-export interface MachineIdentitiesV1ApiCreateMachineIdentityV1Request {
+export interface MachineIdentitiesApiCreateMachineIdentityV1Request {
     /**
      * 
-     * @type {MachineidentityrequestV1}
-     * @memberof MachineIdentitiesV1ApiCreateMachineIdentityV1
+     * @type {Machineidentityrequest}
+     * @memberof MachineIdentitiesApiCreateMachineIdentityV1
      */
-    readonly machineidentityrequestV1: MachineidentityrequestV1
+    readonly machineidentityrequest: Machineidentityrequest
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof MachineIdentitiesV1ApiCreateMachineIdentityV1
+     * @memberof MachineIdentitiesApiCreateMachineIdentityV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for deleteMachineIdentityV1 operation in MachineIdentitiesV1Api.
+ * Request parameters for deleteMachineIdentityV1 operation in MachineIdentitiesApi.
  * @export
- * @interface MachineIdentitiesV1ApiDeleteMachineIdentityV1Request
+ * @interface MachineIdentitiesApiDeleteMachineIdentityV1Request
  */
-export interface MachineIdentitiesV1ApiDeleteMachineIdentityV1Request {
+export interface MachineIdentitiesApiDeleteMachineIdentityV1Request {
     /**
      * Machine Identity ID
      * @type {string}
-     * @memberof MachineIdentitiesV1ApiDeleteMachineIdentityV1
+     * @memberof MachineIdentitiesApiDeleteMachineIdentityV1
      */
     readonly id: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof MachineIdentitiesV1ApiDeleteMachineIdentityV1
+     * @memberof MachineIdentitiesApiDeleteMachineIdentityV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getMachineIdentityV1 operation in MachineIdentitiesV1Api.
+ * Request parameters for getMachineIdentityV1 operation in MachineIdentitiesApi.
  * @export
- * @interface MachineIdentitiesV1ApiGetMachineIdentityV1Request
+ * @interface MachineIdentitiesApiGetMachineIdentityV1Request
  */
-export interface MachineIdentitiesV1ApiGetMachineIdentityV1Request {
+export interface MachineIdentitiesApiGetMachineIdentityV1Request {
     /**
      * Machine Identity ID
      * @type {string}
-     * @memberof MachineIdentitiesV1ApiGetMachineIdentityV1
+     * @memberof MachineIdentitiesApiGetMachineIdentityV1
      */
     readonly id: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof MachineIdentitiesV1ApiGetMachineIdentityV1
+     * @memberof MachineIdentitiesApiGetMachineIdentityV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for listMachineIdentitiesV1 operation in MachineIdentitiesV1Api.
+ * Request parameters for listMachineIdentitiesV1 operation in MachineIdentitiesApi.
  * @export
- * @interface MachineIdentitiesV1ApiListMachineIdentitiesV1Request
+ * @interface MachineIdentitiesApiListMachineIdentitiesV1Request
  */
-export interface MachineIdentitiesV1ApiListMachineIdentitiesV1Request {
+export interface MachineIdentitiesApiListMachineIdentitiesV1Request {
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **cisIdentityId**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq*  **subtype**: *eq, in*  **owners.primaryIdentity.id**: *eq, in, sw*  **owners.primaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryIdentity.id**: *eq, in, sw*  **owners.secondaryIdentity.name**: *eq, in, isnull, pr*  **source.name**: *eq, in, sw*  **source.id**: *eq, in*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw*
      * @type {string}
-     * @memberof MachineIdentitiesV1ApiListMachineIdentitiesV1
+     * @memberof MachineIdentitiesApiListMachineIdentitiesV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **nativeIdentity, name, owners.primaryIdentity.name, source.name, created, modified**
      * @type {string}
-     * @memberof MachineIdentitiesV1ApiListMachineIdentitiesV1
+     * @memberof MachineIdentitiesApiListMachineIdentitiesV1
      */
     readonly sorters?: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof MachineIdentitiesV1ApiListMachineIdentitiesV1
+     * @memberof MachineIdentitiesApiListMachineIdentitiesV1
      */
     readonly xSailPointExperimental?: string
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof MachineIdentitiesV1ApiListMachineIdentitiesV1
+     * @memberof MachineIdentitiesApiListMachineIdentitiesV1
      */
     readonly count?: boolean
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof MachineIdentitiesV1ApiListMachineIdentitiesV1
+     * @memberof MachineIdentitiesApiListMachineIdentitiesV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof MachineIdentitiesV1ApiListMachineIdentitiesV1
+     * @memberof MachineIdentitiesApiListMachineIdentitiesV1
      */
     readonly offset?: number
 }
 
 /**
- * Request parameters for listMachineIdentityUserEntitlementsV1 operation in MachineIdentitiesV1Api.
+ * Request parameters for listMachineIdentityUserEntitlementsV1 operation in MachineIdentitiesApi.
  * @export
- * @interface MachineIdentitiesV1ApiListMachineIdentityUserEntitlementsV1Request
+ * @interface MachineIdentitiesApiListMachineIdentityUserEntitlementsV1Request
  */
-export interface MachineIdentitiesV1ApiListMachineIdentityUserEntitlementsV1Request {
+export interface MachineIdentitiesApiListMachineIdentityUserEntitlementsV1Request {
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **machineIdentityId**: *eq, in*  **machineIdentityName**: *eq, in, sw*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*
      * @type {string}
-     * @memberof MachineIdentitiesV1ApiListMachineIdentityUserEntitlementsV1
+     * @memberof MachineIdentitiesApiListMachineIdentityUserEntitlementsV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **machineIdentityName, entitlement.name, source.name**
      * @type {string}
-     * @memberof MachineIdentitiesV1ApiListMachineIdentityUserEntitlementsV1
+     * @memberof MachineIdentitiesApiListMachineIdentityUserEntitlementsV1
      */
     readonly sorters?: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof MachineIdentitiesV1ApiListMachineIdentityUserEntitlementsV1
+     * @memberof MachineIdentitiesApiListMachineIdentityUserEntitlementsV1
      */
     readonly xSailPointExperimental?: string
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof MachineIdentitiesV1ApiListMachineIdentityUserEntitlementsV1
+     * @memberof MachineIdentitiesApiListMachineIdentityUserEntitlementsV1
      */
     readonly count?: boolean
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof MachineIdentitiesV1ApiListMachineIdentityUserEntitlementsV1
+     * @memberof MachineIdentitiesApiListMachineIdentityUserEntitlementsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof MachineIdentitiesV1ApiListMachineIdentityUserEntitlementsV1
+     * @memberof MachineIdentitiesApiListMachineIdentityUserEntitlementsV1
      */
     readonly offset?: number
 }
 
 /**
- * Request parameters for startMachineIdentityAggregationV1 operation in MachineIdentitiesV1Api.
+ * Request parameters for startMachineIdentityAggregationV1 operation in MachineIdentitiesApi.
  * @export
- * @interface MachineIdentitiesV1ApiStartMachineIdentityAggregationV1Request
+ * @interface MachineIdentitiesApiStartMachineIdentityAggregationV1Request
  */
-export interface MachineIdentitiesV1ApiStartMachineIdentityAggregationV1Request {
+export interface MachineIdentitiesApiStartMachineIdentityAggregationV1Request {
     /**
      * Source ID.
      * @type {string}
-     * @memberof MachineIdentitiesV1ApiStartMachineIdentityAggregationV1
+     * @memberof MachineIdentitiesApiStartMachineIdentityAggregationV1
      */
     readonly sourceId: string
 
     /**
      * 
-     * @type {MachineidentityaggregationrequestV1}
-     * @memberof MachineIdentitiesV1ApiStartMachineIdentityAggregationV1
+     * @type {Machineidentityaggregationrequest}
+     * @memberof MachineIdentitiesApiStartMachineIdentityAggregationV1
      */
-    readonly machineidentityaggregationrequestV1: MachineidentityaggregationrequestV1
+    readonly machineidentityaggregationrequest: Machineidentityaggregationrequest
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof MachineIdentitiesV1ApiStartMachineIdentityAggregationV1
+     * @memberof MachineIdentitiesApiStartMachineIdentityAggregationV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for updateMachineIdentityV1 operation in MachineIdentitiesV1Api.
+ * Request parameters for updateMachineIdentityV1 operation in MachineIdentitiesApi.
  * @export
- * @interface MachineIdentitiesV1ApiUpdateMachineIdentityV1Request
+ * @interface MachineIdentitiesApiUpdateMachineIdentityV1Request
  */
-export interface MachineIdentitiesV1ApiUpdateMachineIdentityV1Request {
+export interface MachineIdentitiesApiUpdateMachineIdentityV1Request {
     /**
      * Machine Identity ID.
      * @type {string}
-     * @memberof MachineIdentitiesV1ApiUpdateMachineIdentityV1
+     * @memberof MachineIdentitiesApiUpdateMachineIdentityV1
      */
     readonly id: string
 
     /**
      * A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
      * @type {Array<object>}
-     * @memberof MachineIdentitiesV1ApiUpdateMachineIdentityV1
+     * @memberof MachineIdentitiesApiUpdateMachineIdentityV1
      */
     readonly requestBody: Array<object>
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof MachineIdentitiesV1ApiUpdateMachineIdentityV1
+     * @memberof MachineIdentitiesApiUpdateMachineIdentityV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * MachineIdentitiesV1Api - object-oriented interface
+ * MachineIdentitiesApi - object-oriented interface
  * @export
- * @class MachineIdentitiesV1Api
+ * @class MachineIdentitiesApi
  * @extends {BaseAPI}
  */
-export class MachineIdentitiesV1Api extends BaseAPI {
+export class MachineIdentitiesApi extends BaseAPI {
     /**
      * Use this API to create a machine identity. The maximum supported length for the description field is 2000 characters.
      * @summary Create machine identity
-     * @param {MachineIdentitiesV1ApiCreateMachineIdentityV1Request} requestParameters Request parameters.
+     * @param {MachineIdentitiesApiCreateMachineIdentityV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MachineIdentitiesV1Api
+     * @memberof MachineIdentitiesApi
      */
-    public createMachineIdentityV1(requestParameters: MachineIdentitiesV1ApiCreateMachineIdentityV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineIdentitiesV1ApiFp(this.configuration).createMachineIdentityV1(requestParameters.machineidentityrequestV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createMachineIdentityV1(requestParameters: MachineIdentitiesApiCreateMachineIdentityV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineIdentitiesApiFp(this.configuration).createMachineIdentityV1(requestParameters.machineidentityrequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * The API returns successful response if the requested machine identity was deleted.
      * @summary Delete machine identity
-     * @param {MachineIdentitiesV1ApiDeleteMachineIdentityV1Request} requestParameters Request parameters.
+     * @param {MachineIdentitiesApiDeleteMachineIdentityV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MachineIdentitiesV1Api
+     * @memberof MachineIdentitiesApi
      */
-    public deleteMachineIdentityV1(requestParameters: MachineIdentitiesV1ApiDeleteMachineIdentityV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineIdentitiesV1ApiFp(this.configuration).deleteMachineIdentityV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteMachineIdentityV1(requestParameters: MachineIdentitiesApiDeleteMachineIdentityV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineIdentitiesApiFp(this.configuration).deleteMachineIdentityV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a single machine identity using the Machine Identity ID.
      * @summary Get machine identity details
-     * @param {MachineIdentitiesV1ApiGetMachineIdentityV1Request} requestParameters Request parameters.
+     * @param {MachineIdentitiesApiGetMachineIdentityV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MachineIdentitiesV1Api
+     * @memberof MachineIdentitiesApi
      */
-    public getMachineIdentityV1(requestParameters: MachineIdentitiesV1ApiGetMachineIdentityV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineIdentitiesV1ApiFp(this.configuration).getMachineIdentityV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getMachineIdentityV1(requestParameters: MachineIdentitiesApiGetMachineIdentityV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineIdentitiesApiFp(this.configuration).getMachineIdentityV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a list of machine identities.
      * @summary List machine identities
-     * @param {MachineIdentitiesV1ApiListMachineIdentitiesV1Request} requestParameters Request parameters.
+     * @param {MachineIdentitiesApiListMachineIdentitiesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MachineIdentitiesV1Api
+     * @memberof MachineIdentitiesApi
      */
-    public listMachineIdentitiesV1(requestParameters: MachineIdentitiesV1ApiListMachineIdentitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineIdentitiesV1ApiFp(this.configuration).listMachineIdentitiesV1(requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listMachineIdentitiesV1(requestParameters: MachineIdentitiesApiListMachineIdentitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineIdentitiesApiFp(this.configuration).listMachineIdentitiesV1(requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a list of user entitlements associated with machine identities.
      * @summary List machine identity\'s user entitlements
-     * @param {MachineIdentitiesV1ApiListMachineIdentityUserEntitlementsV1Request} requestParameters Request parameters.
+     * @param {MachineIdentitiesApiListMachineIdentityUserEntitlementsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MachineIdentitiesV1Api
+     * @memberof MachineIdentitiesApi
      */
-    public listMachineIdentityUserEntitlementsV1(requestParameters: MachineIdentitiesV1ApiListMachineIdentityUserEntitlementsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineIdentitiesV1ApiFp(this.configuration).listMachineIdentityUserEntitlementsV1(requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listMachineIdentityUserEntitlementsV1(requestParameters: MachineIdentitiesApiListMachineIdentityUserEntitlementsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineIdentitiesApiFp(this.configuration).listMachineIdentityUserEntitlementsV1(requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Starts a machine identity (AI Agents) aggregation on the specified source.
      * @summary Start machine identity aggregation
-     * @param {MachineIdentitiesV1ApiStartMachineIdentityAggregationV1Request} requestParameters Request parameters.
+     * @param {MachineIdentitiesApiStartMachineIdentityAggregationV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MachineIdentitiesV1Api
+     * @memberof MachineIdentitiesApi
      */
-    public startMachineIdentityAggregationV1(requestParameters: MachineIdentitiesV1ApiStartMachineIdentityAggregationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineIdentitiesV1ApiFp(this.configuration).startMachineIdentityAggregationV1(requestParameters.sourceId, requestParameters.machineidentityaggregationrequestV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public startMachineIdentityAggregationV1(requestParameters: MachineIdentitiesApiStartMachineIdentityAggregationV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineIdentitiesApiFp(this.configuration).startMachineIdentityAggregationV1(requestParameters.sourceId, requestParameters.machineidentityaggregationrequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to update machine identity details. 
      * @summary Update machine identity details
-     * @param {MachineIdentitiesV1ApiUpdateMachineIdentityV1Request} requestParameters Request parameters.
+     * @param {MachineIdentitiesApiUpdateMachineIdentityV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MachineIdentitiesV1Api
+     * @memberof MachineIdentitiesApi
      */
-    public updateMachineIdentityV1(requestParameters: MachineIdentitiesV1ApiUpdateMachineIdentityV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineIdentitiesV1ApiFp(this.configuration).updateMachineIdentityV1(requestParameters.id, requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateMachineIdentityV1(requestParameters: MachineIdentitiesApiUpdateMachineIdentityV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineIdentitiesApiFp(this.configuration).updateMachineIdentityV1(requestParameters.id, requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

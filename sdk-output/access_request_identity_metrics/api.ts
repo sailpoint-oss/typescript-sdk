@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -53,57 +53,57 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetAccessRequestIdentityMetricsV1401ResponseV1
+ * @interface GetAccessRequestIdentityMetricsV1401Response
  */
-export interface GetAccessRequestIdentityMetricsV1401ResponseV1 {
+export interface GetAccessRequestIdentityMetricsV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetAccessRequestIdentityMetricsV1401ResponseV1
+     * @memberof GetAccessRequestIdentityMetricsV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetAccessRequestIdentityMetricsV1429ResponseV1
+ * @interface GetAccessRequestIdentityMetricsV1429Response
  */
-export interface GetAccessRequestIdentityMetricsV1429ResponseV1 {
+export interface GetAccessRequestIdentityMetricsV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetAccessRequestIdentityMetricsV1429ResponseV1
+     * @memberof GetAccessRequestIdentityMetricsV1429Response
      */
     'message'?: any;
 }
@@ -113,31 +113,31 @@ export interface GetAccessRequestIdentityMetricsV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 
 /**
- * AccessRequestIdentityMetricsV1Api - axios parameter creator
+ * AccessRequestIdentityMetricsApi - axios parameter creator
  * @export
  */
-export const AccessRequestIdentityMetricsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const AccessRequestIdentityMetricsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Use this API to return information access metrics.
          * @summary Return access request identity metrics
          * @param {string} identityId Manager\&#39;s identity ID.
          * @param {string} requestedObjectId Requested access item\&#39;s ID.
-         * @param {GetAccessRequestIdentityMetricsV1TypeV1} type Requested access item\&#39;s type.
+         * @param {GetAccessRequestIdentityMetricsV1TypeEnum} type Requested access item\&#39;s type.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAccessRequestIdentityMetricsV1: async (identityId: string, requestedObjectId: string, type: GetAccessRequestIdentityMetricsV1TypeV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getAccessRequestIdentityMetricsV1: async (identityId: string, requestedObjectId: string, type: GetAccessRequestIdentityMetricsV1TypeEnum, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'identityId' is not null or undefined
             assertParamExists('getAccessRequestIdentityMetricsV1', 'identityId', identityId)
             // verify required parameter 'requestedObjectId' is not null or undefined
@@ -174,106 +174,106 @@ export const AccessRequestIdentityMetricsV1ApiAxiosParamCreator = function (conf
 };
 
 /**
- * AccessRequestIdentityMetricsV1Api - functional programming interface
+ * AccessRequestIdentityMetricsApi - functional programming interface
  * @export
  */
-export const AccessRequestIdentityMetricsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = AccessRequestIdentityMetricsV1ApiAxiosParamCreator(configuration)
+export const AccessRequestIdentityMetricsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = AccessRequestIdentityMetricsApiAxiosParamCreator(configuration)
     return {
         /**
          * Use this API to return information access metrics.
          * @summary Return access request identity metrics
          * @param {string} identityId Manager\&#39;s identity ID.
          * @param {string} requestedObjectId Requested access item\&#39;s ID.
-         * @param {GetAccessRequestIdentityMetricsV1TypeV1} type Requested access item\&#39;s type.
+         * @param {GetAccessRequestIdentityMetricsV1TypeEnum} type Requested access item\&#39;s type.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccessRequestIdentityMetricsV1(identityId: string, requestedObjectId: string, type: GetAccessRequestIdentityMetricsV1TypeV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+        async getAccessRequestIdentityMetricsV1(identityId: string, requestedObjectId: string, type: GetAccessRequestIdentityMetricsV1TypeEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestIdentityMetricsV1(identityId, requestedObjectId, type, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AccessRequestIdentityMetricsV1Api.getAccessRequestIdentityMetricsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AccessRequestIdentityMetricsApi.getAccessRequestIdentityMetricsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * AccessRequestIdentityMetricsV1Api - factory interface
+ * AccessRequestIdentityMetricsApi - factory interface
  * @export
  */
-export const AccessRequestIdentityMetricsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = AccessRequestIdentityMetricsV1ApiFp(configuration)
+export const AccessRequestIdentityMetricsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = AccessRequestIdentityMetricsApiFp(configuration)
     return {
         /**
          * Use this API to return information access metrics.
          * @summary Return access request identity metrics
-         * @param {AccessRequestIdentityMetricsV1ApiGetAccessRequestIdentityMetricsV1Request} requestParameters Request parameters.
+         * @param {AccessRequestIdentityMetricsApiGetAccessRequestIdentityMetricsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAccessRequestIdentityMetricsV1(requestParameters: AccessRequestIdentityMetricsV1ApiGetAccessRequestIdentityMetricsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
+        getAccessRequestIdentityMetricsV1(requestParameters: AccessRequestIdentityMetricsApiGetAccessRequestIdentityMetricsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
             return localVarFp.getAccessRequestIdentityMetricsV1(requestParameters.identityId, requestParameters.requestedObjectId, requestParameters.type, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for getAccessRequestIdentityMetricsV1 operation in AccessRequestIdentityMetricsV1Api.
+ * Request parameters for getAccessRequestIdentityMetricsV1 operation in AccessRequestIdentityMetricsApi.
  * @export
- * @interface AccessRequestIdentityMetricsV1ApiGetAccessRequestIdentityMetricsV1Request
+ * @interface AccessRequestIdentityMetricsApiGetAccessRequestIdentityMetricsV1Request
  */
-export interface AccessRequestIdentityMetricsV1ApiGetAccessRequestIdentityMetricsV1Request {
+export interface AccessRequestIdentityMetricsApiGetAccessRequestIdentityMetricsV1Request {
     /**
      * Manager\&#39;s identity ID.
      * @type {string}
-     * @memberof AccessRequestIdentityMetricsV1ApiGetAccessRequestIdentityMetricsV1
+     * @memberof AccessRequestIdentityMetricsApiGetAccessRequestIdentityMetricsV1
      */
     readonly identityId: string
 
     /**
      * Requested access item\&#39;s ID.
      * @type {string}
-     * @memberof AccessRequestIdentityMetricsV1ApiGetAccessRequestIdentityMetricsV1
+     * @memberof AccessRequestIdentityMetricsApiGetAccessRequestIdentityMetricsV1
      */
     readonly requestedObjectId: string
 
     /**
      * Requested access item\&#39;s type.
      * @type {'ENTITLEMENT' | 'ROLE' | 'ACCESS_PROFILE'}
-     * @memberof AccessRequestIdentityMetricsV1ApiGetAccessRequestIdentityMetricsV1
+     * @memberof AccessRequestIdentityMetricsApiGetAccessRequestIdentityMetricsV1
      */
-    readonly type: GetAccessRequestIdentityMetricsV1TypeV1
+    readonly type: GetAccessRequestIdentityMetricsV1TypeEnum
 }
 
 /**
- * AccessRequestIdentityMetricsV1Api - object-oriented interface
+ * AccessRequestIdentityMetricsApi - object-oriented interface
  * @export
- * @class AccessRequestIdentityMetricsV1Api
+ * @class AccessRequestIdentityMetricsApi
  * @extends {BaseAPI}
  */
-export class AccessRequestIdentityMetricsV1Api extends BaseAPI {
+export class AccessRequestIdentityMetricsApi extends BaseAPI {
     /**
      * Use this API to return information access metrics.
      * @summary Return access request identity metrics
-     * @param {AccessRequestIdentityMetricsV1ApiGetAccessRequestIdentityMetricsV1Request} requestParameters Request parameters.
+     * @param {AccessRequestIdentityMetricsApiGetAccessRequestIdentityMetricsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AccessRequestIdentityMetricsV1Api
+     * @memberof AccessRequestIdentityMetricsApi
      */
-    public getAccessRequestIdentityMetricsV1(requestParameters: AccessRequestIdentityMetricsV1ApiGetAccessRequestIdentityMetricsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessRequestIdentityMetricsV1ApiFp(this.configuration).getAccessRequestIdentityMetricsV1(requestParameters.identityId, requestParameters.requestedObjectId, requestParameters.type, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getAccessRequestIdentityMetricsV1(requestParameters: AccessRequestIdentityMetricsApiGetAccessRequestIdentityMetricsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccessRequestIdentityMetricsApiFp(this.configuration).getAccessRequestIdentityMetricsV1(requestParameters.identityId, requestParameters.requestedObjectId, requestParameters.type, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
 /**
  * @export
  */
-export const GetAccessRequestIdentityMetricsV1TypeV1 = {
+export const GetAccessRequestIdentityMetricsV1TypeEnum = {
     Entitlement: 'ENTITLEMENT',
     Role: 'ROLE',
     AccessProfile: 'ACCESS_PROFILE'
 } as const;
-export type GetAccessRequestIdentityMetricsV1TypeV1 = typeof GetAccessRequestIdentityMetricsV1TypeV1[keyof typeof GetAccessRequestIdentityMetricsV1TypeV1];
+export type GetAccessRequestIdentityMetricsV1TypeEnum = typeof GetAccessRequestIdentityMetricsV1TypeEnum[keyof typeof GetAccessRequestIdentityMetricsV1TypeEnum];
 
 

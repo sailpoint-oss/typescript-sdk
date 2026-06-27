@@ -1,21 +1,21 @@
 ---
-id: v1-accountrequestdetailsdto-requester-v1
-title: AccountrequestdetailsdtoRequesterV1
-pagination_label: AccountrequestdetailsdtoRequesterV1
-sidebar_label: AccountrequestdetailsdtoRequesterV1
+id: v1-accountrequestdetailsdto-requester
+title: AccountrequestdetailsdtoRequester
+pagination_label: AccountrequestdetailsdtoRequester
+sidebar_label: AccountrequestdetailsdtoRequester
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccountrequestdetailsdtoRequesterV1', 'v1AccountrequestdetailsdtoRequesterV1']
-slug: /tools/sdk/typescript/machine_account_creation_request/models/accountrequestdetailsdto-requester-v1
-tags: ['SDK', 'Software Development Kit', 'AccountrequestdetailsdtoRequesterV1', 'v1AccountrequestdetailsdtoRequesterV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'AccountrequestdetailsdtoRequester', 'v1AccountrequestdetailsdtoRequester']
+slug: /tools/sdk/typescript/machine_account_creation_request/models/accountrequestdetailsdto-requester
+tags: ['SDK', 'Software Development Kit', 'AccountrequestdetailsdtoRequester', 'v1AccountrequestdetailsdtoRequester']
 ---
 
-# AccountrequestdetailsdtoRequesterV1
+# AccountrequestdetailsdtoRequester
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **DtotypeV1** |  | [default to undefined]
-**id** | **(optional)** **string** | ID of the object to which this reference applies | [default to undefined]
-**name** | **(optional)** **string** | Human-readable display name of the object to which this reference applies | [default to undefined]
+**type** | **(optional)** `Dtotype` |  | [default to undefined]
+**id** | **(optional)** `string` | ID of the object to which this reference applies | [default to undefined]
+**name** | **(optional)** `string` | Human-readable display name of the object to which this reference applies | [default to undefined]
 

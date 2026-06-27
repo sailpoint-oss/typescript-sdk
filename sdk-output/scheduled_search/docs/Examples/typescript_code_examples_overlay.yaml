@@ -4,14 +4,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/scheduled_search/methods/scheduled-search#create-scheduled-search-v1
       source: |
-        import { ScheduledSearchV1Api } from 'sailpoint-api-client';
+        import { ScheduledSearchApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new ScheduledSearchV1Api(configuration);
-        const createScheduledSearchV1RequestV1: CreateScheduledSearchV1RequestV1 = {"savedSearchId":"9c620e13-cd33-4804-a13d-403bd7bcdbad","schedule":{"type":"DAILY","hours":{"type":"LIST","values":["9"]}},"recipients":[{"type":"IDENTITY","id":"2c9180867624cbd7017642d8c8c81f67"}]}; // CreateScheduledSearchV1RequestV1 | The scheduled search to persist.
-        const result = await apiInstance.createScheduledSearchV1(createScheduledSearchV1RequestV1);
+        const configuration = new Configuration();
+        const apiInstance = new ScheduledSearchApi(configuration);
+        const createScheduledSearchV1Request: CreateScheduledSearchV1Request = {"savedSearchId":"9c620e13-cd33-4804-a13d-403bd7bcdbad","schedule":{"type":"DAILY","hours":{"type":"LIST","values":["9"]}},"recipients":[{"type":"IDENTITY","id":"2c9180867624cbd7017642d8c8c81f67"}]}; // CreateScheduledSearchV1Request | The scheduled search to persist.
+        const result = await apiInstance.createScheduledSearchV1({ createScheduledSearchV1Request: createScheduledSearchV1Request });
         console.log(result);
 - path: /scheduled-searches/v1/{id}
   method: DELETE
@@ -19,14 +18,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/scheduled_search/methods/scheduled-search#delete-scheduled-search-v1
       source: |
-        import { ScheduledSearchV1Api } from 'sailpoint-api-client';
+        import { ScheduledSearchApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new ScheduledSearchV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new ScheduledSearchApi(configuration);
         const id: string = '2c91808568c529c60168cca6f90c1313'; // string | ID of the requested document. (default to undefined)
-        const result = await apiInstance.deleteScheduledSearchV1(id);
+        const result = await apiInstance.deleteScheduledSearchV1({ id: id });
         console.log(result);
 - path: /scheduled-searches/v1/{id}
   method: GET
@@ -34,14 +32,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/scheduled_search/methods/scheduled-search#get-scheduled-search-v1
       source: |
-        import { ScheduledSearchV1Api } from 'sailpoint-api-client';
+        import { ScheduledSearchApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new ScheduledSearchV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new ScheduledSearchApi(configuration);
         const id: string = '2c91808568c529c60168cca6f90c1313'; // string | ID of the requested document. (default to undefined)
-        const result = await apiInstance.getScheduledSearchV1(id);
+        const result = await apiInstance.getScheduledSearchV1({ id: id });
         console.log(result);
 - path: /scheduled-searches/v1
   method: GET
@@ -49,17 +46,16 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/scheduled_search/methods/scheduled-search#list-scheduled-search-v1
       source: |
-        import { ScheduledSearchV1Api } from 'sailpoint-api-client';
+        import { ScheduledSearchApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new ScheduledSearchV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new ScheduledSearchApi(configuration);
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const filters: string = 'savedSearchId eq "6cc0945d-9eeb-4948-9033-72d066e1153e"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq*  **savedSearchId**: *eq* (optional) (default to undefined)
-        const result = await apiInstance.listScheduledSearchV1();
+        const result = await apiInstance.listScheduledSearchV1({  });
         console.log(result);
 - path: /scheduled-searches/v1/{id}/unsubscribe
   method: POST
@@ -67,15 +63,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/scheduled_search/methods/scheduled-search#unsubscribe-scheduled-search-v1
       source: |
-        import { ScheduledSearchV1Api } from 'sailpoint-api-client';
+        import { ScheduledSearchApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new ScheduledSearchV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new ScheduledSearchApi(configuration);
         const id: string = '2c91808568c529c60168cca6f90c1313'; // string | ID of the requested document. (default to undefined)
-        const typedreferenceV1: TypedreferenceV1 = ; // TypedreferenceV1 | The recipient to be removed from the scheduled search. 
-        const result = await apiInstance.unsubscribeScheduledSearchV1(id, typedreferenceV1);
+        const typedreference: Typedreference = ; // Typedreference | The recipient to be removed from the scheduled search. 
+        const result = await apiInstance.unsubscribeScheduledSearchV1({ id: id, typedreference: typedreference });
         console.log(result);
 - path: /scheduled-searches/v1/{id}
   method: PUT
@@ -83,13 +78,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/scheduled_search/methods/scheduled-search#update-scheduled-search-v1
       source: |
-        import { ScheduledSearchV1Api } from 'sailpoint-api-client';
+        import { ScheduledSearchApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new ScheduledSearchV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new ScheduledSearchApi(configuration);
         const id: string = '2c91808568c529c60168cca6f90c1313'; // string | ID of the requested document. (default to undefined)
-        const scheduledsearchV1: ScheduledsearchV1 = ; // ScheduledsearchV1 | The scheduled search to persist.
-        const result = await apiInstance.updateScheduledSearchV1(id, scheduledsearchV1);
+        const scheduledsearch: Scheduledsearch = ; // Scheduledsearch | The scheduled search to persist.
+        const result = await apiInstance.updateScheduledSearchV1({ id: id, scheduledsearch: scheduledsearch });
         console.log(result);

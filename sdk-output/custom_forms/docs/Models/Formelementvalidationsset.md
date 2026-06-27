@@ -1,19 +1,19 @@
 ---
-id: v1-formelementvalidationsset-v1
-title: FormelementvalidationssetV1
-pagination_label: FormelementvalidationssetV1
-sidebar_label: FormelementvalidationssetV1
+id: v1-formelementvalidationsset
+title: Formelementvalidationsset
+pagination_label: Formelementvalidationsset
+sidebar_label: Formelementvalidationsset
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'FormelementvalidationssetV1', 'v1FormelementvalidationssetV1']
-slug: /tools/sdk/typescript/custom_forms/models/formelementvalidationsset-v1
-tags: ['SDK', 'Software Development Kit', 'FormelementvalidationssetV1', 'v1FormelementvalidationssetV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Formelementvalidationsset', 'v1Formelementvalidationsset']
+slug: /tools/sdk/typescript/custom_forms/models/formelementvalidationsset
+tags: ['SDK', 'Software Development Kit', 'Formelementvalidationsset', 'v1Formelementvalidationsset']
 ---
 
-# FormelementvalidationssetV1
+# Formelementvalidationsset
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**validationType** | **(optional)** **string** | The type of data validation that you wish to enforce, e.g., a required field, a minimum length, etc. | [default to undefined]
+**validationType** | **(optional)** `string` | The type of data validation that you wish to enforce, e.g., a required field, a minimum length, etc. | [default to undefined]
 

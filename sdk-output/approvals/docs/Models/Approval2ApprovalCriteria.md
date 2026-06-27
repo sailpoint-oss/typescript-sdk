@@ -1,21 +1,21 @@
 ---
-id: v1-approval2-approval-criteria-v1
-title: Approval2ApprovalCriteriaV1
-pagination_label: Approval2ApprovalCriteriaV1
-sidebar_label: Approval2ApprovalCriteriaV1
+id: v1-approval2-approval-criteria
+title: Approval2ApprovalCriteria
+pagination_label: Approval2ApprovalCriteria
+sidebar_label: Approval2ApprovalCriteria
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'Approval2ApprovalCriteriaV1', 'v1Approval2ApprovalCriteriaV1']
-slug: /tools/sdk/typescript/approvals/models/approval2-approval-criteria-v1
-tags: ['SDK', 'Software Development Kit', 'Approval2ApprovalCriteriaV1', 'v1Approval2ApprovalCriteriaV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Approval2ApprovalCriteria', 'v1Approval2ApprovalCriteria']
+slug: /tools/sdk/typescript/approvals/models/approval2-approval-criteria
+tags: ['SDK', 'Software Development Kit', 'Approval2ApprovalCriteria', 'v1Approval2ApprovalCriteria']
 ---
 
-# Approval2ApprovalCriteriaV1
+# Approval2ApprovalCriteria
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | Type of approval criteria, such as SERIAL or PARALLEL | [default to undefined]
-**approval** | **(optional)** **Approval2ApprovalCriteriaApprovalV1** |  | [default to undefined]
-**rejection** | **(optional)** **Approval2ApprovalCriteriaRejectionV1** |  | [default to undefined]
+**type** | **(optional)** `string` | Type of approval criteria, such as SERIAL or PARALLEL | [default to undefined]
+**approval** | **(optional)** `Approval2ApprovalCriteriaApproval` |  | [default to undefined]
+**rejection** | **(optional)** `Approval2ApprovalCriteriaRejection` |  | [default to undefined]
 

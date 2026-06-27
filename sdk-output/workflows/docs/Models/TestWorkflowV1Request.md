@@ -1,19 +1,19 @@
 ---
-id: v1-test-workflow-v1-request-v1
-title: TestWorkflowV1RequestV1
-pagination_label: TestWorkflowV1RequestV1
-sidebar_label: TestWorkflowV1RequestV1
+id: v1-test-workflow-v1-request
+title: TestWorkflowV1Request
+pagination_label: TestWorkflowV1Request
+sidebar_label: TestWorkflowV1Request
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'TestWorkflowV1RequestV1', 'v1TestWorkflowV1RequestV1']
-slug: /tools/sdk/typescript/workflows/models/test-workflow-v1-request-v1
-tags: ['SDK', 'Software Development Kit', 'TestWorkflowV1RequestV1', 'v1TestWorkflowV1RequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'TestWorkflowV1Request', 'v1TestWorkflowV1Request']
+slug: /tools/sdk/typescript/workflows/models/test-workflow-v1-request
+tags: ['SDK', 'Software Development Kit', 'TestWorkflowV1Request', 'v1TestWorkflowV1Request']
 ---
 
-# TestWorkflowV1RequestV1
+# TestWorkflowV1Request
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**input** | **object** | The test input for the workflow. | [default to undefined]
+**input** | `object` | The test input for the workflow. | [default to undefined]
 

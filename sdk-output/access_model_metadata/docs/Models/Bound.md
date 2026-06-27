@@ -1,20 +1,20 @@
 ---
-id: v1-bound-v1
-title: BoundV1
-pagination_label: BoundV1
-sidebar_label: BoundV1
+id: v1-bound
+title: Bound
+pagination_label: Bound
+sidebar_label: Bound
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'BoundV1', 'v1BoundV1']
-slug: /tools/sdk/typescript/access_model_metadata/models/bound-v1
-tags: ['SDK', 'Software Development Kit', 'BoundV1', 'v1BoundV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Bound', 'v1Bound']
+slug: /tools/sdk/typescript/access_model_metadata/models/bound
+tags: ['SDK', 'Software Development Kit', 'Bound', 'v1Bound']
 ---
 
-# BoundV1
+# Bound
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **string** | The value of the range\'s endpoint. | [default to undefined]
-**inclusive** | **(optional)** **boolean** | Indicates if the endpoint is included in the range. | [default to false]
+**value** | `string` | The value of the range\'s endpoint. | [default to undefined]
+**inclusive** | **(optional)** `boolean` | Indicates if the endpoint is included in the range. | [default to false]
 

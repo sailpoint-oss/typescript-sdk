@@ -1,20 +1,20 @@
 ---
-id: v1-nonemployeeidentityreferencewithid-v1
-title: NonemployeeidentityreferencewithidV1
-pagination_label: NonemployeeidentityreferencewithidV1
-sidebar_label: NonemployeeidentityreferencewithidV1
+id: v1-nonemployeeidentityreferencewithid
+title: Nonemployeeidentityreferencewithid
+pagination_label: Nonemployeeidentityreferencewithid
+sidebar_label: Nonemployeeidentityreferencewithid
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'NonemployeeidentityreferencewithidV1', 'v1NonemployeeidentityreferencewithidV1']
-slug: /tools/sdk/typescript/non_employee_lifecycle_management/models/nonemployeeidentityreferencewithid-v1
-tags: ['SDK', 'Software Development Kit', 'NonemployeeidentityreferencewithidV1', 'v1NonemployeeidentityreferencewithidV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Nonemployeeidentityreferencewithid', 'v1Nonemployeeidentityreferencewithid']
+slug: /tools/sdk/typescript/non_employee_lifecycle_management/models/nonemployeeidentityreferencewithid
+tags: ['SDK', 'Software Development Kit', 'Nonemployeeidentityreferencewithid', 'v1Nonemployeeidentityreferencewithid']
 ---
 
-# NonemployeeidentityreferencewithidV1
+# Nonemployeeidentityreferencewithid
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **NonemployeeidentitydtotypeV1** |  | [default to undefined]
-**id** | **(optional)** **string** | Identity id | [default to undefined]
+**type** | **(optional)** `Nonemployeeidentitydtotype` |  | [default to undefined]
+**id** | **(optional)** `string` | Identity id | [default to undefined]
 

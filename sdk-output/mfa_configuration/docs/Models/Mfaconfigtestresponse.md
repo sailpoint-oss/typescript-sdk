@@ -1,20 +1,20 @@
 ---
-id: v1-mfaconfigtestresponse-v1
-title: MfaconfigtestresponseV1
-pagination_label: MfaconfigtestresponseV1
-sidebar_label: MfaconfigtestresponseV1
+id: v1-mfaconfigtestresponse
+title: Mfaconfigtestresponse
+pagination_label: Mfaconfigtestresponse
+sidebar_label: Mfaconfigtestresponse
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'MfaconfigtestresponseV1', 'v1MfaconfigtestresponseV1']
-slug: /tools/sdk/typescript/mfa_configuration/models/mfaconfigtestresponse-v1
-tags: ['SDK', 'Software Development Kit', 'MfaconfigtestresponseV1', 'v1MfaconfigtestresponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Mfaconfigtestresponse', 'v1Mfaconfigtestresponse']
+slug: /tools/sdk/typescript/mfa_configuration/models/mfaconfigtestresponse
+tags: ['SDK', 'Software Development Kit', 'Mfaconfigtestresponse', 'v1Mfaconfigtestresponse']
 ---
 
-# MfaconfigtestresponseV1
+# Mfaconfigtestresponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**state** | **(optional)** **string** | The configuration test result. | [readonly] [default to undefined]
-**error** | **(optional)** **string** | The error message to indicate the failure of configuration test. | [readonly] [default to undefined]
+**state** | **(optional)** `string` | The configuration test result. | [readonly] [default to undefined]
+**error** | **(optional)** `string` | The error message to indicate the failure of configuration test. | [readonly] [default to undefined]
 

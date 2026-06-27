@@ -1,19 +1,19 @@
 ---
-id: v1-list-sources-v1401-response-v1
-title: ListSourcesV1401ResponseV1
-pagination_label: ListSourcesV1401ResponseV1
-sidebar_label: ListSourcesV1401ResponseV1
+id: v1-list-sources-v1401-response
+title: ListSourcesV1401Response
+pagination_label: ListSourcesV1401Response
+sidebar_label: ListSourcesV1401Response
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ListSourcesV1401ResponseV1', 'v1ListSourcesV1401ResponseV1']
-slug: /tools/sdk/typescript/sources/models/list-sources-v1401-response-v1
-tags: ['SDK', 'Software Development Kit', 'ListSourcesV1401ResponseV1', 'v1ListSourcesV1401ResponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ListSourcesV1401Response', 'v1ListSourcesV1401Response']
+slug: /tools/sdk/typescript/sources/models/list-sources-v1401-response
+tags: ['SDK', 'Software Development Kit', 'ListSourcesV1401Response', 'v1ListSourcesV1401Response']
 ---
 
-# ListSourcesV1401ResponseV1
+# ListSourcesV1401Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**error** | **(optional)** **any** | A message describing the error | [default to undefined]
+**error** | **(optional)** `any` | A message describing the error | [default to undefined]
 

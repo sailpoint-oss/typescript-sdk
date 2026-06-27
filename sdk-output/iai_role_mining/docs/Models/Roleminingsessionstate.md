@@ -1,15 +1,15 @@
 ---
-id: v1-roleminingsessionstate-v1
-title: RoleminingsessionstateV1
-pagination_label: RoleminingsessionstateV1
-sidebar_label: RoleminingsessionstateV1
+id: v1-roleminingsessionstate
+title: Roleminingsessionstate
+pagination_label: Roleminingsessionstate
+sidebar_label: Roleminingsessionstate
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RoleminingsessionstateV1', 'v1RoleminingsessionstateV1']
-slug: /tools/sdk/typescript/iai_role_mining/models/roleminingsessionstate-v1
-tags: ['SDK', 'Software Development Kit', 'RoleminingsessionstateV1', 'v1RoleminingsessionstateV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Roleminingsessionstate', 'v1Roleminingsessionstate']
+slug: /tools/sdk/typescript/iai_role_mining/models/roleminingsessionstate
+tags: ['SDK', 'Software Development Kit', 'Roleminingsessionstate', 'v1Roleminingsessionstate']
 ---
 
-# RoleminingsessionstateV1
+# Roleminingsessionstate
 
 ## Enum
 

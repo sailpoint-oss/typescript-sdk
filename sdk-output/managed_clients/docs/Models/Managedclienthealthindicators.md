@@ -1,22 +1,22 @@
 ---
-id: v1-managedclienthealthindicators-v1
-title: ManagedclienthealthindicatorsV1
-pagination_label: ManagedclienthealthindicatorsV1
-sidebar_label: ManagedclienthealthindicatorsV1
+id: v1-managedclienthealthindicators
+title: Managedclienthealthindicators
+pagination_label: Managedclienthealthindicators
+sidebar_label: Managedclienthealthindicators
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ManagedclienthealthindicatorsV1', 'v1ManagedclienthealthindicatorsV1']
-slug: /tools/sdk/typescript/managed_clients/models/managedclienthealthindicators-v1
-tags: ['SDK', 'Software Development Kit', 'ManagedclienthealthindicatorsV1', 'v1ManagedclienthealthindicatorsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Managedclienthealthindicators', 'v1Managedclienthealthindicators']
+slug: /tools/sdk/typescript/managed_clients/models/managedclienthealthindicators
+tags: ['SDK', 'Software Development Kit', 'Managedclienthealthindicators', 'v1Managedclienthealthindicators']
 ---
 
-# ManagedclienthealthindicatorsV1
+# Managedclienthealthindicators
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**body** | **ManagedclienthealthindicatorsBodyV1** |  | [default to undefined]
-**status** | **string** | Top-level status of the Managed Client | [default to undefined]
-**type** | **string** | Type of the Managed Client | [default to undefined]
-**timestamp** | **string** | Timestamp when this report was generated | [default to undefined]
+**body** | `ManagedclienthealthindicatorsBody` |  | [default to undefined]
+**status** | `string` | Top-level status of the Managed Client | [default to undefined]
+**type** | `string` | Type of the Managed Client | [default to undefined]
+**timestamp** | `string` | Timestamp when this report was generated | [default to undefined]
 

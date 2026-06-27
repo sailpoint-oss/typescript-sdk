@@ -1,23 +1,23 @@
 ---
-id: v1-subsearchaggregationspecification-v1
-title: SubsearchaggregationspecificationV1
-pagination_label: SubsearchaggregationspecificationV1
-sidebar_label: SubsearchaggregationspecificationV1
+id: v1-subsearchaggregationspecification
+title: Subsearchaggregationspecification
+pagination_label: Subsearchaggregationspecification
+sidebar_label: Subsearchaggregationspecification
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SubsearchaggregationspecificationV1', 'v1SubsearchaggregationspecificationV1']
-slug: /tools/sdk/typescript/search/models/subsearchaggregationspecification-v1
-tags: ['SDK', 'Software Development Kit', 'SubsearchaggregationspecificationV1', 'v1SubsearchaggregationspecificationV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Subsearchaggregationspecification', 'v1Subsearchaggregationspecification']
+slug: /tools/sdk/typescript/search/models/subsearchaggregationspecification
+tags: ['SDK', 'Software Development Kit', 'Subsearchaggregationspecification', 'v1Subsearchaggregationspecification']
 ---
 
-# SubsearchaggregationspecificationV1
+# Subsearchaggregationspecification
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**nested** | **(optional)** **NestedaggregationV1** |  | [default to undefined]
-**metric** | **(optional)** **MetricaggregationV1** |  | [default to undefined]
-**filter** | **(optional)** **FilteraggregationV1** |  | [default to undefined]
-**bucket** | **(optional)** **BucketaggregationV1** |  | [default to undefined]
-**subAggregation** | **(optional)** **AggregationsV1** |  | [default to undefined]
+**nested** | **(optional)** `Nestedaggregation` |  | [default to undefined]
+**metric** | **(optional)** `Metricaggregation` |  | [default to undefined]
+**filter** | **(optional)** `Filteraggregation` |  | [default to undefined]
+**bucket** | **(optional)** `Bucketaggregation` |  | [default to undefined]
+**subAggregation** | **(optional)** `Aggregations` |  | [default to undefined]
 

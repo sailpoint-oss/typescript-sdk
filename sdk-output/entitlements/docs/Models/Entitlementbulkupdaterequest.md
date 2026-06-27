@@ -1,20 +1,20 @@
 ---
-id: v1-entitlementbulkupdaterequest-v1
-title: EntitlementbulkupdaterequestV1
-pagination_label: EntitlementbulkupdaterequestV1
-sidebar_label: EntitlementbulkupdaterequestV1
+id: v1-entitlementbulkupdaterequest
+title: Entitlementbulkupdaterequest
+pagination_label: Entitlementbulkupdaterequest
+sidebar_label: Entitlementbulkupdaterequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'EntitlementbulkupdaterequestV1', 'v1EntitlementbulkupdaterequestV1']
-slug: /tools/sdk/typescript/entitlements/models/entitlementbulkupdaterequest-v1
-tags: ['SDK', 'Software Development Kit', 'EntitlementbulkupdaterequestV1', 'v1EntitlementbulkupdaterequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Entitlementbulkupdaterequest', 'v1Entitlementbulkupdaterequest']
+slug: /tools/sdk/typescript/entitlements/models/entitlementbulkupdaterequest
+tags: ['SDK', 'Software Development Kit', 'Entitlementbulkupdaterequest', 'v1Entitlementbulkupdaterequest']
 ---
 
-# EntitlementbulkupdaterequestV1
+# Entitlementbulkupdaterequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**entitlementIds** | **Array&lt;string&gt;** | List of entitlement ids to update | [default to undefined]
-**jsonPatch** | **Array&lt;JsonpatchoperationV1&gt;** |  | [default to undefined]
+**entitlementIds** | `Array<string>` | List of entitlement ids to update | [default to undefined]
+**jsonPatch** | `Array<Jsonpatchoperation>` |  | [default to undefined]
 

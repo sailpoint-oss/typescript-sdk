@@ -1,15 +1,15 @@
 ---
-id: v1-commonaccesstype-v1
-title: CommonaccesstypeV1
-pagination_label: CommonaccesstypeV1
-sidebar_label: CommonaccesstypeV1
+id: v1-commonaccesstype
+title: Commonaccesstype
+pagination_label: Commonaccesstype
+sidebar_label: Commonaccesstype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'CommonaccesstypeV1', 'v1CommonaccesstypeV1']
-slug: /tools/sdk/typescript/iai_common_access/models/commonaccesstype-v1
-tags: ['SDK', 'Software Development Kit', 'CommonaccesstypeV1', 'v1CommonaccesstypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Commonaccesstype', 'v1Commonaccesstype']
+slug: /tools/sdk/typescript/iai_common_access/models/commonaccesstype
+tags: ['SDK', 'Software Development Kit', 'Commonaccesstype', 'v1Commonaccesstype']
 ---
 
-# CommonaccesstypeV1
+# Commonaccesstype
 
 ## Enum
 

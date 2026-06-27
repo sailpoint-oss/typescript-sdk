@@ -26,127 +26,127 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ArrayInnerV1
+ * @interface ArrayInner
  */
-export interface ArrayInnerV1 {
+export interface ArrayInner {
 }
 /**
  * 
  * @export
- * @interface AuthuserV1
+ * @interface Authuser
  */
-export interface AuthuserV1 {
+export interface Authuser {
     /**
      * Tenant name.
      * @type {string}
-     * @memberof AuthuserV1
+     * @memberof Authuser
      */
     'tenant'?: string;
     /**
      * Identity ID.
      * @type {string}
-     * @memberof AuthuserV1
+     * @memberof Authuser
      */
     'id'?: string;
     /**
      * Identity\'s unique identitifier.
      * @type {string}
-     * @memberof AuthuserV1
+     * @memberof Authuser
      */
     'uid'?: string;
     /**
      * ID of the auth profile associated with the auth user.
      * @type {string}
-     * @memberof AuthuserV1
+     * @memberof Authuser
      */
     'profile'?: string;
     /**
      * Auth user\'s employee number.
      * @type {string}
-     * @memberof AuthuserV1
+     * @memberof Authuser
      */
     'identificationNumber'?: string | null;
     /**
      * Auth user\'s email.
      * @type {string}
-     * @memberof AuthuserV1
+     * @memberof Authuser
      */
     'email'?: string | null;
     /**
      * Auth user\'s phone number.
      * @type {string}
-     * @memberof AuthuserV1
+     * @memberof Authuser
      */
     'phone'?: string | null;
     /**
      * Auth user\'s work phone number.
      * @type {string}
-     * @memberof AuthuserV1
+     * @memberof Authuser
      */
     'workPhone'?: string | null;
     /**
      * Auth user\'s personal email.
      * @type {string}
-     * @memberof AuthuserV1
+     * @memberof Authuser
      */
     'personalEmail'?: string | null;
     /**
      * Auth user\'s first name.
      * @type {string}
-     * @memberof AuthuserV1
+     * @memberof Authuser
      */
     'firstname'?: string | null;
     /**
      * Auth user\'s last name.
      * @type {string}
-     * @memberof AuthuserV1
+     * @memberof Authuser
      */
     'lastname'?: string | null;
     /**
      * Auth user\'s name in displayed format.
      * @type {string}
-     * @memberof AuthuserV1
+     * @memberof Authuser
      */
     'displayName'?: string;
     /**
      * Auth user\'s alias.
      * @type {string}
-     * @memberof AuthuserV1
+     * @memberof Authuser
      */
     'alias'?: string;
     /**
      * Date of last password change.
      * @type {string}
-     * @memberof AuthuserV1
+     * @memberof Authuser
      */
     'lastPasswordChangeDate'?: string | null;
     /**
      * Timestamp of the last login (long type value).
      * @type {number}
-     * @memberof AuthuserV1
+     * @memberof Authuser
      */
     'lastLoginTimestamp'?: number;
     /**
      * Timestamp of the current login (long type value).
      * @type {number}
-     * @memberof AuthuserV1
+     * @memberof Authuser
      */
     'currentLoginTimestamp'?: number;
     /**
      * The date and time when the user was last unlocked.
      * @type {string}
-     * @memberof AuthuserV1
+     * @memberof Authuser
      */
     'lastUnlockTimestamp'?: string | null;
     /**
      * Array of the auth user\'s capabilities.
      * @type {Array<string>}
-     * @memberof AuthuserV1
+     * @memberof Authuser
      */
-    'capabilities'?: Array<AuthuserV1CapabilitiesV1> | null;
+    'capabilities'?: Array<AuthuserCapabilitiesEnum> | null;
 }
 
-export const AuthuserV1CapabilitiesV1 = {
+export const AuthuserCapabilitiesEnum = {
     CertAdmin: 'CERT_ADMIN',
     CloudGovAdmin: 'CLOUD_GOV_ADMIN',
     CloudGovUser: 'CLOUD_GOV_USER',
@@ -172,30 +172,30 @@ export const AuthuserV1CapabilitiesV1 = {
     SpUiConfigHubRead: 'sp:ui-config-hub-read'
 } as const;
 
-export type AuthuserV1CapabilitiesV1 = typeof AuthuserV1CapabilitiesV1[keyof typeof AuthuserV1CapabilitiesV1];
+export type AuthuserCapabilitiesEnum = typeof AuthuserCapabilitiesEnum[keyof typeof AuthuserCapabilitiesEnum];
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -204,87 +204,87 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetAuthUserV1401ResponseV1
+ * @interface GetAuthUserV1401Response
  */
-export interface GetAuthUserV1401ResponseV1 {
+export interface GetAuthUserV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetAuthUserV1401ResponseV1
+     * @memberof GetAuthUserV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetAuthUserV1429ResponseV1
+ * @interface GetAuthUserV1429Response
  */
-export interface GetAuthUserV1429ResponseV1 {
+export interface GetAuthUserV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetAuthUserV1429ResponseV1
+     * @memberof GetAuthUserV1429Response
      */
     'message'?: any;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface JsonpatchoperationV1
+ * @interface Jsonpatchoperation
  */
-export interface JsonpatchoperationV1 {
+export interface Jsonpatchoperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
-    'op': JsonpatchoperationV1OpV1;
+    'op': JsonpatchoperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValueV1}
-     * @memberof JsonpatchoperationV1
+     * @type {JsonpatchoperationValue}
+     * @memberof Jsonpatchoperation
      */
-    'value'?: JsonpatchoperationValueV1;
+    'value'?: JsonpatchoperationValue;
 }
 
-export const JsonpatchoperationV1OpV1 = {
+export const JsonpatchoperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -293,14 +293,14 @@ export const JsonpatchoperationV1OpV1 = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationV1OpV1 = typeof JsonpatchoperationV1OpV1[keyof typeof JsonpatchoperationV1OpV1];
+export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
 
 /**
- * @type JsonpatchoperationValueV1
+ * @type JsonpatchoperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number | object | string;
+export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -308,20 +308,20 @@ export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number |
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 
 /**
- * AuthUsersV1Api - axios parameter creator
+ * AuthUsersApi - axios parameter creator
  * @export
  */
-export const AuthUsersV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const AuthUsersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Return the specified user\'s authentication system details.
@@ -361,15 +361,15 @@ export const AuthUsersV1ApiAxiosParamCreator = function (configuration?: Configu
          * Use a PATCH request to update an existing user in the authentication system. Use this endpoint to modify these fields:    * `capabilities`  A \'400.1.1 Illegal update attempt\' detail code indicates that you attempted to PATCH a field that is not allowed.
          * @summary Auth user update
          * @param {string} id Identity ID
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchAuthUserV1: async (id: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchAuthUserV1: async (id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchAuthUserV1', 'id', id)
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('patchAuthUserV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('patchAuthUserV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/auth-users/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -390,7 +390,7 @@ export const AuthUsersV1ApiAxiosParamCreator = function (configuration?: Configu
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -401,11 +401,11 @@ export const AuthUsersV1ApiAxiosParamCreator = function (configuration?: Configu
 };
 
 /**
- * AuthUsersV1Api - functional programming interface
+ * AuthUsersApi - functional programming interface
  * @export
  */
-export const AuthUsersV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = AuthUsersV1ApiAxiosParamCreator(configuration)
+export const AuthUsersApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = AuthUsersApiAxiosParamCreator(configuration)
     return {
         /**
          * Return the specified user\'s authentication system details.
@@ -414,123 +414,123 @@ export const AuthUsersV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAuthUserV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthuserV1>> {
+        async getAuthUserV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Authuser>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAuthUserV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AuthUsersV1Api.getAuthUserV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AuthUsersApi.getAuthUserV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Use a PATCH request to update an existing user in the authentication system. Use this endpoint to modify these fields:    * `capabilities`  A \'400.1.1 Illegal update attempt\' detail code indicates that you attempted to PATCH a field that is not allowed.
          * @summary Auth user update
          * @param {string} id Identity ID
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchAuthUserV1(id: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthuserV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchAuthUserV1(id, jsonpatchoperationV1, axiosOptions);
+        async patchAuthUserV1(id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Authuser>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchAuthUserV1(id, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AuthUsersV1Api.patchAuthUserV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AuthUsersApi.patchAuthUserV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * AuthUsersV1Api - factory interface
+ * AuthUsersApi - factory interface
  * @export
  */
-export const AuthUsersV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = AuthUsersV1ApiFp(configuration)
+export const AuthUsersApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = AuthUsersApiFp(configuration)
     return {
         /**
          * Return the specified user\'s authentication system details.
          * @summary Auth user details
-         * @param {AuthUsersV1ApiGetAuthUserV1Request} requestParameters Request parameters.
+         * @param {AuthUsersApiGetAuthUserV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthUserV1(requestParameters: AuthUsersV1ApiGetAuthUserV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AuthuserV1> {
+        getAuthUserV1(requestParameters: AuthUsersApiGetAuthUserV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Authuser> {
             return localVarFp.getAuthUserV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use a PATCH request to update an existing user in the authentication system. Use this endpoint to modify these fields:    * `capabilities`  A \'400.1.1 Illegal update attempt\' detail code indicates that you attempted to PATCH a field that is not allowed.
          * @summary Auth user update
-         * @param {AuthUsersV1ApiPatchAuthUserV1Request} requestParameters Request parameters.
+         * @param {AuthUsersApiPatchAuthUserV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchAuthUserV1(requestParameters: AuthUsersV1ApiPatchAuthUserV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AuthuserV1> {
-            return localVarFp.patchAuthUserV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        patchAuthUserV1(requestParameters: AuthUsersApiPatchAuthUserV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Authuser> {
+            return localVarFp.patchAuthUserV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for getAuthUserV1 operation in AuthUsersV1Api.
+ * Request parameters for getAuthUserV1 operation in AuthUsersApi.
  * @export
- * @interface AuthUsersV1ApiGetAuthUserV1Request
+ * @interface AuthUsersApiGetAuthUserV1Request
  */
-export interface AuthUsersV1ApiGetAuthUserV1Request {
+export interface AuthUsersApiGetAuthUserV1Request {
     /**
      * Identity ID
      * @type {string}
-     * @memberof AuthUsersV1ApiGetAuthUserV1
+     * @memberof AuthUsersApiGetAuthUserV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for patchAuthUserV1 operation in AuthUsersV1Api.
+ * Request parameters for patchAuthUserV1 operation in AuthUsersApi.
  * @export
- * @interface AuthUsersV1ApiPatchAuthUserV1Request
+ * @interface AuthUsersApiPatchAuthUserV1Request
  */
-export interface AuthUsersV1ApiPatchAuthUserV1Request {
+export interface AuthUsersApiPatchAuthUserV1Request {
     /**
      * Identity ID
      * @type {string}
-     * @memberof AuthUsersV1ApiPatchAuthUserV1
+     * @memberof AuthUsersApiPatchAuthUserV1
      */
     readonly id: string
 
     /**
      * A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof AuthUsersV1ApiPatchAuthUserV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof AuthUsersApiPatchAuthUserV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * AuthUsersV1Api - object-oriented interface
+ * AuthUsersApi - object-oriented interface
  * @export
- * @class AuthUsersV1Api
+ * @class AuthUsersApi
  * @extends {BaseAPI}
  */
-export class AuthUsersV1Api extends BaseAPI {
+export class AuthUsersApi extends BaseAPI {
     /**
      * Return the specified user\'s authentication system details.
      * @summary Auth user details
-     * @param {AuthUsersV1ApiGetAuthUserV1Request} requestParameters Request parameters.
+     * @param {AuthUsersApiGetAuthUserV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AuthUsersV1Api
+     * @memberof AuthUsersApi
      */
-    public getAuthUserV1(requestParameters: AuthUsersV1ApiGetAuthUserV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AuthUsersV1ApiFp(this.configuration).getAuthUserV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getAuthUserV1(requestParameters: AuthUsersApiGetAuthUserV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AuthUsersApiFp(this.configuration).getAuthUserV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use a PATCH request to update an existing user in the authentication system. Use this endpoint to modify these fields:    * `capabilities`  A \'400.1.1 Illegal update attempt\' detail code indicates that you attempted to PATCH a field that is not allowed.
      * @summary Auth user update
-     * @param {AuthUsersV1ApiPatchAuthUserV1Request} requestParameters Request parameters.
+     * @param {AuthUsersApiPatchAuthUserV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AuthUsersV1Api
+     * @memberof AuthUsersApi
      */
-    public patchAuthUserV1(requestParameters: AuthUsersV1ApiPatchAuthUserV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AuthUsersV1ApiFp(this.configuration).patchAuthUserV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchAuthUserV1(requestParameters: AuthUsersApiPatchAuthUserV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AuthUsersApiFp(this.configuration).patchAuthUserV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

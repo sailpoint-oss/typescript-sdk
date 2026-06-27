@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -53,57 +53,57 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface ListTagsV1401ResponseV1
+ * @interface ListTagsV1401Response
  */
-export interface ListTagsV1401ResponseV1 {
+export interface ListTagsV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListTagsV1401ResponseV1
+     * @memberof ListTagsV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ListTagsV1429ResponseV1
+ * @interface ListTagsV1429Response
  */
-export interface ListTagsV1429ResponseV1 {
+export interface ListTagsV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListTagsV1429ResponseV1
+     * @memberof ListTagsV1429Response
      */
     'message'?: any;
 }
@@ -113,41 +113,78 @@ export interface ListTagsV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
+ * 
+ * @export
+ * @interface Tag2
+ */
+export interface Tag2 {
+    /**
+     * Tag id
+     * @type {string}
+     * @memberof Tag2
+     */
+    'id': string;
+    /**
+     * Name of the tag.
+     * @type {string}
+     * @memberof Tag2
+     */
+    'name': string;
+    /**
+     * Date the tag was created.
+     * @type {string}
+     * @memberof Tag2
+     */
+    'created': string;
+    /**
+     * Date the tag was last modified.
+     * @type {string}
+     * @memberof Tag2
+     */
+    'modified': string;
+    /**
+     * 
+     * @type {Array<Tag2TagCategoryRefsInner>}
+     * @memberof Tag2
+     */
+    'tagCategoryRefs': Array<Tag2TagCategoryRefsInner>;
+}
+/**
  * Tagged object\'s category.
  * @export
- * @interface Tag2TagCategoryRefsInnerV1
+ * @interface Tag2TagCategoryRefsInner
  */
-export interface Tag2TagCategoryRefsInnerV1 {
+export interface Tag2TagCategoryRefsInner {
     /**
      * DTO type of the tagged object\'s category.
      * @type {string}
-     * @memberof Tag2TagCategoryRefsInnerV1
+     * @memberof Tag2TagCategoryRefsInner
      */
-    'type'?: Tag2TagCategoryRefsInnerV1TypeV1;
+    'type'?: Tag2TagCategoryRefsInnerTypeEnum;
     /**
      * Tagged object\'s ID.
      * @type {string}
-     * @memberof Tag2TagCategoryRefsInnerV1
+     * @memberof Tag2TagCategoryRefsInner
      */
     'id'?: string;
     /**
      * Tagged object\'s display name.
      * @type {string}
-     * @memberof Tag2TagCategoryRefsInnerV1
+     * @memberof Tag2TagCategoryRefsInner
      */
     'name'?: string;
 }
 
-export const Tag2TagCategoryRefsInnerV1TypeV1 = {
+export const Tag2TagCategoryRefsInnerTypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     Application: 'APPLICATION',
     Campaign: 'CAMPAIGN',
@@ -158,62 +195,25 @@ export const Tag2TagCategoryRefsInnerV1TypeV1 = {
     Source: 'SOURCE'
 } as const;
 
-export type Tag2TagCategoryRefsInnerV1TypeV1 = typeof Tag2TagCategoryRefsInnerV1TypeV1[keyof typeof Tag2TagCategoryRefsInnerV1TypeV1];
+export type Tag2TagCategoryRefsInnerTypeEnum = typeof Tag2TagCategoryRefsInnerTypeEnum[keyof typeof Tag2TagCategoryRefsInnerTypeEnum];
+
 
 /**
- * 
- * @export
- * @interface Tag2V1
- */
-export interface Tag2V1 {
-    /**
-     * Tag id
-     * @type {string}
-     * @memberof Tag2V1
-     */
-    'id': string;
-    /**
-     * Name of the tag.
-     * @type {string}
-     * @memberof Tag2V1
-     */
-    'name': string;
-    /**
-     * Date the tag was created.
-     * @type {string}
-     * @memberof Tag2V1
-     */
-    'created': string;
-    /**
-     * Date the tag was last modified.
-     * @type {string}
-     * @memberof Tag2V1
-     */
-    'modified': string;
-    /**
-     * 
-     * @type {Array<Tag2TagCategoryRefsInnerV1>}
-     * @memberof Tag2V1
-     */
-    'tagCategoryRefs': Array<Tag2TagCategoryRefsInnerV1>;
-}
-
-/**
- * TagsV1Api - axios parameter creator
+ * TagsApi - axios parameter creator
  * @export
  */
-export const TagsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const TagsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This API creates new tag.  A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Create tag
-         * @param {Tag2V1} tag2V1 
+         * @param {Tag2} tag2 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createTagV1: async (tag2V1: Tag2V1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'tag2V1' is not null or undefined
-            assertParamExists('createTagV1', 'tag2V1', tag2V1)
+        createTagV1: async (tag2: Tag2, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tag2' is not null or undefined
+            assertParamExists('createTagV1', 'tag2', tag2)
             const localVarPath = `/tags/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -233,7 +233,7 @@ export const TagsV1ApiAxiosParamCreator = function (configuration?: Configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(tag2V1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(tag2, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -367,23 +367,23 @@ export const TagsV1ApiAxiosParamCreator = function (configuration?: Configuratio
 };
 
 /**
- * TagsV1Api - functional programming interface
+ * TagsApi - functional programming interface
  * @export
  */
-export const TagsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = TagsV1ApiAxiosParamCreator(configuration)
+export const TagsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = TagsApiAxiosParamCreator(configuration)
     return {
         /**
          * This API creates new tag.  A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Create tag
-         * @param {Tag2V1} tag2V1 
+         * @param {Tag2} tag2 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createTagV1(tag2V1: Tag2V1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tag2V1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createTagV1(tag2V1, axiosOptions);
+        async createTagV1(tag2: Tag2, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tag2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createTagV1(tag2, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TagsV1Api.createTagV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TagsApi.createTagV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -396,7 +396,7 @@ export const TagsV1ApiFp = function(configuration?: Configuration) {
         async deleteTagByIdV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTagByIdV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TagsV1Api.deleteTagByIdV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TagsApi.deleteTagByIdV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -406,10 +406,10 @@ export const TagsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getTagByIdV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tag2V1>> {
+        async getTagByIdV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tag2>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTagByIdV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TagsV1Api.getTagByIdV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TagsApi.getTagByIdV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -423,202 +423,202 @@ export const TagsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listTagsV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Tag2V1>>> {
+        async listTagsV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Tag2>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listTagsV1(limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TagsV1Api.listTagsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['TagsApi.listTagsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * TagsV1Api - factory interface
+ * TagsApi - factory interface
  * @export
  */
-export const TagsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = TagsV1ApiFp(configuration)
+export const TagsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = TagsApiFp(configuration)
     return {
         /**
          * This API creates new tag.  A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Create tag
-         * @param {TagsV1ApiCreateTagV1Request} requestParameters Request parameters.
+         * @param {TagsApiCreateTagV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createTagV1(requestParameters: TagsV1ApiCreateTagV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Tag2V1> {
-            return localVarFp.createTagV1(requestParameters.tag2V1, axiosOptions).then((request) => request(axios, basePath));
+        createTagV1(requestParameters: TagsApiCreateTagV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Tag2> {
+            return localVarFp.createTagV1(requestParameters.tag2, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API deletes a tag by specified id.  A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Delete tag
-         * @param {TagsV1ApiDeleteTagByIdV1Request} requestParameters Request parameters.
+         * @param {TagsApiDeleteTagByIdV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteTagByIdV1(requestParameters: TagsV1ApiDeleteTagByIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteTagByIdV1(requestParameters: TagsApiDeleteTagByIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteTagByIdV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Returns a tag by its id.  A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Get tag by id
-         * @param {TagsV1ApiGetTagByIdV1Request} requestParameters Request parameters.
+         * @param {TagsApiGetTagByIdV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getTagByIdV1(requestParameters: TagsV1ApiGetTagByIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Tag2V1> {
+        getTagByIdV1(requestParameters: TagsApiGetTagByIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Tag2> {
             return localVarFp.getTagByIdV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of tags.  A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary List tags
-         * @param {TagsV1ApiListTagsV1Request} requestParameters Request parameters.
+         * @param {TagsApiListTagsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listTagsV1(requestParameters: TagsV1ApiListTagsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Tag2V1>> {
+        listTagsV1(requestParameters: TagsApiListTagsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Tag2>> {
             return localVarFp.listTagsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createTagV1 operation in TagsV1Api.
+ * Request parameters for createTagV1 operation in TagsApi.
  * @export
- * @interface TagsV1ApiCreateTagV1Request
+ * @interface TagsApiCreateTagV1Request
  */
-export interface TagsV1ApiCreateTagV1Request {
+export interface TagsApiCreateTagV1Request {
     /**
      * 
-     * @type {Tag2V1}
-     * @memberof TagsV1ApiCreateTagV1
+     * @type {Tag2}
+     * @memberof TagsApiCreateTagV1
      */
-    readonly tag2V1: Tag2V1
+    readonly tag2: Tag2
 }
 
 /**
- * Request parameters for deleteTagByIdV1 operation in TagsV1Api.
+ * Request parameters for deleteTagByIdV1 operation in TagsApi.
  * @export
- * @interface TagsV1ApiDeleteTagByIdV1Request
+ * @interface TagsApiDeleteTagByIdV1Request
  */
-export interface TagsV1ApiDeleteTagByIdV1Request {
+export interface TagsApiDeleteTagByIdV1Request {
     /**
      * The ID of the object reference to delete.
      * @type {string}
-     * @memberof TagsV1ApiDeleteTagByIdV1
+     * @memberof TagsApiDeleteTagByIdV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getTagByIdV1 operation in TagsV1Api.
+ * Request parameters for getTagByIdV1 operation in TagsApi.
  * @export
- * @interface TagsV1ApiGetTagByIdV1Request
+ * @interface TagsApiGetTagByIdV1Request
  */
-export interface TagsV1ApiGetTagByIdV1Request {
+export interface TagsApiGetTagByIdV1Request {
     /**
      * The ID of the object reference to retrieve.
      * @type {string}
-     * @memberof TagsV1ApiGetTagByIdV1
+     * @memberof TagsApiGetTagByIdV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for listTagsV1 operation in TagsV1Api.
+ * Request parameters for listTagsV1 operation in TagsApi.
  * @export
- * @interface TagsV1ApiListTagsV1Request
+ * @interface TagsApiListTagsV1Request
  */
-export interface TagsV1ApiListTagsV1Request {
+export interface TagsApiListTagsV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof TagsV1ApiListTagsV1
+     * @memberof TagsApiListTagsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof TagsV1ApiListTagsV1
+     * @memberof TagsApiListTagsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof TagsV1ApiListTagsV1
+     * @memberof TagsApiListTagsV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*
      * @type {string}
-     * @memberof TagsV1ApiListTagsV1
+     * @memberof TagsApiListTagsV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified**
      * @type {string}
-     * @memberof TagsV1ApiListTagsV1
+     * @memberof TagsApiListTagsV1
      */
     readonly sorters?: string
 }
 
 /**
- * TagsV1Api - object-oriented interface
+ * TagsApi - object-oriented interface
  * @export
- * @class TagsV1Api
+ * @class TagsApi
  * @extends {BaseAPI}
  */
-export class TagsV1Api extends BaseAPI {
+export class TagsApi extends BaseAPI {
     /**
      * This API creates new tag.  A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary Create tag
-     * @param {TagsV1ApiCreateTagV1Request} requestParameters Request parameters.
+     * @param {TagsApiCreateTagV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TagsV1Api
+     * @memberof TagsApi
      */
-    public createTagV1(requestParameters: TagsV1ApiCreateTagV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TagsV1ApiFp(this.configuration).createTagV1(requestParameters.tag2V1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createTagV1(requestParameters: TagsApiCreateTagV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return TagsApiFp(this.configuration).createTagV1(requestParameters.tag2, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API deletes a tag by specified id.  A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary Delete tag
-     * @param {TagsV1ApiDeleteTagByIdV1Request} requestParameters Request parameters.
+     * @param {TagsApiDeleteTagByIdV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TagsV1Api
+     * @memberof TagsApi
      */
-    public deleteTagByIdV1(requestParameters: TagsV1ApiDeleteTagByIdV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TagsV1ApiFp(this.configuration).deleteTagByIdV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteTagByIdV1(requestParameters: TagsApiDeleteTagByIdV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return TagsApiFp(this.configuration).deleteTagByIdV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Returns a tag by its id.  A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary Get tag by id
-     * @param {TagsV1ApiGetTagByIdV1Request} requestParameters Request parameters.
+     * @param {TagsApiGetTagByIdV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TagsV1Api
+     * @memberof TagsApi
      */
-    public getTagByIdV1(requestParameters: TagsV1ApiGetTagByIdV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TagsV1ApiFp(this.configuration).getTagByIdV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getTagByIdV1(requestParameters: TagsApiGetTagByIdV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return TagsApiFp(this.configuration).getTagByIdV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a list of tags.  A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary List tags
-     * @param {TagsV1ApiListTagsV1Request} requestParameters Request parameters.
+     * @param {TagsApiListTagsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof TagsV1Api
+     * @memberof TagsApi
      */
-    public listTagsV1(requestParameters: TagsV1ApiListTagsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return TagsV1ApiFp(this.configuration).listTagsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listTagsV1(requestParameters: TagsApiListTagsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return TagsApiFp(this.configuration).listTagsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

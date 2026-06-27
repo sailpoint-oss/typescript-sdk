@@ -1,21 +1,21 @@
 ---
-id: v1-identity-manager-ref-v1
-title: IdentityManagerRefV1
-pagination_label: IdentityManagerRefV1
-sidebar_label: IdentityManagerRefV1
+id: v1-identity-manager-ref
+title: IdentityManagerRef
+pagination_label: IdentityManagerRef
+sidebar_label: IdentityManagerRef
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'IdentityManagerRefV1', 'v1IdentityManagerRefV1']
-slug: /tools/sdk/typescript/identities/models/identity-manager-ref-v1
-tags: ['SDK', 'Software Development Kit', 'IdentityManagerRefV1', 'v1IdentityManagerRefV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'IdentityManagerRef', 'v1IdentityManagerRef']
+slug: /tools/sdk/typescript/identities/models/identity-manager-ref
+tags: ['SDK', 'Software Development Kit', 'IdentityManagerRef', 'v1IdentityManagerRef']
 ---
 
-# IdentityManagerRefV1
+# IdentityManagerRef
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | DTO type of identity\'s manager | [default to undefined]
-**id** | **(optional)** **string** | ID of identity\'s manager | [default to undefined]
-**name** | **(optional)** **string** | Human-readable display name of identity\'s manager | [default to undefined]
+**type** | **(optional)** `string` | DTO type of identity\'s manager | [default to undefined]
+**id** | **(optional)** `string` | ID of identity\'s manager | [default to undefined]
+**name** | **(optional)** `string` | Human-readable display name of identity\'s manager | [default to undefined]
 

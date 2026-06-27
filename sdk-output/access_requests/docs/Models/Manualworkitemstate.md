@@ -1,15 +1,15 @@
 ---
-id: v1-manualworkitemstate-v1
-title: ManualworkitemstateV1
-pagination_label: ManualworkitemstateV1
-sidebar_label: ManualworkitemstateV1
+id: v1-manualworkitemstate
+title: Manualworkitemstate
+pagination_label: Manualworkitemstate
+sidebar_label: Manualworkitemstate
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ManualworkitemstateV1', 'v1ManualworkitemstateV1']
-slug: /tools/sdk/typescript/access_requests/models/manualworkitemstate-v1
-tags: ['SDK', 'Software Development Kit', 'ManualworkitemstateV1', 'v1ManualworkitemstateV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Manualworkitemstate', 'v1Manualworkitemstate']
+slug: /tools/sdk/typescript/access_requests/models/manualworkitemstate
+tags: ['SDK', 'Software Development Kit', 'Manualworkitemstate', 'v1Manualworkitemstate']
 ---
 
-# ManualworkitemstateV1
+# Manualworkitemstate
 
 ## Enum
 

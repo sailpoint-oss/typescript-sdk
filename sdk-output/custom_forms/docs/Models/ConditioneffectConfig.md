@@ -1,20 +1,20 @@
 ---
-id: v1-conditioneffect-config-v1
-title: ConditioneffectConfigV1
-pagination_label: ConditioneffectConfigV1
-sidebar_label: ConditioneffectConfigV1
+id: v1-conditioneffect-config
+title: ConditioneffectConfig
+pagination_label: ConditioneffectConfig
+sidebar_label: ConditioneffectConfig
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ConditioneffectConfigV1', 'v1ConditioneffectConfigV1']
-slug: /tools/sdk/typescript/custom_forms/models/conditioneffect-config-v1
-tags: ['SDK', 'Software Development Kit', 'ConditioneffectConfigV1', 'v1ConditioneffectConfigV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ConditioneffectConfig', 'v1ConditioneffectConfig']
+slug: /tools/sdk/typescript/custom_forms/models/conditioneffect-config
+tags: ['SDK', 'Software Development Kit', 'ConditioneffectConfig', 'v1ConditioneffectConfig']
 ---
 
-# ConditioneffectConfigV1
+# ConditioneffectConfig
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**defaultValueLabel** | **(optional)** **string** | Effect type\'s label. | [default to undefined]
-**element** | **(optional)** **string** | Element\'s identifier. | [default to undefined]
+**defaultValueLabel** | **(optional)** `string` | Effect type\'s label. | [default to undefined]
+**element** | **(optional)** `string` | Element\'s identifier. | [default to undefined]
 

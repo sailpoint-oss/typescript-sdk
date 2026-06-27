@@ -4,14 +4,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/jit_activations/methods/jit-activations#start-activate-workflow-v1
       source: |
-        import { JITActivationsV1Api } from 'sailpoint-api-client';
+        import { JITActivationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new JITActivationsV1Api(configuration);
-        const jitactivationactivaterequestV1: JitactivationactivaterequestV1 = ; // JitactivationactivaterequestV1 | 
-        const result = await apiInstance.startActivateWorkflowV1(jitactivationactivaterequestV1);
+        const configuration = new Configuration();
+        const apiInstance = new JITActivationsApi(configuration);
+        const jitactivationactivaterequest: Jitactivationactivaterequest = ; // Jitactivationactivaterequest | 
+        const result = await apiInstance.startActivateWorkflowV1({ jitactivationactivaterequest: jitactivationactivaterequest });
         console.log(result);
 - path: /jit-activations/v1/deactivate
   method: POST
@@ -19,14 +18,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/jit_activations/methods/jit-activations#start-deactivate-workflow-v1
       source: |
-        import { JITActivationsV1Api } from 'sailpoint-api-client';
+        import { JITActivationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new JITActivationsV1Api(configuration);
-        const jitactivationdeactivaterequestV1: JitactivationdeactivaterequestV1 = ; // JitactivationdeactivaterequestV1 | 
-        const result = await apiInstance.startDeactivateWorkflowV1(jitactivationdeactivaterequestV1);
+        const configuration = new Configuration();
+        const apiInstance = new JITActivationsApi(configuration);
+        const jitactivationdeactivaterequest: Jitactivationdeactivaterequest = ; // Jitactivationdeactivaterequest | 
+        const result = await apiInstance.startDeactivateWorkflowV1({ jitactivationdeactivaterequest: jitactivationdeactivaterequest });
         console.log(result);
 - path: /jit-activations/v1/extend
   method: POST
@@ -34,12 +32,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/jit_activations/methods/jit-activations#start-extend-workflow-v1
       source: |
-        import { JITActivationsV1Api } from 'sailpoint-api-client';
+        import { JITActivationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new JITActivationsV1Api(configuration);
-        const jitactivationextendrequestV1: JitactivationextendrequestV1 = ; // JitactivationextendrequestV1 | 
-        const result = await apiInstance.startExtendWorkflowV1(jitactivationextendrequestV1);
+        const configuration = new Configuration();
+        const apiInstance = new JITActivationsApi(configuration);
+        const jitactivationextendrequest: Jitactivationextendrequest = ; // Jitactivationextendrequest | 
+        const result = await apiInstance.startExtendWorkflowV1({ jitactivationextendrequest: jitactivationextendrequest });
         console.log(result);

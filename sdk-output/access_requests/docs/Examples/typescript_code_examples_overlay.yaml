@@ -4,14 +4,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#approve-bulk-access-request-v1
       source: |
-        import { AccessRequestsV1Api } from 'sailpoint-api-client';
+        import { AccessRequestsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessRequestsV1Api(configuration);
-        const bulkapproveaccessrequestV1: BulkapproveaccessrequestV1 = {"accessRequestIds":["2c91808568c529c60168cca6f90c1313","2c91808568c529c60168cca6f90c1314"],"comment":"I approve these request items"}; // BulkapproveaccessrequestV1 | 
-        const result = await apiInstance.approveBulkAccessRequestV1(bulkapproveaccessrequestV1);
+        const configuration = new Configuration();
+        const apiInstance = new AccessRequestsApi(configuration);
+        const bulkapproveaccessrequest: Bulkapproveaccessrequest = {"accessRequestIds":["2c91808568c529c60168cca6f90c1313","2c91808568c529c60168cca6f90c1314"],"comment":"I approve these request items"}; // Bulkapproveaccessrequest | 
+        const result = await apiInstance.approveBulkAccessRequestV1({ bulkapproveaccessrequest: bulkapproveaccessrequest });
         console.log(result);
 - path: /access-requests/v1/bulk-cancel
   method: POST
@@ -19,14 +18,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#cancel-access-request-in-bulk-v1
       source: |
-        import { AccessRequestsV1Api } from 'sailpoint-api-client';
+        import { AccessRequestsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessRequestsV1Api(configuration);
-        const bulkcancelaccessrequestV1: BulkcancelaccessrequestV1 = {"accessRequestIds":["2c91808568c529c60168cca6f90c1313","2c91808568c529c60168cca6f90c1314"],"comment":"I requested this role by mistake."}; // BulkcancelaccessrequestV1 | 
-        const result = await apiInstance.cancelAccessRequestInBulkV1(bulkcancelaccessrequestV1);
+        const configuration = new Configuration();
+        const apiInstance = new AccessRequestsApi(configuration);
+        const bulkcancelaccessrequest: Bulkcancelaccessrequest = {"accessRequestIds":["2c91808568c529c60168cca6f90c1313","2c91808568c529c60168cca6f90c1314"],"comment":"I requested this role by mistake."}; // Bulkcancelaccessrequest | 
+        const result = await apiInstance.cancelAccessRequestInBulkV1({ bulkcancelaccessrequest: bulkcancelaccessrequest });
         console.log(result);
 - path: /access-requests/v1/cancel
   method: POST
@@ -34,14 +32,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#cancel-access-request-v1
       source: |
-        import { AccessRequestsV1Api } from 'sailpoint-api-client';
+        import { AccessRequestsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessRequestsV1Api(configuration);
-        const cancelaccessrequestV1: CancelaccessrequestV1 = {"accountActivityId":"2c91808568c529c60168cca6f90c1313","comment":"I requested this role by mistake."}; // CancelaccessrequestV1 | 
-        const result = await apiInstance.cancelAccessRequestV1(cancelaccessrequestV1);
+        const configuration = new Configuration();
+        const apiInstance = new AccessRequestsApi(configuration);
+        const cancelaccessrequest: Cancelaccessrequest = {"accountActivityId":"2c91808568c529c60168cca6f90c1313","comment":"I requested this role by mistake."}; // Cancelaccessrequest | 
+        const result = await apiInstance.cancelAccessRequestV1({ cancelaccessrequest: cancelaccessrequest });
         console.log(result);
 - path: /access-requests/v1/close
   method: POST
@@ -49,14 +46,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#close-access-request-v1
       source: |
-        import { AccessRequestsV1Api } from 'sailpoint-api-client';
+        import { AccessRequestsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessRequestsV1Api(configuration);
-        const closeaccessrequestV1: CloseaccessrequestV1 = {"accessRequestIds":["2c90ad2a70ace7d50170acf22ca90010"],"executionStatus":"Terminated","completionStatus":"Failure","message":"The IdentityNow Administrator manually closed this request."}; // CloseaccessrequestV1 | 
-        const result = await apiInstance.closeAccessRequestV1(closeaccessrequestV1);
+        const configuration = new Configuration();
+        const apiInstance = new AccessRequestsApi(configuration);
+        const closeaccessrequest: Closeaccessrequest = {"accessRequestIds":["2c90ad2a70ace7d50170acf22ca90010"],"executionStatus":"Terminated","completionStatus":"Failure","message":"The IdentityNow Administrator manually closed this request."}; // Closeaccessrequest | 
+        const result = await apiInstance.closeAccessRequestV1({ closeaccessrequest: closeaccessrequest });
         console.log(result);
 - path: /access-requests/v1
   method: POST
@@ -64,14 +60,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#create-access-request-v1
       source: |
-        import { AccessRequestsV1Api } from 'sailpoint-api-client';
+        import { AccessRequestsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessRequestsV1Api(configuration);
-        const accessrequestV1: AccessrequestV1 = ; // AccessrequestV1 | 
-        const result = await apiInstance.createAccessRequestV1(accessrequestV1);
+        const configuration = new Configuration();
+        const apiInstance = new AccessRequestsApi(configuration);
+        const accessrequest: Accessrequest = ; // Accessrequest | 
+        const result = await apiInstance.createAccessRequestV1({ accessrequest: accessrequest });
         console.log(result);
 - path: /access-request-config/v1
   method: GET
@@ -79,13 +74,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#get-access-request-config-v1
       source: |
-        import { AccessRequestsV1Api } from 'sailpoint-api-client';
+        import { AccessRequestsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessRequestsV1Api(configuration);
-        const result = await apiInstance.getAccessRequestConfigV1();
+        const configuration = new Configuration();
+        const apiInstance = new AccessRequestsApi(configuration);
+        const result = await apiInstance.getAccessRequestConfigV1({  });
         console.log(result);
 - path: /access-request-config/v2
   method: GET
@@ -93,13 +87,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#get-access-request-config-v2
       source: |
-        import { AccessRequestsV1Api } from 'sailpoint-api-client';
+        import { AccessRequestsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessRequestsV1Api(configuration);
-        const result = await apiInstance.getAccessRequestConfigV2();
+        const configuration = new Configuration();
+        const apiInstance = new AccessRequestsApi(configuration);
+        const result = await apiInstance.getAccessRequestConfigV2({  });
         console.log(result);
 - path: /revocable-objects/v1
   method: GET
@@ -107,15 +100,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#get-entitlement-details-for-identity-v1
       source: |
-        import { AccessRequestsV1Api } from 'sailpoint-api-client';
+        import { AccessRequestsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessRequestsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AccessRequestsApi(configuration);
         const identityId: string = '7025c863c2704ba6beeaedf3cb091573'; // string | The identity ID. (default to undefined)
         const entitlementId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The entitlement ID (default to undefined)
-        const result = await apiInstance.getEntitlementDetailsForIdentityV1(identityId, entitlementId);
+        const result = await apiInstance.getEntitlementDetailsForIdentityV1({ identityId: identityId, entitlementId: entitlementId });
         console.log(result);
 - path: /access-request-status/v1
   method: GET
@@ -123,12 +115,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#list-access-request-status-v1
       source: |
-        import { AccessRequestsV1Api } from 'sailpoint-api-client';
+        import { AccessRequestsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessRequestsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AccessRequestsApi(configuration);
         const requestedFor: string = '2c9180877b2b6ea4017b2c545f971429'; // string | Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional) (default to undefined)
         const requestedBy: string = '2c9180877b2b6ea4017b2c545f971429'; // string | Filter the results by the identity who made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional) (default to undefined)
         const regardingIdentity: string = '2c9180877b2b6ea4017b2c545f971429'; // string | Filter the results by the specified identity who is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*. (optional) (default to undefined)
@@ -139,7 +130,7 @@
         const filters: string = 'accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *eq, ge, gt, le, lt, ne, sw*  **accountActivityItemId**: *eq, in, ge, gt, le, ne, sw*  **created**: *eq, ge, gt, le, lt, ne* (optional) (default to undefined)
         const sorters: string = 'created'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name** (optional) (default to undefined)
         const requestState: string = 'request-state=EXECUTING'; // string | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional) (default to undefined)
-        const result = await apiInstance.listAccessRequestStatusV1();
+        const result = await apiInstance.listAccessRequestStatusV1({  });
         console.log(result);
 - path: /access-request-administration/v1
   method: GET
@@ -147,12 +138,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#list-administrators-access-request-status-v1
       source: |
-        import { AccessRequestsV1Api } from 'sailpoint-api-client';
+        import { AccessRequestsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessRequestsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AccessRequestsApi(configuration);
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (default to 'true')
         const requestedFor: string = '2c9180877b2b6ea4017b2c545f971429'; // string | Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional) (default to undefined)
         const requestedBy: string = '2c9180877b2b6ea4017b2c545f971429'; // string | Filter the results by the identity who made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional) (default to undefined)
@@ -164,7 +154,7 @@
         const filters: string = 'accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **accessRequestId**: *in, eq, ne, ge, gt, le, lt, sw*  **status**: *in, eq, ne*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional) (default to undefined)
         const sorters: string = 'created'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name, accessRequestId** (optional) (default to undefined)
         const requestState: string = 'request-state=EXECUTING'; // string | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional) (default to undefined)
-        const result = await apiInstance.listAdministratorsAccessRequestStatusV1(xSailPointExperimental);
+        const result = await apiInstance.listAdministratorsAccessRequestStatusV1({ xSailPointExperimental: xSailPointExperimental });
         console.log(result);
 - path: /access-requests/v1/accounts-selection
   method: POST
@@ -172,15 +162,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#load-account-selections-v1
       source: |
-        import { AccessRequestsV1Api } from 'sailpoint-api-client';
+        import { AccessRequestsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessRequestsV1Api(configuration);
-        const accountsselectionrequestV1: AccountsselectionrequestV1 = ; // AccountsselectionrequestV1 | 
+        const configuration = new Configuration();
+        const apiInstance = new AccessRequestsApi(configuration);
+        const accountsselectionrequest: Accountsselectionrequest = ; // Accountsselectionrequest | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.loadAccountSelectionsV1(accountsselectionrequestV1);
+        const result = await apiInstance.loadAccountSelectionsV1({ accountsselectionrequest: accountsselectionrequest });
         console.log(result);
 - path: /access-request-config/v1
   method: PUT
@@ -188,14 +177,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#set-access-request-config-v1
       source: |
-        import { AccessRequestsV1Api } from 'sailpoint-api-client';
+        import { AccessRequestsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessRequestsV1Api(configuration);
-        const accessrequestconfigV1: AccessrequestconfigV1 = ; // AccessrequestconfigV1 | 
-        const result = await apiInstance.setAccessRequestConfigV1(accessrequestconfigV1);
+        const configuration = new Configuration();
+        const apiInstance = new AccessRequestsApi(configuration);
+        const accessrequestconfig: Accessrequestconfig = ; // Accessrequestconfig | 
+        const result = await apiInstance.setAccessRequestConfigV1({ accessrequestconfig: accessrequestconfig });
         console.log(result);
 - path: /access-request-config/v2
   method: PUT
@@ -203,12 +191,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#set-access-request-config-v2
       source: |
-        import { AccessRequestsV1Api } from 'sailpoint-api-client';
+        import { AccessRequestsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessRequestsV1Api(configuration);
-        const accessrequestconfigv2V1: Accessrequestconfigv2V1 = ; // Accessrequestconfigv2V1 | 
-        const result = await apiInstance.setAccessRequestConfigV2(accessrequestconfigv2V1);
+        const configuration = new Configuration();
+        const apiInstance = new AccessRequestsApi(configuration);
+        const accessrequestconfigv2: Accessrequestconfigv2 = ; // Accessrequestconfigv2 | 
+        const result = await apiInstance.setAccessRequestConfigV2({ accessrequestconfigv2: accessrequestconfigv2 });
         console.log(result);

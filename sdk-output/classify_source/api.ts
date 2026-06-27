@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -53,57 +53,57 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetClassifyMachineAccountFromSourceStatusV1401ResponseV1
+ * @interface GetClassifyMachineAccountFromSourceStatusV1401Response
  */
-export interface GetClassifyMachineAccountFromSourceStatusV1401ResponseV1 {
+export interface GetClassifyMachineAccountFromSourceStatusV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetClassifyMachineAccountFromSourceStatusV1401ResponseV1
+     * @memberof GetClassifyMachineAccountFromSourceStatusV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetClassifyMachineAccountFromSourceStatusV1429ResponseV1
+ * @interface GetClassifyMachineAccountFromSourceStatusV1429Response
  */
-export interface GetClassifyMachineAccountFromSourceStatusV1429ResponseV1 {
+export interface GetClassifyMachineAccountFromSourceStatusV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetClassifyMachineAccountFromSourceStatusV1429ResponseV1
+     * @memberof GetClassifyMachineAccountFromSourceStatusV1429Response
      */
     'message'?: any;
 }
@@ -113,85 +113,60 @@ export interface GetClassifyMachineAccountFromSourceStatusV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface SendClassifyMachineAccountFromSourceV1200ResponseV1
+ * @interface SendClassifyMachineAccountFromSourceV1200Response
  */
-export interface SendClassifyMachineAccountFromSourceV1200ResponseV1 {
+export interface SendClassifyMachineAccountFromSourceV1200Response {
     /**
      * Returns the number of all the accounts from source submitted for processing.
      * @type {number}
-     * @memberof SendClassifyMachineAccountFromSourceV1200ResponseV1
+     * @memberof SendClassifyMachineAccountFromSourceV1200Response
      */
     'Accounts submitted for processing'?: number;
 }
 /**
- * A map containing numbers relevant to the source classification process
- * @export
- * @interface SourceclassificationstatusAllOfCountsV1
- */
-export interface SourceclassificationstatusAllOfCountsV1 {
-    /**
-     * total number of source accounts
-     * @type {number}
-     * @memberof SourceclassificationstatusAllOfCountsV1
-     */
-    'EXPECTED': number;
-    /**
-     * number of accounts that have been sent for processing (should be the same as expected when all accounts are collected)
-     * @type {number}
-     * @memberof SourceclassificationstatusAllOfCountsV1
-     */
-    'RECEIVED': number;
-    /**
-     * number of accounts that have been classified
-     * @type {number}
-     * @memberof SourceclassificationstatusAllOfCountsV1
-     */
-    'COMPLETED': number;
-}
-/**
  * 
  * @export
- * @interface SourceclassificationstatusV1
+ * @interface Sourceclassificationstatus
  */
-export interface SourceclassificationstatusV1 {
+export interface Sourceclassificationstatus {
     /**
      * Status of Classification Process
      * @type {string}
-     * @memberof SourceclassificationstatusV1
+     * @memberof Sourceclassificationstatus
      */
-    'status'?: SourceclassificationstatusV1StatusV1;
+    'status'?: SourceclassificationstatusStatusEnum;
     /**
      * Time when the process was started
      * @type {string}
-     * @memberof SourceclassificationstatusV1
+     * @memberof Sourceclassificationstatus
      */
     'started'?: string;
     /**
      * Time when the process status was last updated
      * @type {string}
-     * @memberof SourceclassificationstatusV1
+     * @memberof Sourceclassificationstatus
      */
     'updated'?: string | null;
     /**
      * 
-     * @type {SourceclassificationstatusAllOfCountsV1}
-     * @memberof SourceclassificationstatusV1
+     * @type {SourceclassificationstatusAllOfCounts}
+     * @memberof Sourceclassificationstatus
      */
-    'counts'?: SourceclassificationstatusAllOfCountsV1;
+    'counts'?: SourceclassificationstatusAllOfCounts;
 }
 
-export const SourceclassificationstatusV1StatusV1 = {
+export const SourceclassificationstatusStatusEnum = {
     Started: 'STARTED',
     Collected: 'COLLECTED',
     Completed: 'COMPLETED',
@@ -199,14 +174,39 @@ export const SourceclassificationstatusV1StatusV1 = {
     Terminated: 'TERMINATED'
 } as const;
 
-export type SourceclassificationstatusV1StatusV1 = typeof SourceclassificationstatusV1StatusV1[keyof typeof SourceclassificationstatusV1StatusV1];
-
+export type SourceclassificationstatusStatusEnum = typeof SourceclassificationstatusStatusEnum[keyof typeof SourceclassificationstatusStatusEnum];
 
 /**
- * ClassifySourceV1Api - axios parameter creator
+ * A map containing numbers relevant to the source classification process
+ * @export
+ * @interface SourceclassificationstatusAllOfCounts
+ */
+export interface SourceclassificationstatusAllOfCounts {
+    /**
+     * total number of source accounts
+     * @type {number}
+     * @memberof SourceclassificationstatusAllOfCounts
+     */
+    'EXPECTED': number;
+    /**
+     * number of accounts that have been sent for processing (should be the same as expected when all accounts are collected)
+     * @type {number}
+     * @memberof SourceclassificationstatusAllOfCounts
+     */
+    'RECEIVED': number;
+    /**
+     * number of accounts that have been classified
+     * @type {number}
+     * @memberof SourceclassificationstatusAllOfCounts
+     */
+    'COMPLETED': number;
+}
+
+/**
+ * ClassifySourceApi - axios parameter creator
  * @export
  */
-export const ClassifySourceV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const ClassifySourceApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Use this API to cancel account classification process on a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -314,11 +314,11 @@ export const ClassifySourceV1ApiAxiosParamCreator = function (configuration?: Co
 };
 
 /**
- * ClassifySourceV1Api - functional programming interface
+ * ClassifySourceApi - functional programming interface
  * @export
  */
-export const ClassifySourceV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = ClassifySourceV1ApiAxiosParamCreator(configuration)
+export const ClassifySourceApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = ClassifySourceApiAxiosParamCreator(configuration)
     return {
         /**
          * Use this API to cancel account classification process on a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -330,7 +330,7 @@ export const ClassifySourceV1ApiFp = function(configuration?: Configuration) {
         async deleteClassifyMachineAccountFromSourceV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteClassifyMachineAccountFromSourceV1(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ClassifySourceV1Api.deleteClassifyMachineAccountFromSourceV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ClassifySourceApi.deleteClassifyMachineAccountFromSourceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -340,10 +340,10 @@ export const ClassifySourceV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getClassifyMachineAccountFromSourceStatusV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceclassificationstatusV1>> {
+        async getClassifyMachineAccountFromSourceStatusV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sourceclassificationstatus>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getClassifyMachineAccountFromSourceStatusV1(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ClassifySourceV1Api.getClassifyMachineAccountFromSourceStatusV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ClassifySourceApi.getClassifyMachineAccountFromSourceStatusV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -353,138 +353,138 @@ export const ClassifySourceV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async sendClassifyMachineAccountFromSourceV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SendClassifyMachineAccountFromSourceV1200ResponseV1>> {
+        async sendClassifyMachineAccountFromSourceV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SendClassifyMachineAccountFromSourceV1200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.sendClassifyMachineAccountFromSourceV1(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ClassifySourceV1Api.sendClassifyMachineAccountFromSourceV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ClassifySourceApi.sendClassifyMachineAccountFromSourceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * ClassifySourceV1Api - factory interface
+ * ClassifySourceApi - factory interface
  * @export
  */
-export const ClassifySourceV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = ClassifySourceV1ApiFp(configuration)
+export const ClassifySourceApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = ClassifySourceApiFp(configuration)
     return {
         /**
          * Use this API to cancel account classification process on a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Cancel classify source\'s accounts process
-         * @param {ClassifySourceV1ApiDeleteClassifyMachineAccountFromSourceV1Request} requestParameters Request parameters.
+         * @param {ClassifySourceApiDeleteClassifyMachineAccountFromSourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteClassifyMachineAccountFromSourceV1(requestParameters: ClassifySourceV1ApiDeleteClassifyMachineAccountFromSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteClassifyMachineAccountFromSourceV1(requestParameters: ClassifySourceApiDeleteClassifyMachineAccountFromSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteClassifyMachineAccountFromSourceV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to get the status of Machine Account Classification process for a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Source accounts classification status
-         * @param {ClassifySourceV1ApiGetClassifyMachineAccountFromSourceStatusV1Request} requestParameters Request parameters.
+         * @param {ClassifySourceApiGetClassifyMachineAccountFromSourceStatusV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getClassifyMachineAccountFromSourceStatusV1(requestParameters: ClassifySourceV1ApiGetClassifyMachineAccountFromSourceStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceclassificationstatusV1> {
+        getClassifyMachineAccountFromSourceStatusV1(requestParameters: ClassifySourceApiGetClassifyMachineAccountFromSourceStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sourceclassificationstatus> {
             return localVarFp.getClassifyMachineAccountFromSourceStatusV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to classify all the accounts from a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Classify source\'s all accounts
-         * @param {ClassifySourceV1ApiSendClassifyMachineAccountFromSourceV1Request} requestParameters Request parameters.
+         * @param {ClassifySourceApiSendClassifyMachineAccountFromSourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        sendClassifyMachineAccountFromSourceV1(requestParameters: ClassifySourceV1ApiSendClassifyMachineAccountFromSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SendClassifyMachineAccountFromSourceV1200ResponseV1> {
+        sendClassifyMachineAccountFromSourceV1(requestParameters: ClassifySourceApiSendClassifyMachineAccountFromSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SendClassifyMachineAccountFromSourceV1200Response> {
             return localVarFp.sendClassifyMachineAccountFromSourceV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for deleteClassifyMachineAccountFromSourceV1 operation in ClassifySourceV1Api.
+ * Request parameters for deleteClassifyMachineAccountFromSourceV1 operation in ClassifySourceApi.
  * @export
- * @interface ClassifySourceV1ApiDeleteClassifyMachineAccountFromSourceV1Request
+ * @interface ClassifySourceApiDeleteClassifyMachineAccountFromSourceV1Request
  */
-export interface ClassifySourceV1ApiDeleteClassifyMachineAccountFromSourceV1Request {
+export interface ClassifySourceApiDeleteClassifyMachineAccountFromSourceV1Request {
     /**
      * Source ID.
      * @type {string}
-     * @memberof ClassifySourceV1ApiDeleteClassifyMachineAccountFromSourceV1
+     * @memberof ClassifySourceApiDeleteClassifyMachineAccountFromSourceV1
      */
     readonly sourceId: string
 }
 
 /**
- * Request parameters for getClassifyMachineAccountFromSourceStatusV1 operation in ClassifySourceV1Api.
+ * Request parameters for getClassifyMachineAccountFromSourceStatusV1 operation in ClassifySourceApi.
  * @export
- * @interface ClassifySourceV1ApiGetClassifyMachineAccountFromSourceStatusV1Request
+ * @interface ClassifySourceApiGetClassifyMachineAccountFromSourceStatusV1Request
  */
-export interface ClassifySourceV1ApiGetClassifyMachineAccountFromSourceStatusV1Request {
+export interface ClassifySourceApiGetClassifyMachineAccountFromSourceStatusV1Request {
     /**
      * Source ID.
      * @type {string}
-     * @memberof ClassifySourceV1ApiGetClassifyMachineAccountFromSourceStatusV1
+     * @memberof ClassifySourceApiGetClassifyMachineAccountFromSourceStatusV1
      */
     readonly sourceId: string
 }
 
 /**
- * Request parameters for sendClassifyMachineAccountFromSourceV1 operation in ClassifySourceV1Api.
+ * Request parameters for sendClassifyMachineAccountFromSourceV1 operation in ClassifySourceApi.
  * @export
- * @interface ClassifySourceV1ApiSendClassifyMachineAccountFromSourceV1Request
+ * @interface ClassifySourceApiSendClassifyMachineAccountFromSourceV1Request
  */
-export interface ClassifySourceV1ApiSendClassifyMachineAccountFromSourceV1Request {
+export interface ClassifySourceApiSendClassifyMachineAccountFromSourceV1Request {
     /**
      * Source ID.
      * @type {string}
-     * @memberof ClassifySourceV1ApiSendClassifyMachineAccountFromSourceV1
+     * @memberof ClassifySourceApiSendClassifyMachineAccountFromSourceV1
      */
     readonly sourceId: string
 }
 
 /**
- * ClassifySourceV1Api - object-oriented interface
+ * ClassifySourceApi - object-oriented interface
  * @export
- * @class ClassifySourceV1Api
+ * @class ClassifySourceApi
  * @extends {BaseAPI}
  */
-export class ClassifySourceV1Api extends BaseAPI {
+export class ClassifySourceApi extends BaseAPI {
     /**
      * Use this API to cancel account classification process on a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary Cancel classify source\'s accounts process
-     * @param {ClassifySourceV1ApiDeleteClassifyMachineAccountFromSourceV1Request} requestParameters Request parameters.
+     * @param {ClassifySourceApiDeleteClassifyMachineAccountFromSourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ClassifySourceV1Api
+     * @memberof ClassifySourceApi
      */
-    public deleteClassifyMachineAccountFromSourceV1(requestParameters: ClassifySourceV1ApiDeleteClassifyMachineAccountFromSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ClassifySourceV1ApiFp(this.configuration).deleteClassifyMachineAccountFromSourceV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteClassifyMachineAccountFromSourceV1(requestParameters: ClassifySourceApiDeleteClassifyMachineAccountFromSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ClassifySourceApiFp(this.configuration).deleteClassifyMachineAccountFromSourceV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to get the status of Machine Account Classification process for a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary Source accounts classification status
-     * @param {ClassifySourceV1ApiGetClassifyMachineAccountFromSourceStatusV1Request} requestParameters Request parameters.
+     * @param {ClassifySourceApiGetClassifyMachineAccountFromSourceStatusV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ClassifySourceV1Api
+     * @memberof ClassifySourceApi
      */
-    public getClassifyMachineAccountFromSourceStatusV1(requestParameters: ClassifySourceV1ApiGetClassifyMachineAccountFromSourceStatusV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ClassifySourceV1ApiFp(this.configuration).getClassifyMachineAccountFromSourceStatusV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getClassifyMachineAccountFromSourceStatusV1(requestParameters: ClassifySourceApiGetClassifyMachineAccountFromSourceStatusV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ClassifySourceApiFp(this.configuration).getClassifyMachineAccountFromSourceStatusV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to classify all the accounts from a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary Classify source\'s all accounts
-     * @param {ClassifySourceV1ApiSendClassifyMachineAccountFromSourceV1Request} requestParameters Request parameters.
+     * @param {ClassifySourceApiSendClassifyMachineAccountFromSourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ClassifySourceV1Api
+     * @memberof ClassifySourceApi
      */
-    public sendClassifyMachineAccountFromSourceV1(requestParameters: ClassifySourceV1ApiSendClassifyMachineAccountFromSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ClassifySourceV1ApiFp(this.configuration).sendClassifyMachineAccountFromSourceV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public sendClassifyMachineAccountFromSourceV1(requestParameters: ClassifySourceApiSendClassifyMachineAccountFromSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ClassifySourceApiFp(this.configuration).sendClassifyMachineAccountFromSourceV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

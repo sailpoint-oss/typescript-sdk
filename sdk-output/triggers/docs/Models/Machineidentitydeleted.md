@@ -1,20 +1,20 @@
 ---
-id: v1-machineidentitydeleted-v1
-title: MachineidentitydeletedV1
-pagination_label: MachineidentitydeletedV1
-sidebar_label: MachineidentitydeletedV1
+id: v1-machineidentitydeleted
+title: Machineidentitydeleted
+pagination_label: Machineidentitydeleted
+sidebar_label: Machineidentitydeleted
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'MachineidentitydeletedV1', 'v1MachineidentitydeletedV1']
-slug: /tools/sdk/typescript/triggers/models/machineidentitydeleted-v1
-tags: ['SDK', 'Software Development Kit', 'MachineidentitydeletedV1', 'v1MachineidentitydeletedV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Machineidentitydeleted', 'v1Machineidentitydeleted']
+slug: /tools/sdk/typescript/triggers/models/machineidentitydeleted
+tags: ['SDK', 'Software Development Kit', 'Machineidentitydeleted', 'v1Machineidentitydeleted']
 ---
 
-# MachineidentitydeletedV1
+# Machineidentitydeleted
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**eventType** | **string** | Type of the event. | [default to undefined]
-**machineIdentity** | **MachineidentitydeletedMachineIdentityV1** |  | [default to undefined]
+**eventType** | `string` | Type of the event. | [default to undefined]
+**machineIdentity** | `MachineidentitydeletedMachineIdentity` |  | [default to undefined]
 

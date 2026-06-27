@@ -1,8 +1,8 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
-AccountUsagesV1Api.md
-AccountUsagesV1ApideveloperSite_code_examples.yaml
+AccountUsagesApi.md
+AccountUsagesApideveloperSite_code_examples.yaml
 Accountusage.md
 Errormessagedto.md
 Errorresponsedto.md

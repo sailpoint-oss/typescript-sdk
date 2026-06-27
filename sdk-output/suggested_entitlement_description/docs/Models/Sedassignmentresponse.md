@@ -1,19 +1,19 @@
 ---
-id: v1-sedassignmentresponse-v1
-title: SedassignmentresponseV1
-pagination_label: SedassignmentresponseV1
-sidebar_label: SedassignmentresponseV1
+id: v1-sedassignmentresponse
+title: Sedassignmentresponse
+pagination_label: Sedassignmentresponse
+sidebar_label: Sedassignmentresponse
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SedassignmentresponseV1', 'v1SedassignmentresponseV1']
-slug: /tools/sdk/typescript/suggested_entitlement_description/models/sedassignmentresponse-v1
-tags: ['SDK', 'Software Development Kit', 'SedassignmentresponseV1', 'v1SedassignmentresponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Sedassignmentresponse', 'v1Sedassignmentresponse']
+slug: /tools/sdk/typescript/suggested_entitlement_description/models/sedassignmentresponse
+tags: ['SDK', 'Software Development Kit', 'Sedassignmentresponse', 'v1Sedassignmentresponse']
 ---
 
-# SedassignmentresponseV1
+# Sedassignmentresponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**batchId** | **(optional)** **string** | BatchId that groups all the ids together | [default to undefined]
+**batchId** | **(optional)** `string` | BatchId that groups all the ids together | [default to undefined]
 

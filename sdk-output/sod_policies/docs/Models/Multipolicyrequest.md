@@ -1,19 +1,19 @@
 ---
-id: v1-multipolicyrequest-v1
-title: MultipolicyrequestV1
-pagination_label: MultipolicyrequestV1
-sidebar_label: MultipolicyrequestV1
+id: v1-multipolicyrequest
+title: Multipolicyrequest
+pagination_label: Multipolicyrequest
+sidebar_label: Multipolicyrequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'MultipolicyrequestV1', 'v1MultipolicyrequestV1']
-slug: /tools/sdk/typescript/sod_policies/models/multipolicyrequest-v1
-tags: ['SDK', 'Software Development Kit', 'MultipolicyrequestV1', 'v1MultipolicyrequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Multipolicyrequest', 'v1Multipolicyrequest']
+slug: /tools/sdk/typescript/sod_policies/models/multipolicyrequest
+tags: ['SDK', 'Software Development Kit', 'Multipolicyrequest', 'v1Multipolicyrequest']
 ---
 
-# MultipolicyrequestV1
+# Multipolicyrequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**filteredPolicyList** | **(optional)** **Array&lt;string&gt;** | Multi-policy report will be run for this list of ids | [default to undefined]
+**filteredPolicyList** | **(optional)** `Array<string>` | Multi-policy report will be run for this list of ids | [default to undefined]
 

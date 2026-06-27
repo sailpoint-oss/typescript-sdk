@@ -1,19 +1,19 @@
 ---
-id: v1-nonemployeerejectapprovaldecision-v1
-title: NonemployeerejectapprovaldecisionV1
-pagination_label: NonemployeerejectapprovaldecisionV1
-sidebar_label: NonemployeerejectapprovaldecisionV1
+id: v1-nonemployeerejectapprovaldecision
+title: Nonemployeerejectapprovaldecision
+pagination_label: Nonemployeerejectapprovaldecision
+sidebar_label: Nonemployeerejectapprovaldecision
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'NonemployeerejectapprovaldecisionV1', 'v1NonemployeerejectapprovaldecisionV1']
-slug: /tools/sdk/typescript/non_employee_lifecycle_management/models/nonemployeerejectapprovaldecision-v1
-tags: ['SDK', 'Software Development Kit', 'NonemployeerejectapprovaldecisionV1', 'v1NonemployeerejectapprovaldecisionV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Nonemployeerejectapprovaldecision', 'v1Nonemployeerejectapprovaldecision']
+slug: /tools/sdk/typescript/non_employee_lifecycle_management/models/nonemployeerejectapprovaldecision
+tags: ['SDK', 'Software Development Kit', 'Nonemployeerejectapprovaldecision', 'v1Nonemployeerejectapprovaldecision']
 ---
 
-# NonemployeerejectapprovaldecisionV1
+# Nonemployeerejectapprovaldecision
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**comment** | **string** | Comment on the approval item. | [default to undefined]
+**comment** | `string` | Comment on the approval item. | [default to undefined]
 

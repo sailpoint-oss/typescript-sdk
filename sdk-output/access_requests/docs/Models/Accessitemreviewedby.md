@@ -1,21 +1,21 @@
 ---
-id: v1-accessitemreviewedby-v1
-title: AccessitemreviewedbyV1
-pagination_label: AccessitemreviewedbyV1
-sidebar_label: AccessitemreviewedbyV1
+id: v1-accessitemreviewedby
+title: Accessitemreviewedby
+pagination_label: Accessitemreviewedby
+sidebar_label: Accessitemreviewedby
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccessitemreviewedbyV1', 'v1AccessitemreviewedbyV1']
-slug: /tools/sdk/typescript/access_requests/models/accessitemreviewedby-v1
-tags: ['SDK', 'Software Development Kit', 'AccessitemreviewedbyV1', 'v1AccessitemreviewedbyV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accessitemreviewedby', 'v1Accessitemreviewedby']
+slug: /tools/sdk/typescript/access_requests/models/accessitemreviewedby
+tags: ['SDK', 'Software Development Kit', 'Accessitemreviewedby', 'v1Accessitemreviewedby']
 ---
 
-# AccessitemreviewedbyV1
+# Accessitemreviewedby
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | DTO type of identity who reviewed the access item request. | [default to undefined]
-**id** | **(optional)** **string** | ID of identity who reviewed the access item request. | [default to undefined]
-**name** | **(optional)** **string** | Human-readable display name of identity who reviewed the access item request. | [default to undefined]
+**type** | **(optional)** `string` | DTO type of identity who reviewed the access item request. | [default to undefined]
+**id** | **(optional)** `string` | ID of identity who reviewed the access item request. | [default to undefined]
+**name** | **(optional)** `string` | Human-readable display name of identity who reviewed the access item request. | [default to undefined]
 

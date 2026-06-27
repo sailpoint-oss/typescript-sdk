@@ -1,15 +1,15 @@
 ---
-id: v1-machineidentityupdated-single-value-attribute-changes-inner-new-value-v1
-title: MachineidentityupdatedSingleValueAttributeChangesInnerNewValueV1
-pagination_label: MachineidentityupdatedSingleValueAttributeChangesInnerNewValueV1
-sidebar_label: MachineidentityupdatedSingleValueAttributeChangesInnerNewValueV1
+id: v1-machineidentityupdated-single-value-attribute-changes-inner-new-value
+title: MachineidentityupdatedSingleValueAttributeChangesInnerNewValue
+pagination_label: MachineidentityupdatedSingleValueAttributeChangesInnerNewValue
+sidebar_label: MachineidentityupdatedSingleValueAttributeChangesInnerNewValue
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'MachineidentityupdatedSingleValueAttributeChangesInnerNewValueV1', 'v1MachineidentityupdatedSingleValueAttributeChangesInnerNewValueV1']
-slug: /tools/sdk/typescript/triggers/models/machineidentityupdated-single-value-attribute-changes-inner-new-value-v1
-tags: ['SDK', 'Software Development Kit', 'MachineidentityupdatedSingleValueAttributeChangesInnerNewValueV1', 'v1MachineidentityupdatedSingleValueAttributeChangesInnerNewValueV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'MachineidentityupdatedSingleValueAttributeChangesInnerNewValue', 'v1MachineidentityupdatedSingleValueAttributeChangesInnerNewValue']
+slug: /tools/sdk/typescript/triggers/models/machineidentityupdated-single-value-attribute-changes-inner-new-value
+tags: ['SDK', 'Software Development Kit', 'MachineidentityupdatedSingleValueAttributeChangesInnerNewValue', 'v1MachineidentityupdatedSingleValueAttributeChangesInnerNewValue']
 ---
 
-# MachineidentityupdatedSingleValueAttributeChangesInnerNewValueV1
+# MachineidentityupdatedSingleValueAttributeChangesInnerNewValue
 
 ## Properties
 

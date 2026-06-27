@@ -1,15 +1,15 @@
 ---
-id: v1-granttype-v1
-title: GranttypeV1
-pagination_label: GranttypeV1
-sidebar_label: GranttypeV1
+id: v1-granttype
+title: Granttype
+pagination_label: Granttype
+sidebar_label: Granttype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'GranttypeV1', 'v1GranttypeV1']
-slug: /tools/sdk/typescript/oauth_clients/models/granttype-v1
-tags: ['SDK', 'Software Development Kit', 'GranttypeV1', 'v1GranttypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Granttype', 'v1Granttype']
+slug: /tools/sdk/typescript/oauth_clients/models/granttype
+tags: ['SDK', 'Software Development Kit', 'Granttype', 'v1Granttype']
 ---
 
-# GranttypeV1
+# Granttype
 
 ## Enum
 

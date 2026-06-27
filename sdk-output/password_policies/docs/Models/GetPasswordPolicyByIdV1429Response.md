@@ -1,19 +1,19 @@
 ---
-id: v1-get-password-policy-by-id-v1429-response-v1
-title: GetPasswordPolicyByIdV1429ResponseV1
-pagination_label: GetPasswordPolicyByIdV1429ResponseV1
-sidebar_label: GetPasswordPolicyByIdV1429ResponseV1
+id: v1-get-password-policy-by-id-v1429-response
+title: GetPasswordPolicyByIdV1429Response
+pagination_label: GetPasswordPolicyByIdV1429Response
+sidebar_label: GetPasswordPolicyByIdV1429Response
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'GetPasswordPolicyByIdV1429ResponseV1', 'v1GetPasswordPolicyByIdV1429ResponseV1']
-slug: /tools/sdk/typescript/password_policies/models/get-password-policy-by-id-v1429-response-v1
-tags: ['SDK', 'Software Development Kit', 'GetPasswordPolicyByIdV1429ResponseV1', 'v1GetPasswordPolicyByIdV1429ResponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'GetPasswordPolicyByIdV1429Response', 'v1GetPasswordPolicyByIdV1429Response']
+slug: /tools/sdk/typescript/password_policies/models/get-password-policy-by-id-v1429-response
+tags: ['SDK', 'Software Development Kit', 'GetPasswordPolicyByIdV1429Response', 'v1GetPasswordPolicyByIdV1429Response']
 ---
 
-# GetPasswordPolicyByIdV1429ResponseV1
+# GetPasswordPolicyByIdV1429Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **(optional)** **any** | A message describing the error | [default to undefined]
+**message** | **(optional)** `any` | A message describing the error | [default to undefined]
 

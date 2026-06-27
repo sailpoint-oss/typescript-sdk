@@ -1,20 +1,20 @@
 ---
-id: v1-scheduledactionresponse-content-backup-options-v1
-title: ScheduledactionresponseContentBackupOptionsV1
-pagination_label: ScheduledactionresponseContentBackupOptionsV1
-sidebar_label: ScheduledactionresponseContentBackupOptionsV1
+id: v1-scheduledactionresponse-content-backup-options
+title: ScheduledactionresponseContentBackupOptions
+pagination_label: ScheduledactionresponseContentBackupOptions
+sidebar_label: ScheduledactionresponseContentBackupOptions
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ScheduledactionresponseContentBackupOptionsV1', 'v1ScheduledactionresponseContentBackupOptionsV1']
-slug: /tools/sdk/typescript/configuration_hub/models/scheduledactionresponse-content-backup-options-v1
-tags: ['SDK', 'Software Development Kit', 'ScheduledactionresponseContentBackupOptionsV1', 'v1ScheduledactionresponseContentBackupOptionsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ScheduledactionresponseContentBackupOptions', 'v1ScheduledactionresponseContentBackupOptions']
+slug: /tools/sdk/typescript/configuration_hub/models/scheduledactionresponse-content-backup-options
+tags: ['SDK', 'Software Development Kit', 'ScheduledactionresponseContentBackupOptions', 'v1ScheduledactionresponseContentBackupOptions']
 ---
 
-# ScheduledactionresponseContentBackupOptionsV1
+# ScheduledactionresponseContentBackupOptions
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**includeTypes** | **(optional)** **Array&lt;string&gt;** | Object types that are to be included in the backup. | [default to undefined]
+**includeTypes** | **(optional)** `Array<string>` | Object types that are to be included in the backup. | [default to undefined]
 **objectOptions** | **(optional)**  | Map of objectType string to the options to be passed to the target service for that objectType. | [default to undefined]
 

@@ -1,21 +1,21 @@
 ---
-id: v1-formerror-v1
-title: FormerrorV1
-pagination_label: FormerrorV1
-sidebar_label: FormerrorV1
+id: v1-formerror
+title: Formerror
+pagination_label: Formerror
+sidebar_label: Formerror
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'FormerrorV1', 'v1FormerrorV1']
-slug: /tools/sdk/typescript/custom_forms/models/formerror-v1
-tags: ['SDK', 'Software Development Kit', 'FormerrorV1', 'v1FormerrorV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Formerror', 'v1Formerror']
+slug: /tools/sdk/typescript/custom_forms/models/formerror
+tags: ['SDK', 'Software Development Kit', 'Formerror', 'v1Formerror']
 ---
 
-# FormerrorV1
+# Formerror
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**key** | **(optional)** **string** | Key is the technical key | [default to undefined]
-**messages** | **(optional)** **Array&lt;ErrormessageV1&gt;** | Messages is a list of web.ErrorMessage items | [default to undefined]
-**value** | **(optional)** **any** | Value is the value associated with a Key | [default to undefined]
+**key** | **(optional)** `string` | Key is the technical key | [default to undefined]
+**messages** | **(optional)** `Array<Errormessage>` | Messages is a list of web.ErrorMessage items | [default to undefined]
+**value** | **(optional)** `any` | Value is the value associated with a Key | [default to undefined]
 

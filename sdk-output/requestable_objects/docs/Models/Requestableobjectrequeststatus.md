@@ -1,15 +1,15 @@
 ---
-id: v1-requestableobjectrequeststatus-v1
-title: RequestableobjectrequeststatusV1
-pagination_label: RequestableobjectrequeststatusV1
-sidebar_label: RequestableobjectrequeststatusV1
+id: v1-requestableobjectrequeststatus
+title: Requestableobjectrequeststatus
+pagination_label: Requestableobjectrequeststatus
+sidebar_label: Requestableobjectrequeststatus
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RequestableobjectrequeststatusV1', 'v1RequestableobjectrequeststatusV1']
-slug: /tools/sdk/typescript/requestable_objects/models/requestableobjectrequeststatus-v1
-tags: ['SDK', 'Software Development Kit', 'RequestableobjectrequeststatusV1', 'v1RequestableobjectrequeststatusV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Requestableobjectrequeststatus', 'v1Requestableobjectrequeststatus']
+slug: /tools/sdk/typescript/requestable_objects/models/requestableobjectrequeststatus
+tags: ['SDK', 'Software Development Kit', 'Requestableobjectrequeststatus', 'v1Requestableobjectrequeststatus']
 ---
 
-# RequestableobjectrequeststatusV1
+# Requestableobjectrequeststatus
 
 ## Enum
 

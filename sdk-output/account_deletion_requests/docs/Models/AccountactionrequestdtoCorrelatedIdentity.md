@@ -1,21 +1,21 @@
 ---
-id: v1-accountactionrequestdto-correlated-identity-v1
-title: AccountactionrequestdtoCorrelatedIdentityV1
-pagination_label: AccountactionrequestdtoCorrelatedIdentityV1
-sidebar_label: AccountactionrequestdtoCorrelatedIdentityV1
+id: v1-accountactionrequestdto-correlated-identity
+title: AccountactionrequestdtoCorrelatedIdentity
+pagination_label: AccountactionrequestdtoCorrelatedIdentity
+sidebar_label: AccountactionrequestdtoCorrelatedIdentity
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccountactionrequestdtoCorrelatedIdentityV1', 'v1AccountactionrequestdtoCorrelatedIdentityV1']
-slug: /tools/sdk/typescript/account_deletion_requests/models/accountactionrequestdto-correlated-identity-v1
-tags: ['SDK', 'Software Development Kit', 'AccountactionrequestdtoCorrelatedIdentityV1', 'v1AccountactionrequestdtoCorrelatedIdentityV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'AccountactionrequestdtoCorrelatedIdentity', 'v1AccountactionrequestdtoCorrelatedIdentity']
+slug: /tools/sdk/typescript/account_deletion_requests/models/accountactionrequestdto-correlated-identity
+tags: ['SDK', 'Software Development Kit', 'AccountactionrequestdtoCorrelatedIdentity', 'v1AccountactionrequestdtoCorrelatedIdentity']
 ---
 
-# AccountactionrequestdtoCorrelatedIdentityV1
+# AccountactionrequestdtoCorrelatedIdentity
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **DtotypeV1** |  | [default to undefined]
-**id** | **(optional)** **string** | Identity id | [default to undefined]
-**name** | **(optional)** **string** | Human-readable display name of identity. | [default to undefined]
+**type** | **(optional)** `Dtotype` |  | [default to undefined]
+**id** | **(optional)** `string` | Identity id | [default to undefined]
+**name** | **(optional)** `string` | Human-readable display name of identity. | [default to undefined]
 

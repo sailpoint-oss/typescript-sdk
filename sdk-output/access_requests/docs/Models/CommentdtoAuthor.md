@@ -1,21 +1,21 @@
 ---
-id: v1-commentdto-author-v1
-title: CommentdtoAuthorV1
-pagination_label: CommentdtoAuthorV1
-sidebar_label: CommentdtoAuthorV1
+id: v1-commentdto-author
+title: CommentdtoAuthor
+pagination_label: CommentdtoAuthor
+sidebar_label: CommentdtoAuthor
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'CommentdtoAuthorV1', 'v1CommentdtoAuthorV1']
-slug: /tools/sdk/typescript/access_requests/models/commentdto-author-v1
-tags: ['SDK', 'Software Development Kit', 'CommentdtoAuthorV1', 'v1CommentdtoAuthorV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'CommentdtoAuthor', 'v1CommentdtoAuthor']
+slug: /tools/sdk/typescript/access_requests/models/commentdto-author
+tags: ['SDK', 'Software Development Kit', 'CommentdtoAuthor', 'v1CommentdtoAuthor']
 ---
 
-# CommentdtoAuthorV1
+# CommentdtoAuthor
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | The type of object | [default to undefined]
-**id** | **(optional)** **string** | The unique ID of the object | [default to undefined]
-**name** | **(optional)** **string** | The display name of the object | [default to undefined]
+**type** | **(optional)** `string` | The type of object | [default to undefined]
+**id** | **(optional)** `string` | The unique ID of the object | [default to undefined]
+**name** | **(optional)** `string` | The display name of the object | [default to undefined]
 

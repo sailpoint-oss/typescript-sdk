@@ -26,32 +26,32 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ArrayInnerV1
+ * @interface ArrayInner
  */
-export interface ArrayInnerV1 {
+export interface ArrayInner {
 }
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -60,100 +60,100 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetManagedClusterTypesV1401ResponseV1
+ * @interface GetManagedClusterTypesV1401Response
  */
-export interface GetManagedClusterTypesV1401ResponseV1 {
+export interface GetManagedClusterTypesV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetManagedClusterTypesV1401ResponseV1
+     * @memberof GetManagedClusterTypesV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetManagedClusterTypesV1429ResponseV1
+ * @interface GetManagedClusterTypesV1429Response
  */
-export interface GetManagedClusterTypesV1429ResponseV1 {
+export interface GetManagedClusterTypesV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetManagedClusterTypesV1429ResponseV1
+     * @memberof GetManagedClusterTypesV1429Response
      */
     'message'?: any;
 }
 /**
  * A JSONPatch document as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface JsonpatchV1
+ * @interface Jsonpatch
  */
-export interface JsonpatchV1 {
+export interface Jsonpatch {
     /**
      * Operations to be applied
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof JsonpatchV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof Jsonpatch
      */
-    'operations'?: Array<JsonpatchoperationV1>;
+    'operations'?: Array<Jsonpatchoperation>;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface JsonpatchoperationV1
+ * @interface Jsonpatchoperation
  */
-export interface JsonpatchoperationV1 {
+export interface Jsonpatchoperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
-    'op': JsonpatchoperationV1OpV1;
+    'op': JsonpatchoperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValueV1}
-     * @memberof JsonpatchoperationV1
+     * @type {JsonpatchoperationValue}
+     * @memberof Jsonpatchoperation
      */
-    'value'?: JsonpatchoperationValueV1;
+    'value'?: JsonpatchoperationValue;
 }
 
-export const JsonpatchoperationV1OpV1 = {
+export const JsonpatchoperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -162,14 +162,14 @@ export const JsonpatchoperationV1OpV1 = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationV1OpV1 = typeof JsonpatchoperationV1OpV1[keyof typeof JsonpatchoperationV1OpV1];
+export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
 
 /**
- * @type JsonpatchoperationValueV1
+ * @type JsonpatchoperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number | object | string;
+export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -177,68 +177,68 @@ export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number |
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * Managed Cluster Type for Cluster upgrade configuration information
  * @export
- * @interface ManagedclustertypeV1
+ * @interface Managedclustertype
  */
-export interface ManagedclustertypeV1 {
+export interface Managedclustertype {
     /**
      * ManagedClusterType ID
      * @type {string}
-     * @memberof ManagedclustertypeV1
+     * @memberof Managedclustertype
      */
     'id'?: string;
     /**
      * ManagedClusterType type name
      * @type {string}
-     * @memberof ManagedclustertypeV1
+     * @memberof Managedclustertype
      */
     'type': string;
     /**
      * ManagedClusterType pod
      * @type {string}
-     * @memberof ManagedclustertypeV1
+     * @memberof Managedclustertype
      */
     'pod': string;
     /**
      * ManagedClusterType org
      * @type {string}
-     * @memberof ManagedclustertypeV1
+     * @memberof Managedclustertype
      */
     'org': string;
     /**
      * List of processes for the cluster type
      * @type {Array<string>}
-     * @memberof ManagedclustertypeV1
+     * @memberof Managedclustertype
      */
     'managedProcessIds'?: Array<string>;
 }
 
 /**
- * ManagedClusterTypesV1Api - axios parameter creator
+ * ManagedClusterTypesApi - axios parameter creator
  * @export
  */
-export const ManagedClusterTypesV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const ManagedClusterTypesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Create a new Managed Cluster Type.  The API returns a result that includes the Managed Cluster Type ID
          * @summary Create new managed cluster type
-         * @param {ManagedclustertypeV1} managedclustertypeV1 
+         * @param {Managedclustertype} managedclustertype 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createManagedClusterTypeV1: async (managedclustertypeV1: ManagedclustertypeV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'managedclustertypeV1' is not null or undefined
-            assertParamExists('createManagedClusterTypeV1', 'managedclustertypeV1', managedclustertypeV1)
+        createManagedClusterTypeV1: async (managedclustertype: Managedclustertype, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'managedclustertype' is not null or undefined
+            assertParamExists('createManagedClusterTypeV1', 'managedclustertype', managedclustertype)
             const localVarPath = `/managed-cluster-types/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -258,7 +258,7 @@ export const ManagedClusterTypesV1ApiAxiosParamCreator = function (configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(managedclustertypeV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(managedclustertype, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -392,15 +392,15 @@ export const ManagedClusterTypesV1ApiAxiosParamCreator = function (configuration
          * Update an existing Managed Cluster Type.
          * @summary Update a managed cluster type
          * @param {string} id The Managed Cluster Type ID
-         * @param {JsonpatchV1} jsonpatchV1 The JSONPatch payload used to update the schema.
+         * @param {Jsonpatch} jsonpatch The JSONPatch payload used to update the schema.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateManagedClusterTypeV1: async (id: string, jsonpatchV1: JsonpatchV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateManagedClusterTypeV1: async (id: string, jsonpatch: Jsonpatch, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateManagedClusterTypeV1', 'id', id)
-            // verify required parameter 'jsonpatchV1' is not null or undefined
-            assertParamExists('updateManagedClusterTypeV1', 'jsonpatchV1', jsonpatchV1)
+            // verify required parameter 'jsonpatch' is not null or undefined
+            assertParamExists('updateManagedClusterTypeV1', 'jsonpatch', jsonpatch)
             const localVarPath = `/managed-cluster-types/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -421,7 +421,7 @@ export const ManagedClusterTypesV1ApiAxiosParamCreator = function (configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatch, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -432,23 +432,23 @@ export const ManagedClusterTypesV1ApiAxiosParamCreator = function (configuration
 };
 
 /**
- * ManagedClusterTypesV1Api - functional programming interface
+ * ManagedClusterTypesApi - functional programming interface
  * @export
  */
-export const ManagedClusterTypesV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = ManagedClusterTypesV1ApiAxiosParamCreator(configuration)
+export const ManagedClusterTypesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = ManagedClusterTypesApiAxiosParamCreator(configuration)
     return {
         /**
          * Create a new Managed Cluster Type.  The API returns a result that includes the Managed Cluster Type ID
          * @summary Create new managed cluster type
-         * @param {ManagedclustertypeV1} managedclustertypeV1 
+         * @param {Managedclustertype} managedclustertype 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createManagedClusterTypeV1(managedclustertypeV1: ManagedclustertypeV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedclustertypeV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createManagedClusterTypeV1(managedclustertypeV1, axiosOptions);
+        async createManagedClusterTypeV1(managedclustertype: Managedclustertype, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Managedclustertype>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createManagedClusterTypeV1(managedclustertype, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ManagedClusterTypesV1Api.createManagedClusterTypeV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ManagedClusterTypesApi.createManagedClusterTypeV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -461,7 +461,7 @@ export const ManagedClusterTypesV1ApiFp = function(configuration?: Configuration
         async deleteManagedClusterTypeV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteManagedClusterTypeV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ManagedClusterTypesV1Api.deleteManagedClusterTypeV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ManagedClusterTypesApi.deleteManagedClusterTypeV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -471,10 +471,10 @@ export const ManagedClusterTypesV1ApiFp = function(configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getManagedClusterTypeV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedclustertypeV1>> {
+        async getManagedClusterTypeV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Managedclustertype>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getManagedClusterTypeV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ManagedClusterTypesV1Api.getManagedClusterTypeV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ManagedClusterTypesApi.getManagedClusterTypeV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -488,259 +488,259 @@ export const ManagedClusterTypesV1ApiFp = function(configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getManagedClusterTypesV1(type?: string, pod?: string, org?: string, offset?: number, limit?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ManagedclustertypeV1>>> {
+        async getManagedClusterTypesV1(type?: string, pod?: string, org?: string, offset?: number, limit?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Managedclustertype>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getManagedClusterTypesV1(type, pod, org, offset, limit, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ManagedClusterTypesV1Api.getManagedClusterTypesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ManagedClusterTypesApi.getManagedClusterTypesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Update an existing Managed Cluster Type.
          * @summary Update a managed cluster type
          * @param {string} id The Managed Cluster Type ID
-         * @param {JsonpatchV1} jsonpatchV1 The JSONPatch payload used to update the schema.
+         * @param {Jsonpatch} jsonpatch The JSONPatch payload used to update the schema.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateManagedClusterTypeV1(id: string, jsonpatchV1: JsonpatchV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedclustertypeV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateManagedClusterTypeV1(id, jsonpatchV1, axiosOptions);
+        async updateManagedClusterTypeV1(id: string, jsonpatch: Jsonpatch, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Managedclustertype>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateManagedClusterTypeV1(id, jsonpatch, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ManagedClusterTypesV1Api.updateManagedClusterTypeV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ManagedClusterTypesApi.updateManagedClusterTypeV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * ManagedClusterTypesV1Api - factory interface
+ * ManagedClusterTypesApi - factory interface
  * @export
  */
-export const ManagedClusterTypesV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = ManagedClusterTypesV1ApiFp(configuration)
+export const ManagedClusterTypesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = ManagedClusterTypesApiFp(configuration)
     return {
         /**
          * Create a new Managed Cluster Type.  The API returns a result that includes the Managed Cluster Type ID
          * @summary Create new managed cluster type
-         * @param {ManagedClusterTypesV1ApiCreateManagedClusterTypeV1Request} requestParameters Request parameters.
+         * @param {ManagedClusterTypesApiCreateManagedClusterTypeV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createManagedClusterTypeV1(requestParameters: ManagedClusterTypesV1ApiCreateManagedClusterTypeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ManagedclustertypeV1> {
-            return localVarFp.createManagedClusterTypeV1(requestParameters.managedclustertypeV1, axiosOptions).then((request) => request(axios, basePath));
+        createManagedClusterTypeV1(requestParameters: ManagedClusterTypesApiCreateManagedClusterTypeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Managedclustertype> {
+            return localVarFp.createManagedClusterTypeV1(requestParameters.managedclustertype, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Delete an existing Managed Cluster Type.
          * @summary Delete a managed cluster type
-         * @param {ManagedClusterTypesV1ApiDeleteManagedClusterTypeV1Request} requestParameters Request parameters.
+         * @param {ManagedClusterTypesApiDeleteManagedClusterTypeV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteManagedClusterTypeV1(requestParameters: ManagedClusterTypesV1ApiDeleteManagedClusterTypeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteManagedClusterTypeV1(requestParameters: ManagedClusterTypesApiDeleteManagedClusterTypeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteManagedClusterTypeV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get a Managed Cluster Type.
          * @summary Get a managed cluster type
-         * @param {ManagedClusterTypesV1ApiGetManagedClusterTypeV1Request} requestParameters Request parameters.
+         * @param {ManagedClusterTypesApiGetManagedClusterTypeV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getManagedClusterTypeV1(requestParameters: ManagedClusterTypesV1ApiGetManagedClusterTypeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ManagedclustertypeV1> {
+        getManagedClusterTypeV1(requestParameters: ManagedClusterTypesApiGetManagedClusterTypeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Managedclustertype> {
             return localVarFp.getManagedClusterTypeV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get a list of Managed Cluster Types.
          * @summary List managed cluster types
-         * @param {ManagedClusterTypesV1ApiGetManagedClusterTypesV1Request} requestParameters Request parameters.
+         * @param {ManagedClusterTypesApiGetManagedClusterTypesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getManagedClusterTypesV1(requestParameters: ManagedClusterTypesV1ApiGetManagedClusterTypesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ManagedclustertypeV1>> {
+        getManagedClusterTypesV1(requestParameters: ManagedClusterTypesApiGetManagedClusterTypesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Managedclustertype>> {
             return localVarFp.getManagedClusterTypesV1(requestParameters.type, requestParameters.pod, requestParameters.org, requestParameters.offset, requestParameters.limit, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Update an existing Managed Cluster Type.
          * @summary Update a managed cluster type
-         * @param {ManagedClusterTypesV1ApiUpdateManagedClusterTypeV1Request} requestParameters Request parameters.
+         * @param {ManagedClusterTypesApiUpdateManagedClusterTypeV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateManagedClusterTypeV1(requestParameters: ManagedClusterTypesV1ApiUpdateManagedClusterTypeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ManagedclustertypeV1> {
-            return localVarFp.updateManagedClusterTypeV1(requestParameters.id, requestParameters.jsonpatchV1, axiosOptions).then((request) => request(axios, basePath));
+        updateManagedClusterTypeV1(requestParameters: ManagedClusterTypesApiUpdateManagedClusterTypeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Managedclustertype> {
+            return localVarFp.updateManagedClusterTypeV1(requestParameters.id, requestParameters.jsonpatch, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createManagedClusterTypeV1 operation in ManagedClusterTypesV1Api.
+ * Request parameters for createManagedClusterTypeV1 operation in ManagedClusterTypesApi.
  * @export
- * @interface ManagedClusterTypesV1ApiCreateManagedClusterTypeV1Request
+ * @interface ManagedClusterTypesApiCreateManagedClusterTypeV1Request
  */
-export interface ManagedClusterTypesV1ApiCreateManagedClusterTypeV1Request {
+export interface ManagedClusterTypesApiCreateManagedClusterTypeV1Request {
     /**
      * 
-     * @type {ManagedclustertypeV1}
-     * @memberof ManagedClusterTypesV1ApiCreateManagedClusterTypeV1
+     * @type {Managedclustertype}
+     * @memberof ManagedClusterTypesApiCreateManagedClusterTypeV1
      */
-    readonly managedclustertypeV1: ManagedclustertypeV1
+    readonly managedclustertype: Managedclustertype
 }
 
 /**
- * Request parameters for deleteManagedClusterTypeV1 operation in ManagedClusterTypesV1Api.
+ * Request parameters for deleteManagedClusterTypeV1 operation in ManagedClusterTypesApi.
  * @export
- * @interface ManagedClusterTypesV1ApiDeleteManagedClusterTypeV1Request
+ * @interface ManagedClusterTypesApiDeleteManagedClusterTypeV1Request
  */
-export interface ManagedClusterTypesV1ApiDeleteManagedClusterTypeV1Request {
+export interface ManagedClusterTypesApiDeleteManagedClusterTypeV1Request {
     /**
      * The Managed Cluster Type ID
      * @type {string}
-     * @memberof ManagedClusterTypesV1ApiDeleteManagedClusterTypeV1
+     * @memberof ManagedClusterTypesApiDeleteManagedClusterTypeV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getManagedClusterTypeV1 operation in ManagedClusterTypesV1Api.
+ * Request parameters for getManagedClusterTypeV1 operation in ManagedClusterTypesApi.
  * @export
- * @interface ManagedClusterTypesV1ApiGetManagedClusterTypeV1Request
+ * @interface ManagedClusterTypesApiGetManagedClusterTypeV1Request
  */
-export interface ManagedClusterTypesV1ApiGetManagedClusterTypeV1Request {
+export interface ManagedClusterTypesApiGetManagedClusterTypeV1Request {
     /**
      * The Managed Cluster Type ID
      * @type {string}
-     * @memberof ManagedClusterTypesV1ApiGetManagedClusterTypeV1
+     * @memberof ManagedClusterTypesApiGetManagedClusterTypeV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getManagedClusterTypesV1 operation in ManagedClusterTypesV1Api.
+ * Request parameters for getManagedClusterTypesV1 operation in ManagedClusterTypesApi.
  * @export
- * @interface ManagedClusterTypesV1ApiGetManagedClusterTypesV1Request
+ * @interface ManagedClusterTypesApiGetManagedClusterTypesV1Request
  */
-export interface ManagedClusterTypesV1ApiGetManagedClusterTypesV1Request {
+export interface ManagedClusterTypesApiGetManagedClusterTypesV1Request {
     /**
      * Type descriptor
      * @type {string}
-     * @memberof ManagedClusterTypesV1ApiGetManagedClusterTypesV1
+     * @memberof ManagedClusterTypesApiGetManagedClusterTypesV1
      */
     readonly type?: string
 
     /**
      * Pinned pod (or default)
      * @type {string}
-     * @memberof ManagedClusterTypesV1ApiGetManagedClusterTypesV1
+     * @memberof ManagedClusterTypesApiGetManagedClusterTypesV1
      */
     readonly pod?: string
 
     /**
      * Pinned org (or default)
      * @type {string}
-     * @memberof ManagedClusterTypesV1ApiGetManagedClusterTypesV1
+     * @memberof ManagedClusterTypesApiGetManagedClusterTypesV1
      */
     readonly org?: string
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof ManagedClusterTypesV1ApiGetManagedClusterTypesV1
+     * @memberof ManagedClusterTypesApiGetManagedClusterTypesV1
      */
     readonly offset?: number
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof ManagedClusterTypesV1ApiGetManagedClusterTypesV1
+     * @memberof ManagedClusterTypesApiGetManagedClusterTypesV1
      */
     readonly limit?: number
 }
 
 /**
- * Request parameters for updateManagedClusterTypeV1 operation in ManagedClusterTypesV1Api.
+ * Request parameters for updateManagedClusterTypeV1 operation in ManagedClusterTypesApi.
  * @export
- * @interface ManagedClusterTypesV1ApiUpdateManagedClusterTypeV1Request
+ * @interface ManagedClusterTypesApiUpdateManagedClusterTypeV1Request
  */
-export interface ManagedClusterTypesV1ApiUpdateManagedClusterTypeV1Request {
+export interface ManagedClusterTypesApiUpdateManagedClusterTypeV1Request {
     /**
      * The Managed Cluster Type ID
      * @type {string}
-     * @memberof ManagedClusterTypesV1ApiUpdateManagedClusterTypeV1
+     * @memberof ManagedClusterTypesApiUpdateManagedClusterTypeV1
      */
     readonly id: string
 
     /**
      * The JSONPatch payload used to update the schema.
-     * @type {JsonpatchV1}
-     * @memberof ManagedClusterTypesV1ApiUpdateManagedClusterTypeV1
+     * @type {Jsonpatch}
+     * @memberof ManagedClusterTypesApiUpdateManagedClusterTypeV1
      */
-    readonly jsonpatchV1: JsonpatchV1
+    readonly jsonpatch: Jsonpatch
 }
 
 /**
- * ManagedClusterTypesV1Api - object-oriented interface
+ * ManagedClusterTypesApi - object-oriented interface
  * @export
- * @class ManagedClusterTypesV1Api
+ * @class ManagedClusterTypesApi
  * @extends {BaseAPI}
  */
-export class ManagedClusterTypesV1Api extends BaseAPI {
+export class ManagedClusterTypesApi extends BaseAPI {
     /**
      * Create a new Managed Cluster Type.  The API returns a result that includes the Managed Cluster Type ID
      * @summary Create new managed cluster type
-     * @param {ManagedClusterTypesV1ApiCreateManagedClusterTypeV1Request} requestParameters Request parameters.
+     * @param {ManagedClusterTypesApiCreateManagedClusterTypeV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ManagedClusterTypesV1Api
+     * @memberof ManagedClusterTypesApi
      */
-    public createManagedClusterTypeV1(requestParameters: ManagedClusterTypesV1ApiCreateManagedClusterTypeV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ManagedClusterTypesV1ApiFp(this.configuration).createManagedClusterTypeV1(requestParameters.managedclustertypeV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createManagedClusterTypeV1(requestParameters: ManagedClusterTypesApiCreateManagedClusterTypeV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ManagedClusterTypesApiFp(this.configuration).createManagedClusterTypeV1(requestParameters.managedclustertype, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Delete an existing Managed Cluster Type.
      * @summary Delete a managed cluster type
-     * @param {ManagedClusterTypesV1ApiDeleteManagedClusterTypeV1Request} requestParameters Request parameters.
+     * @param {ManagedClusterTypesApiDeleteManagedClusterTypeV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ManagedClusterTypesV1Api
+     * @memberof ManagedClusterTypesApi
      */
-    public deleteManagedClusterTypeV1(requestParameters: ManagedClusterTypesV1ApiDeleteManagedClusterTypeV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ManagedClusterTypesV1ApiFp(this.configuration).deleteManagedClusterTypeV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteManagedClusterTypeV1(requestParameters: ManagedClusterTypesApiDeleteManagedClusterTypeV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ManagedClusterTypesApiFp(this.configuration).deleteManagedClusterTypeV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get a Managed Cluster Type.
      * @summary Get a managed cluster type
-     * @param {ManagedClusterTypesV1ApiGetManagedClusterTypeV1Request} requestParameters Request parameters.
+     * @param {ManagedClusterTypesApiGetManagedClusterTypeV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ManagedClusterTypesV1Api
+     * @memberof ManagedClusterTypesApi
      */
-    public getManagedClusterTypeV1(requestParameters: ManagedClusterTypesV1ApiGetManagedClusterTypeV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ManagedClusterTypesV1ApiFp(this.configuration).getManagedClusterTypeV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getManagedClusterTypeV1(requestParameters: ManagedClusterTypesApiGetManagedClusterTypeV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ManagedClusterTypesApiFp(this.configuration).getManagedClusterTypeV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get a list of Managed Cluster Types.
      * @summary List managed cluster types
-     * @param {ManagedClusterTypesV1ApiGetManagedClusterTypesV1Request} requestParameters Request parameters.
+     * @param {ManagedClusterTypesApiGetManagedClusterTypesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ManagedClusterTypesV1Api
+     * @memberof ManagedClusterTypesApi
      */
-    public getManagedClusterTypesV1(requestParameters: ManagedClusterTypesV1ApiGetManagedClusterTypesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return ManagedClusterTypesV1ApiFp(this.configuration).getManagedClusterTypesV1(requestParameters.type, requestParameters.pod, requestParameters.org, requestParameters.offset, requestParameters.limit, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getManagedClusterTypesV1(requestParameters: ManagedClusterTypesApiGetManagedClusterTypesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return ManagedClusterTypesApiFp(this.configuration).getManagedClusterTypesV1(requestParameters.type, requestParameters.pod, requestParameters.org, requestParameters.offset, requestParameters.limit, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Update an existing Managed Cluster Type.
      * @summary Update a managed cluster type
-     * @param {ManagedClusterTypesV1ApiUpdateManagedClusterTypeV1Request} requestParameters Request parameters.
+     * @param {ManagedClusterTypesApiUpdateManagedClusterTypeV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ManagedClusterTypesV1Api
+     * @memberof ManagedClusterTypesApi
      */
-    public updateManagedClusterTypeV1(requestParameters: ManagedClusterTypesV1ApiUpdateManagedClusterTypeV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ManagedClusterTypesV1ApiFp(this.configuration).updateManagedClusterTypeV1(requestParameters.id, requestParameters.jsonpatchV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateManagedClusterTypeV1(requestParameters: ManagedClusterTypesApiUpdateManagedClusterTypeV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ManagedClusterTypesApiFp(this.configuration).updateManagedClusterTypeV1(requestParameters.id, requestParameters.jsonpatch, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

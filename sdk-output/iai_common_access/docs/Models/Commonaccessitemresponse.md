@@ -1,25 +1,25 @@
 ---
-id: v1-commonaccessitemresponse-v1
-title: CommonaccessitemresponseV1
-pagination_label: CommonaccessitemresponseV1
-sidebar_label: CommonaccessitemresponseV1
+id: v1-commonaccessitemresponse
+title: Commonaccessitemresponse
+pagination_label: Commonaccessitemresponse
+sidebar_label: Commonaccessitemresponse
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'CommonaccessitemresponseV1', 'v1CommonaccessitemresponseV1']
-slug: /tools/sdk/typescript/iai_common_access/models/commonaccessitemresponse-v1
-tags: ['SDK', 'Software Development Kit', 'CommonaccessitemresponseV1', 'v1CommonaccessitemresponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Commonaccessitemresponse', 'v1Commonaccessitemresponse']
+slug: /tools/sdk/typescript/iai_common_access/models/commonaccessitemresponse
+tags: ['SDK', 'Software Development Kit', 'Commonaccessitemresponse', 'v1Commonaccessitemresponse']
 ---
 
-# CommonaccessitemresponseV1
+# Commonaccessitemresponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **(optional)** **string** | Common Access Item ID | [default to undefined]
-**access** | **(optional)** **CommonaccessitemaccessV1** |  | [default to undefined]
-**status** | **(optional)** **CommonaccessitemstateV1** |  | [default to undefined]
-**lastUpdated** | **(optional)** **string** |  | [default to undefined]
-**reviewedByUser** | **(optional)** **boolean** |  | [default to undefined]
-**lastReviewed** | **(optional)** **string** |  | [default to undefined]
-**createdByUser** | **(optional)** **string** |  | [default to undefined]
+**id** | **(optional)** `string` | Common Access Item ID | [default to undefined]
+**access** | **(optional)** `Commonaccessitemaccess` |  | [default to undefined]
+**status** | **(optional)** `Commonaccessitemstate` |  | [default to undefined]
+**lastUpdated** | **(optional)** `string` |  | [default to undefined]
+**reviewedByUser** | **(optional)** `boolean` |  | [default to undefined]
+**lastReviewed** | **(optional)** `string` |  | [default to undefined]
+**createdByUser** | **(optional)** `string` |  | [default to undefined]
 

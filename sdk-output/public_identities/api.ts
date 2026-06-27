@@ -29,7 +29,7 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
  * @enum {string}
  */
 
-export const DtotypeV1 = {
+export const Dtotype = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
@@ -61,31 +61,31 @@ export const DtotypeV1 = {
     Workgroup: 'WORKGROUP'
 } as const;
 
-export type DtotypeV1 = typeof DtotypeV1[keyof typeof DtotypeV1];
+export type Dtotype = typeof Dtotype[keyof typeof Dtotype];
 
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -94,82 +94,82 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetPublicIdentitiesV1401ResponseV1
+ * @interface GetPublicIdentitiesV1401Response
  */
-export interface GetPublicIdentitiesV1401ResponseV1 {
+export interface GetPublicIdentitiesV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetPublicIdentitiesV1401ResponseV1
+     * @memberof GetPublicIdentitiesV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetPublicIdentitiesV1429ResponseV1
+ * @interface GetPublicIdentitiesV1429Response
  */
-export interface GetPublicIdentitiesV1429ResponseV1 {
+export interface GetPublicIdentitiesV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetPublicIdentitiesV1429ResponseV1
+     * @memberof GetPublicIdentitiesV1429Response
      */
     'message'?: any;
 }
 /**
  * The manager for the identity.
  * @export
- * @interface IdentityreferenceV1
+ * @interface Identityreference
  */
-export interface IdentityreferenceV1 {
+export interface Identityreference {
     /**
      * 
-     * @type {DtotypeV1}
-     * @memberof IdentityreferenceV1
+     * @type {Dtotype}
+     * @memberof Identityreference
      */
-    'type'?: DtotypeV1;
+    'type'?: Dtotype;
     /**
      * Identity id
      * @type {string}
-     * @memberof IdentityreferenceV1
+     * @memberof Identityreference
      */
     'id'?: string;
     /**
      * Human-readable display name of identity.
      * @type {string}
-     * @memberof IdentityreferenceV1
+     * @memberof Identityreference
      */
     'name'?: string;
 }
@@ -181,109 +181,109 @@ export interface IdentityreferenceV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
-/**
- * 
- * @export
- * @interface PublicidentityAttributesInnerV1
- */
-export interface PublicidentityAttributesInnerV1 {
-    /**
-     * The attribute key
-     * @type {string}
-     * @memberof PublicidentityAttributesInnerV1
-     */
-    'key'?: string;
-    /**
-     * Human-readable display name of the attribute
-     * @type {string}
-     * @memberof PublicidentityAttributesInnerV1
-     */
-    'name'?: string;
-    /**
-     * The attribute value
-     * @type {string}
-     * @memberof PublicidentityAttributesInnerV1
-     */
-    'value'?: string | null;
-}
 /**
  * Details about a public identity
  * @export
- * @interface PublicidentityV1
+ * @interface Publicidentity
  */
-export interface PublicidentityV1 {
+export interface Publicidentity {
     /**
      * Identity id
      * @type {string}
-     * @memberof PublicidentityV1
+     * @memberof Publicidentity
      */
     'id'?: string;
     /**
      * Human-readable display name of identity.
      * @type {string}
-     * @memberof PublicidentityV1
+     * @memberof Publicidentity
      */
     'name'?: string;
     /**
      * Alternate unique identifier for the identity.
      * @type {string}
-     * @memberof PublicidentityV1
+     * @memberof Publicidentity
      */
     'alias'?: string;
     /**
      * Email address of identity.
      * @type {string}
-     * @memberof PublicidentityV1
+     * @memberof Publicidentity
      */
     'email'?: string | null;
     /**
      * The lifecycle status for the identity
      * @type {string}
-     * @memberof PublicidentityV1
+     * @memberof Publicidentity
      */
     'status'?: string | null;
     /**
      * The current state of the identity, which determines how Identity Security Cloud interacts with the identity. An identity that is Active will be included identity picklists in Request Center, identity processing, and more. Identities that are Inactive will be excluded from these features. 
      * @type {string}
-     * @memberof PublicidentityV1
+     * @memberof Publicidentity
      */
-    'identityState'?: PublicidentityV1IdentityStateV1 | null;
+    'identityState'?: PublicidentityIdentityStateEnum | null;
     /**
      * 
-     * @type {IdentityreferenceV1}
-     * @memberof PublicidentityV1
+     * @type {Identityreference}
+     * @memberof Publicidentity
      */
-    'manager'?: IdentityreferenceV1 | null;
+    'manager'?: Identityreference | null;
     /**
      * The public identity attributes of the identity
-     * @type {Array<PublicidentityAttributesInnerV1>}
-     * @memberof PublicidentityV1
+     * @type {Array<PublicidentityAttributesInner>}
+     * @memberof Publicidentity
      */
-    'attributes'?: Array<PublicidentityAttributesInnerV1>;
+    'attributes'?: Array<PublicidentityAttributesInner>;
 }
 
-export const PublicidentityV1IdentityStateV1 = {
+export const PublicidentityIdentityStateEnum = {
     Active: 'ACTIVE',
     InactiveShortTerm: 'INACTIVE_SHORT_TERM',
     InactiveLongTerm: 'INACTIVE_LONG_TERM'
 } as const;
 
-export type PublicidentityV1IdentityStateV1 = typeof PublicidentityV1IdentityStateV1[keyof typeof PublicidentityV1IdentityStateV1];
-
+export type PublicidentityIdentityStateEnum = typeof PublicidentityIdentityStateEnum[keyof typeof PublicidentityIdentityStateEnum];
 
 /**
- * PublicIdentitiesV1Api - axios parameter creator
+ * 
+ * @export
+ * @interface PublicidentityAttributesInner
+ */
+export interface PublicidentityAttributesInner {
+    /**
+     * The attribute key
+     * @type {string}
+     * @memberof PublicidentityAttributesInner
+     */
+    'key'?: string;
+    /**
+     * Human-readable display name of the attribute
+     * @type {string}
+     * @memberof PublicidentityAttributesInner
+     */
+    'name'?: string;
+    /**
+     * The attribute value
+     * @type {string}
+     * @memberof PublicidentityAttributesInner
+     */
+    'value'?: string | null;
+}
+
+/**
+ * PublicIdentitiesApi - axios parameter creator
  * @export
  */
-export const PublicIdentitiesV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const PublicIdentitiesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Get a list of public identities.  Set `add-core-filters` to `true` to exclude incomplete identities and uncorrelated accounts.
@@ -349,11 +349,11 @@ export const PublicIdentitiesV1ApiAxiosParamCreator = function (configuration?: 
 };
 
 /**
- * PublicIdentitiesV1Api - functional programming interface
+ * PublicIdentitiesApi - functional programming interface
  * @export
  */
-export const PublicIdentitiesV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = PublicIdentitiesV1ApiAxiosParamCreator(configuration)
+export const PublicIdentitiesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = PublicIdentitiesApiAxiosParamCreator(configuration)
     return {
         /**
          * Get a list of public identities.  Set `add-core-filters` to `true` to exclude incomplete identities and uncorrelated accounts.
@@ -367,101 +367,101 @@ export const PublicIdentitiesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPublicIdentitiesV1(limit?: number, offset?: number, count?: boolean, filters?: string, addCoreFilters?: boolean, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PublicidentityV1>>> {
+        async getPublicIdentitiesV1(limit?: number, offset?: number, count?: boolean, filters?: string, addCoreFilters?: boolean, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Publicidentity>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPublicIdentitiesV1(limit, offset, count, filters, addCoreFilters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PublicIdentitiesV1Api.getPublicIdentitiesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PublicIdentitiesApi.getPublicIdentitiesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * PublicIdentitiesV1Api - factory interface
+ * PublicIdentitiesApi - factory interface
  * @export
  */
-export const PublicIdentitiesV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = PublicIdentitiesV1ApiFp(configuration)
+export const PublicIdentitiesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = PublicIdentitiesApiFp(configuration)
     return {
         /**
          * Get a list of public identities.  Set `add-core-filters` to `true` to exclude incomplete identities and uncorrelated accounts.
          * @summary Get list of public identities
-         * @param {PublicIdentitiesV1ApiGetPublicIdentitiesV1Request} requestParameters Request parameters.
+         * @param {PublicIdentitiesApiGetPublicIdentitiesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getPublicIdentitiesV1(requestParameters: PublicIdentitiesV1ApiGetPublicIdentitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<PublicidentityV1>> {
+        getPublicIdentitiesV1(requestParameters: PublicIdentitiesApiGetPublicIdentitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Publicidentity>> {
             return localVarFp.getPublicIdentitiesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.addCoreFilters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for getPublicIdentitiesV1 operation in PublicIdentitiesV1Api.
+ * Request parameters for getPublicIdentitiesV1 operation in PublicIdentitiesApi.
  * @export
- * @interface PublicIdentitiesV1ApiGetPublicIdentitiesV1Request
+ * @interface PublicIdentitiesApiGetPublicIdentitiesV1Request
  */
-export interface PublicIdentitiesV1ApiGetPublicIdentitiesV1Request {
+export interface PublicIdentitiesApiGetPublicIdentitiesV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof PublicIdentitiesV1ApiGetPublicIdentitiesV1
+     * @memberof PublicIdentitiesApiGetPublicIdentitiesV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof PublicIdentitiesV1ApiGetPublicIdentitiesV1
+     * @memberof PublicIdentitiesApiGetPublicIdentitiesV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof PublicIdentitiesV1ApiGetPublicIdentitiesV1
+     * @memberof PublicIdentitiesApiGetPublicIdentitiesV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **alias**: *eq, sw*  **email**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*
      * @type {string}
-     * @memberof PublicIdentitiesV1ApiGetPublicIdentitiesV1
+     * @memberof PublicIdentitiesApiGetPublicIdentitiesV1
      */
     readonly filters?: string
 
     /**
      * If *true*, only get identities which satisfy ALL the following criteria in addition to any criteria specified by *filters*:   - Should be either correlated or protected.   - Should not be \&quot;spadmin\&quot; or \&quot;cloudadmin\&quot;.   - uid should not be null.   - lastname should not be null.   - email should not be null.
      * @type {boolean}
-     * @memberof PublicIdentitiesV1ApiGetPublicIdentitiesV1
+     * @memberof PublicIdentitiesApiGetPublicIdentitiesV1
      */
     readonly addCoreFilters?: boolean
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
      * @type {string}
-     * @memberof PublicIdentitiesV1ApiGetPublicIdentitiesV1
+     * @memberof PublicIdentitiesApiGetPublicIdentitiesV1
      */
     readonly sorters?: string
 }
 
 /**
- * PublicIdentitiesV1Api - object-oriented interface
+ * PublicIdentitiesApi - object-oriented interface
  * @export
- * @class PublicIdentitiesV1Api
+ * @class PublicIdentitiesApi
  * @extends {BaseAPI}
  */
-export class PublicIdentitiesV1Api extends BaseAPI {
+export class PublicIdentitiesApi extends BaseAPI {
     /**
      * Get a list of public identities.  Set `add-core-filters` to `true` to exclude incomplete identities and uncorrelated accounts.
      * @summary Get list of public identities
-     * @param {PublicIdentitiesV1ApiGetPublicIdentitiesV1Request} requestParameters Request parameters.
+     * @param {PublicIdentitiesApiGetPublicIdentitiesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof PublicIdentitiesV1Api
+     * @memberof PublicIdentitiesApi
      */
-    public getPublicIdentitiesV1(requestParameters: PublicIdentitiesV1ApiGetPublicIdentitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return PublicIdentitiesV1ApiFp(this.configuration).getPublicIdentitiesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.addCoreFilters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getPublicIdentitiesV1(requestParameters: PublicIdentitiesApiGetPublicIdentitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return PublicIdentitiesApiFp(this.configuration).getPublicIdentitiesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.addCoreFilters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

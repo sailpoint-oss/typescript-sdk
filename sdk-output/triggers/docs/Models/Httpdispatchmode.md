@@ -1,15 +1,15 @@
 ---
-id: v1-httpdispatchmode-v1
-title: HttpdispatchmodeV1
-pagination_label: HttpdispatchmodeV1
-sidebar_label: HttpdispatchmodeV1
+id: v1-httpdispatchmode
+title: Httpdispatchmode
+pagination_label: Httpdispatchmode
+sidebar_label: Httpdispatchmode
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'HttpdispatchmodeV1', 'v1HttpdispatchmodeV1']
-slug: /tools/sdk/typescript/triggers/models/httpdispatchmode-v1
-tags: ['SDK', 'Software Development Kit', 'HttpdispatchmodeV1', 'v1HttpdispatchmodeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Httpdispatchmode', 'v1Httpdispatchmode']
+slug: /tools/sdk/typescript/triggers/models/httpdispatchmode
+tags: ['SDK', 'Software Development Kit', 'Httpdispatchmode', 'v1Httpdispatchmode']
 ---
 
-# HttpdispatchmodeV1
+# Httpdispatchmode
 
 ## Enum
 

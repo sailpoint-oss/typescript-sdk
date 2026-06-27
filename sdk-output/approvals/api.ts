@@ -24,447 +24,573 @@ import type { RequestArgs } from './base';
 import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
 
 /**
- * Criteria for approval
- * @export
- * @interface Approval2ApprovalCriteriaApprovalV1
- */
-export interface Approval2ApprovalCriteriaApprovalV1 {
-    /**
-     * This defines what the field \"value\" will be used as, either a count or percentage of the total approvers that need to approve
-     * @type {string}
-     * @memberof Approval2ApprovalCriteriaApprovalV1
-     */
-    'calculationType'?: Approval2ApprovalCriteriaApprovalV1CalculationTypeV1;
-    /**
-     * The value that needs to be met for the approval criteria
-     * @type {number}
-     * @memberof Approval2ApprovalCriteriaApprovalV1
-     */
-    'value'?: number;
-}
-
-export const Approval2ApprovalCriteriaApprovalV1CalculationTypeV1 = {
-    Count: 'COUNT',
-    Percent: 'PERCENT'
-} as const;
-
-export type Approval2ApprovalCriteriaApprovalV1CalculationTypeV1 = typeof Approval2ApprovalCriteriaApprovalV1CalculationTypeV1[keyof typeof Approval2ApprovalCriteriaApprovalV1CalculationTypeV1];
-
-/**
- * Criteria for rejection
- * @export
- * @interface Approval2ApprovalCriteriaRejectionV1
- */
-export interface Approval2ApprovalCriteriaRejectionV1 {
-    /**
-     * This defines what the field \"value\" will be used as, either a count or percentage of the total approvers that need to reject
-     * @type {string}
-     * @memberof Approval2ApprovalCriteriaRejectionV1
-     */
-    'calculationType'?: Approval2ApprovalCriteriaRejectionV1CalculationTypeV1;
-    /**
-     * The value that needs to be met for the rejection criteria
-     * @type {number}
-     * @memberof Approval2ApprovalCriteriaRejectionV1
-     */
-    'value'?: number;
-}
-
-export const Approval2ApprovalCriteriaRejectionV1CalculationTypeV1 = {
-    Count: 'COUNT',
-    Percent: 'PERCENT'
-} as const;
-
-export type Approval2ApprovalCriteriaRejectionV1CalculationTypeV1 = typeof Approval2ApprovalCriteriaRejectionV1CalculationTypeV1[keyof typeof Approval2ApprovalCriteriaRejectionV1CalculationTypeV1];
-
-/**
- * Criteria that needs to be met for an approval or rejection
- * @export
- * @interface Approval2ApprovalCriteriaV1
- */
-export interface Approval2ApprovalCriteriaV1 {
-    /**
-     * Type of approval criteria, such as SERIAL or PARALLEL
-     * @type {string}
-     * @memberof Approval2ApprovalCriteriaV1
-     */
-    'type'?: string;
-    /**
-     * 
-     * @type {Approval2ApprovalCriteriaApprovalV1}
-     * @memberof Approval2ApprovalCriteriaV1
-     */
-    'approval'?: Approval2ApprovalCriteriaApprovalV1;
-    /**
-     * 
-     * @type {Approval2ApprovalCriteriaRejectionV1}
-     * @memberof Approval2ApprovalCriteriaV1
-     */
-    'rejection'?: Approval2ApprovalCriteriaRejectionV1;
-}
-/**
  * Approval Object
  * @export
- * @interface Approval2V1
+ * @interface Approval2
  */
-export interface Approval2V1 {
+export interface Approval2 {
     /**
      * The Approval ID
      * @type {string}
-     * @memberof Approval2V1
+     * @memberof Approval2
      */
     'id'?: string;
     /**
      * The Tenant ID of the Approval
      * @type {string}
-     * @memberof Approval2V1
+     * @memberof Approval2
      */
     'tenantId'?: string;
     /**
      * The type of the approval, such as ENTITLEMENT_DESCRIPTIONS, CUSTOM_ACCESS_REQUEST_APPROVAL, GENERIC_APPROVAL
      * @type {string}
-     * @memberof Approval2V1
+     * @memberof Approval2
      */
     'type'?: string;
     /**
      * Object representation of an approver of an approval
-     * @type {Array<ApprovalidentityV1>}
-     * @memberof Approval2V1
+     * @type {Array<Approvalidentity>}
+     * @memberof Approval2
      */
-    'approvers'?: Array<ApprovalidentityV1>;
+    'approvers'?: Array<Approvalidentity>;
     /**
      * Date the approval was created
      * @type {string}
-     * @memberof Approval2V1
+     * @memberof Approval2
      */
     'createdDate'?: string;
     /**
      * Date the approval is due
      * @type {string}
-     * @memberof Approval2V1
+     * @memberof Approval2
      */
     'dueDate'?: string;
     /**
      * Step in the escalation process. If set to 0, the approval is not escalated. If set to 1, the approval is escalated to the first approver in the escalation chain.
      * @type {string}
-     * @memberof Approval2V1
+     * @memberof Approval2
      */
     'escalationStep'?: string;
     /**
      * The serial step of the approval in the approval chain. For example, serialStep 1 is the first approval to action in an approval request chain. Parallel approvals are set to 0.
      * @type {number}
-     * @memberof Approval2V1
+     * @memberof Approval2
      */
     'serialStep'?: number;
     /**
      * Whether or not the approval has been escalated. Will reset to false when the approval is actioned on.
      * @type {boolean}
-     * @memberof Approval2V1
+     * @memberof Approval2
      */
     'isEscalated'?: boolean;
     /**
      * The name of the approval for a given locale
-     * @type {Array<ApprovalnameV1>}
-     * @memberof Approval2V1
+     * @type {Array<Approvalname>}
+     * @memberof Approval2
      */
-    'name'?: Array<ApprovalnameV1>;
+    'name'?: Array<Approvalname>;
     /**
      * 
-     * @type {ApprovalbatchV1}
-     * @memberof Approval2V1
+     * @type {Approvalbatch}
+     * @memberof Approval2
      */
-    'batchRequest'?: ApprovalbatchV1;
+    'batchRequest'?: Approvalbatch;
     /**
      * 
-     * @type {ApprovalconfigV1}
-     * @memberof Approval2V1
+     * @type {Approvalconfig}
+     * @memberof Approval2
      */
-    'approvalConfig'?: ApprovalconfigV1;
+    'approvalConfig'?: Approvalconfig;
     /**
      * The description of the approval for a given locale
-     * @type {Array<ApprovaldescriptionV1>}
-     * @memberof Approval2V1
+     * @type {Array<Approvaldescription>}
+     * @memberof Approval2
      */
-    'description'?: Array<ApprovaldescriptionV1>;
+    'description'?: Array<Approvaldescription>;
     /**
      * Signifies what medium to use when sending notifications (currently only email is utilized)
      * @type {string}
-     * @memberof Approval2V1
+     * @memberof Approval2
      */
-    'medium'?: Approval2V1MediumV1;
+    'medium'?: Approval2MediumEnum;
     /**
      * The priority of the approval
      * @type {string}
-     * @memberof Approval2V1
+     * @memberof Approval2
      */
-    'priority'?: Approval2V1PriorityV1;
+    'priority'?: Approval2PriorityEnum;
     /**
      * 
-     * @type {ApprovalidentityV1}
-     * @memberof Approval2V1
+     * @type {Approvalidentity}
+     * @memberof Approval2
      */
-    'requester'?: ApprovalidentityV1;
+    'requester'?: Approvalidentity;
     /**
      * 
-     * @type {ApprovalidentityV1}
-     * @memberof Approval2V1
+     * @type {Approvalidentity}
+     * @memberof Approval2
      */
-    'requestee'?: ApprovalidentityV1;
+    'requestee'?: Approvalidentity;
     /**
      * Object representation of a comment on the approval
-     * @type {Array<Approvalcomment3V1>}
-     * @memberof Approval2V1
+     * @type {Array<Approvalcomment3>}
+     * @memberof Approval2
      */
-    'comments'?: Array<Approvalcomment3V1>;
+    'comments'?: Array<Approvalcomment3>;
     /**
      * Array of approvers who have approved the approval
-     * @type {Array<ApprovalidentityrecordV1>}
-     * @memberof Approval2V1
+     * @type {Array<Approvalidentityrecord>}
+     * @memberof Approval2
      */
-    'approvedBy'?: Array<ApprovalidentityrecordV1>;
+    'approvedBy'?: Array<Approvalidentityrecord>;
     /**
      * Array of approvers who have rejected the approval
-     * @type {Array<ApprovalidentityrecordV1>}
-     * @memberof Approval2V1
+     * @type {Array<Approvalidentityrecord>}
+     * @memberof Approval2
      */
-    'rejectedBy'?: Array<ApprovalidentityrecordV1>;
+    'rejectedBy'?: Array<Approvalidentityrecord>;
     /**
      * Array of identities that the approval request is currently assigned to/waiting on. For parallel approvals, this is set to all approvers left to approve.
-     * @type {Array<ApprovalidentityV1>}
-     * @memberof Approval2V1
+     * @type {Array<Approvalidentity>}
+     * @memberof Approval2
      */
-    'assignedTo'?: Array<ApprovalidentityV1>;
+    'assignedTo'?: Array<Approvalidentity>;
     /**
      * Date the approval was completed
      * @type {string}
-     * @memberof Approval2V1
+     * @memberof Approval2
      */
     'completedDate'?: string;
     /**
      * 
-     * @type {Approval2ApprovalCriteriaV1}
-     * @memberof Approval2V1
+     * @type {Approval2ApprovalCriteria}
+     * @memberof Approval2
      */
-    'approvalCriteria'?: Approval2ApprovalCriteriaV1;
+    'approvalCriteria'?: Approval2ApprovalCriteria;
     /**
      * Json string representing additional attributes known about the object to be approved.
      * @type {string}
-     * @memberof Approval2V1
+     * @memberof Approval2
      */
     'additionalAttributes'?: string;
     /**
      * Reference data related to the approval
-     * @type {Array<ApprovalreferenceV1>}
-     * @memberof Approval2V1
+     * @type {Array<Approvalreference>}
+     * @memberof Approval2
      */
-    'referenceData'?: Array<ApprovalreferenceV1>;
+    'referenceData'?: Array<Approvalreference>;
     /**
      * History of whom the approval request was assigned to
-     * @type {Array<ApprovalreassignmenthistoryV1>}
-     * @memberof Approval2V1
+     * @type {Array<Approvalreassignmenthistory>}
+     * @memberof Approval2
      */
-    'reassignmentHistory'?: Array<ApprovalreassignmenthistoryV1>;
+    'reassignmentHistory'?: Array<Approvalreassignmenthistory>;
     /**
      * Field that can include any static additional info that may be needed by the service that the approval request originated from
      * @type {{ [key: string]: any; }}
-     * @memberof Approval2V1
+     * @memberof Approval2
      */
     'staticAttributes'?: { [key: string]: any; };
     /**
      * Date/time that the approval request was last updated
      * @type {string}
-     * @memberof Approval2V1
+     * @memberof Approval2
      */
     'modifiedDate'?: string;
     /**
      * RequestedTarget used to specify the actual object or target the approval request is for
-     * @type {Array<ApprovalrequestedtargetV1>}
-     * @memberof Approval2V1
+     * @type {Array<Approvalrequestedtarget>}
+     * @memberof Approval2
      */
-    'requestedTarget'?: Array<ApprovalrequestedtargetV1>;
+    'requestedTarget'?: Array<Approvalrequestedtarget>;
 }
 
-export const Approval2V1MediumV1 = {
+export const Approval2MediumEnum = {
     Email: 'EMAIL',
     Slack: 'SLACK',
     Teams: 'TEAMS'
 } as const;
 
-export type Approval2V1MediumV1 = typeof Approval2V1MediumV1[keyof typeof Approval2V1MediumV1];
-export const Approval2V1PriorityV1 = {
+export type Approval2MediumEnum = typeof Approval2MediumEnum[keyof typeof Approval2MediumEnum];
+export const Approval2PriorityEnum = {
     High: 'HIGH',
     Medium: 'MEDIUM',
     Low: 'LOW'
 } as const;
 
-export type Approval2V1PriorityV1 = typeof Approval2V1PriorityV1[keyof typeof Approval2V1PriorityV1];
+export type Approval2PriorityEnum = typeof Approval2PriorityEnum[keyof typeof Approval2PriorityEnum];
+
+/**
+ * Criteria that needs to be met for an approval or rejection
+ * @export
+ * @interface Approval2ApprovalCriteria
+ */
+export interface Approval2ApprovalCriteria {
+    /**
+     * Type of approval criteria, such as SERIAL or PARALLEL
+     * @type {string}
+     * @memberof Approval2ApprovalCriteria
+     */
+    'type'?: string;
+    /**
+     * 
+     * @type {Approval2ApprovalCriteriaApproval}
+     * @memberof Approval2ApprovalCriteria
+     */
+    'approval'?: Approval2ApprovalCriteriaApproval;
+    /**
+     * 
+     * @type {Approval2ApprovalCriteriaRejection}
+     * @memberof Approval2ApprovalCriteria
+     */
+    'rejection'?: Approval2ApprovalCriteriaRejection;
+}
+/**
+ * Criteria for approval
+ * @export
+ * @interface Approval2ApprovalCriteriaApproval
+ */
+export interface Approval2ApprovalCriteriaApproval {
+    /**
+     * This defines what the field \"value\" will be used as, either a count or percentage of the total approvers that need to approve
+     * @type {string}
+     * @memberof Approval2ApprovalCriteriaApproval
+     */
+    'calculationType'?: Approval2ApprovalCriteriaApprovalCalculationTypeEnum;
+    /**
+     * The value that needs to be met for the approval criteria
+     * @type {number}
+     * @memberof Approval2ApprovalCriteriaApproval
+     */
+    'value'?: number;
+}
+
+export const Approval2ApprovalCriteriaApprovalCalculationTypeEnum = {
+    Count: 'COUNT',
+    Percent: 'PERCENT'
+} as const;
+
+export type Approval2ApprovalCriteriaApprovalCalculationTypeEnum = typeof Approval2ApprovalCriteriaApprovalCalculationTypeEnum[keyof typeof Approval2ApprovalCriteriaApprovalCalculationTypeEnum];
+
+/**
+ * Criteria for rejection
+ * @export
+ * @interface Approval2ApprovalCriteriaRejection
+ */
+export interface Approval2ApprovalCriteriaRejection {
+    /**
+     * This defines what the field \"value\" will be used as, either a count or percentage of the total approvers that need to reject
+     * @type {string}
+     * @memberof Approval2ApprovalCriteriaRejection
+     */
+    'calculationType'?: Approval2ApprovalCriteriaRejectionCalculationTypeEnum;
+    /**
+     * The value that needs to be met for the rejection criteria
+     * @type {number}
+     * @memberof Approval2ApprovalCriteriaRejection
+     */
+    'value'?: number;
+}
+
+export const Approval2ApprovalCriteriaRejectionCalculationTypeEnum = {
+    Count: 'COUNT',
+    Percent: 'PERCENT'
+} as const;
+
+export type Approval2ApprovalCriteriaRejectionCalculationTypeEnum = typeof Approval2ApprovalCriteriaRejectionCalculationTypeEnum[keyof typeof Approval2ApprovalCriteriaRejectionCalculationTypeEnum];
 
 /**
  * Approval Approve Request
  * @export
- * @interface ApprovalapproverequestV1
+ * @interface Approvalapproverequest
  */
-export interface ApprovalapproverequestV1 {
+export interface Approvalapproverequest {
     /**
      * Additional attributes as key-value pairs that are not part of the standard schema but can be included for custom data.
      * @type {{ [key: string]: string; }}
-     * @memberof ApprovalapproverequestV1
+     * @memberof Approvalapproverequest
      */
     'additionalAttributes'?: { [key: string]: string; };
     /**
      * Comment associated with the request.
      * @type {string}
-     * @memberof ApprovalapproverequestV1
+     * @memberof Approvalapproverequest
      */
     'comment'?: string;
 }
 /**
  * Approval Attributes Request
  * @export
- * @interface ApprovalattributesrequestV1
+ * @interface Approvalattributesrequest
  */
-export interface ApprovalattributesrequestV1 {
+export interface Approvalattributesrequest {
     /**
      * Additional attributes as key-value pairs that are not part of the standard schema but can be included for custom data.
      * @type {{ [key: string]: string; }}
-     * @memberof ApprovalattributesrequestV1
+     * @memberof Approvalattributesrequest
      */
     'additionalAttributes'?: { [key: string]: string; };
     /**
      * Comment associated with the request.
      * @type {string}
-     * @memberof ApprovalattributesrequestV1
+     * @memberof Approvalattributesrequest
      */
     'comment'?: string;
     /**
      * List of attribute keys to be removed.
      * @type {Array<string>}
-     * @memberof ApprovalattributesrequestV1
+     * @memberof Approvalattributesrequest
      */
     'removeAttributeKeys'?: Array<string>;
 }
 /**
  * Batch properties if an approval is sent via batching.
  * @export
- * @interface ApprovalbatchV1
+ * @interface Approvalbatch
  */
-export interface ApprovalbatchV1 {
+export interface Approvalbatch {
     /**
      * ID of the batch
      * @type {string}
-     * @memberof ApprovalbatchV1
+     * @memberof Approvalbatch
      */
     'batchId'?: string;
     /**
      * How many approvals are going to be in this batch. Defaults to 1 if not provided.
      * @type {number}
-     * @memberof ApprovalbatchV1
+     * @memberof Approvalbatch
      */
     'batchSize'?: number;
 }
 /**
  * Request body for cancelling a single approval request.
  * @export
- * @interface ApprovalcancelrequestV1
+ * @interface Approvalcancelrequest
  */
-export interface ApprovalcancelrequestV1 {
+export interface Approvalcancelrequest {
     /**
      * Optional comment associated with the cancel request.
      * @type {string}
-     * @memberof ApprovalcancelrequestV1
+     * @memberof Approvalcancelrequest
      */
     'comment'?: string;
 }
 /**
  * Comments Object
  * @export
- * @interface Approvalcomment3V1
+ * @interface Approvalcomment3
  */
-export interface Approvalcomment3V1 {
+export interface Approvalcomment3 {
     /**
      * 
-     * @type {ApprovalidentityV1}
-     * @memberof Approvalcomment3V1
+     * @type {Approvalidentity}
+     * @memberof Approvalcomment3
      */
-    'author'?: ApprovalidentityV1;
+    'author'?: Approvalidentity;
     /**
      * Comment to be left on an approval
      * @type {string}
-     * @memberof Approvalcomment3V1
+     * @memberof Approvalcomment3
      */
     'comment'?: string;
     /**
      * Date the comment was created
      * @type {string}
-     * @memberof Approvalcomment3V1
+     * @memberof Approvalcomment3
      */
     'createdDate'?: string;
     /**
      * ID of the comment
      * @type {string}
-     * @memberof Approvalcomment3V1
+     * @memberof Approvalcomment3
      */
     'commentId'?: string;
 }
 /**
  * 
  * @export
- * @interface ApprovalcommentsrequestV1
+ * @interface Approvalcommentsrequest
  */
-export interface ApprovalcommentsrequestV1 {
+export interface Approvalcommentsrequest {
     /**
      * Comment associated with the request.
      * @type {string}
-     * @memberof ApprovalcommentsrequestV1
+     * @memberof Approvalcommentsrequest
      */
     'comment'?: string;
 }
 /**
+ * Approval config Object
+ * @export
+ * @interface Approvalconfig
+ */
+export interface Approvalconfig {
+    /**
+     * 
+     * @type {ApprovalconfigReminderConfig}
+     * @memberof Approvalconfig
+     */
+    'reminderConfig'?: ApprovalconfigReminderConfig;
+    /**
+     * 
+     * @type {ApprovalconfigEscalationConfig}
+     * @memberof Approvalconfig
+     */
+    'escalationConfig'?: ApprovalconfigEscalationConfig;
+    /**
+     * 
+     * @type {ApprovalconfigTimeoutConfig}
+     * @memberof Approvalconfig
+     */
+    'timeoutConfig'?: ApprovalconfigTimeoutConfig;
+    /**
+     * 
+     * @type {ApprovalconfigCronTimezone}
+     * @memberof Approvalconfig
+     */
+    'cronTimezone'?: ApprovalconfigCronTimezone;
+    /**
+     * If the approval request has an approvalCriteria of SERIAL this chain will be used to determine the assignment order.
+     * @type {Array<ApprovalconfigSerialChainInner>}
+     * @memberof Approvalconfig
+     */
+    'serialChain'?: Array<ApprovalconfigSerialChainInner>;
+    /**
+     * Determines whether a comment is required when approving or rejecting the approval request.
+     * @type {string}
+     * @memberof Approvalconfig
+     */
+    'requiresComment'?: ApprovalconfigRequiresCommentEnum;
+    /**
+     * 
+     * @type {ApprovalconfigFallbackApprover}
+     * @memberof Approvalconfig
+     */
+    'fallbackApprover'?: ApprovalconfigFallbackApprover;
+    /**
+     * Specifies how to treat the identity type \"MANAGER_OF\" when the requestee is a machine identity.
+     * @type {string}
+     * @memberof Approvalconfig
+     */
+    'machineIdentityManagerAssignment'?: ApprovalconfigMachineIdentityManagerAssignmentEnum;
+    /**
+     * When true, all approvals will be created with the status \"PASSED\".
+     * @type {boolean}
+     * @memberof Approvalconfig
+     */
+    'circumventApprovalProcess'?: boolean;
+    /**
+     * OFF will prevent the approval request from being assigned to the requester or requestee by assigning it to their manager instead. DIRECT will cause approval requests to be auto-approved when assigned directly and only to the requester. INDIRECT will auto-approve when the requester appears anywhere in the list of approvers, including in a governance group. This field will only be effective if requestedTarget.reauthRequired is set to false, otherwise the approval will have to be manually approved.
+     * @type {string}
+     * @memberof Approvalconfig
+     */
+    'autoApprove'?: ApprovalconfigAutoApproveEnum;
+}
+
+export const ApprovalconfigRequiresCommentEnum = {
+    Approval: 'APPROVAL',
+    Rejection: 'REJECTION',
+    All: 'ALL',
+    Off: 'OFF'
+} as const;
+
+export type ApprovalconfigRequiresCommentEnum = typeof ApprovalconfigRequiresCommentEnum[keyof typeof ApprovalconfigRequiresCommentEnum];
+export const ApprovalconfigMachineIdentityManagerAssignmentEnum = {
+    ManagerOfRequester: 'MANAGER_OF_REQUESTER',
+    MachineIdentityOwner: 'MACHINE_IDENTITY_OWNER',
+    ManagerOfMachineIdentityOwner: 'MANAGER_OF_MACHINE_IDENTITY_OWNER',
+    RequestedTargetOwner: 'REQUESTED_TARGET_OWNER',
+    ManagerOfRequestedTargetOwner: 'MANAGER_OF_REQUESTED_TARGET_OWNER',
+    AccountOwner: 'ACCOUNT_OWNER',
+    ManagerOfAccountOwner: 'MANAGER_OF_ACCOUNT_OWNER'
+} as const;
+
+export type ApprovalconfigMachineIdentityManagerAssignmentEnum = typeof ApprovalconfigMachineIdentityManagerAssignmentEnum[keyof typeof ApprovalconfigMachineIdentityManagerAssignmentEnum];
+export const ApprovalconfigAutoApproveEnum = {
+    Off: 'OFF',
+    Direct: 'DIRECT',
+    Indirect: 'INDIRECT'
+} as const;
+
+export type ApprovalconfigAutoApproveEnum = typeof ApprovalconfigAutoApproveEnum[keyof typeof ApprovalconfigAutoApproveEnum];
+
+/**
  * Timezone configuration for cron schedules.
  * @export
- * @interface ApprovalconfigCronTimezoneV1
+ * @interface ApprovalconfigCronTimezone
  */
-export interface ApprovalconfigCronTimezoneV1 {
+export interface ApprovalconfigCronTimezone {
     /**
      * Timezone location for cron schedules.
      * @type {string}
-     * @memberof ApprovalconfigCronTimezoneV1
+     * @memberof ApprovalconfigCronTimezone
      */
     'location'?: string;
     /**
      * Timezone offset for cron schedules.
      * @type {string}
-     * @memberof ApprovalconfigCronTimezoneV1
+     * @memberof ApprovalconfigCronTimezone
      */
     'offset'?: string;
 }
 /**
+ * Configuration for escalations.
+ * @export
+ * @interface ApprovalconfigEscalationConfig
+ */
+export interface ApprovalconfigEscalationConfig {
+    /**
+     * Indicates if escalations are enabled.
+     * @type {boolean}
+     * @memberof ApprovalconfigEscalationConfig
+     */
+    'enabled'?: boolean;
+    /**
+     * Number of days until the first escalation.
+     * @type {number}
+     * @memberof ApprovalconfigEscalationConfig
+     */
+    'daysUntilFirstEscalation'?: number;
+    /**
+     * Cron schedule for escalations.
+     * @type {string}
+     * @memberof ApprovalconfigEscalationConfig
+     */
+    'escalationCronSchedule'?: string;
+    /**
+     * Escalation chain configuration.
+     * @type {Array<ApprovalconfigEscalationConfigEscalationChainInner>}
+     * @memberof ApprovalconfigEscalationConfig
+     */
+    'escalationChain'?: Array<ApprovalconfigEscalationConfigEscalationChainInner>;
+}
+/**
  * 
  * @export
- * @interface ApprovalconfigEscalationConfigEscalationChainInnerV1
+ * @interface ApprovalconfigEscalationConfigEscalationChainInner
  */
-export interface ApprovalconfigEscalationConfigEscalationChainInnerV1 {
+export interface ApprovalconfigEscalationConfigEscalationChainInner {
     /**
      * Starting at 1 defines the order in which the identities will get assigned
      * @type {number}
-     * @memberof ApprovalconfigEscalationConfigEscalationChainInnerV1
+     * @memberof ApprovalconfigEscalationConfigEscalationChainInner
      */
     'tier'?: number;
     /**
      * Optional Identity ID of the type of identity defined in the \'identityType\' field.
      * @type {string}
-     * @memberof ApprovalconfigEscalationConfigEscalationChainInnerV1
+     * @memberof ApprovalconfigEscalationConfigEscalationChainInner
      */
     'identityId'?: string;
     /**
      * Type of identityId in the escalation chain.
      * @type {string}
-     * @memberof ApprovalconfigEscalationConfigEscalationChainInnerV1
+     * @memberof ApprovalconfigEscalationConfigEscalationChainInner
      */
-    'identityType'?: ApprovalconfigEscalationConfigEscalationChainInnerV1IdentityTypeV1;
+    'identityType'?: ApprovalconfigEscalationConfigEscalationChainInnerIdentityTypeEnum;
 }
 
-export const ApprovalconfigEscalationConfigEscalationChainInnerV1IdentityTypeV1 = {
+export const ApprovalconfigEscalationConfigEscalationChainInnerIdentityTypeEnum = {
     Identity: 'IDENTITY',
     ManagerOf: 'MANAGER_OF',
     AccountOwner: 'ACCOUNT_OWNER',
@@ -489,60 +615,29 @@ export const ApprovalconfigEscalationConfigEscalationChainInnerV1IdentityTypeV1 
     SourcePrimaryOwner: 'SOURCE_PRIMARY_OWNER'
 } as const;
 
-export type ApprovalconfigEscalationConfigEscalationChainInnerV1IdentityTypeV1 = typeof ApprovalconfigEscalationConfigEscalationChainInnerV1IdentityTypeV1[keyof typeof ApprovalconfigEscalationConfigEscalationChainInnerV1IdentityTypeV1];
+export type ApprovalconfigEscalationConfigEscalationChainInnerIdentityTypeEnum = typeof ApprovalconfigEscalationConfigEscalationChainInnerIdentityTypeEnum[keyof typeof ApprovalconfigEscalationConfigEscalationChainInnerIdentityTypeEnum];
 
-/**
- * Configuration for escalations.
- * @export
- * @interface ApprovalconfigEscalationConfigV1
- */
-export interface ApprovalconfigEscalationConfigV1 {
-    /**
-     * Indicates if escalations are enabled.
-     * @type {boolean}
-     * @memberof ApprovalconfigEscalationConfigV1
-     */
-    'enabled'?: boolean;
-    /**
-     * Number of days until the first escalation.
-     * @type {number}
-     * @memberof ApprovalconfigEscalationConfigV1
-     */
-    'daysUntilFirstEscalation'?: number;
-    /**
-     * Cron schedule for escalations.
-     * @type {string}
-     * @memberof ApprovalconfigEscalationConfigV1
-     */
-    'escalationCronSchedule'?: string;
-    /**
-     * Escalation chain configuration.
-     * @type {Array<ApprovalconfigEscalationConfigEscalationChainInnerV1>}
-     * @memberof ApprovalconfigEscalationConfigV1
-     */
-    'escalationChain'?: Array<ApprovalconfigEscalationConfigEscalationChainInnerV1>;
-}
 /**
  * Configuration for fallback approver. Used if the user cannot be found for whatever reason and escalation config does not exist.
  * @export
- * @interface ApprovalconfigFallbackApproverV1
+ * @interface ApprovalconfigFallbackApprover
  */
-export interface ApprovalconfigFallbackApproverV1 {
+export interface ApprovalconfigFallbackApprover {
     /**
      * Optional Identity ID of the type of identity defined in the \'type\' field.
      * @type {string}
-     * @memberof ApprovalconfigFallbackApproverV1
+     * @memberof ApprovalconfigFallbackApprover
      */
     'identityID'?: string;
     /**
      * Type of identityID for the fallback approver.
      * @type {string}
-     * @memberof ApprovalconfigFallbackApproverV1
+     * @memberof ApprovalconfigFallbackApprover
      */
-    'type'?: ApprovalconfigFallbackApproverV1TypeV1;
+    'type'?: ApprovalconfigFallbackApproverTypeEnum;
 }
 
-export const ApprovalconfigFallbackApproverV1TypeV1 = {
+export const ApprovalconfigFallbackApproverTypeEnum = {
     Identity: 'IDENTITY',
     ManagerOf: 'MANAGER_OF',
     AccountOwner: 'ACCOUNT_OWNER',
@@ -569,66 +664,66 @@ export const ApprovalconfigFallbackApproverV1TypeV1 = {
     RequestedTargetPrimaryOwner: 'REQUESTED_TARGET_PRIMARY_OWNER'
 } as const;
 
-export type ApprovalconfigFallbackApproverV1TypeV1 = typeof ApprovalconfigFallbackApproverV1TypeV1[keyof typeof ApprovalconfigFallbackApproverV1TypeV1];
+export type ApprovalconfigFallbackApproverTypeEnum = typeof ApprovalconfigFallbackApproverTypeEnum[keyof typeof ApprovalconfigFallbackApproverTypeEnum];
 
 /**
  * Configuration for reminders.
  * @export
- * @interface ApprovalconfigReminderConfigV1
+ * @interface ApprovalconfigReminderConfig
  */
-export interface ApprovalconfigReminderConfigV1 {
+export interface ApprovalconfigReminderConfig {
     /**
      * Indicates if reminders are enabled.
      * @type {boolean}
-     * @memberof ApprovalconfigReminderConfigV1
+     * @memberof ApprovalconfigReminderConfig
      */
     'enabled'?: boolean;
     /**
      * Number of days until the first reminder.
      * @type {number}
-     * @memberof ApprovalconfigReminderConfigV1
+     * @memberof ApprovalconfigReminderConfig
      */
     'daysUntilFirstReminder'?: number;
     /**
      * Cron schedule for reminders.
      * @type {string}
-     * @memberof ApprovalconfigReminderConfigV1
+     * @memberof ApprovalconfigReminderConfig
      */
     'reminderCronSchedule'?: string;
     /**
      * Maximum number of reminders. Max is 20.
      * @type {number}
-     * @memberof ApprovalconfigReminderConfigV1
+     * @memberof ApprovalconfigReminderConfig
      */
     'maxReminders'?: number;
 }
 /**
  * 
  * @export
- * @interface ApprovalconfigSerialChainInnerV1
+ * @interface ApprovalconfigSerialChainInner
  */
-export interface ApprovalconfigSerialChainInnerV1 {
+export interface ApprovalconfigSerialChainInner {
     /**
      * Starting at 1 defines the order in which the identities will get assigned
      * @type {number}
-     * @memberof ApprovalconfigSerialChainInnerV1
+     * @memberof ApprovalconfigSerialChainInner
      */
     'tier'?: number;
     /**
      * Optional Identity ID of the type of identity defined in the \'identityType\' field.
      * @type {string}
-     * @memberof ApprovalconfigSerialChainInnerV1
+     * @memberof ApprovalconfigSerialChainInner
      */
     'identityId'?: string;
     /**
      * Type of identityId in the serial chain.
      * @type {string}
-     * @memberof ApprovalconfigSerialChainInnerV1
+     * @memberof ApprovalconfigSerialChainInner
      */
-    'identityType'?: ApprovalconfigSerialChainInnerV1IdentityTypeV1;
+    'identityType'?: ApprovalconfigSerialChainInnerIdentityTypeEnum;
 }
 
-export const ApprovalconfigSerialChainInnerV1IdentityTypeV1 = {
+export const ApprovalconfigSerialChainInnerIdentityTypeEnum = {
     Identity: 'IDENTITY',
     GovernanceGroup: 'GOVERNANCE_GROUP',
     ManagerOf: 'MANAGER_OF',
@@ -668,262 +763,111 @@ export const ApprovalconfigSerialChainInnerV1IdentityTypeV1 = {
     RequestedTargetAllOwnerGroup: 'REQUESTED_TARGET_ALL_OWNER_GROUP'
 } as const;
 
-export type ApprovalconfigSerialChainInnerV1IdentityTypeV1 = typeof ApprovalconfigSerialChainInnerV1IdentityTypeV1[keyof typeof ApprovalconfigSerialChainInnerV1IdentityTypeV1];
+export type ApprovalconfigSerialChainInnerIdentityTypeEnum = typeof ApprovalconfigSerialChainInnerIdentityTypeEnum[keyof typeof ApprovalconfigSerialChainInnerIdentityTypeEnum];
 
 /**
  * TimeoutConfig contains configurations around when the approval request should expire.
  * @export
- * @interface ApprovalconfigTimeoutConfigV1
+ * @interface ApprovalconfigTimeoutConfig
  */
-export interface ApprovalconfigTimeoutConfigV1 {
+export interface ApprovalconfigTimeoutConfig {
     /**
      * Indicates if timeout is enabled.
      * @type {boolean}
-     * @memberof ApprovalconfigTimeoutConfigV1
+     * @memberof ApprovalconfigTimeoutConfig
      */
     'enabled'?: boolean;
     /**
      * Number of days until approval request times out. Max value is 90.
      * @type {number}
-     * @memberof ApprovalconfigTimeoutConfigV1
+     * @memberof ApprovalconfigTimeoutConfig
      */
     'daysUntilTimeout'?: number;
     /**
      * Result of timeout.
      * @type {string}
-     * @memberof ApprovalconfigTimeoutConfigV1
+     * @memberof ApprovalconfigTimeoutConfig
      */
-    'timeoutResult'?: ApprovalconfigTimeoutConfigV1TimeoutResultV1;
+    'timeoutResult'?: ApprovalconfigTimeoutConfigTimeoutResultEnum;
 }
 
-export const ApprovalconfigTimeoutConfigV1TimeoutResultV1 = {
+export const ApprovalconfigTimeoutConfigTimeoutResultEnum = {
     Expired: 'EXPIRED',
     Approved: 'APPROVED'
 } as const;
 
-export type ApprovalconfigTimeoutConfigV1TimeoutResultV1 = typeof ApprovalconfigTimeoutConfigV1TimeoutResultV1[keyof typeof ApprovalconfigTimeoutConfigV1TimeoutResultV1];
-
-/**
- * Approval config Object
- * @export
- * @interface ApprovalconfigV1
- */
-export interface ApprovalconfigV1 {
-    /**
-     * 
-     * @type {ApprovalconfigReminderConfigV1}
-     * @memberof ApprovalconfigV1
-     */
-    'reminderConfig'?: ApprovalconfigReminderConfigV1;
-    /**
-     * 
-     * @type {ApprovalconfigEscalationConfigV1}
-     * @memberof ApprovalconfigV1
-     */
-    'escalationConfig'?: ApprovalconfigEscalationConfigV1;
-    /**
-     * 
-     * @type {ApprovalconfigTimeoutConfigV1}
-     * @memberof ApprovalconfigV1
-     */
-    'timeoutConfig'?: ApprovalconfigTimeoutConfigV1;
-    /**
-     * 
-     * @type {ApprovalconfigCronTimezoneV1}
-     * @memberof ApprovalconfigV1
-     */
-    'cronTimezone'?: ApprovalconfigCronTimezoneV1;
-    /**
-     * If the approval request has an approvalCriteria of SERIAL this chain will be used to determine the assignment order.
-     * @type {Array<ApprovalconfigSerialChainInnerV1>}
-     * @memberof ApprovalconfigV1
-     */
-    'serialChain'?: Array<ApprovalconfigSerialChainInnerV1>;
-    /**
-     * Determines whether a comment is required when approving or rejecting the approval request.
-     * @type {string}
-     * @memberof ApprovalconfigV1
-     */
-    'requiresComment'?: ApprovalconfigV1RequiresCommentV1;
-    /**
-     * 
-     * @type {ApprovalconfigFallbackApproverV1}
-     * @memberof ApprovalconfigV1
-     */
-    'fallbackApprover'?: ApprovalconfigFallbackApproverV1;
-    /**
-     * Specifies how to treat the identity type \"MANAGER_OF\" when the requestee is a machine identity.
-     * @type {string}
-     * @memberof ApprovalconfigV1
-     */
-    'machineIdentityManagerAssignment'?: ApprovalconfigV1MachineIdentityManagerAssignmentV1;
-    /**
-     * When true, all approvals will be created with the status \"PASSED\".
-     * @type {boolean}
-     * @memberof ApprovalconfigV1
-     */
-    'circumventApprovalProcess'?: boolean;
-    /**
-     * OFF will prevent the approval request from being assigned to the requester or requestee by assigning it to their manager instead. DIRECT will cause approval requests to be auto-approved when assigned directly and only to the requester. INDIRECT will auto-approve when the requester appears anywhere in the list of approvers, including in a governance group. This field will only be effective if requestedTarget.reauthRequired is set to false, otherwise the approval will have to be manually approved.
-     * @type {string}
-     * @memberof ApprovalconfigV1
-     */
-    'autoApprove'?: ApprovalconfigV1AutoApproveV1;
-}
-
-export const ApprovalconfigV1RequiresCommentV1 = {
-    Approval: 'APPROVAL',
-    Rejection: 'REJECTION',
-    All: 'ALL',
-    Off: 'OFF'
-} as const;
-
-export type ApprovalconfigV1RequiresCommentV1 = typeof ApprovalconfigV1RequiresCommentV1[keyof typeof ApprovalconfigV1RequiresCommentV1];
-export const ApprovalconfigV1MachineIdentityManagerAssignmentV1 = {
-    ManagerOfRequester: 'MANAGER_OF_REQUESTER',
-    MachineIdentityOwner: 'MACHINE_IDENTITY_OWNER',
-    ManagerOfMachineIdentityOwner: 'MANAGER_OF_MACHINE_IDENTITY_OWNER',
-    RequestedTargetOwner: 'REQUESTED_TARGET_OWNER',
-    ManagerOfRequestedTargetOwner: 'MANAGER_OF_REQUESTED_TARGET_OWNER',
-    AccountOwner: 'ACCOUNT_OWNER',
-    ManagerOfAccountOwner: 'MANAGER_OF_ACCOUNT_OWNER'
-} as const;
-
-export type ApprovalconfigV1MachineIdentityManagerAssignmentV1 = typeof ApprovalconfigV1MachineIdentityManagerAssignmentV1[keyof typeof ApprovalconfigV1MachineIdentityManagerAssignmentV1];
-export const ApprovalconfigV1AutoApproveV1 = {
-    Off: 'OFF',
-    Direct: 'DIRECT',
-    Indirect: 'INDIRECT'
-} as const;
-
-export type ApprovalconfigV1AutoApproveV1 = typeof ApprovalconfigV1AutoApproveV1[keyof typeof ApprovalconfigV1AutoApproveV1];
+export type ApprovalconfigTimeoutConfigTimeoutResultEnum = typeof ApprovalconfigTimeoutConfigTimeoutResultEnum[keyof typeof ApprovalconfigTimeoutConfigTimeoutResultEnum];
 
 /**
  * The description of what the approval is asking for
  * @export
- * @interface ApprovaldescriptionV1
+ * @interface Approvaldescription
  */
-export interface ApprovaldescriptionV1 {
+export interface Approvaldescription {
     /**
      * The description of what the approval is asking for
      * @type {string}
-     * @memberof ApprovaldescriptionV1
+     * @memberof Approvaldescription
      */
     'value'?: string;
     /**
      * What locale the description of the approval is using
      * @type {string}
-     * @memberof ApprovaldescriptionV1
+     * @memberof Approvaldescription
      */
     'locale'?: string;
 }
 /**
- * 
- * @export
- * @interface ApprovalidentityMembersInnerV1
- */
-export interface ApprovalidentityMembersInnerV1 {
-    /**
-     * Email of the member.
-     * @type {string}
-     * @memberof ApprovalidentityMembersInnerV1
-     */
-    'email'?: string;
-    /**
-     * ID of the member.
-     * @type {string}
-     * @memberof ApprovalidentityMembersInnerV1
-     */
-    'id'?: string;
-    /**
-     * Name of the member.
-     * @type {string}
-     * @memberof ApprovalidentityMembersInnerV1
-     */
-    'name'?: string;
-    /**
-     * Type of the member.
-     * @type {string}
-     * @memberof ApprovalidentityMembersInnerV1
-     */
-    'type'?: string;
-}
-/**
- * 
- * @export
- * @interface ApprovalidentityOwnerOfInnerV1
- */
-export interface ApprovalidentityOwnerOfInnerV1 {
-    /**
-     * ID of the object that is owned.
-     * @type {string}
-     * @memberof ApprovalidentityOwnerOfInnerV1
-     */
-    'id'?: string;
-    /**
-     * Name of the object that is owned.
-     * @type {string}
-     * @memberof ApprovalidentityOwnerOfInnerV1
-     */
-    'name'?: string;
-    /**
-     * Type of the object that is owned.
-     * @type {string}
-     * @memberof ApprovalidentityOwnerOfInnerV1
-     */
-    'type'?: string;
-}
-/**
  * Approval Identity Object
  * @export
- * @interface ApprovalidentityV1
+ * @interface Approvalidentity
  */
-export interface ApprovalidentityV1 {
+export interface Approvalidentity {
     /**
      * Email address.
      * @type {string}
-     * @memberof ApprovalidentityV1
+     * @memberof Approvalidentity
      */
     'email'?: string;
     /**
      * Identity ID of the type of identity defined in the \'type\' field.
      * @type {string}
-     * @memberof ApprovalidentityV1
+     * @memberof Approvalidentity
      */
     'identityID'?: string;
     /**
      * List of members of a governance group. Will be omitted if the identity is not a governance group.
-     * @type {Array<ApprovalidentityMembersInnerV1>}
-     * @memberof ApprovalidentityV1
+     * @type {Array<ApprovalidentityMembersInner>}
+     * @memberof Approvalidentity
      */
-    'members'?: Array<ApprovalidentityMembersInnerV1>;
+    'members'?: Array<ApprovalidentityMembersInner>;
     /**
      * Name of the identity.
      * @type {string}
-     * @memberof ApprovalidentityV1
+     * @memberof Approvalidentity
      */
     'name'?: string;
     /**
      * List of owned items. For example, will show the items in which a ROLE_OWNER owns. Omitted if not an owner of anything.
-     * @type {Array<ApprovalidentityOwnerOfInnerV1>}
-     * @memberof ApprovalidentityV1
+     * @type {Array<ApprovalidentityOwnerOfInner>}
+     * @memberof Approvalidentity
      */
-    'ownerOf'?: Array<ApprovalidentityOwnerOfInnerV1>;
+    'ownerOf'?: Array<ApprovalidentityOwnerOfInner>;
     /**
      * The serial step of the identity in the approval. For example serialOrder 1 is the first identity to action in an approval request chain. Parallel approvals are set to 0.
      * @type {number}
-     * @memberof ApprovalidentityV1
+     * @memberof Approvalidentity
      */
     'serialOrder'?: number;
     /**
      * Type of identityID.
      * @type {string}
-     * @memberof ApprovalidentityV1
+     * @memberof Approvalidentity
      */
-    'type'?: ApprovalidentityV1TypeV1;
+    'type'?: ApprovalidentityTypeEnum;
 }
 
-export const ApprovalidentityV1TypeV1 = {
+export const ApprovalidentityTypeEnum = {
     Identity: 'IDENTITY',
     GovernanceGroup: 'GOVERNANCE_GROUP',
     ManagerOf: 'MANAGER_OF',
@@ -963,375 +907,431 @@ export const ApprovalidentityV1TypeV1 = {
     RequestedTargetAllOwnerGroup: 'REQUESTED_TARGET_ALL_OWNER_GROUP'
 } as const;
 
-export type ApprovalidentityV1TypeV1 = typeof ApprovalidentityV1TypeV1[keyof typeof ApprovalidentityV1TypeV1];
+export type ApprovalidentityTypeEnum = typeof ApprovalidentityTypeEnum[keyof typeof ApprovalidentityTypeEnum];
 
+/**
+ * 
+ * @export
+ * @interface ApprovalidentityMembersInner
+ */
+export interface ApprovalidentityMembersInner {
+    /**
+     * Email of the member.
+     * @type {string}
+     * @memberof ApprovalidentityMembersInner
+     */
+    'email'?: string;
+    /**
+     * ID of the member.
+     * @type {string}
+     * @memberof ApprovalidentityMembersInner
+     */
+    'id'?: string;
+    /**
+     * Name of the member.
+     * @type {string}
+     * @memberof ApprovalidentityMembersInner
+     */
+    'name'?: string;
+    /**
+     * Type of the member.
+     * @type {string}
+     * @memberof ApprovalidentityMembersInner
+     */
+    'type'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface ApprovalidentityOwnerOfInner
+ */
+export interface ApprovalidentityOwnerOfInner {
+    /**
+     * ID of the object that is owned.
+     * @type {string}
+     * @memberof ApprovalidentityOwnerOfInner
+     */
+    'id'?: string;
+    /**
+     * Name of the object that is owned.
+     * @type {string}
+     * @memberof ApprovalidentityOwnerOfInner
+     */
+    'name'?: string;
+    /**
+     * Type of the object that is owned.
+     * @type {string}
+     * @memberof ApprovalidentityOwnerOfInner
+     */
+    'type'?: string;
+}
 /**
  * Identity Record Object
  * @export
- * @interface ApprovalidentityrecordV1
+ * @interface Approvalidentityrecord
  */
-export interface ApprovalidentityrecordV1 {
+export interface Approvalidentityrecord {
     /**
      * Identity ID.
      * @type {string}
-     * @memberof ApprovalidentityrecordV1
+     * @memberof Approvalidentityrecord
      */
     'identityID'?: string;
     /**
      * Type of identity.
      * @type {string}
-     * @memberof ApprovalidentityrecordV1
+     * @memberof Approvalidentityrecord
      */
-    'type'?: ApprovalidentityrecordV1TypeV1;
+    'type'?: ApprovalidentityrecordTypeEnum;
     /**
      * Name of the identity.
      * @type {string}
-     * @memberof ApprovalidentityrecordV1
+     * @memberof Approvalidentityrecord
      */
     'name'?: string;
     /**
      * List of references representing actions taken by the identity.
-     * @type {Array<ApprovalreferenceV1>}
-     * @memberof ApprovalidentityrecordV1
+     * @type {Array<Approvalreference>}
+     * @memberof Approvalidentityrecord
      */
-    'actionedAs'?: Array<ApprovalreferenceV1>;
+    'actionedAs'?: Array<Approvalreference>;
     /**
      * List of references representing members of the identity.
-     * @type {Array<ApprovalreferenceV1>}
-     * @memberof ApprovalidentityrecordV1
+     * @type {Array<Approvalreference>}
+     * @memberof Approvalidentityrecord
      */
-    'members'?: Array<ApprovalreferenceV1>;
+    'members'?: Array<Approvalreference>;
     /**
      * Date when the decision was made.
      * @type {string}
-     * @memberof ApprovalidentityrecordV1
+     * @memberof Approvalidentityrecord
      */
     'decisionDate'?: string;
     /**
      * Email associated with the identity.
      * @type {string}
-     * @memberof ApprovalidentityrecordV1
+     * @memberof Approvalidentityrecord
      */
     'email'?: string;
 }
 
-export const ApprovalidentityrecordV1TypeV1 = {
+export const ApprovalidentityrecordTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type ApprovalidentityrecordV1TypeV1 = typeof ApprovalidentityrecordV1TypeV1[keyof typeof ApprovalidentityrecordV1TypeV1];
+export type ApprovalidentityrecordTypeEnum = typeof ApprovalidentityrecordTypeEnum[keyof typeof ApprovalidentityrecordTypeEnum];
 
 /**
  * Approval Name Object
  * @export
- * @interface ApprovalnameV1
+ * @interface Approvalname
  */
-export interface ApprovalnameV1 {
+export interface Approvalname {
     /**
      * Name of the approval
      * @type {string}
-     * @memberof ApprovalnameV1
+     * @memberof Approvalname
      */
     'value'?: string;
     /**
      * What locale the name of the approval is using
      * @type {string}
-     * @memberof ApprovalnameV1
+     * @memberof Approvalname
      */
     'locale'?: string;
 }
 /**
  * ReassignmentHistoryRecord holds a history record of reassignment and escalation actions for an approval request
  * @export
- * @interface ApprovalreassignmenthistoryV1
+ * @interface Approvalreassignmenthistory
  */
-export interface ApprovalreassignmenthistoryV1 {
+export interface Approvalreassignmenthistory {
     /**
      * Unique identifier for the comment associated with the reassignment.
      * @type {string}
-     * @memberof ApprovalreassignmenthistoryV1
+     * @memberof Approvalreassignmenthistory
      */
     'commentID'?: string;
     /**
      * 
-     * @type {ApprovalidentityV1}
-     * @memberof ApprovalreassignmenthistoryV1
+     * @type {Approvalidentity}
+     * @memberof Approvalreassignmenthistory
      */
-    'reassignedFrom'?: ApprovalidentityV1;
+    'reassignedFrom'?: Approvalidentity;
     /**
      * 
-     * @type {ApprovalidentityV1}
-     * @memberof ApprovalreassignmenthistoryV1
+     * @type {Approvalidentity}
+     * @memberof Approvalreassignmenthistory
      */
-    'reassignedTo'?: ApprovalidentityV1;
+    'reassignedTo'?: Approvalidentity;
     /**
      * 
-     * @type {ApprovalidentityV1}
-     * @memberof ApprovalreassignmenthistoryV1
+     * @type {Approvalidentity}
+     * @memberof Approvalreassignmenthistory
      */
-    'reassigner'?: ApprovalidentityV1;
+    'reassigner'?: Approvalidentity;
     /**
      * Date and time when the reassignment occurred.
      * @type {string}
-     * @memberof ApprovalreassignmenthistoryV1
+     * @memberof Approvalreassignmenthistory
      */
     'reassignmentDate'?: string;
     /**
      * Type of reassignment, such as escalation or manual reassignment.
      * @type {string}
-     * @memberof ApprovalreassignmenthistoryV1
+     * @memberof Approvalreassignmenthistory
      */
-    'reassignmentType'?: ApprovalreassignmenthistoryV1ReassignmentTypeV1;
+    'reassignmentType'?: ApprovalreassignmenthistoryReassignmentTypeEnum;
 }
 
-export const ApprovalreassignmenthistoryV1ReassignmentTypeV1 = {
+export const ApprovalreassignmenthistoryReassignmentTypeEnum = {
     Escalation: 'ESCALATION',
     ManualReassignment: 'MANUAL_REASSIGNMENT',
     AutoReassignment: 'AUTO_REASSIGNMENT'
 } as const;
 
-export type ApprovalreassignmenthistoryV1ReassignmentTypeV1 = typeof ApprovalreassignmenthistoryV1ReassignmentTypeV1[keyof typeof ApprovalreassignmenthistoryV1ReassignmentTypeV1];
+export type ApprovalreassignmenthistoryReassignmentTypeEnum = typeof ApprovalreassignmenthistoryReassignmentTypeEnum[keyof typeof ApprovalreassignmenthistoryReassignmentTypeEnum];
 
 /**
  * Request body for reassigning an approval request to another identity. This results in that identity being added as an authorized approver.
  * @export
- * @interface ApprovalreassignrequestV1
+ * @interface Approvalreassignrequest
  */
-export interface ApprovalreassignrequestV1 {
+export interface Approvalreassignrequest {
     /**
      * Comment associated with the reassign request.
      * @type {string}
-     * @memberof ApprovalreassignrequestV1
+     * @memberof Approvalreassignrequest
      */
     'comment'?: string;
     /**
      * Identity from which the approval is being reassigned. If left blank, and the approval is currently assigned to the user calling this endpoint, it will use the calling user\'s identity. If left blank, and the approval is not currently assigned to the user calling this endpoint, you need to be an admin, which would add the reassignTo as a new approver.
      * @type {string}
-     * @memberof ApprovalreassignrequestV1
+     * @memberof Approvalreassignrequest
      */
     'reassignFrom'?: string;
     /**
      * Identity to which the approval is being reassigned.
      * @type {string}
-     * @memberof ApprovalreassignrequestV1
+     * @memberof Approvalreassignrequest
      */
     'reassignTo'?: string;
 }
 /**
  * Reference objects related to the approval
  * @export
- * @interface ApprovalreferenceV1
+ * @interface Approvalreference
  */
-export interface ApprovalreferenceV1 {
+export interface Approvalreference {
     /**
      * Id of the reference object
      * @type {string}
-     * @memberof ApprovalreferenceV1
+     * @memberof Approvalreference
      */
     'id'?: string;
     /**
      * What reference object does this ID correspond to
      * @type {string}
-     * @memberof ApprovalreferenceV1
+     * @memberof Approvalreference
      */
     'type'?: string;
     /**
      * Name of the reference object
      * @type {string}
-     * @memberof ApprovalreferenceV1
+     * @memberof Approvalreference
      */
     'name'?: string;
     /**
      * Email associated with the reference object
      * @type {string}
-     * @memberof ApprovalreferenceV1
+     * @memberof Approvalreference
      */
     'email'?: string;
     /**
      * The serial step of the identity in the approval. For example serialOrder 1 is the first identity to action in an approval request chain. Parallel approvals are set to 0.
      * @type {number}
-     * @memberof ApprovalreferenceV1
+     * @memberof Approvalreference
      */
     'serialOrder'?: number;
 }
 /**
  * Request body for rejecting an approval request.
  * @export
- * @interface ApprovalrejectrequestV1
+ * @interface Approvalrejectrequest
  */
-export interface ApprovalrejectrequestV1 {
+export interface Approvalrejectrequest {
     /**
      * Comment associated with the reject request.
      * @type {string}
-     * @memberof ApprovalrejectrequestV1
+     * @memberof Approvalrejectrequest
      */
     'comment'?: string;
 }
 /**
  * Represents a requested target in an approval process, including details such as ID, name, reauthentication requirements, and removal date.
  * @export
- * @interface ApprovalrequestedtargetV1
+ * @interface Approvalrequestedtarget
  */
-export interface ApprovalrequestedtargetV1 {
+export interface Approvalrequestedtarget {
     /**
      * Signature required for forced authentication.
      * @type {string}
-     * @memberof ApprovalrequestedtargetV1
+     * @memberof Approvalrequestedtarget
      */
     'forcedAuthSignature'?: string;
     /**
      * ID of the requested target.
      * @type {string}
-     * @memberof ApprovalrequestedtargetV1
+     * @memberof Approvalrequestedtarget
      */
     'id'?: string;
     /**
      * Name of the requested target.
      * @type {string}
-     * @memberof ApprovalrequestedtargetV1
+     * @memberof Approvalrequestedtarget
      */
     'name'?: string;
     /**
      * Indicates if reauthentication is required.
      * @type {boolean}
-     * @memberof ApprovalrequestedtargetV1
+     * @memberof Approvalrequestedtarget
      */
     'reauthRequired'?: boolean;
     /**
      * Date when the target will be removed.
      * @type {string}
-     * @memberof ApprovalrequestedtargetV1
+     * @memberof Approvalrequestedtarget
      */
     'removalDate'?: string;
     /**
      * Type of the request.
      * @type {string}
-     * @memberof ApprovalrequestedtargetV1
+     * @memberof Approvalrequestedtarget
      */
     'requestType'?: string;
     /**
      * Type of the target.
      * @type {string}
-     * @memberof ApprovalrequestedtargetV1
+     * @memberof Approvalrequestedtarget
      */
     'targetType'?: string;
 }
 /**
  * BulkApproveRequestDTO is the input struct that represents the request body required to facilitate a bulk approval action for a set of generic approval requests.
  * @export
- * @interface BulkapproverequestdtoV1
+ * @interface Bulkapproverequestdto
  */
-export interface BulkapproverequestdtoV1 {
+export interface Bulkapproverequestdto {
     /**
      * Array of Approval IDs to be bulk approved
      * @type {Array<string>}
-     * @memberof BulkapproverequestdtoV1
+     * @memberof Bulkapproverequestdto
      */
     'approvalIds'?: Array<string>;
     /**
      * Optional comment to include with the bulk approval request
      * @type {string}
-     * @memberof BulkapproverequestdtoV1
+     * @memberof Bulkapproverequestdto
      */
     'comment'?: string;
     /**
      * Additional attributes to include with the bulk approval request
      * @type {{ [key: string]: any; }}
-     * @memberof BulkapproverequestdtoV1
+     * @memberof Bulkapproverequestdto
      */
     'additionalAttributes'?: { [key: string]: any; };
 }
 /**
  * BulkCancelRequestDTO is the input struct that represents the request body required to facilitate a bulk cancellation action for a set of generic approval requests.
  * @export
- * @interface BulkcancelrequestdtoV1
+ * @interface Bulkcancelrequestdto
  */
-export interface BulkcancelrequestdtoV1 {
+export interface Bulkcancelrequestdto {
     /**
      * Array of Approval IDs to be bulk cancelled
      * @type {Array<string>}
-     * @memberof BulkcancelrequestdtoV1
+     * @memberof Bulkcancelrequestdto
      */
     'approvalIds'?: Array<string>;
     /**
      * Optional comment to include with the bulk cancellation request
      * @type {string}
-     * @memberof BulkcancelrequestdtoV1
+     * @memberof Bulkcancelrequestdto
      */
     'comment'?: string;
 }
 /**
  * BulkReassignRequestDTO is the input struct that represents the request body required to facilitate a bulk reassignment action for a set of generic approval requests.
  * @export
- * @interface BulkreassignrequestdtoV1
+ * @interface Bulkreassignrequestdto
  */
-export interface BulkreassignrequestdtoV1 {
+export interface Bulkreassignrequestdto {
     /**
      * Array of Approval IDs to be bulk reassigned
      * @type {Array<string>}
-     * @memberof BulkreassignrequestdtoV1
+     * @memberof Bulkreassignrequestdto
      */
     'approvalIds'?: Array<string>;
     /**
      * Optional comment to include with the bulk reassignment request
      * @type {string}
-     * @memberof BulkreassignrequestdtoV1
+     * @memberof Bulkreassignrequestdto
      */
     'comment'?: string;
     /**
      * Identity ID from which the approval requests are being reassigned
      * @type {string}
-     * @memberof BulkreassignrequestdtoV1
+     * @memberof Bulkreassignrequestdto
      */
     'reassignFrom'?: string;
     /**
      * ReassignTo signifies the Identity ID that the approval request is being reassigned to
      * @type {string}
-     * @memberof BulkreassignrequestdtoV1
+     * @memberof Bulkreassignrequestdto
      */
     'reassignTo'?: string;
 }
 /**
  * BulkRejectRequestDTO is the input struct that represents the request body required to facilitate a bulk reject action for a set of generic approval requests.
  * @export
- * @interface BulkrejectrequestdtoV1
+ * @interface Bulkrejectrequestdto
  */
-export interface BulkrejectrequestdtoV1 {
+export interface Bulkrejectrequestdto {
     /**
      * Array of Approval IDs to be bulk rejected
      * @type {Array<string>}
-     * @memberof BulkrejectrequestdtoV1
+     * @memberof Bulkrejectrequestdto
      */
     'approvalIds'?: Array<string>;
     /**
      * Optional comment to include with the bulk reject request
      * @type {string}
-     * @memberof BulkrejectrequestdtoV1
+     * @memberof Bulkrejectrequestdto
      */
     'comment'?: string;
 }
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -1340,57 +1340,57 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetApprovalsV1401ResponseV1
+ * @interface GetApprovalsV1401Response
  */
-export interface GetApprovalsV1401ResponseV1 {
+export interface GetApprovalsV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetApprovalsV1401ResponseV1
+     * @memberof GetApprovalsV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetApprovalsV1429ResponseV1
+ * @interface GetApprovalsV1429Response
  */
-export interface GetApprovalsV1429ResponseV1 {
+export interface GetApprovalsV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetApprovalsV1429ResponseV1
+     * @memberof GetApprovalsV1429Response
      */
     'message'?: any;
 }
@@ -1400,31 +1400,31 @@ export interface GetApprovalsV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 
 /**
- * ApprovalsV1Api - axios parameter creator
+ * ApprovalsApi - axios parameter creator
  * @export
  */
-export const ApprovalsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const ApprovalsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Bulk Approves specified approval requests on behalf of the caller
          * @summary Post Bulk Approve Approvals
-         * @param {BulkapproverequestdtoV1} bulkapproverequestdtoV1 
+         * @param {Bulkapproverequestdto} bulkapproverequestdto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        approveApprovalInBulkV1: async (bulkapproverequestdtoV1: BulkapproverequestdtoV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'bulkapproverequestdtoV1' is not null or undefined
-            assertParamExists('approveApprovalInBulkV1', 'bulkapproverequestdtoV1', bulkapproverequestdtoV1)
+        approveApprovalInBulkV1: async (bulkapproverequestdto: Bulkapproverequestdto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'bulkapproverequestdto' is not null or undefined
+            assertParamExists('approveApprovalInBulkV1', 'bulkapproverequestdto', bulkapproverequestdto)
             const localVarPath = `/generic-approvals/v1/bulk-approve`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1444,7 +1444,7 @@ export const ApprovalsV1ApiAxiosParamCreator = function (configuration?: Configu
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(bulkapproverequestdtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(bulkapproverequestdto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1455,11 +1455,11 @@ export const ApprovalsV1ApiAxiosParamCreator = function (configuration?: Configu
          * Approves a specified approval request on behalf of the caller. The approval request must be in a state that allows it to be approved. This endpoint does not support access request IDs. If called by an admin and the admin is not listed as an approver, the approval request will be reassigned from a random approver to the admin user.
          * @summary Post Approvals Approve
          * @param {string} id Approval ID that correlates to an existing approval request that a user wants to approve.
-         * @param {ApprovalapproverequestV1} [approvalapproverequestV1] 
+         * @param {Approvalapproverequest} [approvalapproverequest] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        approveApprovalV1: async (id: string, approvalapproverequestV1?: ApprovalapproverequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        approveApprovalV1: async (id: string, approvalapproverequest?: Approvalapproverequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('approveApprovalV1', 'id', id)
             const localVarPath = `/generic-approvals/v1/{id}/approve`
@@ -1482,7 +1482,7 @@ export const ApprovalsV1ApiAxiosParamCreator = function (configuration?: Configu
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(approvalapproverequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(approvalapproverequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1493,11 +1493,11 @@ export const ApprovalsV1ApiAxiosParamCreator = function (configuration?: Configu
          * Cancels a specified approval requests on behalf of the caller.  Note: This endpoint does not support access request IDs. To cancel access request approvals, please use the following: /access-requests/cancel
          * @summary Post Approval Cancel
          * @param {string} id ID of the approval request to cancel.
-         * @param {ApprovalcancelrequestV1} [approvalcancelrequestV1] 
+         * @param {Approvalcancelrequest} [approvalcancelrequest] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        cancelApprovalByIdV1: async (id: string, approvalcancelrequestV1?: ApprovalcancelrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        cancelApprovalByIdV1: async (id: string, approvalcancelrequest?: Approvalcancelrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('cancelApprovalByIdV1', 'id', id)
             const localVarPath = `/generic-approvals/v1/{id}/cancel`
@@ -1520,7 +1520,7 @@ export const ApprovalsV1ApiAxiosParamCreator = function (configuration?: Configu
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(approvalcancelrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(approvalcancelrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1530,13 +1530,13 @@ export const ApprovalsV1ApiAxiosParamCreator = function (configuration?: Configu
         /**
          * Bulk cancels specified approval requests on behalf of the caller.  Note: To bulk cancel access request approvals, please use the following: /access-requests/bulk-cancel
          * @summary Post Bulk Cancel Approvals
-         * @param {BulkcancelrequestdtoV1} bulkcancelrequestdtoV1 
+         * @param {Bulkcancelrequestdto} bulkcancelrequestdto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        cancelApprovalV1: async (bulkcancelrequestdtoV1: BulkcancelrequestdtoV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'bulkcancelrequestdtoV1' is not null or undefined
-            assertParamExists('cancelApprovalV1', 'bulkcancelrequestdtoV1', bulkcancelrequestdtoV1)
+        cancelApprovalV1: async (bulkcancelrequestdto: Bulkcancelrequestdto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'bulkcancelrequestdto' is not null or undefined
+            assertParamExists('cancelApprovalV1', 'bulkcancelrequestdto', bulkcancelrequestdto)
             const localVarPath = `/generic-approvals/v1/bulk-cancel`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1556,7 +1556,7 @@ export const ApprovalsV1ApiAxiosParamCreator = function (configuration?: Configu
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(bulkcancelrequestdtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(bulkcancelrequestdto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1567,11 +1567,11 @@ export const ApprovalsV1ApiAxiosParamCreator = function (configuration?: Configu
          * Deletes an approval configuration. Configurations at the APPROVAL_REQUEST scope cannot be deleted.
          * @summary Delete Approval Configuration
          * @param {string} id The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-         * @param {DeleteApprovalConfigRequestV1ScopeV1} scope The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+         * @param {DeleteApprovalConfigRequestV1ScopeEnum} scope The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteApprovalConfigRequestV1: async (id: string, scope: DeleteApprovalConfigRequestV1ScopeV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteApprovalConfigRequestV1: async (id: string, scope: DeleteApprovalConfigRequestV1ScopeEnum, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('deleteApprovalConfigRequestV1', 'id', id)
             // verify required parameter 'scope' is not null or undefined
@@ -1767,13 +1767,13 @@ export const ApprovalsV1ApiAxiosParamCreator = function (configuration?: Configu
         /**
          * Bulk reassigns specified approval requests on behalf of the caller
          * @summary Post Bulk Reassign Approvals
-         * @param {BulkreassignrequestdtoV1} bulkreassignrequestdtoV1 
+         * @param {Bulkreassignrequestdto} bulkreassignrequestdto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        moveApprovalV1: async (bulkreassignrequestdtoV1: BulkreassignrequestdtoV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'bulkreassignrequestdtoV1' is not null or undefined
-            assertParamExists('moveApprovalV1', 'bulkreassignrequestdtoV1', bulkreassignrequestdtoV1)
+        moveApprovalV1: async (bulkreassignrequestdto: Bulkreassignrequestdto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'bulkreassignrequestdto' is not null or undefined
+            assertParamExists('moveApprovalV1', 'bulkreassignrequestdto', bulkreassignrequestdto)
             const localVarPath = `/generic-approvals/v1/bulk-reassign`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1793,7 +1793,7 @@ export const ApprovalsV1ApiAxiosParamCreator = function (configuration?: Configu
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(bulkreassignrequestdtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(bulkreassignrequestdto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1804,18 +1804,18 @@ export const ApprovalsV1ApiAxiosParamCreator = function (configuration?: Configu
          * Upserts a singular approval configuration that matches the given configID and configScope.  For example to update the approval configurations for all Access Request Approvals please use: \'/generic-approvals/config/ACCESS_REQUEST_APPROVAL/APPROVAL_TYPE\'
          * @summary Put Approval Config
          * @param {string} id The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-         * @param {PutApprovalsConfigV1ScopeV1} scope The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-         * @param {ApprovalconfigV1} approvalconfigV1 
+         * @param {PutApprovalsConfigV1ScopeEnum} scope The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+         * @param {Approvalconfig} approvalconfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putApprovalsConfigV1: async (id: string, scope: PutApprovalsConfigV1ScopeV1, approvalconfigV1: ApprovalconfigV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putApprovalsConfigV1: async (id: string, scope: PutApprovalsConfigV1ScopeEnum, approvalconfig: Approvalconfig, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('putApprovalsConfigV1', 'id', id)
             // verify required parameter 'scope' is not null or undefined
             assertParamExists('putApprovalsConfigV1', 'scope', scope)
-            // verify required parameter 'approvalconfigV1' is not null or undefined
-            assertParamExists('putApprovalsConfigV1', 'approvalconfigV1', approvalconfigV1)
+            // verify required parameter 'approvalconfig' is not null or undefined
+            assertParamExists('putApprovalsConfigV1', 'approvalconfig', approvalconfig)
             const localVarPath = `/generic-approvals/v1/config/{id}/{scope}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)))
                 .replace(`{${"scope"}}`, encodeURIComponent(String(scope)));
@@ -1837,7 +1837,7 @@ export const ApprovalsV1ApiAxiosParamCreator = function (configuration?: Configu
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(approvalconfigV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(approvalconfig, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1847,13 +1847,13 @@ export const ApprovalsV1ApiAxiosParamCreator = function (configuration?: Configu
         /**
          * Bulk reject specified approval requests on behalf of the caller
          * @summary Post Bulk Reject Approvals
-         * @param {BulkrejectrequestdtoV1} bulkrejectrequestdtoV1 
+         * @param {Bulkrejectrequestdto} bulkrejectrequestdto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        rejectApprovalInBulkV1: async (bulkrejectrequestdtoV1: BulkrejectrequestdtoV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'bulkrejectrequestdtoV1' is not null or undefined
-            assertParamExists('rejectApprovalInBulkV1', 'bulkrejectrequestdtoV1', bulkrejectrequestdtoV1)
+        rejectApprovalInBulkV1: async (bulkrejectrequestdto: Bulkrejectrequestdto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'bulkrejectrequestdto' is not null or undefined
+            assertParamExists('rejectApprovalInBulkV1', 'bulkrejectrequestdto', bulkrejectrequestdto)
             const localVarPath = `/generic-approvals/v1/bulk-reject`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1873,7 +1873,7 @@ export const ApprovalsV1ApiAxiosParamCreator = function (configuration?: Configu
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(bulkrejectrequestdtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(bulkrejectrequestdto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1884,11 +1884,11 @@ export const ApprovalsV1ApiAxiosParamCreator = function (configuration?: Configu
          * Rejects a specified approval request on behalf of the caller. This endpoint does not support access request IDs. If called by an admin and the admin is not listed as an approver, the approval request will be reassigned from a random approver to the admin user and approved.
          * @summary Post Approvals Reject
          * @param {string} id Approval ID that correlates to an existing approval request that a user wants to reject.
-         * @param {ApprovalrejectrequestV1} [approvalrejectrequestV1] 
+         * @param {Approvalrejectrequest} [approvalrejectrequest] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        rejectApprovalV1: async (id: string, approvalrejectrequestV1?: ApprovalrejectrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        rejectApprovalV1: async (id: string, approvalrejectrequest?: Approvalrejectrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('rejectApprovalV1', 'id', id)
             const localVarPath = `/generic-approvals/v1/{id}/reject`
@@ -1911,7 +1911,7 @@ export const ApprovalsV1ApiAxiosParamCreator = function (configuration?: Configu
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(approvalrejectrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(approvalrejectrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1922,15 +1922,15 @@ export const ApprovalsV1ApiAxiosParamCreator = function (configuration?: Configu
          * Allows for the edit/addition/removal of the key/value pair additional attributes map for an existing approval request. This endpoint does not support access request IDs.
          * @summary Post Approvals Attributes
          * @param {string} id Approval ID that correlates to an existing approval request that a user wants to change the attributes of.
-         * @param {ApprovalattributesrequestV1} approvalattributesrequestV1 
+         * @param {Approvalattributesrequest} approvalattributesrequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateApprovalsAttributesV1: async (id: string, approvalattributesrequestV1: ApprovalattributesrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateApprovalsAttributesV1: async (id: string, approvalattributesrequest: Approvalattributesrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateApprovalsAttributesV1', 'id', id)
-            // verify required parameter 'approvalattributesrequestV1' is not null or undefined
-            assertParamExists('updateApprovalsAttributesV1', 'approvalattributesrequestV1', approvalattributesrequestV1)
+            // verify required parameter 'approvalattributesrequest' is not null or undefined
+            assertParamExists('updateApprovalsAttributesV1', 'approvalattributesrequest', approvalattributesrequest)
             const localVarPath = `/generic-approvals/v1/{id}/attributes`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1951,7 +1951,7 @@ export const ApprovalsV1ApiAxiosParamCreator = function (configuration?: Configu
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(approvalattributesrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(approvalattributesrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1962,15 +1962,15 @@ export const ApprovalsV1ApiAxiosParamCreator = function (configuration?: Configu
          * Adds comments to a specified approval request. This endpoint does not support access request IDs.
          * @summary Post Approvals Comments
          * @param {string} id Approval ID that correlates to an existing approval request that a user wants to add a comment to.
-         * @param {ApprovalcommentsrequestV1} approvalcommentsrequestV1 
+         * @param {Approvalcommentsrequest} approvalcommentsrequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateApprovalsCommentsV1: async (id: string, approvalcommentsrequestV1: ApprovalcommentsrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateApprovalsCommentsV1: async (id: string, approvalcommentsrequest: Approvalcommentsrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateApprovalsCommentsV1', 'id', id)
-            // verify required parameter 'approvalcommentsrequestV1' is not null or undefined
-            assertParamExists('updateApprovalsCommentsV1', 'approvalcommentsrequestV1', approvalcommentsrequestV1)
+            // verify required parameter 'approvalcommentsrequest' is not null or undefined
+            assertParamExists('updateApprovalsCommentsV1', 'approvalcommentsrequest', approvalcommentsrequest)
             const localVarPath = `/generic-approvals/v1/{id}/comments`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1991,7 +1991,7 @@ export const ApprovalsV1ApiAxiosParamCreator = function (configuration?: Configu
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(approvalcommentsrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(approvalcommentsrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2002,15 +2002,15 @@ export const ApprovalsV1ApiAxiosParamCreator = function (configuration?: Configu
          * Reassigns an approval request to another identity resulting in that identity being added as an authorized approver. This endpoint does not support access request IDs.
          * @summary Post Approvals Reassign
          * @param {string} id Approval ID that correlates to an existing approval request that a user wants to reassign.
-         * @param {ApprovalreassignrequestV1} approvalreassignrequestV1 
+         * @param {Approvalreassignrequest} approvalreassignrequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateApprovalsReassignV1: async (id: string, approvalreassignrequestV1: ApprovalreassignrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateApprovalsReassignV1: async (id: string, approvalreassignrequest: Approvalreassignrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateApprovalsReassignV1', 'id', id)
-            // verify required parameter 'approvalreassignrequestV1' is not null or undefined
-            assertParamExists('updateApprovalsReassignV1', 'approvalreassignrequestV1', approvalreassignrequestV1)
+            // verify required parameter 'approvalreassignrequest' is not null or undefined
+            assertParamExists('updateApprovalsReassignV1', 'approvalreassignrequest', approvalreassignrequest)
             const localVarPath = `/generic-approvals/v1/{id}/reassign`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2031,7 +2031,7 @@ export const ApprovalsV1ApiAxiosParamCreator = function (configuration?: Configu
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(approvalreassignrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(approvalreassignrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2042,78 +2042,78 @@ export const ApprovalsV1ApiAxiosParamCreator = function (configuration?: Configu
 };
 
 /**
- * ApprovalsV1Api - functional programming interface
+ * ApprovalsApi - functional programming interface
  * @export
  */
-export const ApprovalsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = ApprovalsV1ApiAxiosParamCreator(configuration)
+export const ApprovalsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = ApprovalsApiAxiosParamCreator(configuration)
     return {
         /**
          * Bulk Approves specified approval requests on behalf of the caller
          * @summary Post Bulk Approve Approvals
-         * @param {BulkapproverequestdtoV1} bulkapproverequestdtoV1 
+         * @param {Bulkapproverequestdto} bulkapproverequestdto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async approveApprovalInBulkV1(bulkapproverequestdtoV1: BulkapproverequestdtoV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.approveApprovalInBulkV1(bulkapproverequestdtoV1, axiosOptions);
+        async approveApprovalInBulkV1(bulkapproverequestdto: Bulkapproverequestdto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.approveApprovalInBulkV1(bulkapproverequestdto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ApprovalsV1Api.approveApprovalInBulkV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ApprovalsApi.approveApprovalInBulkV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Approves a specified approval request on behalf of the caller. The approval request must be in a state that allows it to be approved. This endpoint does not support access request IDs. If called by an admin and the admin is not listed as an approver, the approval request will be reassigned from a random approver to the admin user.
          * @summary Post Approvals Approve
          * @param {string} id Approval ID that correlates to an existing approval request that a user wants to approve.
-         * @param {ApprovalapproverequestV1} [approvalapproverequestV1] 
+         * @param {Approvalapproverequest} [approvalapproverequest] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async approveApprovalV1(id: string, approvalapproverequestV1?: ApprovalapproverequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Approval2V1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.approveApprovalV1(id, approvalapproverequestV1, axiosOptions);
+        async approveApprovalV1(id: string, approvalapproverequest?: Approvalapproverequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Approval2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.approveApprovalV1(id, approvalapproverequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ApprovalsV1Api.approveApprovalV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ApprovalsApi.approveApprovalV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Cancels a specified approval requests on behalf of the caller.  Note: This endpoint does not support access request IDs. To cancel access request approvals, please use the following: /access-requests/cancel
          * @summary Post Approval Cancel
          * @param {string} id ID of the approval request to cancel.
-         * @param {ApprovalcancelrequestV1} [approvalcancelrequestV1] 
+         * @param {Approvalcancelrequest} [approvalcancelrequest] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async cancelApprovalByIdV1(id: string, approvalcancelrequestV1?: ApprovalcancelrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.cancelApprovalByIdV1(id, approvalcancelrequestV1, axiosOptions);
+        async cancelApprovalByIdV1(id: string, approvalcancelrequest?: Approvalcancelrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.cancelApprovalByIdV1(id, approvalcancelrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ApprovalsV1Api.cancelApprovalByIdV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ApprovalsApi.cancelApprovalByIdV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Bulk cancels specified approval requests on behalf of the caller.  Note: To bulk cancel access request approvals, please use the following: /access-requests/bulk-cancel
          * @summary Post Bulk Cancel Approvals
-         * @param {BulkcancelrequestdtoV1} bulkcancelrequestdtoV1 
+         * @param {Bulkcancelrequestdto} bulkcancelrequestdto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async cancelApprovalV1(bulkcancelrequestdtoV1: BulkcancelrequestdtoV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.cancelApprovalV1(bulkcancelrequestdtoV1, axiosOptions);
+        async cancelApprovalV1(bulkcancelrequestdto: Bulkcancelrequestdto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.cancelApprovalV1(bulkcancelrequestdto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ApprovalsV1Api.cancelApprovalV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ApprovalsApi.cancelApprovalV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Deletes an approval configuration. Configurations at the APPROVAL_REQUEST scope cannot be deleted.
          * @summary Delete Approval Configuration
          * @param {string} id The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-         * @param {DeleteApprovalConfigRequestV1ScopeV1} scope The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+         * @param {DeleteApprovalConfigRequestV1ScopeEnum} scope The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteApprovalConfigRequestV1(id: string, scope: DeleteApprovalConfigRequestV1ScopeV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async deleteApprovalConfigRequestV1(id: string, scope: DeleteApprovalConfigRequestV1ScopeEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteApprovalConfigRequestV1(id, scope, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ApprovalsV1Api.deleteApprovalConfigRequestV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ApprovalsApi.deleteApprovalConfigRequestV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2123,10 +2123,10 @@ export const ApprovalsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getApprovalV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Approval2V1>> {
+        async getApprovalV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Approval2>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getApprovalV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ApprovalsV1Api.getApprovalV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ApprovalsApi.getApprovalV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2136,10 +2136,10 @@ export const ApprovalsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getApprovalsConfigV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ApprovalconfigV1>> {
+        async getApprovalsConfigV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Approvalconfig>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getApprovalsConfigV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ApprovalsV1Api.getApprovalsConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ApprovalsApi.getApprovalsConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2161,821 +2161,821 @@ export const ApprovalsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getApprovalsV1(mine?: boolean, requesterId?: string, requesteeId?: string, approverId?: string, count?: boolean, countOnly?: boolean, includeComments?: boolean, includeApprovers?: boolean, includeReassignmentHistory?: boolean, includeBatchInfo?: boolean, filters?: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Approval2V1>>> {
+        async getApprovalsV1(mine?: boolean, requesterId?: string, requesteeId?: string, approverId?: string, count?: boolean, countOnly?: boolean, includeComments?: boolean, includeApprovers?: boolean, includeReassignmentHistory?: boolean, includeBatchInfo?: boolean, filters?: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Approval2>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getApprovalsV1(mine, requesterId, requesteeId, approverId, count, countOnly, includeComments, includeApprovers, includeReassignmentHistory, includeBatchInfo, filters, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ApprovalsV1Api.getApprovalsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ApprovalsApi.getApprovalsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Bulk reassigns specified approval requests on behalf of the caller
          * @summary Post Bulk Reassign Approvals
-         * @param {BulkreassignrequestdtoV1} bulkreassignrequestdtoV1 
+         * @param {Bulkreassignrequestdto} bulkreassignrequestdto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async moveApprovalV1(bulkreassignrequestdtoV1: BulkreassignrequestdtoV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.moveApprovalV1(bulkreassignrequestdtoV1, axiosOptions);
+        async moveApprovalV1(bulkreassignrequestdto: Bulkreassignrequestdto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.moveApprovalV1(bulkreassignrequestdto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ApprovalsV1Api.moveApprovalV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ApprovalsApi.moveApprovalV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Upserts a singular approval configuration that matches the given configID and configScope.  For example to update the approval configurations for all Access Request Approvals please use: \'/generic-approvals/config/ACCESS_REQUEST_APPROVAL/APPROVAL_TYPE\'
          * @summary Put Approval Config
          * @param {string} id The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-         * @param {PutApprovalsConfigV1ScopeV1} scope The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-         * @param {ApprovalconfigV1} approvalconfigV1 
+         * @param {PutApprovalsConfigV1ScopeEnum} scope The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+         * @param {Approvalconfig} approvalconfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putApprovalsConfigV1(id: string, scope: PutApprovalsConfigV1ScopeV1, approvalconfigV1: ApprovalconfigV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ApprovalconfigV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putApprovalsConfigV1(id, scope, approvalconfigV1, axiosOptions);
+        async putApprovalsConfigV1(id: string, scope: PutApprovalsConfigV1ScopeEnum, approvalconfig: Approvalconfig, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Approvalconfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putApprovalsConfigV1(id, scope, approvalconfig, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ApprovalsV1Api.putApprovalsConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ApprovalsApi.putApprovalsConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Bulk reject specified approval requests on behalf of the caller
          * @summary Post Bulk Reject Approvals
-         * @param {BulkrejectrequestdtoV1} bulkrejectrequestdtoV1 
+         * @param {Bulkrejectrequestdto} bulkrejectrequestdto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async rejectApprovalInBulkV1(bulkrejectrequestdtoV1: BulkrejectrequestdtoV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectApprovalInBulkV1(bulkrejectrequestdtoV1, axiosOptions);
+        async rejectApprovalInBulkV1(bulkrejectrequestdto: Bulkrejectrequestdto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectApprovalInBulkV1(bulkrejectrequestdto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ApprovalsV1Api.rejectApprovalInBulkV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ApprovalsApi.rejectApprovalInBulkV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Rejects a specified approval request on behalf of the caller. This endpoint does not support access request IDs. If called by an admin and the admin is not listed as an approver, the approval request will be reassigned from a random approver to the admin user and approved.
          * @summary Post Approvals Reject
          * @param {string} id Approval ID that correlates to an existing approval request that a user wants to reject.
-         * @param {ApprovalrejectrequestV1} [approvalrejectrequestV1] 
+         * @param {Approvalrejectrequest} [approvalrejectrequest] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async rejectApprovalV1(id: string, approvalrejectrequestV1?: ApprovalrejectrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectApprovalV1(id, approvalrejectrequestV1, axiosOptions);
+        async rejectApprovalV1(id: string, approvalrejectrequest?: Approvalrejectrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectApprovalV1(id, approvalrejectrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ApprovalsV1Api.rejectApprovalV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ApprovalsApi.rejectApprovalV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Allows for the edit/addition/removal of the key/value pair additional attributes map for an existing approval request. This endpoint does not support access request IDs.
          * @summary Post Approvals Attributes
          * @param {string} id Approval ID that correlates to an existing approval request that a user wants to change the attributes of.
-         * @param {ApprovalattributesrequestV1} approvalattributesrequestV1 
+         * @param {Approvalattributesrequest} approvalattributesrequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateApprovalsAttributesV1(id: string, approvalattributesrequestV1: ApprovalattributesrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Approval2V1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateApprovalsAttributesV1(id, approvalattributesrequestV1, axiosOptions);
+        async updateApprovalsAttributesV1(id: string, approvalattributesrequest: Approvalattributesrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Approval2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateApprovalsAttributesV1(id, approvalattributesrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ApprovalsV1Api.updateApprovalsAttributesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ApprovalsApi.updateApprovalsAttributesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Adds comments to a specified approval request. This endpoint does not support access request IDs.
          * @summary Post Approvals Comments
          * @param {string} id Approval ID that correlates to an existing approval request that a user wants to add a comment to.
-         * @param {ApprovalcommentsrequestV1} approvalcommentsrequestV1 
+         * @param {Approvalcommentsrequest} approvalcommentsrequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateApprovalsCommentsV1(id: string, approvalcommentsrequestV1: ApprovalcommentsrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Approval2V1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateApprovalsCommentsV1(id, approvalcommentsrequestV1, axiosOptions);
+        async updateApprovalsCommentsV1(id: string, approvalcommentsrequest: Approvalcommentsrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Approval2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateApprovalsCommentsV1(id, approvalcommentsrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ApprovalsV1Api.updateApprovalsCommentsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ApprovalsApi.updateApprovalsCommentsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Reassigns an approval request to another identity resulting in that identity being added as an authorized approver. This endpoint does not support access request IDs.
          * @summary Post Approvals Reassign
          * @param {string} id Approval ID that correlates to an existing approval request that a user wants to reassign.
-         * @param {ApprovalreassignrequestV1} approvalreassignrequestV1 
+         * @param {Approvalreassignrequest} approvalreassignrequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateApprovalsReassignV1(id: string, approvalreassignrequestV1: ApprovalreassignrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateApprovalsReassignV1(id, approvalreassignrequestV1, axiosOptions);
+        async updateApprovalsReassignV1(id: string, approvalreassignrequest: Approvalreassignrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateApprovalsReassignV1(id, approvalreassignrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ApprovalsV1Api.updateApprovalsReassignV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ApprovalsApi.updateApprovalsReassignV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * ApprovalsV1Api - factory interface
+ * ApprovalsApi - factory interface
  * @export
  */
-export const ApprovalsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = ApprovalsV1ApiFp(configuration)
+export const ApprovalsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = ApprovalsApiFp(configuration)
     return {
         /**
          * Bulk Approves specified approval requests on behalf of the caller
          * @summary Post Bulk Approve Approvals
-         * @param {ApprovalsV1ApiApproveApprovalInBulkV1Request} requestParameters Request parameters.
+         * @param {ApprovalsApiApproveApprovalInBulkV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        approveApprovalInBulkV1(requestParameters: ApprovalsV1ApiApproveApprovalInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
-            return localVarFp.approveApprovalInBulkV1(requestParameters.bulkapproverequestdtoV1, axiosOptions).then((request) => request(axios, basePath));
+        approveApprovalInBulkV1(requestParameters: ApprovalsApiApproveApprovalInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
+            return localVarFp.approveApprovalInBulkV1(requestParameters.bulkapproverequestdto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Approves a specified approval request on behalf of the caller. The approval request must be in a state that allows it to be approved. This endpoint does not support access request IDs. If called by an admin and the admin is not listed as an approver, the approval request will be reassigned from a random approver to the admin user.
          * @summary Post Approvals Approve
-         * @param {ApprovalsV1ApiApproveApprovalV1Request} requestParameters Request parameters.
+         * @param {ApprovalsApiApproveApprovalV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        approveApprovalV1(requestParameters: ApprovalsV1ApiApproveApprovalV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Approval2V1> {
-            return localVarFp.approveApprovalV1(requestParameters.id, requestParameters.approvalapproverequestV1, axiosOptions).then((request) => request(axios, basePath));
+        approveApprovalV1(requestParameters: ApprovalsApiApproveApprovalV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Approval2> {
+            return localVarFp.approveApprovalV1(requestParameters.id, requestParameters.approvalapproverequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Cancels a specified approval requests on behalf of the caller.  Note: This endpoint does not support access request IDs. To cancel access request approvals, please use the following: /access-requests/cancel
          * @summary Post Approval Cancel
-         * @param {ApprovalsV1ApiCancelApprovalByIdV1Request} requestParameters Request parameters.
+         * @param {ApprovalsApiCancelApprovalByIdV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        cancelApprovalByIdV1(requestParameters: ApprovalsV1ApiCancelApprovalByIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.cancelApprovalByIdV1(requestParameters.id, requestParameters.approvalcancelrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        cancelApprovalByIdV1(requestParameters: ApprovalsApiCancelApprovalByIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.cancelApprovalByIdV1(requestParameters.id, requestParameters.approvalcancelrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Bulk cancels specified approval requests on behalf of the caller.  Note: To bulk cancel access request approvals, please use the following: /access-requests/bulk-cancel
          * @summary Post Bulk Cancel Approvals
-         * @param {ApprovalsV1ApiCancelApprovalV1Request} requestParameters Request parameters.
+         * @param {ApprovalsApiCancelApprovalV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        cancelApprovalV1(requestParameters: ApprovalsV1ApiCancelApprovalV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
-            return localVarFp.cancelApprovalV1(requestParameters.bulkcancelrequestdtoV1, axiosOptions).then((request) => request(axios, basePath));
+        cancelApprovalV1(requestParameters: ApprovalsApiCancelApprovalV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
+            return localVarFp.cancelApprovalV1(requestParameters.bulkcancelrequestdto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Deletes an approval configuration. Configurations at the APPROVAL_REQUEST scope cannot be deleted.
          * @summary Delete Approval Configuration
-         * @param {ApprovalsV1ApiDeleteApprovalConfigRequestV1Request} requestParameters Request parameters.
+         * @param {ApprovalsApiDeleteApprovalConfigRequestV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteApprovalConfigRequestV1(requestParameters: ApprovalsV1ApiDeleteApprovalConfigRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteApprovalConfigRequestV1(requestParameters: ApprovalsApiDeleteApprovalConfigRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteApprovalConfigRequestV1(requestParameters.id, requestParameters.scope, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Fetches an approval request by it\'s approval ID. For lookups by access request ID please use the following: /generic-approvals?filters=referenceType+eq+\"accessRequestId\"+and+referenceId+eq+\"12345678901234567890123456789012\"
          * @summary Get an approval
-         * @param {ApprovalsV1ApiGetApprovalV1Request} requestParameters Request parameters.
+         * @param {ApprovalsApiGetApprovalV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getApprovalV1(requestParameters: ApprovalsV1ApiGetApprovalV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Approval2V1> {
+        getApprovalV1(requestParameters: ApprovalsApiGetApprovalV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Approval2> {
             return localVarFp.getApprovalV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Retrieves a singular approval configuration that matches the given ID
          * @summary Get Approval Config
-         * @param {ApprovalsV1ApiGetApprovalsConfigV1Request} requestParameters Request parameters.
+         * @param {ApprovalsApiGetApprovalsConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getApprovalsConfigV1(requestParameters: ApprovalsV1ApiGetApprovalsConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ApprovalconfigV1> {
+        getApprovalsConfigV1(requestParameters: ApprovalsApiGetApprovalsConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Approvalconfig> {
             return localVarFp.getApprovalsConfigV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Gets a list of approvals.  One of the following query parameters should be present: \'mine\', \'approverId\', \'requesterId\', \'requesteeId\'.  The absence of all query parameters for non admins will default to mine=true (which is the equivalent of \'approverId=[your_identity_id]\')  while admins will default to mine=false (which will show all approvals in the org).  For lookups by access request ID please use the following:  \'/generic-approvals?mine=false&filters=referenceType+eq+\"accessRequestId\"+and+referenceId+eq+\"12345678901234567890123456789012\"\'
          * @summary Get approvals
-         * @param {ApprovalsV1ApiGetApprovalsV1Request} requestParameters Request parameters.
+         * @param {ApprovalsApiGetApprovalsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getApprovalsV1(requestParameters: ApprovalsV1ApiGetApprovalsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Approval2V1>> {
+        getApprovalsV1(requestParameters: ApprovalsApiGetApprovalsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Approval2>> {
             return localVarFp.getApprovalsV1(requestParameters.mine, requestParameters.requesterId, requestParameters.requesteeId, requestParameters.approverId, requestParameters.count, requestParameters.countOnly, requestParameters.includeComments, requestParameters.includeApprovers, requestParameters.includeReassignmentHistory, requestParameters.includeBatchInfo, requestParameters.filters, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Bulk reassigns specified approval requests on behalf of the caller
          * @summary Post Bulk Reassign Approvals
-         * @param {ApprovalsV1ApiMoveApprovalV1Request} requestParameters Request parameters.
+         * @param {ApprovalsApiMoveApprovalV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        moveApprovalV1(requestParameters: ApprovalsV1ApiMoveApprovalV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
-            return localVarFp.moveApprovalV1(requestParameters.bulkreassignrequestdtoV1, axiosOptions).then((request) => request(axios, basePath));
+        moveApprovalV1(requestParameters: ApprovalsApiMoveApprovalV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
+            return localVarFp.moveApprovalV1(requestParameters.bulkreassignrequestdto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Upserts a singular approval configuration that matches the given configID and configScope.  For example to update the approval configurations for all Access Request Approvals please use: \'/generic-approvals/config/ACCESS_REQUEST_APPROVAL/APPROVAL_TYPE\'
          * @summary Put Approval Config
-         * @param {ApprovalsV1ApiPutApprovalsConfigV1Request} requestParameters Request parameters.
+         * @param {ApprovalsApiPutApprovalsConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putApprovalsConfigV1(requestParameters: ApprovalsV1ApiPutApprovalsConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ApprovalconfigV1> {
-            return localVarFp.putApprovalsConfigV1(requestParameters.id, requestParameters.scope, requestParameters.approvalconfigV1, axiosOptions).then((request) => request(axios, basePath));
+        putApprovalsConfigV1(requestParameters: ApprovalsApiPutApprovalsConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Approvalconfig> {
+            return localVarFp.putApprovalsConfigV1(requestParameters.id, requestParameters.scope, requestParameters.approvalconfig, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Bulk reject specified approval requests on behalf of the caller
          * @summary Post Bulk Reject Approvals
-         * @param {ApprovalsV1ApiRejectApprovalInBulkV1Request} requestParameters Request parameters.
+         * @param {ApprovalsApiRejectApprovalInBulkV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        rejectApprovalInBulkV1(requestParameters: ApprovalsV1ApiRejectApprovalInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
-            return localVarFp.rejectApprovalInBulkV1(requestParameters.bulkrejectrequestdtoV1, axiosOptions).then((request) => request(axios, basePath));
+        rejectApprovalInBulkV1(requestParameters: ApprovalsApiRejectApprovalInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
+            return localVarFp.rejectApprovalInBulkV1(requestParameters.bulkrejectrequestdto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Rejects a specified approval request on behalf of the caller. This endpoint does not support access request IDs. If called by an admin and the admin is not listed as an approver, the approval request will be reassigned from a random approver to the admin user and approved.
          * @summary Post Approvals Reject
-         * @param {ApprovalsV1ApiRejectApprovalV1Request} requestParameters Request parameters.
+         * @param {ApprovalsApiRejectApprovalV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        rejectApprovalV1(requestParameters: ApprovalsV1ApiRejectApprovalV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.rejectApprovalV1(requestParameters.id, requestParameters.approvalrejectrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        rejectApprovalV1(requestParameters: ApprovalsApiRejectApprovalV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.rejectApprovalV1(requestParameters.id, requestParameters.approvalrejectrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Allows for the edit/addition/removal of the key/value pair additional attributes map for an existing approval request. This endpoint does not support access request IDs.
          * @summary Post Approvals Attributes
-         * @param {ApprovalsV1ApiUpdateApprovalsAttributesV1Request} requestParameters Request parameters.
+         * @param {ApprovalsApiUpdateApprovalsAttributesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateApprovalsAttributesV1(requestParameters: ApprovalsV1ApiUpdateApprovalsAttributesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Approval2V1> {
-            return localVarFp.updateApprovalsAttributesV1(requestParameters.id, requestParameters.approvalattributesrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        updateApprovalsAttributesV1(requestParameters: ApprovalsApiUpdateApprovalsAttributesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Approval2> {
+            return localVarFp.updateApprovalsAttributesV1(requestParameters.id, requestParameters.approvalattributesrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Adds comments to a specified approval request. This endpoint does not support access request IDs.
          * @summary Post Approvals Comments
-         * @param {ApprovalsV1ApiUpdateApprovalsCommentsV1Request} requestParameters Request parameters.
+         * @param {ApprovalsApiUpdateApprovalsCommentsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateApprovalsCommentsV1(requestParameters: ApprovalsV1ApiUpdateApprovalsCommentsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Approval2V1> {
-            return localVarFp.updateApprovalsCommentsV1(requestParameters.id, requestParameters.approvalcommentsrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        updateApprovalsCommentsV1(requestParameters: ApprovalsApiUpdateApprovalsCommentsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Approval2> {
+            return localVarFp.updateApprovalsCommentsV1(requestParameters.id, requestParameters.approvalcommentsrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Reassigns an approval request to another identity resulting in that identity being added as an authorized approver. This endpoint does not support access request IDs.
          * @summary Post Approvals Reassign
-         * @param {ApprovalsV1ApiUpdateApprovalsReassignV1Request} requestParameters Request parameters.
+         * @param {ApprovalsApiUpdateApprovalsReassignV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateApprovalsReassignV1(requestParameters: ApprovalsV1ApiUpdateApprovalsReassignV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.updateApprovalsReassignV1(requestParameters.id, requestParameters.approvalreassignrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        updateApprovalsReassignV1(requestParameters: ApprovalsApiUpdateApprovalsReassignV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.updateApprovalsReassignV1(requestParameters.id, requestParameters.approvalreassignrequest, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for approveApprovalInBulkV1 operation in ApprovalsV1Api.
+ * Request parameters for approveApprovalInBulkV1 operation in ApprovalsApi.
  * @export
- * @interface ApprovalsV1ApiApproveApprovalInBulkV1Request
+ * @interface ApprovalsApiApproveApprovalInBulkV1Request
  */
-export interface ApprovalsV1ApiApproveApprovalInBulkV1Request {
+export interface ApprovalsApiApproveApprovalInBulkV1Request {
     /**
      * 
-     * @type {BulkapproverequestdtoV1}
-     * @memberof ApprovalsV1ApiApproveApprovalInBulkV1
+     * @type {Bulkapproverequestdto}
+     * @memberof ApprovalsApiApproveApprovalInBulkV1
      */
-    readonly bulkapproverequestdtoV1: BulkapproverequestdtoV1
+    readonly bulkapproverequestdto: Bulkapproverequestdto
 }
 
 /**
- * Request parameters for approveApprovalV1 operation in ApprovalsV1Api.
+ * Request parameters for approveApprovalV1 operation in ApprovalsApi.
  * @export
- * @interface ApprovalsV1ApiApproveApprovalV1Request
+ * @interface ApprovalsApiApproveApprovalV1Request
  */
-export interface ApprovalsV1ApiApproveApprovalV1Request {
+export interface ApprovalsApiApproveApprovalV1Request {
     /**
      * Approval ID that correlates to an existing approval request that a user wants to approve.
      * @type {string}
-     * @memberof ApprovalsV1ApiApproveApprovalV1
+     * @memberof ApprovalsApiApproveApprovalV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {ApprovalapproverequestV1}
-     * @memberof ApprovalsV1ApiApproveApprovalV1
+     * @type {Approvalapproverequest}
+     * @memberof ApprovalsApiApproveApprovalV1
      */
-    readonly approvalapproverequestV1?: ApprovalapproverequestV1
+    readonly approvalapproverequest?: Approvalapproverequest
 }
 
 /**
- * Request parameters for cancelApprovalByIdV1 operation in ApprovalsV1Api.
+ * Request parameters for cancelApprovalByIdV1 operation in ApprovalsApi.
  * @export
- * @interface ApprovalsV1ApiCancelApprovalByIdV1Request
+ * @interface ApprovalsApiCancelApprovalByIdV1Request
  */
-export interface ApprovalsV1ApiCancelApprovalByIdV1Request {
+export interface ApprovalsApiCancelApprovalByIdV1Request {
     /**
      * ID of the approval request to cancel.
      * @type {string}
-     * @memberof ApprovalsV1ApiCancelApprovalByIdV1
+     * @memberof ApprovalsApiCancelApprovalByIdV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {ApprovalcancelrequestV1}
-     * @memberof ApprovalsV1ApiCancelApprovalByIdV1
+     * @type {Approvalcancelrequest}
+     * @memberof ApprovalsApiCancelApprovalByIdV1
      */
-    readonly approvalcancelrequestV1?: ApprovalcancelrequestV1
+    readonly approvalcancelrequest?: Approvalcancelrequest
 }
 
 /**
- * Request parameters for cancelApprovalV1 operation in ApprovalsV1Api.
+ * Request parameters for cancelApprovalV1 operation in ApprovalsApi.
  * @export
- * @interface ApprovalsV1ApiCancelApprovalV1Request
+ * @interface ApprovalsApiCancelApprovalV1Request
  */
-export interface ApprovalsV1ApiCancelApprovalV1Request {
+export interface ApprovalsApiCancelApprovalV1Request {
     /**
      * 
-     * @type {BulkcancelrequestdtoV1}
-     * @memberof ApprovalsV1ApiCancelApprovalV1
+     * @type {Bulkcancelrequestdto}
+     * @memberof ApprovalsApiCancelApprovalV1
      */
-    readonly bulkcancelrequestdtoV1: BulkcancelrequestdtoV1
+    readonly bulkcancelrequestdto: Bulkcancelrequestdto
 }
 
 /**
- * Request parameters for deleteApprovalConfigRequestV1 operation in ApprovalsV1Api.
+ * Request parameters for deleteApprovalConfigRequestV1 operation in ApprovalsApi.
  * @export
- * @interface ApprovalsV1ApiDeleteApprovalConfigRequestV1Request
+ * @interface ApprovalsApiDeleteApprovalConfigRequestV1Request
  */
-export interface ApprovalsV1ApiDeleteApprovalConfigRequestV1Request {
+export interface ApprovalsApiDeleteApprovalConfigRequestV1Request {
     /**
      * The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
      * @type {string}
-     * @memberof ApprovalsV1ApiDeleteApprovalConfigRequestV1
+     * @memberof ApprovalsApiDeleteApprovalConfigRequestV1
      */
     readonly id: string
 
     /**
      * The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
      * @type {'DOMAIN_OBJECT' | 'ROLE' | 'ACCESS_PROFILE' | 'ENTITLEMENT' | 'APPROVAL_TYPE' | 'TENANT'}
-     * @memberof ApprovalsV1ApiDeleteApprovalConfigRequestV1
+     * @memberof ApprovalsApiDeleteApprovalConfigRequestV1
      */
-    readonly scope: DeleteApprovalConfigRequestV1ScopeV1
+    readonly scope: DeleteApprovalConfigRequestV1ScopeEnum
 }
 
 /**
- * Request parameters for getApprovalV1 operation in ApprovalsV1Api.
+ * Request parameters for getApprovalV1 operation in ApprovalsApi.
  * @export
- * @interface ApprovalsV1ApiGetApprovalV1Request
+ * @interface ApprovalsApiGetApprovalV1Request
  */
-export interface ApprovalsV1ApiGetApprovalV1Request {
+export interface ApprovalsApiGetApprovalV1Request {
     /**
      * ID of the approval that is to be returned
      * @type {string}
-     * @memberof ApprovalsV1ApiGetApprovalV1
+     * @memberof ApprovalsApiGetApprovalV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getApprovalsConfigV1 operation in ApprovalsV1Api.
+ * Request parameters for getApprovalsConfigV1 operation in ApprovalsApi.
  * @export
- * @interface ApprovalsV1ApiGetApprovalsConfigV1Request
+ * @interface ApprovalsApiGetApprovalsConfigV1Request
  */
-export interface ApprovalsV1ApiGetApprovalsConfigV1Request {
+export interface ApprovalsApiGetApprovalsConfigV1Request {
     /**
      * The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), \&quot;ENTITLEMENT_DESCRIPTIONS\&quot;, \&quot;ACCESS_REQUEST_APPROVAL\&quot;, \&quot;ACCOUNT_CREATE_APPROVAL_REQUEST\&quot;, \&quot;ACCOUNT_DELETE_APPROVAL_REQUEST\&quot;, \&quot;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST\&quot;, \&quot;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST\&quot;, (tenantID)]
      * @type {string}
-     * @memberof ApprovalsV1ApiGetApprovalsConfigV1
+     * @memberof ApprovalsApiGetApprovalsConfigV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getApprovalsV1 operation in ApprovalsV1Api.
+ * Request parameters for getApprovalsV1 operation in ApprovalsApi.
  * @export
- * @interface ApprovalsV1ApiGetApprovalsV1Request
+ * @interface ApprovalsApiGetApprovalsV1Request
  */
-export interface ApprovalsV1ApiGetApprovalsV1Request {
+export interface ApprovalsApiGetApprovalsV1Request {
     /**
      * Determines whether to return the list of approvals assigned to the current caller or all approvals in the org. Defaults to false if admin, true otherwise (which is the equivalent of \&#39;approverId&#x3D;[your_identity_id]\&#39;).
      * @type {boolean}
-     * @memberof ApprovalsV1ApiGetApprovalsV1
+     * @memberof ApprovalsApiGetApprovalsV1
      */
     readonly mine?: boolean
 
     /**
      * Returns the list of approvals for a given requester ID. Must match the calling user\&#39;s identity ID unless they are an admin.
      * @type {string}
-     * @memberof ApprovalsV1ApiGetApprovalsV1
+     * @memberof ApprovalsApiGetApprovalsV1
      */
     readonly requesterId?: string
 
     /**
      * Returns the list of approvals for a given requesteeId ID. Must match the calling user\&#39;s identity ID unless they are an admin.
      * @type {string}
-     * @memberof ApprovalsV1ApiGetApprovalsV1
+     * @memberof ApprovalsApiGetApprovalsV1
      */
     readonly requesteeId?: string
 
     /**
      * Returns the list of approvals for a given approverId ID. Must match the calling user\&#39;s identity ID unless they are an admin.
      * @type {string}
-     * @memberof ApprovalsV1ApiGetApprovalsV1
+     * @memberof ApprovalsApiGetApprovalsV1
      */
     readonly approverId?: string
 
     /**
      * Adds X-Total-Count to the header to give the amount of total approvals returned from the query.
      * @type {boolean}
-     * @memberof ApprovalsV1ApiGetApprovalsV1
+     * @memberof ApprovalsApiGetApprovalsV1
      */
     readonly count?: boolean
 
     /**
      * Adds X-Total-Count to the header to give the amount of total approvals returned from the query. Only returns the count and no approval objects.
      * @type {boolean}
-     * @memberof ApprovalsV1ApiGetApprovalsV1
+     * @memberof ApprovalsApiGetApprovalsV1
      */
     readonly countOnly?: boolean
 
     /**
      * If set to true in the query, the approval requests returned will include comments.
      * @type {boolean}
-     * @memberof ApprovalsV1ApiGetApprovalsV1
+     * @memberof ApprovalsApiGetApprovalsV1
      */
     readonly includeComments?: boolean
 
     /**
      * If set to true in the query, the approval requests returned will include approvers.
      * @type {boolean}
-     * @memberof ApprovalsV1ApiGetApprovalsV1
+     * @memberof ApprovalsApiGetApprovalsV1
      */
     readonly includeApprovers?: boolean
 
     /**
      * If set to true in the query, the approval requests returned will include reassignment history.
      * @type {boolean}
-     * @memberof ApprovalsV1ApiGetApprovalsV1
+     * @memberof ApprovalsApiGetApprovalsV1
      */
     readonly includeReassignmentHistory?: boolean
 
     /**
      * If set to true in the query, the approval requests returned will include batch information.
      * @type {boolean}
-     * @memberof ApprovalsV1ApiGetApprovalsV1
+     * @memberof ApprovalsApiGetApprovalsV1
      */
     readonly includeBatchInfo?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, ne, in, co, sw*  **name**: *eq, ne, in, co, sw*  **priority**: *eq, ne, in, co, sw*  **type**: *eq, ne, in, co, sw*  **medium**: *eq, ne, in, co, sw*  **description**: *eq, ne, in, co, sw*  **batchId**: *eq, ne, in, co, sw*  **createdDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **dueDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **completedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **search**: *eq, ne, in, co, sw*  **referenceId**: *eq, ne, in, co, sw*  **referenceType**: *eq, ne, in, co, sw*  **referenceName**: *eq, ne, in, co, sw*  **requestedTargetId**: *eq, ne, in, co, sw*  **requestedTargetType**: *eq, ne, in, co, sw*  **requestedTargetName**: *eq, ne, in, co, sw*  **requestedTargetRequestType**: *eq, ne, in, co, sw*  **modifiedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **decisionDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **approvalId**: *eq, ne, in, co, sw*  **requesterId**: *eq, ne, in, co, sw*  **requesteeId**: *eq, ne, in, co, sw*  **approverId**: *eq, ne, in, co, sw*
      * @type {string}
-     * @memberof ApprovalsV1ApiGetApprovalsV1
+     * @memberof ApprovalsApiGetApprovalsV1
      */
     readonly filters?: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof ApprovalsV1ApiGetApprovalsV1
+     * @memberof ApprovalsApiGetApprovalsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof ApprovalsV1ApiGetApprovalsV1
+     * @memberof ApprovalsApiGetApprovalsV1
      */
     readonly offset?: number
 }
 
 /**
- * Request parameters for moveApprovalV1 operation in ApprovalsV1Api.
+ * Request parameters for moveApprovalV1 operation in ApprovalsApi.
  * @export
- * @interface ApprovalsV1ApiMoveApprovalV1Request
+ * @interface ApprovalsApiMoveApprovalV1Request
  */
-export interface ApprovalsV1ApiMoveApprovalV1Request {
+export interface ApprovalsApiMoveApprovalV1Request {
     /**
      * 
-     * @type {BulkreassignrequestdtoV1}
-     * @memberof ApprovalsV1ApiMoveApprovalV1
+     * @type {Bulkreassignrequestdto}
+     * @memberof ApprovalsApiMoveApprovalV1
      */
-    readonly bulkreassignrequestdtoV1: BulkreassignrequestdtoV1
+    readonly bulkreassignrequestdto: Bulkreassignrequestdto
 }
 
 /**
- * Request parameters for putApprovalsConfigV1 operation in ApprovalsV1Api.
+ * Request parameters for putApprovalsConfigV1 operation in ApprovalsApi.
  * @export
- * @interface ApprovalsV1ApiPutApprovalsConfigV1Request
+ * @interface ApprovalsApiPutApprovalsConfigV1Request
  */
-export interface ApprovalsV1ApiPutApprovalsConfigV1Request {
+export interface ApprovalsApiPutApprovalsConfigV1Request {
     /**
      * The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
      * @type {string}
-     * @memberof ApprovalsV1ApiPutApprovalsConfigV1
+     * @memberof ApprovalsApiPutApprovalsConfigV1
      */
     readonly id: string
 
     /**
      * The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
      * @type {'DOMAIN_OBJECT' | 'ROLE' | 'ACCESS_PROFILE' | 'ENTITLEMENT' | 'APPROVAL_TYPE' | 'TENANT'}
-     * @memberof ApprovalsV1ApiPutApprovalsConfigV1
+     * @memberof ApprovalsApiPutApprovalsConfigV1
      */
-    readonly scope: PutApprovalsConfigV1ScopeV1
+    readonly scope: PutApprovalsConfigV1ScopeEnum
 
     /**
      * 
-     * @type {ApprovalconfigV1}
-     * @memberof ApprovalsV1ApiPutApprovalsConfigV1
+     * @type {Approvalconfig}
+     * @memberof ApprovalsApiPutApprovalsConfigV1
      */
-    readonly approvalconfigV1: ApprovalconfigV1
+    readonly approvalconfig: Approvalconfig
 }
 
 /**
- * Request parameters for rejectApprovalInBulkV1 operation in ApprovalsV1Api.
+ * Request parameters for rejectApprovalInBulkV1 operation in ApprovalsApi.
  * @export
- * @interface ApprovalsV1ApiRejectApprovalInBulkV1Request
+ * @interface ApprovalsApiRejectApprovalInBulkV1Request
  */
-export interface ApprovalsV1ApiRejectApprovalInBulkV1Request {
+export interface ApprovalsApiRejectApprovalInBulkV1Request {
     /**
      * 
-     * @type {BulkrejectrequestdtoV1}
-     * @memberof ApprovalsV1ApiRejectApprovalInBulkV1
+     * @type {Bulkrejectrequestdto}
+     * @memberof ApprovalsApiRejectApprovalInBulkV1
      */
-    readonly bulkrejectrequestdtoV1: BulkrejectrequestdtoV1
+    readonly bulkrejectrequestdto: Bulkrejectrequestdto
 }
 
 /**
- * Request parameters for rejectApprovalV1 operation in ApprovalsV1Api.
+ * Request parameters for rejectApprovalV1 operation in ApprovalsApi.
  * @export
- * @interface ApprovalsV1ApiRejectApprovalV1Request
+ * @interface ApprovalsApiRejectApprovalV1Request
  */
-export interface ApprovalsV1ApiRejectApprovalV1Request {
+export interface ApprovalsApiRejectApprovalV1Request {
     /**
      * Approval ID that correlates to an existing approval request that a user wants to reject.
      * @type {string}
-     * @memberof ApprovalsV1ApiRejectApprovalV1
+     * @memberof ApprovalsApiRejectApprovalV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {ApprovalrejectrequestV1}
-     * @memberof ApprovalsV1ApiRejectApprovalV1
+     * @type {Approvalrejectrequest}
+     * @memberof ApprovalsApiRejectApprovalV1
      */
-    readonly approvalrejectrequestV1?: ApprovalrejectrequestV1
+    readonly approvalrejectrequest?: Approvalrejectrequest
 }
 
 /**
- * Request parameters for updateApprovalsAttributesV1 operation in ApprovalsV1Api.
+ * Request parameters for updateApprovalsAttributesV1 operation in ApprovalsApi.
  * @export
- * @interface ApprovalsV1ApiUpdateApprovalsAttributesV1Request
+ * @interface ApprovalsApiUpdateApprovalsAttributesV1Request
  */
-export interface ApprovalsV1ApiUpdateApprovalsAttributesV1Request {
+export interface ApprovalsApiUpdateApprovalsAttributesV1Request {
     /**
      * Approval ID that correlates to an existing approval request that a user wants to change the attributes of.
      * @type {string}
-     * @memberof ApprovalsV1ApiUpdateApprovalsAttributesV1
+     * @memberof ApprovalsApiUpdateApprovalsAttributesV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {ApprovalattributesrequestV1}
-     * @memberof ApprovalsV1ApiUpdateApprovalsAttributesV1
+     * @type {Approvalattributesrequest}
+     * @memberof ApprovalsApiUpdateApprovalsAttributesV1
      */
-    readonly approvalattributesrequestV1: ApprovalattributesrequestV1
+    readonly approvalattributesrequest: Approvalattributesrequest
 }
 
 /**
- * Request parameters for updateApprovalsCommentsV1 operation in ApprovalsV1Api.
+ * Request parameters for updateApprovalsCommentsV1 operation in ApprovalsApi.
  * @export
- * @interface ApprovalsV1ApiUpdateApprovalsCommentsV1Request
+ * @interface ApprovalsApiUpdateApprovalsCommentsV1Request
  */
-export interface ApprovalsV1ApiUpdateApprovalsCommentsV1Request {
+export interface ApprovalsApiUpdateApprovalsCommentsV1Request {
     /**
      * Approval ID that correlates to an existing approval request that a user wants to add a comment to.
      * @type {string}
-     * @memberof ApprovalsV1ApiUpdateApprovalsCommentsV1
+     * @memberof ApprovalsApiUpdateApprovalsCommentsV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {ApprovalcommentsrequestV1}
-     * @memberof ApprovalsV1ApiUpdateApprovalsCommentsV1
+     * @type {Approvalcommentsrequest}
+     * @memberof ApprovalsApiUpdateApprovalsCommentsV1
      */
-    readonly approvalcommentsrequestV1: ApprovalcommentsrequestV1
+    readonly approvalcommentsrequest: Approvalcommentsrequest
 }
 
 /**
- * Request parameters for updateApprovalsReassignV1 operation in ApprovalsV1Api.
+ * Request parameters for updateApprovalsReassignV1 operation in ApprovalsApi.
  * @export
- * @interface ApprovalsV1ApiUpdateApprovalsReassignV1Request
+ * @interface ApprovalsApiUpdateApprovalsReassignV1Request
  */
-export interface ApprovalsV1ApiUpdateApprovalsReassignV1Request {
+export interface ApprovalsApiUpdateApprovalsReassignV1Request {
     /**
      * Approval ID that correlates to an existing approval request that a user wants to reassign.
      * @type {string}
-     * @memberof ApprovalsV1ApiUpdateApprovalsReassignV1
+     * @memberof ApprovalsApiUpdateApprovalsReassignV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {ApprovalreassignrequestV1}
-     * @memberof ApprovalsV1ApiUpdateApprovalsReassignV1
+     * @type {Approvalreassignrequest}
+     * @memberof ApprovalsApiUpdateApprovalsReassignV1
      */
-    readonly approvalreassignrequestV1: ApprovalreassignrequestV1
+    readonly approvalreassignrequest: Approvalreassignrequest
 }
 
 /**
- * ApprovalsV1Api - object-oriented interface
+ * ApprovalsApi - object-oriented interface
  * @export
- * @class ApprovalsV1Api
+ * @class ApprovalsApi
  * @extends {BaseAPI}
  */
-export class ApprovalsV1Api extends BaseAPI {
+export class ApprovalsApi extends BaseAPI {
     /**
      * Bulk Approves specified approval requests on behalf of the caller
      * @summary Post Bulk Approve Approvals
-     * @param {ApprovalsV1ApiApproveApprovalInBulkV1Request} requestParameters Request parameters.
+     * @param {ApprovalsApiApproveApprovalInBulkV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApprovalsV1Api
+     * @memberof ApprovalsApi
      */
-    public approveApprovalInBulkV1(requestParameters: ApprovalsV1ApiApproveApprovalInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ApprovalsV1ApiFp(this.configuration).approveApprovalInBulkV1(requestParameters.bulkapproverequestdtoV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public approveApprovalInBulkV1(requestParameters: ApprovalsApiApproveApprovalInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ApprovalsApiFp(this.configuration).approveApprovalInBulkV1(requestParameters.bulkapproverequestdto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Approves a specified approval request on behalf of the caller. The approval request must be in a state that allows it to be approved. This endpoint does not support access request IDs. If called by an admin and the admin is not listed as an approver, the approval request will be reassigned from a random approver to the admin user.
      * @summary Post Approvals Approve
-     * @param {ApprovalsV1ApiApproveApprovalV1Request} requestParameters Request parameters.
+     * @param {ApprovalsApiApproveApprovalV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApprovalsV1Api
+     * @memberof ApprovalsApi
      */
-    public approveApprovalV1(requestParameters: ApprovalsV1ApiApproveApprovalV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ApprovalsV1ApiFp(this.configuration).approveApprovalV1(requestParameters.id, requestParameters.approvalapproverequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public approveApprovalV1(requestParameters: ApprovalsApiApproveApprovalV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ApprovalsApiFp(this.configuration).approveApprovalV1(requestParameters.id, requestParameters.approvalapproverequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Cancels a specified approval requests on behalf of the caller.  Note: This endpoint does not support access request IDs. To cancel access request approvals, please use the following: /access-requests/cancel
      * @summary Post Approval Cancel
-     * @param {ApprovalsV1ApiCancelApprovalByIdV1Request} requestParameters Request parameters.
+     * @param {ApprovalsApiCancelApprovalByIdV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApprovalsV1Api
+     * @memberof ApprovalsApi
      */
-    public cancelApprovalByIdV1(requestParameters: ApprovalsV1ApiCancelApprovalByIdV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ApprovalsV1ApiFp(this.configuration).cancelApprovalByIdV1(requestParameters.id, requestParameters.approvalcancelrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public cancelApprovalByIdV1(requestParameters: ApprovalsApiCancelApprovalByIdV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ApprovalsApiFp(this.configuration).cancelApprovalByIdV1(requestParameters.id, requestParameters.approvalcancelrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Bulk cancels specified approval requests on behalf of the caller.  Note: To bulk cancel access request approvals, please use the following: /access-requests/bulk-cancel
      * @summary Post Bulk Cancel Approvals
-     * @param {ApprovalsV1ApiCancelApprovalV1Request} requestParameters Request parameters.
+     * @param {ApprovalsApiCancelApprovalV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApprovalsV1Api
+     * @memberof ApprovalsApi
      */
-    public cancelApprovalV1(requestParameters: ApprovalsV1ApiCancelApprovalV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ApprovalsV1ApiFp(this.configuration).cancelApprovalV1(requestParameters.bulkcancelrequestdtoV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public cancelApprovalV1(requestParameters: ApprovalsApiCancelApprovalV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ApprovalsApiFp(this.configuration).cancelApprovalV1(requestParameters.bulkcancelrequestdto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Deletes an approval configuration. Configurations at the APPROVAL_REQUEST scope cannot be deleted.
      * @summary Delete Approval Configuration
-     * @param {ApprovalsV1ApiDeleteApprovalConfigRequestV1Request} requestParameters Request parameters.
+     * @param {ApprovalsApiDeleteApprovalConfigRequestV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApprovalsV1Api
+     * @memberof ApprovalsApi
      */
-    public deleteApprovalConfigRequestV1(requestParameters: ApprovalsV1ApiDeleteApprovalConfigRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ApprovalsV1ApiFp(this.configuration).deleteApprovalConfigRequestV1(requestParameters.id, requestParameters.scope, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteApprovalConfigRequestV1(requestParameters: ApprovalsApiDeleteApprovalConfigRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ApprovalsApiFp(this.configuration).deleteApprovalConfigRequestV1(requestParameters.id, requestParameters.scope, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Fetches an approval request by it\'s approval ID. For lookups by access request ID please use the following: /generic-approvals?filters=referenceType+eq+\"accessRequestId\"+and+referenceId+eq+\"12345678901234567890123456789012\"
      * @summary Get an approval
-     * @param {ApprovalsV1ApiGetApprovalV1Request} requestParameters Request parameters.
+     * @param {ApprovalsApiGetApprovalV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApprovalsV1Api
+     * @memberof ApprovalsApi
      */
-    public getApprovalV1(requestParameters: ApprovalsV1ApiGetApprovalV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ApprovalsV1ApiFp(this.configuration).getApprovalV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getApprovalV1(requestParameters: ApprovalsApiGetApprovalV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ApprovalsApiFp(this.configuration).getApprovalV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Retrieves a singular approval configuration that matches the given ID
      * @summary Get Approval Config
-     * @param {ApprovalsV1ApiGetApprovalsConfigV1Request} requestParameters Request parameters.
+     * @param {ApprovalsApiGetApprovalsConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApprovalsV1Api
+     * @memberof ApprovalsApi
      */
-    public getApprovalsConfigV1(requestParameters: ApprovalsV1ApiGetApprovalsConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ApprovalsV1ApiFp(this.configuration).getApprovalsConfigV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getApprovalsConfigV1(requestParameters: ApprovalsApiGetApprovalsConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ApprovalsApiFp(this.configuration).getApprovalsConfigV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Gets a list of approvals.  One of the following query parameters should be present: \'mine\', \'approverId\', \'requesterId\', \'requesteeId\'.  The absence of all query parameters for non admins will default to mine=true (which is the equivalent of \'approverId=[your_identity_id]\')  while admins will default to mine=false (which will show all approvals in the org).  For lookups by access request ID please use the following:  \'/generic-approvals?mine=false&filters=referenceType+eq+\"accessRequestId\"+and+referenceId+eq+\"12345678901234567890123456789012\"\'
      * @summary Get approvals
-     * @param {ApprovalsV1ApiGetApprovalsV1Request} requestParameters Request parameters.
+     * @param {ApprovalsApiGetApprovalsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApprovalsV1Api
+     * @memberof ApprovalsApi
      */
-    public getApprovalsV1(requestParameters: ApprovalsV1ApiGetApprovalsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return ApprovalsV1ApiFp(this.configuration).getApprovalsV1(requestParameters.mine, requestParameters.requesterId, requestParameters.requesteeId, requestParameters.approverId, requestParameters.count, requestParameters.countOnly, requestParameters.includeComments, requestParameters.includeApprovers, requestParameters.includeReassignmentHistory, requestParameters.includeBatchInfo, requestParameters.filters, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getApprovalsV1(requestParameters: ApprovalsApiGetApprovalsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return ApprovalsApiFp(this.configuration).getApprovalsV1(requestParameters.mine, requestParameters.requesterId, requestParameters.requesteeId, requestParameters.approverId, requestParameters.count, requestParameters.countOnly, requestParameters.includeComments, requestParameters.includeApprovers, requestParameters.includeReassignmentHistory, requestParameters.includeBatchInfo, requestParameters.filters, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Bulk reassigns specified approval requests on behalf of the caller
      * @summary Post Bulk Reassign Approvals
-     * @param {ApprovalsV1ApiMoveApprovalV1Request} requestParameters Request parameters.
+     * @param {ApprovalsApiMoveApprovalV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApprovalsV1Api
+     * @memberof ApprovalsApi
      */
-    public moveApprovalV1(requestParameters: ApprovalsV1ApiMoveApprovalV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ApprovalsV1ApiFp(this.configuration).moveApprovalV1(requestParameters.bulkreassignrequestdtoV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public moveApprovalV1(requestParameters: ApprovalsApiMoveApprovalV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ApprovalsApiFp(this.configuration).moveApprovalV1(requestParameters.bulkreassignrequestdto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Upserts a singular approval configuration that matches the given configID and configScope.  For example to update the approval configurations for all Access Request Approvals please use: \'/generic-approvals/config/ACCESS_REQUEST_APPROVAL/APPROVAL_TYPE\'
      * @summary Put Approval Config
-     * @param {ApprovalsV1ApiPutApprovalsConfigV1Request} requestParameters Request parameters.
+     * @param {ApprovalsApiPutApprovalsConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApprovalsV1Api
+     * @memberof ApprovalsApi
      */
-    public putApprovalsConfigV1(requestParameters: ApprovalsV1ApiPutApprovalsConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ApprovalsV1ApiFp(this.configuration).putApprovalsConfigV1(requestParameters.id, requestParameters.scope, requestParameters.approvalconfigV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putApprovalsConfigV1(requestParameters: ApprovalsApiPutApprovalsConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ApprovalsApiFp(this.configuration).putApprovalsConfigV1(requestParameters.id, requestParameters.scope, requestParameters.approvalconfig, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Bulk reject specified approval requests on behalf of the caller
      * @summary Post Bulk Reject Approvals
-     * @param {ApprovalsV1ApiRejectApprovalInBulkV1Request} requestParameters Request parameters.
+     * @param {ApprovalsApiRejectApprovalInBulkV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApprovalsV1Api
+     * @memberof ApprovalsApi
      */
-    public rejectApprovalInBulkV1(requestParameters: ApprovalsV1ApiRejectApprovalInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ApprovalsV1ApiFp(this.configuration).rejectApprovalInBulkV1(requestParameters.bulkrejectrequestdtoV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public rejectApprovalInBulkV1(requestParameters: ApprovalsApiRejectApprovalInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ApprovalsApiFp(this.configuration).rejectApprovalInBulkV1(requestParameters.bulkrejectrequestdto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Rejects a specified approval request on behalf of the caller. This endpoint does not support access request IDs. If called by an admin and the admin is not listed as an approver, the approval request will be reassigned from a random approver to the admin user and approved.
      * @summary Post Approvals Reject
-     * @param {ApprovalsV1ApiRejectApprovalV1Request} requestParameters Request parameters.
+     * @param {ApprovalsApiRejectApprovalV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApprovalsV1Api
+     * @memberof ApprovalsApi
      */
-    public rejectApprovalV1(requestParameters: ApprovalsV1ApiRejectApprovalV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ApprovalsV1ApiFp(this.configuration).rejectApprovalV1(requestParameters.id, requestParameters.approvalrejectrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public rejectApprovalV1(requestParameters: ApprovalsApiRejectApprovalV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ApprovalsApiFp(this.configuration).rejectApprovalV1(requestParameters.id, requestParameters.approvalrejectrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Allows for the edit/addition/removal of the key/value pair additional attributes map for an existing approval request. This endpoint does not support access request IDs.
      * @summary Post Approvals Attributes
-     * @param {ApprovalsV1ApiUpdateApprovalsAttributesV1Request} requestParameters Request parameters.
+     * @param {ApprovalsApiUpdateApprovalsAttributesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApprovalsV1Api
+     * @memberof ApprovalsApi
      */
-    public updateApprovalsAttributesV1(requestParameters: ApprovalsV1ApiUpdateApprovalsAttributesV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ApprovalsV1ApiFp(this.configuration).updateApprovalsAttributesV1(requestParameters.id, requestParameters.approvalattributesrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateApprovalsAttributesV1(requestParameters: ApprovalsApiUpdateApprovalsAttributesV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ApprovalsApiFp(this.configuration).updateApprovalsAttributesV1(requestParameters.id, requestParameters.approvalattributesrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Adds comments to a specified approval request. This endpoint does not support access request IDs.
      * @summary Post Approvals Comments
-     * @param {ApprovalsV1ApiUpdateApprovalsCommentsV1Request} requestParameters Request parameters.
+     * @param {ApprovalsApiUpdateApprovalsCommentsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApprovalsV1Api
+     * @memberof ApprovalsApi
      */
-    public updateApprovalsCommentsV1(requestParameters: ApprovalsV1ApiUpdateApprovalsCommentsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ApprovalsV1ApiFp(this.configuration).updateApprovalsCommentsV1(requestParameters.id, requestParameters.approvalcommentsrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateApprovalsCommentsV1(requestParameters: ApprovalsApiUpdateApprovalsCommentsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ApprovalsApiFp(this.configuration).updateApprovalsCommentsV1(requestParameters.id, requestParameters.approvalcommentsrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Reassigns an approval request to another identity resulting in that identity being added as an authorized approver. This endpoint does not support access request IDs.
      * @summary Post Approvals Reassign
-     * @param {ApprovalsV1ApiUpdateApprovalsReassignV1Request} requestParameters Request parameters.
+     * @param {ApprovalsApiUpdateApprovalsReassignV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApprovalsV1Api
+     * @memberof ApprovalsApi
      */
-    public updateApprovalsReassignV1(requestParameters: ApprovalsV1ApiUpdateApprovalsReassignV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ApprovalsV1ApiFp(this.configuration).updateApprovalsReassignV1(requestParameters.id, requestParameters.approvalreassignrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateApprovalsReassignV1(requestParameters: ApprovalsApiUpdateApprovalsReassignV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ApprovalsApiFp(this.configuration).updateApprovalsReassignV1(requestParameters.id, requestParameters.approvalreassignrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
 /**
  * @export
  */
-export const DeleteApprovalConfigRequestV1ScopeV1 = {
+export const DeleteApprovalConfigRequestV1ScopeEnum = {
     DomainObject: 'DOMAIN_OBJECT',
     Role: 'ROLE',
     AccessProfile: 'ACCESS_PROFILE',
@@ -2983,11 +2983,11 @@ export const DeleteApprovalConfigRequestV1ScopeV1 = {
     ApprovalType: 'APPROVAL_TYPE',
     Tenant: 'TENANT'
 } as const;
-export type DeleteApprovalConfigRequestV1ScopeV1 = typeof DeleteApprovalConfigRequestV1ScopeV1[keyof typeof DeleteApprovalConfigRequestV1ScopeV1];
+export type DeleteApprovalConfigRequestV1ScopeEnum = typeof DeleteApprovalConfigRequestV1ScopeEnum[keyof typeof DeleteApprovalConfigRequestV1ScopeEnum];
 /**
  * @export
  */
-export const PutApprovalsConfigV1ScopeV1 = {
+export const PutApprovalsConfigV1ScopeEnum = {
     DomainObject: 'DOMAIN_OBJECT',
     Role: 'ROLE',
     AccessProfile: 'ACCESS_PROFILE',
@@ -2995,6 +2995,6 @@ export const PutApprovalsConfigV1ScopeV1 = {
     ApprovalType: 'APPROVAL_TYPE',
     Tenant: 'TENANT'
 } as const;
-export type PutApprovalsConfigV1ScopeV1 = typeof PutApprovalsConfigV1ScopeV1[keyof typeof PutApprovalsConfigV1ScopeV1];
+export type PutApprovalsConfigV1ScopeEnum = typeof PutApprovalsConfigV1ScopeEnum[keyof typeof PutApprovalsConfigV1ScopeEnum];
 
 

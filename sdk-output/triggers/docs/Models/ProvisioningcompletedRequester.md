@@ -1,21 +1,21 @@
 ---
-id: v1-provisioningcompleted-requester-v1
-title: ProvisioningcompletedRequesterV1
-pagination_label: ProvisioningcompletedRequesterV1
-sidebar_label: ProvisioningcompletedRequesterV1
+id: v1-provisioningcompleted-requester
+title: ProvisioningcompletedRequester
+pagination_label: ProvisioningcompletedRequester
+sidebar_label: ProvisioningcompletedRequester
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ProvisioningcompletedRequesterV1', 'v1ProvisioningcompletedRequesterV1']
-slug: /tools/sdk/typescript/triggers/models/provisioningcompleted-requester-v1
-tags: ['SDK', 'Software Development Kit', 'ProvisioningcompletedRequesterV1', 'v1ProvisioningcompletedRequesterV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ProvisioningcompletedRequester', 'v1ProvisioningcompletedRequester']
+slug: /tools/sdk/typescript/triggers/models/provisioningcompleted-requester
+tags: ['SDK', 'Software Development Kit', 'ProvisioningcompletedRequester', 'v1ProvisioningcompletedRequester']
 ---
 
-# ProvisioningcompletedRequesterV1
+# ProvisioningcompletedRequester
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **string** | Provisioning requester\'s DTO type. | [default to undefined]
-**id** | **string** | Provisioning requester\'s identity ID. | [default to undefined]
-**name** | **string** | Provisioning owner\'s human-readable display name. | [default to undefined]
+**type** | `string` | Provisioning requester\'s DTO type. | [default to undefined]
+**id** | `string` | Provisioning requester\'s identity ID. | [default to undefined]
+**name** | `string` | Provisioning owner\'s human-readable display name. | [default to undefined]
 

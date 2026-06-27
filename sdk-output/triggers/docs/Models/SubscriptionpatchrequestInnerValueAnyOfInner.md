@@ -1,15 +1,15 @@
 ---
-id: v1-subscriptionpatchrequest-inner-value-any-of-inner-v1
-title: SubscriptionpatchrequestInnerValueAnyOfInnerV1
-pagination_label: SubscriptionpatchrequestInnerValueAnyOfInnerV1
-sidebar_label: SubscriptionpatchrequestInnerValueAnyOfInnerV1
+id: v1-subscriptionpatchrequest-inner-value-any-of-inner
+title: SubscriptionpatchrequestInnerValueAnyOfInner
+pagination_label: SubscriptionpatchrequestInnerValueAnyOfInner
+sidebar_label: SubscriptionpatchrequestInnerValueAnyOfInner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SubscriptionpatchrequestInnerValueAnyOfInnerV1', 'v1SubscriptionpatchrequestInnerValueAnyOfInnerV1']
-slug: /tools/sdk/typescript/triggers/models/subscriptionpatchrequest-inner-value-any-of-inner-v1
-tags: ['SDK', 'Software Development Kit', 'SubscriptionpatchrequestInnerValueAnyOfInnerV1', 'v1SubscriptionpatchrequestInnerValueAnyOfInnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'SubscriptionpatchrequestInnerValueAnyOfInner', 'v1SubscriptionpatchrequestInnerValueAnyOfInner']
+slug: /tools/sdk/typescript/triggers/models/subscriptionpatchrequest-inner-value-any-of-inner
+tags: ['SDK', 'Software Development Kit', 'SubscriptionpatchrequestInnerValueAnyOfInner', 'v1SubscriptionpatchrequestInnerValueAnyOfInner']
 ---
 
-# SubscriptionpatchrequestInnerValueAnyOfInnerV1
+# SubscriptionpatchrequestInnerValueAnyOfInner
 
 ## Properties
 

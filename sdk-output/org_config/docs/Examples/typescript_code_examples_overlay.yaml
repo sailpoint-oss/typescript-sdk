@@ -4,13 +4,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/org_config/methods/org-config#get-org-config-v1
       source: |
-        import { OrgConfigV1Api } from 'sailpoint-api-client';
+        import { OrgConfigApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new OrgConfigV1Api(configuration);
-        const result = await apiInstance.getOrgConfigV1();
+        const configuration = new Configuration();
+        const apiInstance = new OrgConfigApi(configuration);
+        const result = await apiInstance.getOrgConfigV1({  });
         console.log(result);
 - path: /org-config/v1/valid-time-zones
   method: GET
@@ -18,17 +17,16 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/org_config/methods/org-config#get-valid-time-zones-v1
       source: |
-        import { OrgConfigV1Api } from 'sailpoint-api-client';
+        import { OrgConfigApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new OrgConfigV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new OrgConfigApi(configuration);
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const limit: number = 50; // number | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
-        const result = await apiInstance.getValidTimeZonesV1();
+        const result = await apiInstance.getValidTimeZonesV1({  });
         console.log(result);
 - path: /org-config/v1
   method: PATCH
@@ -36,12 +34,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/org_config/methods/org-config#patch-org-config-v1
       source: |
-        import { OrgConfigV1Api } from 'sailpoint-api-client';
+        import { OrgConfigApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new OrgConfigV1Api(configuration);
-        const jsonpatchoperationV1: Array&lt;JsonpatchoperationV1&gt; = [{"op":"replace","path":"/timeZone","value":"America/Toronto"}]; // Array<JsonpatchoperationV1> | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-        const result = await apiInstance.patchOrgConfigV1(jsonpatchoperationV1);
+        const configuration = new Configuration();
+        const apiInstance = new OrgConfigApi(configuration);
+        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/timeZone","value":"America/Toronto"}]; // Array<Jsonpatchoperation> | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        const result = await apiInstance.patchOrgConfigV1({ jsonpatchoperation: jsonpatchoperation });
         console.log(result);

@@ -1,20 +1,20 @@
 ---
-id: v1-entitlementrequestconfig-v1
-title: EntitlementrequestconfigV1
-pagination_label: EntitlementrequestconfigV1
-sidebar_label: EntitlementrequestconfigV1
+id: v1-entitlementrequestconfig
+title: Entitlementrequestconfig
+pagination_label: Entitlementrequestconfig
+sidebar_label: Entitlementrequestconfig
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'EntitlementrequestconfigV1', 'v1EntitlementrequestconfigV1']
-slug: /tools/sdk/typescript/entitlements/models/entitlementrequestconfig-v1
-tags: ['SDK', 'Software Development Kit', 'EntitlementrequestconfigV1', 'v1EntitlementrequestconfigV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Entitlementrequestconfig', 'v1Entitlementrequestconfig']
+slug: /tools/sdk/typescript/entitlements/models/entitlementrequestconfig
+tags: ['SDK', 'Software Development Kit', 'Entitlementrequestconfig', 'v1Entitlementrequestconfig']
 ---
 
-# EntitlementrequestconfigV1
+# Entitlementrequestconfig
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**accessRequestConfig** | **(optional)** **EntitlementaccessrequestconfigV1** |  | [default to undefined]
-**revocationRequestConfig** | **(optional)** **EntitlementrevocationrequestconfigV1** |  | [default to undefined]
+**accessRequestConfig** | **(optional)** `Entitlementaccessrequestconfig` |  | [default to undefined]
+**revocationRequestConfig** | **(optional)** `Entitlementrevocationrequestconfig` |  | [default to undefined]
 

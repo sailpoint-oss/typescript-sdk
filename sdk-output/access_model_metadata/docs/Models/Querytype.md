@@ -1,15 +1,15 @@
 ---
-id: v1-querytype-v1
-title: QuerytypeV1
-pagination_label: QuerytypeV1
-sidebar_label: QuerytypeV1
+id: v1-querytype
+title: Querytype
+pagination_label: Querytype
+sidebar_label: Querytype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'QuerytypeV1', 'v1QuerytypeV1']
-slug: /tools/sdk/typescript/access_model_metadata/models/querytype-v1
-tags: ['SDK', 'Software Development Kit', 'QuerytypeV1', 'v1QuerytypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Querytype', 'v1Querytype']
+slug: /tools/sdk/typescript/access_model_metadata/models/querytype
+tags: ['SDK', 'Software Development Kit', 'Querytype', 'v1Querytype']
 ---
 
-# QuerytypeV1
+# Querytype
 
 ## Enum
 

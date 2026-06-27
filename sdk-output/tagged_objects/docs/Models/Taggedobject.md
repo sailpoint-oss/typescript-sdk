@@ -1,20 +1,20 @@
 ---
-id: v1-taggedobject-v1
-title: TaggedobjectV1
-pagination_label: TaggedobjectV1
-sidebar_label: TaggedobjectV1
+id: v1-taggedobject
+title: Taggedobject
+pagination_label: Taggedobject
+sidebar_label: Taggedobject
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'TaggedobjectV1', 'v1TaggedobjectV1']
-slug: /tools/sdk/typescript/tagged_objects/models/taggedobject-v1
-tags: ['SDK', 'Software Development Kit', 'TaggedobjectV1', 'v1TaggedobjectV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Taggedobject', 'v1Taggedobject']
+slug: /tools/sdk/typescript/tagged_objects/models/taggedobject
+tags: ['SDK', 'Software Development Kit', 'Taggedobject', 'v1Taggedobject']
 ---
 
-# TaggedobjectV1
+# Taggedobject
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**objectRef** | **(optional)** **TaggedobjectdtoV1** |  | [default to undefined]
-**tags** | **(optional)** **Array&lt;string&gt;** | Labels to be applied to an Object | [default to undefined]
+**objectRef** | **(optional)** `Taggedobjectdto` |  | [default to undefined]
+**tags** | **(optional)** `Array<string>` | Labels to be applied to an Object | [default to undefined]
 

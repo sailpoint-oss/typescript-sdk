@@ -1,21 +1,21 @@
 ---
-id: v1-campaignactivated-campaign-campaign-owner-v1
-title: CampaignactivatedCampaignCampaignOwnerV1
-pagination_label: CampaignactivatedCampaignCampaignOwnerV1
-sidebar_label: CampaignactivatedCampaignCampaignOwnerV1
+id: v1-campaignactivated-campaign-campaign-owner
+title: CampaignactivatedCampaignCampaignOwner
+pagination_label: CampaignactivatedCampaignCampaignOwner
+sidebar_label: CampaignactivatedCampaignCampaignOwner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'CampaignactivatedCampaignCampaignOwnerV1', 'v1CampaignactivatedCampaignCampaignOwnerV1']
-slug: /tools/sdk/typescript/triggers/models/campaignactivated-campaign-campaign-owner-v1
-tags: ['SDK', 'Software Development Kit', 'CampaignactivatedCampaignCampaignOwnerV1', 'v1CampaignactivatedCampaignCampaignOwnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'CampaignactivatedCampaignCampaignOwner', 'v1CampaignactivatedCampaignCampaignOwner']
+slug: /tools/sdk/typescript/triggers/models/campaignactivated-campaign-campaign-owner
+tags: ['SDK', 'Software Development Kit', 'CampaignactivatedCampaignCampaignOwner', 'v1CampaignactivatedCampaignCampaignOwner']
 ---
 
-# CampaignactivatedCampaignCampaignOwnerV1
+# CampaignactivatedCampaignCampaignOwner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | The unique ID of the identity. | [default to undefined]
-**displayName** | **string** | The human friendly name of the identity. | [default to undefined]
-**email** | **string** | The primary email address of the identity. | [default to undefined]
+**id** | `string` | The unique ID of the identity. | [default to undefined]
+**displayName** | `string` | The human friendly name of the identity. | [default to undefined]
+**email** | `string` | The primary email address of the identity. | [default to undefined]
 

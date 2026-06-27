@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -53,57 +53,57 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetPasswordDictionaryV1401ResponseV1
+ * @interface GetPasswordDictionaryV1401Response
  */
-export interface GetPasswordDictionaryV1401ResponseV1 {
+export interface GetPasswordDictionaryV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetPasswordDictionaryV1401ResponseV1
+     * @memberof GetPasswordDictionaryV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetPasswordDictionaryV1429ResponseV1
+ * @interface GetPasswordDictionaryV1429Response
  */
-export interface GetPasswordDictionaryV1429ResponseV1 {
+export interface GetPasswordDictionaryV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetPasswordDictionaryV1429ResponseV1
+     * @memberof GetPasswordDictionaryV1429Response
      */
     'message'?: any;
 }
@@ -113,33 +113,33 @@ export interface GetPasswordDictionaryV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface PutPasswordDictionaryV1RequestV1
+ * @interface PutPasswordDictionaryV1Request
  */
-export interface PutPasswordDictionaryV1RequestV1 {
+export interface PutPasswordDictionaryV1Request {
     /**
      * 
      * @type {File}
-     * @memberof PutPasswordDictionaryV1RequestV1
+     * @memberof PutPasswordDictionaryV1Request
      */
     'file'?: File;
 }
 
 /**
- * PasswordDictionaryV1Api - axios parameter creator
+ * PasswordDictionaryApi - axios parameter creator
  * @export
  */
-export const PasswordDictionaryV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const PasswordDictionaryApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This gets password dictionary for the organization. The password dictionary file can contain lines that are: 1. comment lines - the first character is \'#\', can be 128 Unicode codepoints in length, and are ignored during processing 2. empty lines 3. locale line - the first line that starts with \"locale=\" is considered to be locale line, the rest are treated as normal content lines 4. line containing the password dictionary word - it must start with non-whitespace character and only non-whitespace characters are allowed;         maximum length of the line is 128 Unicode codepoints   Password dictionary file may not contain more than 2,500 lines (not counting whitespace lines, comment lines and locale line).   Password dict file must contain UTF-8 characters only.  # Sample password text file  ```  # Password dictionary small test file  locale=en_US  # Password dictionary prohibited words  qwerty abcd aaaaa password qazxsws  ```
@@ -214,11 +214,11 @@ export const PasswordDictionaryV1ApiAxiosParamCreator = function (configuration?
 };
 
 /**
- * PasswordDictionaryV1Api - functional programming interface
+ * PasswordDictionaryApi - functional programming interface
  * @export
  */
-export const PasswordDictionaryV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = PasswordDictionaryV1ApiAxiosParamCreator(configuration)
+export const PasswordDictionaryApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = PasswordDictionaryApiAxiosParamCreator(configuration)
     return {
         /**
          * This gets password dictionary for the organization. The password dictionary file can contain lines that are: 1. comment lines - the first character is \'#\', can be 128 Unicode codepoints in length, and are ignored during processing 2. empty lines 3. locale line - the first line that starts with \"locale=\" is considered to be locale line, the rest are treated as normal content lines 4. line containing the password dictionary word - it must start with non-whitespace character and only non-whitespace characters are allowed;         maximum length of the line is 128 Unicode codepoints   Password dictionary file may not contain more than 2,500 lines (not counting whitespace lines, comment lines and locale line).   Password dict file must contain UTF-8 characters only.  # Sample password text file  ```  # Password dictionary small test file  locale=en_US  # Password dictionary prohibited words  qwerty abcd aaaaa password qazxsws  ```
@@ -229,7 +229,7 @@ export const PasswordDictionaryV1ApiFp = function(configuration?: Configuration)
         async getPasswordDictionaryV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordDictionaryV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PasswordDictionaryV1Api.getPasswordDictionaryV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PasswordDictionaryApi.getPasswordDictionaryV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -242,18 +242,18 @@ export const PasswordDictionaryV1ApiFp = function(configuration?: Configuration)
         async putPasswordDictionaryV1(file?: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putPasswordDictionaryV1(file, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PasswordDictionaryV1Api.putPasswordDictionaryV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PasswordDictionaryApi.putPasswordDictionaryV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * PasswordDictionaryV1Api - factory interface
+ * PasswordDictionaryApi - factory interface
  * @export
  */
-export const PasswordDictionaryV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = PasswordDictionaryV1ApiFp(configuration)
+export const PasswordDictionaryApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = PasswordDictionaryApiFp(configuration)
     return {
         /**
          * This gets password dictionary for the organization. The password dictionary file can contain lines that are: 1. comment lines - the first character is \'#\', can be 128 Unicode codepoints in length, and are ignored during processing 2. empty lines 3. locale line - the first line that starts with \"locale=\" is considered to be locale line, the rest are treated as normal content lines 4. line containing the password dictionary word - it must start with non-whitespace character and only non-whitespace characters are allowed;         maximum length of the line is 128 Unicode codepoints   Password dictionary file may not contain more than 2,500 lines (not counting whitespace lines, comment lines and locale line).   Password dict file must contain UTF-8 characters only.  # Sample password text file  ```  # Password dictionary small test file  locale=en_US  # Password dictionary prohibited words  qwerty abcd aaaaa password qazxsws  ```
@@ -267,58 +267,58 @@ export const PasswordDictionaryV1ApiFactory = function (configuration?: Configur
         /**
          * This updates password dictionary for the organization. The password dictionary file can contain lines that are: 1. comment lines - the first character is \'#\', can be 128 Unicode codepoints in length, and are ignored during processing 2. empty lines 3. locale line - the first line that starts with \"locale=\" is considered to be locale line, the rest are treated as normal content lines 4. line containing the password dictionary word - it must start with non-whitespace character and only non-whitespace characters are allowed;         maximum length of the line is 128 Unicode codepoints   Password dictionary file may not contain more than 2,500 lines (not counting whitespace lines, comment lines and locale line).   Password dict file must contain UTF-8 characters only.  # Sample password text file  ```  # Password dictionary small test file  locale=en_US  # Password dictionary prohibited words  qwerty abcd aaaaa password qazxsws  ```
          * @summary Update password dictionary
-         * @param {PasswordDictionaryV1ApiPutPasswordDictionaryV1Request} requestParameters Request parameters.
+         * @param {PasswordDictionaryApiPutPasswordDictionaryV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putPasswordDictionaryV1(requestParameters: PasswordDictionaryV1ApiPutPasswordDictionaryV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        putPasswordDictionaryV1(requestParameters: PasswordDictionaryApiPutPasswordDictionaryV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.putPasswordDictionaryV1(requestParameters.file, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for putPasswordDictionaryV1 operation in PasswordDictionaryV1Api.
+ * Request parameters for putPasswordDictionaryV1 operation in PasswordDictionaryApi.
  * @export
- * @interface PasswordDictionaryV1ApiPutPasswordDictionaryV1Request
+ * @interface PasswordDictionaryApiPutPasswordDictionaryV1Request
  */
-export interface PasswordDictionaryV1ApiPutPasswordDictionaryV1Request {
+export interface PasswordDictionaryApiPutPasswordDictionaryV1Request {
     /**
      * 
      * @type {File}
-     * @memberof PasswordDictionaryV1ApiPutPasswordDictionaryV1
+     * @memberof PasswordDictionaryApiPutPasswordDictionaryV1
      */
     readonly file?: File
 }
 
 /**
- * PasswordDictionaryV1Api - object-oriented interface
+ * PasswordDictionaryApi - object-oriented interface
  * @export
- * @class PasswordDictionaryV1Api
+ * @class PasswordDictionaryApi
  * @extends {BaseAPI}
  */
-export class PasswordDictionaryV1Api extends BaseAPI {
+export class PasswordDictionaryApi extends BaseAPI {
     /**
      * This gets password dictionary for the organization. The password dictionary file can contain lines that are: 1. comment lines - the first character is \'#\', can be 128 Unicode codepoints in length, and are ignored during processing 2. empty lines 3. locale line - the first line that starts with \"locale=\" is considered to be locale line, the rest are treated as normal content lines 4. line containing the password dictionary word - it must start with non-whitespace character and only non-whitespace characters are allowed;         maximum length of the line is 128 Unicode codepoints   Password dictionary file may not contain more than 2,500 lines (not counting whitespace lines, comment lines and locale line).   Password dict file must contain UTF-8 characters only.  # Sample password text file  ```  # Password dictionary small test file  locale=en_US  # Password dictionary prohibited words  qwerty abcd aaaaa password qazxsws  ```
      * @summary Get password dictionary
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof PasswordDictionaryV1Api
+     * @memberof PasswordDictionaryApi
      */
     public getPasswordDictionaryV1(axiosOptions?: RawAxiosRequestConfig) {
-        return PasswordDictionaryV1ApiFp(this.configuration).getPasswordDictionaryV1(axiosOptions).then((request) => request(this.axios, this.basePath));
+        return PasswordDictionaryApiFp(this.configuration).getPasswordDictionaryV1(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This updates password dictionary for the organization. The password dictionary file can contain lines that are: 1. comment lines - the first character is \'#\', can be 128 Unicode codepoints in length, and are ignored during processing 2. empty lines 3. locale line - the first line that starts with \"locale=\" is considered to be locale line, the rest are treated as normal content lines 4. line containing the password dictionary word - it must start with non-whitespace character and only non-whitespace characters are allowed;         maximum length of the line is 128 Unicode codepoints   Password dictionary file may not contain more than 2,500 lines (not counting whitespace lines, comment lines and locale line).   Password dict file must contain UTF-8 characters only.  # Sample password text file  ```  # Password dictionary small test file  locale=en_US  # Password dictionary prohibited words  qwerty abcd aaaaa password qazxsws  ```
      * @summary Update password dictionary
-     * @param {PasswordDictionaryV1ApiPutPasswordDictionaryV1Request} requestParameters Request parameters.
+     * @param {PasswordDictionaryApiPutPasswordDictionaryV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof PasswordDictionaryV1Api
+     * @memberof PasswordDictionaryApi
      */
-    public putPasswordDictionaryV1(requestParameters: PasswordDictionaryV1ApiPutPasswordDictionaryV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return PasswordDictionaryV1ApiFp(this.configuration).putPasswordDictionaryV1(requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putPasswordDictionaryV1(requestParameters: PasswordDictionaryApiPutPasswordDictionaryV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return PasswordDictionaryApiFp(this.configuration).putPasswordDictionaryV1(requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

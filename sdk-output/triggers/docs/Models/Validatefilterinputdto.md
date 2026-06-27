@@ -1,20 +1,20 @@
 ---
-id: v1-validatefilterinputdto-v1
-title: ValidatefilterinputdtoV1
-pagination_label: ValidatefilterinputdtoV1
-sidebar_label: ValidatefilterinputdtoV1
+id: v1-validatefilterinputdto
+title: Validatefilterinputdto
+pagination_label: Validatefilterinputdto
+sidebar_label: Validatefilterinputdto
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ValidatefilterinputdtoV1', 'v1ValidatefilterinputdtoV1']
-slug: /tools/sdk/typescript/triggers/models/validatefilterinputdto-v1
-tags: ['SDK', 'Software Development Kit', 'ValidatefilterinputdtoV1', 'v1ValidatefilterinputdtoV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Validatefilterinputdto', 'v1Validatefilterinputdto']
+slug: /tools/sdk/typescript/triggers/models/validatefilterinputdto
+tags: ['SDK', 'Software Development Kit', 'Validatefilterinputdto', 'v1Validatefilterinputdto']
 ---
 
-# ValidatefilterinputdtoV1
+# Validatefilterinputdto
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**input** | **object** | Mock input to evaluate filter expression against. | [default to undefined]
-**filter** | **string** | JSONPath filter to conditionally invoke trigger when expression evaluates to true. | [default to undefined]
+**input** | `object` | Mock input to evaluate filter expression against. | [default to undefined]
+**filter** | `string` | JSONPath filter to conditionally invoke trigger when expression evaluates to true. | [default to undefined]
 

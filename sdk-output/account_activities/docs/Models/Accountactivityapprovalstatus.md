@@ -1,15 +1,15 @@
 ---
-id: v1-accountactivityapprovalstatus-v1
-title: AccountactivityapprovalstatusV1
-pagination_label: AccountactivityapprovalstatusV1
-sidebar_label: AccountactivityapprovalstatusV1
+id: v1-accountactivityapprovalstatus
+title: Accountactivityapprovalstatus
+pagination_label: Accountactivityapprovalstatus
+sidebar_label: Accountactivityapprovalstatus
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccountactivityapprovalstatusV1', 'v1AccountactivityapprovalstatusV1']
-slug: /tools/sdk/typescript/account_activities/models/accountactivityapprovalstatus-v1
-tags: ['SDK', 'Software Development Kit', 'AccountactivityapprovalstatusV1', 'v1AccountactivityapprovalstatusV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accountactivityapprovalstatus', 'v1Accountactivityapprovalstatus']
+slug: /tools/sdk/typescript/account_activities/models/accountactivityapprovalstatus
+tags: ['SDK', 'Software Development Kit', 'Accountactivityapprovalstatus', 'v1Accountactivityapprovalstatus']
 ---
 
-# AccountactivityapprovalstatusV1
+# Accountactivityapprovalstatus
 
 ## Enum
 

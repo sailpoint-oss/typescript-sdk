@@ -1,19 +1,19 @@
 ---
-id: v1-objectmappingbulkcreateresponse-v1
-title: ObjectmappingbulkcreateresponseV1
-pagination_label: ObjectmappingbulkcreateresponseV1
-sidebar_label: ObjectmappingbulkcreateresponseV1
+id: v1-objectmappingbulkcreateresponse
+title: Objectmappingbulkcreateresponse
+pagination_label: Objectmappingbulkcreateresponse
+sidebar_label: Objectmappingbulkcreateresponse
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ObjectmappingbulkcreateresponseV1', 'v1ObjectmappingbulkcreateresponseV1']
-slug: /tools/sdk/typescript/configuration_hub/models/objectmappingbulkcreateresponse-v1
-tags: ['SDK', 'Software Development Kit', 'ObjectmappingbulkcreateresponseV1', 'v1ObjectmappingbulkcreateresponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Objectmappingbulkcreateresponse', 'v1Objectmappingbulkcreateresponse']
+slug: /tools/sdk/typescript/configuration_hub/models/objectmappingbulkcreateresponse
+tags: ['SDK', 'Software Development Kit', 'Objectmappingbulkcreateresponse', 'v1Objectmappingbulkcreateresponse']
 ---
 
-# ObjectmappingbulkcreateresponseV1
+# Objectmappingbulkcreateresponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**addedObjects** | **(optional)** **Array&lt;ObjectmappingresponseV1&gt;** |  | [default to undefined]
+**addedObjects** | **(optional)** `Array<Objectmappingresponse>` |  | [default to undefined]
 

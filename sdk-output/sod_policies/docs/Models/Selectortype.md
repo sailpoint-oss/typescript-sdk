@@ -1,15 +1,15 @@
 ---
-id: v1-selectortype-v1
-title: SelectortypeV1
-pagination_label: SelectortypeV1
-sidebar_label: SelectortypeV1
+id: v1-selectortype
+title: Selectortype
+pagination_label: Selectortype
+sidebar_label: Selectortype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SelectortypeV1', 'v1SelectortypeV1']
-slug: /tools/sdk/typescript/sod_policies/models/selectortype-v1
-tags: ['SDK', 'Software Development Kit', 'SelectortypeV1', 'v1SelectortypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Selectortype', 'v1Selectortype']
+slug: /tools/sdk/typescript/sod_policies/models/selectortype
+tags: ['SDK', 'Software Development Kit', 'Selectortype', 'v1Selectortype']
 ---
 
-# SelectortypeV1
+# Selectortype
 
 ## Enum
 

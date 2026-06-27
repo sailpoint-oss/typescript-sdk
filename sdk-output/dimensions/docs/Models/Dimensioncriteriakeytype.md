@@ -1,15 +1,15 @@
 ---
-id: v1-dimensioncriteriakeytype-v1
-title: DimensioncriteriakeytypeV1
-pagination_label: DimensioncriteriakeytypeV1
-sidebar_label: DimensioncriteriakeytypeV1
+id: v1-dimensioncriteriakeytype
+title: Dimensioncriteriakeytype
+pagination_label: Dimensioncriteriakeytype
+sidebar_label: Dimensioncriteriakeytype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'DimensioncriteriakeytypeV1', 'v1DimensioncriteriakeytypeV1']
-slug: /tools/sdk/typescript/dimensions/models/dimensioncriteriakeytype-v1
-tags: ['SDK', 'Software Development Kit', 'DimensioncriteriakeytypeV1', 'v1DimensioncriteriakeytypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Dimensioncriteriakeytype', 'v1Dimensioncriteriakeytype']
+slug: /tools/sdk/typescript/dimensions/models/dimensioncriteriakeytype
+tags: ['SDK', 'Software Development Kit', 'Dimensioncriteriakeytype', 'v1Dimensioncriteriakeytype']
 ---
 
-# DimensioncriteriakeytypeV1
+# Dimensioncriteriakeytype
 
 ## Enum
 

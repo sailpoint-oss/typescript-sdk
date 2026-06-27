@@ -1,23 +1,23 @@
 ---
-id: v1-accountcorrelated-v1
-title: AccountcorrelatedV1
-pagination_label: AccountcorrelatedV1
-sidebar_label: AccountcorrelatedV1
+id: v1-accountcorrelated
+title: Accountcorrelated
+pagination_label: Accountcorrelated
+sidebar_label: Accountcorrelated
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccountcorrelatedV1', 'v1AccountcorrelatedV1']
-slug: /tools/sdk/typescript/triggers/models/accountcorrelated-v1
-tags: ['SDK', 'Software Development Kit', 'AccountcorrelatedV1', 'v1AccountcorrelatedV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accountcorrelated', 'v1Accountcorrelated']
+slug: /tools/sdk/typescript/triggers/models/accountcorrelated
+tags: ['SDK', 'Software Development Kit', 'Accountcorrelated', 'v1Accountcorrelated']
 ---
 
-# AccountcorrelatedV1
+# Accountcorrelated
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identity** | **AccountcorrelatedIdentityV1** |  | [default to undefined]
-**source** | **AccountcorrelatedSourceV1** |  | [default to undefined]
-**account** | **AccountcorrelatedAccountV1** |  | [default to undefined]
+**identity** | `AccountcorrelatedIdentity` |  | [default to undefined]
+**source** | `AccountcorrelatedSource` |  | [default to undefined]
+**account** | `AccountcorrelatedAccount` |  | [default to undefined]
 **attributes** |  | The attributes associated with the account.  Attributes are unique per source. | [default to undefined]
-**entitlementCount** | **(optional)** **number** | The number of entitlements associated with this account. | [default to undefined]
+**entitlementCount** | **(optional)** `number` | The number of entitlements associated with this account. | [default to undefined]
 

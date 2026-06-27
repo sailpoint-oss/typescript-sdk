@@ -1,21 +1,21 @@
 ---
-id: v1-spconfigrules-v1
-title: SpconfigrulesV1
-pagination_label: SpconfigrulesV1
-sidebar_label: SpconfigrulesV1
+id: v1-spconfigrules
+title: Spconfigrules
+pagination_label: Spconfigrules
+sidebar_label: Spconfigrules
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SpconfigrulesV1', 'v1SpconfigrulesV1']
-slug: /tools/sdk/typescript/sp_config/models/spconfigrules-v1
-tags: ['SDK', 'Software Development Kit', 'SpconfigrulesV1', 'v1SpconfigrulesV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Spconfigrules', 'v1Spconfigrules']
+slug: /tools/sdk/typescript/sp_config/models/spconfigrules
+tags: ['SDK', 'Software Development Kit', 'Spconfigrules', 'v1Spconfigrules']
 ---
 
-# SpconfigrulesV1
+# Spconfigrules
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**takeFromTargetRules** | **(optional)** **Array&lt;SpconfigruleV1&gt;** |  | [default to undefined]
-**defaultRules** | **(optional)** **Array&lt;SpconfigruleV1&gt;** |  | [default to undefined]
-**editable** | **(optional)** **boolean** | Indicates whether the object can be edited. | [default to false]
+**takeFromTargetRules** | **(optional)** `Array<Spconfigrule>` |  | [default to undefined]
+**defaultRules** | **(optional)** `Array<Spconfigrule>` |  | [default to undefined]
+**editable** | **(optional)** `boolean` | Indicates whether the object can be edited. | [default to false]
 

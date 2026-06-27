@@ -2,8 +2,8 @@
 .npmignore
 .openapi-generator-ignore
 ArrayInner.md
-AuthProfileV1Api.md
-AuthProfileV1ApideveloperSite_code_examples.yaml
+AuthProfileApi.md
+AuthProfileApideveloperSite_code_examples.yaml
 Authprofile.md
 Authprofilesummary.md
 Errormessagedto.md

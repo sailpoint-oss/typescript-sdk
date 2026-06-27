@@ -26,53 +26,53 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface AccessitemrefV1
+ * @interface Accessitemref
  */
-export interface AccessitemrefV1 {
+export interface Accessitemref {
     /**
      * ID of the access item to retrieve the recommendation for.
      * @type {string}
-     * @memberof AccessitemrefV1
+     * @memberof Accessitemref
      */
     'id'?: string;
     /**
      * Access item\'s type.
      * @type {string}
-     * @memberof AccessitemrefV1
+     * @memberof Accessitemref
      */
-    'type'?: AccessitemrefV1TypeV1;
+    'type'?: AccessitemrefTypeEnum;
 }
 
-export const AccessitemrefV1TypeV1 = {
+export const AccessitemrefTypeEnum = {
     Entitlement: 'ENTITLEMENT',
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE'
 } as const;
 
-export type AccessitemrefV1TypeV1 = typeof AccessitemrefV1TypeV1[keyof typeof AccessitemrefV1TypeV1];
+export type AccessitemrefTypeEnum = typeof AccessitemrefTypeEnum[keyof typeof AccessitemrefTypeEnum];
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -81,82 +81,82 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface FeaturevaluedtoV1
+ * @interface Featurevaluedto
  */
-export interface FeaturevaluedtoV1 {
+export interface Featurevaluedto {
     /**
      * The type of feature
      * @type {string}
-     * @memberof FeaturevaluedtoV1
+     * @memberof Featurevaluedto
      */
     'feature'?: string;
     /**
      * The number of identities that have access to the feature
      * @type {number}
-     * @memberof FeaturevaluedtoV1
+     * @memberof Featurevaluedto
      */
     'numerator'?: number;
     /**
      * The number of identities with the corresponding feature
      * @type {number}
-     * @memberof FeaturevaluedtoV1
+     * @memberof Featurevaluedto
      */
     'denominator'?: number;
 }
 /**
  * 
  * @export
- * @interface GetRecommendationsV1401ResponseV1
+ * @interface GetRecommendationsV1401Response
  */
-export interface GetRecommendationsV1401ResponseV1 {
+export interface GetRecommendationsV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetRecommendationsV1401ResponseV1
+     * @memberof GetRecommendationsV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetRecommendationsV1429ResponseV1
+ * @interface GetRecommendationsV1429Response
  */
-export interface GetRecommendationsV1429ResponseV1 {
+export interface GetRecommendationsV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetRecommendationsV1429ResponseV1
+     * @memberof GetRecommendationsV1429Response
      */
     'message'?: any;
 }
@@ -166,254 +166,254 @@ export interface GetRecommendationsV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface RecommendationconfigdtoV1
+ * @interface Recommendationconfigdto
  */
-export interface RecommendationconfigdtoV1 {
+export interface Recommendationconfigdto {
     /**
      * List of identity attributes to use for calculating certification recommendations
      * @type {Array<string>}
-     * @memberof RecommendationconfigdtoV1
+     * @memberof Recommendationconfigdto
      */
     'recommenderFeatures'?: Array<string>;
     /**
      * The percent value that the recommendation calculation must surpass to produce a YES recommendation
      * @type {number}
-     * @memberof RecommendationconfigdtoV1
+     * @memberof Recommendationconfigdto
      */
     'peerGroupPercentageThreshold'?: number;
     /**
      * If true, rulesRecommenderConfig will be refreshed with new programatically selected attribute and threshold values on the next pipeline run
      * @type {boolean}
-     * @memberof RecommendationconfigdtoV1
+     * @memberof Recommendationconfigdto
      */
     'runAutoSelectOnce'?: boolean;
     /**
      * If true, rulesRecommenderConfig will be refreshed with new programatically selected threshold values on the next pipeline run
      * @type {boolean}
-     * @memberof RecommendationconfigdtoV1
+     * @memberof Recommendationconfigdto
      */
     'onlyTuneThreshold'?: boolean;
 }
 /**
  * 
  * @export
- * @interface RecommendationrequestV1
+ * @interface Recommendationrequest
  */
-export interface RecommendationrequestV1 {
+export interface Recommendationrequest {
     /**
      * The identity ID
      * @type {string}
-     * @memberof RecommendationrequestV1
+     * @memberof Recommendationrequest
      */
     'identityId'?: string;
     /**
      * 
-     * @type {AccessitemrefV1}
-     * @memberof RecommendationrequestV1
+     * @type {Accessitemref}
+     * @memberof Recommendationrequest
      */
-    'item'?: AccessitemrefV1;
+    'item'?: Accessitemref;
 }
 /**
  * 
  * @export
- * @interface RecommendationrequestdtoV1
+ * @interface Recommendationrequestdto
  */
-export interface RecommendationrequestdtoV1 {
+export interface Recommendationrequestdto {
     /**
      * 
-     * @type {Array<RecommendationrequestV1>}
-     * @memberof RecommendationrequestdtoV1
+     * @type {Array<Recommendationrequest>}
+     * @memberof Recommendationrequestdto
      */
-    'requests'?: Array<RecommendationrequestV1>;
+    'requests'?: Array<Recommendationrequest>;
     /**
      * Exclude interpretations in the response if \"true\". Return interpretations in the response if this attribute is not specified.
      * @type {boolean}
-     * @memberof RecommendationrequestdtoV1
+     * @memberof Recommendationrequestdto
      */
     'excludeInterpretations'?: boolean;
     /**
      * When set to true, the calling system uses the translated messages for the specified language
      * @type {boolean}
-     * @memberof RecommendationrequestdtoV1
+     * @memberof Recommendationrequestdto
      */
     'includeTranslationMessages'?: boolean;
     /**
      * Returns the recommender calculations if set to true
      * @type {boolean}
-     * @memberof RecommendationrequestdtoV1
+     * @memberof Recommendationrequestdto
      */
     'includeDebugInformation'?: boolean;
     /**
      * When set to true, uses prescribedRulesRecommenderConfig to get identity attributes and peer group threshold instead of standard config.
      * @type {boolean}
-     * @memberof RecommendationrequestdtoV1
+     * @memberof Recommendationrequestdto
      */
     'prescribeMode'?: boolean;
 }
 /**
  * 
  * @export
- * @interface RecommendationresponseV1
+ * @interface Recommendationresponse
  */
-export interface RecommendationresponseV1 {
+export interface Recommendationresponse {
     /**
      * 
-     * @type {RecommendationrequestV1}
-     * @memberof RecommendationresponseV1
+     * @type {Recommendationrequest}
+     * @memberof Recommendationresponse
      */
-    'request'?: RecommendationrequestV1;
+    'request'?: Recommendationrequest;
     /**
      * The recommendation - YES if the access is recommended, NO if not recommended, MAYBE if there is not enough information to make a recommendation, NOT_FOUND if the identity is not found in the system
      * @type {string}
-     * @memberof RecommendationresponseV1
+     * @memberof Recommendationresponse
      */
-    'recommendation'?: RecommendationresponseV1RecommendationV1;
+    'recommendation'?: RecommendationresponseRecommendationEnum;
     /**
      * The list of interpretations explaining the recommendation. The array is empty if includeInterpretations is false or not present in the request. e.g. - [ \"Not approved in the last 6 months.\" ]. Interpretations will be translated using the client\'s locale as found in the Accept-Language header. If a translation for the client\'s locale cannot be found, the US English translation will be returned.
      * @type {Array<string>}
-     * @memberof RecommendationresponseV1
+     * @memberof Recommendationresponse
      */
     'interpretations'?: Array<string>;
     /**
      * The list of translation messages, if they have been requested.
-     * @type {Array<TranslationmessageV1>}
-     * @memberof RecommendationresponseV1
+     * @type {Array<Translationmessage>}
+     * @memberof Recommendationresponse
      */
-    'translationMessages'?: Array<TranslationmessageV1>;
+    'translationMessages'?: Array<Translationmessage>;
     /**
      * 
-     * @type {RecommendercalculationsV1}
-     * @memberof RecommendationresponseV1
+     * @type {Recommendercalculations}
+     * @memberof Recommendationresponse
      */
-    'recommenderCalculations'?: RecommendercalculationsV1;
+    'recommenderCalculations'?: Recommendercalculations;
 }
 
-export const RecommendationresponseV1RecommendationV1 = {
+export const RecommendationresponseRecommendationEnum = {
     Yes: 'YES',
     No: 'NO',
     Maybe: 'MAYBE',
     NotFound: 'NOT_FOUND'
 } as const;
 
-export type RecommendationresponseV1RecommendationV1 = typeof RecommendationresponseV1RecommendationV1[keyof typeof RecommendationresponseV1RecommendationV1];
+export type RecommendationresponseRecommendationEnum = typeof RecommendationresponseRecommendationEnum[keyof typeof RecommendationresponseRecommendationEnum];
 
 /**
  * 
  * @export
- * @interface RecommendationresponsedtoV1
+ * @interface Recommendationresponsedto
  */
-export interface RecommendationresponsedtoV1 {
+export interface Recommendationresponsedto {
     /**
      * 
-     * @type {Array<RecommendationresponseV1>}
-     * @memberof RecommendationresponsedtoV1
+     * @type {Array<Recommendationresponse>}
+     * @memberof Recommendationresponsedto
      */
-    'response'?: Array<RecommendationresponseV1>;
+    'response'?: Array<Recommendationresponse>;
 }
 /**
  * 
  * @export
- * @interface RecommendercalculationsIdentityAttributesValueV1
+ * @interface Recommendercalculations
  */
-export interface RecommendercalculationsIdentityAttributesValueV1 {
+export interface Recommendercalculations {
+    /**
+     * The ID of the identity
+     * @type {string}
+     * @memberof Recommendercalculations
+     */
+    'identityId'?: string;
+    /**
+     * The entitlement ID
+     * @type {string}
+     * @memberof Recommendercalculations
+     */
+    'entitlementId'?: string;
+    /**
+     * The actual recommendation
+     * @type {string}
+     * @memberof Recommendercalculations
+     */
+    'recommendation'?: string;
+    /**
+     * The overall weighted score
+     * @type {number}
+     * @memberof Recommendercalculations
+     */
+    'overallWeightedScore'?: number;
+    /**
+     * The weighted score of each individual feature
+     * @type {{ [key: string]: number; }}
+     * @memberof Recommendercalculations
+     */
+    'featureWeightedScores'?: { [key: string]: number; };
+    /**
+     * The configured value against which the overallWeightedScore is compared
+     * @type {number}
+     * @memberof Recommendercalculations
+     */
+    'threshold'?: number;
+    /**
+     * The values for your configured features
+     * @type {{ [key: string]: RecommendercalculationsIdentityAttributesValue; }}
+     * @memberof Recommendercalculations
+     */
+    'identityAttributes'?: { [key: string]: RecommendercalculationsIdentityAttributesValue; };
+    /**
+     * 
+     * @type {Featurevaluedto}
+     * @memberof Recommendercalculations
+     */
+    'featureValues'?: Featurevaluedto;
+}
+/**
+ * 
+ * @export
+ * @interface RecommendercalculationsIdentityAttributesValue
+ */
+export interface RecommendercalculationsIdentityAttributesValue {
     /**
      * 
      * @type {string}
-     * @memberof RecommendercalculationsIdentityAttributesValueV1
+     * @memberof RecommendercalculationsIdentityAttributesValue
      */
     'value'?: string;
 }
 /**
  * 
  * @export
- * @interface RecommendercalculationsV1
+ * @interface Translationmessage
  */
-export interface RecommendercalculationsV1 {
-    /**
-     * The ID of the identity
-     * @type {string}
-     * @memberof RecommendercalculationsV1
-     */
-    'identityId'?: string;
-    /**
-     * The entitlement ID
-     * @type {string}
-     * @memberof RecommendercalculationsV1
-     */
-    'entitlementId'?: string;
-    /**
-     * The actual recommendation
-     * @type {string}
-     * @memberof RecommendercalculationsV1
-     */
-    'recommendation'?: string;
-    /**
-     * The overall weighted score
-     * @type {number}
-     * @memberof RecommendercalculationsV1
-     */
-    'overallWeightedScore'?: number;
-    /**
-     * The weighted score of each individual feature
-     * @type {{ [key: string]: number; }}
-     * @memberof RecommendercalculationsV1
-     */
-    'featureWeightedScores'?: { [key: string]: number; };
-    /**
-     * The configured value against which the overallWeightedScore is compared
-     * @type {number}
-     * @memberof RecommendercalculationsV1
-     */
-    'threshold'?: number;
-    /**
-     * The values for your configured features
-     * @type {{ [key: string]: RecommendercalculationsIdentityAttributesValueV1; }}
-     * @memberof RecommendercalculationsV1
-     */
-    'identityAttributes'?: { [key: string]: RecommendercalculationsIdentityAttributesValueV1; };
-    /**
-     * 
-     * @type {FeaturevaluedtoV1}
-     * @memberof RecommendercalculationsV1
-     */
-    'featureValues'?: FeaturevaluedtoV1;
-}
-/**
- * 
- * @export
- * @interface TranslationmessageV1
- */
-export interface TranslationmessageV1 {
+export interface Translationmessage {
     /**
      * The key of the translation message
      * @type {string}
-     * @memberof TranslationmessageV1
+     * @memberof Translationmessage
      */
     'key'?: string;
     /**
      * The values corresponding to the translation messages
      * @type {Array<string>}
-     * @memberof TranslationmessageV1
+     * @memberof Translationmessage
      */
     'values'?: Array<string>;
 }
 
 /**
- * IAIRecommendationsV1Api - axios parameter creator
+ * IAIRecommendationsApi - axios parameter creator
  * @export
  */
-export const IAIRecommendationsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const IAIRecommendationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Retrieves configuration attributes used by certification recommendations.
@@ -456,14 +456,14 @@ export const IAIRecommendationsV1ApiAxiosParamCreator = function (configuration?
         /**
          * The getRecommendations API returns recommendations based on the requested object. The recommendations are invoked by IdentityIQ and IdentityNow plug-ins that retrieve recommendations based on the performed calculations.
          * @summary Returns recommendation based on object
-         * @param {RecommendationrequestdtoV1} recommendationrequestdtoV1 
+         * @param {Recommendationrequestdto} recommendationrequestdto 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getRecommendationsV1: async (recommendationrequestdtoV1: RecommendationrequestdtoV1, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'recommendationrequestdtoV1' is not null or undefined
-            assertParamExists('getRecommendationsV1', 'recommendationrequestdtoV1', recommendationrequestdtoV1)
+        getRecommendationsV1: async (recommendationrequestdto: Recommendationrequestdto, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'recommendationrequestdto' is not null or undefined
+            assertParamExists('getRecommendationsV1', 'recommendationrequestdto', recommendationrequestdto)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -490,7 +490,7 @@ export const IAIRecommendationsV1ApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(recommendationrequestdtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(recommendationrequestdto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -500,14 +500,14 @@ export const IAIRecommendationsV1ApiAxiosParamCreator = function (configuration?
         /**
          * Updates configuration attributes used by certification recommendations.
          * @summary Update certification recommendation config values
-         * @param {RecommendationconfigdtoV1} recommendationconfigdtoV1 
+         * @param {Recommendationconfigdto} recommendationconfigdto 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateRecommendationsConfigV1: async (recommendationconfigdtoV1: RecommendationconfigdtoV1, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'recommendationconfigdtoV1' is not null or undefined
-            assertParamExists('updateRecommendationsConfigV1', 'recommendationconfigdtoV1', recommendationconfigdtoV1)
+        updateRecommendationsConfigV1: async (recommendationconfigdto: Recommendationconfigdto, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'recommendationconfigdto' is not null or undefined
+            assertParamExists('updateRecommendationsConfigV1', 'recommendationconfigdto', recommendationconfigdto)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -534,7 +534,7 @@ export const IAIRecommendationsV1ApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(recommendationconfigdtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(recommendationconfigdto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -545,11 +545,11 @@ export const IAIRecommendationsV1ApiAxiosParamCreator = function (configuration?
 };
 
 /**
- * IAIRecommendationsV1Api - functional programming interface
+ * IAIRecommendationsApi - functional programming interface
  * @export
  */
-export const IAIRecommendationsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = IAIRecommendationsV1ApiAxiosParamCreator(configuration)
+export const IAIRecommendationsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = IAIRecommendationsApiAxiosParamCreator(configuration)
     return {
         /**
          * Retrieves configuration attributes used by certification recommendations.
@@ -558,180 +558,180 @@ export const IAIRecommendationsV1ApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRecommendationsConfigV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RecommendationconfigdtoV1>> {
+        async getRecommendationsConfigV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Recommendationconfigdto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRecommendationsConfigV1(xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAIRecommendationsV1Api.getRecommendationsConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAIRecommendationsApi.getRecommendationsConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * The getRecommendations API returns recommendations based on the requested object. The recommendations are invoked by IdentityIQ and IdentityNow plug-ins that retrieve recommendations based on the performed calculations.
          * @summary Returns recommendation based on object
-         * @param {RecommendationrequestdtoV1} recommendationrequestdtoV1 
+         * @param {Recommendationrequestdto} recommendationrequestdto 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRecommendationsV1(recommendationrequestdtoV1: RecommendationrequestdtoV1, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RecommendationresponsedtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getRecommendationsV1(recommendationrequestdtoV1, xSailPointExperimental, axiosOptions);
+        async getRecommendationsV1(recommendationrequestdto: Recommendationrequestdto, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Recommendationresponsedto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRecommendationsV1(recommendationrequestdto, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAIRecommendationsV1Api.getRecommendationsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAIRecommendationsApi.getRecommendationsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Updates configuration attributes used by certification recommendations.
          * @summary Update certification recommendation config values
-         * @param {RecommendationconfigdtoV1} recommendationconfigdtoV1 
+         * @param {Recommendationconfigdto} recommendationconfigdto 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateRecommendationsConfigV1(recommendationconfigdtoV1: RecommendationconfigdtoV1, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RecommendationconfigdtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateRecommendationsConfigV1(recommendationconfigdtoV1, xSailPointExperimental, axiosOptions);
+        async updateRecommendationsConfigV1(recommendationconfigdto: Recommendationconfigdto, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Recommendationconfigdto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateRecommendationsConfigV1(recommendationconfigdto, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAIRecommendationsV1Api.updateRecommendationsConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAIRecommendationsApi.updateRecommendationsConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * IAIRecommendationsV1Api - factory interface
+ * IAIRecommendationsApi - factory interface
  * @export
  */
-export const IAIRecommendationsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = IAIRecommendationsV1ApiFp(configuration)
+export const IAIRecommendationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = IAIRecommendationsApiFp(configuration)
     return {
         /**
          * Retrieves configuration attributes used by certification recommendations.
          * @summary Get certification recommendation config values
-         * @param {IAIRecommendationsV1ApiGetRecommendationsConfigV1Request} requestParameters Request parameters.
+         * @param {IAIRecommendationsApiGetRecommendationsConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getRecommendationsConfigV1(requestParameters: IAIRecommendationsV1ApiGetRecommendationsConfigV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RecommendationconfigdtoV1> {
+        getRecommendationsConfigV1(requestParameters: IAIRecommendationsApiGetRecommendationsConfigV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Recommendationconfigdto> {
             return localVarFp.getRecommendationsConfigV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * The getRecommendations API returns recommendations based on the requested object. The recommendations are invoked by IdentityIQ and IdentityNow plug-ins that retrieve recommendations based on the performed calculations.
          * @summary Returns recommendation based on object
-         * @param {IAIRecommendationsV1ApiGetRecommendationsV1Request} requestParameters Request parameters.
+         * @param {IAIRecommendationsApiGetRecommendationsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getRecommendationsV1(requestParameters: IAIRecommendationsV1ApiGetRecommendationsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RecommendationresponsedtoV1> {
-            return localVarFp.getRecommendationsV1(requestParameters.recommendationrequestdtoV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        getRecommendationsV1(requestParameters: IAIRecommendationsApiGetRecommendationsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Recommendationresponsedto> {
+            return localVarFp.getRecommendationsV1(requestParameters.recommendationrequestdto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Updates configuration attributes used by certification recommendations.
          * @summary Update certification recommendation config values
-         * @param {IAIRecommendationsV1ApiUpdateRecommendationsConfigV1Request} requestParameters Request parameters.
+         * @param {IAIRecommendationsApiUpdateRecommendationsConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateRecommendationsConfigV1(requestParameters: IAIRecommendationsV1ApiUpdateRecommendationsConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RecommendationconfigdtoV1> {
-            return localVarFp.updateRecommendationsConfigV1(requestParameters.recommendationconfigdtoV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        updateRecommendationsConfigV1(requestParameters: IAIRecommendationsApiUpdateRecommendationsConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Recommendationconfigdto> {
+            return localVarFp.updateRecommendationsConfigV1(requestParameters.recommendationconfigdto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for getRecommendationsConfigV1 operation in IAIRecommendationsV1Api.
+ * Request parameters for getRecommendationsConfigV1 operation in IAIRecommendationsApi.
  * @export
- * @interface IAIRecommendationsV1ApiGetRecommendationsConfigV1Request
+ * @interface IAIRecommendationsApiGetRecommendationsConfigV1Request
  */
-export interface IAIRecommendationsV1ApiGetRecommendationsConfigV1Request {
+export interface IAIRecommendationsApiGetRecommendationsConfigV1Request {
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAIRecommendationsV1ApiGetRecommendationsConfigV1
+     * @memberof IAIRecommendationsApiGetRecommendationsConfigV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getRecommendationsV1 operation in IAIRecommendationsV1Api.
+ * Request parameters for getRecommendationsV1 operation in IAIRecommendationsApi.
  * @export
- * @interface IAIRecommendationsV1ApiGetRecommendationsV1Request
+ * @interface IAIRecommendationsApiGetRecommendationsV1Request
  */
-export interface IAIRecommendationsV1ApiGetRecommendationsV1Request {
+export interface IAIRecommendationsApiGetRecommendationsV1Request {
     /**
      * 
-     * @type {RecommendationrequestdtoV1}
-     * @memberof IAIRecommendationsV1ApiGetRecommendationsV1
+     * @type {Recommendationrequestdto}
+     * @memberof IAIRecommendationsApiGetRecommendationsV1
      */
-    readonly recommendationrequestdtoV1: RecommendationrequestdtoV1
+    readonly recommendationrequestdto: Recommendationrequestdto
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAIRecommendationsV1ApiGetRecommendationsV1
+     * @memberof IAIRecommendationsApiGetRecommendationsV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for updateRecommendationsConfigV1 operation in IAIRecommendationsV1Api.
+ * Request parameters for updateRecommendationsConfigV1 operation in IAIRecommendationsApi.
  * @export
- * @interface IAIRecommendationsV1ApiUpdateRecommendationsConfigV1Request
+ * @interface IAIRecommendationsApiUpdateRecommendationsConfigV1Request
  */
-export interface IAIRecommendationsV1ApiUpdateRecommendationsConfigV1Request {
+export interface IAIRecommendationsApiUpdateRecommendationsConfigV1Request {
     /**
      * 
-     * @type {RecommendationconfigdtoV1}
-     * @memberof IAIRecommendationsV1ApiUpdateRecommendationsConfigV1
+     * @type {Recommendationconfigdto}
+     * @memberof IAIRecommendationsApiUpdateRecommendationsConfigV1
      */
-    readonly recommendationconfigdtoV1: RecommendationconfigdtoV1
+    readonly recommendationconfigdto: Recommendationconfigdto
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAIRecommendationsV1ApiUpdateRecommendationsConfigV1
+     * @memberof IAIRecommendationsApiUpdateRecommendationsConfigV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * IAIRecommendationsV1Api - object-oriented interface
+ * IAIRecommendationsApi - object-oriented interface
  * @export
- * @class IAIRecommendationsV1Api
+ * @class IAIRecommendationsApi
  * @extends {BaseAPI}
  */
-export class IAIRecommendationsV1Api extends BaseAPI {
+export class IAIRecommendationsApi extends BaseAPI {
     /**
      * Retrieves configuration attributes used by certification recommendations.
      * @summary Get certification recommendation config values
-     * @param {IAIRecommendationsV1ApiGetRecommendationsConfigV1Request} requestParameters Request parameters.
+     * @param {IAIRecommendationsApiGetRecommendationsConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAIRecommendationsV1Api
+     * @memberof IAIRecommendationsApi
      */
-    public getRecommendationsConfigV1(requestParameters: IAIRecommendationsV1ApiGetRecommendationsConfigV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIRecommendationsV1ApiFp(this.configuration).getRecommendationsConfigV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getRecommendationsConfigV1(requestParameters: IAIRecommendationsApiGetRecommendationsConfigV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return IAIRecommendationsApiFp(this.configuration).getRecommendationsConfigV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * The getRecommendations API returns recommendations based on the requested object. The recommendations are invoked by IdentityIQ and IdentityNow plug-ins that retrieve recommendations based on the performed calculations.
      * @summary Returns recommendation based on object
-     * @param {IAIRecommendationsV1ApiGetRecommendationsV1Request} requestParameters Request parameters.
+     * @param {IAIRecommendationsApiGetRecommendationsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAIRecommendationsV1Api
+     * @memberof IAIRecommendationsApi
      */
-    public getRecommendationsV1(requestParameters: IAIRecommendationsV1ApiGetRecommendationsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIRecommendationsV1ApiFp(this.configuration).getRecommendationsV1(requestParameters.recommendationrequestdtoV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getRecommendationsV1(requestParameters: IAIRecommendationsApiGetRecommendationsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IAIRecommendationsApiFp(this.configuration).getRecommendationsV1(requestParameters.recommendationrequestdto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Updates configuration attributes used by certification recommendations.
      * @summary Update certification recommendation config values
-     * @param {IAIRecommendationsV1ApiUpdateRecommendationsConfigV1Request} requestParameters Request parameters.
+     * @param {IAIRecommendationsApiUpdateRecommendationsConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAIRecommendationsV1Api
+     * @memberof IAIRecommendationsApi
      */
-    public updateRecommendationsConfigV1(requestParameters: IAIRecommendationsV1ApiUpdateRecommendationsConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIRecommendationsV1ApiFp(this.configuration).updateRecommendationsConfigV1(requestParameters.recommendationconfigdtoV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateRecommendationsConfigV1(requestParameters: IAIRecommendationsApiUpdateRecommendationsConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IAIRecommendationsApiFp(this.configuration).updateRecommendationsConfigV1(requestParameters.recommendationconfigdto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

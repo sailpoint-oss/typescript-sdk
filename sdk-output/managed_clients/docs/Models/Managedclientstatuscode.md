@@ -1,15 +1,15 @@
 ---
-id: v1-managedclientstatuscode-v1
-title: ManagedclientstatuscodeV1
-pagination_label: ManagedclientstatuscodeV1
-sidebar_label: ManagedclientstatuscodeV1
+id: v1-managedclientstatuscode
+title: Managedclientstatuscode
+pagination_label: Managedclientstatuscode
+sidebar_label: Managedclientstatuscode
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ManagedclientstatuscodeV1', 'v1ManagedclientstatuscodeV1']
-slug: /tools/sdk/typescript/managed_clients/models/managedclientstatuscode-v1
-tags: ['SDK', 'Software Development Kit', 'ManagedclientstatuscodeV1', 'v1ManagedclientstatuscodeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Managedclientstatuscode', 'v1Managedclientstatuscode']
+slug: /tools/sdk/typescript/managed_clients/models/managedclientstatuscode
+tags: ['SDK', 'Software Development Kit', 'Managedclientstatuscode', 'v1Managedclientstatuscode']
 ---
 
-# ManagedclientstatuscodeV1
+# Managedclientstatuscode
 
 ## Enum
 

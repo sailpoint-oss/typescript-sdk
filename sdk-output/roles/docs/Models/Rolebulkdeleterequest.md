@@ -1,19 +1,19 @@
 ---
-id: v1-rolebulkdeleterequest-v1
-title: RolebulkdeleterequestV1
-pagination_label: RolebulkdeleterequestV1
-sidebar_label: RolebulkdeleterequestV1
+id: v1-rolebulkdeleterequest
+title: Rolebulkdeleterequest
+pagination_label: Rolebulkdeleterequest
+sidebar_label: Rolebulkdeleterequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RolebulkdeleterequestV1', 'v1RolebulkdeleterequestV1']
-slug: /tools/sdk/typescript/roles/models/rolebulkdeleterequest-v1
-tags: ['SDK', 'Software Development Kit', 'RolebulkdeleterequestV1', 'v1RolebulkdeleterequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Rolebulkdeleterequest', 'v1Rolebulkdeleterequest']
+slug: /tools/sdk/typescript/roles/models/rolebulkdeleterequest
+tags: ['SDK', 'Software Development Kit', 'Rolebulkdeleterequest', 'v1Rolebulkdeleterequest']
 ---
 
-# RolebulkdeleterequestV1
+# Rolebulkdeleterequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**roleIds** | **Array&lt;string&gt;** | List of IDs of Roles to be deleted. | [default to undefined]
+**roleIds** | `Array<string>` | List of IDs of Roles to be deleted. | [default to undefined]
 

@@ -1,22 +1,22 @@
 ---
-id: v1-templateslack-custom-fields-v1
-title: TemplateslackCustomFieldsV1
-pagination_label: TemplateslackCustomFieldsV1
-sidebar_label: TemplateslackCustomFieldsV1
+id: v1-templateslack-custom-fields
+title: TemplateslackCustomFields
+pagination_label: TemplateslackCustomFields
+sidebar_label: TemplateslackCustomFields
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'TemplateslackCustomFieldsV1', 'v1TemplateslackCustomFieldsV1']
-slug: /tools/sdk/typescript/notifications/models/templateslack-custom-fields-v1
-tags: ['SDK', 'Software Development Kit', 'TemplateslackCustomFieldsV1', 'v1TemplateslackCustomFieldsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'TemplateslackCustomFields', 'v1TemplateslackCustomFields']
+slug: /tools/sdk/typescript/notifications/models/templateslack-custom-fields
+tags: ['SDK', 'Software Development Kit', 'TemplateslackCustomFields', 'v1TemplateslackCustomFields']
 ---
 
-# TemplateslackCustomFieldsV1
+# TemplateslackCustomFields
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**requestType** | **(optional)** **string** | The type of request | [default to undefined]
-**containsDeny** | **(optional)** **string** | Whether the request contains a deny action | [default to undefined]
-**campaignId** | **(optional)** **string** | The campaign ID | [default to undefined]
-**campaignStatus** | **(optional)** **string** | The campaign status | [default to undefined]
+**requestType** | **(optional)** `string` | The type of request | [default to undefined]
+**containsDeny** | **(optional)** `string` | Whether the request contains a deny action | [default to undefined]
+**campaignId** | **(optional)** `string` | The campaign ID | [default to undefined]
+**campaignStatus** | **(optional)** `string` | The campaign status | [default to undefined]
 

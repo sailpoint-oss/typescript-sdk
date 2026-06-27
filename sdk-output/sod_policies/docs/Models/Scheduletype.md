@@ -1,15 +1,15 @@
 ---
-id: v1-scheduletype-v1
-title: ScheduletypeV1
-pagination_label: ScheduletypeV1
-sidebar_label: ScheduletypeV1
+id: v1-scheduletype
+title: Scheduletype
+pagination_label: Scheduletype
+sidebar_label: Scheduletype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ScheduletypeV1', 'v1ScheduletypeV1']
-slug: /tools/sdk/typescript/sod_policies/models/scheduletype-v1
-tags: ['SDK', 'Software Development Kit', 'ScheduletypeV1', 'v1ScheduletypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Scheduletype', 'v1Scheduletype']
+slug: /tools/sdk/typescript/sod_policies/models/scheduletype
+tags: ['SDK', 'Software Development Kit', 'Scheduletype', 'v1Scheduletype']
 ---
 
-# ScheduletypeV1
+# Scheduletype
 
 ## Enum
 

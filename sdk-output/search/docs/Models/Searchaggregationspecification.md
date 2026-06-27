@@ -1,23 +1,23 @@
 ---
-id: v1-searchaggregationspecification-v1
-title: SearchaggregationspecificationV1
-pagination_label: SearchaggregationspecificationV1
-sidebar_label: SearchaggregationspecificationV1
+id: v1-searchaggregationspecification
+title: Searchaggregationspecification
+pagination_label: Searchaggregationspecification
+sidebar_label: Searchaggregationspecification
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SearchaggregationspecificationV1', 'v1SearchaggregationspecificationV1']
-slug: /tools/sdk/typescript/search/models/searchaggregationspecification-v1
-tags: ['SDK', 'Software Development Kit', 'SearchaggregationspecificationV1', 'v1SearchaggregationspecificationV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Searchaggregationspecification', 'v1Searchaggregationspecification']
+slug: /tools/sdk/typescript/search/models/searchaggregationspecification
+tags: ['SDK', 'Software Development Kit', 'Searchaggregationspecification', 'v1Searchaggregationspecification']
 ---
 
-# SearchaggregationspecificationV1
+# Searchaggregationspecification
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**nested** | **(optional)** **NestedaggregationV1** |  | [default to undefined]
-**metric** | **(optional)** **MetricaggregationV1** |  | [default to undefined]
-**filter** | **(optional)** **FilteraggregationV1** |  | [default to undefined]
-**bucket** | **(optional)** **BucketaggregationV1** |  | [default to undefined]
-**subAggregation** | **(optional)** **SubsearchaggregationspecificationV1** |  | [default to undefined]
+**nested** | **(optional)** `Nestedaggregation` |  | [default to undefined]
+**metric** | **(optional)** `Metricaggregation` |  | [default to undefined]
+**filter** | **(optional)** `Filteraggregation` |  | [default to undefined]
+**bucket** | **(optional)** `Bucketaggregation` |  | [default to undefined]
+**subAggregation** | **(optional)** `Subsearchaggregationspecification` |  | [default to undefined]
 

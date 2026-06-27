@@ -1,21 +1,21 @@
 ---
-id: v1-multihostintegrations-owner-v1
-title: MultihostintegrationsOwnerV1
-pagination_label: MultihostintegrationsOwnerV1
-sidebar_label: MultihostintegrationsOwnerV1
+id: v1-multihostintegrations-owner
+title: MultihostintegrationsOwner
+pagination_label: MultihostintegrationsOwner
+sidebar_label: MultihostintegrationsOwner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'MultihostintegrationsOwnerV1', 'v1MultihostintegrationsOwnerV1']
-slug: /tools/sdk/typescript/multi_host_integration/models/multihostintegrations-owner-v1
-tags: ['SDK', 'Software Development Kit', 'MultihostintegrationsOwnerV1', 'v1MultihostintegrationsOwnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'MultihostintegrationsOwner', 'v1MultihostintegrationsOwner']
+slug: /tools/sdk/typescript/multi_host_integration/models/multihostintegrations-owner
+tags: ['SDK', 'Software Development Kit', 'MultihostintegrationsOwner', 'v1MultihostintegrationsOwner']
 ---
 
-# MultihostintegrationsOwnerV1
+# MultihostintegrationsOwner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | Type of object being referenced. | [default to undefined]
-**id** | **(optional)** **string** | Owner identity\'s ID. | [default to undefined]
-**name** | **(optional)** **string** | Owner identity\'s human-readable display name. | [default to undefined]
+**type** | **(optional)** `string` | Type of object being referenced. | [default to undefined]
+**id** | **(optional)** `string` | Owner identity\'s ID. | [default to undefined]
+**name** | **(optional)** `string` | Owner identity\'s human-readable display name. | [default to undefined]
 

@@ -1,19 +1,19 @@
 ---
-id: v1-list-work-items-v1429-response-v1
-title: ListWorkItemsV1429ResponseV1
-pagination_label: ListWorkItemsV1429ResponseV1
-sidebar_label: ListWorkItemsV1429ResponseV1
+id: v1-list-work-items-v1429-response
+title: ListWorkItemsV1429Response
+pagination_label: ListWorkItemsV1429Response
+sidebar_label: ListWorkItemsV1429Response
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ListWorkItemsV1429ResponseV1', 'v1ListWorkItemsV1429ResponseV1']
-slug: /tools/sdk/typescript/work_items/models/list-work-items-v1429-response-v1
-tags: ['SDK', 'Software Development Kit', 'ListWorkItemsV1429ResponseV1', 'v1ListWorkItemsV1429ResponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ListWorkItemsV1429Response', 'v1ListWorkItemsV1429Response']
+slug: /tools/sdk/typescript/work_items/models/list-work-items-v1429-response
+tags: ['SDK', 'Software Development Kit', 'ListWorkItemsV1429Response', 'v1ListWorkItemsV1429Response']
 ---
 
-# ListWorkItemsV1429ResponseV1
+# ListWorkItemsV1429Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **(optional)** **any** | A message describing the error | [default to undefined]
+**message** | **(optional)** `any` | A message describing the error | [default to undefined]
 

@@ -4,14 +4,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/launchers/methods/launchers#create-launcher-v1
       source: |
-        import { LaunchersV1Api } from 'sailpoint-api-client';
+        import { LaunchersApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new LaunchersV1Api(configuration);
-        const launcherrequestV1: LauncherrequestV1 = ; // LauncherrequestV1 | Payload to create a Launcher
-        const result = await apiInstance.createLauncherV1(launcherrequestV1);
+        const configuration = new Configuration();
+        const apiInstance = new LaunchersApi(configuration);
+        const launcherrequest: Launcherrequest = ; // Launcherrequest | Payload to create a Launcher
+        const result = await apiInstance.createLauncherV1({ launcherrequest: launcherrequest });
         console.log(result);
 - path: /launchers/v1/{launcherID}
   method: DELETE
@@ -19,14 +18,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/launchers/methods/launchers#delete-launcher-v1
       source: |
-        import { LaunchersV1Api } from 'sailpoint-api-client';
+        import { LaunchersApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new LaunchersV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new LaunchersApi(configuration);
         const launcherID: string = 'e3012408-8b61-4564-ad41-c5ec131c325b'; // string | ID of the Launcher to be deleted (default to undefined)
-        const result = await apiInstance.deleteLauncherV1(launcherID);
+        const result = await apiInstance.deleteLauncherV1({ launcherID: launcherID });
         console.log(result);
 - path: /launchers/v1/{launcherID}
   method: GET
@@ -34,14 +32,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/launchers/methods/launchers#get-launcher-v1
       source: |
-        import { LaunchersV1Api } from 'sailpoint-api-client';
+        import { LaunchersApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new LaunchersV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new LaunchersApi(configuration);
         const launcherID: string = 'e3012408-8b61-4564-ad41-c5ec131c325b'; // string | ID of the Launcher to be retrieved (default to undefined)
-        const result = await apiInstance.getLauncherV1(launcherID);
+        const result = await apiInstance.getLauncherV1({ launcherID: launcherID });
         console.log(result);
 - path: /launchers/v1
   method: GET
@@ -49,16 +46,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/launchers/methods/launchers#get-launchers-v1
       source: |
-        import { LaunchersV1Api } from 'sailpoint-api-client';
+        import { LaunchersApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new LaunchersV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new LaunchersApi(configuration);
         const filters: string = 'disabled eq "true"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **description**: *sw*  **disabled**: *eq*  **name**: *sw* (optional) (default to undefined)
         const next: string = 'eyJuZXh0IjoxMjN9Cg=='; // string | Pagination marker (optional) (default to undefined)
         const limit: number = 42; // number | Number of Launchers to return (optional) (default to 10)
-        const result = await apiInstance.getLaunchersV1();
+        const result = await apiInstance.getLaunchersV1({  });
         console.log(result);
 - path: /launchers/v1/{launcherID}
   method: PUT
@@ -66,15 +62,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/launchers/methods/launchers#put-launcher-v1
       source: |
-        import { LaunchersV1Api } from 'sailpoint-api-client';
+        import { LaunchersApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new LaunchersV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new LaunchersApi(configuration);
         const launcherID: string = 'e3012408-8b61-4564-ad41-c5ec131c325b'; // string | ID of the Launcher to be replaced (default to undefined)
-        const launcherrequestV1: LauncherrequestV1 = ; // LauncherrequestV1 | Payload to replace Launcher
-        const result = await apiInstance.putLauncherV1(launcherID, launcherrequestV1);
+        const launcherrequest: Launcherrequest = ; // Launcherrequest | Payload to replace Launcher
+        const result = await apiInstance.putLauncherV1({ launcherID: launcherID, launcherrequest: launcherrequest });
         console.log(result);
 - path: /launchers/v1/{launcherID}/launch
   method: POST
@@ -82,12 +77,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/launchers/methods/launchers#start-launcher-v1
       source: |
-        import { LaunchersV1Api } from 'sailpoint-api-client';
+        import { LaunchersApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new LaunchersV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new LaunchersApi(configuration);
         const launcherID: string = 'e3012408-8b61-4564-ad41-c5ec131c325b'; // string | ID of the Launcher to be launched (default to undefined)
-        const result = await apiInstance.startLauncherV1(launcherID);
+        const result = await apiInstance.startLauncherV1({ launcherID: launcherID });
         console.log(result);

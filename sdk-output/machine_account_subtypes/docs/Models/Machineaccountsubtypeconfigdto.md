@@ -1,21 +1,21 @@
 ---
-id: v1-machineaccountsubtypeconfigdto-v1
-title: MachineaccountsubtypeconfigdtoV1
-pagination_label: MachineaccountsubtypeconfigdtoV1
-sidebar_label: MachineaccountsubtypeconfigdtoV1
+id: v1-machineaccountsubtypeconfigdto
+title: Machineaccountsubtypeconfigdto
+pagination_label: Machineaccountsubtypeconfigdto
+sidebar_label: Machineaccountsubtypeconfigdto
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'MachineaccountsubtypeconfigdtoV1', 'v1MachineaccountsubtypeconfigdtoV1']
-slug: /tools/sdk/typescript/machine_account_subtypes/models/machineaccountsubtypeconfigdto-v1
-tags: ['SDK', 'Software Development Kit', 'MachineaccountsubtypeconfigdtoV1', 'v1MachineaccountsubtypeconfigdtoV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Machineaccountsubtypeconfigdto', 'v1Machineaccountsubtypeconfigdto']
+slug: /tools/sdk/typescript/machine_account_subtypes/models/machineaccountsubtypeconfigdto
+tags: ['SDK', 'Software Development Kit', 'Machineaccountsubtypeconfigdto', 'v1Machineaccountsubtypeconfigdto']
 ---
 
-# MachineaccountsubtypeconfigdtoV1
+# Machineaccountsubtypeconfigdto
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**subtypeId** | **(optional)** **string** | Unique identifier representing the specific subtype of the machine account, used to distinguish between different machine account categories. | [default to undefined]
-**machineAccountCreate** | **(optional)** **MachineaccountsubtypeconfigdtoMachineAccountCreateV1** |  | [default to undefined]
-**machineAccountDelete** | **(optional)** **MachineaccountsubtypeconfigdtoMachineAccountDeleteV1** |  | [default to undefined]
+**subtypeId** | **(optional)** `string` | Unique identifier representing the specific subtype of the machine account, used to distinguish between different machine account categories. | [default to undefined]
+**machineAccountCreate** | **(optional)** `MachineaccountsubtypeconfigdtoMachineAccountCreate` |  | [default to undefined]
+**machineAccountDelete** | **(optional)** `MachineaccountsubtypeconfigdtoMachineAccountDelete` |  | [default to undefined]
 

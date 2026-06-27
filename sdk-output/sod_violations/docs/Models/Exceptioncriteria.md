@@ -1,19 +1,19 @@
 ---
-id: v1-exceptioncriteria-v1
-title: ExceptioncriteriaV1
-pagination_label: ExceptioncriteriaV1
-sidebar_label: ExceptioncriteriaV1
+id: v1-exceptioncriteria
+title: Exceptioncriteria
+pagination_label: Exceptioncriteria
+sidebar_label: Exceptioncriteria
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ExceptioncriteriaV1', 'v1ExceptioncriteriaV1']
-slug: /tools/sdk/typescript/sod_violations/models/exceptioncriteria-v1
-tags: ['SDK', 'Software Development Kit', 'ExceptioncriteriaV1', 'v1ExceptioncriteriaV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Exceptioncriteria', 'v1Exceptioncriteria']
+slug: /tools/sdk/typescript/sod_violations/models/exceptioncriteria
+tags: ['SDK', 'Software Development Kit', 'Exceptioncriteria', 'v1Exceptioncriteria']
 ---
 
-# ExceptioncriteriaV1
+# Exceptioncriteria
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**criteriaList** | **(optional)** **Array&lt;ExceptioncriteriaCriteriaListInnerV1&gt;** | List of exception criteria. There is a min of 1 and max of 50 items in the list. | [default to undefined]
+**criteriaList** | **(optional)** `Array<ExceptioncriteriaCriteriaListInner>` | List of exception criteria. There is a min of 1 and max of 50 items in the list. | [default to undefined]
 

@@ -1,21 +1,21 @@
 ---
-id: v1-selfimportexportdto-v1
-title: SelfimportexportdtoV1
-pagination_label: SelfimportexportdtoV1
-sidebar_label: SelfimportexportdtoV1
+id: v1-selfimportexportdto
+title: Selfimportexportdto
+pagination_label: Selfimportexportdto
+sidebar_label: Selfimportexportdto
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SelfimportexportdtoV1', 'v1SelfimportexportdtoV1']
-slug: /tools/sdk/typescript/sp_config/models/selfimportexportdto-v1
-tags: ['SDK', 'Software Development Kit', 'SelfimportexportdtoV1', 'v1SelfimportexportdtoV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Selfimportexportdto', 'v1Selfimportexportdto']
+slug: /tools/sdk/typescript/sp_config/models/selfimportexportdto
+tags: ['SDK', 'Software Development Kit', 'Selfimportexportdto', 'v1Selfimportexportdto']
 ---
 
-# SelfimportexportdtoV1
+# Selfimportexportdto
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | Imported/exported object\'s DTO type. Import is currently only possible with the CONNECTOR_RULE, IDENTITY_OBJECT_CONFIG, IDENTITY_PROFILE, RULE, SOURCE, TRANSFORM, and TRIGGER_SUBSCRIPTION object types. | [default to undefined]
-**id** | **(optional)** **string** | Imported/exported object\'s ID. | [default to undefined]
-**name** | **(optional)** **string** | Imported/exported object\'s display name. | [default to undefined]
+**type** | **(optional)** `string` | Imported/exported object\'s DTO type. Import is currently only possible with the CONNECTOR_RULE, IDENTITY_OBJECT_CONFIG, IDENTITY_PROFILE, RULE, SOURCE, TRANSFORM, and TRIGGER_SUBSCRIPTION object types. | [default to undefined]
+**id** | **(optional)** `string` | Imported/exported object\'s ID. | [default to undefined]
+**name** | **(optional)** `string` | Imported/exported object\'s display name. | [default to undefined]
 

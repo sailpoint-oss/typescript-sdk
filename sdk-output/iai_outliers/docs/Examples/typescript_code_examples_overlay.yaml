@@ -4,15 +4,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_outliers/methods/iai-outliers#export-outliers-zip-v1
       source: |
-        import { IAIOutliersV1Api } from 'sailpoint-api-client';
+        import { IAIOutliersApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IAIOutliersV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new IAIOutliersApi(configuration);
         const type: string = 'LOW_SIMILARITY'; // 'LOW_SIMILARITY' | 'STRUCTURAL' | Type of the identity outliers snapshot to filter on (optional) (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.exportOutliersZipV1();
+        const result = await apiInstance.exportOutliersZipV1({  });
         console.log(result);
 - path: /outlier-summaries/v1
   method: GET
@@ -20,19 +19,18 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_outliers/methods/iai-outliers#get-identity-outlier-snapshots-v1
       source: |
-        import { IAIOutliersV1Api } from 'sailpoint-api-client';
+        import { IAIOutliersApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IAIOutliersV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new IAIOutliersApi(configuration);
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const type: string = 'LOW_SIMILARITY'; // 'LOW_SIMILARITY' | 'STRUCTURAL' | Type of the identity outliers snapshot to filter on (optional) (default to undefined)
         const filters: string = 'snapshotDate ge "2022-02-07T20:13:29.356648026Z"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **snapshotDate**: *ge, le* (optional) (default to undefined)
         const sorters: string = 'snapshotDate'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **snapshotDate** (optional) (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.getIdentityOutlierSnapshotsV1();
+        const result = await apiInstance.getIdentityOutlierSnapshotsV1({  });
         console.log(result);
 - path: /outliers/v1
   method: GET
@@ -40,12 +38,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_outliers/methods/iai-outliers#get-identity-outliers-v1
       source: |
-        import { IAIOutliersV1Api } from 'sailpoint-api-client';
+        import { IAIOutliersApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IAIOutliersV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new IAIOutliersApi(configuration);
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
@@ -53,7 +50,7 @@
         const filters: string = 'attributes.displayName sw "John" and certStatus eq "false"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **attributes**: *eq, sw, co, in*  **firstDetectionDate**: *ge, le*  **certStatus**: *eq*  **ignored**: *eq*  **score**: *ge, le* (optional) (default to undefined)
         const sorters: string = 'attributes.displayName,firstDetectionDate,-score'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **firstDetectionDate, attributes, score** (optional) (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.getIdentityOutliersV1();
+        const result = await apiInstance.getIdentityOutliersV1({  });
         console.log(result);
 - path: /outlier-summaries/v1/latest
   method: GET
@@ -61,15 +58,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_outliers/methods/iai-outliers#get-latest-identity-outlier-snapshots-v1
       source: |
-        import { IAIOutliersV1Api } from 'sailpoint-api-client';
+        import { IAIOutliersApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IAIOutliersV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new IAIOutliersApi(configuration);
         const type: string = 'LOW_SIMILARITY'; // 'LOW_SIMILARITY' | 'STRUCTURAL' | Type of the identity outliers snapshot to filter on (optional) (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.getLatestIdentityOutlierSnapshotsV1();
+        const result = await apiInstance.getLatestIdentityOutlierSnapshotsV1({  });
         console.log(result);
 - path: /outlier-feature-summaries/v1/{outlierFeatureId}
   method: GET
@@ -77,15 +73,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_outliers/methods/iai-outliers#get-outlier-contributing-feature-summary-v1
       source: |
-        import { IAIOutliersV1Api } from 'sailpoint-api-client';
+        import { IAIOutliersApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IAIOutliersV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new IAIOutliersApi(configuration);
         const outlierFeatureId: string = '04654b66-7561-4090-94f9-abee0722a1af'; // string | Contributing feature id (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.getOutlierContributingFeatureSummaryV1(outlierFeatureId);
+        const result = await apiInstance.getOutlierContributingFeatureSummaryV1({ outlierFeatureId: outlierFeatureId });
         console.log(result);
 - path: /outliers/v1/{outlierId}/contributing-features
   method: GET
@@ -93,12 +88,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_outliers/methods/iai-outliers#get-peer-group-outliers-contributing-features-v1
       source: |
-        import { IAIOutliersV1Api } from 'sailpoint-api-client';
+        import { IAIOutliersApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IAIOutliersV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new IAIOutliersApi(configuration);
         const outlierId: string = '2c918085842e69ae018432d22ccb212f'; // string | The outlier id (default to undefined)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -106,7 +100,7 @@
         const includeTranslationMessages: string = 'include-translation-messages='; // string | Whether or not to include translation messages object in returned response (optional) (default to undefined)
         const sorters: string = 'importance'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **importance** (optional) (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.getPeerGroupOutliersContributingFeaturesV1(outlierId);
+        const result = await apiInstance.getPeerGroupOutliersContributingFeaturesV1({ outlierId: outlierId });
         console.log(result);
 - path: /outliers/v1/ignore
   method: POST
@@ -114,15 +108,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_outliers/methods/iai-outliers#ignore-identity-outliers-v1
       source: |
-        import { IAIOutliersV1Api } from 'sailpoint-api-client';
+        import { IAIOutliersApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IAIOutliersV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new IAIOutliersApi(configuration);
         const requestBody: Array&lt;string&gt; = ; // Array<string> | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.ignoreIdentityOutliersV1(requestBody);
+        const result = await apiInstance.ignoreIdentityOutliersV1({ requestBody: requestBody });
         console.log(result);
 - path: /outliers/v1/{outlierId}/feature-details/{contributingFeatureName}/access-items
   method: GET
@@ -130,12 +123,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_outliers/methods/iai-outliers#list-outliers-contributing-feature-access-items-v1
       source: |
-        import { IAIOutliersV1Api } from 'sailpoint-api-client';
+        import { IAIOutliersApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IAIOutliersV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new IAIOutliersApi(configuration);
         const outlierId: string = '2c918085842e69ae018432d22ccb212f'; // string | The outlier id (default to undefined)
         const contributingFeatureName: string = 'entitlement_count'; // 'radical_entitlement_count' | 'entitlement_count' | 'max_jaccard_similarity' | 'mean_max_bundle_concurrency' | 'single_entitlement_bundle_count' | 'peerless_score' | The name of contributing feature (default to undefined)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -144,7 +136,7 @@
         const accessType: string = 'ENTITLEMENT'; // string | The type of access item for the identity outlier contributing feature. If not provided, it returns all. (optional) (default to undefined)
         const sorters: string = 'displayName'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName** (optional) (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.listOutliersContributingFeatureAccessItemsV1(outlierId, contributingFeatureName);
+        const result = await apiInstance.listOutliersContributingFeatureAccessItemsV1({ outlierId: outlierId, contributingFeatureName: contributingFeatureName });
         console.log(result);
 - path: /outliers/v1/unignore
   method: POST
@@ -152,13 +144,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_outliers/methods/iai-outliers#un-ignore-identity-outliers-v1
       source: |
-        import { IAIOutliersV1Api } from 'sailpoint-api-client';
+        import { IAIOutliersApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IAIOutliersV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new IAIOutliersApi(configuration);
         const requestBody: Array&lt;string&gt; = ; // Array<string> | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.unIgnoreIdentityOutliersV1(requestBody);
+        const result = await apiInstance.unIgnoreIdentityOutliersV1({ requestBody: requestBody });
         console.log(result);

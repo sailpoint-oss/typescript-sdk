@@ -26,453 +26,453 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ArrayInnerV1
+ * @interface ArrayInner
  */
-export interface ArrayInnerV1 {
+export interface ArrayInner {
 }
 /**
  * Auto-Write Setting for SED
  * @export
- * @interface AutowritesettingV1
+ * @interface Autowritesetting
  */
-export interface AutowritesettingV1 {
+export interface Autowritesetting {
     /**
      * Whether auto-write is currently enabled for the tenant
      * @type {boolean}
-     * @memberof AutowritesettingV1
+     * @memberof Autowritesetting
      */
     'enabled'?: boolean;
     /**
      * Source IDs in the allowlist. Empty array means not in allowlist mode.
      * @type {Array<string>}
-     * @memberof AutowritesettingV1
+     * @memberof Autowritesetting
      */
     'includedSourceIds'?: Array<string> | null;
     /**
      * Source IDs to exclude from auto-write. Always applied.
      * @type {Array<string>}
-     * @memberof AutowritesettingV1
+     * @memberof Autowritesetting
      */
     'excludedSourceIds'?: Array<string> | null;
 }
 /**
  * Patch operation for Auto-Write Setting
  * @export
- * @interface AutowritesettingpatchV1
+ * @interface Autowritesettingpatch
  */
-export interface AutowritesettingpatchV1 {
+export interface Autowritesettingpatch {
     /**
      * The operation to perform. Only \"replace\" is supported.
      * @type {string}
-     * @memberof AutowritesettingpatchV1
+     * @memberof Autowritesettingpatch
      */
-    'op': AutowritesettingpatchV1OpV1;
+    'op': AutowritesettingpatchOpEnum;
     /**
      * The field to update. Allowed values: /enabled, /includedSourceIds, /excludedSourceIds
      * @type {string}
-     * @memberof AutowritesettingpatchV1
+     * @memberof Autowritesettingpatch
      */
     'path': string;
     /**
      * 
-     * @type {AutowritesettingpatchValueV1}
-     * @memberof AutowritesettingpatchV1
+     * @type {AutowritesettingpatchValue}
+     * @memberof Autowritesettingpatch
      */
-    'value': AutowritesettingpatchValueV1;
+    'value': AutowritesettingpatchValue;
 }
 
-export const AutowritesettingpatchV1OpV1 = {
+export const AutowritesettingpatchOpEnum = {
     Replace: 'replace'
 } as const;
 
-export type AutowritesettingpatchV1OpV1 = typeof AutowritesettingpatchV1OpV1[keyof typeof AutowritesettingpatchV1OpV1];
+export type AutowritesettingpatchOpEnum = typeof AutowritesettingpatchOpEnum[keyof typeof AutowritesettingpatchOpEnum];
 
 /**
- * @type AutowritesettingpatchValueV1
+ * @type AutowritesettingpatchValue
  * The new value for the field
  * @export
  */
-export type AutowritesettingpatchValueV1 = Array<string> | boolean;
+export type AutowritesettingpatchValue = Array<string> | boolean;
 
 /**
  * Auto-Write Setting response with timestamps
  * @export
- * @interface AutowritesettingresponseV1
+ * @interface Autowritesettingresponse
  */
-export interface AutowritesettingresponseV1 {
+export interface Autowritesettingresponse {
     /**
      * Whether auto-write is currently enabled for the tenant
      * @type {boolean}
-     * @memberof AutowritesettingresponseV1
+     * @memberof Autowritesettingresponse
      */
     'enabled'?: boolean;
     /**
      * Source IDs in the allowlist. Empty array means not in allowlist mode.
      * @type {Array<string>}
-     * @memberof AutowritesettingresponseV1
+     * @memberof Autowritesettingresponse
      */
     'includedSourceIds'?: Array<string> | null;
     /**
      * Source IDs to exclude from auto-write. Always applied.
      * @type {Array<string>}
-     * @memberof AutowritesettingresponseV1
+     * @memberof Autowritesettingresponse
      */
     'excludedSourceIds'?: Array<string> | null;
     /**
      * When settings were first created
      * @type {string}
-     * @memberof AutowritesettingresponseV1
+     * @memberof Autowritesettingresponse
      */
     'createdAt'?: string;
     /**
      * When settings were last modified
      * @type {string}
-     * @memberof AutowritesettingresponseV1
+     * @memberof Autowritesettingresponse
      */
     'updatedAt'?: string;
 }
 /**
  * A single item in a bulk entitlement recommendation approval request. The recordType is optional; the backend resolves the type by ID lookup when omitted. Description applies to SED items only; privilegeLevel is required for privilege items.
  * @export
- * @interface BulkapproveentitlementrecommendationitemV1
+ * @interface Bulkapproveentitlementrecommendationitem
  */
-export interface BulkapproveentitlementrecommendationitemV1 {
+export interface Bulkapproveentitlementrecommendationitem {
     /**
      * The unique identifier of the recommendation record to approve.
      * @type {string}
-     * @memberof BulkapproveentitlementrecommendationitemV1
+     * @memberof Bulkapproveentitlementrecommendationitem
      */
     'id': string;
     /**
      * The type of the recommendation. When omitted, the backend resolves the type by looking up the ID.
      * @type {string}
-     * @memberof BulkapproveentitlementrecommendationitemV1
+     * @memberof Bulkapproveentitlementrecommendationitem
      */
-    'recordType'?: BulkapproveentitlementrecommendationitemV1RecordTypeV1 | null;
+    'recordType'?: BulkapproveentitlementrecommendationitemRecordTypeEnum | null;
     /**
      * The approved description text. Required for SED-type items; ignored for privilege items.
      * @type {string}
-     * @memberof BulkapproveentitlementrecommendationitemV1
+     * @memberof Bulkapproveentitlementrecommendationitem
      */
     'description'?: string | null;
     /**
      * The approved privilege level. Required for privilege-type items; ignored for SED items.
      * @type {string}
-     * @memberof BulkapproveentitlementrecommendationitemV1
+     * @memberof Bulkapproveentitlementrecommendationitem
      */
     'privilegeLevel'?: string | null;
 }
 
-export const BulkapproveentitlementrecommendationitemV1RecordTypeV1 = {
+export const BulkapproveentitlementrecommendationitemRecordTypeEnum = {
     Sed: 'SED',
     Privilege: 'privilege'
 } as const;
 
-export type BulkapproveentitlementrecommendationitemV1RecordTypeV1 = typeof BulkapproveentitlementrecommendationitemV1RecordTypeV1[keyof typeof BulkapproveentitlementrecommendationitemV1RecordTypeV1];
+export type BulkapproveentitlementrecommendationitemRecordTypeEnum = typeof BulkapproveentitlementrecommendationitemRecordTypeEnum[keyof typeof BulkapproveentitlementrecommendationitemRecordTypeEnum];
 
 /**
  * Request body for bulk-approving a set of entitlement recommendations.
  * @export
- * @interface BulkapproveentitlementrecommendationrequestV1
+ * @interface Bulkapproveentitlementrecommendationrequest
  */
-export interface BulkapproveentitlementrecommendationrequestV1 {
+export interface Bulkapproveentitlementrecommendationrequest {
     /**
      * The list of recommendation items to approve.
-     * @type {Array<BulkapproveentitlementrecommendationitemV1>}
-     * @memberof BulkapproveentitlementrecommendationrequestV1
+     * @type {Array<Bulkapproveentitlementrecommendationitem>}
+     * @memberof Bulkapproveentitlementrecommendationrequest
      */
-    'items': Array<BulkapproveentitlementrecommendationitemV1>;
+    'items': Array<Bulkapproveentitlementrecommendationitem>;
 }
 /**
  * The result for a single item in a bulk entitlement recommendation approval response.
  * @export
- * @interface BulkapproveentitlementrecommendationresultV1
+ * @interface Bulkapproveentitlementrecommendationresult
  */
-export interface BulkapproveentitlementrecommendationresultV1 {
+export interface Bulkapproveentitlementrecommendationresult {
     /**
      * The unique identifier of the processed recommendation record.
      * @type {string}
-     * @memberof BulkapproveentitlementrecommendationresultV1
+     * @memberof Bulkapproveentitlementrecommendationresult
      */
     'id'?: string;
     /**
      * The outcome of the approval for this item.
      * @type {string}
-     * @memberof BulkapproveentitlementrecommendationresultV1
+     * @memberof Bulkapproveentitlementrecommendationresult
      */
-    'status'?: BulkapproveentitlementrecommendationresultV1StatusV1;
+    'status'?: BulkapproveentitlementrecommendationresultStatusEnum;
     /**
      * The reason for failure if status is FAILURE; null on success.
      * @type {string}
-     * @memberof BulkapproveentitlementrecommendationresultV1
+     * @memberof Bulkapproveentitlementrecommendationresult
      */
     'failedReason'?: string | null;
 }
 
-export const BulkapproveentitlementrecommendationresultV1StatusV1 = {
+export const BulkapproveentitlementrecommendationresultStatusEnum = {
     Success: 'SUCCESS',
     Failure: 'FAILURE'
 } as const;
 
-export type BulkapproveentitlementrecommendationresultV1StatusV1 = typeof BulkapproveentitlementrecommendationresultV1StatusV1[keyof typeof BulkapproveentitlementrecommendationresultV1StatusV1];
+export type BulkapproveentitlementrecommendationresultStatusEnum = typeof BulkapproveentitlementrecommendationresultStatusEnum[keyof typeof BulkapproveentitlementrecommendationresultStatusEnum];
 
 /**
  * 
  * @export
- * @interface CreateAutoWriteSettingsV1409ResponseV1
+ * @interface CreateAutoWriteSettingsV1409Response
  */
-export interface CreateAutoWriteSettingsV1409ResponseV1 {
+export interface CreateAutoWriteSettingsV1409Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof CreateAutoWriteSettingsV1409ResponseV1
+     * @memberof CreateAutoWriteSettingsV1409Response
      */
     'errorName'?: any;
     /**
      * Description of the error
      * @type {any}
-     * @memberof CreateAutoWriteSettingsV1409ResponseV1
+     * @memberof CreateAutoWriteSettingsV1409Response
      */
     'errorMessage'?: any;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof CreateAutoWriteSettingsV1409ResponseV1
+     * @memberof CreateAutoWriteSettingsV1409Response
      */
     'trackingId'?: string;
 }
 /**
- * Assign to the source owner or entitlement owner role. No value field is required.
+ * @type Entitlementrecommendationassignee
+ * Describes the target assignee for entitlement recommendations.
  * @export
- * @interface EntitlementrecommendationassigneeOneOf1V1
  */
-export interface EntitlementrecommendationassigneeOneOf1V1 {
-    /**
-     * The type of assignee.
-     * @type {string}
-     * @memberof EntitlementrecommendationassigneeOneOf1V1
-     */
-    'type': EntitlementrecommendationassigneeOneOf1V1TypeV1;
-}
-
-export const EntitlementrecommendationassigneeOneOf1V1TypeV1 = {
-    SourceOwner: 'SOURCE_OWNER',
-    EntitlementOwner: 'ENTITLEMENT_OWNER'
-} as const;
-
-export type EntitlementrecommendationassigneeOneOf1V1TypeV1 = typeof EntitlementrecommendationassigneeOneOf1V1TypeV1[keyof typeof EntitlementrecommendationassigneeOneOf1V1TypeV1];
+export type Entitlementrecommendationassignee = EntitlementrecommendationassigneeOneOf | EntitlementrecommendationassigneeOneOf1;
 
 /**
  * Assign to a specific identity or governance group. The value field is required and must be the ID of the identity or governance group.
  * @export
- * @interface EntitlementrecommendationassigneeOneOfV1
+ * @interface EntitlementrecommendationassigneeOneOf
  */
-export interface EntitlementrecommendationassigneeOneOfV1 {
+export interface EntitlementrecommendationassigneeOneOf {
     /**
      * The type of assignee.
      * @type {string}
-     * @memberof EntitlementrecommendationassigneeOneOfV1
+     * @memberof EntitlementrecommendationassigneeOneOf
      */
-    'type': EntitlementrecommendationassigneeOneOfV1TypeV1;
+    'type': EntitlementrecommendationassigneeOneOfTypeEnum;
     /**
      * The ID of the identity or governance group to assign to.
      * @type {string}
-     * @memberof EntitlementrecommendationassigneeOneOfV1
+     * @memberof EntitlementrecommendationassigneeOneOf
      */
     'value': string;
 }
 
-export const EntitlementrecommendationassigneeOneOfV1TypeV1 = {
+export const EntitlementrecommendationassigneeOneOfTypeEnum = {
     Identity: 'IDENTITY',
     GovernanceGroup: 'GOVERNANCE_GROUP'
 } as const;
 
-export type EntitlementrecommendationassigneeOneOfV1TypeV1 = typeof EntitlementrecommendationassigneeOneOfV1TypeV1[keyof typeof EntitlementrecommendationassigneeOneOfV1TypeV1];
+export type EntitlementrecommendationassigneeOneOfTypeEnum = typeof EntitlementrecommendationassigneeOneOfTypeEnum[keyof typeof EntitlementrecommendationassigneeOneOfTypeEnum];
 
 /**
- * @type EntitlementrecommendationassigneeV1
- * Describes the target assignee for entitlement recommendations.
+ * Assign to the source owner or entitlement owner role. No value field is required.
  * @export
+ * @interface EntitlementrecommendationassigneeOneOf1
  */
-export type EntitlementrecommendationassigneeV1 = EntitlementrecommendationassigneeOneOf1V1 | EntitlementrecommendationassigneeOneOfV1;
+export interface EntitlementrecommendationassigneeOneOf1 {
+    /**
+     * The type of assignee.
+     * @type {string}
+     * @memberof EntitlementrecommendationassigneeOneOf1
+     */
+    'type': EntitlementrecommendationassigneeOneOf1TypeEnum;
+}
+
+export const EntitlementrecommendationassigneeOneOf1TypeEnum = {
+    SourceOwner: 'SOURCE_OWNER',
+    EntitlementOwner: 'ENTITLEMENT_OWNER'
+} as const;
+
+export type EntitlementrecommendationassigneeOneOf1TypeEnum = typeof EntitlementrecommendationassigneeOneOf1TypeEnum[keyof typeof EntitlementrecommendationassigneeOneOf1TypeEnum];
 
 /**
  * Request body for assigning a set of entitlement recommendations to a reviewer.
  * @export
- * @interface EntitlementrecommendationassignrequestV1
+ * @interface Entitlementrecommendationassignrequest
  */
-export interface EntitlementrecommendationassignrequestV1 {
+export interface Entitlementrecommendationassignrequest {
     /**
      * The list of recommendation record IDs to assign.
      * @type {Array<string>}
-     * @memberof EntitlementrecommendationassignrequestV1
+     * @memberof Entitlementrecommendationassignrequest
      */
     'items': Array<string>;
     /**
      * 
-     * @type {EntitlementrecommendationassigneeV1}
-     * @memberof EntitlementrecommendationassignrequestV1
+     * @type {Entitlementrecommendationassignee}
+     * @memberof Entitlementrecommendationassignrequest
      */
-    'assignee': EntitlementrecommendationassigneeV1;
+    'assignee': Entitlementrecommendationassignee;
 }
 /**
  * Response body returned when entitlement recommendations are successfully queued for assignment.
  * @export
- * @interface EntitlementrecommendationassignresultV1
+ * @interface Entitlementrecommendationassignresult
  */
-export interface EntitlementrecommendationassignresultV1 {
+export interface Entitlementrecommendationassignresult {
     /**
      * The unique identifier of the assignment batch created by this request.
      * @type {string}
-     * @memberof EntitlementrecommendationassignresultV1
+     * @memberof Entitlementrecommendationassignresult
      */
     'batchId'?: string;
 }
 /**
  * A unified entitlement recommendation record representing either a SED (Suggested Entitlement Description) or a privilege recommendation.
  * @export
- * @interface EntitlementrecommendationrecordV1
+ * @interface Entitlementrecommendationrecord
  */
-export interface EntitlementrecommendationrecordV1 {
+export interface Entitlementrecommendationrecord {
     /**
      * The type of recommendation. \"SED\" indicates a suggested description recommendation; \"privilege\" indicates a privilege-level recommendation.
      * @type {string}
-     * @memberof EntitlementrecommendationrecordV1
+     * @memberof Entitlementrecommendationrecord
      */
-    'recordType'?: EntitlementrecommendationrecordV1RecordTypeV1;
+    'recordType'?: EntitlementrecommendationrecordRecordTypeEnum;
     /**
      * The unique identifier for this recommendation record.
      * @type {string}
-     * @memberof EntitlementrecommendationrecordV1
+     * @memberof Entitlementrecommendationrecord
      */
     'id'?: string;
     /**
      * The entitlement attribute name (e.g. \"groups\").
      * @type {string}
-     * @memberof EntitlementrecommendationrecordV1
+     * @memberof Entitlementrecommendationrecord
      */
     'attribute'?: string | null;
     /**
      * The human-readable display name of the entitlement.
      * @type {string}
-     * @memberof EntitlementrecommendationrecordV1
+     * @memberof Entitlementrecommendationrecord
      */
     'displayName'?: string | null;
     /**
      * The internal name of the entitlement.
      * @type {string}
-     * @memberof EntitlementrecommendationrecordV1
+     * @memberof Entitlementrecommendationrecord
      */
     'name'?: string | null;
     /**
      * The ID of the source that owns this entitlement.
      * @type {string}
-     * @memberof EntitlementrecommendationrecordV1
+     * @memberof Entitlementrecommendationrecord
      */
     'sourceId'?: string;
     /**
      * The display name of the source that owns this entitlement.
      * @type {string}
-     * @memberof EntitlementrecommendationrecordV1
+     * @memberof Entitlementrecommendationrecord
      */
     'sourceName'?: string;
     /**
      * The current review status of the recommendation.
      * @type {string}
-     * @memberof EntitlementrecommendationrecordV1
+     * @memberof Entitlementrecommendationrecord
      */
     'status'?: string;
     /**
      * The entitlement type (e.g. \"group\").
      * @type {string}
-     * @memberof EntitlementrecommendationrecordV1
+     * @memberof Entitlementrecommendationrecord
      */
     'type'?: string | null;
     /**
      * The entitlement value or identifier.
      * @type {string}
-     * @memberof EntitlementrecommendationrecordV1
+     * @memberof Entitlementrecommendationrecord
      */
     'value'?: string;
     /**
      * The current description of the entitlement, if one exists.
      * @type {string}
-     * @memberof EntitlementrecommendationrecordV1
+     * @memberof Entitlementrecommendationrecord
      */
     'description'?: string | null;
     /**
      * The AI-generated suggested description for the entitlement (SED records only).
      * @type {string}
-     * @memberof EntitlementrecommendationrecordV1
+     * @memberof Entitlementrecommendationrecord
      */
     'suggestedDescription'?: string | null;
     /**
      * The current privilege level assigned to the entitlement.
      * @type {string}
-     * @memberof EntitlementrecommendationrecordV1
+     * @memberof Entitlementrecommendationrecord
      */
     'privilege'?: string | null;
     /**
      * The AI-suggested privilege level for the entitlement (privilege records only).
      * @type {string}
-     * @memberof EntitlementrecommendationrecordV1
+     * @memberof Entitlementrecommendationrecord
      */
     'suggestedPrivilege'?: string | null;
     /**
      * The ID of the identity who approved this recommendation.
      * @type {string}
-     * @memberof EntitlementrecommendationrecordV1
+     * @memberof Entitlementrecommendationrecord
      */
     'approvedBy'?: string | null;
     /**
      * How the recommendation was approved (e.g. \"direct\").
      * @type {string}
-     * @memberof EntitlementrecommendationrecordV1
+     * @memberof Entitlementrecommendationrecord
      */
     'approvedType'?: string | null;
     /**
      * The timestamp when the recommendation was approved.
      * @type {string}
-     * @memberof EntitlementrecommendationrecordV1
+     * @memberof Entitlementrecommendationrecord
      */
     'approvedWhen'?: string | null;
     /**
      * The timestamp when the LLM batch that generated this recommendation was created.
      * @type {string}
-     * @memberof EntitlementrecommendationrecordV1
+     * @memberof Entitlementrecommendationrecord
      */
     'llmBatchCreatedAt'?: string | null;
 }
 
-export const EntitlementrecommendationrecordV1RecordTypeV1 = {
+export const EntitlementrecommendationrecordRecordTypeEnum = {
     Sed: 'SED',
     Privilege: 'privilege'
 } as const;
 
-export type EntitlementrecommendationrecordV1RecordTypeV1 = typeof EntitlementrecommendationrecordV1RecordTypeV1[keyof typeof EntitlementrecommendationrecordV1RecordTypeV1];
+export type EntitlementrecommendationrecordRecordTypeEnum = typeof EntitlementrecommendationrecordRecordTypeEnum[keyof typeof EntitlementrecommendationrecordRecordTypeEnum];
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -481,87 +481,87 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetAutoWriteSettingsV1401ResponseV1
+ * @interface GetAutoWriteSettingsV1401Response
  */
-export interface GetAutoWriteSettingsV1401ResponseV1 {
+export interface GetAutoWriteSettingsV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetAutoWriteSettingsV1401ResponseV1
+     * @memberof GetAutoWriteSettingsV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetAutoWriteSettingsV1429ResponseV1
+ * @interface GetAutoWriteSettingsV1429Response
  */
-export interface GetAutoWriteSettingsV1429ResponseV1 {
+export interface GetAutoWriteSettingsV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetAutoWriteSettingsV1429ResponseV1
+     * @memberof GetAutoWriteSettingsV1429Response
      */
     'message'?: any;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface JsonpatchoperationV1
+ * @interface Jsonpatchoperation
  */
-export interface JsonpatchoperationV1 {
+export interface Jsonpatchoperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
-    'op': JsonpatchoperationV1OpV1;
+    'op': JsonpatchoperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValueV1}
-     * @memberof JsonpatchoperationV1
+     * @type {JsonpatchoperationValue}
+     * @memberof Jsonpatchoperation
      */
-    'value'?: JsonpatchoperationValueV1;
+    'value'?: JsonpatchoperationValue;
 }
 
-export const JsonpatchoperationV1OpV1 = {
+export const JsonpatchoperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -570,14 +570,14 @@ export const JsonpatchoperationV1OpV1 = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationV1OpV1 = typeof JsonpatchoperationV1OpV1[keyof typeof JsonpatchoperationV1OpV1];
+export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
 
 /**
- * @type JsonpatchoperationValueV1
+ * @type JsonpatchoperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number | object | string;
+export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -585,667 +585,667 @@ export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number |
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * A group of entitlement instances that share the same entitlement name and connector type, aggregated for privileged-access review.
  * @export
- * @interface PrivilegedrecommendationgroupV1
+ * @interface Privilegedrecommendationgroup
  */
-export interface PrivilegedrecommendationgroupV1 {
+export interface Privilegedrecommendationgroup {
     /**
      * The name of the entitlement shared across all instances in this group.
      * @type {string}
-     * @memberof PrivilegedrecommendationgroupV1
+     * @memberof Privilegedrecommendationgroup
      */
     'entitlementName'?: string;
     /**
      * The connector type associated with all instances in this group.
      * @type {string}
-     * @memberof PrivilegedrecommendationgroupV1
+     * @memberof Privilegedrecommendationgroup
      */
     'connectorType'?: string;
     /**
      * A decimal string representing the confidence score of the privilege recommendation (0.0-1.0).
      * @type {string}
-     * @memberof PrivilegedrecommendationgroupV1
+     * @memberof Privilegedrecommendationgroup
      */
     'recommendationScore'?: string;
     /**
      * The number of organizations in which this entitlement appears as privileged.
      * @type {number}
-     * @memberof PrivilegedrecommendationgroupV1
+     * @memberof Privilegedrecommendationgroup
      */
     'orgCount'?: number;
     /**
      * The total number of individual entitlement instances in this group.
      * @type {number}
-     * @memberof PrivilegedrecommendationgroupV1
+     * @memberof Privilegedrecommendationgroup
      */
     'instanceCount'?: number;
     /**
      * The individual entitlement instances belonging to this group.
-     * @type {Array<PrivilegedrecommendationinstanceV1>}
-     * @memberof PrivilegedrecommendationgroupV1
+     * @type {Array<Privilegedrecommendationinstance>}
+     * @memberof Privilegedrecommendationgroup
      */
-    'instances'?: Array<PrivilegedrecommendationinstanceV1>;
+    'instances'?: Array<Privilegedrecommendationinstance>;
 }
 /**
  * An individual entitlement instance within a privileged recommendation group.
  * @export
- * @interface PrivilegedrecommendationinstanceV1
+ * @interface Privilegedrecommendationinstance
  */
-export interface PrivilegedrecommendationinstanceV1 {
+export interface Privilegedrecommendationinstance {
     /**
      * The unique identifier for this entitlement instance.
      * @type {string}
-     * @memberof PrivilegedrecommendationinstanceV1
+     * @memberof Privilegedrecommendationinstance
      */
     'id'?: string;
     /**
      * The entitlement attribute name.
      * @type {string}
-     * @memberof PrivilegedrecommendationinstanceV1
+     * @memberof Privilegedrecommendationinstance
      */
     'attribute'?: string;
     /**
      * The ID of the source that owns this entitlement.
      * @type {string}
-     * @memberof PrivilegedrecommendationinstanceV1
+     * @memberof Privilegedrecommendationinstance
      */
     'sourceId'?: string;
     /**
      * The display name of the source.
      * @type {string}
-     * @memberof PrivilegedrecommendationinstanceV1
+     * @memberof Privilegedrecommendationinstance
      */
     'sourceName'?: string;
     /**
      * The entitlement type.
      * @type {string}
-     * @memberof PrivilegedrecommendationinstanceV1
+     * @memberof Privilegedrecommendationinstance
      */
     'type'?: string;
     /**
      * The entitlement value or distinguished name.
      * @type {string}
-     * @memberof PrivilegedrecommendationinstanceV1
+     * @memberof Privilegedrecommendationinstance
      */
     'value'?: string;
     /**
      * The current review status of this instance.
      * @type {string}
-     * @memberof PrivilegedrecommendationinstanceV1
+     * @memberof Privilegedrecommendationinstance
      */
     'status'?: string;
     /**
      * The currently assigned privilege level, if any.
      * @type {string}
-     * @memberof PrivilegedrecommendationinstanceV1
+     * @memberof Privilegedrecommendationinstance
      */
     'privilegeLevel'?: string | null;
     /**
      * The current description of the entitlement, if one exists.
      * @type {string}
-     * @memberof PrivilegedrecommendationinstanceV1
+     * @memberof Privilegedrecommendationinstance
      */
     'description'?: string | null;
     /**
      * The timestamp when this instance was recommended.
      * @type {string}
-     * @memberof PrivilegedrecommendationinstanceV1
+     * @memberof Privilegedrecommendationinstance
      */
     'recommendedAt'?: string;
 }
 /**
- * 
+ * Represents the search criteria for querying entitlements.
  * @export
- * @interface SearchcriteriaFiltersValueRangeLowerV1
+ * @interface Searchcriteria
  */
-export interface SearchcriteriaFiltersValueRangeLowerV1 {
+export interface Searchcriteria {
     /**
-     * The lower bound value.
-     * @type {string}
-     * @memberof SearchcriteriaFiltersValueRangeLowerV1
+     * A list of indices to search within. Must contain exactly one item, typically \"entitlements\".
+     * @type {Array<string>}
+     * @memberof Searchcriteria
      */
-    'value'?: string;
+    'indices': Array<string>;
     /**
-     * Whether the lower bound is inclusive.
-     * @type {boolean}
-     * @memberof SearchcriteriaFiltersValueRangeLowerV1
+     * A map of filters applied to the search. Keys are filter names, and values are filter definitions.
+     * @type {{ [key: string]: SearchcriteriaFiltersValue; }}
+     * @memberof Searchcriteria
      */
-    'inclusive'?: boolean;
-}
-/**
- * 
- * @export
- * @interface SearchcriteriaFiltersValueRangeUpperV1
- */
-export interface SearchcriteriaFiltersValueRangeUpperV1 {
-    /**
-     * The upper bound value.
-     * @type {string}
-     * @memberof SearchcriteriaFiltersValueRangeUpperV1
-     */
-    'value'?: string;
-    /**
-     * Whether the upper bound is inclusive.
-     * @type {boolean}
-     * @memberof SearchcriteriaFiltersValueRangeUpperV1
-     */
-    'inclusive'?: boolean;
-}
-/**
- * 
- * @export
- * @interface SearchcriteriaFiltersValueRangeV1
- */
-export interface SearchcriteriaFiltersValueRangeV1 {
+    'filters'?: { [key: string]: SearchcriteriaFiltersValue; };
     /**
      * 
-     * @type {SearchcriteriaFiltersValueRangeLowerV1}
-     * @memberof SearchcriteriaFiltersValueRangeV1
+     * @type {SearchcriteriaQuery}
+     * @memberof Searchcriteria
      */
-    'lower'?: SearchcriteriaFiltersValueRangeLowerV1;
+    'query'?: SearchcriteriaQuery;
+    /**
+     * Specifies the type of query. Must be \"TEXT\" if `textQuery` is used.
+     * @type {string}
+     * @memberof Searchcriteria
+     */
+    'queryType'?: string;
     /**
      * 
-     * @type {SearchcriteriaFiltersValueRangeUpperV1}
-     * @memberof SearchcriteriaFiltersValueRangeV1
+     * @type {SearchcriteriaTextQuery}
+     * @memberof Searchcriteria
      */
-    'upper'?: SearchcriteriaFiltersValueRangeUpperV1;
+    'textQuery'?: SearchcriteriaTextQuery;
+    /**
+     * Whether to include nested objects in the search results.
+     * @type {boolean}
+     * @memberof Searchcriteria
+     */
+    'includeNested'?: boolean;
+    /**
+     * Specifies the sorting order for the results.
+     * @type {Array<string>}
+     * @memberof Searchcriteria
+     */
+    'sort'?: Array<string>;
+    /**
+     * Used for pagination to fetch results after a specific point.
+     * @type {Array<string>}
+     * @memberof Searchcriteria
+     */
+    'searchAfter'?: Array<string>;
 }
 /**
  * 
  * @export
- * @interface SearchcriteriaFiltersValueV1
+ * @interface SearchcriteriaFiltersValue
  */
-export interface SearchcriteriaFiltersValueV1 {
+export interface SearchcriteriaFiltersValue {
     /**
      * The type of filter, e.g., \"TERMS\" or \"RANGE\".
      * @type {string}
-     * @memberof SearchcriteriaFiltersValueV1
+     * @memberof SearchcriteriaFiltersValue
      */
     'type'?: string;
     /**
      * Terms to filter by (for \"TERMS\" type).
      * @type {Array<string>}
-     * @memberof SearchcriteriaFiltersValueV1
+     * @memberof SearchcriteriaFiltersValue
      */
     'terms'?: Array<string>;
     /**
      * 
-     * @type {SearchcriteriaFiltersValueRangeV1}
-     * @memberof SearchcriteriaFiltersValueV1
+     * @type {SearchcriteriaFiltersValueRange}
+     * @memberof SearchcriteriaFiltersValue
      */
-    'range'?: SearchcriteriaFiltersValueRangeV1;
+    'range'?: SearchcriteriaFiltersValueRange;
 }
 /**
  * 
  * @export
- * @interface SearchcriteriaQueryV1
+ * @interface SearchcriteriaFiltersValueRange
  */
-export interface SearchcriteriaQueryV1 {
+export interface SearchcriteriaFiltersValueRange {
+    /**
+     * 
+     * @type {SearchcriteriaFiltersValueRangeLower}
+     * @memberof SearchcriteriaFiltersValueRange
+     */
+    'lower'?: SearchcriteriaFiltersValueRangeLower;
+    /**
+     * 
+     * @type {SearchcriteriaFiltersValueRangeUpper}
+     * @memberof SearchcriteriaFiltersValueRange
+     */
+    'upper'?: SearchcriteriaFiltersValueRangeUpper;
+}
+/**
+ * 
+ * @export
+ * @interface SearchcriteriaFiltersValueRangeLower
+ */
+export interface SearchcriteriaFiltersValueRangeLower {
+    /**
+     * The lower bound value.
+     * @type {string}
+     * @memberof SearchcriteriaFiltersValueRangeLower
+     */
+    'value'?: string;
+    /**
+     * Whether the lower bound is inclusive.
+     * @type {boolean}
+     * @memberof SearchcriteriaFiltersValueRangeLower
+     */
+    'inclusive'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface SearchcriteriaFiltersValueRangeUpper
+ */
+export interface SearchcriteriaFiltersValueRangeUpper {
+    /**
+     * The upper bound value.
+     * @type {string}
+     * @memberof SearchcriteriaFiltersValueRangeUpper
+     */
+    'value'?: string;
+    /**
+     * Whether the upper bound is inclusive.
+     * @type {boolean}
+     * @memberof SearchcriteriaFiltersValueRangeUpper
+     */
+    'inclusive'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface SearchcriteriaQuery
+ */
+export interface SearchcriteriaQuery {
     /**
      * A structured query for advanced search.
      * @type {string}
-     * @memberof SearchcriteriaQueryV1
+     * @memberof SearchcriteriaQuery
      */
     'query'?: string;
 }
 /**
  * 
  * @export
- * @interface SearchcriteriaTextQueryV1
+ * @interface SearchcriteriaTextQuery
  */
-export interface SearchcriteriaTextQueryV1 {
+export interface SearchcriteriaTextQuery {
     /**
      * Terms to search for.
      * @type {Array<string>}
-     * @memberof SearchcriteriaTextQueryV1
+     * @memberof SearchcriteriaTextQuery
      */
     'terms'?: Array<string>;
     /**
      * Fields to search within.
      * @type {Array<string>}
-     * @memberof SearchcriteriaTextQueryV1
+     * @memberof SearchcriteriaTextQuery
      */
     'fields'?: Array<string>;
     /**
      * Whether to match any of the terms.
      * @type {boolean}
-     * @memberof SearchcriteriaTextQueryV1
+     * @memberof SearchcriteriaTextQuery
      */
     'matchAny'?: boolean;
 }
 /**
- * Represents the search criteria for querying entitlements.
- * @export
- * @interface SearchcriteriaV1
- */
-export interface SearchcriteriaV1 {
-    /**
-     * A list of indices to search within. Must contain exactly one item, typically \"entitlements\".
-     * @type {Array<string>}
-     * @memberof SearchcriteriaV1
-     */
-    'indices': Array<string>;
-    /**
-     * A map of filters applied to the search. Keys are filter names, and values are filter definitions.
-     * @type {{ [key: string]: SearchcriteriaFiltersValueV1; }}
-     * @memberof SearchcriteriaV1
-     */
-    'filters'?: { [key: string]: SearchcriteriaFiltersValueV1; };
-    /**
-     * 
-     * @type {SearchcriteriaQueryV1}
-     * @memberof SearchcriteriaV1
-     */
-    'query'?: SearchcriteriaQueryV1;
-    /**
-     * Specifies the type of query. Must be \"TEXT\" if `textQuery` is used.
-     * @type {string}
-     * @memberof SearchcriteriaV1
-     */
-    'queryType'?: string;
-    /**
-     * 
-     * @type {SearchcriteriaTextQueryV1}
-     * @memberof SearchcriteriaV1
-     */
-    'textQuery'?: SearchcriteriaTextQueryV1;
-    /**
-     * Whether to include nested objects in the search results.
-     * @type {boolean}
-     * @memberof SearchcriteriaV1
-     */
-    'includeNested'?: boolean;
-    /**
-     * Specifies the sorting order for the results.
-     * @type {Array<string>}
-     * @memberof SearchcriteriaV1
-     */
-    'sort'?: Array<string>;
-    /**
-     * Used for pagination to fetch results after a specific point.
-     * @type {Array<string>}
-     * @memberof SearchcriteriaV1
-     */
-    'searchAfter'?: Array<string>;
-}
-/**
  * Suggested Entitlement Description
  * @export
- * @interface SedV1
+ * @interface Sed
  */
-export interface SedV1 {
+export interface Sed {
     /**
      * name of the entitlement
      * @type {string}
-     * @memberof SedV1
+     * @memberof Sed
      */
     'Name'?: string;
     /**
      * entitlement approved by
      * @type {string}
-     * @memberof SedV1
+     * @memberof Sed
      */
     'approved_by'?: string;
     /**
      * entitlement approved type
      * @type {string}
-     * @memberof SedV1
+     * @memberof Sed
      */
     'approved_type'?: string;
     /**
      * entitlement approved then
      * @type {string}
-     * @memberof SedV1
+     * @memberof Sed
      */
     'approved_when'?: string;
     /**
      * entitlement attribute
      * @type {string}
-     * @memberof SedV1
+     * @memberof Sed
      */
     'attribute'?: string;
     /**
      * description of entitlement
      * @type {string}
-     * @memberof SedV1
+     * @memberof Sed
      */
     'description'?: string;
     /**
      * entitlement display name
      * @type {string}
-     * @memberof SedV1
+     * @memberof Sed
      */
     'displayName'?: string;
     /**
      * sed id
      * @type {string}
-     * @memberof SedV1
+     * @memberof Sed
      */
     'id'?: string;
     /**
      * entitlement source id
      * @type {string}
-     * @memberof SedV1
+     * @memberof Sed
      */
     'sourceId'?: string;
     /**
      * entitlement source name
      * @type {string}
-     * @memberof SedV1
+     * @memberof Sed
      */
     'sourceName'?: string;
     /**
      * entitlement status
      * @type {string}
-     * @memberof SedV1
+     * @memberof Sed
      */
     'status'?: string;
     /**
      * llm suggested entitlement description
      * @type {string}
-     * @memberof SedV1
+     * @memberof Sed
      */
     'suggestedDescription'?: string;
     /**
      * entitlement type
      * @type {string}
-     * @memberof SedV1
+     * @memberof Sed
      */
     'type'?: string;
     /**
      * entitlement value
      * @type {string}
-     * @memberof SedV1
+     * @memberof Sed
      */
     'value'?: string;
 }
 /**
  * Sed Approval Request Body
  * @export
- * @interface SedapprovalV1
+ * @interface Sedapproval
  */
-export interface SedapprovalV1 {
+export interface Sedapproval {
     /**
      * List of SED id\'s
      * @type {Array<string>}
-     * @memberof SedapprovalV1
+     * @memberof Sedapproval
      */
     'items'?: Array<string>;
 }
 /**
  * SED Approval Status
  * @export
- * @interface SedapprovalstatusV1
+ * @interface Sedapprovalstatus
  */
-export interface SedapprovalstatusV1 {
+export interface Sedapprovalstatus {
     /**
      * failed reason will be display if status is failed
      * @type {string}
-     * @memberof SedapprovalstatusV1
+     * @memberof Sedapprovalstatus
      */
     'failedReason'?: string;
     /**
      * Sed id
      * @type {string}
-     * @memberof SedapprovalstatusV1
+     * @memberof Sedapprovalstatus
      */
     'id'?: string;
     /**
      * SUCCESS | FAILED
      * @type {string}
-     * @memberof SedapprovalstatusV1
+     * @memberof Sedapprovalstatus
      */
     'status'?: string;
 }
 /**
  * Sed Assignee
  * @export
- * @interface SedassigneeV1
+ * @interface Sedassignee
  */
-export interface SedassigneeV1 {
+export interface Sedassignee {
     /**
      * Type of assignment When value is PERSONA, the value MUST be SOURCE_OWNER or ENTITLEMENT_OWNER IDENTITY SED_ASSIGNEE_IDENTITY_TYPE GROUP SED_ASSIGNEE_GROUP_TYPE SOURCE_OWNER SED_ASSIGNEE_SOURCE_OWNER_TYPE ENTITLEMENT_OWNER SED_ASSIGNEE_ENTITLEMENT_OWNER_TYPE
      * @type {string}
-     * @memberof SedassigneeV1
+     * @memberof Sedassignee
      */
-    'type': SedassigneeV1TypeV1;
+    'type': SedassigneeTypeEnum;
     /**
      * Identity or Group identifier Empty when using source/entitlement owner personas
      * @type {string}
-     * @memberof SedassigneeV1
+     * @memberof Sedassignee
      */
     'value'?: string;
 }
 
-export const SedassigneeV1TypeV1 = {
+export const SedassigneeTypeEnum = {
     Identity: 'IDENTITY',
     Group: 'GROUP',
     SourceOwner: 'SOURCE_OWNER',
     EntitlementOwner: 'ENTITLEMENT_OWNER'
 } as const;
 
-export type SedassigneeV1TypeV1 = typeof SedassigneeV1TypeV1[keyof typeof SedassigneeV1TypeV1];
+export type SedassigneeTypeEnum = typeof SedassigneeTypeEnum[keyof typeof SedassigneeTypeEnum];
 
 /**
  * Sed Assignment
  * @export
- * @interface SedassignmentV1
+ * @interface Sedassignment
  */
-export interface SedassignmentV1 {
+export interface Sedassignment {
     /**
      * 
-     * @type {SedassigneeV1}
-     * @memberof SedassignmentV1
+     * @type {Sedassignee}
+     * @memberof Sedassignment
      */
-    'assignee'?: SedassigneeV1;
+    'assignee'?: Sedassignee;
     /**
      * List of SED id\'s
      * @type {Array<string>}
-     * @memberof SedassignmentV1
+     * @memberof Sedassignment
      */
     'items'?: Array<string>;
 }
 /**
  * Sed Assignment Response
  * @export
- * @interface SedassignmentresponseV1
+ * @interface Sedassignmentresponse
  */
-export interface SedassignmentresponseV1 {
+export interface Sedassignmentresponse {
     /**
      * BatchId that groups all the ids together
      * @type {string}
-     * @memberof SedassignmentresponseV1
+     * @memberof Sedassignmentresponse
      */
     'batchId'?: string;
 }
 /**
  * Sed Batch Record
  * @export
- * @interface SedbatchrecordV1
+ * @interface Sedbatchrecord
  */
-export interface SedbatchrecordV1 {
+export interface Sedbatchrecord {
     /**
      * The tenant ID associated with the batch.
      * @type {string}
-     * @memberof SedbatchrecordV1
+     * @memberof Sedbatchrecord
      */
     'tenantId'?: string;
     /**
      * The unique ID of the batch.
      * @type {string}
-     * @memberof SedbatchrecordV1
+     * @memberof Sedbatchrecord
      */
     'batchId'?: string;
     /**
      * The name of the batch.
      * @type {string}
-     * @memberof SedbatchrecordV1
+     * @memberof Sedbatchrecord
      */
     'name'?: string | null;
     /**
      * The current state of the batch (e.g., submitted, materialized, completed).
      * @type {string}
-     * @memberof SedbatchrecordV1
+     * @memberof Sedbatchrecord
      */
     'processedState'?: string | null;
     /**
      * The ID of the user who requested the batch.
      * @type {string}
-     * @memberof SedbatchrecordV1
+     * @memberof Sedbatchrecord
      */
     'requestedBy'?: string;
     /**
      * The number of items materialized in the batch.
      * @type {number}
-     * @memberof SedbatchrecordV1
+     * @memberof Sedbatchrecord
      */
     'materializedCount'?: number;
     /**
      * The number of items processed in the batch.
      * @type {number}
-     * @memberof SedbatchrecordV1
+     * @memberof Sedbatchrecord
      */
     'processedCount'?: number;
     /**
      * The timestamp when the batch was created.
      * @type {string}
-     * @memberof SedbatchrecordV1
+     * @memberof Sedbatchrecord
      */
     'createdAt'?: string;
     /**
      * The timestamp when the batch was last updated.
      * @type {string}
-     * @memberof SedbatchrecordV1
+     * @memberof Sedbatchrecord
      */
     'updatedAt'?: string | null;
 }
 /**
  * Sed Batch Request
  * @export
- * @interface SedbatchrequestV1
+ * @interface Sedbatchrequest
  */
-export interface SedbatchrequestV1 {
+export interface Sedbatchrequest {
     /**
      * list of entitlement ids
      * @type {Array<string>}
-     * @memberof SedbatchrequestV1
+     * @memberof Sedbatchrequest
      */
     'entitlements'?: Array<string> | null;
     /**
      * list of sed ids
      * @type {Array<string>}
-     * @memberof SedbatchrequestV1
+     * @memberof Sedbatchrequest
      */
     'seds'?: Array<string> | null;
     /**
      * Search criteria for the batch request.
-     * @type {{ [key: string]: SearchcriteriaV1; }}
-     * @memberof SedbatchrequestV1
+     * @type {{ [key: string]: Searchcriteria; }}
+     * @memberof Sedbatchrequest
      */
-    'searchCriteria'?: { [key: string]: SearchcriteriaV1; } | null;
+    'searchCriteria'?: { [key: string]: Searchcriteria; } | null;
 }
 /**
  * Sed Batch Response
  * @export
- * @interface SedbatchresponseV1
+ * @interface Sedbatchresponse
  */
-export interface SedbatchresponseV1 {
+export interface Sedbatchresponse {
     /**
      * BatchId that groups all the ids together
      * @type {string}
-     * @memberof SedbatchresponseV1
+     * @memberof Sedbatchresponse
      */
     'batchId'?: string;
 }
 /**
  * Sed Batch Stats
  * @export
- * @interface SedbatchstatsV1
+ * @interface Sedbatchstats
  */
-export interface SedbatchstatsV1 {
+export interface Sedbatchstats {
     /**
      * batch complete
      * @type {boolean}
-     * @memberof SedbatchstatsV1
+     * @memberof Sedbatchstats
      */
     'batchComplete'?: boolean;
     /**
      * batch Id
      * @type {string}
-     * @memberof SedbatchstatsV1
+     * @memberof Sedbatchstats
      */
     'batchId'?: string;
     /**
      * discovered count
      * @type {number}
-     * @memberof SedbatchstatsV1
+     * @memberof Sedbatchstats
      */
     'discoveredCount'?: number;
     /**
      * discovery complete
      * @type {boolean}
-     * @memberof SedbatchstatsV1
+     * @memberof Sedbatchstats
      */
     'discoveryComplete'?: boolean;
     /**
      * processed count
      * @type {number}
-     * @memberof SedbatchstatsV1
+     * @memberof Sedbatchstats
      */
     'processedCount'?: number;
 }
 /**
  * Patch for Suggested Entitlement Description
  * @export
- * @interface SedpatchV1
+ * @interface Sedpatch
  */
-export interface SedpatchV1 {
+export interface Sedpatch {
     /**
      * desired operation
      * @type {string}
-     * @memberof SedpatchV1
+     * @memberof Sedpatch
      */
     'op'?: string;
     /**
      * field to be patched
      * @type {string}
-     * @memberof SedpatchV1
+     * @memberof Sedpatch
      */
     'path'?: string;
     /**
      * value to replace with
      * @type {any}
-     * @memberof SedpatchV1
+     * @memberof Sedpatch
      */
     'value'?: any;
 }
 
 /**
- * SuggestedEntitlementDescriptionV1Api - axios parameter creator
+ * SuggestedEntitlementDescriptionApi - axios parameter creator
  * @export
  */
-export const SuggestedEntitlementDescriptionV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const SuggestedEntitlementDescriptionApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Approve multiple entitlement recommendations in a single request. Each item in the request must include the recommendation ID and, depending on the record type, either an approved description (SED items) or an approved privilege level (privilege items). Returns a per-item result indicating success or failure.
          * @summary Bulk approve entitlement recommendations
-         * @param {BulkapproveentitlementrecommendationrequestV1} bulkapproveentitlementrecommendationrequestV1 The list of recommendation items to approve.
+         * @param {Bulkapproveentitlementrecommendationrequest} bulkapproveentitlementrecommendationrequest The list of recommendation items to approve.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        approveBulkEntitlementRecommendationsV1: async (bulkapproveentitlementrecommendationrequestV1: BulkapproveentitlementrecommendationrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'bulkapproveentitlementrecommendationrequestV1' is not null or undefined
-            assertParamExists('approveBulkEntitlementRecommendationsV1', 'bulkapproveentitlementrecommendationrequestV1', bulkapproveentitlementrecommendationrequestV1)
+        approveBulkEntitlementRecommendationsV1: async (bulkapproveentitlementrecommendationrequest: Bulkapproveentitlementrecommendationrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'bulkapproveentitlementrecommendationrequest' is not null or undefined
+            assertParamExists('approveBulkEntitlementRecommendationsV1', 'bulkapproveentitlementrecommendationrequest', bulkapproveentitlementrecommendationrequest)
             const localVarPath = `/entitlement-recommendations/v1/bulk-approve`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1265,7 +1265,7 @@ export const SuggestedEntitlementDescriptionV1ApiAxiosParamCreator = function (c
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(bulkapproveentitlementrecommendationrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(bulkapproveentitlementrecommendationrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1275,13 +1275,13 @@ export const SuggestedEntitlementDescriptionV1ApiAxiosParamCreator = function (c
         /**
          * Create the initial auto-write settings for a tenant. Returns 409 Conflict if settings already exist. Use PATCH to update existing settings.
          * @summary Create auto-write settings for SED
-         * @param {AutowritesettingV1} autowritesettingV1 Auto-write settings to create
+         * @param {Autowritesetting} autowritesetting Auto-write settings to create
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createAutoWriteSettingsV1: async (autowritesettingV1: AutowritesettingV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'autowritesettingV1' is not null or undefined
-            assertParamExists('createAutoWriteSettingsV1', 'autowritesettingV1', autowritesettingV1)
+        createAutoWriteSettingsV1: async (autowritesetting: Autowritesetting, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'autowritesetting' is not null or undefined
+            assertParamExists('createAutoWriteSettingsV1', 'autowritesetting', autowritesetting)
             const localVarPath = `/suggested-entitlement-descriptions/v1/auto-write-settings`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1301,7 +1301,7 @@ export const SuggestedEntitlementDescriptionV1ApiAxiosParamCreator = function (c
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(autowritesettingV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(autowritesetting, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1581,15 +1581,15 @@ export const SuggestedEntitlementDescriptionV1ApiAxiosParamCreator = function (c
          * Partially update a single entitlement recommendation record by its ID. Use this endpoint to update the status, description, or privilege level of a specific SED or privilege recommendation.
          * @summary Update an entitlement recommendation
          * @param {string} id The unique identifier of the entitlement recommendation to update.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 The patch operations to apply to the entitlement recommendation record.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation The patch operations to apply to the entitlement recommendation record.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchEntitlementRecommendationV1: async (id: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchEntitlementRecommendationV1: async (id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchEntitlementRecommendationV1', 'id', id)
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('patchEntitlementRecommendationV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('patchEntitlementRecommendationV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/entitlement-recommendations/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1610,7 +1610,7 @@ export const SuggestedEntitlementDescriptionV1ApiAxiosParamCreator = function (c
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1621,15 +1621,15 @@ export const SuggestedEntitlementDescriptionV1ApiAxiosParamCreator = function (c
          * Patch Suggested Entitlement Description
          * @summary Patch suggested entitlement description
          * @param {string} id id is sed id
-         * @param {Array<SedpatchV1>} sedpatchV1 Sed Patch Request
+         * @param {Array<Sedpatch>} sedpatch Sed Patch Request
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchSedV1: async (id: string, sedpatchV1: Array<SedpatchV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchSedV1: async (id: string, sedpatch: Array<Sedpatch>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchSedV1', 'id', id)
-            // verify required parameter 'sedpatchV1' is not null or undefined
-            assertParamExists('patchSedV1', 'sedpatchV1', sedpatchV1)
+            // verify required parameter 'sedpatch' is not null or undefined
+            assertParamExists('patchSedV1', 'sedpatch', sedpatch)
             const localVarPath = `/suggested-entitlement-descriptions/v1`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1650,7 +1650,7 @@ export const SuggestedEntitlementDescriptionV1ApiAxiosParamCreator = function (c
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(sedpatchV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(sedpatch, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1660,13 +1660,13 @@ export const SuggestedEntitlementDescriptionV1ApiAxiosParamCreator = function (c
         /**
          * Assign a set of entitlement recommendation records to a reviewer. The assignee can be a specific identity, a governance group, or a role-based assignee such as source owner or entitlement owner. Returns a batch ID that can be used to track the assignment.
          * @summary Assign entitlement recommendations for review
-         * @param {EntitlementrecommendationassignrequestV1} entitlementrecommendationassignrequestV1 The recommendation IDs and the target assignee.
+         * @param {Entitlementrecommendationassignrequest} entitlementrecommendationassignrequest The recommendation IDs and the target assignee.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        submitEntitlementRecommendationsAssignmentV1: async (entitlementrecommendationassignrequestV1: EntitlementrecommendationassignrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'entitlementrecommendationassignrequestV1' is not null or undefined
-            assertParamExists('submitEntitlementRecommendationsAssignmentV1', 'entitlementrecommendationassignrequestV1', entitlementrecommendationassignrequestV1)
+        submitEntitlementRecommendationsAssignmentV1: async (entitlementrecommendationassignrequest: Entitlementrecommendationassignrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'entitlementrecommendationassignrequest' is not null or undefined
+            assertParamExists('submitEntitlementRecommendationsAssignmentV1', 'entitlementrecommendationassignrequest', entitlementrecommendationassignrequest)
             const localVarPath = `/entitlement-recommendations/v1/assign`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1686,7 +1686,7 @@ export const SuggestedEntitlementDescriptionV1ApiAxiosParamCreator = function (c
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(entitlementrecommendationassignrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(entitlementrecommendationassignrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1696,13 +1696,13 @@ export const SuggestedEntitlementDescriptionV1ApiAxiosParamCreator = function (c
         /**
          * Submit Bulk Approval Request for SED. Request body takes list of SED Ids. API responses with list of SED Approval Status
          * @summary Submit bulk approval request
-         * @param {Array<SedapprovalV1>} sedapprovalV1 Sed Approval
+         * @param {Array<Sedapproval>} sedapproval Sed Approval
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        submitSedApprovalV1: async (sedapprovalV1: Array<SedapprovalV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'sedapprovalV1' is not null or undefined
-            assertParamExists('submitSedApprovalV1', 'sedapprovalV1', sedapprovalV1)
+        submitSedApprovalV1: async (sedapproval: Array<Sedapproval>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sedapproval' is not null or undefined
+            assertParamExists('submitSedApprovalV1', 'sedapproval', sedapproval)
             const localVarPath = `/suggested-entitlement-description-approvals/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1722,7 +1722,7 @@ export const SuggestedEntitlementDescriptionV1ApiAxiosParamCreator = function (c
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(sedapprovalV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(sedapproval, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1732,13 +1732,13 @@ export const SuggestedEntitlementDescriptionV1ApiAxiosParamCreator = function (c
         /**
          * Submit Assignment Request. Request body has an assignee, and list of SED Ids that are assigned to that assignee API responses with batchId that groups all approval requests together
          * @summary Submit sed assignment request
-         * @param {SedassignmentV1} sedassignmentV1 Sed Assignment Request
+         * @param {Sedassignment} sedassignment Sed Assignment Request
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        submitSedAssignmentV1: async (sedassignmentV1: SedassignmentV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'sedassignmentV1' is not null or undefined
-            assertParamExists('submitSedAssignmentV1', 'sedassignmentV1', sedassignmentV1)
+        submitSedAssignmentV1: async (sedassignment: Sedassignment, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sedassignment' is not null or undefined
+            assertParamExists('submitSedAssignmentV1', 'sedassignment', sedassignment)
             const localVarPath = `/suggested-entitlement-description-assignments/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1758,7 +1758,7 @@ export const SuggestedEntitlementDescriptionV1ApiAxiosParamCreator = function (c
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(sedassignmentV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(sedassignment, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1768,11 +1768,11 @@ export const SuggestedEntitlementDescriptionV1ApiAxiosParamCreator = function (c
         /**
          * Submit Sed Batch Request. Request body has one of the following: - a list of entitlement Ids - a list of SED Ids that user wants to have description generated by LLM.  API responses with batchId that groups Ids together
          * @summary Submit sed batch request
-         * @param {SedbatchrequestV1} [sedbatchrequestV1] Sed Batch Request
+         * @param {Sedbatchrequest} [sedbatchrequest] Sed Batch Request
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        submitSedBatchRequestV1: async (sedbatchrequestV1?: SedbatchrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        submitSedBatchRequestV1: async (sedbatchrequest?: Sedbatchrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/suggested-entitlement-description-batches/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1792,7 +1792,7 @@ export const SuggestedEntitlementDescriptionV1ApiAxiosParamCreator = function (c
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(sedbatchrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(sedbatchrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1802,13 +1802,13 @@ export const SuggestedEntitlementDescriptionV1ApiAxiosParamCreator = function (c
         /**
          * Partially update the auto-write settings for a tenant using JSON Patch operations. Only the \"replace\" operation is supported. Returns 404 if no settings exist yet - use POST to create them first.
          * @summary Update auto-write settings for SED
-         * @param {Array<AutowritesettingpatchV1>} autowritesettingpatchV1 Patch operations for auto-write settings
+         * @param {Array<Autowritesettingpatch>} autowritesettingpatch Patch operations for auto-write settings
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateAutoWriteSettingsV1: async (autowritesettingpatchV1: Array<AutowritesettingpatchV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'autowritesettingpatchV1' is not null or undefined
-            assertParamExists('updateAutoWriteSettingsV1', 'autowritesettingpatchV1', autowritesettingpatchV1)
+        updateAutoWriteSettingsV1: async (autowritesettingpatch: Array<Autowritesettingpatch>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'autowritesettingpatch' is not null or undefined
+            assertParamExists('updateAutoWriteSettingsV1', 'autowritesettingpatch', autowritesettingpatch)
             const localVarPath = `/suggested-entitlement-descriptions/v1/auto-write-settings`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1828,7 +1828,7 @@ export const SuggestedEntitlementDescriptionV1ApiAxiosParamCreator = function (c
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(autowritesettingpatchV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(autowritesettingpatch, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1839,36 +1839,36 @@ export const SuggestedEntitlementDescriptionV1ApiAxiosParamCreator = function (c
 };
 
 /**
- * SuggestedEntitlementDescriptionV1Api - functional programming interface
+ * SuggestedEntitlementDescriptionApi - functional programming interface
  * @export
  */
-export const SuggestedEntitlementDescriptionV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = SuggestedEntitlementDescriptionV1ApiAxiosParamCreator(configuration)
+export const SuggestedEntitlementDescriptionApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SuggestedEntitlementDescriptionApiAxiosParamCreator(configuration)
     return {
         /**
          * Approve multiple entitlement recommendations in a single request. Each item in the request must include the recommendation ID and, depending on the record type, either an approved description (SED items) or an approved privilege level (privilege items). Returns a per-item result indicating success or failure.
          * @summary Bulk approve entitlement recommendations
-         * @param {BulkapproveentitlementrecommendationrequestV1} bulkapproveentitlementrecommendationrequestV1 The list of recommendation items to approve.
+         * @param {Bulkapproveentitlementrecommendationrequest} bulkapproveentitlementrecommendationrequest The list of recommendation items to approve.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async approveBulkEntitlementRecommendationsV1(bulkapproveentitlementrecommendationrequestV1: BulkapproveentitlementrecommendationrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BulkapproveentitlementrecommendationresultV1>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.approveBulkEntitlementRecommendationsV1(bulkapproveentitlementrecommendationrequestV1, axiosOptions);
+        async approveBulkEntitlementRecommendationsV1(bulkapproveentitlementrecommendationrequest: Bulkapproveentitlementrecommendationrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Bulkapproveentitlementrecommendationresult>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.approveBulkEntitlementRecommendationsV1(bulkapproveentitlementrecommendationrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionV1Api.approveBulkEntitlementRecommendationsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionApi.approveBulkEntitlementRecommendationsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Create the initial auto-write settings for a tenant. Returns 409 Conflict if settings already exist. Use PATCH to update existing settings.
          * @summary Create auto-write settings for SED
-         * @param {AutowritesettingV1} autowritesettingV1 Auto-write settings to create
+         * @param {Autowritesetting} autowritesetting Auto-write settings to create
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createAutoWriteSettingsV1(autowritesettingV1: AutowritesettingV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AutowritesettingresponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createAutoWriteSettingsV1(autowritesettingV1, axiosOptions);
+        async createAutoWriteSettingsV1(autowritesetting: Autowritesetting, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Autowritesettingresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createAutoWriteSettingsV1(autowritesetting, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionV1Api.createAutoWriteSettingsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionApi.createAutoWriteSettingsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1877,10 +1877,10 @@ export const SuggestedEntitlementDescriptionV1ApiFp = function(configuration?: C
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAutoWriteSettingsV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AutowritesettingresponseV1>> {
+        async getAutoWriteSettingsV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Autowritesettingresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAutoWriteSettingsV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionV1Api.getAutoWriteSettingsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionApi.getAutoWriteSettingsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1890,10 +1890,10 @@ export const SuggestedEntitlementDescriptionV1ApiFp = function(configuration?: C
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSedBatchStatsV1(batchId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SedbatchstatsV1>> {
+        async getSedBatchStatsV1(batchId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sedbatchstats>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSedBatchStatsV1(batchId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionV1Api.getSedBatchStatsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionApi.getSedBatchStatsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1907,10 +1907,10 @@ export const SuggestedEntitlementDescriptionV1ApiFp = function(configuration?: C
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSedBatchesV1(offset?: number, limit?: number, count?: boolean, countOnly?: boolean, status?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SedbatchrecordV1>>> {
+        async getSedBatchesV1(offset?: number, limit?: number, count?: boolean, countOnly?: boolean, status?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Sedbatchrecord>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSedBatchesV1(offset, limit, count, countOnly, status, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionV1Api.getSedBatchesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionApi.getSedBatchesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1921,10 +1921,10 @@ export const SuggestedEntitlementDescriptionV1ApiFp = function(configuration?: C
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listPendingEntitlementRecommendationApprovalsV1(offset?: number, limit?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementrecommendationrecordV1>>> {
+        async listPendingEntitlementRecommendationApprovalsV1(offset?: number, limit?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Entitlementrecommendationrecord>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listPendingEntitlementRecommendationApprovalsV1(offset, limit, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionV1Api.listPendingEntitlementRecommendationApprovalsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionApi.listPendingEntitlementRecommendationApprovalsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1935,10 +1935,10 @@ export const SuggestedEntitlementDescriptionV1ApiFp = function(configuration?: C
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listPrivilegedEntitlementRecommendationsV1(offset?: number, limit?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PrivilegedrecommendationgroupV1>>> {
+        async listPrivilegedEntitlementRecommendationsV1(offset?: number, limit?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Privilegedrecommendationgroup>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listPrivilegedEntitlementRecommendationsV1(offset, limit, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionV1Api.listPrivilegedEntitlementRecommendationsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionApi.listPrivilegedEntitlementRecommendationsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1955,134 +1955,134 @@ export const SuggestedEntitlementDescriptionV1ApiFp = function(configuration?: C
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listSedsV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, countOnly?: boolean, requestedByAnyone?: boolean, showPendingStatusOnly?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SedV1>>> {
+        async listSedsV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, countOnly?: boolean, requestedByAnyone?: boolean, showPendingStatusOnly?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Sed>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listSedsV1(limit, offset, count, filters, sorters, countOnly, requestedByAnyone, showPendingStatusOnly, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionV1Api.listSedsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionApi.listSedsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Partially update a single entitlement recommendation record by its ID. Use this endpoint to update the status, description, or privilege level of a specific SED or privilege recommendation.
          * @summary Update an entitlement recommendation
          * @param {string} id The unique identifier of the entitlement recommendation to update.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 The patch operations to apply to the entitlement recommendation record.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation The patch operations to apply to the entitlement recommendation record.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchEntitlementRecommendationV1(id: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementrecommendationrecordV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchEntitlementRecommendationV1(id, jsonpatchoperationV1, axiosOptions);
+        async patchEntitlementRecommendationV1(id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Entitlementrecommendationrecord>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchEntitlementRecommendationV1(id, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionV1Api.patchEntitlementRecommendationV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionApi.patchEntitlementRecommendationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Patch Suggested Entitlement Description
          * @summary Patch suggested entitlement description
          * @param {string} id id is sed id
-         * @param {Array<SedpatchV1>} sedpatchV1 Sed Patch Request
+         * @param {Array<Sedpatch>} sedpatch Sed Patch Request
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchSedV1(id: string, sedpatchV1: Array<SedpatchV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SedV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSedV1(id, sedpatchV1, axiosOptions);
+        async patchSedV1(id: string, sedpatch: Array<Sedpatch>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sed>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSedV1(id, sedpatch, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionV1Api.patchSedV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionApi.patchSedV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Assign a set of entitlement recommendation records to a reviewer. The assignee can be a specific identity, a governance group, or a role-based assignee such as source owner or entitlement owner. Returns a batch ID that can be used to track the assignment.
          * @summary Assign entitlement recommendations for review
-         * @param {EntitlementrecommendationassignrequestV1} entitlementrecommendationassignrequestV1 The recommendation IDs and the target assignee.
+         * @param {Entitlementrecommendationassignrequest} entitlementrecommendationassignrequest The recommendation IDs and the target assignee.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async submitEntitlementRecommendationsAssignmentV1(entitlementrecommendationassignrequestV1: EntitlementrecommendationassignrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementrecommendationassignresultV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.submitEntitlementRecommendationsAssignmentV1(entitlementrecommendationassignrequestV1, axiosOptions);
+        async submitEntitlementRecommendationsAssignmentV1(entitlementrecommendationassignrequest: Entitlementrecommendationassignrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Entitlementrecommendationassignresult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitEntitlementRecommendationsAssignmentV1(entitlementrecommendationassignrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionV1Api.submitEntitlementRecommendationsAssignmentV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionApi.submitEntitlementRecommendationsAssignmentV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Submit Bulk Approval Request for SED. Request body takes list of SED Ids. API responses with list of SED Approval Status
          * @summary Submit bulk approval request
-         * @param {Array<SedapprovalV1>} sedapprovalV1 Sed Approval
+         * @param {Array<Sedapproval>} sedapproval Sed Approval
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async submitSedApprovalV1(sedapprovalV1: Array<SedapprovalV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SedapprovalstatusV1>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.submitSedApprovalV1(sedapprovalV1, axiosOptions);
+        async submitSedApprovalV1(sedapproval: Array<Sedapproval>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Sedapprovalstatus>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitSedApprovalV1(sedapproval, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionV1Api.submitSedApprovalV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionApi.submitSedApprovalV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Submit Assignment Request. Request body has an assignee, and list of SED Ids that are assigned to that assignee API responses with batchId that groups all approval requests together
          * @summary Submit sed assignment request
-         * @param {SedassignmentV1} sedassignmentV1 Sed Assignment Request
+         * @param {Sedassignment} sedassignment Sed Assignment Request
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async submitSedAssignmentV1(sedassignmentV1: SedassignmentV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SedassignmentresponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.submitSedAssignmentV1(sedassignmentV1, axiosOptions);
+        async submitSedAssignmentV1(sedassignment: Sedassignment, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sedassignmentresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitSedAssignmentV1(sedassignment, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionV1Api.submitSedAssignmentV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionApi.submitSedAssignmentV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Submit Sed Batch Request. Request body has one of the following: - a list of entitlement Ids - a list of SED Ids that user wants to have description generated by LLM.  API responses with batchId that groups Ids together
          * @summary Submit sed batch request
-         * @param {SedbatchrequestV1} [sedbatchrequestV1] Sed Batch Request
+         * @param {Sedbatchrequest} [sedbatchrequest] Sed Batch Request
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async submitSedBatchRequestV1(sedbatchrequestV1?: SedbatchrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SedbatchresponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.submitSedBatchRequestV1(sedbatchrequestV1, axiosOptions);
+        async submitSedBatchRequestV1(sedbatchrequest?: Sedbatchrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sedbatchresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitSedBatchRequestV1(sedbatchrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionV1Api.submitSedBatchRequestV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionApi.submitSedBatchRequestV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Partially update the auto-write settings for a tenant using JSON Patch operations. Only the \"replace\" operation is supported. Returns 404 if no settings exist yet - use POST to create them first.
          * @summary Update auto-write settings for SED
-         * @param {Array<AutowritesettingpatchV1>} autowritesettingpatchV1 Patch operations for auto-write settings
+         * @param {Array<Autowritesettingpatch>} autowritesettingpatch Patch operations for auto-write settings
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateAutoWriteSettingsV1(autowritesettingpatchV1: Array<AutowritesettingpatchV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AutowritesettingresponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAutoWriteSettingsV1(autowritesettingpatchV1, axiosOptions);
+        async updateAutoWriteSettingsV1(autowritesettingpatch: Array<Autowritesettingpatch>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Autowritesettingresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAutoWriteSettingsV1(autowritesettingpatch, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionV1Api.updateAutoWriteSettingsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionApi.updateAutoWriteSettingsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * SuggestedEntitlementDescriptionV1Api - factory interface
+ * SuggestedEntitlementDescriptionApi - factory interface
  * @export
  */
-export const SuggestedEntitlementDescriptionV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = SuggestedEntitlementDescriptionV1ApiFp(configuration)
+export const SuggestedEntitlementDescriptionApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SuggestedEntitlementDescriptionApiFp(configuration)
     return {
         /**
          * Approve multiple entitlement recommendations in a single request. Each item in the request must include the recommendation ID and, depending on the record type, either an approved description (SED items) or an approved privilege level (privilege items). Returns a per-item result indicating success or failure.
          * @summary Bulk approve entitlement recommendations
-         * @param {SuggestedEntitlementDescriptionV1ApiApproveBulkEntitlementRecommendationsV1Request} requestParameters Request parameters.
+         * @param {SuggestedEntitlementDescriptionApiApproveBulkEntitlementRecommendationsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        approveBulkEntitlementRecommendationsV1(requestParameters: SuggestedEntitlementDescriptionV1ApiApproveBulkEntitlementRecommendationsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<BulkapproveentitlementrecommendationresultV1>> {
-            return localVarFp.approveBulkEntitlementRecommendationsV1(requestParameters.bulkapproveentitlementrecommendationrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        approveBulkEntitlementRecommendationsV1(requestParameters: SuggestedEntitlementDescriptionApiApproveBulkEntitlementRecommendationsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Bulkapproveentitlementrecommendationresult>> {
+            return localVarFp.approveBulkEntitlementRecommendationsV1(requestParameters.bulkapproveentitlementrecommendationrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Create the initial auto-write settings for a tenant. Returns 409 Conflict if settings already exist. Use PATCH to update existing settings.
          * @summary Create auto-write settings for SED
-         * @param {SuggestedEntitlementDescriptionV1ApiCreateAutoWriteSettingsV1Request} requestParameters Request parameters.
+         * @param {SuggestedEntitlementDescriptionApiCreateAutoWriteSettingsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createAutoWriteSettingsV1(requestParameters: SuggestedEntitlementDescriptionV1ApiCreateAutoWriteSettingsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AutowritesettingresponseV1> {
-            return localVarFp.createAutoWriteSettingsV1(requestParameters.autowritesettingV1, axiosOptions).then((request) => request(axios, basePath));
+        createAutoWriteSettingsV1(requestParameters: SuggestedEntitlementDescriptionApiCreateAutoWriteSettingsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Autowritesettingresponse> {
+            return localVarFp.createAutoWriteSettingsV1(requestParameters.autowritesetting, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get the current auto-write configuration for the tenant, including the enabled state and source include/exclude lists.
@@ -2090,462 +2090,462 @@ export const SuggestedEntitlementDescriptionV1ApiFactory = function (configurati
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAutoWriteSettingsV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AutowritesettingresponseV1> {
+        getAutoWriteSettingsV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Autowritesettingresponse> {
             return localVarFp.getAutoWriteSettingsV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * \'Submit Sed Batch Stats Request.   Submits batchId in the path param `(e.g. {batchId}/stats)`. API responses with stats  of the batchId.\' 
          * @summary Submit sed batch stats request
-         * @param {SuggestedEntitlementDescriptionV1ApiGetSedBatchStatsV1Request} requestParameters Request parameters.
+         * @param {SuggestedEntitlementDescriptionApiGetSedBatchStatsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSedBatchStatsV1(requestParameters: SuggestedEntitlementDescriptionV1ApiGetSedBatchStatsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SedbatchstatsV1> {
+        getSedBatchStatsV1(requestParameters: SuggestedEntitlementDescriptionApiGetSedBatchStatsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sedbatchstats> {
             return localVarFp.getSedBatchStatsV1(requestParameters.batchId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * List Sed Batches. API responses with Sed Batch Records
          * @summary List Sed Batch Record
-         * @param {SuggestedEntitlementDescriptionV1ApiGetSedBatchesV1Request} requestParameters Request parameters.
+         * @param {SuggestedEntitlementDescriptionApiGetSedBatchesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSedBatchesV1(requestParameters: SuggestedEntitlementDescriptionV1ApiGetSedBatchesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SedbatchrecordV1>> {
+        getSedBatchesV1(requestParameters: SuggestedEntitlementDescriptionApiGetSedBatchesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Sedbatchrecord>> {
             return localVarFp.getSedBatchesV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.countOnly, requestParameters.status, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Returns a list of entitlement recommendations (SED and/or privilege) that are currently awaiting review or approval. Each record includes the recommendation type, entitlement details, and any AI-generated suggestions.
          * @summary List pending entitlement recommendation approvals
-         * @param {SuggestedEntitlementDescriptionV1ApiListPendingEntitlementRecommendationApprovalsV1Request} requestParameters Request parameters.
+         * @param {SuggestedEntitlementDescriptionApiListPendingEntitlementRecommendationApprovalsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listPendingEntitlementRecommendationApprovalsV1(requestParameters: SuggestedEntitlementDescriptionV1ApiListPendingEntitlementRecommendationApprovalsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<EntitlementrecommendationrecordV1>> {
+        listPendingEntitlementRecommendationApprovalsV1(requestParameters: SuggestedEntitlementDescriptionApiListPendingEntitlementRecommendationApprovalsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Entitlementrecommendationrecord>> {
             return localVarFp.listPendingEntitlementRecommendationApprovalsV1(requestParameters.offset, requestParameters.limit, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Returns a list of privileged entitlement recommendation groups. Each group aggregates individual entitlement instances that share the same entitlement name and connector type, along with a recommendation score and instance count.
          * @summary List privileged entitlement recommendations
-         * @param {SuggestedEntitlementDescriptionV1ApiListPrivilegedEntitlementRecommendationsV1Request} requestParameters Request parameters.
+         * @param {SuggestedEntitlementDescriptionApiListPrivilegedEntitlementRecommendationsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listPrivilegedEntitlementRecommendationsV1(requestParameters: SuggestedEntitlementDescriptionV1ApiListPrivilegedEntitlementRecommendationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<PrivilegedrecommendationgroupV1>> {
+        listPrivilegedEntitlementRecommendationsV1(requestParameters: SuggestedEntitlementDescriptionApiListPrivilegedEntitlementRecommendationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Privilegedrecommendationgroup>> {
             return localVarFp.listPrivilegedEntitlementRecommendationsV1(requestParameters.offset, requestParameters.limit, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * List of Suggested Entitlement Descriptions (SED)  SED field descriptions:  **batchId**: the ID of the batch of entitlements that are submitted for description generation  **displayName**: the display name of the entitlement that we are generating a description for  **sourceName**: the name of the source associated with the entitlement that we are generating the description for  **sourceId**: the ID of the source associated with the entitlement that we are generating the description for  **status**: the status of the suggested entitlement description, valid status options: \"requested\", \"suggested\", \"not_suggested\", \"failed\", \"assigned\", \"approved\", \"denied\"  **fullText**: will filter suggested entitlement description records by text found in any of the following fields: entitlement name, entitlement display name, suggested description, source name
          * @summary List suggested entitlement descriptions
-         * @param {SuggestedEntitlementDescriptionV1ApiListSedsV1Request} requestParameters Request parameters.
+         * @param {SuggestedEntitlementDescriptionApiListSedsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listSedsV1(requestParameters: SuggestedEntitlementDescriptionV1ApiListSedsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SedV1>> {
+        listSedsV1(requestParameters: SuggestedEntitlementDescriptionApiListSedsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Sed>> {
             return localVarFp.listSedsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.countOnly, requestParameters.requestedByAnyone, requestParameters.showPendingStatusOnly, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Partially update a single entitlement recommendation record by its ID. Use this endpoint to update the status, description, or privilege level of a specific SED or privilege recommendation.
          * @summary Update an entitlement recommendation
-         * @param {SuggestedEntitlementDescriptionV1ApiPatchEntitlementRecommendationV1Request} requestParameters Request parameters.
+         * @param {SuggestedEntitlementDescriptionApiPatchEntitlementRecommendationV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchEntitlementRecommendationV1(requestParameters: SuggestedEntitlementDescriptionV1ApiPatchEntitlementRecommendationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<EntitlementrecommendationrecordV1> {
-            return localVarFp.patchEntitlementRecommendationV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        patchEntitlementRecommendationV1(requestParameters: SuggestedEntitlementDescriptionApiPatchEntitlementRecommendationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Entitlementrecommendationrecord> {
+            return localVarFp.patchEntitlementRecommendationV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Patch Suggested Entitlement Description
          * @summary Patch suggested entitlement description
-         * @param {SuggestedEntitlementDescriptionV1ApiPatchSedV1Request} requestParameters Request parameters.
+         * @param {SuggestedEntitlementDescriptionApiPatchSedV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchSedV1(requestParameters: SuggestedEntitlementDescriptionV1ApiPatchSedV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SedV1> {
-            return localVarFp.patchSedV1(requestParameters.id, requestParameters.sedpatchV1, axiosOptions).then((request) => request(axios, basePath));
+        patchSedV1(requestParameters: SuggestedEntitlementDescriptionApiPatchSedV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sed> {
+            return localVarFp.patchSedV1(requestParameters.id, requestParameters.sedpatch, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Assign a set of entitlement recommendation records to a reviewer. The assignee can be a specific identity, a governance group, or a role-based assignee such as source owner or entitlement owner. Returns a batch ID that can be used to track the assignment.
          * @summary Assign entitlement recommendations for review
-         * @param {SuggestedEntitlementDescriptionV1ApiSubmitEntitlementRecommendationsAssignmentV1Request} requestParameters Request parameters.
+         * @param {SuggestedEntitlementDescriptionApiSubmitEntitlementRecommendationsAssignmentV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        submitEntitlementRecommendationsAssignmentV1(requestParameters: SuggestedEntitlementDescriptionV1ApiSubmitEntitlementRecommendationsAssignmentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<EntitlementrecommendationassignresultV1> {
-            return localVarFp.submitEntitlementRecommendationsAssignmentV1(requestParameters.entitlementrecommendationassignrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        submitEntitlementRecommendationsAssignmentV1(requestParameters: SuggestedEntitlementDescriptionApiSubmitEntitlementRecommendationsAssignmentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Entitlementrecommendationassignresult> {
+            return localVarFp.submitEntitlementRecommendationsAssignmentV1(requestParameters.entitlementrecommendationassignrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Submit Bulk Approval Request for SED. Request body takes list of SED Ids. API responses with list of SED Approval Status
          * @summary Submit bulk approval request
-         * @param {SuggestedEntitlementDescriptionV1ApiSubmitSedApprovalV1Request} requestParameters Request parameters.
+         * @param {SuggestedEntitlementDescriptionApiSubmitSedApprovalV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        submitSedApprovalV1(requestParameters: SuggestedEntitlementDescriptionV1ApiSubmitSedApprovalV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SedapprovalstatusV1>> {
-            return localVarFp.submitSedApprovalV1(requestParameters.sedapprovalV1, axiosOptions).then((request) => request(axios, basePath));
+        submitSedApprovalV1(requestParameters: SuggestedEntitlementDescriptionApiSubmitSedApprovalV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Sedapprovalstatus>> {
+            return localVarFp.submitSedApprovalV1(requestParameters.sedapproval, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Submit Assignment Request. Request body has an assignee, and list of SED Ids that are assigned to that assignee API responses with batchId that groups all approval requests together
          * @summary Submit sed assignment request
-         * @param {SuggestedEntitlementDescriptionV1ApiSubmitSedAssignmentV1Request} requestParameters Request parameters.
+         * @param {SuggestedEntitlementDescriptionApiSubmitSedAssignmentV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        submitSedAssignmentV1(requestParameters: SuggestedEntitlementDescriptionV1ApiSubmitSedAssignmentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SedassignmentresponseV1> {
-            return localVarFp.submitSedAssignmentV1(requestParameters.sedassignmentV1, axiosOptions).then((request) => request(axios, basePath));
+        submitSedAssignmentV1(requestParameters: SuggestedEntitlementDescriptionApiSubmitSedAssignmentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sedassignmentresponse> {
+            return localVarFp.submitSedAssignmentV1(requestParameters.sedassignment, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Submit Sed Batch Request. Request body has one of the following: - a list of entitlement Ids - a list of SED Ids that user wants to have description generated by LLM.  API responses with batchId that groups Ids together
          * @summary Submit sed batch request
-         * @param {SuggestedEntitlementDescriptionV1ApiSubmitSedBatchRequestV1Request} requestParameters Request parameters.
+         * @param {SuggestedEntitlementDescriptionApiSubmitSedBatchRequestV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        submitSedBatchRequestV1(requestParameters: SuggestedEntitlementDescriptionV1ApiSubmitSedBatchRequestV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SedbatchresponseV1> {
-            return localVarFp.submitSedBatchRequestV1(requestParameters.sedbatchrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        submitSedBatchRequestV1(requestParameters: SuggestedEntitlementDescriptionApiSubmitSedBatchRequestV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sedbatchresponse> {
+            return localVarFp.submitSedBatchRequestV1(requestParameters.sedbatchrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Partially update the auto-write settings for a tenant using JSON Patch operations. Only the \"replace\" operation is supported. Returns 404 if no settings exist yet - use POST to create them first.
          * @summary Update auto-write settings for SED
-         * @param {SuggestedEntitlementDescriptionV1ApiUpdateAutoWriteSettingsV1Request} requestParameters Request parameters.
+         * @param {SuggestedEntitlementDescriptionApiUpdateAutoWriteSettingsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateAutoWriteSettingsV1(requestParameters: SuggestedEntitlementDescriptionV1ApiUpdateAutoWriteSettingsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AutowritesettingresponseV1> {
-            return localVarFp.updateAutoWriteSettingsV1(requestParameters.autowritesettingpatchV1, axiosOptions).then((request) => request(axios, basePath));
+        updateAutoWriteSettingsV1(requestParameters: SuggestedEntitlementDescriptionApiUpdateAutoWriteSettingsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Autowritesettingresponse> {
+            return localVarFp.updateAutoWriteSettingsV1(requestParameters.autowritesettingpatch, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for approveBulkEntitlementRecommendationsV1 operation in SuggestedEntitlementDescriptionV1Api.
+ * Request parameters for approveBulkEntitlementRecommendationsV1 operation in SuggestedEntitlementDescriptionApi.
  * @export
- * @interface SuggestedEntitlementDescriptionV1ApiApproveBulkEntitlementRecommendationsV1Request
+ * @interface SuggestedEntitlementDescriptionApiApproveBulkEntitlementRecommendationsV1Request
  */
-export interface SuggestedEntitlementDescriptionV1ApiApproveBulkEntitlementRecommendationsV1Request {
+export interface SuggestedEntitlementDescriptionApiApproveBulkEntitlementRecommendationsV1Request {
     /**
      * The list of recommendation items to approve.
-     * @type {BulkapproveentitlementrecommendationrequestV1}
-     * @memberof SuggestedEntitlementDescriptionV1ApiApproveBulkEntitlementRecommendationsV1
+     * @type {Bulkapproveentitlementrecommendationrequest}
+     * @memberof SuggestedEntitlementDescriptionApiApproveBulkEntitlementRecommendationsV1
      */
-    readonly bulkapproveentitlementrecommendationrequestV1: BulkapproveentitlementrecommendationrequestV1
+    readonly bulkapproveentitlementrecommendationrequest: Bulkapproveentitlementrecommendationrequest
 }
 
 /**
- * Request parameters for createAutoWriteSettingsV1 operation in SuggestedEntitlementDescriptionV1Api.
+ * Request parameters for createAutoWriteSettingsV1 operation in SuggestedEntitlementDescriptionApi.
  * @export
- * @interface SuggestedEntitlementDescriptionV1ApiCreateAutoWriteSettingsV1Request
+ * @interface SuggestedEntitlementDescriptionApiCreateAutoWriteSettingsV1Request
  */
-export interface SuggestedEntitlementDescriptionV1ApiCreateAutoWriteSettingsV1Request {
+export interface SuggestedEntitlementDescriptionApiCreateAutoWriteSettingsV1Request {
     /**
      * Auto-write settings to create
-     * @type {AutowritesettingV1}
-     * @memberof SuggestedEntitlementDescriptionV1ApiCreateAutoWriteSettingsV1
+     * @type {Autowritesetting}
+     * @memberof SuggestedEntitlementDescriptionApiCreateAutoWriteSettingsV1
      */
-    readonly autowritesettingV1: AutowritesettingV1
+    readonly autowritesetting: Autowritesetting
 }
 
 /**
- * Request parameters for getSedBatchStatsV1 operation in SuggestedEntitlementDescriptionV1Api.
+ * Request parameters for getSedBatchStatsV1 operation in SuggestedEntitlementDescriptionApi.
  * @export
- * @interface SuggestedEntitlementDescriptionV1ApiGetSedBatchStatsV1Request
+ * @interface SuggestedEntitlementDescriptionApiGetSedBatchStatsV1Request
  */
-export interface SuggestedEntitlementDescriptionV1ApiGetSedBatchStatsV1Request {
+export interface SuggestedEntitlementDescriptionApiGetSedBatchStatsV1Request {
     /**
      * Batch Id
      * @type {string}
-     * @memberof SuggestedEntitlementDescriptionV1ApiGetSedBatchStatsV1
+     * @memberof SuggestedEntitlementDescriptionApiGetSedBatchStatsV1
      */
     readonly batchId: string
 }
 
 /**
- * Request parameters for getSedBatchesV1 operation in SuggestedEntitlementDescriptionV1Api.
+ * Request parameters for getSedBatchesV1 operation in SuggestedEntitlementDescriptionApi.
  * @export
- * @interface SuggestedEntitlementDescriptionV1ApiGetSedBatchesV1Request
+ * @interface SuggestedEntitlementDescriptionApiGetSedBatchesV1Request
  */
-export interface SuggestedEntitlementDescriptionV1ApiGetSedBatchesV1Request {
+export interface SuggestedEntitlementDescriptionApiGetSedBatchesV1Request {
     /**
      * Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
      * @type {number}
-     * @memberof SuggestedEntitlementDescriptionV1ApiGetSedBatchesV1
+     * @memberof SuggestedEntitlementDescriptionApiGetSedBatchesV1
      */
     readonly offset?: number
 
     /**
      * Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
      * @type {number}
-     * @memberof SuggestedEntitlementDescriptionV1ApiGetSedBatchesV1
+     * @memberof SuggestedEntitlementDescriptionApiGetSedBatchesV1
      */
     readonly limit?: number
 
     /**
      * If &#x60;true&#x60; it will populate the &#x60;X-Total-Count&#x60; response header with the number of results that would be returned if &#x60;limit&#x60; and &#x60;offset&#x60; were ignored.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). Since requesting a total count can have a performance impact, it is recommended not to send &#x60;count&#x3D;true&#x60; if that value will not be used.
      * @type {boolean}
-     * @memberof SuggestedEntitlementDescriptionV1ApiGetSedBatchesV1
+     * @memberof SuggestedEntitlementDescriptionApiGetSedBatchesV1
      */
     readonly count?: boolean
 
     /**
      * If &#x60;true&#x60; it will populate the &#x60;X-Total-Count&#x60; response header with the number of results that would be returned if &#x60;limit&#x60; and &#x60;offset&#x60; were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array.
      * @type {boolean}
-     * @memberof SuggestedEntitlementDescriptionV1ApiGetSedBatchesV1
+     * @memberof SuggestedEntitlementDescriptionApiGetSedBatchesV1
      */
     readonly countOnly?: boolean
 
     /**
      * Batch Status
      * @type {string}
-     * @memberof SuggestedEntitlementDescriptionV1ApiGetSedBatchesV1
+     * @memberof SuggestedEntitlementDescriptionApiGetSedBatchesV1
      */
     readonly status?: string
 }
 
 /**
- * Request parameters for listPendingEntitlementRecommendationApprovalsV1 operation in SuggestedEntitlementDescriptionV1Api.
+ * Request parameters for listPendingEntitlementRecommendationApprovalsV1 operation in SuggestedEntitlementDescriptionApi.
  * @export
- * @interface SuggestedEntitlementDescriptionV1ApiListPendingEntitlementRecommendationApprovalsV1Request
+ * @interface SuggestedEntitlementDescriptionApiListPendingEntitlementRecommendationApprovalsV1Request
  */
-export interface SuggestedEntitlementDescriptionV1ApiListPendingEntitlementRecommendationApprovalsV1Request {
+export interface SuggestedEntitlementDescriptionApiListPendingEntitlementRecommendationApprovalsV1Request {
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof SuggestedEntitlementDescriptionV1ApiListPendingEntitlementRecommendationApprovalsV1
+     * @memberof SuggestedEntitlementDescriptionApiListPendingEntitlementRecommendationApprovalsV1
      */
     readonly offset?: number
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof SuggestedEntitlementDescriptionV1ApiListPendingEntitlementRecommendationApprovalsV1
+     * @memberof SuggestedEntitlementDescriptionApiListPendingEntitlementRecommendationApprovalsV1
      */
     readonly limit?: number
 }
 
 /**
- * Request parameters for listPrivilegedEntitlementRecommendationsV1 operation in SuggestedEntitlementDescriptionV1Api.
+ * Request parameters for listPrivilegedEntitlementRecommendationsV1 operation in SuggestedEntitlementDescriptionApi.
  * @export
- * @interface SuggestedEntitlementDescriptionV1ApiListPrivilegedEntitlementRecommendationsV1Request
+ * @interface SuggestedEntitlementDescriptionApiListPrivilegedEntitlementRecommendationsV1Request
  */
-export interface SuggestedEntitlementDescriptionV1ApiListPrivilegedEntitlementRecommendationsV1Request {
+export interface SuggestedEntitlementDescriptionApiListPrivilegedEntitlementRecommendationsV1Request {
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof SuggestedEntitlementDescriptionV1ApiListPrivilegedEntitlementRecommendationsV1
+     * @memberof SuggestedEntitlementDescriptionApiListPrivilegedEntitlementRecommendationsV1
      */
     readonly offset?: number
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof SuggestedEntitlementDescriptionV1ApiListPrivilegedEntitlementRecommendationsV1
+     * @memberof SuggestedEntitlementDescriptionApiListPrivilegedEntitlementRecommendationsV1
      */
     readonly limit?: number
 }
 
 /**
- * Request parameters for listSedsV1 operation in SuggestedEntitlementDescriptionV1Api.
+ * Request parameters for listSedsV1 operation in SuggestedEntitlementDescriptionApi.
  * @export
- * @interface SuggestedEntitlementDescriptionV1ApiListSedsV1Request
+ * @interface SuggestedEntitlementDescriptionApiListSedsV1Request
  */
-export interface SuggestedEntitlementDescriptionV1ApiListSedsV1Request {
+export interface SuggestedEntitlementDescriptionApiListSedsV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof SuggestedEntitlementDescriptionV1ApiListSedsV1
+     * @memberof SuggestedEntitlementDescriptionApiListSedsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof SuggestedEntitlementDescriptionV1ApiListSedsV1
+     * @memberof SuggestedEntitlementDescriptionApiListSedsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof SuggestedEntitlementDescriptionV1ApiListSedsV1
+     * @memberof SuggestedEntitlementDescriptionApiListSedsV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq, ne*  **displayName**: *eq, ne, co*  **sourceName**: *eq, ne, co*  **sourceId**: *eq, ne*  **status**: *eq, ne*  **fullText**: *co*
      * @type {string}
-     * @memberof SuggestedEntitlementDescriptionV1ApiListSedsV1
+     * @memberof SuggestedEntitlementDescriptionApiListSedsV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, sourceName, status**
      * @type {string}
-     * @memberof SuggestedEntitlementDescriptionV1ApiListSedsV1
+     * @memberof SuggestedEntitlementDescriptionApiListSedsV1
      */
     readonly sorters?: string
 
     /**
      * If &#x60;true&#x60; it will populate the &#x60;X-Total-Count&#x60; response header with the number of results that would be returned if &#x60;limit&#x60; and &#x60;offset&#x60; were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array.
      * @type {boolean}
-     * @memberof SuggestedEntitlementDescriptionV1ApiListSedsV1
+     * @memberof SuggestedEntitlementDescriptionApiListSedsV1
      */
     readonly countOnly?: boolean
 
     /**
      * By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested
      * @type {boolean}
-     * @memberof SuggestedEntitlementDescriptionV1ApiListSedsV1
+     * @memberof SuggestedEntitlementDescriptionApiListSedsV1
      */
     readonly requestedByAnyone?: boolean
 
     /**
      * Will limit records to items that are in \&quot;suggested\&quot; or \&quot;approved\&quot; status
      * @type {boolean}
-     * @memberof SuggestedEntitlementDescriptionV1ApiListSedsV1
+     * @memberof SuggestedEntitlementDescriptionApiListSedsV1
      */
     readonly showPendingStatusOnly?: boolean
 }
 
 /**
- * Request parameters for patchEntitlementRecommendationV1 operation in SuggestedEntitlementDescriptionV1Api.
+ * Request parameters for patchEntitlementRecommendationV1 operation in SuggestedEntitlementDescriptionApi.
  * @export
- * @interface SuggestedEntitlementDescriptionV1ApiPatchEntitlementRecommendationV1Request
+ * @interface SuggestedEntitlementDescriptionApiPatchEntitlementRecommendationV1Request
  */
-export interface SuggestedEntitlementDescriptionV1ApiPatchEntitlementRecommendationV1Request {
+export interface SuggestedEntitlementDescriptionApiPatchEntitlementRecommendationV1Request {
     /**
      * The unique identifier of the entitlement recommendation to update.
      * @type {string}
-     * @memberof SuggestedEntitlementDescriptionV1ApiPatchEntitlementRecommendationV1
+     * @memberof SuggestedEntitlementDescriptionApiPatchEntitlementRecommendationV1
      */
     readonly id: string
 
     /**
      * The patch operations to apply to the entitlement recommendation record.
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof SuggestedEntitlementDescriptionV1ApiPatchEntitlementRecommendationV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof SuggestedEntitlementDescriptionApiPatchEntitlementRecommendationV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * Request parameters for patchSedV1 operation in SuggestedEntitlementDescriptionV1Api.
+ * Request parameters for patchSedV1 operation in SuggestedEntitlementDescriptionApi.
  * @export
- * @interface SuggestedEntitlementDescriptionV1ApiPatchSedV1Request
+ * @interface SuggestedEntitlementDescriptionApiPatchSedV1Request
  */
-export interface SuggestedEntitlementDescriptionV1ApiPatchSedV1Request {
+export interface SuggestedEntitlementDescriptionApiPatchSedV1Request {
     /**
      * id is sed id
      * @type {string}
-     * @memberof SuggestedEntitlementDescriptionV1ApiPatchSedV1
+     * @memberof SuggestedEntitlementDescriptionApiPatchSedV1
      */
     readonly id: string
 
     /**
      * Sed Patch Request
-     * @type {Array<SedpatchV1>}
-     * @memberof SuggestedEntitlementDescriptionV1ApiPatchSedV1
+     * @type {Array<Sedpatch>}
+     * @memberof SuggestedEntitlementDescriptionApiPatchSedV1
      */
-    readonly sedpatchV1: Array<SedpatchV1>
+    readonly sedpatch: Array<Sedpatch>
 }
 
 /**
- * Request parameters for submitEntitlementRecommendationsAssignmentV1 operation in SuggestedEntitlementDescriptionV1Api.
+ * Request parameters for submitEntitlementRecommendationsAssignmentV1 operation in SuggestedEntitlementDescriptionApi.
  * @export
- * @interface SuggestedEntitlementDescriptionV1ApiSubmitEntitlementRecommendationsAssignmentV1Request
+ * @interface SuggestedEntitlementDescriptionApiSubmitEntitlementRecommendationsAssignmentV1Request
  */
-export interface SuggestedEntitlementDescriptionV1ApiSubmitEntitlementRecommendationsAssignmentV1Request {
+export interface SuggestedEntitlementDescriptionApiSubmitEntitlementRecommendationsAssignmentV1Request {
     /**
      * The recommendation IDs and the target assignee.
-     * @type {EntitlementrecommendationassignrequestV1}
-     * @memberof SuggestedEntitlementDescriptionV1ApiSubmitEntitlementRecommendationsAssignmentV1
+     * @type {Entitlementrecommendationassignrequest}
+     * @memberof SuggestedEntitlementDescriptionApiSubmitEntitlementRecommendationsAssignmentV1
      */
-    readonly entitlementrecommendationassignrequestV1: EntitlementrecommendationassignrequestV1
+    readonly entitlementrecommendationassignrequest: Entitlementrecommendationassignrequest
 }
 
 /**
- * Request parameters for submitSedApprovalV1 operation in SuggestedEntitlementDescriptionV1Api.
+ * Request parameters for submitSedApprovalV1 operation in SuggestedEntitlementDescriptionApi.
  * @export
- * @interface SuggestedEntitlementDescriptionV1ApiSubmitSedApprovalV1Request
+ * @interface SuggestedEntitlementDescriptionApiSubmitSedApprovalV1Request
  */
-export interface SuggestedEntitlementDescriptionV1ApiSubmitSedApprovalV1Request {
+export interface SuggestedEntitlementDescriptionApiSubmitSedApprovalV1Request {
     /**
      * Sed Approval
-     * @type {Array<SedapprovalV1>}
-     * @memberof SuggestedEntitlementDescriptionV1ApiSubmitSedApprovalV1
+     * @type {Array<Sedapproval>}
+     * @memberof SuggestedEntitlementDescriptionApiSubmitSedApprovalV1
      */
-    readonly sedapprovalV1: Array<SedapprovalV1>
+    readonly sedapproval: Array<Sedapproval>
 }
 
 /**
- * Request parameters for submitSedAssignmentV1 operation in SuggestedEntitlementDescriptionV1Api.
+ * Request parameters for submitSedAssignmentV1 operation in SuggestedEntitlementDescriptionApi.
  * @export
- * @interface SuggestedEntitlementDescriptionV1ApiSubmitSedAssignmentV1Request
+ * @interface SuggestedEntitlementDescriptionApiSubmitSedAssignmentV1Request
  */
-export interface SuggestedEntitlementDescriptionV1ApiSubmitSedAssignmentV1Request {
+export interface SuggestedEntitlementDescriptionApiSubmitSedAssignmentV1Request {
     /**
      * Sed Assignment Request
-     * @type {SedassignmentV1}
-     * @memberof SuggestedEntitlementDescriptionV1ApiSubmitSedAssignmentV1
+     * @type {Sedassignment}
+     * @memberof SuggestedEntitlementDescriptionApiSubmitSedAssignmentV1
      */
-    readonly sedassignmentV1: SedassignmentV1
+    readonly sedassignment: Sedassignment
 }
 
 /**
- * Request parameters for submitSedBatchRequestV1 operation in SuggestedEntitlementDescriptionV1Api.
+ * Request parameters for submitSedBatchRequestV1 operation in SuggestedEntitlementDescriptionApi.
  * @export
- * @interface SuggestedEntitlementDescriptionV1ApiSubmitSedBatchRequestV1Request
+ * @interface SuggestedEntitlementDescriptionApiSubmitSedBatchRequestV1Request
  */
-export interface SuggestedEntitlementDescriptionV1ApiSubmitSedBatchRequestV1Request {
+export interface SuggestedEntitlementDescriptionApiSubmitSedBatchRequestV1Request {
     /**
      * Sed Batch Request
-     * @type {SedbatchrequestV1}
-     * @memberof SuggestedEntitlementDescriptionV1ApiSubmitSedBatchRequestV1
+     * @type {Sedbatchrequest}
+     * @memberof SuggestedEntitlementDescriptionApiSubmitSedBatchRequestV1
      */
-    readonly sedbatchrequestV1?: SedbatchrequestV1
+    readonly sedbatchrequest?: Sedbatchrequest
 }
 
 /**
- * Request parameters for updateAutoWriteSettingsV1 operation in SuggestedEntitlementDescriptionV1Api.
+ * Request parameters for updateAutoWriteSettingsV1 operation in SuggestedEntitlementDescriptionApi.
  * @export
- * @interface SuggestedEntitlementDescriptionV1ApiUpdateAutoWriteSettingsV1Request
+ * @interface SuggestedEntitlementDescriptionApiUpdateAutoWriteSettingsV1Request
  */
-export interface SuggestedEntitlementDescriptionV1ApiUpdateAutoWriteSettingsV1Request {
+export interface SuggestedEntitlementDescriptionApiUpdateAutoWriteSettingsV1Request {
     /**
      * Patch operations for auto-write settings
-     * @type {Array<AutowritesettingpatchV1>}
-     * @memberof SuggestedEntitlementDescriptionV1ApiUpdateAutoWriteSettingsV1
+     * @type {Array<Autowritesettingpatch>}
+     * @memberof SuggestedEntitlementDescriptionApiUpdateAutoWriteSettingsV1
      */
-    readonly autowritesettingpatchV1: Array<AutowritesettingpatchV1>
+    readonly autowritesettingpatch: Array<Autowritesettingpatch>
 }
 
 /**
- * SuggestedEntitlementDescriptionV1Api - object-oriented interface
+ * SuggestedEntitlementDescriptionApi - object-oriented interface
  * @export
- * @class SuggestedEntitlementDescriptionV1Api
+ * @class SuggestedEntitlementDescriptionApi
  * @extends {BaseAPI}
  */
-export class SuggestedEntitlementDescriptionV1Api extends BaseAPI {
+export class SuggestedEntitlementDescriptionApi extends BaseAPI {
     /**
      * Approve multiple entitlement recommendations in a single request. Each item in the request must include the recommendation ID and, depending on the record type, either an approved description (SED items) or an approved privilege level (privilege items). Returns a per-item result indicating success or failure.
      * @summary Bulk approve entitlement recommendations
-     * @param {SuggestedEntitlementDescriptionV1ApiApproveBulkEntitlementRecommendationsV1Request} requestParameters Request parameters.
+     * @param {SuggestedEntitlementDescriptionApiApproveBulkEntitlementRecommendationsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SuggestedEntitlementDescriptionV1Api
+     * @memberof SuggestedEntitlementDescriptionApi
      */
-    public approveBulkEntitlementRecommendationsV1(requestParameters: SuggestedEntitlementDescriptionV1ApiApproveBulkEntitlementRecommendationsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SuggestedEntitlementDescriptionV1ApiFp(this.configuration).approveBulkEntitlementRecommendationsV1(requestParameters.bulkapproveentitlementrecommendationrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public approveBulkEntitlementRecommendationsV1(requestParameters: SuggestedEntitlementDescriptionApiApproveBulkEntitlementRecommendationsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SuggestedEntitlementDescriptionApiFp(this.configuration).approveBulkEntitlementRecommendationsV1(requestParameters.bulkapproveentitlementrecommendationrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Create the initial auto-write settings for a tenant. Returns 409 Conflict if settings already exist. Use PATCH to update existing settings.
      * @summary Create auto-write settings for SED
-     * @param {SuggestedEntitlementDescriptionV1ApiCreateAutoWriteSettingsV1Request} requestParameters Request parameters.
+     * @param {SuggestedEntitlementDescriptionApiCreateAutoWriteSettingsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SuggestedEntitlementDescriptionV1Api
+     * @memberof SuggestedEntitlementDescriptionApi
      */
-    public createAutoWriteSettingsV1(requestParameters: SuggestedEntitlementDescriptionV1ApiCreateAutoWriteSettingsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SuggestedEntitlementDescriptionV1ApiFp(this.configuration).createAutoWriteSettingsV1(requestParameters.autowritesettingV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createAutoWriteSettingsV1(requestParameters: SuggestedEntitlementDescriptionApiCreateAutoWriteSettingsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SuggestedEntitlementDescriptionApiFp(this.configuration).createAutoWriteSettingsV1(requestParameters.autowritesetting, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2553,154 +2553,154 @@ export class SuggestedEntitlementDescriptionV1Api extends BaseAPI {
      * @summary Get auto-write settings for SED
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SuggestedEntitlementDescriptionV1Api
+     * @memberof SuggestedEntitlementDescriptionApi
      */
     public getAutoWriteSettingsV1(axiosOptions?: RawAxiosRequestConfig) {
-        return SuggestedEntitlementDescriptionV1ApiFp(this.configuration).getAutoWriteSettingsV1(axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SuggestedEntitlementDescriptionApiFp(this.configuration).getAutoWriteSettingsV1(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * \'Submit Sed Batch Stats Request.   Submits batchId in the path param `(e.g. {batchId}/stats)`. API responses with stats  of the batchId.\' 
      * @summary Submit sed batch stats request
-     * @param {SuggestedEntitlementDescriptionV1ApiGetSedBatchStatsV1Request} requestParameters Request parameters.
+     * @param {SuggestedEntitlementDescriptionApiGetSedBatchStatsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SuggestedEntitlementDescriptionV1Api
+     * @memberof SuggestedEntitlementDescriptionApi
      */
-    public getSedBatchStatsV1(requestParameters: SuggestedEntitlementDescriptionV1ApiGetSedBatchStatsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SuggestedEntitlementDescriptionV1ApiFp(this.configuration).getSedBatchStatsV1(requestParameters.batchId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSedBatchStatsV1(requestParameters: SuggestedEntitlementDescriptionApiGetSedBatchStatsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SuggestedEntitlementDescriptionApiFp(this.configuration).getSedBatchStatsV1(requestParameters.batchId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * List Sed Batches. API responses with Sed Batch Records
      * @summary List Sed Batch Record
-     * @param {SuggestedEntitlementDescriptionV1ApiGetSedBatchesV1Request} requestParameters Request parameters.
+     * @param {SuggestedEntitlementDescriptionApiGetSedBatchesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SuggestedEntitlementDescriptionV1Api
+     * @memberof SuggestedEntitlementDescriptionApi
      */
-    public getSedBatchesV1(requestParameters: SuggestedEntitlementDescriptionV1ApiGetSedBatchesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return SuggestedEntitlementDescriptionV1ApiFp(this.configuration).getSedBatchesV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.countOnly, requestParameters.status, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSedBatchesV1(requestParameters: SuggestedEntitlementDescriptionApiGetSedBatchesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return SuggestedEntitlementDescriptionApiFp(this.configuration).getSedBatchesV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.countOnly, requestParameters.status, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Returns a list of entitlement recommendations (SED and/or privilege) that are currently awaiting review or approval. Each record includes the recommendation type, entitlement details, and any AI-generated suggestions.
      * @summary List pending entitlement recommendation approvals
-     * @param {SuggestedEntitlementDescriptionV1ApiListPendingEntitlementRecommendationApprovalsV1Request} requestParameters Request parameters.
+     * @param {SuggestedEntitlementDescriptionApiListPendingEntitlementRecommendationApprovalsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SuggestedEntitlementDescriptionV1Api
+     * @memberof SuggestedEntitlementDescriptionApi
      */
-    public listPendingEntitlementRecommendationApprovalsV1(requestParameters: SuggestedEntitlementDescriptionV1ApiListPendingEntitlementRecommendationApprovalsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return SuggestedEntitlementDescriptionV1ApiFp(this.configuration).listPendingEntitlementRecommendationApprovalsV1(requestParameters.offset, requestParameters.limit, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listPendingEntitlementRecommendationApprovalsV1(requestParameters: SuggestedEntitlementDescriptionApiListPendingEntitlementRecommendationApprovalsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return SuggestedEntitlementDescriptionApiFp(this.configuration).listPendingEntitlementRecommendationApprovalsV1(requestParameters.offset, requestParameters.limit, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Returns a list of privileged entitlement recommendation groups. Each group aggregates individual entitlement instances that share the same entitlement name and connector type, along with a recommendation score and instance count.
      * @summary List privileged entitlement recommendations
-     * @param {SuggestedEntitlementDescriptionV1ApiListPrivilegedEntitlementRecommendationsV1Request} requestParameters Request parameters.
+     * @param {SuggestedEntitlementDescriptionApiListPrivilegedEntitlementRecommendationsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SuggestedEntitlementDescriptionV1Api
+     * @memberof SuggestedEntitlementDescriptionApi
      */
-    public listPrivilegedEntitlementRecommendationsV1(requestParameters: SuggestedEntitlementDescriptionV1ApiListPrivilegedEntitlementRecommendationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return SuggestedEntitlementDescriptionV1ApiFp(this.configuration).listPrivilegedEntitlementRecommendationsV1(requestParameters.offset, requestParameters.limit, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listPrivilegedEntitlementRecommendationsV1(requestParameters: SuggestedEntitlementDescriptionApiListPrivilegedEntitlementRecommendationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return SuggestedEntitlementDescriptionApiFp(this.configuration).listPrivilegedEntitlementRecommendationsV1(requestParameters.offset, requestParameters.limit, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * List of Suggested Entitlement Descriptions (SED)  SED field descriptions:  **batchId**: the ID of the batch of entitlements that are submitted for description generation  **displayName**: the display name of the entitlement that we are generating a description for  **sourceName**: the name of the source associated with the entitlement that we are generating the description for  **sourceId**: the ID of the source associated with the entitlement that we are generating the description for  **status**: the status of the suggested entitlement description, valid status options: \"requested\", \"suggested\", \"not_suggested\", \"failed\", \"assigned\", \"approved\", \"denied\"  **fullText**: will filter suggested entitlement description records by text found in any of the following fields: entitlement name, entitlement display name, suggested description, source name
      * @summary List suggested entitlement descriptions
-     * @param {SuggestedEntitlementDescriptionV1ApiListSedsV1Request} requestParameters Request parameters.
+     * @param {SuggestedEntitlementDescriptionApiListSedsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SuggestedEntitlementDescriptionV1Api
+     * @memberof SuggestedEntitlementDescriptionApi
      */
-    public listSedsV1(requestParameters: SuggestedEntitlementDescriptionV1ApiListSedsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return SuggestedEntitlementDescriptionV1ApiFp(this.configuration).listSedsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.countOnly, requestParameters.requestedByAnyone, requestParameters.showPendingStatusOnly, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listSedsV1(requestParameters: SuggestedEntitlementDescriptionApiListSedsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return SuggestedEntitlementDescriptionApiFp(this.configuration).listSedsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.countOnly, requestParameters.requestedByAnyone, requestParameters.showPendingStatusOnly, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Partially update a single entitlement recommendation record by its ID. Use this endpoint to update the status, description, or privilege level of a specific SED or privilege recommendation.
      * @summary Update an entitlement recommendation
-     * @param {SuggestedEntitlementDescriptionV1ApiPatchEntitlementRecommendationV1Request} requestParameters Request parameters.
+     * @param {SuggestedEntitlementDescriptionApiPatchEntitlementRecommendationV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SuggestedEntitlementDescriptionV1Api
+     * @memberof SuggestedEntitlementDescriptionApi
      */
-    public patchEntitlementRecommendationV1(requestParameters: SuggestedEntitlementDescriptionV1ApiPatchEntitlementRecommendationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SuggestedEntitlementDescriptionV1ApiFp(this.configuration).patchEntitlementRecommendationV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchEntitlementRecommendationV1(requestParameters: SuggestedEntitlementDescriptionApiPatchEntitlementRecommendationV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SuggestedEntitlementDescriptionApiFp(this.configuration).patchEntitlementRecommendationV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Patch Suggested Entitlement Description
      * @summary Patch suggested entitlement description
-     * @param {SuggestedEntitlementDescriptionV1ApiPatchSedV1Request} requestParameters Request parameters.
+     * @param {SuggestedEntitlementDescriptionApiPatchSedV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SuggestedEntitlementDescriptionV1Api
+     * @memberof SuggestedEntitlementDescriptionApi
      */
-    public patchSedV1(requestParameters: SuggestedEntitlementDescriptionV1ApiPatchSedV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SuggestedEntitlementDescriptionV1ApiFp(this.configuration).patchSedV1(requestParameters.id, requestParameters.sedpatchV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchSedV1(requestParameters: SuggestedEntitlementDescriptionApiPatchSedV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SuggestedEntitlementDescriptionApiFp(this.configuration).patchSedV1(requestParameters.id, requestParameters.sedpatch, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Assign a set of entitlement recommendation records to a reviewer. The assignee can be a specific identity, a governance group, or a role-based assignee such as source owner or entitlement owner. Returns a batch ID that can be used to track the assignment.
      * @summary Assign entitlement recommendations for review
-     * @param {SuggestedEntitlementDescriptionV1ApiSubmitEntitlementRecommendationsAssignmentV1Request} requestParameters Request parameters.
+     * @param {SuggestedEntitlementDescriptionApiSubmitEntitlementRecommendationsAssignmentV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SuggestedEntitlementDescriptionV1Api
+     * @memberof SuggestedEntitlementDescriptionApi
      */
-    public submitEntitlementRecommendationsAssignmentV1(requestParameters: SuggestedEntitlementDescriptionV1ApiSubmitEntitlementRecommendationsAssignmentV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SuggestedEntitlementDescriptionV1ApiFp(this.configuration).submitEntitlementRecommendationsAssignmentV1(requestParameters.entitlementrecommendationassignrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public submitEntitlementRecommendationsAssignmentV1(requestParameters: SuggestedEntitlementDescriptionApiSubmitEntitlementRecommendationsAssignmentV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SuggestedEntitlementDescriptionApiFp(this.configuration).submitEntitlementRecommendationsAssignmentV1(requestParameters.entitlementrecommendationassignrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Submit Bulk Approval Request for SED. Request body takes list of SED Ids. API responses with list of SED Approval Status
      * @summary Submit bulk approval request
-     * @param {SuggestedEntitlementDescriptionV1ApiSubmitSedApprovalV1Request} requestParameters Request parameters.
+     * @param {SuggestedEntitlementDescriptionApiSubmitSedApprovalV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SuggestedEntitlementDescriptionV1Api
+     * @memberof SuggestedEntitlementDescriptionApi
      */
-    public submitSedApprovalV1(requestParameters: SuggestedEntitlementDescriptionV1ApiSubmitSedApprovalV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SuggestedEntitlementDescriptionV1ApiFp(this.configuration).submitSedApprovalV1(requestParameters.sedapprovalV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public submitSedApprovalV1(requestParameters: SuggestedEntitlementDescriptionApiSubmitSedApprovalV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SuggestedEntitlementDescriptionApiFp(this.configuration).submitSedApprovalV1(requestParameters.sedapproval, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Submit Assignment Request. Request body has an assignee, and list of SED Ids that are assigned to that assignee API responses with batchId that groups all approval requests together
      * @summary Submit sed assignment request
-     * @param {SuggestedEntitlementDescriptionV1ApiSubmitSedAssignmentV1Request} requestParameters Request parameters.
+     * @param {SuggestedEntitlementDescriptionApiSubmitSedAssignmentV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SuggestedEntitlementDescriptionV1Api
+     * @memberof SuggestedEntitlementDescriptionApi
      */
-    public submitSedAssignmentV1(requestParameters: SuggestedEntitlementDescriptionV1ApiSubmitSedAssignmentV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SuggestedEntitlementDescriptionV1ApiFp(this.configuration).submitSedAssignmentV1(requestParameters.sedassignmentV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public submitSedAssignmentV1(requestParameters: SuggestedEntitlementDescriptionApiSubmitSedAssignmentV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SuggestedEntitlementDescriptionApiFp(this.configuration).submitSedAssignmentV1(requestParameters.sedassignment, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Submit Sed Batch Request. Request body has one of the following: - a list of entitlement Ids - a list of SED Ids that user wants to have description generated by LLM.  API responses with batchId that groups Ids together
      * @summary Submit sed batch request
-     * @param {SuggestedEntitlementDescriptionV1ApiSubmitSedBatchRequestV1Request} requestParameters Request parameters.
+     * @param {SuggestedEntitlementDescriptionApiSubmitSedBatchRequestV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SuggestedEntitlementDescriptionV1Api
+     * @memberof SuggestedEntitlementDescriptionApi
      */
-    public submitSedBatchRequestV1(requestParameters: SuggestedEntitlementDescriptionV1ApiSubmitSedBatchRequestV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return SuggestedEntitlementDescriptionV1ApiFp(this.configuration).submitSedBatchRequestV1(requestParameters.sedbatchrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public submitSedBatchRequestV1(requestParameters: SuggestedEntitlementDescriptionApiSubmitSedBatchRequestV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return SuggestedEntitlementDescriptionApiFp(this.configuration).submitSedBatchRequestV1(requestParameters.sedbatchrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Partially update the auto-write settings for a tenant using JSON Patch operations. Only the \"replace\" operation is supported. Returns 404 if no settings exist yet - use POST to create them first.
      * @summary Update auto-write settings for SED
-     * @param {SuggestedEntitlementDescriptionV1ApiUpdateAutoWriteSettingsV1Request} requestParameters Request parameters.
+     * @param {SuggestedEntitlementDescriptionApiUpdateAutoWriteSettingsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SuggestedEntitlementDescriptionV1Api
+     * @memberof SuggestedEntitlementDescriptionApi
      */
-    public updateAutoWriteSettingsV1(requestParameters: SuggestedEntitlementDescriptionV1ApiUpdateAutoWriteSettingsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SuggestedEntitlementDescriptionV1ApiFp(this.configuration).updateAutoWriteSettingsV1(requestParameters.autowritesettingpatchV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateAutoWriteSettingsV1(requestParameters: SuggestedEntitlementDescriptionApiUpdateAutoWriteSettingsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SuggestedEntitlementDescriptionApiFp(this.configuration).updateAutoWriteSettingsV1(requestParameters.autowritesettingpatch, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

@@ -1,21 +1,21 @@
 ---
-id: v1-basereferencedto-v1
-title: BasereferencedtoV1
-pagination_label: BasereferencedtoV1
-sidebar_label: BasereferencedtoV1
+id: v1-basereferencedto
+title: Basereferencedto
+pagination_label: Basereferencedto
+sidebar_label: Basereferencedto
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'BasereferencedtoV1', 'v1BasereferencedtoV1']
-slug: /tools/sdk/typescript/accounts/models/basereferencedto-v1
-tags: ['SDK', 'Software Development Kit', 'BasereferencedtoV1', 'v1BasereferencedtoV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Basereferencedto', 'v1Basereferencedto']
+slug: /tools/sdk/typescript/accounts/models/basereferencedto
+tags: ['SDK', 'Software Development Kit', 'Basereferencedto', 'v1Basereferencedto']
 ---
 
-# BasereferencedtoV1
+# Basereferencedto
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **DtotypeV1** |  | [default to undefined]
-**id** | **(optional)** **string** | ID of the object to which this reference applies | [default to undefined]
-**name** | **(optional)** **string** | Human-readable display name of the object to which this reference applies | [default to undefined]
+**type** | **(optional)** `Dtotype` |  | [default to undefined]
+**id** | **(optional)** `string` | ID of the object to which this reference applies | [default to undefined]
+**name** | **(optional)** `string` | Human-readable display name of the object to which this reference applies | [default to undefined]
 

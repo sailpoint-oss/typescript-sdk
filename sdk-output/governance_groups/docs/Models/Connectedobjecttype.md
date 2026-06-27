@@ -1,15 +1,15 @@
 ---
-id: v1-connectedobjecttype-v1
-title: ConnectedobjecttypeV1
-pagination_label: ConnectedobjecttypeV1
-sidebar_label: ConnectedobjecttypeV1
+id: v1-connectedobjecttype
+title: Connectedobjecttype
+pagination_label: Connectedobjecttype
+sidebar_label: Connectedobjecttype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ConnectedobjecttypeV1', 'v1ConnectedobjecttypeV1']
-slug: /tools/sdk/typescript/governance_groups/models/connectedobjecttype-v1
-tags: ['SDK', 'Software Development Kit', 'ConnectedobjecttypeV1', 'v1ConnectedobjecttypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Connectedobjecttype', 'v1Connectedobjecttype']
+slug: /tools/sdk/typescript/governance_groups/models/connectedobjecttype
+tags: ['SDK', 'Software Development Kit', 'Connectedobjecttype', 'v1Connectedobjecttype']
 ---
 
-# ConnectedobjecttypeV1
+# Connectedobjecttype
 
 ## Enum
 

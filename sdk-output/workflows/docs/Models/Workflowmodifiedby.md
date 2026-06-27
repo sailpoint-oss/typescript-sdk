@@ -1,21 +1,21 @@
 ---
-id: v1-workflowmodifiedby-v1
-title: WorkflowmodifiedbyV1
-pagination_label: WorkflowmodifiedbyV1
-sidebar_label: WorkflowmodifiedbyV1
+id: v1-workflowmodifiedby
+title: Workflowmodifiedby
+pagination_label: Workflowmodifiedby
+sidebar_label: Workflowmodifiedby
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'WorkflowmodifiedbyV1', 'v1WorkflowmodifiedbyV1']
-slug: /tools/sdk/typescript/workflows/models/workflowmodifiedby-v1
-tags: ['SDK', 'Software Development Kit', 'WorkflowmodifiedbyV1', 'v1WorkflowmodifiedbyV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Workflowmodifiedby', 'v1Workflowmodifiedby']
+slug: /tools/sdk/typescript/workflows/models/workflowmodifiedby
+tags: ['SDK', 'Software Development Kit', 'Workflowmodifiedby', 'v1Workflowmodifiedby']
 ---
 
-# WorkflowmodifiedbyV1
+# Workflowmodifiedby
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** |  | [default to undefined]
-**id** | **(optional)** **string** | Identity ID | [default to undefined]
-**name** | **(optional)** **string** | Human-readable display name of identity. | [default to undefined]
+**type** | **(optional)** `string` |  | [default to undefined]
+**id** | **(optional)** `string` | Identity ID | [default to undefined]
+**name** | **(optional)** `string` | Human-readable display name of identity. | [default to undefined]
 

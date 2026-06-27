@@ -1,19 +1,19 @@
 ---
-id: v1-campaignsdeleterequest-v1
-title: CampaignsdeleterequestV1
-pagination_label: CampaignsdeleterequestV1
-sidebar_label: CampaignsdeleterequestV1
+id: v1-campaignsdeleterequest
+title: Campaignsdeleterequest
+pagination_label: Campaignsdeleterequest
+sidebar_label: Campaignsdeleterequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'CampaignsdeleterequestV1', 'v1CampaignsdeleterequestV1']
-slug: /tools/sdk/typescript/certification_campaigns/models/campaignsdeleterequest-v1
-tags: ['SDK', 'Software Development Kit', 'CampaignsdeleterequestV1', 'v1CampaignsdeleterequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Campaignsdeleterequest', 'v1Campaignsdeleterequest']
+slug: /tools/sdk/typescript/certification_campaigns/models/campaignsdeleterequest
+tags: ['SDK', 'Software Development Kit', 'Campaignsdeleterequest', 'v1Campaignsdeleterequest']
 ---
 
-# CampaignsdeleterequestV1
+# Campaignsdeleterequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ids** | **(optional)** **Array&lt;string&gt;** | The ids of the campaigns to delete | [default to undefined]
+**ids** | **(optional)** `Array<string>` | The ids of the campaigns to delete | [default to undefined]
 

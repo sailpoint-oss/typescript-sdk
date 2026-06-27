@@ -1,20 +1,20 @@
 ---
-id: v1-searchcriteria-filters-value-range-upper-v1
-title: SearchcriteriaFiltersValueRangeUpperV1
-pagination_label: SearchcriteriaFiltersValueRangeUpperV1
-sidebar_label: SearchcriteriaFiltersValueRangeUpperV1
+id: v1-searchcriteria-filters-value-range-upper
+title: SearchcriteriaFiltersValueRangeUpper
+pagination_label: SearchcriteriaFiltersValueRangeUpper
+sidebar_label: SearchcriteriaFiltersValueRangeUpper
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SearchcriteriaFiltersValueRangeUpperV1', 'v1SearchcriteriaFiltersValueRangeUpperV1']
-slug: /tools/sdk/typescript/suggested_entitlement_description/models/searchcriteria-filters-value-range-upper-v1
-tags: ['SDK', 'Software Development Kit', 'SearchcriteriaFiltersValueRangeUpperV1', 'v1SearchcriteriaFiltersValueRangeUpperV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'SearchcriteriaFiltersValueRangeUpper', 'v1SearchcriteriaFiltersValueRangeUpper']
+slug: /tools/sdk/typescript/suggested_entitlement_description/models/searchcriteria-filters-value-range-upper
+tags: ['SDK', 'Software Development Kit', 'SearchcriteriaFiltersValueRangeUpper', 'v1SearchcriteriaFiltersValueRangeUpper']
 ---
 
-# SearchcriteriaFiltersValueRangeUpperV1
+# SearchcriteriaFiltersValueRangeUpper
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **(optional)** **string** | The upper bound value. | [default to undefined]
-**inclusive** | **(optional)** **boolean** | Whether the upper bound is inclusive. | [default to false]
+**value** | **(optional)** `string` | The upper bound value. | [default to undefined]
+**inclusive** | **(optional)** `boolean` | Whether the upper bound is inclusive. | [default to false]
 

@@ -1,22 +1,22 @@
 ---
-id: v1-attributeschanged-v1
-title: AttributeschangedV1
-pagination_label: AttributeschangedV1
-sidebar_label: AttributeschangedV1
+id: v1-attributeschanged
+title: Attributeschanged
+pagination_label: Attributeschanged
+sidebar_label: Attributeschanged
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AttributeschangedV1', 'v1AttributeschangedV1']
-slug: /tools/sdk/typescript/identity_history/models/attributeschanged-v1
-tags: ['SDK', 'Software Development Kit', 'AttributeschangedV1', 'v1AttributeschangedV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Attributeschanged', 'v1Attributeschanged']
+slug: /tools/sdk/typescript/identity_history/models/attributeschanged
+tags: ['SDK', 'Software Development Kit', 'Attributeschanged', 'v1Attributeschanged']
 ---
 
-# AttributeschangedV1
+# Attributeschanged
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributeChanges** | **Array&lt;AttributechangeV1&gt;** |  | [default to undefined]
-**eventType** | **(optional)** **string** | the event type | [default to undefined]
-**identityId** | **(optional)** **string** | the identity id | [default to undefined]
-**dateTime** | **(optional)** **string** | the date of event | [default to undefined]
+**attributeChanges** | `Array<Attributechange>` |  | [default to undefined]
+**eventType** | **(optional)** `string` | the event type | [default to undefined]
+**identityId** | **(optional)** `string` | the identity id | [default to undefined]
+**dateTime** | **(optional)** `string` | the date of event | [default to undefined]
 

@@ -1,20 +1,20 @@
 ---
-id: v1-authuserlevelsidentitycount-v1
-title: AuthuserlevelsidentitycountV1
-pagination_label: AuthuserlevelsidentitycountV1
-sidebar_label: AuthuserlevelsidentitycountV1
+id: v1-authuserlevelsidentitycount
+title: Authuserlevelsidentitycount
+pagination_label: Authuserlevelsidentitycount
+sidebar_label: Authuserlevelsidentitycount
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AuthuserlevelsidentitycountV1', 'v1AuthuserlevelsidentitycountV1']
-slug: /tools/sdk/typescript/custom_user_levels/models/authuserlevelsidentitycount-v1
-tags: ['SDK', 'Software Development Kit', 'AuthuserlevelsidentitycountV1', 'v1AuthuserlevelsidentitycountV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Authuserlevelsidentitycount', 'v1Authuserlevelsidentitycount']
+slug: /tools/sdk/typescript/custom_user_levels/models/authuserlevelsidentitycount
+tags: ['SDK', 'Software Development Kit', 'Authuserlevelsidentitycount', 'v1Authuserlevelsidentitycount']
 ---
 
-# AuthuserlevelsidentitycountV1
+# Authuserlevelsidentitycount
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **(optional)** **string** | The unique identifier of the user level. | [default to undefined]
-**count** | **(optional)** **number** | Number of identities having this user level. | [default to undefined]
+**id** | **(optional)** `string` | The unique identifier of the user level. | [default to undefined]
+**count** | **(optional)** `number` | Number of identities having this user level. | [default to undefined]
 

@@ -26,575 +26,575 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * Metadata that describes an access item
  * @export
- * @interface AccessmodelmetadataV1
+ * @interface Accessmodelmetadata
  */
-export interface AccessmodelmetadataV1 {
+export interface Accessmodelmetadata {
     /**
      * Unique identifier for the metadata type
      * @type {string}
-     * @memberof AccessmodelmetadataV1
+     * @memberof Accessmodelmetadata
      */
     'key'?: string;
     /**
      * Human readable name of the metadata type
      * @type {string}
-     * @memberof AccessmodelmetadataV1
+     * @memberof Accessmodelmetadata
      */
     'name'?: string;
     /**
      * Allows selecting multiple values
      * @type {boolean}
-     * @memberof AccessmodelmetadataV1
+     * @memberof Accessmodelmetadata
      */
     'multiselect'?: boolean;
     /**
      * The state of the metadata item
      * @type {string}
-     * @memberof AccessmodelmetadataV1
+     * @memberof Accessmodelmetadata
      */
     'status'?: string;
     /**
      * The type of the metadata item
      * @type {string}
-     * @memberof AccessmodelmetadataV1
+     * @memberof Accessmodelmetadata
      */
     'type'?: string;
     /**
      * The types of objects
      * @type {Array<string>}
-     * @memberof AccessmodelmetadataV1
+     * @memberof Accessmodelmetadata
      */
     'objectTypes'?: Array<string>;
     /**
      * Describes the metadata item
      * @type {string}
-     * @memberof AccessmodelmetadataV1
+     * @memberof Accessmodelmetadata
      */
     'description'?: string;
     /**
      * The value to assign to the metadata item
-     * @type {Array<AccessmodelmetadataValuesInnerV1>}
-     * @memberof AccessmodelmetadataV1
+     * @type {Array<AccessmodelmetadataValuesInner>}
+     * @memberof Accessmodelmetadata
      */
-    'values'?: Array<AccessmodelmetadataValuesInnerV1>;
+    'values'?: Array<AccessmodelmetadataValuesInner>;
 }
 /**
  * An individual value to assign to the metadata item
  * @export
- * @interface AccessmodelmetadataValuesInnerV1
+ * @interface AccessmodelmetadataValuesInner
  */
-export interface AccessmodelmetadataValuesInnerV1 {
+export interface AccessmodelmetadataValuesInner {
     /**
      * The value to assign to the metdata item
      * @type {string}
-     * @memberof AccessmodelmetadataValuesInnerV1
+     * @memberof AccessmodelmetadataValuesInner
      */
     'value'?: string;
     /**
      * Display name of the value
      * @type {string}
-     * @memberof AccessmodelmetadataValuesInnerV1
+     * @memberof AccessmodelmetadataValuesInner
      */
     'name'?: string;
     /**
      * The status of the individual value
      * @type {string}
-     * @memberof AccessmodelmetadataValuesInnerV1
+     * @memberof AccessmodelmetadataValuesInner
      */
     'status'?: string;
 }
 /**
- * The identity this account is correlated to
- * @export
- * @interface AccountAllOfIdentityV1
- */
-export interface AccountAllOfIdentityV1 {
-    /**
-     * The ID of the identity
-     * @type {string}
-     * @memberof AccountAllOfIdentityV1
-     */
-    'id'?: string;
-    /**
-     * The type of object being referenced
-     * @type {string}
-     * @memberof AccountAllOfIdentityV1
-     */
-    'type'?: AccountAllOfIdentityV1TypeV1;
-    /**
-     * display name of identity
-     * @type {string}
-     * @memberof AccountAllOfIdentityV1
-     */
-    'name'?: string;
-}
-
-export const AccountAllOfIdentityV1TypeV1 = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type AccountAllOfIdentityV1TypeV1 = typeof AccountAllOfIdentityV1TypeV1[keyof typeof AccountAllOfIdentityV1TypeV1];
-
-/**
  * 
  * @export
- * @interface AccountAllOfOwnerIdentityV1
+ * @interface Account
  */
-export interface AccountAllOfOwnerIdentityV1 {
-    /**
-     * 
-     * @type {DtotypeV1}
-     * @memberof AccountAllOfOwnerIdentityV1
-     */
-    'type'?: DtotypeV1;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof AccountAllOfOwnerIdentityV1
-     */
-    'id'?: string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof AccountAllOfOwnerIdentityV1
-     */
-    'name'?: string;
-}
-
-
-/**
- * 
- * @export
- * @interface AccountAllOfRecommendationV1
- */
-export interface AccountAllOfRecommendationV1 {
-    /**
-     * Recommended type of account.
-     * @type {string}
-     * @memberof AccountAllOfRecommendationV1
-     */
-    'type': AccountAllOfRecommendationV1TypeV1;
-    /**
-     * Method used to produce the recommendation. DISCOVERY - suggested by AI, SOURCE - the account comes from a source flagged as containing machine accounts, CRITERIA - the account satisfies classification criteria.
-     * @type {string}
-     * @memberof AccountAllOfRecommendationV1
-     */
-    'method': AccountAllOfRecommendationV1MethodV1;
-}
-
-export const AccountAllOfRecommendationV1TypeV1 = {
-    Human: 'HUMAN',
-    Machine: 'MACHINE'
-} as const;
-
-export type AccountAllOfRecommendationV1TypeV1 = typeof AccountAllOfRecommendationV1TypeV1[keyof typeof AccountAllOfRecommendationV1TypeV1];
-export const AccountAllOfRecommendationV1MethodV1 = {
-    Discovery: 'DISCOVERY',
-    Source: 'SOURCE',
-    Criteria: 'CRITERIA'
-} as const;
-
-export type AccountAllOfRecommendationV1MethodV1 = typeof AccountAllOfRecommendationV1MethodV1[keyof typeof AccountAllOfRecommendationV1MethodV1];
-
-/**
- * The owner of the source this account belongs to.
- * @export
- * @interface AccountAllOfSourceOwnerV1
- */
-export interface AccountAllOfSourceOwnerV1 {
-    /**
-     * The ID of the identity
-     * @type {string}
-     * @memberof AccountAllOfSourceOwnerV1
-     */
-    'id'?: string;
-    /**
-     * The type of object being referenced
-     * @type {string}
-     * @memberof AccountAllOfSourceOwnerV1
-     */
-    'type'?: AccountAllOfSourceOwnerV1TypeV1;
-    /**
-     * display name of identity
-     * @type {string}
-     * @memberof AccountAllOfSourceOwnerV1
-     */
-    'name'?: string;
-}
-
-export const AccountAllOfSourceOwnerV1TypeV1 = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type AccountAllOfSourceOwnerV1TypeV1 = typeof AccountAllOfSourceOwnerV1TypeV1[keyof typeof AccountAllOfSourceOwnerV1TypeV1];
-
-/**
- * 
- * @export
- * @interface AccountV1
- */
-export interface AccountV1 {
+export interface Account {
     /**
      * System-generated unique ID of the Object
      * @type {string}
-     * @memberof AccountV1
+     * @memberof Account
      */
     'id'?: string;
     /**
      * Name of the Object
      * @type {string}
-     * @memberof AccountV1
+     * @memberof Account
      */
     'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
-     * @memberof AccountV1
+     * @memberof Account
      */
     'created'?: string;
     /**
      * Last modification date of the Object
      * @type {string}
-     * @memberof AccountV1
+     * @memberof Account
      */
     'modified'?: string;
     /**
      * The unique ID of the source this account belongs to
      * @type {string}
-     * @memberof AccountV1
+     * @memberof Account
      */
     'sourceId': string;
     /**
      * The display name of the source this account belongs to
      * @type {string}
-     * @memberof AccountV1
+     * @memberof Account
      */
     'sourceName': string | null;
     /**
      * The unique ID of the identity this account is correlated to
      * @type {string}
-     * @memberof AccountV1
+     * @memberof Account
      */
     'identityId'?: string;
     /**
      * The lifecycle state of the identity this account is correlated to
      * @type {string}
-     * @memberof AccountV1
+     * @memberof Account
      */
     'cloudLifecycleState'?: string | null;
     /**
      * The identity state of the identity this account is correlated to
      * @type {string}
-     * @memberof AccountV1
+     * @memberof Account
      */
     'identityState'?: string | null;
     /**
      * The connection type of the source this account is from
      * @type {string}
-     * @memberof AccountV1
+     * @memberof Account
      */
     'connectionType'?: string | null;
     /**
      * Indicates if the account is of machine type
      * @type {boolean}
-     * @memberof AccountV1
+     * @memberof Account
      */
     'isMachine'?: boolean;
     /**
      * 
-     * @type {AccountAllOfRecommendationV1}
-     * @memberof AccountV1
+     * @type {AccountAllOfRecommendation}
+     * @memberof Account
      */
-    'recommendation'?: AccountAllOfRecommendationV1;
+    'recommendation'?: AccountAllOfRecommendation;
     /**
      * The account attributes that are aggregated
      * @type {{ [key: string]: any; }}
-     * @memberof AccountV1
+     * @memberof Account
      */
     'attributes': { [key: string]: any; } | null;
     /**
      * Indicates if this account is from an authoritative source
      * @type {boolean}
-     * @memberof AccountV1
+     * @memberof Account
      */
     'authoritative': boolean;
     /**
      * A description of the account
      * @type {string}
-     * @memberof AccountV1
+     * @memberof Account
      */
     'description'?: string | null;
     /**
      * Indicates if the account is currently disabled
      * @type {boolean}
-     * @memberof AccountV1
+     * @memberof Account
      */
     'disabled': boolean;
     /**
      * Indicates if the account is currently locked
      * @type {boolean}
-     * @memberof AccountV1
+     * @memberof Account
      */
     'locked': boolean;
     /**
      * The unique ID of the account generated by the source system
      * @type {string}
-     * @memberof AccountV1
+     * @memberof Account
      */
     'nativeIdentity': string;
     /**
      * If true, this is a user account within IdentityNow.  If false, this is an account from a source system.
      * @type {boolean}
-     * @memberof AccountV1
+     * @memberof Account
      */
     'systemAccount': boolean;
     /**
      * Indicates if this account is not correlated to an identity
      * @type {boolean}
-     * @memberof AccountV1
+     * @memberof Account
      */
     'uncorrelated': boolean;
     /**
      * The unique ID of the account as determined by the account schema
      * @type {string}
-     * @memberof AccountV1
+     * @memberof Account
      */
     'uuid'?: string | null;
     /**
      * Indicates if the account has been manually correlated to an identity
      * @type {boolean}
-     * @memberof AccountV1
+     * @memberof Account
      */
     'manuallyCorrelated': boolean;
     /**
      * Indicates if the account has entitlements
      * @type {boolean}
-     * @memberof AccountV1
+     * @memberof Account
      */
     'hasEntitlements': boolean;
     /**
      * 
-     * @type {AccountAllOfIdentityV1}
-     * @memberof AccountV1
+     * @type {AccountAllOfIdentity}
+     * @memberof Account
      */
-    'identity'?: AccountAllOfIdentityV1;
+    'identity'?: AccountAllOfIdentity;
     /**
      * 
-     * @type {AccountAllOfSourceOwnerV1}
-     * @memberof AccountV1
+     * @type {AccountAllOfSourceOwner}
+     * @memberof Account
      */
-    'sourceOwner'?: AccountAllOfSourceOwnerV1 | null;
+    'sourceOwner'?: AccountAllOfSourceOwner | null;
     /**
      * A string list containing the owning source\'s features
      * @type {string}
-     * @memberof AccountV1
+     * @memberof Account
      */
     'features'?: string | null;
     /**
      * The origin of the account either aggregated or provisioned
      * @type {string}
-     * @memberof AccountV1
+     * @memberof Account
      */
-    'origin'?: AccountV1OriginV1 | null;
+    'origin'?: AccountOriginEnum | null;
     /**
      * 
-     * @type {AccountAllOfOwnerIdentityV1}
-     * @memberof AccountV1
+     * @type {AccountAllOfOwnerIdentity}
+     * @memberof Account
      */
-    'ownerIdentity'?: AccountAllOfOwnerIdentityV1;
+    'ownerIdentity'?: AccountAllOfOwnerIdentity;
 }
 
-export const AccountV1OriginV1 = {
+export const AccountOriginEnum = {
     Aggregated: 'AGGREGATED',
     Provisioned: 'PROVISIONED'
 } as const;
 
-export type AccountV1OriginV1 = typeof AccountV1OriginV1[keyof typeof AccountV1OriginV1];
+export type AccountOriginEnum = typeof AccountOriginEnum[keyof typeof AccountOriginEnum];
+
+/**
+ * The identity this account is correlated to
+ * @export
+ * @interface AccountAllOfIdentity
+ */
+export interface AccountAllOfIdentity {
+    /**
+     * The ID of the identity
+     * @type {string}
+     * @memberof AccountAllOfIdentity
+     */
+    'id'?: string;
+    /**
+     * The type of object being referenced
+     * @type {string}
+     * @memberof AccountAllOfIdentity
+     */
+    'type'?: AccountAllOfIdentityTypeEnum;
+    /**
+     * display name of identity
+     * @type {string}
+     * @memberof AccountAllOfIdentity
+     */
+    'name'?: string;
+}
+
+export const AccountAllOfIdentityTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccountAllOfIdentityTypeEnum = typeof AccountAllOfIdentityTypeEnum[keyof typeof AccountAllOfIdentityTypeEnum];
 
 /**
  * 
  * @export
- * @interface AccountattributesV1
+ * @interface AccountAllOfOwnerIdentity
  */
-export interface AccountattributesV1 {
+export interface AccountAllOfOwnerIdentity {
+    /**
+     * 
+     * @type {Dtotype}
+     * @memberof AccountAllOfOwnerIdentity
+     */
+    'type'?: Dtotype;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountAllOfOwnerIdentity
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountAllOfOwnerIdentity
+     */
+    'name'?: string;
+}
+
+
+/**
+ * 
+ * @export
+ * @interface AccountAllOfRecommendation
+ */
+export interface AccountAllOfRecommendation {
+    /**
+     * Recommended type of account.
+     * @type {string}
+     * @memberof AccountAllOfRecommendation
+     */
+    'type': AccountAllOfRecommendationTypeEnum;
+    /**
+     * Method used to produce the recommendation. DISCOVERY - suggested by AI, SOURCE - the account comes from a source flagged as containing machine accounts, CRITERIA - the account satisfies classification criteria.
+     * @type {string}
+     * @memberof AccountAllOfRecommendation
+     */
+    'method': AccountAllOfRecommendationMethodEnum;
+}
+
+export const AccountAllOfRecommendationTypeEnum = {
+    Human: 'HUMAN',
+    Machine: 'MACHINE'
+} as const;
+
+export type AccountAllOfRecommendationTypeEnum = typeof AccountAllOfRecommendationTypeEnum[keyof typeof AccountAllOfRecommendationTypeEnum];
+export const AccountAllOfRecommendationMethodEnum = {
+    Discovery: 'DISCOVERY',
+    Source: 'SOURCE',
+    Criteria: 'CRITERIA'
+} as const;
+
+export type AccountAllOfRecommendationMethodEnum = typeof AccountAllOfRecommendationMethodEnum[keyof typeof AccountAllOfRecommendationMethodEnum];
+
+/**
+ * The owner of the source this account belongs to.
+ * @export
+ * @interface AccountAllOfSourceOwner
+ */
+export interface AccountAllOfSourceOwner {
+    /**
+     * The ID of the identity
+     * @type {string}
+     * @memberof AccountAllOfSourceOwner
+     */
+    'id'?: string;
+    /**
+     * The type of object being referenced
+     * @type {string}
+     * @memberof AccountAllOfSourceOwner
+     */
+    'type'?: AccountAllOfSourceOwnerTypeEnum;
+    /**
+     * display name of identity
+     * @type {string}
+     * @memberof AccountAllOfSourceOwner
+     */
+    'name'?: string;
+}
+
+export const AccountAllOfSourceOwnerTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccountAllOfSourceOwnerTypeEnum = typeof AccountAllOfSourceOwnerTypeEnum[keyof typeof AccountAllOfSourceOwnerTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface Accountattributes
+ */
+export interface Accountattributes {
     /**
      * The schema attribute values for the account
      * @type {{ [key: string]: any; }}
-     * @memberof AccountattributesV1
+     * @memberof Accountattributes
      */
     'attributes': { [key: string]: any; };
 }
 /**
+ * 
+ * @export
+ * @interface Accountattributescreate
+ */
+export interface Accountattributescreate {
+    /**
+     * 
+     * @type {AccountattributescreateAttributes}
+     * @memberof Accountattributescreate
+     */
+    'attributes': AccountattributescreateAttributes;
+}
+/**
  * The schema attribute values for the account
  * @export
- * @interface AccountattributescreateAttributesV1
+ * @interface AccountattributescreateAttributes
  */
-export interface AccountattributescreateAttributesV1 {
+export interface AccountattributescreateAttributes {
     [key: string]: string | any;
 
     /**
      * Target source to create an account
      * @type {string}
-     * @memberof AccountattributescreateAttributesV1
+     * @memberof AccountattributescreateAttributes
      */
     'sourceId': string;
 }
 /**
- * 
- * @export
- * @interface AccountattributescreateV1
- */
-export interface AccountattributescreateV1 {
-    /**
-     * 
-     * @type {AccountattributescreateAttributesV1}
-     * @memberof AccountattributescreateV1
-     */
-    'attributes': AccountattributescreateAttributesV1;
-}
-/**
  * Accounts async response containing details on started async process
  * @export
- * @interface AccountsasyncresultV1
+ * @interface Accountsasyncresult
  */
-export interface AccountsasyncresultV1 {
+export interface Accountsasyncresult {
     /**
      * id of the task
      * @type {string}
-     * @memberof AccountsasyncresultV1
+     * @memberof Accountsasyncresult
      */
     'id': string;
 }
 /**
  * Request used for account enable/disable
  * @export
- * @interface AccounttogglerequestV1
+ * @interface Accounttogglerequest
  */
-export interface AccounttogglerequestV1 {
+export interface Accounttogglerequest {
     /**
      * If set, an external process validates that the user wants to proceed with this request.
      * @type {string}
-     * @memberof AccounttogglerequestV1
+     * @memberof Accounttogglerequest
      */
     'externalVerificationId'?: string;
     /**
      * If set, provisioning updates the account attribute at the source.   This option is used when the account is not synced to ensure the attribute is updated. Providing \'true\' for an unlocked account will add and process \'Unlock\' operation by the workflow.
      * @type {boolean}
-     * @memberof AccounttogglerequestV1
+     * @memberof Accounttogglerequest
      */
     'forceProvisioning'?: boolean;
 }
 /**
  * Request used for account unlock
  * @export
- * @interface AccountunlockrequestV1
+ * @interface Accountunlockrequest
  */
-export interface AccountunlockrequestV1 {
+export interface Accountunlockrequest {
     /**
      * If set, an external process validates that the user wants to proceed with this request.
      * @type {string}
-     * @memberof AccountunlockrequestV1
+     * @memberof Accountunlockrequest
      */
     'externalVerificationId'?: string;
     /**
      * If set, the IDN account is unlocked after the workflow completes.
      * @type {boolean}
-     * @memberof AccountunlockrequestV1
+     * @memberof Accountunlockrequest
      */
     'unlockIDNAccount'?: boolean;
     /**
      * If set, provisioning updates the account attribute at the source.   This option is used when the account is not synced to ensure the attribute is updated.
      * @type {boolean}
-     * @memberof AccountunlockrequestV1
+     * @memberof Accountunlockrequest
      */
     'forceProvisioning'?: boolean;
 }
 /**
  * Reference to an additional owner (identity or governance group).
  * @export
- * @interface AdditionalownerrefV1
+ * @interface Additionalownerref
  */
-export interface AdditionalownerrefV1 {
+export interface Additionalownerref {
     /**
      * Type of the additional owner; IDENTITY for an identity, GOVERNANCE_GROUP for a governance group.
      * @type {string}
-     * @memberof AdditionalownerrefV1
+     * @memberof Additionalownerref
      */
-    'type'?: AdditionalownerrefV1TypeV1;
+    'type'?: AdditionalownerrefTypeEnum;
     /**
      * ID of the identity or governance group.
      * @type {string}
-     * @memberof AdditionalownerrefV1
+     * @memberof Additionalownerref
      */
     'id'?: string;
     /**
      * Display name. It may be left null or omitted on input. If set, it must match the current display name of the identity or governance group, otherwise a 400 Bad Request error may result.
      * @type {string}
-     * @memberof AdditionalownerrefV1
+     * @memberof Additionalownerref
      */
     'name'?: string | null;
 }
 
-export const AdditionalownerrefV1TypeV1 = {
+export const AdditionalownerrefTypeEnum = {
     Identity: 'IDENTITY',
     GovernanceGroup: 'GOVERNANCE_GROUP'
 } as const;
 
-export type AdditionalownerrefV1TypeV1 = typeof AdditionalownerrefV1TypeV1[keyof typeof AdditionalownerrefV1TypeV1];
+export type AdditionalownerrefTypeEnum = typeof AdditionalownerrefTypeEnum[keyof typeof AdditionalownerrefTypeEnum];
 
 /**
  * 
  * @export
- * @interface BasecommondtoV1
+ * @interface Basecommondto
  */
-export interface BasecommondtoV1 {
+export interface Basecommondto {
     /**
      * System-generated unique ID of the Object
      * @type {string}
-     * @memberof BasecommondtoV1
+     * @memberof Basecommondto
      */
     'id'?: string;
     /**
      * Name of the Object
      * @type {string}
-     * @memberof BasecommondtoV1
+     * @memberof Basecommondto
      */
     'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
-     * @memberof BasecommondtoV1
+     * @memberof Basecommondto
      */
     'created'?: string;
     /**
      * Last modification date of the Object
      * @type {string}
-     * @memberof BasecommondtoV1
+     * @memberof Basecommondto
      */
     'modified'?: string;
 }
 /**
  * 
  * @export
- * @interface BasereferencedtoV1
+ * @interface Basereferencedto
  */
-export interface BasereferencedtoV1 {
+export interface Basereferencedto {
     /**
      * 
-     * @type {DtotypeV1}
-     * @memberof BasereferencedtoV1
+     * @type {Dtotype}
+     * @memberof Basereferencedto
      */
-    'type'?: DtotypeV1;
+    'type'?: Dtotype;
     /**
      * ID of the object to which this reference applies
      * @type {string}
-     * @memberof BasereferencedtoV1
+     * @memberof Basereferencedto
      */
     'id'?: string;
     /**
      * Human-readable display name of the object to which this reference applies
      * @type {string}
-     * @memberof BasereferencedtoV1
+     * @memberof Basereferencedto
      */
     'name'?: string;
 }
@@ -603,25 +603,25 @@ export interface BasereferencedtoV1 {
 /**
  * Bulk response object.
  * @export
- * @interface BulkidentitiesaccountsresponseV1
+ * @interface Bulkidentitiesaccountsresponse
  */
-export interface BulkidentitiesaccountsresponseV1 {
+export interface Bulkidentitiesaccountsresponse {
     /**
      * Identifier of bulk request item.
      * @type {string}
-     * @memberof BulkidentitiesaccountsresponseV1
+     * @memberof Bulkidentitiesaccountsresponse
      */
     'id'?: string;
     /**
      * Response status value.
      * @type {number}
-     * @memberof BulkidentitiesaccountsresponseV1
+     * @memberof Bulkidentitiesaccountsresponse
      */
     'statusCode'?: number;
     /**
      * Status containing additional context information about failures.
      * @type {string}
-     * @memberof BulkidentitiesaccountsresponseV1
+     * @memberof Bulkidentitiesaccountsresponse
      */
     'message'?: string;
 }
@@ -631,7 +631,7 @@ export interface BulkidentitiesaccountsresponseV1 {
  * @enum {string}
  */
 
-export const DtotypeV1 = {
+export const Dtotype = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
@@ -663,222 +663,222 @@ export const DtotypeV1 = {
     Workgroup: 'WORKGROUP'
 } as const;
 
-export type DtotypeV1 = typeof DtotypeV1[keyof typeof DtotypeV1];
+export type Dtotype = typeof Dtotype[keyof typeof Dtotype];
 
-
-/**
- * Additional data to classify the entitlement
- * @export
- * @interface EntitlementAccessModelMetadataV1
- */
-export interface EntitlementAccessModelMetadataV1 {
-    /**
-     * 
-     * @type {Array<AccessmodelmetadataV1>}
-     * @memberof EntitlementAccessModelMetadataV1
-     */
-    'attributes'?: Array<AccessmodelmetadataV1>;
-}
-/**
- * The identity that owns the entitlement
- * @export
- * @interface EntitlementOwnerV1
- */
-export interface EntitlementOwnerV1 {
-    /**
-     * The identity ID
-     * @type {string}
-     * @memberof EntitlementOwnerV1
-     */
-    'id'?: string;
-    /**
-     * The type of object
-     * @type {string}
-     * @memberof EntitlementOwnerV1
-     */
-    'type'?: EntitlementOwnerV1TypeV1;
-    /**
-     * The display name of the identity
-     * @type {string}
-     * @memberof EntitlementOwnerV1
-     */
-    'name'?: string;
-}
-
-export const EntitlementOwnerV1TypeV1 = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type EntitlementOwnerV1TypeV1 = typeof EntitlementOwnerV1TypeV1[keyof typeof EntitlementOwnerV1TypeV1];
 
 /**
  * 
  * @export
- * @interface EntitlementSourceV1
+ * @interface Entitlement
  */
-export interface EntitlementSourceV1 {
-    /**
-     * The source ID
-     * @type {string}
-     * @memberof EntitlementSourceV1
-     */
-    'id'?: string;
-    /**
-     * The source type, will always be \"SOURCE\"
-     * @type {string}
-     * @memberof EntitlementSourceV1
-     */
-    'type'?: string;
-    /**
-     * The source name
-     * @type {string}
-     * @memberof EntitlementSourceV1
-     */
-    'name'?: string;
-}
-/**
- * 
- * @export
- * @interface EntitlementV1
- */
-export interface EntitlementV1 {
+export interface Entitlement {
     /**
      * The entitlement id
      * @type {string}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'id'?: string;
     /**
      * The entitlement name
      * @type {string}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'name'?: string;
     /**
      * The entitlement attribute name
      * @type {string}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'attribute'?: string;
     /**
      * The value of the entitlement
      * @type {string}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'value'?: string;
     /**
      * The object type of the entitlement from the source schema
      * @type {string}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'sourceSchemaObjectType'?: string;
     /**
      * The description of the entitlement
      * @type {string}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'description'?: string | null;
     /**
      * True if the entitlement is privileged
      * @type {boolean}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'privileged'?: boolean;
     /**
      * True if the entitlement is cloud governed
      * @type {boolean}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'cloudGoverned'?: boolean;
     /**
      * True if the entitlement is able to be directly requested
      * @type {boolean}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'requestable'?: boolean;
     /**
      * 
-     * @type {EntitlementOwnerV1}
-     * @memberof EntitlementV1
+     * @type {EntitlementOwner}
+     * @memberof Entitlement
      */
-    'owner'?: EntitlementOwnerV1 | null;
+    'owner'?: EntitlementOwner | null;
     /**
      * List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP).
-     * @type {Array<AdditionalownerrefV1>}
-     * @memberof EntitlementV1
+     * @type {Array<Additionalownerref>}
+     * @memberof Entitlement
      */
-    'additionalOwners'?: Array<AdditionalownerrefV1> | null;
+    'additionalOwners'?: Array<Additionalownerref> | null;
     /**
      * A map of entitlement fields that have been manually updated. The key is the field name in UPPER_SNAKE_CASE format, and the value is true or false to indicate if the field has been updated.
      * @type {{ [key: string]: any; }}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'manuallyUpdatedFields'?: { [key: string]: any; } | null;
     /**
      * 
-     * @type {EntitlementAccessModelMetadataV1}
-     * @memberof EntitlementV1
+     * @type {EntitlementAccessModelMetadata}
+     * @memberof Entitlement
      */
-    'accessModelMetadata'?: EntitlementAccessModelMetadataV1;
+    'accessModelMetadata'?: EntitlementAccessModelMetadata;
     /**
      * Time when the entitlement was created
      * @type {string}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'created'?: string;
     /**
      * Time when the entitlement was last modified
      * @type {string}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'modified'?: string;
     /**
      * 
-     * @type {EntitlementSourceV1}
-     * @memberof EntitlementV1
+     * @type {EntitlementSource}
+     * @memberof Entitlement
      */
-    'source'?: EntitlementSourceV1;
+    'source'?: EntitlementSource;
     /**
      * A map of free-form key-value pairs from the source system
      * @type {{ [key: string]: any; }}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'attributes'?: { [key: string]: any; };
     /**
      * List of IDs of segments, if any, to which this Entitlement is assigned.
      * @type {Array<string>}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'segments'?: Array<string> | null;
     /**
      * 
-     * @type {Array<PermissiondtoV1>}
-     * @memberof EntitlementV1
+     * @type {Array<Permissiondto>}
+     * @memberof Entitlement
      */
-    'directPermissions'?: Array<PermissiondtoV1>;
+    'directPermissions'?: Array<Permissiondto>;
+}
+/**
+ * Additional data to classify the entitlement
+ * @export
+ * @interface EntitlementAccessModelMetadata
+ */
+export interface EntitlementAccessModelMetadata {
+    /**
+     * 
+     * @type {Array<Accessmodelmetadata>}
+     * @memberof EntitlementAccessModelMetadata
+     */
+    'attributes'?: Array<Accessmodelmetadata>;
+}
+/**
+ * The identity that owns the entitlement
+ * @export
+ * @interface EntitlementOwner
+ */
+export interface EntitlementOwner {
+    /**
+     * The identity ID
+     * @type {string}
+     * @memberof EntitlementOwner
+     */
+    'id'?: string;
+    /**
+     * The type of object
+     * @type {string}
+     * @memberof EntitlementOwner
+     */
+    'type'?: EntitlementOwnerTypeEnum;
+    /**
+     * The display name of the identity
+     * @type {string}
+     * @memberof EntitlementOwner
+     */
+    'name'?: string;
+}
+
+export const EntitlementOwnerTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type EntitlementOwnerTypeEnum = typeof EntitlementOwnerTypeEnum[keyof typeof EntitlementOwnerTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface EntitlementSource
+ */
+export interface EntitlementSource {
+    /**
+     * The source ID
+     * @type {string}
+     * @memberof EntitlementSource
+     */
+    'id'?: string;
+    /**
+     * The source type, will always be \"SOURCE\"
+     * @type {string}
+     * @memberof EntitlementSource
+     */
+    'type'?: string;
+    /**
+     * The source name
+     * @type {string}
+     * @memberof EntitlementSource
+     */
+    'name'?: string;
 }
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -887,70 +887,70 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface IdentitiesaccountsbulkrequestV1
+ * @interface Identitiesaccountsbulkrequest
  */
-export interface IdentitiesaccountsbulkrequestV1 {
+export interface Identitiesaccountsbulkrequest {
     /**
      * The ids of the identities for which enable/disable accounts.
      * @type {Array<string>}
-     * @memberof IdentitiesaccountsbulkrequestV1
+     * @memberof Identitiesaccountsbulkrequest
      */
     'identityIds'?: Array<string>;
 }
 /**
  * 
  * @export
- * @interface ListAccountsV1401ResponseV1
+ * @interface ListAccountsV1401Response
  */
-export interface ListAccountsV1401ResponseV1 {
+export interface ListAccountsV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListAccountsV1401ResponseV1
+     * @memberof ListAccountsV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ListAccountsV1429ResponseV1
+ * @interface ListAccountsV1429Response
  */
-export interface ListAccountsV1429ResponseV1 {
+export interface ListAccountsV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListAccountsV1429ResponseV1
+     * @memberof ListAccountsV1429Response
      */
     'message'?: any;
 }
@@ -960,116 +960,116 @@ export interface ListAccountsV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * Simplified DTO for the Permission objects stored in SailPoint\'s database. The data is aggregated from customer systems and is free-form, so its appearance can vary largely between different clients/customers.
  * @export
- * @interface PermissiondtoV1
+ * @interface Permissiondto
  */
-export interface PermissiondtoV1 {
+export interface Permissiondto {
     /**
      * All the rights (e.g. actions) that this permission allows on the target
      * @type {Array<string>}
-     * @memberof PermissiondtoV1
+     * @memberof Permissiondto
      */
     'rights'?: Array<string>;
     /**
      * The target the permission would grants rights on.
      * @type {string}
-     * @memberof PermissiondtoV1
+     * @memberof Permissiondto
      */
     'target'?: string;
 }
 /**
  * 
  * @export
- * @interface RecommendationV1
+ * @interface Recommendation
  */
-export interface RecommendationV1 {
+export interface Recommendation {
     /**
      * Recommended type of account.
      * @type {string}
-     * @memberof RecommendationV1
+     * @memberof Recommendation
      */
-    'type': RecommendationV1TypeV1;
+    'type': RecommendationTypeEnum;
     /**
      * Method used to produce the recommendation. DISCOVERY - suggested by AI, SOURCE - the account comes from a source flagged as containing machine accounts, CRITERIA - the account satisfies classification criteria.
      * @type {string}
-     * @memberof RecommendationV1
+     * @memberof Recommendation
      */
-    'method': RecommendationV1MethodV1;
+    'method': RecommendationMethodEnum;
 }
 
-export const RecommendationV1TypeV1 = {
+export const RecommendationTypeEnum = {
     Human: 'HUMAN',
     Machine: 'MACHINE'
 } as const;
 
-export type RecommendationV1TypeV1 = typeof RecommendationV1TypeV1[keyof typeof RecommendationV1TypeV1];
-export const RecommendationV1MethodV1 = {
+export type RecommendationTypeEnum = typeof RecommendationTypeEnum[keyof typeof RecommendationTypeEnum];
+export const RecommendationMethodEnum = {
     Discovery: 'DISCOVERY',
     Source: 'SOURCE',
     Criteria: 'CRITERIA'
 } as const;
 
-export type RecommendationV1MethodV1 = typeof RecommendationV1MethodV1[keyof typeof RecommendationV1MethodV1];
+export type RecommendationMethodEnum = typeof RecommendationMethodEnum[keyof typeof RecommendationMethodEnum];
 
 /**
  * Task result.
  * @export
- * @interface TaskresultdtoV1
+ * @interface Taskresultdto
  */
-export interface TaskresultdtoV1 {
+export interface Taskresultdto {
     /**
      * Task result DTO type.
      * @type {string}
-     * @memberof TaskresultdtoV1
+     * @memberof Taskresultdto
      */
-    'type'?: TaskresultdtoV1TypeV1;
+    'type'?: TaskresultdtoTypeEnum;
     /**
      * Task result ID.
      * @type {string}
-     * @memberof TaskresultdtoV1
+     * @memberof Taskresultdto
      */
     'id'?: string;
     /**
      * Task result display name.
      * @type {string}
-     * @memberof TaskresultdtoV1
+     * @memberof Taskresultdto
      */
     'name'?: string | null;
 }
 
-export const TaskresultdtoV1TypeV1 = {
+export const TaskresultdtoTypeEnum = {
     TaskResult: 'TASK_RESULT'
 } as const;
 
-export type TaskresultdtoV1TypeV1 = typeof TaskresultdtoV1TypeV1[keyof typeof TaskresultdtoV1TypeV1];
+export type TaskresultdtoTypeEnum = typeof TaskresultdtoTypeEnum[keyof typeof TaskresultdtoTypeEnum];
 
 
 /**
- * AccountsV1Api - axios parameter creator
+ * AccountsApi - axios parameter creator
  * @export
  */
-export const AccountsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const AccountsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Submit an account creation task - the API then returns the task ID.    You must include the `sourceId` where the account will be created in the `attributes` object.  This endpoint creates an account on the source record in your ISC tenant. This is useful for Flat File (`DelimitedFile`) type sources because it allows you to aggregate new accounts without needing to import a new CSV file every time.   However, if you use this endpoint to create an account for a Direct Connection type source, you must ensure that the account also exists on the target source.  The endpoint doesn\'t actually provision the account on the target source, which means that if the account doesn\'t also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant.   By providing the account ID of an existing account in the request body, this API will function as a PATCH operation and update the account. 
          * @summary Create account
-         * @param {AccountattributescreateV1} accountattributescreateV1 
+         * @param {Accountattributescreate} accountattributescreate 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createAccountV1: async (accountattributescreateV1: AccountattributescreateV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accountattributescreateV1' is not null or undefined
-            assertParamExists('createAccountV1', 'accountattributescreateV1', accountattributescreateV1)
+        createAccountV1: async (accountattributescreate: Accountattributescreate, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accountattributescreate' is not null or undefined
+            assertParamExists('createAccountV1', 'accountattributescreate', accountattributescreate)
             const localVarPath = `/accounts/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1089,7 +1089,7 @@ export const AccountsV1ApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(accountattributescreateV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(accountattributescreate, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1202,15 +1202,15 @@ export const AccountsV1ApiAxiosParamCreator = function (configuration?: Configur
          * This API submits a task to disable the account and returns the task ID.      
          * @summary Disable account
          * @param {string} id The account id
-         * @param {AccounttogglerequestV1} accounttogglerequestV1 
+         * @param {Accounttogglerequest} accounttogglerequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        disableAccountV1: async (id: string, accounttogglerequestV1: AccounttogglerequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        disableAccountV1: async (id: string, accounttogglerequest: Accounttogglerequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('disableAccountV1', 'id', id)
-            // verify required parameter 'accounttogglerequestV1' is not null or undefined
-            assertParamExists('disableAccountV1', 'accounttogglerequestV1', accounttogglerequestV1)
+            // verify required parameter 'accounttogglerequest' is not null or undefined
+            assertParamExists('disableAccountV1', 'accounttogglerequest', accounttogglerequest)
             const localVarPath = `/accounts/v1/{id}/disable`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1231,7 +1231,7 @@ export const AccountsV1ApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(accounttogglerequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(accounttogglerequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1241,13 +1241,13 @@ export const AccountsV1ApiAxiosParamCreator = function (configuration?: Configur
         /**
          * This API submits tasks to disable IDN account for each identity provided in the request body.
          * @summary Disable idn accounts for identities
-         * @param {IdentitiesaccountsbulkrequestV1} identitiesaccountsbulkrequestV1 
+         * @param {Identitiesaccountsbulkrequest} identitiesaccountsbulkrequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        disableAccountsForIdentitiesV1: async (identitiesaccountsbulkrequestV1: IdentitiesaccountsbulkrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'identitiesaccountsbulkrequestV1' is not null or undefined
-            assertParamExists('disableAccountsForIdentitiesV1', 'identitiesaccountsbulkrequestV1', identitiesaccountsbulkrequestV1)
+        disableAccountsForIdentitiesV1: async (identitiesaccountsbulkrequest: Identitiesaccountsbulkrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identitiesaccountsbulkrequest' is not null or undefined
+            assertParamExists('disableAccountsForIdentitiesV1', 'identitiesaccountsbulkrequest', identitiesaccountsbulkrequest)
             const localVarPath = `/identities-accounts/v1/disable`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1267,7 +1267,7 @@ export const AccountsV1ApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(identitiesaccountsbulkrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(identitiesaccountsbulkrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1312,15 +1312,15 @@ export const AccountsV1ApiAxiosParamCreator = function (configuration?: Configur
          * This API submits a task to enable account and returns the task ID.      
          * @summary Enable account
          * @param {string} id The account id
-         * @param {AccounttogglerequestV1} accounttogglerequestV1 
+         * @param {Accounttogglerequest} accounttogglerequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        enableAccountV1: async (id: string, accounttogglerequestV1: AccounttogglerequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        enableAccountV1: async (id: string, accounttogglerequest: Accounttogglerequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('enableAccountV1', 'id', id)
-            // verify required parameter 'accounttogglerequestV1' is not null or undefined
-            assertParamExists('enableAccountV1', 'accounttogglerequestV1', accounttogglerequestV1)
+            // verify required parameter 'accounttogglerequest' is not null or undefined
+            assertParamExists('enableAccountV1', 'accounttogglerequest', accounttogglerequest)
             const localVarPath = `/accounts/v1/{id}/enable`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1341,7 +1341,7 @@ export const AccountsV1ApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(accounttogglerequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(accounttogglerequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1351,13 +1351,13 @@ export const AccountsV1ApiAxiosParamCreator = function (configuration?: Configur
         /**
          * This API submits tasks to enable IDN account for each identity provided in the request body.
          * @summary Enable idn accounts for identities
-         * @param {IdentitiesaccountsbulkrequestV1} identitiesaccountsbulkrequestV1 
+         * @param {Identitiesaccountsbulkrequest} identitiesaccountsbulkrequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        enableAccountsForIdentitiesV1: async (identitiesaccountsbulkrequestV1: IdentitiesaccountsbulkrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'identitiesaccountsbulkrequestV1' is not null or undefined
-            assertParamExists('enableAccountsForIdentitiesV1', 'identitiesaccountsbulkrequestV1', identitiesaccountsbulkrequestV1)
+        enableAccountsForIdentitiesV1: async (identitiesaccountsbulkrequest: Identitiesaccountsbulkrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identitiesaccountsbulkrequest' is not null or undefined
+            assertParamExists('enableAccountsForIdentitiesV1', 'identitiesaccountsbulkrequest', identitiesaccountsbulkrequest)
             const localVarPath = `/identities-accounts/v1/enable`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1377,7 +1377,7 @@ export const AccountsV1ApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(identitiesaccountsbulkrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(identitiesaccountsbulkrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1473,13 +1473,13 @@ export const AccountsV1ApiAxiosParamCreator = function (configuration?: Configur
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {ListAccountsV1DetailLevelV1} [detailLevel] This value determines whether the API provides &#x60;SLIM&#x60; or increased level of detail (&#x60;FULL&#x60;) for each account in the returned list. &#x60;FULL&#x60; is the default behavior.
+         * @param {ListAccountsV1DetailLevelEnum} [detailLevel] This value determines whether the API provides &#x60;SLIM&#x60; or increased level of detail (&#x60;FULL&#x60;) for each account in the returned list. &#x60;FULL&#x60; is the default behavior.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **hasEntitlements**: *eq*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAccountsV1: async (limit?: number, offset?: number, count?: boolean, detailLevel?: ListAccountsV1DetailLevelV1, filters?: string, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listAccountsV1: async (limit?: number, offset?: number, count?: boolean, detailLevel?: ListAccountsV1DetailLevelEnum, filters?: string, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/accounts/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1531,15 +1531,15 @@ export const AccountsV1ApiAxiosParamCreator = function (configuration?: Configur
          * Use this API to update an account with a PUT request.   This endpoint submits an account update task and returns the task ID.   >**Note: You can only use this PUT endpoint to update accounts from flat file sources.** 
          * @summary Update account
          * @param {string} id Account ID.
-         * @param {AccountattributesV1} accountattributesV1 
+         * @param {Accountattributes} accountattributes 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putAccountV1: async (id: string, accountattributesV1: AccountattributesV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putAccountV1: async (id: string, accountattributes: Accountattributes, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('putAccountV1', 'id', id)
-            // verify required parameter 'accountattributesV1' is not null or undefined
-            assertParamExists('putAccountV1', 'accountattributesV1', accountattributesV1)
+            // verify required parameter 'accountattributes' is not null or undefined
+            assertParamExists('putAccountV1', 'accountattributes', accountattributes)
             const localVarPath = `/accounts/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1560,7 +1560,7 @@ export const AccountsV1ApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(accountattributesV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(accountattributes, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1605,15 +1605,15 @@ export const AccountsV1ApiAxiosParamCreator = function (configuration?: Configur
          * This API submits a task to unlock an account and returns the task ID.   To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required. 
          * @summary Unlock account
          * @param {string} id The account ID.
-         * @param {AccountunlockrequestV1} accountunlockrequestV1 
+         * @param {Accountunlockrequest} accountunlockrequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        unlockAccountV1: async (id: string, accountunlockrequestV1: AccountunlockrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        unlockAccountV1: async (id: string, accountunlockrequest: Accountunlockrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('unlockAccountV1', 'id', id)
-            // verify required parameter 'accountunlockrequestV1' is not null or undefined
-            assertParamExists('unlockAccountV1', 'accountunlockrequestV1', accountunlockrequestV1)
+            // verify required parameter 'accountunlockrequest' is not null or undefined
+            assertParamExists('unlockAccountV1', 'accountunlockrequest', accountunlockrequest)
             const localVarPath = `/accounts/v1/{id}/unlock`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1634,7 +1634,7 @@ export const AccountsV1ApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(accountunlockrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(accountunlockrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1685,23 +1685,23 @@ export const AccountsV1ApiAxiosParamCreator = function (configuration?: Configur
 };
 
 /**
- * AccountsV1Api - functional programming interface
+ * AccountsApi - functional programming interface
  * @export
  */
-export const AccountsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = AccountsV1ApiAxiosParamCreator(configuration)
+export const AccountsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = AccountsApiAxiosParamCreator(configuration)
     return {
         /**
          * Submit an account creation task - the API then returns the task ID.    You must include the `sourceId` where the account will be created in the `attributes` object.  This endpoint creates an account on the source record in your ISC tenant. This is useful for Flat File (`DelimitedFile`) type sources because it allows you to aggregate new accounts without needing to import a new CSV file every time.   However, if you use this endpoint to create an account for a Direct Connection type source, you must ensure that the account also exists on the target source.  The endpoint doesn\'t actually provision the account on the target source, which means that if the account doesn\'t also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant.   By providing the account ID of an existing account in the request body, this API will function as a PATCH operation and update the account. 
          * @summary Create account
-         * @param {AccountattributescreateV1} accountattributescreateV1 
+         * @param {Accountattributescreate} accountattributescreate 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createAccountV1(accountattributescreateV1: AccountattributescreateV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsasyncresultV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createAccountV1(accountattributescreateV1, axiosOptions);
+        async createAccountV1(accountattributescreate: Accountattributescreate, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accountsasyncresult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createAccountV1(accountattributescreate, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AccountsV1Api.createAccountV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AccountsApi.createAccountV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1711,10 +1711,10 @@ export const AccountsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteAccountAsyncV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskresultdtoV1>> {
+        async deleteAccountAsyncV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Taskresultdto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccountAsyncV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AccountsV1Api.deleteAccountAsyncV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AccountsApi.deleteAccountAsyncV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1724,10 +1724,10 @@ export const AccountsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteAccountV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsasyncresultV1>> {
+        async deleteAccountV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accountsasyncresult>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccountV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AccountsV1Api.deleteAccountV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AccountsApi.deleteAccountV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1740,34 +1740,34 @@ export const AccountsV1ApiFp = function(configuration?: Configuration) {
         async disableAccountForIdentityV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.disableAccountForIdentityV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AccountsV1Api.disableAccountForIdentityV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AccountsApi.disableAccountForIdentityV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API submits a task to disable the account and returns the task ID.      
          * @summary Disable account
          * @param {string} id The account id
-         * @param {AccounttogglerequestV1} accounttogglerequestV1 
+         * @param {Accounttogglerequest} accounttogglerequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async disableAccountV1(id: string, accounttogglerequestV1: AccounttogglerequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsasyncresultV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.disableAccountV1(id, accounttogglerequestV1, axiosOptions);
+        async disableAccountV1(id: string, accounttogglerequest: Accounttogglerequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accountsasyncresult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.disableAccountV1(id, accounttogglerequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AccountsV1Api.disableAccountV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AccountsApi.disableAccountV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API submits tasks to disable IDN account for each identity provided in the request body.
          * @summary Disable idn accounts for identities
-         * @param {IdentitiesaccountsbulkrequestV1} identitiesaccountsbulkrequestV1 
+         * @param {Identitiesaccountsbulkrequest} identitiesaccountsbulkrequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async disableAccountsForIdentitiesV1(identitiesaccountsbulkrequestV1: IdentitiesaccountsbulkrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BulkidentitiesaccountsresponseV1>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.disableAccountsForIdentitiesV1(identitiesaccountsbulkrequestV1, axiosOptions);
+        async disableAccountsForIdentitiesV1(identitiesaccountsbulkrequest: Identitiesaccountsbulkrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Bulkidentitiesaccountsresponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.disableAccountsForIdentitiesV1(identitiesaccountsbulkrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AccountsV1Api.disableAccountsForIdentitiesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AccountsApi.disableAccountsForIdentitiesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1780,34 +1780,34 @@ export const AccountsV1ApiFp = function(configuration?: Configuration) {
         async enableAccountForIdentityV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.enableAccountForIdentityV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AccountsV1Api.enableAccountForIdentityV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AccountsApi.enableAccountForIdentityV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API submits a task to enable account and returns the task ID.      
          * @summary Enable account
          * @param {string} id The account id
-         * @param {AccounttogglerequestV1} accounttogglerequestV1 
+         * @param {Accounttogglerequest} accounttogglerequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async enableAccountV1(id: string, accounttogglerequestV1: AccounttogglerequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsasyncresultV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.enableAccountV1(id, accounttogglerequestV1, axiosOptions);
+        async enableAccountV1(id: string, accounttogglerequest: Accounttogglerequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accountsasyncresult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.enableAccountV1(id, accounttogglerequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AccountsV1Api.enableAccountV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AccountsApi.enableAccountV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API submits tasks to enable IDN account for each identity provided in the request body.
          * @summary Enable idn accounts for identities
-         * @param {IdentitiesaccountsbulkrequestV1} identitiesaccountsbulkrequestV1 
+         * @param {Identitiesaccountsbulkrequest} identitiesaccountsbulkrequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async enableAccountsForIdentitiesV1(identitiesaccountsbulkrequestV1: IdentitiesaccountsbulkrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BulkidentitiesaccountsresponseV1>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.enableAccountsForIdentitiesV1(identitiesaccountsbulkrequestV1, axiosOptions);
+        async enableAccountsForIdentitiesV1(identitiesaccountsbulkrequest: Identitiesaccountsbulkrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Bulkidentitiesaccountsresponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.enableAccountsForIdentitiesV1(identitiesaccountsbulkrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AccountsV1Api.enableAccountsForIdentitiesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AccountsApi.enableAccountsForIdentitiesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1820,10 +1820,10 @@ export const AccountsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccountEntitlementsV1(id: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementV1>>> {
+        async getAccountEntitlementsV1(id: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Entitlement>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountEntitlementsV1(id, limit, offset, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AccountsV1Api.getAccountEntitlementsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AccountsApi.getAccountEntitlementsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1833,10 +1833,10 @@ export const AccountsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccountV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountV1>> {
+        async getAccountV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Account>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AccountsV1Api.getAccountV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AccountsApi.getAccountV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1845,30 +1845,30 @@ export const AccountsV1ApiFp = function(configuration?: Configuration) {
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {ListAccountsV1DetailLevelV1} [detailLevel] This value determines whether the API provides &#x60;SLIM&#x60; or increased level of detail (&#x60;FULL&#x60;) for each account in the returned list. &#x60;FULL&#x60; is the default behavior.
+         * @param {ListAccountsV1DetailLevelEnum} [detailLevel] This value determines whether the API provides &#x60;SLIM&#x60; or increased level of detail (&#x60;FULL&#x60;) for each account in the returned list. &#x60;FULL&#x60; is the default behavior.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **hasEntitlements**: *eq*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccountsV1(limit?: number, offset?: number, count?: boolean, detailLevel?: ListAccountsV1DetailLevelV1, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccountV1>>> {
+        async listAccountsV1(limit?: number, offset?: number, count?: boolean, detailLevel?: ListAccountsV1DetailLevelEnum, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Account>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAccountsV1(limit, offset, count, detailLevel, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AccountsV1Api.listAccountsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AccountsApi.listAccountsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Use this API to update an account with a PUT request.   This endpoint submits an account update task and returns the task ID.   >**Note: You can only use this PUT endpoint to update accounts from flat file sources.** 
          * @summary Update account
          * @param {string} id Account ID.
-         * @param {AccountattributesV1} accountattributesV1 
+         * @param {Accountattributes} accountattributes 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putAccountV1(id: string, accountattributesV1: AccountattributesV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsasyncresultV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putAccountV1(id, accountattributesV1, axiosOptions);
+        async putAccountV1(id: string, accountattributes: Accountattributes, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accountsasyncresult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putAccountV1(id, accountattributes, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AccountsV1Api.putAccountV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AccountsApi.putAccountV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1878,24 +1878,24 @@ export const AccountsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async submitReloadAccountV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsasyncresultV1>> {
+        async submitReloadAccountV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accountsasyncresult>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.submitReloadAccountV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AccountsV1Api.submitReloadAccountV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AccountsApi.submitReloadAccountV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API submits a task to unlock an account and returns the task ID.   To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required. 
          * @summary Unlock account
          * @param {string} id The account ID.
-         * @param {AccountunlockrequestV1} accountunlockrequestV1 
+         * @param {Accountunlockrequest} accountunlockrequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async unlockAccountV1(id: string, accountunlockrequestV1: AccountunlockrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsasyncresultV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.unlockAccountV1(id, accountunlockrequestV1, axiosOptions);
+        async unlockAccountV1(id: string, accountunlockrequest: Accountunlockrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accountsasyncresult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.unlockAccountV1(id, accountunlockrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AccountsV1Api.unlockAccountV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AccountsApi.unlockAccountV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1909,704 +1909,704 @@ export const AccountsV1ApiFp = function(configuration?: Configuration) {
         async updateAccountV1(id: string, requestBody: Array<object>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccountV1(id, requestBody, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AccountsV1Api.updateAccountV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AccountsApi.updateAccountV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * AccountsV1Api - factory interface
+ * AccountsApi - factory interface
  * @export
  */
-export const AccountsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = AccountsV1ApiFp(configuration)
+export const AccountsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = AccountsApiFp(configuration)
     return {
         /**
          * Submit an account creation task - the API then returns the task ID.    You must include the `sourceId` where the account will be created in the `attributes` object.  This endpoint creates an account on the source record in your ISC tenant. This is useful for Flat File (`DelimitedFile`) type sources because it allows you to aggregate new accounts without needing to import a new CSV file every time.   However, if you use this endpoint to create an account for a Direct Connection type source, you must ensure that the account also exists on the target source.  The endpoint doesn\'t actually provision the account on the target source, which means that if the account doesn\'t also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant.   By providing the account ID of an existing account in the request body, this API will function as a PATCH operation and update the account. 
          * @summary Create account
-         * @param {AccountsV1ApiCreateAccountV1Request} requestParameters Request parameters.
+         * @param {AccountsApiCreateAccountV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createAccountV1(requestParameters: AccountsV1ApiCreateAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountsasyncresultV1> {
-            return localVarFp.createAccountV1(requestParameters.accountattributescreateV1, axiosOptions).then((request) => request(axios, basePath));
+        createAccountV1(requestParameters: AccountsApiCreateAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accountsasyncresult> {
+            return localVarFp.createAccountV1(requestParameters.accountattributescreate, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this endpoint to remove accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.  This endpoint is good for: * Removing accounts that no longer exist on the source. * Removing accounts that won\'t be aggregated following updates to the source configuration. * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc. 
          * @summary Remove account
-         * @param {AccountsV1ApiDeleteAccountAsyncV1Request} requestParameters Request parameters.
+         * @param {AccountsApiDeleteAccountAsyncV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAccountAsyncV1(requestParameters: AccountsV1ApiDeleteAccountAsyncV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TaskresultdtoV1> {
+        deleteAccountAsyncV1(requestParameters: AccountsApiDeleteAccountAsyncV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Taskresultdto> {
             return localVarFp.deleteAccountAsyncV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future.  >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
          * @summary Delete account
-         * @param {AccountsV1ApiDeleteAccountV1Request} requestParameters Request parameters.
+         * @param {AccountsApiDeleteAccountV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAccountV1(requestParameters: AccountsV1ApiDeleteAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountsasyncresultV1> {
+        deleteAccountV1(requestParameters: AccountsApiDeleteAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accountsasyncresult> {
             return localVarFp.deleteAccountV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API submits a task to disable IDN account for a single identity.
          * @summary Disable idn account for identity
-         * @param {AccountsV1ApiDisableAccountForIdentityV1Request} requestParameters Request parameters.
+         * @param {AccountsApiDisableAccountForIdentityV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        disableAccountForIdentityV1(requestParameters: AccountsV1ApiDisableAccountForIdentityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
+        disableAccountForIdentityV1(requestParameters: AccountsApiDisableAccountForIdentityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
             return localVarFp.disableAccountForIdentityV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API submits a task to disable the account and returns the task ID.      
          * @summary Disable account
-         * @param {AccountsV1ApiDisableAccountV1Request} requestParameters Request parameters.
+         * @param {AccountsApiDisableAccountV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        disableAccountV1(requestParameters: AccountsV1ApiDisableAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountsasyncresultV1> {
-            return localVarFp.disableAccountV1(requestParameters.id, requestParameters.accounttogglerequestV1, axiosOptions).then((request) => request(axios, basePath));
+        disableAccountV1(requestParameters: AccountsApiDisableAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accountsasyncresult> {
+            return localVarFp.disableAccountV1(requestParameters.id, requestParameters.accounttogglerequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API submits tasks to disable IDN account for each identity provided in the request body.
          * @summary Disable idn accounts for identities
-         * @param {AccountsV1ApiDisableAccountsForIdentitiesV1Request} requestParameters Request parameters.
+         * @param {AccountsApiDisableAccountsForIdentitiesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        disableAccountsForIdentitiesV1(requestParameters: AccountsV1ApiDisableAccountsForIdentitiesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<BulkidentitiesaccountsresponseV1>> {
-            return localVarFp.disableAccountsForIdentitiesV1(requestParameters.identitiesaccountsbulkrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        disableAccountsForIdentitiesV1(requestParameters: AccountsApiDisableAccountsForIdentitiesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Bulkidentitiesaccountsresponse>> {
+            return localVarFp.disableAccountsForIdentitiesV1(requestParameters.identitiesaccountsbulkrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API submits a task to enable IDN account for a single identity.
          * @summary Enable idn account for identity
-         * @param {AccountsV1ApiEnableAccountForIdentityV1Request} requestParameters Request parameters.
+         * @param {AccountsApiEnableAccountForIdentityV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        enableAccountForIdentityV1(requestParameters: AccountsV1ApiEnableAccountForIdentityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
+        enableAccountForIdentityV1(requestParameters: AccountsApiEnableAccountForIdentityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
             return localVarFp.enableAccountForIdentityV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API submits a task to enable account and returns the task ID.      
          * @summary Enable account
-         * @param {AccountsV1ApiEnableAccountV1Request} requestParameters Request parameters.
+         * @param {AccountsApiEnableAccountV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        enableAccountV1(requestParameters: AccountsV1ApiEnableAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountsasyncresultV1> {
-            return localVarFp.enableAccountV1(requestParameters.id, requestParameters.accounttogglerequestV1, axiosOptions).then((request) => request(axios, basePath));
+        enableAccountV1(requestParameters: AccountsApiEnableAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accountsasyncresult> {
+            return localVarFp.enableAccountV1(requestParameters.id, requestParameters.accounttogglerequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API submits tasks to enable IDN account for each identity provided in the request body.
          * @summary Enable idn accounts for identities
-         * @param {AccountsV1ApiEnableAccountsForIdentitiesV1Request} requestParameters Request parameters.
+         * @param {AccountsApiEnableAccountsForIdentitiesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        enableAccountsForIdentitiesV1(requestParameters: AccountsV1ApiEnableAccountsForIdentitiesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<BulkidentitiesaccountsresponseV1>> {
-            return localVarFp.enableAccountsForIdentitiesV1(requestParameters.identitiesaccountsbulkrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        enableAccountsForIdentitiesV1(requestParameters: AccountsApiEnableAccountsForIdentitiesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Bulkidentitiesaccountsresponse>> {
+            return localVarFp.enableAccountsForIdentitiesV1(requestParameters.identitiesaccountsbulkrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns entitlements of the account.      
          * @summary Account entitlements
-         * @param {AccountsV1ApiGetAccountEntitlementsV1Request} requestParameters Request parameters.
+         * @param {AccountsApiGetAccountEntitlementsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAccountEntitlementsV1(requestParameters: AccountsV1ApiGetAccountEntitlementsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<EntitlementV1>> {
+        getAccountEntitlementsV1(requestParameters: AccountsApiGetAccountEntitlementsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Entitlement>> {
             return localVarFp.getAccountEntitlementsV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to return the details for a single account by its ID.  
          * @summary Account details
-         * @param {AccountsV1ApiGetAccountV1Request} requestParameters Request parameters.
+         * @param {AccountsApiGetAccountV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAccountV1(requestParameters: AccountsV1ApiGetAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountV1> {
+        getAccountV1(requestParameters: AccountsApiGetAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Account> {
             return localVarFp.getAccountV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * List accounts. 
          * @summary Accounts list
-         * @param {AccountsV1ApiListAccountsV1Request} requestParameters Request parameters.
+         * @param {AccountsApiListAccountsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAccountsV1(requestParameters: AccountsV1ApiListAccountsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccountV1>> {
+        listAccountsV1(requestParameters: AccountsApiListAccountsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Account>> {
             return localVarFp.listAccountsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.detailLevel, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to update an account with a PUT request.   This endpoint submits an account update task and returns the task ID.   >**Note: You can only use this PUT endpoint to update accounts from flat file sources.** 
          * @summary Update account
-         * @param {AccountsV1ApiPutAccountV1Request} requestParameters Request parameters.
+         * @param {AccountsApiPutAccountV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putAccountV1(requestParameters: AccountsV1ApiPutAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountsasyncresultV1> {
-            return localVarFp.putAccountV1(requestParameters.id, requestParameters.accountattributesV1, axiosOptions).then((request) => request(axios, basePath));
+        putAccountV1(requestParameters: AccountsApiPutAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accountsasyncresult> {
+            return localVarFp.putAccountV1(requestParameters.id, requestParameters.accountattributes, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.      
          * @summary Reload account
-         * @param {AccountsV1ApiSubmitReloadAccountV1Request} requestParameters Request parameters.
+         * @param {AccountsApiSubmitReloadAccountV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        submitReloadAccountV1(requestParameters: AccountsV1ApiSubmitReloadAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountsasyncresultV1> {
+        submitReloadAccountV1(requestParameters: AccountsApiSubmitReloadAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accountsasyncresult> {
             return localVarFp.submitReloadAccountV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API submits a task to unlock an account and returns the task ID.   To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required. 
          * @summary Unlock account
-         * @param {AccountsV1ApiUnlockAccountV1Request} requestParameters Request parameters.
+         * @param {AccountsApiUnlockAccountV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        unlockAccountV1(requestParameters: AccountsV1ApiUnlockAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountsasyncresultV1> {
-            return localVarFp.unlockAccountV1(requestParameters.id, requestParameters.accountunlockrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        unlockAccountV1(requestParameters: AccountsApiUnlockAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accountsasyncresult> {
+            return localVarFp.unlockAccountV1(requestParameters.id, requestParameters.accountunlockrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to update account details.   This API supports updating an account\'s correlation by modifying the `identityId` and `manuallyCorrelated` fields.  To reassign an account from one identity to another, replace the current `identityId` with a new value.  If the account you\'re assigning was provisioned by Identity Security Cloud (ISC), it\'s possible for ISC to create a new account  for the previous identity as soon as the account is moved. If the account you\'re assigning is authoritative,  this causes the previous identity to become uncorrelated and can even result in its deletion. All accounts that are reassigned will be set to `manuallyCorrelated: true` unless you specify otherwise.  >**Note:** The `attributes` field can only be modified for flat file accounts.  
          * @summary Update account
-         * @param {AccountsV1ApiUpdateAccountV1Request} requestParameters Request parameters.
+         * @param {AccountsApiUpdateAccountV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateAccountV1(requestParameters: AccountsV1ApiUpdateAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
+        updateAccountV1(requestParameters: AccountsApiUpdateAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
             return localVarFp.updateAccountV1(requestParameters.id, requestParameters.requestBody, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createAccountV1 operation in AccountsV1Api.
+ * Request parameters for createAccountV1 operation in AccountsApi.
  * @export
- * @interface AccountsV1ApiCreateAccountV1Request
+ * @interface AccountsApiCreateAccountV1Request
  */
-export interface AccountsV1ApiCreateAccountV1Request {
+export interface AccountsApiCreateAccountV1Request {
     /**
      * 
-     * @type {AccountattributescreateV1}
-     * @memberof AccountsV1ApiCreateAccountV1
+     * @type {Accountattributescreate}
+     * @memberof AccountsApiCreateAccountV1
      */
-    readonly accountattributescreateV1: AccountattributescreateV1
+    readonly accountattributescreate: Accountattributescreate
 }
 
 /**
- * Request parameters for deleteAccountAsyncV1 operation in AccountsV1Api.
+ * Request parameters for deleteAccountAsyncV1 operation in AccountsApi.
  * @export
- * @interface AccountsV1ApiDeleteAccountAsyncV1Request
+ * @interface AccountsApiDeleteAccountAsyncV1Request
  */
-export interface AccountsV1ApiDeleteAccountAsyncV1Request {
+export interface AccountsApiDeleteAccountAsyncV1Request {
     /**
      * The account id
      * @type {string}
-     * @memberof AccountsV1ApiDeleteAccountAsyncV1
+     * @memberof AccountsApiDeleteAccountAsyncV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for deleteAccountV1 operation in AccountsV1Api.
+ * Request parameters for deleteAccountV1 operation in AccountsApi.
  * @export
- * @interface AccountsV1ApiDeleteAccountV1Request
+ * @interface AccountsApiDeleteAccountV1Request
  */
-export interface AccountsV1ApiDeleteAccountV1Request {
+export interface AccountsApiDeleteAccountV1Request {
     /**
      * Account ID.
      * @type {string}
-     * @memberof AccountsV1ApiDeleteAccountV1
+     * @memberof AccountsApiDeleteAccountV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for disableAccountForIdentityV1 operation in AccountsV1Api.
+ * Request parameters for disableAccountForIdentityV1 operation in AccountsApi.
  * @export
- * @interface AccountsV1ApiDisableAccountForIdentityV1Request
+ * @interface AccountsApiDisableAccountForIdentityV1Request
  */
-export interface AccountsV1ApiDisableAccountForIdentityV1Request {
+export interface AccountsApiDisableAccountForIdentityV1Request {
     /**
      * The identity id.
      * @type {string}
-     * @memberof AccountsV1ApiDisableAccountForIdentityV1
+     * @memberof AccountsApiDisableAccountForIdentityV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for disableAccountV1 operation in AccountsV1Api.
+ * Request parameters for disableAccountV1 operation in AccountsApi.
  * @export
- * @interface AccountsV1ApiDisableAccountV1Request
+ * @interface AccountsApiDisableAccountV1Request
  */
-export interface AccountsV1ApiDisableAccountV1Request {
+export interface AccountsApiDisableAccountV1Request {
     /**
      * The account id
      * @type {string}
-     * @memberof AccountsV1ApiDisableAccountV1
+     * @memberof AccountsApiDisableAccountV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {AccounttogglerequestV1}
-     * @memberof AccountsV1ApiDisableAccountV1
+     * @type {Accounttogglerequest}
+     * @memberof AccountsApiDisableAccountV1
      */
-    readonly accounttogglerequestV1: AccounttogglerequestV1
+    readonly accounttogglerequest: Accounttogglerequest
 }
 
 /**
- * Request parameters for disableAccountsForIdentitiesV1 operation in AccountsV1Api.
+ * Request parameters for disableAccountsForIdentitiesV1 operation in AccountsApi.
  * @export
- * @interface AccountsV1ApiDisableAccountsForIdentitiesV1Request
+ * @interface AccountsApiDisableAccountsForIdentitiesV1Request
  */
-export interface AccountsV1ApiDisableAccountsForIdentitiesV1Request {
+export interface AccountsApiDisableAccountsForIdentitiesV1Request {
     /**
      * 
-     * @type {IdentitiesaccountsbulkrequestV1}
-     * @memberof AccountsV1ApiDisableAccountsForIdentitiesV1
+     * @type {Identitiesaccountsbulkrequest}
+     * @memberof AccountsApiDisableAccountsForIdentitiesV1
      */
-    readonly identitiesaccountsbulkrequestV1: IdentitiesaccountsbulkrequestV1
+    readonly identitiesaccountsbulkrequest: Identitiesaccountsbulkrequest
 }
 
 /**
- * Request parameters for enableAccountForIdentityV1 operation in AccountsV1Api.
+ * Request parameters for enableAccountForIdentityV1 operation in AccountsApi.
  * @export
- * @interface AccountsV1ApiEnableAccountForIdentityV1Request
+ * @interface AccountsApiEnableAccountForIdentityV1Request
  */
-export interface AccountsV1ApiEnableAccountForIdentityV1Request {
+export interface AccountsApiEnableAccountForIdentityV1Request {
     /**
      * The identity id.
      * @type {string}
-     * @memberof AccountsV1ApiEnableAccountForIdentityV1
+     * @memberof AccountsApiEnableAccountForIdentityV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for enableAccountV1 operation in AccountsV1Api.
+ * Request parameters for enableAccountV1 operation in AccountsApi.
  * @export
- * @interface AccountsV1ApiEnableAccountV1Request
+ * @interface AccountsApiEnableAccountV1Request
  */
-export interface AccountsV1ApiEnableAccountV1Request {
+export interface AccountsApiEnableAccountV1Request {
     /**
      * The account id
      * @type {string}
-     * @memberof AccountsV1ApiEnableAccountV1
+     * @memberof AccountsApiEnableAccountV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {AccounttogglerequestV1}
-     * @memberof AccountsV1ApiEnableAccountV1
+     * @type {Accounttogglerequest}
+     * @memberof AccountsApiEnableAccountV1
      */
-    readonly accounttogglerequestV1: AccounttogglerequestV1
+    readonly accounttogglerequest: Accounttogglerequest
 }
 
 /**
- * Request parameters for enableAccountsForIdentitiesV1 operation in AccountsV1Api.
+ * Request parameters for enableAccountsForIdentitiesV1 operation in AccountsApi.
  * @export
- * @interface AccountsV1ApiEnableAccountsForIdentitiesV1Request
+ * @interface AccountsApiEnableAccountsForIdentitiesV1Request
  */
-export interface AccountsV1ApiEnableAccountsForIdentitiesV1Request {
+export interface AccountsApiEnableAccountsForIdentitiesV1Request {
     /**
      * 
-     * @type {IdentitiesaccountsbulkrequestV1}
-     * @memberof AccountsV1ApiEnableAccountsForIdentitiesV1
+     * @type {Identitiesaccountsbulkrequest}
+     * @memberof AccountsApiEnableAccountsForIdentitiesV1
      */
-    readonly identitiesaccountsbulkrequestV1: IdentitiesaccountsbulkrequestV1
+    readonly identitiesaccountsbulkrequest: Identitiesaccountsbulkrequest
 }
 
 /**
- * Request parameters for getAccountEntitlementsV1 operation in AccountsV1Api.
+ * Request parameters for getAccountEntitlementsV1 operation in AccountsApi.
  * @export
- * @interface AccountsV1ApiGetAccountEntitlementsV1Request
+ * @interface AccountsApiGetAccountEntitlementsV1Request
  */
-export interface AccountsV1ApiGetAccountEntitlementsV1Request {
+export interface AccountsApiGetAccountEntitlementsV1Request {
     /**
      * The account id
      * @type {string}
-     * @memberof AccountsV1ApiGetAccountEntitlementsV1
+     * @memberof AccountsApiGetAccountEntitlementsV1
      */
     readonly id: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof AccountsV1ApiGetAccountEntitlementsV1
+     * @memberof AccountsApiGetAccountEntitlementsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof AccountsV1ApiGetAccountEntitlementsV1
+     * @memberof AccountsApiGetAccountEntitlementsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof AccountsV1ApiGetAccountEntitlementsV1
+     * @memberof AccountsApiGetAccountEntitlementsV1
      */
     readonly count?: boolean
 }
 
 /**
- * Request parameters for getAccountV1 operation in AccountsV1Api.
+ * Request parameters for getAccountV1 operation in AccountsApi.
  * @export
- * @interface AccountsV1ApiGetAccountV1Request
+ * @interface AccountsApiGetAccountV1Request
  */
-export interface AccountsV1ApiGetAccountV1Request {
+export interface AccountsApiGetAccountV1Request {
     /**
      * Account ID.
      * @type {string}
-     * @memberof AccountsV1ApiGetAccountV1
+     * @memberof AccountsApiGetAccountV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for listAccountsV1 operation in AccountsV1Api.
+ * Request parameters for listAccountsV1 operation in AccountsApi.
  * @export
- * @interface AccountsV1ApiListAccountsV1Request
+ * @interface AccountsApiListAccountsV1Request
  */
-export interface AccountsV1ApiListAccountsV1Request {
+export interface AccountsApiListAccountsV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof AccountsV1ApiListAccountsV1
+     * @memberof AccountsApiListAccountsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof AccountsV1ApiListAccountsV1
+     * @memberof AccountsApiListAccountsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof AccountsV1ApiListAccountsV1
+     * @memberof AccountsApiListAccountsV1
      */
     readonly count?: boolean
 
     /**
      * This value determines whether the API provides &#x60;SLIM&#x60; or increased level of detail (&#x60;FULL&#x60;) for each account in the returned list. &#x60;FULL&#x60; is the default behavior.
      * @type {'SLIM' | 'FULL'}
-     * @memberof AccountsV1ApiListAccountsV1
+     * @memberof AccountsApiListAccountsV1
      */
-    readonly detailLevel?: ListAccountsV1DetailLevelV1
+    readonly detailLevel?: ListAccountsV1DetailLevelEnum
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **hasEntitlements**: *eq*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt*
      * @type {string}
-     * @memberof AccountsV1ApiListAccountsV1
+     * @memberof AccountsApiListAccountsV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType**
      * @type {string}
-     * @memberof AccountsV1ApiListAccountsV1
+     * @memberof AccountsApiListAccountsV1
      */
     readonly sorters?: string
 }
 
 /**
- * Request parameters for putAccountV1 operation in AccountsV1Api.
+ * Request parameters for putAccountV1 operation in AccountsApi.
  * @export
- * @interface AccountsV1ApiPutAccountV1Request
+ * @interface AccountsApiPutAccountV1Request
  */
-export interface AccountsV1ApiPutAccountV1Request {
+export interface AccountsApiPutAccountV1Request {
     /**
      * Account ID.
      * @type {string}
-     * @memberof AccountsV1ApiPutAccountV1
+     * @memberof AccountsApiPutAccountV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {AccountattributesV1}
-     * @memberof AccountsV1ApiPutAccountV1
+     * @type {Accountattributes}
+     * @memberof AccountsApiPutAccountV1
      */
-    readonly accountattributesV1: AccountattributesV1
+    readonly accountattributes: Accountattributes
 }
 
 /**
- * Request parameters for submitReloadAccountV1 operation in AccountsV1Api.
+ * Request parameters for submitReloadAccountV1 operation in AccountsApi.
  * @export
- * @interface AccountsV1ApiSubmitReloadAccountV1Request
+ * @interface AccountsApiSubmitReloadAccountV1Request
  */
-export interface AccountsV1ApiSubmitReloadAccountV1Request {
+export interface AccountsApiSubmitReloadAccountV1Request {
     /**
      * The account id
      * @type {string}
-     * @memberof AccountsV1ApiSubmitReloadAccountV1
+     * @memberof AccountsApiSubmitReloadAccountV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for unlockAccountV1 operation in AccountsV1Api.
+ * Request parameters for unlockAccountV1 operation in AccountsApi.
  * @export
- * @interface AccountsV1ApiUnlockAccountV1Request
+ * @interface AccountsApiUnlockAccountV1Request
  */
-export interface AccountsV1ApiUnlockAccountV1Request {
+export interface AccountsApiUnlockAccountV1Request {
     /**
      * The account ID.
      * @type {string}
-     * @memberof AccountsV1ApiUnlockAccountV1
+     * @memberof AccountsApiUnlockAccountV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {AccountunlockrequestV1}
-     * @memberof AccountsV1ApiUnlockAccountV1
+     * @type {Accountunlockrequest}
+     * @memberof AccountsApiUnlockAccountV1
      */
-    readonly accountunlockrequestV1: AccountunlockrequestV1
+    readonly accountunlockrequest: Accountunlockrequest
 }
 
 /**
- * Request parameters for updateAccountV1 operation in AccountsV1Api.
+ * Request parameters for updateAccountV1 operation in AccountsApi.
  * @export
- * @interface AccountsV1ApiUpdateAccountV1Request
+ * @interface AccountsApiUpdateAccountV1Request
  */
-export interface AccountsV1ApiUpdateAccountV1Request {
+export interface AccountsApiUpdateAccountV1Request {
     /**
      * Account ID.
      * @type {string}
-     * @memberof AccountsV1ApiUpdateAccountV1
+     * @memberof AccountsApiUpdateAccountV1
      */
     readonly id: string
 
     /**
      * A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
      * @type {Array<object>}
-     * @memberof AccountsV1ApiUpdateAccountV1
+     * @memberof AccountsApiUpdateAccountV1
      */
     readonly requestBody: Array<object>
 }
 
 /**
- * AccountsV1Api - object-oriented interface
+ * AccountsApi - object-oriented interface
  * @export
- * @class AccountsV1Api
+ * @class AccountsApi
  * @extends {BaseAPI}
  */
-export class AccountsV1Api extends BaseAPI {
+export class AccountsApi extends BaseAPI {
     /**
      * Submit an account creation task - the API then returns the task ID.    You must include the `sourceId` where the account will be created in the `attributes` object.  This endpoint creates an account on the source record in your ISC tenant. This is useful for Flat File (`DelimitedFile`) type sources because it allows you to aggregate new accounts without needing to import a new CSV file every time.   However, if you use this endpoint to create an account for a Direct Connection type source, you must ensure that the account also exists on the target source.  The endpoint doesn\'t actually provision the account on the target source, which means that if the account doesn\'t also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant.   By providing the account ID of an existing account in the request body, this API will function as a PATCH operation and update the account. 
      * @summary Create account
-     * @param {AccountsV1ApiCreateAccountV1Request} requestParameters Request parameters.
+     * @param {AccountsApiCreateAccountV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AccountsV1Api
+     * @memberof AccountsApi
      */
-    public createAccountV1(requestParameters: AccountsV1ApiCreateAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccountsV1ApiFp(this.configuration).createAccountV1(requestParameters.accountattributescreateV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createAccountV1(requestParameters: AccountsApiCreateAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).createAccountV1(requestParameters.accountattributescreate, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this endpoint to remove accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.  This endpoint is good for: * Removing accounts that no longer exist on the source. * Removing accounts that won\'t be aggregated following updates to the source configuration. * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc. 
      * @summary Remove account
-     * @param {AccountsV1ApiDeleteAccountAsyncV1Request} requestParameters Request parameters.
+     * @param {AccountsApiDeleteAccountAsyncV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AccountsV1Api
+     * @memberof AccountsApi
      */
-    public deleteAccountAsyncV1(requestParameters: AccountsV1ApiDeleteAccountAsyncV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccountsV1ApiFp(this.configuration).deleteAccountAsyncV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteAccountAsyncV1(requestParameters: AccountsApiDeleteAccountAsyncV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).deleteAccountAsyncV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future.  >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
      * @summary Delete account
-     * @param {AccountsV1ApiDeleteAccountV1Request} requestParameters Request parameters.
+     * @param {AccountsApiDeleteAccountV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AccountsV1Api
+     * @memberof AccountsApi
      */
-    public deleteAccountV1(requestParameters: AccountsV1ApiDeleteAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccountsV1ApiFp(this.configuration).deleteAccountV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteAccountV1(requestParameters: AccountsApiDeleteAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).deleteAccountV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API submits a task to disable IDN account for a single identity.
      * @summary Disable idn account for identity
-     * @param {AccountsV1ApiDisableAccountForIdentityV1Request} requestParameters Request parameters.
+     * @param {AccountsApiDisableAccountForIdentityV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AccountsV1Api
+     * @memberof AccountsApi
      */
-    public disableAccountForIdentityV1(requestParameters: AccountsV1ApiDisableAccountForIdentityV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccountsV1ApiFp(this.configuration).disableAccountForIdentityV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public disableAccountForIdentityV1(requestParameters: AccountsApiDisableAccountForIdentityV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).disableAccountForIdentityV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API submits a task to disable the account and returns the task ID.      
      * @summary Disable account
-     * @param {AccountsV1ApiDisableAccountV1Request} requestParameters Request parameters.
+     * @param {AccountsApiDisableAccountV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AccountsV1Api
+     * @memberof AccountsApi
      */
-    public disableAccountV1(requestParameters: AccountsV1ApiDisableAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccountsV1ApiFp(this.configuration).disableAccountV1(requestParameters.id, requestParameters.accounttogglerequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public disableAccountV1(requestParameters: AccountsApiDisableAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).disableAccountV1(requestParameters.id, requestParameters.accounttogglerequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API submits tasks to disable IDN account for each identity provided in the request body.
      * @summary Disable idn accounts for identities
-     * @param {AccountsV1ApiDisableAccountsForIdentitiesV1Request} requestParameters Request parameters.
+     * @param {AccountsApiDisableAccountsForIdentitiesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AccountsV1Api
+     * @memberof AccountsApi
      */
-    public disableAccountsForIdentitiesV1(requestParameters: AccountsV1ApiDisableAccountsForIdentitiesV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccountsV1ApiFp(this.configuration).disableAccountsForIdentitiesV1(requestParameters.identitiesaccountsbulkrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public disableAccountsForIdentitiesV1(requestParameters: AccountsApiDisableAccountsForIdentitiesV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).disableAccountsForIdentitiesV1(requestParameters.identitiesaccountsbulkrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API submits a task to enable IDN account for a single identity.
      * @summary Enable idn account for identity
-     * @param {AccountsV1ApiEnableAccountForIdentityV1Request} requestParameters Request parameters.
+     * @param {AccountsApiEnableAccountForIdentityV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AccountsV1Api
+     * @memberof AccountsApi
      */
-    public enableAccountForIdentityV1(requestParameters: AccountsV1ApiEnableAccountForIdentityV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccountsV1ApiFp(this.configuration).enableAccountForIdentityV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public enableAccountForIdentityV1(requestParameters: AccountsApiEnableAccountForIdentityV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).enableAccountForIdentityV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API submits a task to enable account and returns the task ID.      
      * @summary Enable account
-     * @param {AccountsV1ApiEnableAccountV1Request} requestParameters Request parameters.
+     * @param {AccountsApiEnableAccountV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AccountsV1Api
+     * @memberof AccountsApi
      */
-    public enableAccountV1(requestParameters: AccountsV1ApiEnableAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccountsV1ApiFp(this.configuration).enableAccountV1(requestParameters.id, requestParameters.accounttogglerequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public enableAccountV1(requestParameters: AccountsApiEnableAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).enableAccountV1(requestParameters.id, requestParameters.accounttogglerequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API submits tasks to enable IDN account for each identity provided in the request body.
      * @summary Enable idn accounts for identities
-     * @param {AccountsV1ApiEnableAccountsForIdentitiesV1Request} requestParameters Request parameters.
+     * @param {AccountsApiEnableAccountsForIdentitiesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AccountsV1Api
+     * @memberof AccountsApi
      */
-    public enableAccountsForIdentitiesV1(requestParameters: AccountsV1ApiEnableAccountsForIdentitiesV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccountsV1ApiFp(this.configuration).enableAccountsForIdentitiesV1(requestParameters.identitiesaccountsbulkrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public enableAccountsForIdentitiesV1(requestParameters: AccountsApiEnableAccountsForIdentitiesV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).enableAccountsForIdentitiesV1(requestParameters.identitiesaccountsbulkrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns entitlements of the account.      
      * @summary Account entitlements
-     * @param {AccountsV1ApiGetAccountEntitlementsV1Request} requestParameters Request parameters.
+     * @param {AccountsApiGetAccountEntitlementsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AccountsV1Api
+     * @memberof AccountsApi
      */
-    public getAccountEntitlementsV1(requestParameters: AccountsV1ApiGetAccountEntitlementsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccountsV1ApiFp(this.configuration).getAccountEntitlementsV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getAccountEntitlementsV1(requestParameters: AccountsApiGetAccountEntitlementsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).getAccountEntitlementsV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to return the details for a single account by its ID.  
      * @summary Account details
-     * @param {AccountsV1ApiGetAccountV1Request} requestParameters Request parameters.
+     * @param {AccountsApiGetAccountV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AccountsV1Api
+     * @memberof AccountsApi
      */
-    public getAccountV1(requestParameters: AccountsV1ApiGetAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccountsV1ApiFp(this.configuration).getAccountV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getAccountV1(requestParameters: AccountsApiGetAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).getAccountV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * List accounts. 
      * @summary Accounts list
-     * @param {AccountsV1ApiListAccountsV1Request} requestParameters Request parameters.
+     * @param {AccountsApiListAccountsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AccountsV1Api
+     * @memberof AccountsApi
      */
-    public listAccountsV1(requestParameters: AccountsV1ApiListAccountsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return AccountsV1ApiFp(this.configuration).listAccountsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.detailLevel, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listAccountsV1(requestParameters: AccountsApiListAccountsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).listAccountsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.detailLevel, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to update an account with a PUT request.   This endpoint submits an account update task and returns the task ID.   >**Note: You can only use this PUT endpoint to update accounts from flat file sources.** 
      * @summary Update account
-     * @param {AccountsV1ApiPutAccountV1Request} requestParameters Request parameters.
+     * @param {AccountsApiPutAccountV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AccountsV1Api
+     * @memberof AccountsApi
      */
-    public putAccountV1(requestParameters: AccountsV1ApiPutAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccountsV1ApiFp(this.configuration).putAccountV1(requestParameters.id, requestParameters.accountattributesV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putAccountV1(requestParameters: AccountsApiPutAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).putAccountV1(requestParameters.id, requestParameters.accountattributes, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.      
      * @summary Reload account
-     * @param {AccountsV1ApiSubmitReloadAccountV1Request} requestParameters Request parameters.
+     * @param {AccountsApiSubmitReloadAccountV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AccountsV1Api
+     * @memberof AccountsApi
      */
-    public submitReloadAccountV1(requestParameters: AccountsV1ApiSubmitReloadAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccountsV1ApiFp(this.configuration).submitReloadAccountV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public submitReloadAccountV1(requestParameters: AccountsApiSubmitReloadAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).submitReloadAccountV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API submits a task to unlock an account and returns the task ID.   To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required. 
      * @summary Unlock account
-     * @param {AccountsV1ApiUnlockAccountV1Request} requestParameters Request parameters.
+     * @param {AccountsApiUnlockAccountV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AccountsV1Api
+     * @memberof AccountsApi
      */
-    public unlockAccountV1(requestParameters: AccountsV1ApiUnlockAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccountsV1ApiFp(this.configuration).unlockAccountV1(requestParameters.id, requestParameters.accountunlockrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public unlockAccountV1(requestParameters: AccountsApiUnlockAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).unlockAccountV1(requestParameters.id, requestParameters.accountunlockrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to update account details.   This API supports updating an account\'s correlation by modifying the `identityId` and `manuallyCorrelated` fields.  To reassign an account from one identity to another, replace the current `identityId` with a new value.  If the account you\'re assigning was provisioned by Identity Security Cloud (ISC), it\'s possible for ISC to create a new account  for the previous identity as soon as the account is moved. If the account you\'re assigning is authoritative,  this causes the previous identity to become uncorrelated and can even result in its deletion. All accounts that are reassigned will be set to `manuallyCorrelated: true` unless you specify otherwise.  >**Note:** The `attributes` field can only be modified for flat file accounts.  
      * @summary Update account
-     * @param {AccountsV1ApiUpdateAccountV1Request} requestParameters Request parameters.
+     * @param {AccountsApiUpdateAccountV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AccountsV1Api
+     * @memberof AccountsApi
      */
-    public updateAccountV1(requestParameters: AccountsV1ApiUpdateAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccountsV1ApiFp(this.configuration).updateAccountV1(requestParameters.id, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateAccountV1(requestParameters: AccountsApiUpdateAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).updateAccountV1(requestParameters.id, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
 /**
  * @export
  */
-export const ListAccountsV1DetailLevelV1 = {
+export const ListAccountsV1DetailLevelEnum = {
     Slim: 'SLIM',
     Full: 'FULL'
 } as const;
-export type ListAccountsV1DetailLevelV1 = typeof ListAccountsV1DetailLevelV1[keyof typeof ListAccountsV1DetailLevelV1];
+export type ListAccountsV1DetailLevelEnum = typeof ListAccountsV1DetailLevelEnum[keyof typeof ListAccountsV1DetailLevelEnum];
 
 

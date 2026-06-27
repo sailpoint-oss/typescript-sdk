@@ -1,15 +1,15 @@
 ---
-id: v1-applicationtype-v1
-title: ApplicationtypeV1
-pagination_label: ApplicationtypeV1
-sidebar_label: ApplicationtypeV1
+id: v1-applicationtype
+title: Applicationtype
+pagination_label: Applicationtype
+sidebar_label: Applicationtype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ApplicationtypeV1', 'v1ApplicationtypeV1']
-slug: /tools/sdk/typescript/data_access_security/models/applicationtype-v1
-tags: ['SDK', 'Software Development Kit', 'ApplicationtypeV1', 'v1ApplicationtypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Applicationtype', 'v1Applicationtype']
+slug: /tools/sdk/typescript/data_access_security/models/applicationtype
+tags: ['SDK', 'Software Development Kit', 'Applicationtype', 'v1Applicationtype']
 ---
 
-# ApplicationtypeV1
+# Applicationtype
 
 ## Enum
 

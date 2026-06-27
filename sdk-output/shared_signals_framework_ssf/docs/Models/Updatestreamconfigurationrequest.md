@@ -1,22 +1,22 @@
 ---
-id: v1-updatestreamconfigurationrequest-v1
-title: UpdatestreamconfigurationrequestV1
-pagination_label: UpdatestreamconfigurationrequestV1
-sidebar_label: UpdatestreamconfigurationrequestV1
+id: v1-updatestreamconfigurationrequest
+title: Updatestreamconfigurationrequest
+pagination_label: Updatestreamconfigurationrequest
+sidebar_label: Updatestreamconfigurationrequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'UpdatestreamconfigurationrequestV1', 'v1UpdatestreamconfigurationrequestV1']
-slug: /tools/sdk/typescript/shared_signals_framework_ssf/models/updatestreamconfigurationrequest-v1
-tags: ['SDK', 'Software Development Kit', 'UpdatestreamconfigurationrequestV1', 'v1UpdatestreamconfigurationrequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Updatestreamconfigurationrequest', 'v1Updatestreamconfigurationrequest']
+slug: /tools/sdk/typescript/shared_signals_framework_ssf/models/updatestreamconfigurationrequest
+tags: ['SDK', 'Software Development Kit', 'Updatestreamconfigurationrequest', 'v1Updatestreamconfigurationrequest']
 ---
 
-# UpdatestreamconfigurationrequestV1
+# Updatestreamconfigurationrequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**stream_id** | **string** | ID of the stream to update. | [default to undefined]
-**delivery** | **(optional)** **DeliveryrequestV1** |  | [default to undefined]
-**events_requested** | **(optional)** **Array&lt;string&gt;** | Event types the receiver wants. Use CAEP event-type URIs. | [default to undefined]
-**description** | **(optional)** **string** | Optional human-readable description of the stream. | [default to undefined]
+**stream_id** | `string` | ID of the stream to update. | [default to undefined]
+**delivery** | **(optional)** `Deliveryrequest` |  | [default to undefined]
+**events_requested** | **(optional)** `Array<string>` | Event types the receiver wants. Use CAEP event-type URIs. | [default to undefined]
+**description** | **(optional)** `string` | Optional human-readable description of the stream. | [default to undefined]
 

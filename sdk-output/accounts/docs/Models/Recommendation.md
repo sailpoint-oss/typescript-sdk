@@ -1,20 +1,20 @@
 ---
-id: v1-recommendation-v1
-title: RecommendationV1
-pagination_label: RecommendationV1
-sidebar_label: RecommendationV1
+id: v1-recommendation
+title: Recommendation
+pagination_label: Recommendation
+sidebar_label: Recommendation
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RecommendationV1', 'v1RecommendationV1']
-slug: /tools/sdk/typescript/accounts/models/recommendation-v1
-tags: ['SDK', 'Software Development Kit', 'RecommendationV1', 'v1RecommendationV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Recommendation', 'v1Recommendation']
+slug: /tools/sdk/typescript/accounts/models/recommendation
+tags: ['SDK', 'Software Development Kit', 'Recommendation', 'v1Recommendation']
 ---
 
-# RecommendationV1
+# Recommendation
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **string** | Recommended type of account. | [default to undefined]
-**method** | **string** | Method used to produce the recommendation. DISCOVERY - suggested by AI, SOURCE - the account comes from a source flagged as containing machine accounts, CRITERIA - the account satisfies classification criteria. | [default to undefined]
+**type** | `string` | Recommended type of account. | [default to undefined]
+**method** | `string` | Method used to produce the recommendation. DISCOVERY - suggested by AI, SOURCE - the account comes from a source flagged as containing machine accounts, CRITERIA - the account satisfies classification criteria. | [default to undefined]
 

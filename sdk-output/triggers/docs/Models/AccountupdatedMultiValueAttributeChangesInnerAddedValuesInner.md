@@ -1,15 +1,15 @@
 ---
-id: v1-accountupdated-multi-value-attribute-changes-inner-added-values-inner-v1
-title: AccountupdatedMultiValueAttributeChangesInnerAddedValuesInnerV1
-pagination_label: AccountupdatedMultiValueAttributeChangesInnerAddedValuesInnerV1
-sidebar_label: AccountupdatedMultiValueAttributeChangesInnerAddedValuesInnerV1
+id: v1-accountupdated-multi-value-attribute-changes-inner-added-values-inner
+title: AccountupdatedMultiValueAttributeChangesInnerAddedValuesInner
+pagination_label: AccountupdatedMultiValueAttributeChangesInnerAddedValuesInner
+sidebar_label: AccountupdatedMultiValueAttributeChangesInnerAddedValuesInner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccountupdatedMultiValueAttributeChangesInnerAddedValuesInnerV1', 'v1AccountupdatedMultiValueAttributeChangesInnerAddedValuesInnerV1']
-slug: /tools/sdk/typescript/triggers/models/accountupdated-multi-value-attribute-changes-inner-added-values-inner-v1
-tags: ['SDK', 'Software Development Kit', 'AccountupdatedMultiValueAttributeChangesInnerAddedValuesInnerV1', 'v1AccountupdatedMultiValueAttributeChangesInnerAddedValuesInnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'AccountupdatedMultiValueAttributeChangesInnerAddedValuesInner', 'v1AccountupdatedMultiValueAttributeChangesInnerAddedValuesInner']
+slug: /tools/sdk/typescript/triggers/models/accountupdated-multi-value-attribute-changes-inner-added-values-inner
+tags: ['SDK', 'Software Development Kit', 'AccountupdatedMultiValueAttributeChangesInnerAddedValuesInner', 'v1AccountupdatedMultiValueAttributeChangesInnerAddedValuesInner']
 ---
 
-# AccountupdatedMultiValueAttributeChangesInnerAddedValuesInnerV1
+# AccountupdatedMultiValueAttributeChangesInnerAddedValuesInner
 
 ## Properties
 

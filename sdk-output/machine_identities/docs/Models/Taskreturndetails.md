@@ -1,20 +1,20 @@
 ---
-id: v1-taskreturndetails-v1
-title: TaskreturndetailsV1
-pagination_label: TaskreturndetailsV1
-sidebar_label: TaskreturndetailsV1
+id: v1-taskreturndetails
+title: Taskreturndetails
+pagination_label: Taskreturndetails
+sidebar_label: Taskreturndetails
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'TaskreturndetailsV1', 'v1TaskreturndetailsV1']
-slug: /tools/sdk/typescript/machine_identities/models/taskreturndetails-v1
-tags: ['SDK', 'Software Development Kit', 'TaskreturndetailsV1', 'v1TaskreturndetailsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Taskreturndetails', 'v1Taskreturndetails']
+slug: /tools/sdk/typescript/machine_identities/models/taskreturndetails
+tags: ['SDK', 'Software Development Kit', 'Taskreturndetails', 'v1Taskreturndetails']
 ---
 
-# TaskreturndetailsV1
+# Taskreturndetails
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** | Display name of the TaskReturnDetails | [default to undefined]
-**attributeName** | **string** | Attribute the TaskReturnDetails is for | [default to undefined]
+**name** | `string` | Display name of the TaskReturnDetails | [default to undefined]
+**attributeName** | `string` | Attribute the TaskReturnDetails is for | [default to undefined]
 

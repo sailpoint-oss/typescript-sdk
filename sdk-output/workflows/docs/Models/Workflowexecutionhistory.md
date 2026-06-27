@@ -1,21 +1,21 @@
 ---
-id: v1-workflowexecutionhistory-v1
-title: WorkflowexecutionhistoryV1
-pagination_label: WorkflowexecutionhistoryV1
-sidebar_label: WorkflowexecutionhistoryV1
+id: v1-workflowexecutionhistory
+title: Workflowexecutionhistory
+pagination_label: Workflowexecutionhistory
+sidebar_label: Workflowexecutionhistory
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'WorkflowexecutionhistoryV1', 'v1WorkflowexecutionhistoryV1']
-slug: /tools/sdk/typescript/workflows/models/workflowexecutionhistory-v1
-tags: ['SDK', 'Software Development Kit', 'WorkflowexecutionhistoryV1', 'v1WorkflowexecutionhistoryV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Workflowexecutionhistory', 'v1Workflowexecutionhistory']
+slug: /tools/sdk/typescript/workflows/models/workflowexecutionhistory
+tags: ['SDK', 'Software Development Kit', 'Workflowexecutionhistory', 'v1Workflowexecutionhistory']
 ---
 
-# WorkflowexecutionhistoryV1
+# Workflowexecutionhistory
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**definition** | **(optional)** **object** |  | [default to undefined]
-**history** | **(optional)** **object** |  | [default to undefined]
-**trigger** | **(optional)** **object** |  | [default to undefined]
+**definition** | **(optional)** `object` |  | [default to undefined]
+**history** | **(optional)** `object` |  | [default to undefined]
+**trigger** | **(optional)** `object` |  | [default to undefined]
 

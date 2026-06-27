@@ -1,19 +1,19 @@
 ---
-id: v1-entitlementconnectionsearchhitentitlement-privilege-level-v1
-title: EntitlementconnectionsearchhitentitlementPrivilegeLevelV1
-pagination_label: EntitlementconnectionsearchhitentitlementPrivilegeLevelV1
-sidebar_label: EntitlementconnectionsearchhitentitlementPrivilegeLevelV1
+id: v1-entitlementconnectionsearchhitentitlement-privilege-level
+title: EntitlementconnectionsearchhitentitlementPrivilegeLevel
+pagination_label: EntitlementconnectionsearchhitentitlementPrivilegeLevel
+sidebar_label: EntitlementconnectionsearchhitentitlementPrivilegeLevel
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'EntitlementconnectionsearchhitentitlementPrivilegeLevelV1', 'v1EntitlementconnectionsearchhitentitlementPrivilegeLevelV1']
-slug: /tools/sdk/typescript/entitlement_connections/models/entitlementconnectionsearchhitentitlement-privilege-level-v1
-tags: ['SDK', 'Software Development Kit', 'EntitlementconnectionsearchhitentitlementPrivilegeLevelV1', 'v1EntitlementconnectionsearchhitentitlementPrivilegeLevelV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'EntitlementconnectionsearchhitentitlementPrivilegeLevel', 'v1EntitlementconnectionsearchhitentitlementPrivilegeLevel']
+slug: /tools/sdk/typescript/entitlement_connections/models/entitlementconnectionsearchhitentitlement-privilege-level
+tags: ['SDK', 'Software Development Kit', 'EntitlementconnectionsearchhitentitlementPrivilegeLevel', 'v1EntitlementconnectionsearchhitentitlementPrivilegeLevel']
 ---
 
-# EntitlementconnectionsearchhitentitlementPrivilegeLevelV1
+# EntitlementconnectionsearchhitentitlementPrivilegeLevel
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**effective** | **(optional)** **string** | Effective privilege level. | [default to undefined]
+**effective** | **(optional)** `string` | Effective privilege level. | [default to undefined]
 

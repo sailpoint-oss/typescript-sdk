@@ -1,19 +1,19 @@
 ---
-id: v1-get-password-dictionary-v1429-response-v1
-title: GetPasswordDictionaryV1429ResponseV1
-pagination_label: GetPasswordDictionaryV1429ResponseV1
-sidebar_label: GetPasswordDictionaryV1429ResponseV1
+id: v1-get-password-dictionary-v1429-response
+title: GetPasswordDictionaryV1429Response
+pagination_label: GetPasswordDictionaryV1429Response
+sidebar_label: GetPasswordDictionaryV1429Response
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'GetPasswordDictionaryV1429ResponseV1', 'v1GetPasswordDictionaryV1429ResponseV1']
-slug: /tools/sdk/typescript/password_dictionary/models/get-password-dictionary-v1429-response-v1
-tags: ['SDK', 'Software Development Kit', 'GetPasswordDictionaryV1429ResponseV1', 'v1GetPasswordDictionaryV1429ResponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'GetPasswordDictionaryV1429Response', 'v1GetPasswordDictionaryV1429Response']
+slug: /tools/sdk/typescript/password_dictionary/models/get-password-dictionary-v1429-response
+tags: ['SDK', 'Software Development Kit', 'GetPasswordDictionaryV1429Response', 'v1GetPasswordDictionaryV1429Response']
 ---
 
-# GetPasswordDictionaryV1429ResponseV1
+# GetPasswordDictionaryV1429Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **(optional)** **any** | A message describing the error | [default to undefined]
+**message** | **(optional)** `any` | A message describing the error | [default to undefined]
 

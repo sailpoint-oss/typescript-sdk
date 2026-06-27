@@ -24,196 +24,196 @@ import type { RequestArgs } from './base';
 import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
 
 /**
- * 
+ * An object holding the access that is being reviewed
  * @export
- * @interface AccesssummaryAccessV1
+ * @interface Accesssummary
  */
-export interface AccesssummaryAccessV1 {
+export interface Accesssummary {
     /**
      * 
-     * @type {DtotypeV1}
-     * @memberof AccesssummaryAccessV1
+     * @type {AccesssummaryAccess}
+     * @memberof Accesssummary
      */
-    'type'?: DtotypeV1;
+    'access'?: AccesssummaryAccess;
+    /**
+     * 
+     * @type {Reviewableentitlement}
+     * @memberof Accesssummary
+     */
+    'entitlement'?: Reviewableentitlement | null;
+    /**
+     * 
+     * @type {Reviewableaccessprofile}
+     * @memberof Accesssummary
+     */
+    'accessProfile'?: Reviewableaccessprofile;
+    /**
+     * 
+     * @type {Reviewablerole}
+     * @memberof Accesssummary
+     */
+    'role'?: Reviewablerole | null;
+}
+/**
+ * 
+ * @export
+ * @interface AccesssummaryAccess
+ */
+export interface AccesssummaryAccess {
+    /**
+     * 
+     * @type {Dtotype}
+     * @memberof AccesssummaryAccess
+     */
+    'type'?: Dtotype;
     /**
      * The ID of the item being certified
      * @type {string}
-     * @memberof AccesssummaryAccessV1
+     * @memberof AccesssummaryAccess
      */
     'id'?: string;
     /**
      * The name of the item being certified
      * @type {string}
-     * @memberof AccesssummaryAccessV1
+     * @memberof AccesssummaryAccess
      */
     'name'?: string;
 }
 
 
 /**
- * An object holding the access that is being reviewed
- * @export
- * @interface AccesssummaryV1
- */
-export interface AccesssummaryV1 {
-    /**
-     * 
-     * @type {AccesssummaryAccessV1}
-     * @memberof AccesssummaryV1
-     */
-    'access'?: AccesssummaryAccessV1;
-    /**
-     * 
-     * @type {ReviewableentitlementV1}
-     * @memberof AccesssummaryV1
-     */
-    'entitlement'?: ReviewableentitlementV1 | null;
-    /**
-     * 
-     * @type {ReviewableaccessprofileV1}
-     * @memberof AccesssummaryV1
-     */
-    'accessProfile'?: ReviewableaccessprofileV1;
-    /**
-     * 
-     * @type {ReviewableroleV1}
-     * @memberof AccesssummaryV1
-     */
-    'role'?: ReviewableroleV1 | null;
-}
-/**
  * Insights into account activity
  * @export
- * @interface ActivityinsightsV1
+ * @interface Activityinsights
  */
-export interface ActivityinsightsV1 {
+export interface Activityinsights {
     /**
      * UUID of the account
      * @type {string}
-     * @memberof ActivityinsightsV1
+     * @memberof Activityinsights
      */
     'accountID'?: string;
     /**
      * The number of days of activity
      * @type {number}
-     * @memberof ActivityinsightsV1
+     * @memberof Activityinsights
      */
     'usageDays'?: number;
     /**
      * Status indicating if the activity is complete or unknown
      * @type {string}
-     * @memberof ActivityinsightsV1
+     * @memberof Activityinsights
      */
-    'usageDaysState'?: ActivityinsightsV1UsageDaysStateV1;
+    'usageDaysState'?: ActivityinsightsUsageDaysStateEnum;
 }
 
-export const ActivityinsightsV1UsageDaysStateV1 = {
+export const ActivityinsightsUsageDaysStateEnum = {
     Complete: 'COMPLETE',
     Unknown: 'UNKNOWN'
 } as const;
 
-export type ActivityinsightsV1UsageDaysStateV1 = typeof ActivityinsightsV1UsageDaysStateV1[keyof typeof ActivityinsightsV1UsageDaysStateV1];
+export type ActivityinsightsUsageDaysStateEnum = typeof ActivityinsightsUsageDaysStateEnum[keyof typeof ActivityinsightsUsageDaysStateEnum];
 
 /**
  * 
  * @export
- * @interface CertificationidentitysummaryV1
+ * @interface Certificationidentitysummary
  */
-export interface CertificationidentitysummaryV1 {
+export interface Certificationidentitysummary {
     /**
      * The ID of the identity summary
      * @type {string}
-     * @memberof CertificationidentitysummaryV1
+     * @memberof Certificationidentitysummary
      */
     'id'?: string;
     /**
      * Name of the linked identity
      * @type {string}
-     * @memberof CertificationidentitysummaryV1
+     * @memberof Certificationidentitysummary
      */
     'name'?: string;
     /**
      * The ID of the identity being certified
      * @type {string}
-     * @memberof CertificationidentitysummaryV1
+     * @memberof Certificationidentitysummary
      */
     'identityId'?: string;
     /**
      * Indicates whether the review items for the linked identity\'s certification have been completed
      * @type {boolean}
-     * @memberof CertificationidentitysummaryV1
+     * @memberof Certificationidentitysummary
      */
     'completed'?: boolean;
 }
 /**
+ * DAS data for the entitlement
+ * @export
+ * @interface Dataaccess
+ */
+export interface Dataaccess {
+    /**
+     * List of classification policies that apply to resources the entitlement \\ groups has access to
+     * @type {Array<DataaccessPoliciesInner>}
+     * @memberof Dataaccess
+     */
+    'policies'?: Array<DataaccessPoliciesInner>;
+    /**
+     * List of classification categories that apply to resources the entitlement \\ groups has access to
+     * @type {Array<DataaccessCategoriesInner>}
+     * @memberof Dataaccess
+     */
+    'categories'?: Array<DataaccessCategoriesInner>;
+    /**
+     * 
+     * @type {DataaccessImpactScore}
+     * @memberof Dataaccess
+     */
+    'impactScore'?: DataaccessImpactScore;
+}
+/**
  * 
  * @export
- * @interface DataaccessCategoriesInnerV1
+ * @interface DataaccessCategoriesInner
  */
-export interface DataaccessCategoriesInnerV1 {
+export interface DataaccessCategoriesInner {
     /**
      * Value of the category
      * @type {string}
-     * @memberof DataaccessCategoriesInnerV1
+     * @memberof DataaccessCategoriesInner
      */
     'value'?: string;
     /**
      * Number of matched for each category
      * @type {number}
-     * @memberof DataaccessCategoriesInnerV1
+     * @memberof DataaccessCategoriesInner
      */
     'matchCount'?: number;
 }
 /**
  * 
  * @export
- * @interface DataaccessImpactScoreV1
+ * @interface DataaccessImpactScore
  */
-export interface DataaccessImpactScoreV1 {
+export interface DataaccessImpactScore {
     /**
      * Impact Score for this data
      * @type {string}
-     * @memberof DataaccessImpactScoreV1
+     * @memberof DataaccessImpactScore
      */
     'value'?: string;
 }
 /**
  * 
  * @export
- * @interface DataaccessPoliciesInnerV1
+ * @interface DataaccessPoliciesInner
  */
-export interface DataaccessPoliciesInnerV1 {
+export interface DataaccessPoliciesInner {
     /**
      * Value of the policy
      * @type {string}
-     * @memberof DataaccessPoliciesInnerV1
+     * @memberof DataaccessPoliciesInner
      */
     'value'?: string;
-}
-/**
- * DAS data for the entitlement
- * @export
- * @interface DataaccessV1
- */
-export interface DataaccessV1 {
-    /**
-     * List of classification policies that apply to resources the entitlement \\ groups has access to
-     * @type {Array<DataaccessPoliciesInnerV1>}
-     * @memberof DataaccessV1
-     */
-    'policies'?: Array<DataaccessPoliciesInnerV1>;
-    /**
-     * List of classification categories that apply to resources the entitlement \\ groups has access to
-     * @type {Array<DataaccessCategoriesInnerV1>}
-     * @memberof DataaccessV1
-     */
-    'categories'?: Array<DataaccessCategoriesInnerV1>;
-    /**
-     * 
-     * @type {DataaccessImpactScoreV1}
-     * @memberof DataaccessV1
-     */
-    'impactScore'?: DataaccessImpactScoreV1;
 }
 /**
  * An enumeration of the types of DTOs supported within the IdentityNow infrastructure.
@@ -221,7 +221,7 @@ export interface DataaccessV1 {
  * @enum {string}
  */
 
-export const DtotypeV1 = {
+export const Dtotype = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
@@ -253,31 +253,31 @@ export const DtotypeV1 = {
     Workgroup: 'WORKGROUP'
 } as const;
 
-export type DtotypeV1 = typeof DtotypeV1[keyof typeof DtotypeV1];
+export type Dtotype = typeof Dtotype[keyof typeof Dtotype];
 
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -286,191 +286,191 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetIdentityDecisionSummaryV1401ResponseV1
+ * @interface GetIdentityDecisionSummaryV1401Response
  */
-export interface GetIdentityDecisionSummaryV1401ResponseV1 {
+export interface GetIdentityDecisionSummaryV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetIdentityDecisionSummaryV1401ResponseV1
+     * @memberof GetIdentityDecisionSummaryV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetIdentityDecisionSummaryV1429ResponseV1
+ * @interface GetIdentityDecisionSummaryV1429Response
  */
-export interface GetIdentityDecisionSummaryV1429ResponseV1 {
+export interface GetIdentityDecisionSummaryV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetIdentityDecisionSummaryV1429ResponseV1
+     * @memberof GetIdentityDecisionSummaryV1429Response
      */
     'message'?: any;
 }
 /**
  * 
  * @export
- * @interface IdentitycertdecisionsummaryV1
+ * @interface Identitycertdecisionsummary
  */
-export interface IdentitycertdecisionsummaryV1 {
+export interface Identitycertdecisionsummary {
     /**
      * Number of entitlement decisions that have been made
      * @type {number}
-     * @memberof IdentitycertdecisionsummaryV1
+     * @memberof Identitycertdecisionsummary
      */
     'entitlementDecisionsMade'?: number;
     /**
      * Number of access profile decisions that have been made
      * @type {number}
-     * @memberof IdentitycertdecisionsummaryV1
+     * @memberof Identitycertdecisionsummary
      */
     'accessProfileDecisionsMade'?: number;
     /**
      * Number of role decisions that have been made
      * @type {number}
-     * @memberof IdentitycertdecisionsummaryV1
+     * @memberof Identitycertdecisionsummary
      */
     'roleDecisionsMade'?: number;
     /**
      * Number of account decisions that have been made
      * @type {number}
-     * @memberof IdentitycertdecisionsummaryV1
+     * @memberof Identitycertdecisionsummary
      */
     'accountDecisionsMade'?: number;
     /**
      * The total number of entitlement decisions on the certification, both complete and incomplete
      * @type {number}
-     * @memberof IdentitycertdecisionsummaryV1
+     * @memberof Identitycertdecisionsummary
      */
     'entitlementDecisionsTotal'?: number;
     /**
      * The total number of access profile decisions on the certification, both complete and incomplete
      * @type {number}
-     * @memberof IdentitycertdecisionsummaryV1
+     * @memberof Identitycertdecisionsummary
      */
     'accessProfileDecisionsTotal'?: number;
     /**
      * The total number of role decisions on the certification, both complete and incomplete
      * @type {number}
-     * @memberof IdentitycertdecisionsummaryV1
+     * @memberof Identitycertdecisionsummary
      */
     'roleDecisionsTotal'?: number;
     /**
      * The total number of account decisions on the certification, both complete and incomplete
      * @type {number}
-     * @memberof IdentitycertdecisionsummaryV1
+     * @memberof Identitycertdecisionsummary
      */
     'accountDecisionsTotal'?: number;
     /**
      * The number of entitlement decisions that have been made which were approved
      * @type {number}
-     * @memberof IdentitycertdecisionsummaryV1
+     * @memberof Identitycertdecisionsummary
      */
     'entitlementsApproved'?: number;
     /**
      * The number of entitlement decisions that have been made which were revoked
      * @type {number}
-     * @memberof IdentitycertdecisionsummaryV1
+     * @memberof Identitycertdecisionsummary
      */
     'entitlementsRevoked'?: number;
     /**
      * The number of access profile decisions that have been made which were approved
      * @type {number}
-     * @memberof IdentitycertdecisionsummaryV1
+     * @memberof Identitycertdecisionsummary
      */
     'accessProfilesApproved'?: number;
     /**
      * The number of access profile decisions that have been made which were revoked
      * @type {number}
-     * @memberof IdentitycertdecisionsummaryV1
+     * @memberof Identitycertdecisionsummary
      */
     'accessProfilesRevoked'?: number;
     /**
      * The number of role decisions that have been made which were approved
      * @type {number}
-     * @memberof IdentitycertdecisionsummaryV1
+     * @memberof Identitycertdecisionsummary
      */
     'rolesApproved'?: number;
     /**
      * The number of role decisions that have been made which were revoked
      * @type {number}
-     * @memberof IdentitycertdecisionsummaryV1
+     * @memberof Identitycertdecisionsummary
      */
     'rolesRevoked'?: number;
     /**
      * The number of account decisions that have been made which were approved
      * @type {number}
-     * @memberof IdentitycertdecisionsummaryV1
+     * @memberof Identitycertdecisionsummary
      */
     'accountsApproved'?: number;
     /**
      * The number of account decisions that have been made which were revoked
      * @type {number}
-     * @memberof IdentitycertdecisionsummaryV1
+     * @memberof Identitycertdecisionsummary
      */
     'accountsRevoked'?: number;
 }
 /**
  * 
  * @export
- * @interface IdentityreferencewithnameandemailV1
+ * @interface Identityreferencewithnameandemail
  */
-export interface IdentityreferencewithnameandemailV1 {
+export interface Identityreferencewithnameandemail {
     /**
      * The type can only be IDENTITY. This is read-only.
      * @type {string}
-     * @memberof IdentityreferencewithnameandemailV1
+     * @memberof Identityreferencewithnameandemail
      */
     'type'?: string;
     /**
      * Identity ID.
      * @type {string}
-     * @memberof IdentityreferencewithnameandemailV1
+     * @memberof Identityreferencewithnameandemail
      */
     'id'?: string;
     /**
      * Identity\'s human-readable display name. This is read-only.
      * @type {string}
-     * @memberof IdentityreferencewithnameandemailV1
+     * @memberof Identityreferencewithnameandemail
      */
     'name'?: string;
     /**
      * Identity\'s email address. This is read-only.
      * @type {string}
-     * @memberof IdentityreferencewithnameandemailV1
+     * @memberof Identityreferencewithnameandemail
      */
     'email'?: string | null;
 }
@@ -480,382 +480,382 @@ export interface IdentityreferencewithnameandemailV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface ReviewableaccessprofileV1
+ * @interface Reviewableaccessprofile
  */
-export interface ReviewableaccessprofileV1 {
+export interface Reviewableaccessprofile {
     /**
      * The id of the Access Profile
      * @type {string}
-     * @memberof ReviewableaccessprofileV1
+     * @memberof Reviewableaccessprofile
      */
     'id'?: string;
     /**
      * Name of the Access Profile
      * @type {string}
-     * @memberof ReviewableaccessprofileV1
+     * @memberof Reviewableaccessprofile
      */
     'name'?: string;
     /**
      * Information about the Access Profile
      * @type {string}
-     * @memberof ReviewableaccessprofileV1
+     * @memberof Reviewableaccessprofile
      */
     'description'?: string;
     /**
      * Indicates if the entitlement is a privileged entitlement
      * @type {boolean}
-     * @memberof ReviewableaccessprofileV1
+     * @memberof Reviewableaccessprofile
      */
     'privileged'?: boolean;
     /**
      * True if the entitlement is cloud governed
      * @type {boolean}
-     * @memberof ReviewableaccessprofileV1
+     * @memberof Reviewableaccessprofile
      */
     'cloudGoverned'?: boolean;
     /**
      * The date at which a user\'s access expires
      * @type {string}
-     * @memberof ReviewableaccessprofileV1
+     * @memberof Reviewableaccessprofile
      */
     'endDate'?: string | null;
     /**
      * 
-     * @type {IdentityreferencewithnameandemailV1}
-     * @memberof ReviewableaccessprofileV1
+     * @type {Identityreferencewithnameandemail}
+     * @memberof Reviewableaccessprofile
      */
-    'owner'?: IdentityreferencewithnameandemailV1 | null;
+    'owner'?: Identityreferencewithnameandemail | null;
     /**
      * A list of entitlements associated with this Access Profile
-     * @type {Array<ReviewableentitlementV1>}
-     * @memberof ReviewableaccessprofileV1
+     * @type {Array<Reviewableentitlement>}
+     * @memberof Reviewableaccessprofile
      */
-    'entitlements'?: Array<ReviewableentitlementV1>;
+    'entitlements'?: Array<Reviewableentitlement>;
     /**
      * Date the Access Profile was created.
      * @type {string}
-     * @memberof ReviewableaccessprofileV1
+     * @memberof Reviewableaccessprofile
      */
     'created'?: string;
     /**
      * Date the Access Profile was last modified.
      * @type {string}
-     * @memberof ReviewableaccessprofileV1
+     * @memberof Reviewableaccessprofile
      */
     'modified'?: string;
 }
 /**
- * Information about the machine account owner
- * @export
- * @interface ReviewableentitlementAccountOwnerV1
- */
-export interface ReviewableentitlementAccountOwnerV1 {
-    /**
-     * The id associated with the machine account owner
-     * @type {string}
-     * @memberof ReviewableentitlementAccountOwnerV1
-     */
-    'id'?: string | null;
-    /**
-     * An enumeration of the types of Owner supported within the IdentityNow infrastructure.
-     * @type {string}
-     * @memberof ReviewableentitlementAccountOwnerV1
-     */
-    'type'?: ReviewableentitlementAccountOwnerV1TypeV1;
-    /**
-     * The machine account owner\'s display name
-     * @type {string}
-     * @memberof ReviewableentitlementAccountOwnerV1
-     */
-    'displayName'?: string | null;
-}
-
-export const ReviewableentitlementAccountOwnerV1TypeV1 = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type ReviewableentitlementAccountOwnerV1TypeV1 = typeof ReviewableentitlementAccountOwnerV1TypeV1[keyof typeof ReviewableentitlementAccountOwnerV1TypeV1];
-
-/**
- * Information about the status of the entitlement
- * @export
- * @interface ReviewableentitlementAccountV1
- */
-export interface ReviewableentitlementAccountV1 {
-    /**
-     * The native identity for this account
-     * @type {string}
-     * @memberof ReviewableentitlementAccountV1
-     */
-    'nativeIdentity'?: string;
-    /**
-     * Indicates whether this account is currently disabled
-     * @type {boolean}
-     * @memberof ReviewableentitlementAccountV1
-     */
-    'disabled'?: boolean;
-    /**
-     * Indicates whether this account is currently locked
-     * @type {boolean}
-     * @memberof ReviewableentitlementAccountV1
-     */
-    'locked'?: boolean;
-    /**
-     * 
-     * @type {DtotypeV1}
-     * @memberof ReviewableentitlementAccountV1
-     */
-    'type'?: DtotypeV1;
-    /**
-     * The id associated with the account
-     * @type {string}
-     * @memberof ReviewableentitlementAccountV1
-     */
-    'id'?: string | null;
-    /**
-     * The account name
-     * @type {string}
-     * @memberof ReviewableentitlementAccountV1
-     */
-    'name'?: string | null;
-    /**
-     * When the account was created
-     * @type {string}
-     * @memberof ReviewableentitlementAccountV1
-     */
-    'created'?: string | null;
-    /**
-     * When the account was last modified
-     * @type {string}
-     * @memberof ReviewableentitlementAccountV1
-     */
-    'modified'?: string | null;
-    /**
-     * 
-     * @type {ActivityinsightsV1}
-     * @memberof ReviewableentitlementAccountV1
-     */
-    'activityInsights'?: ActivityinsightsV1;
-    /**
-     * Information about the account
-     * @type {string}
-     * @memberof ReviewableentitlementAccountV1
-     */
-    'description'?: string | null;
-    /**
-     * The id associated with the machine Account Governance Group
-     * @type {string}
-     * @memberof ReviewableentitlementAccountV1
-     */
-    'governanceGroupId'?: string | null;
-    /**
-     * 
-     * @type {ReviewableentitlementAccountOwnerV1}
-     * @memberof ReviewableentitlementAccountV1
-     */
-    'owner'?: ReviewableentitlementAccountOwnerV1 | null;
-}
-
-
-/**
  * 
  * @export
- * @interface ReviewableentitlementV1
+ * @interface Reviewableentitlement
  */
-export interface ReviewableentitlementV1 {
+export interface Reviewableentitlement {
     /**
      * The id for the entitlement
      * @type {string}
-     * @memberof ReviewableentitlementV1
+     * @memberof Reviewableentitlement
      */
     'id'?: string;
     /**
      * The name of the entitlement
      * @type {string}
-     * @memberof ReviewableentitlementV1
+     * @memberof Reviewableentitlement
      */
     'name'?: string;
     /**
      * Information about the entitlement
      * @type {string}
-     * @memberof ReviewableentitlementV1
+     * @memberof Reviewableentitlement
      */
     'description'?: string | null;
     /**
      * Indicates if the entitlement is a privileged entitlement
      * @type {boolean}
-     * @memberof ReviewableentitlementV1
+     * @memberof Reviewableentitlement
      */
     'privileged'?: boolean;
     /**
      * 
-     * @type {IdentityreferencewithnameandemailV1}
-     * @memberof ReviewableentitlementV1
+     * @type {Identityreferencewithnameandemail}
+     * @memberof Reviewableentitlement
      */
-    'owner'?: IdentityreferencewithnameandemailV1 | null;
+    'owner'?: Identityreferencewithnameandemail | null;
     /**
      * The name of the attribute on the source
      * @type {string}
-     * @memberof ReviewableentitlementV1
+     * @memberof Reviewableentitlement
      */
     'attributeName'?: string;
     /**
      * The value of the attribute on the source
      * @type {string}
-     * @memberof ReviewableentitlementV1
+     * @memberof Reviewableentitlement
      */
     'attributeValue'?: string;
     /**
      * The schema object type on the source used to represent the entitlement and its attributes
      * @type {string}
-     * @memberof ReviewableentitlementV1
+     * @memberof Reviewableentitlement
      */
     'sourceSchemaObjectType'?: string;
     /**
      * The name of the source for which this entitlement belongs
      * @type {string}
-     * @memberof ReviewableentitlementV1
+     * @memberof Reviewableentitlement
      */
     'sourceName'?: string;
     /**
      * The type of the source for which the entitlement belongs
      * @type {string}
-     * @memberof ReviewableentitlementV1
+     * @memberof Reviewableentitlement
      */
     'sourceType'?: string;
     /**
      * The ID of the source for which the entitlement belongs
      * @type {string}
-     * @memberof ReviewableentitlementV1
+     * @memberof Reviewableentitlement
      */
     'sourceId'?: string;
     /**
      * Indicates if the entitlement has permissions
      * @type {boolean}
-     * @memberof ReviewableentitlementV1
+     * @memberof Reviewableentitlement
      */
     'hasPermissions'?: boolean;
     /**
      * Indicates if the entitlement is a representation of an account permission
      * @type {boolean}
-     * @memberof ReviewableentitlementV1
+     * @memberof Reviewableentitlement
      */
     'isPermission'?: boolean;
     /**
      * Indicates whether the entitlement can be revoked
      * @type {boolean}
-     * @memberof ReviewableentitlementV1
+     * @memberof Reviewableentitlement
      */
     'revocable'?: boolean;
     /**
      * True if the entitlement is cloud governed
      * @type {boolean}
-     * @memberof ReviewableentitlementV1
+     * @memberof Reviewableentitlement
      */
     'cloudGoverned'?: boolean;
     /**
      * True if the entitlement has DAS data
      * @type {boolean}
-     * @memberof ReviewableentitlementV1
+     * @memberof Reviewableentitlement
      */
     'containsDataAccess'?: boolean;
     /**
      * 
-     * @type {DataaccessV1}
-     * @memberof ReviewableentitlementV1
+     * @type {Dataaccess}
+     * @memberof Reviewableentitlement
      */
-    'dataAccess'?: DataaccessV1 | null;
+    'dataAccess'?: Dataaccess | null;
     /**
      * 
-     * @type {ReviewableentitlementAccountV1}
-     * @memberof ReviewableentitlementV1
+     * @type {ReviewableentitlementAccount}
+     * @memberof Reviewableentitlement
      */
-    'account'?: ReviewableentitlementAccountV1 | null;
+    'account'?: ReviewableentitlementAccount | null;
 }
+/**
+ * Information about the status of the entitlement
+ * @export
+ * @interface ReviewableentitlementAccount
+ */
+export interface ReviewableentitlementAccount {
+    /**
+     * The native identity for this account
+     * @type {string}
+     * @memberof ReviewableentitlementAccount
+     */
+    'nativeIdentity'?: string;
+    /**
+     * Indicates whether this account is currently disabled
+     * @type {boolean}
+     * @memberof ReviewableentitlementAccount
+     */
+    'disabled'?: boolean;
+    /**
+     * Indicates whether this account is currently locked
+     * @type {boolean}
+     * @memberof ReviewableentitlementAccount
+     */
+    'locked'?: boolean;
+    /**
+     * 
+     * @type {Dtotype}
+     * @memberof ReviewableentitlementAccount
+     */
+    'type'?: Dtotype;
+    /**
+     * The id associated with the account
+     * @type {string}
+     * @memberof ReviewableentitlementAccount
+     */
+    'id'?: string | null;
+    /**
+     * The account name
+     * @type {string}
+     * @memberof ReviewableentitlementAccount
+     */
+    'name'?: string | null;
+    /**
+     * When the account was created
+     * @type {string}
+     * @memberof ReviewableentitlementAccount
+     */
+    'created'?: string | null;
+    /**
+     * When the account was last modified
+     * @type {string}
+     * @memberof ReviewableentitlementAccount
+     */
+    'modified'?: string | null;
+    /**
+     * 
+     * @type {Activityinsights}
+     * @memberof ReviewableentitlementAccount
+     */
+    'activityInsights'?: Activityinsights;
+    /**
+     * Information about the account
+     * @type {string}
+     * @memberof ReviewableentitlementAccount
+     */
+    'description'?: string | null;
+    /**
+     * The id associated with the machine Account Governance Group
+     * @type {string}
+     * @memberof ReviewableentitlementAccount
+     */
+    'governanceGroupId'?: string | null;
+    /**
+     * 
+     * @type {ReviewableentitlementAccountOwner}
+     * @memberof ReviewableentitlementAccount
+     */
+    'owner'?: ReviewableentitlementAccountOwner | null;
+}
+
+
+/**
+ * Information about the machine account owner
+ * @export
+ * @interface ReviewableentitlementAccountOwner
+ */
+export interface ReviewableentitlementAccountOwner {
+    /**
+     * The id associated with the machine account owner
+     * @type {string}
+     * @memberof ReviewableentitlementAccountOwner
+     */
+    'id'?: string | null;
+    /**
+     * An enumeration of the types of Owner supported within the IdentityNow infrastructure.
+     * @type {string}
+     * @memberof ReviewableentitlementAccountOwner
+     */
+    'type'?: ReviewableentitlementAccountOwnerTypeEnum;
+    /**
+     * The machine account owner\'s display name
+     * @type {string}
+     * @memberof ReviewableentitlementAccountOwner
+     */
+    'displayName'?: string | null;
+}
+
+export const ReviewableentitlementAccountOwnerTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type ReviewableentitlementAccountOwnerTypeEnum = typeof ReviewableentitlementAccountOwnerTypeEnum[keyof typeof ReviewableentitlementAccountOwnerTypeEnum];
+
 /**
  * 
  * @export
- * @interface ReviewableroleV1
+ * @interface Reviewablerole
  */
-export interface ReviewableroleV1 {
+export interface Reviewablerole {
     /**
      * The id for the Role
      * @type {string}
-     * @memberof ReviewableroleV1
+     * @memberof Reviewablerole
      */
     'id'?: string;
     /**
      * The name of the Role
      * @type {string}
-     * @memberof ReviewableroleV1
+     * @memberof Reviewablerole
      */
     'name'?: string;
     /**
      * Information about the Role
      * @type {string}
-     * @memberof ReviewableroleV1
+     * @memberof Reviewablerole
      */
     'description'?: string;
     /**
      * Indicates if the entitlement is a privileged entitlement
      * @type {boolean}
-     * @memberof ReviewableroleV1
+     * @memberof Reviewablerole
      */
     'privileged'?: boolean;
     /**
      * 
-     * @type {IdentityreferencewithnameandemailV1}
-     * @memberof ReviewableroleV1
+     * @type {Identityreferencewithnameandemail}
+     * @memberof Reviewablerole
      */
-    'owner'?: IdentityreferencewithnameandemailV1 | null;
+    'owner'?: Identityreferencewithnameandemail | null;
     /**
      * Indicates whether the Role can be revoked or requested
      * @type {boolean}
-     * @memberof ReviewableroleV1
+     * @memberof Reviewablerole
      */
     'revocable'?: boolean;
     /**
      * The date when a user\'s access expires.
      * @type {string}
-     * @memberof ReviewableroleV1
+     * @memberof Reviewablerole
      */
     'endDate'?: string;
     /**
      * The list of Access Profiles associated with this Role
-     * @type {Array<ReviewableaccessprofileV1>}
-     * @memberof ReviewableroleV1
+     * @type {Array<Reviewableaccessprofile>}
+     * @memberof Reviewablerole
      */
-    'accessProfiles'?: Array<ReviewableaccessprofileV1>;
+    'accessProfiles'?: Array<Reviewableaccessprofile>;
     /**
      * The list of entitlements associated with this Role
-     * @type {Array<ReviewableentitlementV1>}
-     * @memberof ReviewableroleV1
+     * @type {Array<Reviewableentitlement>}
+     * @memberof Reviewablerole
      */
-    'entitlements'?: Array<ReviewableentitlementV1>;
+    'entitlements'?: Array<Reviewableentitlement>;
 }
 
 /**
- * CertificationSummariesV1Api - axios parameter creator
+ * CertificationSummariesApi - axios parameter creator
  * @export
  */
-export const CertificationSummariesV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const CertificationSummariesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This API returns a list of access summaries for the specified identity campaign certification and type. Reviewers for this certification can also call this API.
          * @summary Access summaries
          * @param {string} id The identity campaign certification ID
-         * @param {GetIdentityAccessSummariesV1TypeV1} type The type of access review item to retrieve summaries for
+         * @param {GetIdentityAccessSummariesV1TypeEnum} type The type of access review item to retrieve summaries for
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -864,7 +864,7 @@ export const CertificationSummariesV1ApiAxiosParamCreator = function (configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentityAccessSummariesV1: async (id: string, type: GetIdentityAccessSummariesV1TypeV1, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getIdentityAccessSummariesV1: async (id: string, type: GetIdentityAccessSummariesV1TypeEnum, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getIdentityAccessSummariesV1', 'id', id)
             // verify required parameter 'type' is not null or undefined
@@ -1054,17 +1054,17 @@ export const CertificationSummariesV1ApiAxiosParamCreator = function (configurat
 };
 
 /**
- * CertificationSummariesV1Api - functional programming interface
+ * CertificationSummariesApi - functional programming interface
  * @export
  */
-export const CertificationSummariesV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = CertificationSummariesV1ApiAxiosParamCreator(configuration)
+export const CertificationSummariesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = CertificationSummariesApiAxiosParamCreator(configuration)
     return {
         /**
          * This API returns a list of access summaries for the specified identity campaign certification and type. Reviewers for this certification can also call this API.
          * @summary Access summaries
          * @param {string} id The identity campaign certification ID
-         * @param {GetIdentityAccessSummariesV1TypeV1} type The type of access review item to retrieve summaries for
+         * @param {GetIdentityAccessSummariesV1TypeEnum} type The type of access review item to retrieve summaries for
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -1073,10 +1073,10 @@ export const CertificationSummariesV1ApiFp = function(configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityAccessSummariesV1(id: string, type: GetIdentityAccessSummariesV1TypeV1, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccesssummaryV1>>> {
+        async getIdentityAccessSummariesV1(id: string, type: GetIdentityAccessSummariesV1TypeEnum, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Accesssummary>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityAccessSummariesV1(id, type, limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationSummariesV1Api.getIdentityAccessSummariesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationSummariesApi.getIdentityAccessSummariesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1087,10 +1087,10 @@ export const CertificationSummariesV1ApiFp = function(configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityDecisionSummaryV1(id: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentitycertdecisionsummaryV1>> {
+        async getIdentityDecisionSummaryV1(id: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Identitycertdecisionsummary>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityDecisionSummaryV1(id, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationSummariesV1Api.getIdentityDecisionSummaryV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationSummariesApi.getIdentityDecisionSummaryV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1105,10 +1105,10 @@ export const CertificationSummariesV1ApiFp = function(configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentitySummariesV1(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CertificationidentitysummaryV1>>> {
+        async getIdentitySummariesV1(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Certificationidentitysummary>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentitySummariesV1(id, limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationSummariesV1Api.getIdentitySummariesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationSummariesApi.getIdentitySummariesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1119,276 +1119,276 @@ export const CertificationSummariesV1ApiFp = function(configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentitySummaryV1(id: string, identitySummaryId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CertificationidentitysummaryV1>> {
+        async getIdentitySummaryV1(id: string, identitySummaryId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Certificationidentitysummary>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentitySummaryV1(id, identitySummaryId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CertificationSummariesV1Api.getIdentitySummaryV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CertificationSummariesApi.getIdentitySummaryV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * CertificationSummariesV1Api - factory interface
+ * CertificationSummariesApi - factory interface
  * @export
  */
-export const CertificationSummariesV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = CertificationSummariesV1ApiFp(configuration)
+export const CertificationSummariesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = CertificationSummariesApiFp(configuration)
     return {
         /**
          * This API returns a list of access summaries for the specified identity campaign certification and type. Reviewers for this certification can also call this API.
          * @summary Access summaries
-         * @param {CertificationSummariesV1ApiGetIdentityAccessSummariesV1Request} requestParameters Request parameters.
+         * @param {CertificationSummariesApiGetIdentityAccessSummariesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentityAccessSummariesV1(requestParameters: CertificationSummariesV1ApiGetIdentityAccessSummariesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccesssummaryV1>> {
+        getIdentityAccessSummariesV1(requestParameters: CertificationSummariesApiGetIdentityAccessSummariesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Accesssummary>> {
             return localVarFp.getIdentityAccessSummariesV1(requestParameters.id, requestParameters.type, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a summary of the decisions made on an identity campaign certification. The decisions are summarized by type. Reviewers for this certification can also call this API.
          * @summary Summary of certification decisions
-         * @param {CertificationSummariesV1ApiGetIdentityDecisionSummaryV1Request} requestParameters Request parameters.
+         * @param {CertificationSummariesApiGetIdentityDecisionSummaryV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentityDecisionSummaryV1(requestParameters: CertificationSummariesV1ApiGetIdentityDecisionSummaryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<IdentitycertdecisionsummaryV1> {
+        getIdentityDecisionSummaryV1(requestParameters: CertificationSummariesApiGetIdentityDecisionSummaryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Identitycertdecisionsummary> {
             return localVarFp.getIdentityDecisionSummaryV1(requestParameters.id, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of the identity summaries for a specific identity campaign certification. Reviewers for this certification can also call this API.
          * @summary Identity summaries for campaign certification
-         * @param {CertificationSummariesV1ApiGetIdentitySummariesV1Request} requestParameters Request parameters.
+         * @param {CertificationSummariesApiGetIdentitySummariesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentitySummariesV1(requestParameters: CertificationSummariesV1ApiGetIdentitySummariesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<CertificationidentitysummaryV1>> {
+        getIdentitySummariesV1(requestParameters: CertificationSummariesApiGetIdentitySummariesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Certificationidentitysummary>> {
             return localVarFp.getIdentitySummariesV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the summary for an identity on a specified identity campaign certification. Reviewers for this certification can also call this API.
          * @summary Summary for identity
-         * @param {CertificationSummariesV1ApiGetIdentitySummaryV1Request} requestParameters Request parameters.
+         * @param {CertificationSummariesApiGetIdentitySummaryV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentitySummaryV1(requestParameters: CertificationSummariesV1ApiGetIdentitySummaryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CertificationidentitysummaryV1> {
+        getIdentitySummaryV1(requestParameters: CertificationSummariesApiGetIdentitySummaryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Certificationidentitysummary> {
             return localVarFp.getIdentitySummaryV1(requestParameters.id, requestParameters.identitySummaryId, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for getIdentityAccessSummariesV1 operation in CertificationSummariesV1Api.
+ * Request parameters for getIdentityAccessSummariesV1 operation in CertificationSummariesApi.
  * @export
- * @interface CertificationSummariesV1ApiGetIdentityAccessSummariesV1Request
+ * @interface CertificationSummariesApiGetIdentityAccessSummariesV1Request
  */
-export interface CertificationSummariesV1ApiGetIdentityAccessSummariesV1Request {
+export interface CertificationSummariesApiGetIdentityAccessSummariesV1Request {
     /**
      * The identity campaign certification ID
      * @type {string}
-     * @memberof CertificationSummariesV1ApiGetIdentityAccessSummariesV1
+     * @memberof CertificationSummariesApiGetIdentityAccessSummariesV1
      */
     readonly id: string
 
     /**
      * The type of access review item to retrieve summaries for
      * @type {'ROLE' | 'ACCESS_PROFILE' | 'ENTITLEMENT'}
-     * @memberof CertificationSummariesV1ApiGetIdentityAccessSummariesV1
+     * @memberof CertificationSummariesApiGetIdentityAccessSummariesV1
      */
-    readonly type: GetIdentityAccessSummariesV1TypeV1
+    readonly type: GetIdentityAccessSummariesV1TypeEnum
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof CertificationSummariesV1ApiGetIdentityAccessSummariesV1
+     * @memberof CertificationSummariesApiGetIdentityAccessSummariesV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof CertificationSummariesV1ApiGetIdentityAccessSummariesV1
+     * @memberof CertificationSummariesApiGetIdentityAccessSummariesV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof CertificationSummariesV1ApiGetIdentityAccessSummariesV1
+     * @memberof CertificationSummariesApiGetIdentityAccessSummariesV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **completed**: *eq, ne*  **access.id**: *eq, in*  **access.name**: *eq, sw*  **entitlement.sourceName**: *eq, sw*  **accessProfile.sourceName**: *eq, sw*
      * @type {string}
-     * @memberof CertificationSummariesV1ApiGetIdentityAccessSummariesV1
+     * @memberof CertificationSummariesApiGetIdentityAccessSummariesV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name**
      * @type {string}
-     * @memberof CertificationSummariesV1ApiGetIdentityAccessSummariesV1
+     * @memberof CertificationSummariesApiGetIdentityAccessSummariesV1
      */
     readonly sorters?: string
 }
 
 /**
- * Request parameters for getIdentityDecisionSummaryV1 operation in CertificationSummariesV1Api.
+ * Request parameters for getIdentityDecisionSummaryV1 operation in CertificationSummariesApi.
  * @export
- * @interface CertificationSummariesV1ApiGetIdentityDecisionSummaryV1Request
+ * @interface CertificationSummariesApiGetIdentityDecisionSummaryV1Request
  */
-export interface CertificationSummariesV1ApiGetIdentityDecisionSummaryV1Request {
+export interface CertificationSummariesApiGetIdentityDecisionSummaryV1Request {
     /**
      * The certification ID
      * @type {string}
-     * @memberof CertificationSummariesV1ApiGetIdentityDecisionSummaryV1
+     * @memberof CertificationSummariesApiGetIdentityDecisionSummaryV1
      */
     readonly id: string
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **identitySummary.id**: *eq, in*
      * @type {string}
-     * @memberof CertificationSummariesV1ApiGetIdentityDecisionSummaryV1
+     * @memberof CertificationSummariesApiGetIdentityDecisionSummaryV1
      */
     readonly filters?: string
 }
 
 /**
- * Request parameters for getIdentitySummariesV1 operation in CertificationSummariesV1Api.
+ * Request parameters for getIdentitySummariesV1 operation in CertificationSummariesApi.
  * @export
- * @interface CertificationSummariesV1ApiGetIdentitySummariesV1Request
+ * @interface CertificationSummariesApiGetIdentitySummariesV1Request
  */
-export interface CertificationSummariesV1ApiGetIdentitySummariesV1Request {
+export interface CertificationSummariesApiGetIdentitySummariesV1Request {
     /**
      * The identity campaign certification ID
      * @type {string}
-     * @memberof CertificationSummariesV1ApiGetIdentitySummariesV1
+     * @memberof CertificationSummariesApiGetIdentitySummariesV1
      */
     readonly id: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof CertificationSummariesV1ApiGetIdentitySummariesV1
+     * @memberof CertificationSummariesApiGetIdentitySummariesV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof CertificationSummariesV1ApiGetIdentitySummariesV1
+     * @memberof CertificationSummariesApiGetIdentitySummariesV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof CertificationSummariesV1ApiGetIdentitySummariesV1
+     * @memberof CertificationSummariesApiGetIdentitySummariesV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **completed**: *eq, ne*  **name**: *eq, sw*
      * @type {string}
-     * @memberof CertificationSummariesV1ApiGetIdentitySummariesV1
+     * @memberof CertificationSummariesApiGetIdentitySummariesV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
      * @type {string}
-     * @memberof CertificationSummariesV1ApiGetIdentitySummariesV1
+     * @memberof CertificationSummariesApiGetIdentitySummariesV1
      */
     readonly sorters?: string
 }
 
 /**
- * Request parameters for getIdentitySummaryV1 operation in CertificationSummariesV1Api.
+ * Request parameters for getIdentitySummaryV1 operation in CertificationSummariesApi.
  * @export
- * @interface CertificationSummariesV1ApiGetIdentitySummaryV1Request
+ * @interface CertificationSummariesApiGetIdentitySummaryV1Request
  */
-export interface CertificationSummariesV1ApiGetIdentitySummaryV1Request {
+export interface CertificationSummariesApiGetIdentitySummaryV1Request {
     /**
      * The identity campaign certification ID
      * @type {string}
-     * @memberof CertificationSummariesV1ApiGetIdentitySummaryV1
+     * @memberof CertificationSummariesApiGetIdentitySummaryV1
      */
     readonly id: string
 
     /**
      * The identity summary ID
      * @type {string}
-     * @memberof CertificationSummariesV1ApiGetIdentitySummaryV1
+     * @memberof CertificationSummariesApiGetIdentitySummaryV1
      */
     readonly identitySummaryId: string
 }
 
 /**
- * CertificationSummariesV1Api - object-oriented interface
+ * CertificationSummariesApi - object-oriented interface
  * @export
- * @class CertificationSummariesV1Api
+ * @class CertificationSummariesApi
  * @extends {BaseAPI}
  */
-export class CertificationSummariesV1Api extends BaseAPI {
+export class CertificationSummariesApi extends BaseAPI {
     /**
      * This API returns a list of access summaries for the specified identity campaign certification and type. Reviewers for this certification can also call this API.
      * @summary Access summaries
-     * @param {CertificationSummariesV1ApiGetIdentityAccessSummariesV1Request} requestParameters Request parameters.
+     * @param {CertificationSummariesApiGetIdentityAccessSummariesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationSummariesV1Api
+     * @memberof CertificationSummariesApi
      */
-    public getIdentityAccessSummariesV1(requestParameters: CertificationSummariesV1ApiGetIdentityAccessSummariesV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationSummariesV1ApiFp(this.configuration).getIdentityAccessSummariesV1(requestParameters.id, requestParameters.type, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getIdentityAccessSummariesV1(requestParameters: CertificationSummariesApiGetIdentityAccessSummariesV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationSummariesApiFp(this.configuration).getIdentityAccessSummariesV1(requestParameters.id, requestParameters.type, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a summary of the decisions made on an identity campaign certification. The decisions are summarized by type. Reviewers for this certification can also call this API.
      * @summary Summary of certification decisions
-     * @param {CertificationSummariesV1ApiGetIdentityDecisionSummaryV1Request} requestParameters Request parameters.
+     * @param {CertificationSummariesApiGetIdentityDecisionSummaryV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationSummariesV1Api
+     * @memberof CertificationSummariesApi
      */
-    public getIdentityDecisionSummaryV1(requestParameters: CertificationSummariesV1ApiGetIdentityDecisionSummaryV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationSummariesV1ApiFp(this.configuration).getIdentityDecisionSummaryV1(requestParameters.id, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getIdentityDecisionSummaryV1(requestParameters: CertificationSummariesApiGetIdentityDecisionSummaryV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationSummariesApiFp(this.configuration).getIdentityDecisionSummaryV1(requestParameters.id, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a list of the identity summaries for a specific identity campaign certification. Reviewers for this certification can also call this API.
      * @summary Identity summaries for campaign certification
-     * @param {CertificationSummariesV1ApiGetIdentitySummariesV1Request} requestParameters Request parameters.
+     * @param {CertificationSummariesApiGetIdentitySummariesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationSummariesV1Api
+     * @memberof CertificationSummariesApi
      */
-    public getIdentitySummariesV1(requestParameters: CertificationSummariesV1ApiGetIdentitySummariesV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationSummariesV1ApiFp(this.configuration).getIdentitySummariesV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getIdentitySummariesV1(requestParameters: CertificationSummariesApiGetIdentitySummariesV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationSummariesApiFp(this.configuration).getIdentitySummariesV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the summary for an identity on a specified identity campaign certification. Reviewers for this certification can also call this API.
      * @summary Summary for identity
-     * @param {CertificationSummariesV1ApiGetIdentitySummaryV1Request} requestParameters Request parameters.
+     * @param {CertificationSummariesApiGetIdentitySummaryV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CertificationSummariesV1Api
+     * @memberof CertificationSummariesApi
      */
-    public getIdentitySummaryV1(requestParameters: CertificationSummariesV1ApiGetIdentitySummaryV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationSummariesV1ApiFp(this.configuration).getIdentitySummaryV1(requestParameters.id, requestParameters.identitySummaryId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getIdentitySummaryV1(requestParameters: CertificationSummariesApiGetIdentitySummaryV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CertificationSummariesApiFp(this.configuration).getIdentitySummaryV1(requestParameters.id, requestParameters.identitySummaryId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
 /**
  * @export
  */
-export const GetIdentityAccessSummariesV1TypeV1 = {
+export const GetIdentityAccessSummariesV1TypeEnum = {
     Role: 'ROLE',
     AccessProfile: 'ACCESS_PROFILE',
     Entitlement: 'ENTITLEMENT'
 } as const;
-export type GetIdentityAccessSummariesV1TypeV1 = typeof GetIdentityAccessSummariesV1TypeV1[keyof typeof GetIdentityAccessSummariesV1TypeV1];
+export type GetIdentityAccessSummariesV1TypeEnum = typeof GetIdentityAccessSummariesV1TypeEnum[keyof typeof GetIdentityAccessSummariesV1TypeEnum];
 
 

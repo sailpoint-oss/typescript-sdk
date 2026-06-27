@@ -1,19 +1,19 @@
 ---
-id: v1-list-deploys-v1200-response-v1
-title: ListDeploysV1200ResponseV1
-pagination_label: ListDeploysV1200ResponseV1
-sidebar_label: ListDeploysV1200ResponseV1
+id: v1-list-deploys-v1200-response
+title: ListDeploysV1200Response
+pagination_label: ListDeploysV1200Response
+sidebar_label: ListDeploysV1200Response
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ListDeploysV1200ResponseV1', 'v1ListDeploysV1200ResponseV1']
-slug: /tools/sdk/typescript/configuration_hub/models/list-deploys-v1200-response-v1
-tags: ['SDK', 'Software Development Kit', 'ListDeploysV1200ResponseV1', 'v1ListDeploysV1200ResponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ListDeploysV1200Response', 'v1ListDeploysV1200Response']
+slug: /tools/sdk/typescript/configuration_hub/models/list-deploys-v1200-response
+tags: ['SDK', 'Software Development Kit', 'ListDeploysV1200Response', 'v1ListDeploysV1200Response']
 ---
 
-# ListDeploysV1200ResponseV1
+# ListDeploysV1200Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | **(optional)** **Array&lt;DeployresponseV1&gt;** | list of deployments | [default to undefined]
+**items** | **(optional)** `Array<Deployresponse>` | list of deployments | [default to undefined]
 

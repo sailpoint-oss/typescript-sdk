@@ -1,20 +1,20 @@
 ---
-id: v1-bulkrejectrequestdto-v1
-title: BulkrejectrequestdtoV1
-pagination_label: BulkrejectrequestdtoV1
-sidebar_label: BulkrejectrequestdtoV1
+id: v1-bulkrejectrequestdto
+title: Bulkrejectrequestdto
+pagination_label: Bulkrejectrequestdto
+sidebar_label: Bulkrejectrequestdto
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'BulkrejectrequestdtoV1', 'v1BulkrejectrequestdtoV1']
-slug: /tools/sdk/typescript/approvals/models/bulkrejectrequestdto-v1
-tags: ['SDK', 'Software Development Kit', 'BulkrejectrequestdtoV1', 'v1BulkrejectrequestdtoV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Bulkrejectrequestdto', 'v1Bulkrejectrequestdto']
+slug: /tools/sdk/typescript/approvals/models/bulkrejectrequestdto
+tags: ['SDK', 'Software Development Kit', 'Bulkrejectrequestdto', 'v1Bulkrejectrequestdto']
 ---
 
-# BulkrejectrequestdtoV1
+# Bulkrejectrequestdto
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**approvalIds** | **(optional)** **Array&lt;string&gt;** | Array of Approval IDs to be bulk rejected | [default to undefined]
-**comment** | **(optional)** **string** | Optional comment to include with the bulk reject request | [default to undefined]
+**approvalIds** | **(optional)** `Array<string>` | Array of Approval IDs to be bulk rejected | [default to undefined]
+**comment** | **(optional)** `string` | Optional comment to include with the bulk reject request | [default to undefined]
 

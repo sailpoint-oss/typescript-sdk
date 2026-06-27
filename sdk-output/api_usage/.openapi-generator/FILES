@@ -1,8 +1,8 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
-ApiUsageV1Api.md
-ApiUsageV1ApideveloperSite_code_examples.yaml
+ApiUsageApi.md
+ApiUsageApideveloperSite_code_examples.yaml
 Errormessagedto.md
 Errorresponsedto.md
 GetTotalCountV1401Response.md

@@ -1,20 +1,20 @@
 ---
-id: v1-launcher-reference-v1
-title: LauncherReferenceV1
-pagination_label: LauncherReferenceV1
-sidebar_label: LauncherReferenceV1
+id: v1-launcher-reference
+title: LauncherReference
+pagination_label: LauncherReference
+sidebar_label: LauncherReference
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'LauncherReferenceV1', 'v1LauncherReferenceV1']
-slug: /tools/sdk/typescript/launchers/models/launcher-reference-v1
-tags: ['SDK', 'Software Development Kit', 'LauncherReferenceV1', 'v1LauncherReferenceV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'LauncherReference', 'v1LauncherReference']
+slug: /tools/sdk/typescript/launchers/models/launcher-reference
+tags: ['SDK', 'Software Development Kit', 'LauncherReference', 'v1LauncherReference']
 ---
 
-# LauncherReferenceV1
+# LauncherReference
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | Type of Launcher reference | [default to undefined]
-**id** | **(optional)** **string** | ID of Launcher reference | [default to undefined]
+**type** | **(optional)** `string` | Type of Launcher reference | [default to undefined]
+**id** | **(optional)** `string` | ID of Launcher reference | [default to undefined]
 

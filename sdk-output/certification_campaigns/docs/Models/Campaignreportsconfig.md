@@ -1,19 +1,19 @@
 ---
-id: v1-campaignreportsconfig-v1
-title: CampaignreportsconfigV1
-pagination_label: CampaignreportsconfigV1
-sidebar_label: CampaignreportsconfigV1
+id: v1-campaignreportsconfig
+title: Campaignreportsconfig
+pagination_label: Campaignreportsconfig
+sidebar_label: Campaignreportsconfig
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'CampaignreportsconfigV1', 'v1CampaignreportsconfigV1']
-slug: /tools/sdk/typescript/certification_campaigns/models/campaignreportsconfig-v1
-tags: ['SDK', 'Software Development Kit', 'CampaignreportsconfigV1', 'v1CampaignreportsconfigV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Campaignreportsconfig', 'v1Campaignreportsconfig']
+slug: /tools/sdk/typescript/certification_campaigns/models/campaignreportsconfig
+tags: ['SDK', 'Software Development Kit', 'Campaignreportsconfig', 'v1Campaignreportsconfig']
 ---
 
-# CampaignreportsconfigV1
+# Campaignreportsconfig
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identityAttributeColumns** | **(optional)** **Array&lt;string&gt;** | list of identity attribute columns | [default to undefined]
+**identityAttributeColumns** | **(optional)** `Array<string>` | list of identity attribute columns | [default to undefined]
 

@@ -1,15 +1,15 @@
 ---
-id: v1-rolecriteriakeytype-v1
-title: RolecriteriakeytypeV1
-pagination_label: RolecriteriakeytypeV1
-sidebar_label: RolecriteriakeytypeV1
+id: v1-rolecriteriakeytype
+title: Rolecriteriakeytype
+pagination_label: Rolecriteriakeytype
+sidebar_label: Rolecriteriakeytype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RolecriteriakeytypeV1', 'v1RolecriteriakeytypeV1']
-slug: /tools/sdk/typescript/roles/models/rolecriteriakeytype-v1
-tags: ['SDK', 'Software Development Kit', 'RolecriteriakeytypeV1', 'v1RolecriteriakeytypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Rolecriteriakeytype', 'v1Rolecriteriakeytype']
+slug: /tools/sdk/typescript/roles/models/rolecriteriakeytype
+tags: ['SDK', 'Software Development Kit', 'Rolecriteriakeytype', 'v1Rolecriteriakeytype']
 ---
 
-# RolecriteriakeytypeV1
+# Rolecriteriakeytype
 
 ## Enum
 

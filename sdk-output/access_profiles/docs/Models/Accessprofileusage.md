@@ -1,20 +1,20 @@
 ---
-id: v1-accessprofileusage-v1
-title: AccessprofileusageV1
-pagination_label: AccessprofileusageV1
-sidebar_label: AccessprofileusageV1
+id: v1-accessprofileusage
+title: Accessprofileusage
+pagination_label: Accessprofileusage
+sidebar_label: Accessprofileusage
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccessprofileusageV1', 'v1AccessprofileusageV1']
-slug: /tools/sdk/typescript/access_profiles/models/accessprofileusage-v1
-tags: ['SDK', 'Software Development Kit', 'AccessprofileusageV1', 'v1AccessprofileusageV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accessprofileusage', 'v1Accessprofileusage']
+slug: /tools/sdk/typescript/access_profiles/models/accessprofileusage
+tags: ['SDK', 'Software Development Kit', 'Accessprofileusage', 'v1Accessprofileusage']
 ---
 
-# AccessprofileusageV1
+# Accessprofileusage
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**accessProfileId** | **(optional)** **string** | ID of the Access Profile that is in use | [default to undefined]
-**usedBy** | **(optional)** **Array&lt;AccessprofileusageUsedByInnerV1&gt;** | List of references to objects which are using the indicated Access Profile | [default to undefined]
+**accessProfileId** | **(optional)** `string` | ID of the Access Profile that is in use | [default to undefined]
+**usedBy** | **(optional)** `Array<AccessprofileusageUsedByInner>` | List of references to objects which are using the indicated Access Profile | [default to undefined]
 

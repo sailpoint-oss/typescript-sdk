@@ -1,22 +1,22 @@
 ---
-id: v1-identityreferencewithnameandemail-v1
-title: IdentityreferencewithnameandemailV1
-pagination_label: IdentityreferencewithnameandemailV1
-sidebar_label: IdentityreferencewithnameandemailV1
+id: v1-identityreferencewithnameandemail
+title: Identityreferencewithnameandemail
+pagination_label: Identityreferencewithnameandemail
+sidebar_label: Identityreferencewithnameandemail
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'IdentityreferencewithnameandemailV1', 'v1IdentityreferencewithnameandemailV1']
-slug: /tools/sdk/typescript/certification_summaries/models/identityreferencewithnameandemail-v1
-tags: ['SDK', 'Software Development Kit', 'IdentityreferencewithnameandemailV1', 'v1IdentityreferencewithnameandemailV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Identityreferencewithnameandemail', 'v1Identityreferencewithnameandemail']
+slug: /tools/sdk/typescript/certification_summaries/models/identityreferencewithnameandemail
+tags: ['SDK', 'Software Development Kit', 'Identityreferencewithnameandemail', 'v1Identityreferencewithnameandemail']
 ---
 
-# IdentityreferencewithnameandemailV1
+# Identityreferencewithnameandemail
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | The type can only be IDENTITY. This is read-only. | [default to undefined]
-**id** | **(optional)** **string** | Identity ID. | [default to undefined]
-**name** | **(optional)** **string** | Identity\'s human-readable display name. This is read-only. | [default to undefined]
-**email** | **(optional)** **string** | Identity\'s email address. This is read-only. | [default to undefined]
+**type** | **(optional)** `string` | The type can only be IDENTITY. This is read-only. | [default to undefined]
+**id** | **(optional)** `string` | Identity ID. | [default to undefined]
+**name** | **(optional)** `string` | Identity\'s human-readable display name. This is read-only. | [default to undefined]
+**email** | **(optional)** `string` | Identity\'s email address. This is read-only. | [default to undefined]
 

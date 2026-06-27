@@ -1,15 +1,15 @@
 ---
-id: v1-approvalscheme-v1
-title: ApprovalschemeV1
-pagination_label: ApprovalschemeV1
-sidebar_label: ApprovalschemeV1
+id: v1-approvalscheme
+title: Approvalscheme
+pagination_label: Approvalscheme
+sidebar_label: Approvalscheme
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ApprovalschemeV1', 'v1ApprovalschemeV1']
-slug: /tools/sdk/typescript/access_requests/models/approvalscheme-v1
-tags: ['SDK', 'Software Development Kit', 'ApprovalschemeV1', 'v1ApprovalschemeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Approvalscheme', 'v1Approvalscheme']
+slug: /tools/sdk/typescript/access_requests/models/approvalscheme
+tags: ['SDK', 'Software Development Kit', 'Approvalscheme', 'v1Approvalscheme']
 ---
 
-# ApprovalschemeV1
+# Approvalscheme
 
 ## Enum
 

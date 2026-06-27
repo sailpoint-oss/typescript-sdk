@@ -1,21 +1,21 @@
 ---
-id: v1-sodpolicydto-v1
-title: SodpolicydtoV1
-pagination_label: SodpolicydtoV1
-sidebar_label: SodpolicydtoV1
+id: v1-sodpolicydto
+title: Sodpolicydto
+pagination_label: Sodpolicydto
+sidebar_label: Sodpolicydto
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SodpolicydtoV1', 'v1SodpolicydtoV1']
-slug: /tools/sdk/typescript/access_requests/models/sodpolicydto-v1
-tags: ['SDK', 'Software Development Kit', 'SodpolicydtoV1', 'v1SodpolicydtoV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Sodpolicydto', 'v1Sodpolicydto']
+slug: /tools/sdk/typescript/access_requests/models/sodpolicydto
+tags: ['SDK', 'Software Development Kit', 'Sodpolicydto', 'v1Sodpolicydto']
 ---
 
-# SodpolicydtoV1
+# Sodpolicydto
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | SOD policy DTO type. | [default to undefined]
-**id** | **(optional)** **string** | SOD policy ID. | [default to undefined]
-**name** | **(optional)** **string** | SOD policy display name. | [default to undefined]
+**type** | **(optional)** `string` | SOD policy DTO type. | [default to undefined]
+**id** | **(optional)** `string` | SOD policy ID. | [default to undefined]
+**name** | **(optional)** `string` | SOD policy display name. | [default to undefined]
 

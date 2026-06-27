@@ -1,21 +1,21 @@
 ---
-id: v1-formdefinitionselfimportexportdto-v1
-title: FormdefinitionselfimportexportdtoV1
-pagination_label: FormdefinitionselfimportexportdtoV1
-sidebar_label: FormdefinitionselfimportexportdtoV1
+id: v1-formdefinitionselfimportexportdto
+title: Formdefinitionselfimportexportdto
+pagination_label: Formdefinitionselfimportexportdto
+sidebar_label: Formdefinitionselfimportexportdto
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'FormdefinitionselfimportexportdtoV1', 'v1FormdefinitionselfimportexportdtoV1']
-slug: /tools/sdk/typescript/custom_forms/models/formdefinitionselfimportexportdto-v1
-tags: ['SDK', 'Software Development Kit', 'FormdefinitionselfimportexportdtoV1', 'v1FormdefinitionselfimportexportdtoV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Formdefinitionselfimportexportdto', 'v1Formdefinitionselfimportexportdto']
+slug: /tools/sdk/typescript/custom_forms/models/formdefinitionselfimportexportdto
+tags: ['SDK', 'Software Development Kit', 'Formdefinitionselfimportexportdto', 'v1Formdefinitionselfimportexportdto']
 ---
 
-# FormdefinitionselfimportexportdtoV1
+# Formdefinitionselfimportexportdto
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | Imported/exported object\'s DTO type. | [default to undefined]
-**id** | **(optional)** **string** | Imported/exported object\'s ID. | [default to undefined]
-**name** | **(optional)** **string** | Imported/exported object\'s display name. | [default to undefined]
+**type** | **(optional)** `string` | Imported/exported object\'s DTO type. | [default to undefined]
+**id** | **(optional)** `string` | Imported/exported object\'s ID. | [default to undefined]
+**name** | **(optional)** `string` | Imported/exported object\'s display name. | [default to undefined]
 

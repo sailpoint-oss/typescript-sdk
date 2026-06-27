@@ -1,15 +1,15 @@
 ---
-id: v1-crawlresourcessizesoptions-v1
-title: CrawlresourcessizesoptionsV1
-pagination_label: CrawlresourcessizesoptionsV1
-sidebar_label: CrawlresourcessizesoptionsV1
+id: v1-crawlresourcessizesoptions
+title: Crawlresourcessizesoptions
+pagination_label: Crawlresourcessizesoptions
+sidebar_label: Crawlresourcessizesoptions
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'CrawlresourcessizesoptionsV1', 'v1CrawlresourcessizesoptionsV1']
-slug: /tools/sdk/typescript/data_access_security/models/crawlresourcessizesoptions-v1
-tags: ['SDK', 'Software Development Kit', 'CrawlresourcessizesoptionsV1', 'v1CrawlresourcessizesoptionsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Crawlresourcessizesoptions', 'v1Crawlresourcessizesoptions']
+slug: /tools/sdk/typescript/data_access_security/models/crawlresourcessizesoptions
+tags: ['SDK', 'Software Development Kit', 'Crawlresourcessizesoptions', 'v1Crawlresourcessizesoptions']
 ---
 
-# CrawlresourcessizesoptionsV1
+# Crawlresourcessizesoptions
 
 ## Enum
 

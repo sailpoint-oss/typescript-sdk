@@ -1,19 +1,19 @@
 ---
-id: v1-attributedtolist-v1
-title: AttributedtolistV1
-pagination_label: AttributedtolistV1
-sidebar_label: AttributedtolistV1
+id: v1-attributedtolist
+title: Attributedtolist
+pagination_label: Attributedtolist
+sidebar_label: Attributedtolist
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AttributedtolistV1', 'v1AttributedtolistV1']
-slug: /tools/sdk/typescript/access_profiles/models/attributedtolist-v1
-tags: ['SDK', 'Software Development Kit', 'AttributedtolistV1', 'v1AttributedtolistV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Attributedtolist', 'v1Attributedtolist']
+slug: /tools/sdk/typescript/access_profiles/models/attributedtolist
+tags: ['SDK', 'Software Development Kit', 'Attributedtolist', 'v1Attributedtolist']
 ---
 
-# AttributedtolistV1
+# Attributedtolist
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | **(optional)** **Array&lt;AttributedtoV1&gt;** |  | [default to undefined]
+**attributes** | **(optional)** `Array<Attributedto>` |  | [default to undefined]
 

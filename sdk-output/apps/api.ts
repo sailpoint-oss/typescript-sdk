@@ -24,305 +24,305 @@ import type { RequestArgs } from './base';
 import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
 
 /**
- * How to select account when there are multiple accounts for the user
- * @export
- * @interface AccessprofiledetailsAccountSelectorV1
- */
-export interface AccessprofiledetailsAccountSelectorV1 {
-    /**
-     * 
-     * @type {Array<AppaccessprofileselectorV1>}
-     * @memberof AccessprofiledetailsAccountSelectorV1
-     */
-    'selectors'?: Array<AppaccessprofileselectorV1> | null;
-}
-/**
  * 
  * @export
- * @interface AccessprofiledetailsV1
+ * @interface Accessprofiledetails
  */
-export interface AccessprofiledetailsV1 {
+export interface Accessprofiledetails {
     /**
      * The ID of the Access Profile
      * @type {string}
-     * @memberof AccessprofiledetailsV1
+     * @memberof Accessprofiledetails
      */
     'id'?: string;
     /**
      * Name of the Access Profile
      * @type {string}
-     * @memberof AccessprofiledetailsV1
+     * @memberof Accessprofiledetails
      */
     'name'?: string;
     /**
      * Information about the Access Profile
      * @type {string}
-     * @memberof AccessprofiledetailsV1
+     * @memberof Accessprofiledetails
      */
     'description'?: string | null;
     /**
      * Date the Access Profile was created
      * @type {string}
-     * @memberof AccessprofiledetailsV1
+     * @memberof Accessprofiledetails
      */
     'created'?: string;
     /**
      * Date the Access Profile was last modified.
      * @type {string}
-     * @memberof AccessprofiledetailsV1
+     * @memberof Accessprofiledetails
      */
     'modified'?: string;
     /**
      * Whether the Access Profile is enabled.
      * @type {boolean}
-     * @memberof AccessprofiledetailsV1
+     * @memberof Accessprofiledetails
      */
     'disabled'?: boolean;
     /**
      * Whether the Access Profile is requestable via access request.
      * @type {boolean}
-     * @memberof AccessprofiledetailsV1
+     * @memberof Accessprofiledetails
      */
     'requestable'?: boolean;
     /**
      * Whether the Access Profile is protected.
      * @type {boolean}
-     * @memberof AccessprofiledetailsV1
+     * @memberof Accessprofiledetails
      */
     'protected'?: boolean;
     /**
      * The owner ID of the Access Profile
      * @type {string}
-     * @memberof AccessprofiledetailsV1
+     * @memberof Accessprofiledetails
      */
     'ownerId'?: string;
     /**
      * The source ID of the Access Profile
      * @type {number}
-     * @memberof AccessprofiledetailsV1
+     * @memberof Accessprofiledetails
      */
     'sourceId'?: number | null;
     /**
      * The source name of the Access Profile
      * @type {string}
-     * @memberof AccessprofiledetailsV1
+     * @memberof Accessprofiledetails
      */
     'sourceName'?: string;
     /**
      * The source app ID of the Access Profile
      * @type {number}
-     * @memberof AccessprofiledetailsV1
+     * @memberof Accessprofiledetails
      */
     'appId'?: number | null;
     /**
      * The source app name of the Access Profile
      * @type {string}
-     * @memberof AccessprofiledetailsV1
+     * @memberof Accessprofiledetails
      */
     'appName'?: string | null;
     /**
      * The id of the application
      * @type {string}
-     * @memberof AccessprofiledetailsV1
+     * @memberof Accessprofiledetails
      */
     'applicationId'?: string;
     /**
      * The type of the access profile
      * @type {string}
-     * @memberof AccessprofiledetailsV1
+     * @memberof Accessprofiledetails
      */
     'type'?: string;
     /**
      * List of IDs of entitlements
      * @type {Array<string>}
-     * @memberof AccessprofiledetailsV1
+     * @memberof Accessprofiledetails
      */
     'entitlements'?: Array<string>;
     /**
      * The number of entitlements in the access profile
      * @type {number}
-     * @memberof AccessprofiledetailsV1
+     * @memberof Accessprofiledetails
      */
     'entitlementCount'?: number;
     /**
      * List of IDs of segments, if any, to which this Access Profile is assigned.
      * @type {Array<string>}
-     * @memberof AccessprofiledetailsV1
+     * @memberof Accessprofiledetails
      */
     'segments'?: Array<string>;
     /**
      * Comma-separated list of approval schemes. Each approval scheme is one of - manager - appOwner - sourceOwner - accessProfileOwner - workgroup:&lt;workgroupId&gt; 
      * @type {string}
-     * @memberof AccessprofiledetailsV1
+     * @memberof Accessprofiledetails
      */
     'approvalSchemes'?: string;
     /**
      * Comma-separated list of revoke request approval schemes. Each approval scheme is one of - manager - sourceOwner - accessProfileOwner - workgroup:&lt;workgroupId&gt; 
      * @type {string}
-     * @memberof AccessprofiledetailsV1
+     * @memberof Accessprofiledetails
      */
     'revokeRequestApprovalSchemes'?: string;
     /**
      * Whether the access profile require request comment for access request.
      * @type {boolean}
-     * @memberof AccessprofiledetailsV1
+     * @memberof Accessprofiledetails
      */
     'requestCommentsRequired'?: boolean;
     /**
      * Whether denied comment is required when access request is denied.
      * @type {boolean}
-     * @memberof AccessprofiledetailsV1
+     * @memberof Accessprofiledetails
      */
     'deniedCommentsRequired'?: boolean;
     /**
      * 
-     * @type {AccessprofiledetailsAccountSelectorV1}
-     * @memberof AccessprofiledetailsV1
+     * @type {AccessprofiledetailsAccountSelector}
+     * @memberof Accessprofiledetails
      */
-    'accountSelector'?: AccessprofiledetailsAccountSelectorV1;
+    'accountSelector'?: AccessprofiledetailsAccountSelector;
+}
+/**
+ * How to select account when there are multiple accounts for the user
+ * @export
+ * @interface AccessprofiledetailsAccountSelector
+ */
+export interface AccessprofiledetailsAccountSelector {
+    /**
+     * 
+     * @type {Array<Appaccessprofileselector>}
+     * @memberof AccessprofiledetailsAccountSelector
+     */
+    'selectors'?: Array<Appaccessprofileselector> | null;
 }
 /**
  * 
  * @export
- * @interface AppaccessprofileselectorAccountMatchConfigMatchExpressionV1
+ * @interface Appaccessprofileselector
  */
-export interface AppaccessprofileselectorAccountMatchConfigMatchExpressionV1 {
+export interface Appaccessprofileselector {
+    /**
+     * The application id
+     * @type {string}
+     * @memberof Appaccessprofileselector
+     */
+    'applicationId'?: string;
     /**
      * 
-     * @type {Array<MatchtermV1>}
-     * @memberof AppaccessprofileselectorAccountMatchConfigMatchExpressionV1
+     * @type {AppaccessprofileselectorAccountMatchConfig}
+     * @memberof Appaccessprofileselector
      */
-    'matchTerms'?: Array<MatchtermV1>;
+    'accountMatchConfig'?: AppaccessprofileselectorAccountMatchConfig;
+}
+/**
+ * 
+ * @export
+ * @interface AppaccessprofileselectorAccountMatchConfig
+ */
+export interface AppaccessprofileselectorAccountMatchConfig {
+    /**
+     * 
+     * @type {AppaccessprofileselectorAccountMatchConfigMatchExpression}
+     * @memberof AppaccessprofileselectorAccountMatchConfig
+     */
+    'matchExpression'?: AppaccessprofileselectorAccountMatchConfigMatchExpression;
+}
+/**
+ * 
+ * @export
+ * @interface AppaccessprofileselectorAccountMatchConfigMatchExpression
+ */
+export interface AppaccessprofileselectorAccountMatchConfigMatchExpression {
+    /**
+     * 
+     * @type {Array<Matchterm>}
+     * @memberof AppaccessprofileselectorAccountMatchConfigMatchExpression
+     */
+    'matchTerms'?: Array<Matchterm>;
     /**
      * If it is AND operators for match terms
      * @type {boolean}
-     * @memberof AppaccessprofileselectorAccountMatchConfigMatchExpressionV1
+     * @memberof AppaccessprofileselectorAccountMatchConfigMatchExpression
      */
     'and'?: boolean;
 }
 /**
  * 
  * @export
- * @interface AppaccessprofileselectorAccountMatchConfigV1
+ * @interface Appaccountdetails
  */
-export interface AppaccessprofileselectorAccountMatchConfigV1 {
+export interface Appaccountdetails {
     /**
-     * 
-     * @type {AppaccessprofileselectorAccountMatchConfigMatchExpressionV1}
-     * @memberof AppaccessprofileselectorAccountMatchConfigV1
-     */
-    'matchExpression'?: AppaccessprofileselectorAccountMatchConfigMatchExpressionV1;
-}
-/**
- * 
- * @export
- * @interface AppaccessprofileselectorV1
- */
-export interface AppaccessprofileselectorV1 {
-    /**
-     * The application id
+     * The source app ID
      * @type {string}
-     * @memberof AppaccessprofileselectorV1
+     * @memberof Appaccountdetails
      */
-    'applicationId'?: string;
+    'appId'?: string;
+    /**
+     * The source app display name
+     * @type {string}
+     * @memberof Appaccountdetails
+     */
+    'appDisplayName'?: string;
     /**
      * 
-     * @type {AppaccessprofileselectorAccountMatchConfigV1}
-     * @memberof AppaccessprofileselectorV1
+     * @type {AppaccountdetailsSourceAccount}
+     * @memberof Appaccountdetails
      */
-    'accountMatchConfig'?: AppaccessprofileselectorAccountMatchConfigV1;
+    'sourceAccount'?: AppaccountdetailsSourceAccount;
 }
 /**
  * 
  * @export
- * @interface AppaccountdetailsSourceAccountV1
+ * @interface AppaccountdetailsSourceAccount
  */
-export interface AppaccountdetailsSourceAccountV1 {
+export interface AppaccountdetailsSourceAccount {
     /**
      * The account ID
      * @type {string}
-     * @memberof AppaccountdetailsSourceAccountV1
+     * @memberof AppaccountdetailsSourceAccount
      */
     'id'?: string;
     /**
      * The native identity of account
      * @type {string}
-     * @memberof AppaccountdetailsSourceAccountV1
+     * @memberof AppaccountdetailsSourceAccount
      */
     'nativeIdentity'?: string;
     /**
      * The display name of account
      * @type {string}
-     * @memberof AppaccountdetailsSourceAccountV1
+     * @memberof AppaccountdetailsSourceAccount
      */
     'displayName'?: string;
     /**
      * The source ID of account
      * @type {string}
-     * @memberof AppaccountdetailsSourceAccountV1
+     * @memberof AppaccountdetailsSourceAccount
      */
     'sourceId'?: string;
     /**
      * The source name of account
      * @type {string}
-     * @memberof AppaccountdetailsSourceAccountV1
+     * @memberof AppaccountdetailsSourceAccount
      */
     'sourceDisplayName'?: string;
 }
 /**
  * 
  * @export
- * @interface AppaccountdetailsV1
+ * @interface ArrayInner
  */
-export interface AppaccountdetailsV1 {
-    /**
-     * The source app ID
-     * @type {string}
-     * @memberof AppaccountdetailsV1
-     */
-    'appId'?: string;
-    /**
-     * The source app display name
-     * @type {string}
-     * @memberof AppaccountdetailsV1
-     */
-    'appDisplayName'?: string;
-    /**
-     * 
-     * @type {AppaccountdetailsSourceAccountV1}
-     * @memberof AppaccountdetailsV1
-     */
-    'sourceAccount'?: AppaccountdetailsSourceAccountV1;
+export interface ArrayInner {
 }
 /**
  * 
  * @export
- * @interface ArrayInnerV1
+ * @interface Basereferencedto
  */
-export interface ArrayInnerV1 {
-}
-/**
- * 
- * @export
- * @interface BasereferencedtoV1
- */
-export interface BasereferencedtoV1 {
+export interface Basereferencedto {
     /**
      * 
-     * @type {DtotypeV1}
-     * @memberof BasereferencedtoV1
+     * @type {Dtotype}
+     * @memberof Basereferencedto
      */
-    'type'?: DtotypeV1;
+    'type'?: Dtotype;
     /**
      * ID of the object to which this reference applies
      * @type {string}
-     * @memberof BasereferencedtoV1
+     * @memberof Basereferencedto
      */
     'id'?: string;
     /**
      * Human-readable display name of the object to which this reference applies
      * @type {string}
-     * @memberof BasereferencedtoV1
+     * @memberof Basereferencedto
      */
     'name'?: string;
 }
@@ -334,7 +334,7 @@ export interface BasereferencedtoV1 {
  * @enum {string}
  */
 
-export const DtotypeV1 = {
+export const Dtotype = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
@@ -366,31 +366,31 @@ export const DtotypeV1 = {
     Workgroup: 'WORKGROUP'
 } as const;
 
-export type DtotypeV1 = typeof DtotypeV1[keyof typeof DtotypeV1];
+export type Dtotype = typeof Dtotype[keyof typeof Dtotype];
 
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -399,87 +399,87 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetSourceAppV1401ResponseV1
+ * @interface GetSourceAppV1401Response
  */
-export interface GetSourceAppV1401ResponseV1 {
+export interface GetSourceAppV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetSourceAppV1401ResponseV1
+     * @memberof GetSourceAppV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetSourceAppV1429ResponseV1
+ * @interface GetSourceAppV1429Response
  */
-export interface GetSourceAppV1429ResponseV1 {
+export interface GetSourceAppV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetSourceAppV1429ResponseV1
+     * @memberof GetSourceAppV1429Response
      */
     'message'?: any;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface JsonpatchoperationV1
+ * @interface Jsonpatchoperation
  */
-export interface JsonpatchoperationV1 {
+export interface Jsonpatchoperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
-    'op': JsonpatchoperationV1OpV1;
+    'op': JsonpatchoperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValueV1}
-     * @memberof JsonpatchoperationV1
+     * @type {JsonpatchoperationValue}
+     * @memberof Jsonpatchoperation
      */
-    'value'?: JsonpatchoperationValueV1;
+    'value'?: JsonpatchoperationValue;
 }
 
-export const JsonpatchoperationV1OpV1 = {
+export const JsonpatchoperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -488,14 +488,14 @@ export const JsonpatchoperationV1OpV1 = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationV1OpV1 = typeof JsonpatchoperationV1OpV1[keyof typeof JsonpatchoperationV1OpV1];
+export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
 
 /**
- * @type JsonpatchoperationValueV1
+ * @type JsonpatchoperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number | object | string;
+export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -503,530 +503,530 @@ export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number |
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface MatchtermV1
+ * @interface Matchterm
  */
-export interface MatchtermV1 {
+export interface Matchterm {
     /**
      * The attribute name
      * @type {string}
-     * @memberof MatchtermV1
+     * @memberof Matchterm
      */
     'name'?: string;
     /**
      * The attribute value
      * @type {string}
-     * @memberof MatchtermV1
+     * @memberof Matchterm
      */
     'value'?: string;
     /**
      * The operator between name and value
      * @type {string}
-     * @memberof MatchtermV1
+     * @memberof Matchterm
      */
     'op'?: string;
     /**
      * If it is a container or a real match term
      * @type {boolean}
-     * @memberof MatchtermV1
+     * @memberof Matchterm
      */
     'container'?: boolean;
     /**
      * If it is AND logical operator for the children match terms
      * @type {boolean}
-     * @memberof MatchtermV1
+     * @memberof Matchterm
      */
     'and'?: boolean;
     /**
      * The children under this match term
      * @type {Array<{ [key: string]: any; }>}
-     * @memberof MatchtermV1
+     * @memberof Matchterm
      */
     'children'?: Array<{ [key: string]: any; }> | null;
 }
 /**
  * 
  * @export
- * @interface SourceappAccountSourceV1
+ * @interface Sourceapp
  */
-export interface SourceappAccountSourceV1 {
+export interface Sourceapp {
+    /**
+     * The source app id
+     * @type {string}
+     * @memberof Sourceapp
+     */
+    'id'?: string;
+    /**
+     * The deprecated source app id
+     * @type {string}
+     * @memberof Sourceapp
+     */
+    'cloudAppId'?: string;
+    /**
+     * The source app name
+     * @type {string}
+     * @memberof Sourceapp
+     */
+    'name'?: string;
+    /**
+     * Time when the source app was created
+     * @type {string}
+     * @memberof Sourceapp
+     */
+    'created'?: string;
+    /**
+     * Time when the source app was last modified
+     * @type {string}
+     * @memberof Sourceapp
+     */
+    'modified'?: string;
+    /**
+     * True if the source app is enabled
+     * @type {boolean}
+     * @memberof Sourceapp
+     */
+    'enabled'?: boolean;
+    /**
+     * True if the app allows access request
+     * @type {boolean}
+     * @memberof Sourceapp
+     */
+    'provisionRequestEnabled'?: boolean;
+    /**
+     * The description of the source app
+     * @type {string}
+     * @memberof Sourceapp
+     */
+    'description'?: string;
+    /**
+     * True if the source app match all accounts
+     * @type {boolean}
+     * @memberof Sourceapp
+     */
+    'matchAllAccounts'?: boolean;
+    /**
+     * True if the app is visible in the request center
+     * @type {boolean}
+     * @memberof Sourceapp
+     */
+    'appCenterEnabled'?: boolean;
+    /**
+     * 
+     * @type {SourceappAccountSource}
+     * @memberof Sourceapp
+     */
+    'accountSource'?: SourceappAccountSource | null;
+    /**
+     * The owner of source app
+     * @type {Basereferencedto}
+     * @memberof Sourceapp
+     */
+    'owner'?: Basereferencedto | null;
+}
+/**
+ * 
+ * @export
+ * @interface SourceappAccountSource
+ */
+export interface SourceappAccountSource {
     /**
      * The source ID
      * @type {string}
-     * @memberof SourceappAccountSourceV1
+     * @memberof SourceappAccountSource
      */
     'id'?: string;
     /**
      * The source type, will always be \"SOURCE\"
      * @type {string}
-     * @memberof SourceappAccountSourceV1
+     * @memberof SourceappAccountSource
      */
     'type'?: string;
     /**
      * The source name
      * @type {string}
-     * @memberof SourceappAccountSourceV1
+     * @memberof SourceappAccountSource
      */
     'name'?: string;
     /**
      * If the source is used for password management
      * @type {boolean}
-     * @memberof SourceappAccountSourceV1
+     * @memberof SourceappAccountSource
      */
     'useForPasswordManagement'?: boolean;
     /**
      * The password policies for the source
-     * @type {Array<BasereferencedtoV1>}
-     * @memberof SourceappAccountSourceV1
+     * @type {Array<Basereferencedto>}
+     * @memberof SourceappAccountSource
      */
-    'passwordPolicies'?: Array<BasereferencedtoV1> | null;
+    'passwordPolicies'?: Array<Basereferencedto> | null;
 }
 /**
  * 
  * @export
- * @interface SourceappV1
+ * @interface Sourceappbulkupdaterequest
  */
-export interface SourceappV1 {
-    /**
-     * The source app id
-     * @type {string}
-     * @memberof SourceappV1
-     */
-    'id'?: string;
-    /**
-     * The deprecated source app id
-     * @type {string}
-     * @memberof SourceappV1
-     */
-    'cloudAppId'?: string;
-    /**
-     * The source app name
-     * @type {string}
-     * @memberof SourceappV1
-     */
-    'name'?: string;
-    /**
-     * Time when the source app was created
-     * @type {string}
-     * @memberof SourceappV1
-     */
-    'created'?: string;
-    /**
-     * Time when the source app was last modified
-     * @type {string}
-     * @memberof SourceappV1
-     */
-    'modified'?: string;
-    /**
-     * True if the source app is enabled
-     * @type {boolean}
-     * @memberof SourceappV1
-     */
-    'enabled'?: boolean;
-    /**
-     * True if the app allows access request
-     * @type {boolean}
-     * @memberof SourceappV1
-     */
-    'provisionRequestEnabled'?: boolean;
-    /**
-     * The description of the source app
-     * @type {string}
-     * @memberof SourceappV1
-     */
-    'description'?: string;
-    /**
-     * True if the source app match all accounts
-     * @type {boolean}
-     * @memberof SourceappV1
-     */
-    'matchAllAccounts'?: boolean;
-    /**
-     * True if the app is visible in the request center
-     * @type {boolean}
-     * @memberof SourceappV1
-     */
-    'appCenterEnabled'?: boolean;
-    /**
-     * 
-     * @type {SourceappAccountSourceV1}
-     * @memberof SourceappV1
-     */
-    'accountSource'?: SourceappAccountSourceV1 | null;
-    /**
-     * The owner of source app
-     * @type {BasereferencedtoV1}
-     * @memberof SourceappV1
-     */
-    'owner'?: BasereferencedtoV1 | null;
-}
-/**
- * 
- * @export
- * @interface SourceappbulkupdaterequestV1
- */
-export interface SourceappbulkupdaterequestV1 {
+export interface Sourceappbulkupdaterequest {
     /**
      * List of source app ids to update
      * @type {Array<string>}
-     * @memberof SourceappbulkupdaterequestV1
+     * @memberof Sourceappbulkupdaterequest
      */
     'appIds': Array<string>;
     /**
      * The JSONPatch payload used to update the source app.
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof SourceappbulkupdaterequestV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof Sourceappbulkupdaterequest
      */
-    'jsonPatch': Array<JsonpatchoperationV1>;
+    'jsonPatch': Array<Jsonpatchoperation>;
 }
 /**
  * 
  * @export
- * @interface SourceappcreatedtoAccountSourceV1
+ * @interface Sourceappcreatedto
  */
-export interface SourceappcreatedtoAccountSourceV1 {
-    /**
-     * The source ID
-     * @type {string}
-     * @memberof SourceappcreatedtoAccountSourceV1
-     */
-    'id': string;
-    /**
-     * The source type, will always be \"SOURCE\"
-     * @type {string}
-     * @memberof SourceappcreatedtoAccountSourceV1
-     */
-    'type'?: string;
-    /**
-     * The source name
-     * @type {string}
-     * @memberof SourceappcreatedtoAccountSourceV1
-     */
-    'name'?: string;
-}
-/**
- * 
- * @export
- * @interface SourceappcreatedtoV1
- */
-export interface SourceappcreatedtoV1 {
+export interface Sourceappcreatedto {
     /**
      * The source app name
      * @type {string}
-     * @memberof SourceappcreatedtoV1
+     * @memberof Sourceappcreatedto
      */
     'name': string;
     /**
      * The description of the source app
      * @type {string}
-     * @memberof SourceappcreatedtoV1
+     * @memberof Sourceappcreatedto
      */
     'description': string;
     /**
      * True if the source app match all accounts
      * @type {boolean}
-     * @memberof SourceappcreatedtoV1
+     * @memberof Sourceappcreatedto
      */
     'matchAllAccounts'?: boolean;
     /**
      * 
-     * @type {SourceappcreatedtoAccountSourceV1}
-     * @memberof SourceappcreatedtoV1
+     * @type {SourceappcreatedtoAccountSource}
+     * @memberof Sourceappcreatedto
      */
-    'accountSource': SourceappcreatedtoAccountSourceV1;
+    'accountSource': SourceappcreatedtoAccountSource;
 }
 /**
  * 
  * @export
- * @interface SourceapppatchdtoV1
+ * @interface SourceappcreatedtoAccountSource
  */
-export interface SourceapppatchdtoV1 {
+export interface SourceappcreatedtoAccountSource {
+    /**
+     * The source ID
+     * @type {string}
+     * @memberof SourceappcreatedtoAccountSource
+     */
+    'id': string;
+    /**
+     * The source type, will always be \"SOURCE\"
+     * @type {string}
+     * @memberof SourceappcreatedtoAccountSource
+     */
+    'type'?: string;
+    /**
+     * The source name
+     * @type {string}
+     * @memberof SourceappcreatedtoAccountSource
+     */
+    'name'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface Sourceapppatchdto
+ */
+export interface Sourceapppatchdto {
     /**
      * The source app id
      * @type {string}
-     * @memberof SourceapppatchdtoV1
+     * @memberof Sourceapppatchdto
      */
     'id'?: string;
     /**
      * The deprecated source app id
      * @type {string}
-     * @memberof SourceapppatchdtoV1
+     * @memberof Sourceapppatchdto
      */
     'cloudAppId'?: string;
     /**
      * The source app name
      * @type {string}
-     * @memberof SourceapppatchdtoV1
+     * @memberof Sourceapppatchdto
      */
     'name'?: string;
     /**
      * Time when the source app was created
      * @type {string}
-     * @memberof SourceapppatchdtoV1
+     * @memberof Sourceapppatchdto
      */
     'created'?: string;
     /**
      * Time when the source app was last modified
      * @type {string}
-     * @memberof SourceapppatchdtoV1
+     * @memberof Sourceapppatchdto
      */
     'modified'?: string;
     /**
      * True if the source app is enabled
      * @type {boolean}
-     * @memberof SourceapppatchdtoV1
+     * @memberof Sourceapppatchdto
      */
     'enabled'?: boolean;
     /**
      * True if the app allows access request
      * @type {boolean}
-     * @memberof SourceapppatchdtoV1
+     * @memberof Sourceapppatchdto
      */
     'provisionRequestEnabled'?: boolean;
     /**
      * The description of the source app
      * @type {string}
-     * @memberof SourceapppatchdtoV1
+     * @memberof Sourceapppatchdto
      */
     'description'?: string;
     /**
      * True if the source app match all accounts
      * @type {boolean}
-     * @memberof SourceapppatchdtoV1
+     * @memberof Sourceapppatchdto
      */
     'matchAllAccounts'?: boolean;
     /**
      * True if the app is visible in the request center
      * @type {boolean}
-     * @memberof SourceapppatchdtoV1
+     * @memberof Sourceapppatchdto
      */
     'appCenterEnabled'?: boolean;
     /**
      * List of IDs of access profiles
      * @type {Array<string>}
-     * @memberof SourceapppatchdtoV1
+     * @memberof Sourceapppatchdto
      */
     'accessProfiles'?: Array<string> | null;
     /**
      * 
-     * @type {SourceappAccountSourceV1}
-     * @memberof SourceapppatchdtoV1
+     * @type {SourceappAccountSource}
+     * @memberof Sourceapppatchdto
      */
-    'accountSource'?: SourceappAccountSourceV1 | null;
+    'accountSource'?: SourceappAccountSource | null;
     /**
      * The owner of source app
-     * @type {BasereferencedtoV1}
-     * @memberof SourceapppatchdtoV1
+     * @type {Basereferencedto}
+     * @memberof Sourceapppatchdto
      */
-    'owner'?: BasereferencedtoV1 | null;
+    'owner'?: Basereferencedto | null;
 }
 /**
  * 
  * @export
- * @interface UserappAccountV1
+ * @interface Userapp
  */
-export interface UserappAccountV1 {
+export interface Userapp {
+    /**
+     * The user app id
+     * @type {string}
+     * @memberof Userapp
+     */
+    'id'?: string;
+    /**
+     * Time when the user app was created
+     * @type {string}
+     * @memberof Userapp
+     */
+    'created'?: string;
+    /**
+     * Time when the user app was last modified
+     * @type {string}
+     * @memberof Userapp
+     */
+    'modified'?: string;
+    /**
+     * True if the owner has multiple accounts for the source
+     * @type {boolean}
+     * @memberof Userapp
+     */
+    'hasMultipleAccounts'?: boolean;
+    /**
+     * True if the source has password feature
+     * @type {boolean}
+     * @memberof Userapp
+     */
+    'useForPasswordManagement'?: boolean;
+    /**
+     * True if the app allows access request
+     * @type {boolean}
+     * @memberof Userapp
+     */
+    'provisionRequestEnabled'?: boolean;
+    /**
+     * True if the app is visible in the request center
+     * @type {boolean}
+     * @memberof Userapp
+     */
+    'appCenterEnabled'?: boolean;
+    /**
+     * 
+     * @type {UserappSourceApp}
+     * @memberof Userapp
+     */
+    'sourceApp'?: UserappSourceApp;
+    /**
+     * 
+     * @type {UserappSource}
+     * @memberof Userapp
+     */
+    'source'?: UserappSource;
+    /**
+     * 
+     * @type {UserappAccount}
+     * @memberof Userapp
+     */
+    'account'?: UserappAccount;
+    /**
+     * 
+     * @type {UserappOwner}
+     * @memberof Userapp
+     */
+    'owner'?: UserappOwner;
+}
+/**
+ * 
+ * @export
+ * @interface UserappAccount
+ */
+export interface UserappAccount {
     /**
      * the account ID
      * @type {string}
-     * @memberof UserappAccountV1
+     * @memberof UserappAccount
      */
     'id'?: string;
     /**
      * It will always be \"ACCOUNT\"
      * @type {string}
-     * @memberof UserappAccountV1
+     * @memberof UserappAccount
      */
     'type'?: string;
     /**
      * the account name
      * @type {string}
-     * @memberof UserappAccountV1
+     * @memberof UserappAccount
      */
     'name'?: string;
 }
 /**
  * 
  * @export
- * @interface UserappOwnerV1
+ * @interface UserappOwner
  */
-export interface UserappOwnerV1 {
+export interface UserappOwner {
     /**
      * The identity ID
      * @type {string}
-     * @memberof UserappOwnerV1
+     * @memberof UserappOwner
      */
     'id'?: string;
     /**
      * It will always be \"IDENTITY\"
      * @type {string}
-     * @memberof UserappOwnerV1
+     * @memberof UserappOwner
      */
     'type'?: string;
     /**
      * The identity name
      * @type {string}
-     * @memberof UserappOwnerV1
+     * @memberof UserappOwner
      */
     'name'?: string;
     /**
      * The identity alias
      * @type {string}
-     * @memberof UserappOwnerV1
+     * @memberof UserappOwner
      */
     'alias'?: string;
 }
 /**
  * 
  * @export
- * @interface UserappSourceAppV1
+ * @interface UserappSource
  */
-export interface UserappSourceAppV1 {
-    /**
-     * the source app ID
-     * @type {string}
-     * @memberof UserappSourceAppV1
-     */
-    'id'?: string;
-    /**
-     * It will always be \"APPLICATION\"
-     * @type {string}
-     * @memberof UserappSourceAppV1
-     */
-    'type'?: string;
-    /**
-     * the source app name
-     * @type {string}
-     * @memberof UserappSourceAppV1
-     */
-    'name'?: string;
-}
-/**
- * 
- * @export
- * @interface UserappSourceV1
- */
-export interface UserappSourceV1 {
+export interface UserappSource {
     /**
      * the source ID
      * @type {string}
-     * @memberof UserappSourceV1
+     * @memberof UserappSource
      */
     'id'?: string;
     /**
      * It will always be \"SOURCE\"
      * @type {string}
-     * @memberof UserappSourceV1
+     * @memberof UserappSource
      */
     'type'?: string;
     /**
      * the source name
      * @type {string}
-     * @memberof UserappSourceV1
+     * @memberof UserappSource
      */
     'name'?: string;
 }
 /**
  * 
  * @export
- * @interface UserappV1
+ * @interface UserappSourceApp
  */
-export interface UserappV1 {
+export interface UserappSourceApp {
     /**
-     * The user app id
+     * the source app ID
      * @type {string}
-     * @memberof UserappV1
+     * @memberof UserappSourceApp
      */
     'id'?: string;
     /**
-     * Time when the user app was created
+     * It will always be \"APPLICATION\"
      * @type {string}
-     * @memberof UserappV1
+     * @memberof UserappSourceApp
      */
-    'created'?: string;
+    'type'?: string;
     /**
-     * Time when the user app was last modified
+     * the source app name
      * @type {string}
-     * @memberof UserappV1
+     * @memberof UserappSourceApp
      */
-    'modified'?: string;
-    /**
-     * True if the owner has multiple accounts for the source
-     * @type {boolean}
-     * @memberof UserappV1
-     */
-    'hasMultipleAccounts'?: boolean;
-    /**
-     * True if the source has password feature
-     * @type {boolean}
-     * @memberof UserappV1
-     */
-    'useForPasswordManagement'?: boolean;
-    /**
-     * True if the app allows access request
-     * @type {boolean}
-     * @memberof UserappV1
-     */
-    'provisionRequestEnabled'?: boolean;
-    /**
-     * True if the app is visible in the request center
-     * @type {boolean}
-     * @memberof UserappV1
-     */
-    'appCenterEnabled'?: boolean;
-    /**
-     * 
-     * @type {UserappSourceAppV1}
-     * @memberof UserappV1
-     */
-    'sourceApp'?: UserappSourceAppV1;
-    /**
-     * 
-     * @type {UserappSourceV1}
-     * @memberof UserappV1
-     */
-    'source'?: UserappSourceV1;
-    /**
-     * 
-     * @type {UserappAccountV1}
-     * @memberof UserappV1
-     */
-    'account'?: UserappAccountV1;
-    /**
-     * 
-     * @type {UserappOwnerV1}
-     * @memberof UserappV1
-     */
-    'owner'?: UserappOwnerV1;
+    'name'?: string;
 }
 
 /**
- * AppsV1Api - axios parameter creator
+ * AppsApi - axios parameter creator
  * @export
  */
-export const AppsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const AppsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This endpoint creates a source app using the given source app payload
          * @summary Create source app
-         * @param {SourceappcreatedtoV1} sourceappcreatedtoV1 
+         * @param {Sourceappcreatedto} sourceappcreatedto 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createSourceAppV1: async (sourceappcreatedtoV1: SourceappcreatedtoV1, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'sourceappcreatedtoV1' is not null or undefined
-            assertParamExists('createSourceAppV1', 'sourceappcreatedtoV1', sourceappcreatedtoV1)
+        createSourceAppV1: async (sourceappcreatedto: Sourceappcreatedto, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceappcreatedto' is not null or undefined
+            assertParamExists('createSourceAppV1', 'sourceappcreatedto', sourceappcreatedto)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -1053,7 +1053,7 @@ export const AppsV1ApiAxiosParamCreator = function (configuration?: Configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(sourceappcreatedtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(sourceappcreatedto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1618,11 +1618,11 @@ export const AppsV1ApiAxiosParamCreator = function (configuration?: Configuratio
          * @summary Patch source app by id
          * @param {string} id ID of the source app to patch
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
-         * @param {Array<JsonpatchoperationV1>} [jsonpatchoperationV1] 
+         * @param {Array<Jsonpatchoperation>} [jsonpatchoperation] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchSourceAppV1: async (id: string, xSailPointExperimental?: string, jsonpatchoperationV1?: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchSourceAppV1: async (id: string, xSailPointExperimental?: string, jsonpatchoperation?: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchSourceAppV1', 'id', id)
             if (xSailPointExperimental === undefined) {
@@ -1652,7 +1652,7 @@ export const AppsV1ApiAxiosParamCreator = function (configuration?: Configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1664,11 +1664,11 @@ export const AppsV1ApiAxiosParamCreator = function (configuration?: Configuratio
          * @summary Patch user app by id
          * @param {string} id ID of the user app to patch
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
-         * @param {Array<JsonpatchoperationV1>} [jsonpatchoperationV1] 
+         * @param {Array<Jsonpatchoperation>} [jsonpatchoperation] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchUserAppV1: async (id: string, xSailPointExperimental?: string, jsonpatchoperationV1?: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchUserAppV1: async (id: string, xSailPointExperimental?: string, jsonpatchoperation?: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchUserAppV1', 'id', id)
             if (xSailPointExperimental === undefined) {
@@ -1698,7 +1698,7 @@ export const AppsV1ApiAxiosParamCreator = function (configuration?: Configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1709,11 +1709,11 @@ export const AppsV1ApiAxiosParamCreator = function (configuration?: Configuratio
          * This API updates source apps using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  It can update up to 50 source apps in a batch. The following fields can be updated: **name**, **description**, **enabled**, **owner**, **provisionRequestEnabled**, **appCenterEnabled**, **accountSource**,  **matchAllAccounts**, and **accessProfiles**. Name, description and owner can\'t be empty or null.
          * @summary Bulk update source apps
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
-         * @param {SourceappbulkupdaterequestV1} [sourceappbulkupdaterequestV1] 
+         * @param {Sourceappbulkupdaterequest} [sourceappbulkupdaterequest] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateSourceAppsInBulkV1: async (xSailPointExperimental?: string, sourceappbulkupdaterequestV1?: SourceappbulkupdaterequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateSourceAppsInBulkV1: async (xSailPointExperimental?: string, sourceappbulkupdaterequest?: Sourceappbulkupdaterequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -1740,7 +1740,7 @@ export const AppsV1ApiAxiosParamCreator = function (configuration?: Configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(sourceappbulkupdaterequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(sourceappbulkupdaterequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1751,24 +1751,24 @@ export const AppsV1ApiAxiosParamCreator = function (configuration?: Configuratio
 };
 
 /**
- * AppsV1Api - functional programming interface
+ * AppsApi - functional programming interface
  * @export
  */
-export const AppsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = AppsV1ApiAxiosParamCreator(configuration)
+export const AppsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = AppsApiAxiosParamCreator(configuration)
     return {
         /**
          * This endpoint creates a source app using the given source app payload
          * @summary Create source app
-         * @param {SourceappcreatedtoV1} sourceappcreatedtoV1 
+         * @param {Sourceappcreatedto} sourceappcreatedto 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSourceAppV1(sourceappcreatedtoV1: SourceappcreatedtoV1, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceappV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSourceAppV1(sourceappcreatedtoV1, xSailPointExperimental, axiosOptions);
+        async createSourceAppV1(sourceappcreatedto: Sourceappcreatedto, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sourceapp>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSourceAppV1(sourceappcreatedto, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AppsV1Api.createSourceAppV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AppsApi.createSourceAppV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1781,10 +1781,10 @@ export const AppsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteAccessProfilesFromSourceAppByBulkV1(id: string, requestBody: Array<string>, limit?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessprofiledetailsV1>>> {
+        async deleteAccessProfilesFromSourceAppByBulkV1(id: string, requestBody: Array<string>, limit?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Accessprofiledetails>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccessProfilesFromSourceAppByBulkV1(id, requestBody, limit, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AppsV1Api.deleteAccessProfilesFromSourceAppByBulkV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AppsApi.deleteAccessProfilesFromSourceAppByBulkV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1795,10 +1795,10 @@ export const AppsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteSourceAppV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceappV1>> {
+        async deleteSourceAppV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sourceapp>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSourceAppV1(id, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AppsV1Api.deleteSourceAppV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AppsApi.deleteSourceAppV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1809,10 +1809,10 @@ export const AppsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourceAppV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceappV1>> {
+        async getSourceAppV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sourceapp>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceAppV1(id, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AppsV1Api.getSourceAppV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AppsApi.getSourceAppV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1826,10 +1826,10 @@ export const AppsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccessProfilesForSourceAppV1(id: string, limit?: number, offset?: number, filters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessprofiledetailsV1>>> {
+        async listAccessProfilesForSourceAppV1(id: string, limit?: number, offset?: number, filters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Accessprofiledetails>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAccessProfilesForSourceAppV1(id, limit, offset, filters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AppsV1Api.listAccessProfilesForSourceAppV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AppsApi.listAccessProfilesForSourceAppV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1844,10 +1844,10 @@ export const AppsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAllSourceAppV1(limit?: number, count?: boolean, offset?: number, sorters?: string, filters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SourceappV1>>> {
+        async listAllSourceAppV1(limit?: number, count?: boolean, offset?: number, sorters?: string, filters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Sourceapp>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAllSourceAppV1(limit, count, offset, sorters, filters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AppsV1Api.listAllSourceAppV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AppsApi.listAllSourceAppV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1861,10 +1861,10 @@ export const AppsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAllUserAppsV1(filters: string, limit?: number, count?: boolean, offset?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserappV1>>> {
+        async listAllUserAppsV1(filters: string, limit?: number, count?: boolean, offset?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Userapp>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAllUserAppsV1(filters, limit, count, offset, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AppsV1Api.listAllUserAppsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AppsApi.listAllUserAppsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1879,10 +1879,10 @@ export const AppsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAssignedSourceAppV1(limit?: number, count?: boolean, offset?: number, sorters?: string, filters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SourceappV1>>> {
+        async listAssignedSourceAppV1(limit?: number, count?: boolean, offset?: number, sorters?: string, filters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Sourceapp>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAssignedSourceAppV1(limit, count, offset, sorters, filters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AppsV1Api.listAssignedSourceAppV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AppsApi.listAssignedSourceAppV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1895,10 +1895,10 @@ export const AppsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAvailableAccountsForUserAppV1(id: string, limit?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AppaccountdetailsV1>>> {
+        async listAvailableAccountsForUserAppV1(id: string, limit?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Appaccountdetails>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAvailableAccountsForUserAppV1(id, limit, count, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AppsV1Api.listAvailableAccountsForUserAppV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AppsApi.listAvailableAccountsForUserAppV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1913,10 +1913,10 @@ export const AppsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAvailableSourceAppsV1(limit?: number, count?: boolean, offset?: number, sorters?: string, filters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SourceappV1>>> {
+        async listAvailableSourceAppsV1(limit?: number, count?: boolean, offset?: number, sorters?: string, filters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Sourceapp>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAvailableSourceAppsV1(limit, count, offset, sorters, filters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AppsV1Api.listAvailableSourceAppsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AppsApi.listAvailableSourceAppsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1930,10 +1930,10 @@ export const AppsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listOwnedUserAppsV1(limit?: number, count?: boolean, offset?: number, filters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserappV1>>> {
+        async listOwnedUserAppsV1(limit?: number, count?: boolean, offset?: number, filters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Userapp>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listOwnedUserAppsV1(limit, count, offset, filters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AppsV1Api.listOwnedUserAppsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AppsApi.listOwnedUserAppsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1941,14 +1941,14 @@ export const AppsV1ApiFp = function(configuration?: Configuration) {
          * @summary Patch source app by id
          * @param {string} id ID of the source app to patch
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
-         * @param {Array<JsonpatchoperationV1>} [jsonpatchoperationV1] 
+         * @param {Array<Jsonpatchoperation>} [jsonpatchoperation] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchSourceAppV1(id: string, xSailPointExperimental?: string, jsonpatchoperationV1?: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceapppatchdtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSourceAppV1(id, xSailPointExperimental, jsonpatchoperationV1, axiosOptions);
+        async patchSourceAppV1(id: string, xSailPointExperimental?: string, jsonpatchoperation?: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sourceapppatchdto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSourceAppV1(id, xSailPointExperimental, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AppsV1Api.patchSourceAppV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AppsApi.patchSourceAppV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1956,839 +1956,839 @@ export const AppsV1ApiFp = function(configuration?: Configuration) {
          * @summary Patch user app by id
          * @param {string} id ID of the user app to patch
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
-         * @param {Array<JsonpatchoperationV1>} [jsonpatchoperationV1] 
+         * @param {Array<Jsonpatchoperation>} [jsonpatchoperation] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchUserAppV1(id: string, xSailPointExperimental?: string, jsonpatchoperationV1?: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserappV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchUserAppV1(id, xSailPointExperimental, jsonpatchoperationV1, axiosOptions);
+        async patchUserAppV1(id: string, xSailPointExperimental?: string, jsonpatchoperation?: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Userapp>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchUserAppV1(id, xSailPointExperimental, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AppsV1Api.patchUserAppV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AppsApi.patchUserAppV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API updates source apps using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  It can update up to 50 source apps in a batch. The following fields can be updated: **name**, **description**, **enabled**, **owner**, **provisionRequestEnabled**, **appCenterEnabled**, **accountSource**,  **matchAllAccounts**, and **accessProfiles**. Name, description and owner can\'t be empty or null.
          * @summary Bulk update source apps
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
-         * @param {SourceappbulkupdaterequestV1} [sourceappbulkupdaterequestV1] 
+         * @param {Sourceappbulkupdaterequest} [sourceappbulkupdaterequest] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateSourceAppsInBulkV1(xSailPointExperimental?: string, sourceappbulkupdaterequestV1?: SourceappbulkupdaterequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceAppsInBulkV1(xSailPointExperimental, sourceappbulkupdaterequestV1, axiosOptions);
+        async updateSourceAppsInBulkV1(xSailPointExperimental?: string, sourceappbulkupdaterequest?: Sourceappbulkupdaterequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceAppsInBulkV1(xSailPointExperimental, sourceappbulkupdaterequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AppsV1Api.updateSourceAppsInBulkV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AppsApi.updateSourceAppsInBulkV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * AppsV1Api - factory interface
+ * AppsApi - factory interface
  * @export
  */
-export const AppsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = AppsV1ApiFp(configuration)
+export const AppsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = AppsApiFp(configuration)
     return {
         /**
          * This endpoint creates a source app using the given source app payload
          * @summary Create source app
-         * @param {AppsV1ApiCreateSourceAppV1Request} requestParameters Request parameters.
+         * @param {AppsApiCreateSourceAppV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createSourceAppV1(requestParameters: AppsV1ApiCreateSourceAppV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceappV1> {
-            return localVarFp.createSourceAppV1(requestParameters.sourceappcreatedtoV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        createSourceAppV1(requestParameters: AppsApiCreateSourceAppV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sourceapp> {
+            return localVarFp.createSourceAppV1(requestParameters.sourceappcreatedto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the final list of access profiles for the specified source app after removing
          * @summary Bulk remove access profiles from the specified source app
-         * @param {AppsV1ApiDeleteAccessProfilesFromSourceAppByBulkV1Request} requestParameters Request parameters.
+         * @param {AppsApiDeleteAccessProfilesFromSourceAppByBulkV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAccessProfilesFromSourceAppByBulkV1(requestParameters: AppsV1ApiDeleteAccessProfilesFromSourceAppByBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccessprofiledetailsV1>> {
+        deleteAccessProfilesFromSourceAppByBulkV1(requestParameters: AppsApiDeleteAccessProfilesFromSourceAppByBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Accessprofiledetails>> {
             return localVarFp.deleteAccessProfilesFromSourceAppByBulkV1(requestParameters.id, requestParameters.requestBody, requestParameters.limit, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to delete a specific source app
          * @summary Delete source app by id
-         * @param {AppsV1ApiDeleteSourceAppV1Request} requestParameters Request parameters.
+         * @param {AppsApiDeleteSourceAppV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteSourceAppV1(requestParameters: AppsV1ApiDeleteSourceAppV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceappV1> {
+        deleteSourceAppV1(requestParameters: AppsApiDeleteSourceAppV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sourceapp> {
             return localVarFp.deleteSourceAppV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a source app by its ID.
          * @summary Get source app by id
-         * @param {AppsV1ApiGetSourceAppV1Request} requestParameters Request parameters.
+         * @param {AppsApiGetSourceAppV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSourceAppV1(requestParameters: AppsV1ApiGetSourceAppV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceappV1> {
+        getSourceAppV1(requestParameters: AppsApiGetSourceAppV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sourceapp> {
             return localVarFp.getSourceAppV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the list of access profiles for the specified source app
          * @summary List access profiles for the specified source app
-         * @param {AppsV1ApiListAccessProfilesForSourceAppV1Request} requestParameters Request parameters.
+         * @param {AppsApiListAccessProfilesForSourceAppV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAccessProfilesForSourceAppV1(requestParameters: AppsV1ApiListAccessProfilesForSourceAppV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccessprofiledetailsV1>> {
+        listAccessProfilesForSourceAppV1(requestParameters: AppsApiListAccessProfilesForSourceAppV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Accessprofiledetails>> {
             return localVarFp.listAccessProfilesForSourceAppV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the list of all source apps for the org.    
          * @summary List all source apps
-         * @param {AppsV1ApiListAllSourceAppV1Request} requestParameters Request parameters.
+         * @param {AppsApiListAllSourceAppV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAllSourceAppV1(requestParameters: AppsV1ApiListAllSourceAppV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SourceappV1>> {
+        listAllSourceAppV1(requestParameters: AppsApiListAllSourceAppV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Sourceapp>> {
             return localVarFp.listAllSourceAppV1(requestParameters.limit, requestParameters.count, requestParameters.offset, requestParameters.sorters, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the list of all user apps with specified filters. This API must be used with **filters** query parameter.
          * @summary List all user apps
-         * @param {AppsV1ApiListAllUserAppsV1Request} requestParameters Request parameters.
+         * @param {AppsApiListAllUserAppsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAllUserAppsV1(requestParameters: AppsV1ApiListAllUserAppsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<UserappV1>> {
+        listAllUserAppsV1(requestParameters: AppsApiListAllUserAppsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Userapp>> {
             return localVarFp.listAllUserAppsV1(requestParameters.filters, requestParameters.limit, requestParameters.count, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the list of source apps assigned for logged in user.
          * @summary List assigned source apps
-         * @param {AppsV1ApiListAssignedSourceAppV1Request} requestParameters Request parameters.
+         * @param {AppsApiListAssignedSourceAppV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAssignedSourceAppV1(requestParameters: AppsV1ApiListAssignedSourceAppV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SourceappV1>> {
+        listAssignedSourceAppV1(requestParameters: AppsApiListAssignedSourceAppV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Sourceapp>> {
             return localVarFp.listAssignedSourceAppV1(requestParameters.limit, requestParameters.count, requestParameters.offset, requestParameters.sorters, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the list of available accounts for the specified user app. The user app needs to belong lo logged in user.
          * @summary List available accounts for user app
-         * @param {AppsV1ApiListAvailableAccountsForUserAppV1Request} requestParameters Request parameters.
+         * @param {AppsApiListAvailableAccountsForUserAppV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAvailableAccountsForUserAppV1(requestParameters: AppsV1ApiListAvailableAccountsForUserAppV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AppaccountdetailsV1>> {
+        listAvailableAccountsForUserAppV1(requestParameters: AppsApiListAvailableAccountsForUserAppV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Appaccountdetails>> {
             return localVarFp.listAvailableAccountsForUserAppV1(requestParameters.id, requestParameters.limit, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the list of source apps available for access request.
          * @summary List available source apps
-         * @param {AppsV1ApiListAvailableSourceAppsV1Request} requestParameters Request parameters.
+         * @param {AppsApiListAvailableSourceAppsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAvailableSourceAppsV1(requestParameters: AppsV1ApiListAvailableSourceAppsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SourceappV1>> {
+        listAvailableSourceAppsV1(requestParameters: AppsApiListAvailableSourceAppsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Sourceapp>> {
             return localVarFp.listAvailableSourceAppsV1(requestParameters.limit, requestParameters.count, requestParameters.offset, requestParameters.sorters, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the list of user apps assigned to logged in user
          * @summary List owned user apps
-         * @param {AppsV1ApiListOwnedUserAppsV1Request} requestParameters Request parameters.
+         * @param {AppsApiListOwnedUserAppsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listOwnedUserAppsV1(requestParameters: AppsV1ApiListOwnedUserAppsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<UserappV1>> {
+        listOwnedUserAppsV1(requestParameters: AppsApiListOwnedUserAppsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Userapp>> {
             return localVarFp.listOwnedUserAppsV1(requestParameters.limit, requestParameters.count, requestParameters.offset, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API updates an existing source app using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: **name**, **description**, **enabled**, **owner**, **provisionRequestEnabled**, **appCenterEnabled**, **accountSource**,  **matchAllAccounts** and **accessProfiles**. Name, description and owner can\'t be empty or null.
          * @summary Patch source app by id
-         * @param {AppsV1ApiPatchSourceAppV1Request} requestParameters Request parameters.
+         * @param {AppsApiPatchSourceAppV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchSourceAppV1(requestParameters: AppsV1ApiPatchSourceAppV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceapppatchdtoV1> {
-            return localVarFp.patchSourceAppV1(requestParameters.id, requestParameters.xSailPointExperimental, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        patchSourceAppV1(requestParameters: AppsApiPatchSourceAppV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sourceapppatchdto> {
+            return localVarFp.patchSourceAppV1(requestParameters.id, requestParameters.xSailPointExperimental, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API updates an existing user app using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: **account**
          * @summary Patch user app by id
-         * @param {AppsV1ApiPatchUserAppV1Request} requestParameters Request parameters.
+         * @param {AppsApiPatchUserAppV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchUserAppV1(requestParameters: AppsV1ApiPatchUserAppV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<UserappV1> {
-            return localVarFp.patchUserAppV1(requestParameters.id, requestParameters.xSailPointExperimental, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        patchUserAppV1(requestParameters: AppsApiPatchUserAppV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Userapp> {
+            return localVarFp.patchUserAppV1(requestParameters.id, requestParameters.xSailPointExperimental, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API updates source apps using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  It can update up to 50 source apps in a batch. The following fields can be updated: **name**, **description**, **enabled**, **owner**, **provisionRequestEnabled**, **appCenterEnabled**, **accountSource**,  **matchAllAccounts**, and **accessProfiles**. Name, description and owner can\'t be empty or null.
          * @summary Bulk update source apps
-         * @param {AppsV1ApiUpdateSourceAppsInBulkV1Request} requestParameters Request parameters.
+         * @param {AppsApiUpdateSourceAppsInBulkV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateSourceAppsInBulkV1(requestParameters: AppsV1ApiUpdateSourceAppsInBulkV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.updateSourceAppsInBulkV1(requestParameters.xSailPointExperimental, requestParameters.sourceappbulkupdaterequestV1, axiosOptions).then((request) => request(axios, basePath));
+        updateSourceAppsInBulkV1(requestParameters: AppsApiUpdateSourceAppsInBulkV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.updateSourceAppsInBulkV1(requestParameters.xSailPointExperimental, requestParameters.sourceappbulkupdaterequest, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createSourceAppV1 operation in AppsV1Api.
+ * Request parameters for createSourceAppV1 operation in AppsApi.
  * @export
- * @interface AppsV1ApiCreateSourceAppV1Request
+ * @interface AppsApiCreateSourceAppV1Request
  */
-export interface AppsV1ApiCreateSourceAppV1Request {
+export interface AppsApiCreateSourceAppV1Request {
     /**
      * 
-     * @type {SourceappcreatedtoV1}
-     * @memberof AppsV1ApiCreateSourceAppV1
+     * @type {Sourceappcreatedto}
+     * @memberof AppsApiCreateSourceAppV1
      */
-    readonly sourceappcreatedtoV1: SourceappcreatedtoV1
+    readonly sourceappcreatedto: Sourceappcreatedto
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof AppsV1ApiCreateSourceAppV1
+     * @memberof AppsApiCreateSourceAppV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for deleteAccessProfilesFromSourceAppByBulkV1 operation in AppsV1Api.
+ * Request parameters for deleteAccessProfilesFromSourceAppByBulkV1 operation in AppsApi.
  * @export
- * @interface AppsV1ApiDeleteAccessProfilesFromSourceAppByBulkV1Request
+ * @interface AppsApiDeleteAccessProfilesFromSourceAppByBulkV1Request
  */
-export interface AppsV1ApiDeleteAccessProfilesFromSourceAppByBulkV1Request {
+export interface AppsApiDeleteAccessProfilesFromSourceAppByBulkV1Request {
     /**
      * ID of the source app
      * @type {string}
-     * @memberof AppsV1ApiDeleteAccessProfilesFromSourceAppByBulkV1
+     * @memberof AppsApiDeleteAccessProfilesFromSourceAppByBulkV1
      */
     readonly id: string
 
     /**
      * List of access profile IDs for removal
      * @type {Array<string>}
-     * @memberof AppsV1ApiDeleteAccessProfilesFromSourceAppByBulkV1
+     * @memberof AppsApiDeleteAccessProfilesFromSourceAppByBulkV1
      */
     readonly requestBody: Array<string>
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof AppsV1ApiDeleteAccessProfilesFromSourceAppByBulkV1
+     * @memberof AppsApiDeleteAccessProfilesFromSourceAppByBulkV1
      */
     readonly limit?: number
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof AppsV1ApiDeleteAccessProfilesFromSourceAppByBulkV1
+     * @memberof AppsApiDeleteAccessProfilesFromSourceAppByBulkV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for deleteSourceAppV1 operation in AppsV1Api.
+ * Request parameters for deleteSourceAppV1 operation in AppsApi.
  * @export
- * @interface AppsV1ApiDeleteSourceAppV1Request
+ * @interface AppsApiDeleteSourceAppV1Request
  */
-export interface AppsV1ApiDeleteSourceAppV1Request {
+export interface AppsApiDeleteSourceAppV1Request {
     /**
      * source app ID.
      * @type {string}
-     * @memberof AppsV1ApiDeleteSourceAppV1
+     * @memberof AppsApiDeleteSourceAppV1
      */
     readonly id: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof AppsV1ApiDeleteSourceAppV1
+     * @memberof AppsApiDeleteSourceAppV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getSourceAppV1 operation in AppsV1Api.
+ * Request parameters for getSourceAppV1 operation in AppsApi.
  * @export
- * @interface AppsV1ApiGetSourceAppV1Request
+ * @interface AppsApiGetSourceAppV1Request
  */
-export interface AppsV1ApiGetSourceAppV1Request {
+export interface AppsApiGetSourceAppV1Request {
     /**
      * ID of the source app
      * @type {string}
-     * @memberof AppsV1ApiGetSourceAppV1
+     * @memberof AppsApiGetSourceAppV1
      */
     readonly id: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof AppsV1ApiGetSourceAppV1
+     * @memberof AppsApiGetSourceAppV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for listAccessProfilesForSourceAppV1 operation in AppsV1Api.
+ * Request parameters for listAccessProfilesForSourceAppV1 operation in AppsApi.
  * @export
- * @interface AppsV1ApiListAccessProfilesForSourceAppV1Request
+ * @interface AppsApiListAccessProfilesForSourceAppV1Request
  */
-export interface AppsV1ApiListAccessProfilesForSourceAppV1Request {
+export interface AppsApiListAccessProfilesForSourceAppV1Request {
     /**
      * ID of the source app
      * @type {string}
-     * @memberof AppsV1ApiListAccessProfilesForSourceAppV1
+     * @memberof AppsApiListAccessProfilesForSourceAppV1
      */
     readonly id: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof AppsV1ApiListAccessProfilesForSourceAppV1
+     * @memberof AppsApiListAccessProfilesForSourceAppV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof AppsV1ApiListAccessProfilesForSourceAppV1
+     * @memberof AppsApiListAccessProfilesForSourceAppV1
      */
     readonly offset?: number
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*
      * @type {string}
-     * @memberof AppsV1ApiListAccessProfilesForSourceAppV1
+     * @memberof AppsApiListAccessProfilesForSourceAppV1
      */
     readonly filters?: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof AppsV1ApiListAccessProfilesForSourceAppV1
+     * @memberof AppsApiListAccessProfilesForSourceAppV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for listAllSourceAppV1 operation in AppsV1Api.
+ * Request parameters for listAllSourceAppV1 operation in AppsApi.
  * @export
- * @interface AppsV1ApiListAllSourceAppV1Request
+ * @interface AppsApiListAllSourceAppV1Request
  */
-export interface AppsV1ApiListAllSourceAppV1Request {
+export interface AppsApiListAllSourceAppV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof AppsV1ApiListAllSourceAppV1
+     * @memberof AppsApiListAllSourceAppV1
      */
     readonly limit?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof AppsV1ApiListAllSourceAppV1
+     * @memberof AppsApiListAllSourceAppV1
      */
     readonly count?: boolean
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof AppsV1ApiListAllSourceAppV1
+     * @memberof AppsApiListAllSourceAppV1
      */
     readonly offset?: number
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, owner.id, accountSource.id**
      * @type {string}
-     * @memberof AppsV1ApiListAllSourceAppV1
+     * @memberof AppsApiListAllSourceAppV1
      */
     readonly sorters?: string
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, ge, le*  **owner.id**: *eq, in*  **enabled**: *eq*
      * @type {string}
-     * @memberof AppsV1ApiListAllSourceAppV1
+     * @memberof AppsApiListAllSourceAppV1
      */
     readonly filters?: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof AppsV1ApiListAllSourceAppV1
+     * @memberof AppsApiListAllSourceAppV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for listAllUserAppsV1 operation in AppsV1Api.
+ * Request parameters for listAllUserAppsV1 operation in AppsApi.
  * @export
- * @interface AppsV1ApiListAllUserAppsV1Request
+ * @interface AppsApiListAllUserAppsV1Request
  */
-export interface AppsV1ApiListAllUserAppsV1Request {
+export interface AppsApiListAllUserAppsV1Request {
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **ownerId**: *eq*  **ownerName**: *eq, sw*  **ownerAlias**: *eq, sw*  **accountId**: *eq*  **sourceAppId**: *eq*
      * @type {string}
-     * @memberof AppsV1ApiListAllUserAppsV1
+     * @memberof AppsApiListAllUserAppsV1
      */
     readonly filters: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof AppsV1ApiListAllUserAppsV1
+     * @memberof AppsApiListAllUserAppsV1
      */
     readonly limit?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof AppsV1ApiListAllUserAppsV1
+     * @memberof AppsApiListAllUserAppsV1
      */
     readonly count?: boolean
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof AppsV1ApiListAllUserAppsV1
+     * @memberof AppsApiListAllUserAppsV1
      */
     readonly offset?: number
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof AppsV1ApiListAllUserAppsV1
+     * @memberof AppsApiListAllUserAppsV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for listAssignedSourceAppV1 operation in AppsV1Api.
+ * Request parameters for listAssignedSourceAppV1 operation in AppsApi.
  * @export
- * @interface AppsV1ApiListAssignedSourceAppV1Request
+ * @interface AppsApiListAssignedSourceAppV1Request
  */
-export interface AppsV1ApiListAssignedSourceAppV1Request {
+export interface AppsApiListAssignedSourceAppV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof AppsV1ApiListAssignedSourceAppV1
+     * @memberof AppsApiListAssignedSourceAppV1
      */
     readonly limit?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof AppsV1ApiListAssignedSourceAppV1
+     * @memberof AppsApiListAssignedSourceAppV1
      */
     readonly count?: boolean
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof AppsV1ApiListAssignedSourceAppV1
+     * @memberof AppsApiListAssignedSourceAppV1
      */
     readonly offset?: number
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, accountSource.id**
      * @type {string}
-     * @memberof AppsV1ApiListAssignedSourceAppV1
+     * @memberof AppsApiListAssignedSourceAppV1
      */
     readonly sorters?: string
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **accountSource.id**: *eq, in*
      * @type {string}
-     * @memberof AppsV1ApiListAssignedSourceAppV1
+     * @memberof AppsApiListAssignedSourceAppV1
      */
     readonly filters?: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof AppsV1ApiListAssignedSourceAppV1
+     * @memberof AppsApiListAssignedSourceAppV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for listAvailableAccountsForUserAppV1 operation in AppsV1Api.
+ * Request parameters for listAvailableAccountsForUserAppV1 operation in AppsApi.
  * @export
- * @interface AppsV1ApiListAvailableAccountsForUserAppV1Request
+ * @interface AppsApiListAvailableAccountsForUserAppV1Request
  */
-export interface AppsV1ApiListAvailableAccountsForUserAppV1Request {
+export interface AppsApiListAvailableAccountsForUserAppV1Request {
     /**
      * ID of the user app
      * @type {string}
-     * @memberof AppsV1ApiListAvailableAccountsForUserAppV1
+     * @memberof AppsApiListAvailableAccountsForUserAppV1
      */
     readonly id: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof AppsV1ApiListAvailableAccountsForUserAppV1
+     * @memberof AppsApiListAvailableAccountsForUserAppV1
      */
     readonly limit?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof AppsV1ApiListAvailableAccountsForUserAppV1
+     * @memberof AppsApiListAvailableAccountsForUserAppV1
      */
     readonly count?: boolean
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof AppsV1ApiListAvailableAccountsForUserAppV1
+     * @memberof AppsApiListAvailableAccountsForUserAppV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for listAvailableSourceAppsV1 operation in AppsV1Api.
+ * Request parameters for listAvailableSourceAppsV1 operation in AppsApi.
  * @export
- * @interface AppsV1ApiListAvailableSourceAppsV1Request
+ * @interface AppsApiListAvailableSourceAppsV1Request
  */
-export interface AppsV1ApiListAvailableSourceAppsV1Request {
+export interface AppsApiListAvailableSourceAppsV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof AppsV1ApiListAvailableSourceAppsV1
+     * @memberof AppsApiListAvailableSourceAppsV1
      */
     readonly limit?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof AppsV1ApiListAvailableSourceAppsV1
+     * @memberof AppsApiListAvailableSourceAppsV1
      */
     readonly count?: boolean
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof AppsV1ApiListAvailableSourceAppsV1
+     * @memberof AppsApiListAvailableSourceAppsV1
      */
     readonly offset?: number
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, owner.id, accountSource.id**
      * @type {string}
-     * @memberof AppsV1ApiListAvailableSourceAppsV1
+     * @memberof AppsApiListAvailableSourceAppsV1
      */
     readonly sorters?: string
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **accountSource.id**: *eq, in*
      * @type {string}
-     * @memberof AppsV1ApiListAvailableSourceAppsV1
+     * @memberof AppsApiListAvailableSourceAppsV1
      */
     readonly filters?: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof AppsV1ApiListAvailableSourceAppsV1
+     * @memberof AppsApiListAvailableSourceAppsV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for listOwnedUserAppsV1 operation in AppsV1Api.
+ * Request parameters for listOwnedUserAppsV1 operation in AppsApi.
  * @export
- * @interface AppsV1ApiListOwnedUserAppsV1Request
+ * @interface AppsApiListOwnedUserAppsV1Request
  */
-export interface AppsV1ApiListOwnedUserAppsV1Request {
+export interface AppsApiListOwnedUserAppsV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof AppsV1ApiListOwnedUserAppsV1
+     * @memberof AppsApiListOwnedUserAppsV1
      */
     readonly limit?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof AppsV1ApiListOwnedUserAppsV1
+     * @memberof AppsApiListOwnedUserAppsV1
      */
     readonly count?: boolean
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof AppsV1ApiListOwnedUserAppsV1
+     * @memberof AppsApiListOwnedUserAppsV1
      */
     readonly offset?: number
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **ownerName**: *eq, sw*  **ownerAlias**: *eq, sw*  **accountId**: *eq*  **sourceAppId**: *eq*
      * @type {string}
-     * @memberof AppsV1ApiListOwnedUserAppsV1
+     * @memberof AppsApiListOwnedUserAppsV1
      */
     readonly filters?: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof AppsV1ApiListOwnedUserAppsV1
+     * @memberof AppsApiListOwnedUserAppsV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for patchSourceAppV1 operation in AppsV1Api.
+ * Request parameters for patchSourceAppV1 operation in AppsApi.
  * @export
- * @interface AppsV1ApiPatchSourceAppV1Request
+ * @interface AppsApiPatchSourceAppV1Request
  */
-export interface AppsV1ApiPatchSourceAppV1Request {
+export interface AppsApiPatchSourceAppV1Request {
     /**
      * ID of the source app to patch
      * @type {string}
-     * @memberof AppsV1ApiPatchSourceAppV1
+     * @memberof AppsApiPatchSourceAppV1
      */
     readonly id: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof AppsV1ApiPatchSourceAppV1
+     * @memberof AppsApiPatchSourceAppV1
      */
     readonly xSailPointExperimental?: string
 
     /**
      * 
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof AppsV1ApiPatchSourceAppV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof AppsApiPatchSourceAppV1
      */
-    readonly jsonpatchoperationV1?: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation?: Array<Jsonpatchoperation>
 }
 
 /**
- * Request parameters for patchUserAppV1 operation in AppsV1Api.
+ * Request parameters for patchUserAppV1 operation in AppsApi.
  * @export
- * @interface AppsV1ApiPatchUserAppV1Request
+ * @interface AppsApiPatchUserAppV1Request
  */
-export interface AppsV1ApiPatchUserAppV1Request {
+export interface AppsApiPatchUserAppV1Request {
     /**
      * ID of the user app to patch
      * @type {string}
-     * @memberof AppsV1ApiPatchUserAppV1
+     * @memberof AppsApiPatchUserAppV1
      */
     readonly id: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof AppsV1ApiPatchUserAppV1
+     * @memberof AppsApiPatchUserAppV1
      */
     readonly xSailPointExperimental?: string
 
     /**
      * 
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof AppsV1ApiPatchUserAppV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof AppsApiPatchUserAppV1
      */
-    readonly jsonpatchoperationV1?: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation?: Array<Jsonpatchoperation>
 }
 
 /**
- * Request parameters for updateSourceAppsInBulkV1 operation in AppsV1Api.
+ * Request parameters for updateSourceAppsInBulkV1 operation in AppsApi.
  * @export
- * @interface AppsV1ApiUpdateSourceAppsInBulkV1Request
+ * @interface AppsApiUpdateSourceAppsInBulkV1Request
  */
-export interface AppsV1ApiUpdateSourceAppsInBulkV1Request {
+export interface AppsApiUpdateSourceAppsInBulkV1Request {
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof AppsV1ApiUpdateSourceAppsInBulkV1
+     * @memberof AppsApiUpdateSourceAppsInBulkV1
      */
     readonly xSailPointExperimental?: string
 
     /**
      * 
-     * @type {SourceappbulkupdaterequestV1}
-     * @memberof AppsV1ApiUpdateSourceAppsInBulkV1
+     * @type {Sourceappbulkupdaterequest}
+     * @memberof AppsApiUpdateSourceAppsInBulkV1
      */
-    readonly sourceappbulkupdaterequestV1?: SourceappbulkupdaterequestV1
+    readonly sourceappbulkupdaterequest?: Sourceappbulkupdaterequest
 }
 
 /**
- * AppsV1Api - object-oriented interface
+ * AppsApi - object-oriented interface
  * @export
- * @class AppsV1Api
+ * @class AppsApi
  * @extends {BaseAPI}
  */
-export class AppsV1Api extends BaseAPI {
+export class AppsApi extends BaseAPI {
     /**
      * This endpoint creates a source app using the given source app payload
      * @summary Create source app
-     * @param {AppsV1ApiCreateSourceAppV1Request} requestParameters Request parameters.
+     * @param {AppsApiCreateSourceAppV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AppsV1Api
+     * @memberof AppsApi
      */
-    public createSourceAppV1(requestParameters: AppsV1ApiCreateSourceAppV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AppsV1ApiFp(this.configuration).createSourceAppV1(requestParameters.sourceappcreatedtoV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createSourceAppV1(requestParameters: AppsApiCreateSourceAppV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AppsApiFp(this.configuration).createSourceAppV1(requestParameters.sourceappcreatedto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the final list of access profiles for the specified source app after removing
      * @summary Bulk remove access profiles from the specified source app
-     * @param {AppsV1ApiDeleteAccessProfilesFromSourceAppByBulkV1Request} requestParameters Request parameters.
+     * @param {AppsApiDeleteAccessProfilesFromSourceAppByBulkV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AppsV1Api
+     * @memberof AppsApi
      */
-    public deleteAccessProfilesFromSourceAppByBulkV1(requestParameters: AppsV1ApiDeleteAccessProfilesFromSourceAppByBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AppsV1ApiFp(this.configuration).deleteAccessProfilesFromSourceAppByBulkV1(requestParameters.id, requestParameters.requestBody, requestParameters.limit, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteAccessProfilesFromSourceAppByBulkV1(requestParameters: AppsApiDeleteAccessProfilesFromSourceAppByBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AppsApiFp(this.configuration).deleteAccessProfilesFromSourceAppByBulkV1(requestParameters.id, requestParameters.requestBody, requestParameters.limit, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to delete a specific source app
      * @summary Delete source app by id
-     * @param {AppsV1ApiDeleteSourceAppV1Request} requestParameters Request parameters.
+     * @param {AppsApiDeleteSourceAppV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AppsV1Api
+     * @memberof AppsApi
      */
-    public deleteSourceAppV1(requestParameters: AppsV1ApiDeleteSourceAppV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AppsV1ApiFp(this.configuration).deleteSourceAppV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteSourceAppV1(requestParameters: AppsApiDeleteSourceAppV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AppsApiFp(this.configuration).deleteSourceAppV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a source app by its ID.
      * @summary Get source app by id
-     * @param {AppsV1ApiGetSourceAppV1Request} requestParameters Request parameters.
+     * @param {AppsApiGetSourceAppV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AppsV1Api
+     * @memberof AppsApi
      */
-    public getSourceAppV1(requestParameters: AppsV1ApiGetSourceAppV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AppsV1ApiFp(this.configuration).getSourceAppV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSourceAppV1(requestParameters: AppsApiGetSourceAppV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AppsApiFp(this.configuration).getSourceAppV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the list of access profiles for the specified source app
      * @summary List access profiles for the specified source app
-     * @param {AppsV1ApiListAccessProfilesForSourceAppV1Request} requestParameters Request parameters.
+     * @param {AppsApiListAccessProfilesForSourceAppV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AppsV1Api
+     * @memberof AppsApi
      */
-    public listAccessProfilesForSourceAppV1(requestParameters: AppsV1ApiListAccessProfilesForSourceAppV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AppsV1ApiFp(this.configuration).listAccessProfilesForSourceAppV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listAccessProfilesForSourceAppV1(requestParameters: AppsApiListAccessProfilesForSourceAppV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AppsApiFp(this.configuration).listAccessProfilesForSourceAppV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the list of all source apps for the org.    
      * @summary List all source apps
-     * @param {AppsV1ApiListAllSourceAppV1Request} requestParameters Request parameters.
+     * @param {AppsApiListAllSourceAppV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AppsV1Api
+     * @memberof AppsApi
      */
-    public listAllSourceAppV1(requestParameters: AppsV1ApiListAllSourceAppV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return AppsV1ApiFp(this.configuration).listAllSourceAppV1(requestParameters.limit, requestParameters.count, requestParameters.offset, requestParameters.sorters, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listAllSourceAppV1(requestParameters: AppsApiListAllSourceAppV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return AppsApiFp(this.configuration).listAllSourceAppV1(requestParameters.limit, requestParameters.count, requestParameters.offset, requestParameters.sorters, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the list of all user apps with specified filters. This API must be used with **filters** query parameter.
      * @summary List all user apps
-     * @param {AppsV1ApiListAllUserAppsV1Request} requestParameters Request parameters.
+     * @param {AppsApiListAllUserAppsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AppsV1Api
+     * @memberof AppsApi
      */
-    public listAllUserAppsV1(requestParameters: AppsV1ApiListAllUserAppsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AppsV1ApiFp(this.configuration).listAllUserAppsV1(requestParameters.filters, requestParameters.limit, requestParameters.count, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listAllUserAppsV1(requestParameters: AppsApiListAllUserAppsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AppsApiFp(this.configuration).listAllUserAppsV1(requestParameters.filters, requestParameters.limit, requestParameters.count, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the list of source apps assigned for logged in user.
      * @summary List assigned source apps
-     * @param {AppsV1ApiListAssignedSourceAppV1Request} requestParameters Request parameters.
+     * @param {AppsApiListAssignedSourceAppV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AppsV1Api
+     * @memberof AppsApi
      */
-    public listAssignedSourceAppV1(requestParameters: AppsV1ApiListAssignedSourceAppV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return AppsV1ApiFp(this.configuration).listAssignedSourceAppV1(requestParameters.limit, requestParameters.count, requestParameters.offset, requestParameters.sorters, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listAssignedSourceAppV1(requestParameters: AppsApiListAssignedSourceAppV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return AppsApiFp(this.configuration).listAssignedSourceAppV1(requestParameters.limit, requestParameters.count, requestParameters.offset, requestParameters.sorters, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the list of available accounts for the specified user app. The user app needs to belong lo logged in user.
      * @summary List available accounts for user app
-     * @param {AppsV1ApiListAvailableAccountsForUserAppV1Request} requestParameters Request parameters.
+     * @param {AppsApiListAvailableAccountsForUserAppV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AppsV1Api
+     * @memberof AppsApi
      */
-    public listAvailableAccountsForUserAppV1(requestParameters: AppsV1ApiListAvailableAccountsForUserAppV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AppsV1ApiFp(this.configuration).listAvailableAccountsForUserAppV1(requestParameters.id, requestParameters.limit, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listAvailableAccountsForUserAppV1(requestParameters: AppsApiListAvailableAccountsForUserAppV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AppsApiFp(this.configuration).listAvailableAccountsForUserAppV1(requestParameters.id, requestParameters.limit, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the list of source apps available for access request.
      * @summary List available source apps
-     * @param {AppsV1ApiListAvailableSourceAppsV1Request} requestParameters Request parameters.
+     * @param {AppsApiListAvailableSourceAppsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AppsV1Api
+     * @memberof AppsApi
      */
-    public listAvailableSourceAppsV1(requestParameters: AppsV1ApiListAvailableSourceAppsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return AppsV1ApiFp(this.configuration).listAvailableSourceAppsV1(requestParameters.limit, requestParameters.count, requestParameters.offset, requestParameters.sorters, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listAvailableSourceAppsV1(requestParameters: AppsApiListAvailableSourceAppsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return AppsApiFp(this.configuration).listAvailableSourceAppsV1(requestParameters.limit, requestParameters.count, requestParameters.offset, requestParameters.sorters, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the list of user apps assigned to logged in user
      * @summary List owned user apps
-     * @param {AppsV1ApiListOwnedUserAppsV1Request} requestParameters Request parameters.
+     * @param {AppsApiListOwnedUserAppsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AppsV1Api
+     * @memberof AppsApi
      */
-    public listOwnedUserAppsV1(requestParameters: AppsV1ApiListOwnedUserAppsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return AppsV1ApiFp(this.configuration).listOwnedUserAppsV1(requestParameters.limit, requestParameters.count, requestParameters.offset, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listOwnedUserAppsV1(requestParameters: AppsApiListOwnedUserAppsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return AppsApiFp(this.configuration).listOwnedUserAppsV1(requestParameters.limit, requestParameters.count, requestParameters.offset, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API updates an existing source app using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: **name**, **description**, **enabled**, **owner**, **provisionRequestEnabled**, **appCenterEnabled**, **accountSource**,  **matchAllAccounts** and **accessProfiles**. Name, description and owner can\'t be empty or null.
      * @summary Patch source app by id
-     * @param {AppsV1ApiPatchSourceAppV1Request} requestParameters Request parameters.
+     * @param {AppsApiPatchSourceAppV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AppsV1Api
+     * @memberof AppsApi
      */
-    public patchSourceAppV1(requestParameters: AppsV1ApiPatchSourceAppV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AppsV1ApiFp(this.configuration).patchSourceAppV1(requestParameters.id, requestParameters.xSailPointExperimental, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchSourceAppV1(requestParameters: AppsApiPatchSourceAppV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AppsApiFp(this.configuration).patchSourceAppV1(requestParameters.id, requestParameters.xSailPointExperimental, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API updates an existing user app using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: **account**
      * @summary Patch user app by id
-     * @param {AppsV1ApiPatchUserAppV1Request} requestParameters Request parameters.
+     * @param {AppsApiPatchUserAppV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AppsV1Api
+     * @memberof AppsApi
      */
-    public patchUserAppV1(requestParameters: AppsV1ApiPatchUserAppV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AppsV1ApiFp(this.configuration).patchUserAppV1(requestParameters.id, requestParameters.xSailPointExperimental, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchUserAppV1(requestParameters: AppsApiPatchUserAppV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AppsApiFp(this.configuration).patchUserAppV1(requestParameters.id, requestParameters.xSailPointExperimental, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API updates source apps using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  It can update up to 50 source apps in a batch. The following fields can be updated: **name**, **description**, **enabled**, **owner**, **provisionRequestEnabled**, **appCenterEnabled**, **accountSource**,  **matchAllAccounts**, and **accessProfiles**. Name, description and owner can\'t be empty or null.
      * @summary Bulk update source apps
-     * @param {AppsV1ApiUpdateSourceAppsInBulkV1Request} requestParameters Request parameters.
+     * @param {AppsApiUpdateSourceAppsInBulkV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AppsV1Api
+     * @memberof AppsApi
      */
-    public updateSourceAppsInBulkV1(requestParameters: AppsV1ApiUpdateSourceAppsInBulkV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return AppsV1ApiFp(this.configuration).updateSourceAppsInBulkV1(requestParameters.xSailPointExperimental, requestParameters.sourceappbulkupdaterequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateSourceAppsInBulkV1(requestParameters: AppsApiUpdateSourceAppsInBulkV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return AppsApiFp(this.configuration).updateSourceAppsInBulkV1(requestParameters.xSailPointExperimental, requestParameters.sourceappbulkupdaterequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

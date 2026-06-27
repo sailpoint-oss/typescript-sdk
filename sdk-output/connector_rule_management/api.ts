@@ -26,92 +26,73 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ArgumentV1
+ * @interface Argument
  */
-export interface ArgumentV1 {
+export interface Argument {
     /**
      * the name of the argument
      * @type {string}
-     * @memberof ArgumentV1
+     * @memberof Argument
      */
     'name': string;
     /**
      * the description of the argument
      * @type {string}
-     * @memberof ArgumentV1
+     * @memberof Argument
      */
     'description'?: string | null;
     /**
      * the programmatic type of the argument
      * @type {string}
-     * @memberof ArgumentV1
+     * @memberof Argument
      */
     'type'?: string | null;
 }
 /**
- * The rule\'s function signature. Describes the rule\'s input arguments and output (if any)
- * @export
- * @interface ConnectorrulecreaterequestSignatureV1
- */
-export interface ConnectorrulecreaterequestSignatureV1 {
-    /**
-     * 
-     * @type {Array<ArgumentV1>}
-     * @memberof ConnectorrulecreaterequestSignatureV1
-     */
-    'input': Array<ArgumentV1>;
-    /**
-     * 
-     * @type {ArgumentV1}
-     * @memberof ConnectorrulecreaterequestSignatureV1
-     */
-    'output'?: ArgumentV1 | null;
-}
-/**
  * ConnectorRuleCreateRequest
  * @export
- * @interface ConnectorrulecreaterequestV1
+ * @interface Connectorrulecreaterequest
  */
-export interface ConnectorrulecreaterequestV1 {
+export interface Connectorrulecreaterequest {
     /**
      * the name of the rule
      * @type {string}
-     * @memberof ConnectorrulecreaterequestV1
+     * @memberof Connectorrulecreaterequest
      */
     'name': string;
     /**
      * a description of the rule\'s purpose
      * @type {string}
-     * @memberof ConnectorrulecreaterequestV1
+     * @memberof Connectorrulecreaterequest
      */
     'description'?: string | null;
     /**
      * the type of rule
      * @type {string}
-     * @memberof ConnectorrulecreaterequestV1
+     * @memberof Connectorrulecreaterequest
      */
-    'type': ConnectorrulecreaterequestV1TypeV1;
+    'type': ConnectorrulecreaterequestTypeEnum;
     /**
      * 
-     * @type {ConnectorrulecreaterequestSignatureV1}
-     * @memberof ConnectorrulecreaterequestV1
+     * @type {ConnectorrulecreaterequestSignature}
+     * @memberof Connectorrulecreaterequest
      */
-    'signature'?: ConnectorrulecreaterequestSignatureV1;
+    'signature'?: ConnectorrulecreaterequestSignature;
     /**
      * 
-     * @type {SourcecodeV1}
-     * @memberof ConnectorrulecreaterequestV1
+     * @type {Sourcecode}
+     * @memberof Connectorrulecreaterequest
      */
-    'sourceCode': SourcecodeV1;
+    'sourceCode': Sourcecode;
     /**
      * a map of string to objects
      * @type {object}
-     * @memberof ConnectorrulecreaterequestV1
+     * @memberof Connectorrulecreaterequest
      */
     'attributes'?: object | null;
 }
 
-export const ConnectorrulecreaterequestV1TypeV1 = {
+export const ConnectorrulecreaterequestTypeEnum = {
     BuildMap: 'BuildMap',
     ConnectorAfterCreate: 'ConnectorAfterCreate',
     ConnectorAfterDelete: 'ConnectorAfterDelete',
@@ -137,71 +118,90 @@ export const ConnectorrulecreaterequestV1TypeV1 = {
     ResourceObjectCustomization2: 'ResourceObjectCustomization'
 } as const;
 
-export type ConnectorrulecreaterequestV1TypeV1 = typeof ConnectorrulecreaterequestV1TypeV1[keyof typeof ConnectorrulecreaterequestV1TypeV1];
+export type ConnectorrulecreaterequestTypeEnum = typeof ConnectorrulecreaterequestTypeEnum[keyof typeof ConnectorrulecreaterequestTypeEnum];
 
+/**
+ * The rule\'s function signature. Describes the rule\'s input arguments and output (if any)
+ * @export
+ * @interface ConnectorrulecreaterequestSignature
+ */
+export interface ConnectorrulecreaterequestSignature {
+    /**
+     * 
+     * @type {Array<Argument>}
+     * @memberof ConnectorrulecreaterequestSignature
+     */
+    'input': Array<Argument>;
+    /**
+     * 
+     * @type {Argument}
+     * @memberof ConnectorrulecreaterequestSignature
+     */
+    'output'?: Argument | null;
+}
 /**
  * ConnectorRuleResponse
  * @export
- * @interface ConnectorruleresponseV1
+ * @interface Connectorruleresponse
  */
-export interface ConnectorruleresponseV1 {
+export interface Connectorruleresponse {
     /**
      * the name of the rule
      * @type {string}
-     * @memberof ConnectorruleresponseV1
+     * @memberof Connectorruleresponse
      */
     'name': string;
     /**
      * a description of the rule\'s purpose
      * @type {string}
-     * @memberof ConnectorruleresponseV1
+     * @memberof Connectorruleresponse
      */
     'description'?: string | null;
     /**
      * the type of rule
      * @type {string}
-     * @memberof ConnectorruleresponseV1
+     * @memberof Connectorruleresponse
      */
-    'type': ConnectorruleresponseV1TypeV1;
+    'type': ConnectorruleresponseTypeEnum;
     /**
      * 
-     * @type {ConnectorrulecreaterequestSignatureV1}
-     * @memberof ConnectorruleresponseV1
+     * @type {ConnectorrulecreaterequestSignature}
+     * @memberof Connectorruleresponse
      */
-    'signature'?: ConnectorrulecreaterequestSignatureV1;
+    'signature'?: ConnectorrulecreaterequestSignature;
     /**
      * 
-     * @type {SourcecodeV1}
-     * @memberof ConnectorruleresponseV1
+     * @type {Sourcecode}
+     * @memberof Connectorruleresponse
      */
-    'sourceCode': SourcecodeV1;
+    'sourceCode': Sourcecode;
     /**
      * a map of string to objects
      * @type {object}
-     * @memberof ConnectorruleresponseV1
+     * @memberof Connectorruleresponse
      */
     'attributes'?: object | null;
     /**
      * the ID of the rule
      * @type {string}
-     * @memberof ConnectorruleresponseV1
+     * @memberof Connectorruleresponse
      */
     'id': string;
     /**
      * an ISO 8601 UTC timestamp when this rule was created
      * @type {string}
-     * @memberof ConnectorruleresponseV1
+     * @memberof Connectorruleresponse
      */
     'created': string;
     /**
      * an ISO 8601 UTC timestamp when this rule was last modified
      * @type {string}
-     * @memberof ConnectorruleresponseV1
+     * @memberof Connectorruleresponse
      */
     'modified'?: string | null;
 }
 
-export const ConnectorruleresponseV1TypeV1 = {
+export const ConnectorruleresponseTypeEnum = {
     BuildMap: 'BuildMap',
     ConnectorAfterCreate: 'ConnectorAfterCreate',
     ConnectorAfterDelete: 'ConnectorAfterDelete',
@@ -227,59 +227,59 @@ export const ConnectorruleresponseV1TypeV1 = {
     ResourceObjectCustomization2: 'ResourceObjectCustomization'
 } as const;
 
-export type ConnectorruleresponseV1TypeV1 = typeof ConnectorruleresponseV1TypeV1[keyof typeof ConnectorruleresponseV1TypeV1];
+export type ConnectorruleresponseTypeEnum = typeof ConnectorruleresponseTypeEnum[keyof typeof ConnectorruleresponseTypeEnum];
 
 /**
  * ConnectorRuleUpdateRequest
  * @export
- * @interface ConnectorruleupdaterequestV1
+ * @interface Connectorruleupdaterequest
  */
-export interface ConnectorruleupdaterequestV1 {
+export interface Connectorruleupdaterequest {
     /**
      * the name of the rule
      * @type {string}
-     * @memberof ConnectorruleupdaterequestV1
+     * @memberof Connectorruleupdaterequest
      */
     'name': string;
     /**
      * a description of the rule\'s purpose
      * @type {string}
-     * @memberof ConnectorruleupdaterequestV1
+     * @memberof Connectorruleupdaterequest
      */
     'description'?: string | null;
     /**
      * the type of rule
      * @type {string}
-     * @memberof ConnectorruleupdaterequestV1
+     * @memberof Connectorruleupdaterequest
      */
-    'type': ConnectorruleupdaterequestV1TypeV1;
+    'type': ConnectorruleupdaterequestTypeEnum;
     /**
      * 
-     * @type {ConnectorrulecreaterequestSignatureV1}
-     * @memberof ConnectorruleupdaterequestV1
+     * @type {ConnectorrulecreaterequestSignature}
+     * @memberof Connectorruleupdaterequest
      */
-    'signature'?: ConnectorrulecreaterequestSignatureV1;
+    'signature'?: ConnectorrulecreaterequestSignature;
     /**
      * 
-     * @type {SourcecodeV1}
-     * @memberof ConnectorruleupdaterequestV1
+     * @type {Sourcecode}
+     * @memberof Connectorruleupdaterequest
      */
-    'sourceCode': SourcecodeV1;
+    'sourceCode': Sourcecode;
     /**
      * a map of string to objects
      * @type {object}
-     * @memberof ConnectorruleupdaterequestV1
+     * @memberof Connectorruleupdaterequest
      */
     'attributes'?: object | null;
     /**
      * the ID of the rule to update
      * @type {string}
-     * @memberof ConnectorruleupdaterequestV1
+     * @memberof Connectorruleupdaterequest
      */
     'id': string;
 }
 
-export const ConnectorruleupdaterequestV1TypeV1 = {
+export const ConnectorruleupdaterequestTypeEnum = {
     BuildMap: 'BuildMap',
     ConnectorAfterCreate: 'ConnectorAfterCreate',
     ConnectorAfterDelete: 'ConnectorAfterDelete',
@@ -305,82 +305,82 @@ export const ConnectorruleupdaterequestV1TypeV1 = {
     ResourceObjectCustomization2: 'ResourceObjectCustomization'
 } as const;
 
-export type ConnectorruleupdaterequestV1TypeV1 = typeof ConnectorruleupdaterequestV1TypeV1[keyof typeof ConnectorruleupdaterequestV1TypeV1];
+export type ConnectorruleupdaterequestTypeEnum = typeof ConnectorruleupdaterequestTypeEnum[keyof typeof ConnectorruleupdaterequestTypeEnum];
+
+/**
+ * ConnectorRuleValidationResponse
+ * @export
+ * @interface Connectorrulevalidationresponse
+ */
+export interface Connectorrulevalidationresponse {
+    /**
+     * 
+     * @type {string}
+     * @memberof Connectorrulevalidationresponse
+     */
+    'state': ConnectorrulevalidationresponseStateEnum;
+    /**
+     * 
+     * @type {Array<ConnectorrulevalidationresponseDetailsInner>}
+     * @memberof Connectorrulevalidationresponse
+     */
+    'details': Array<ConnectorrulevalidationresponseDetailsInner>;
+}
+
+export const ConnectorrulevalidationresponseStateEnum = {
+    Ok: 'OK',
+    Error: 'ERROR'
+} as const;
+
+export type ConnectorrulevalidationresponseStateEnum = typeof ConnectorrulevalidationresponseStateEnum[keyof typeof ConnectorrulevalidationresponseStateEnum];
 
 /**
  * CodeErrorDetail
  * @export
- * @interface ConnectorrulevalidationresponseDetailsInnerV1
+ * @interface ConnectorrulevalidationresponseDetailsInner
  */
-export interface ConnectorrulevalidationresponseDetailsInnerV1 {
+export interface ConnectorrulevalidationresponseDetailsInner {
     /**
      * The line number where the issue occurred
      * @type {number}
-     * @memberof ConnectorrulevalidationresponseDetailsInnerV1
+     * @memberof ConnectorrulevalidationresponseDetailsInner
      */
     'line': number;
     /**
      * the column number where the issue occurred
      * @type {number}
-     * @memberof ConnectorrulevalidationresponseDetailsInnerV1
+     * @memberof ConnectorrulevalidationresponseDetailsInner
      */
     'column': number;
     /**
      * a description of the issue in the code
      * @type {string}
-     * @memberof ConnectorrulevalidationresponseDetailsInnerV1
+     * @memberof ConnectorrulevalidationresponseDetailsInner
      */
     'messsage'?: string;
 }
 /**
- * ConnectorRuleValidationResponse
- * @export
- * @interface ConnectorrulevalidationresponseV1
- */
-export interface ConnectorrulevalidationresponseV1 {
-    /**
-     * 
-     * @type {string}
-     * @memberof ConnectorrulevalidationresponseV1
-     */
-    'state': ConnectorrulevalidationresponseV1StateV1;
-    /**
-     * 
-     * @type {Array<ConnectorrulevalidationresponseDetailsInnerV1>}
-     * @memberof ConnectorrulevalidationresponseV1
-     */
-    'details': Array<ConnectorrulevalidationresponseDetailsInnerV1>;
-}
-
-export const ConnectorrulevalidationresponseV1StateV1 = {
-    Ok: 'OK',
-    Error: 'ERROR'
-} as const;
-
-export type ConnectorrulevalidationresponseV1StateV1 = typeof ConnectorrulevalidationresponseV1StateV1[keyof typeof ConnectorrulevalidationresponseV1StateV1];
-
-/**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -389,57 +389,57 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetConnectorRuleListV1401ResponseV1
+ * @interface GetConnectorRuleListV1401Response
  */
-export interface GetConnectorRuleListV1401ResponseV1 {
+export interface GetConnectorRuleListV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetConnectorRuleListV1401ResponseV1
+     * @memberof GetConnectorRuleListV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetConnectorRuleListV1429ResponseV1
+ * @interface GetConnectorRuleListV1429Response
  */
-export interface GetConnectorRuleListV1429ResponseV1 {
+export interface GetConnectorRuleListV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetConnectorRuleListV1429ResponseV1
+     * @memberof GetConnectorRuleListV1429Response
      */
     'message'?: any;
 }
@@ -449,50 +449,50 @@ export interface GetConnectorRuleListV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * SourceCode
  * @export
- * @interface SourcecodeV1
+ * @interface Sourcecode
  */
-export interface SourcecodeV1 {
+export interface Sourcecode {
     /**
      * the version of the code
      * @type {string}
-     * @memberof SourcecodeV1
+     * @memberof Sourcecode
      */
     'version': string;
     /**
      * The code
      * @type {string}
-     * @memberof SourcecodeV1
+     * @memberof Sourcecode
      */
     'script': string;
 }
 
 /**
- * ConnectorRuleManagementV1Api - axios parameter creator
+ * ConnectorRuleManagementApi - axios parameter creator
  * @export
  */
-export const ConnectorRuleManagementV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const ConnectorRuleManagementApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Create a connector rule from the available types.
          * @summary Create connector rule
-         * @param {ConnectorrulecreaterequestV1} connectorrulecreaterequestV1 Connector rule to create.
+         * @param {Connectorrulecreaterequest} connectorrulecreaterequest Connector rule to create.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createConnectorRuleV1: async (connectorrulecreaterequestV1: ConnectorrulecreaterequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'connectorrulecreaterequestV1' is not null or undefined
-            assertParamExists('createConnectorRuleV1', 'connectorrulecreaterequestV1', connectorrulecreaterequestV1)
+        createConnectorRuleV1: async (connectorrulecreaterequest: Connectorrulecreaterequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'connectorrulecreaterequest' is not null or undefined
+            assertParamExists('createConnectorRuleV1', 'connectorrulecreaterequest', connectorrulecreaterequest)
             const localVarPath = `/connector-rules/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -512,7 +512,7 @@ export const ConnectorRuleManagementV1ApiAxiosParamCreator = function (configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(connectorrulecreaterequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(connectorrulecreaterequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -636,11 +636,11 @@ export const ConnectorRuleManagementV1ApiAxiosParamCreator = function (configura
          * Update an existing connector rule with the one provided in the request body. These fields are immutable: `id`, `name`, `type`
          * @summary Update connector rule
          * @param {string} id ID of the connector rule to update.
-         * @param {ConnectorruleupdaterequestV1} [connectorruleupdaterequestV1] Connector rule with updated data.
+         * @param {Connectorruleupdaterequest} [connectorruleupdaterequest] Connector rule with updated data.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putConnectorRuleV1: async (id: string, connectorruleupdaterequestV1?: ConnectorruleupdaterequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putConnectorRuleV1: async (id: string, connectorruleupdaterequest?: Connectorruleupdaterequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('putConnectorRuleV1', 'id', id)
             const localVarPath = `/connector-rules/v1/{id}`
@@ -663,7 +663,7 @@ export const ConnectorRuleManagementV1ApiAxiosParamCreator = function (configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(connectorruleupdaterequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(connectorruleupdaterequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -673,13 +673,13 @@ export const ConnectorRuleManagementV1ApiAxiosParamCreator = function (configura
         /**
          * Detect issues within the connector rule\'s code to fix and list them.
          * @summary Validate connector rule
-         * @param {SourcecodeV1} sourcecodeV1 Code to validate.
+         * @param {Sourcecode} sourcecode Code to validate.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        testConnectorRuleV1: async (sourcecodeV1: SourcecodeV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'sourcecodeV1' is not null or undefined
-            assertParamExists('testConnectorRuleV1', 'sourcecodeV1', sourcecodeV1)
+        testConnectorRuleV1: async (sourcecode: Sourcecode, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourcecode' is not null or undefined
+            assertParamExists('testConnectorRuleV1', 'sourcecode', sourcecode)
             const localVarPath = `/connector-rules/v1/validate`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -699,7 +699,7 @@ export const ConnectorRuleManagementV1ApiAxiosParamCreator = function (configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(sourcecodeV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(sourcecode, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -710,23 +710,23 @@ export const ConnectorRuleManagementV1ApiAxiosParamCreator = function (configura
 };
 
 /**
- * ConnectorRuleManagementV1Api - functional programming interface
+ * ConnectorRuleManagementApi - functional programming interface
  * @export
  */
-export const ConnectorRuleManagementV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = ConnectorRuleManagementV1ApiAxiosParamCreator(configuration)
+export const ConnectorRuleManagementApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = ConnectorRuleManagementApiAxiosParamCreator(configuration)
     return {
         /**
          * Create a connector rule from the available types.
          * @summary Create connector rule
-         * @param {ConnectorrulecreaterequestV1} connectorrulecreaterequestV1 Connector rule to create.
+         * @param {Connectorrulecreaterequest} connectorrulecreaterequest Connector rule to create.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createConnectorRuleV1(connectorrulecreaterequestV1: ConnectorrulecreaterequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorruleresponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createConnectorRuleV1(connectorrulecreaterequestV1, axiosOptions);
+        async createConnectorRuleV1(connectorrulecreaterequest: Connectorrulecreaterequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Connectorruleresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createConnectorRuleV1(connectorrulecreaterequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConnectorRuleManagementV1Api.createConnectorRuleV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConnectorRuleManagementApi.createConnectorRuleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -739,7 +739,7 @@ export const ConnectorRuleManagementV1ApiFp = function(configuration?: Configura
         async deleteConnectorRuleV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteConnectorRuleV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConnectorRuleManagementV1Api.deleteConnectorRuleV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConnectorRuleManagementApi.deleteConnectorRuleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -751,10 +751,10 @@ export const ConnectorRuleManagementV1ApiFp = function(configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getConnectorRuleListV1(limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConnectorruleresponseV1>>> {
+        async getConnectorRuleListV1(limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Connectorruleresponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorRuleListV1(limit, offset, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConnectorRuleManagementV1Api.getConnectorRuleListV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConnectorRuleManagementApi.getConnectorRuleListV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -764,294 +764,294 @@ export const ConnectorRuleManagementV1ApiFp = function(configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getConnectorRuleV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorruleresponseV1>> {
+        async getConnectorRuleV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Connectorruleresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorRuleV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConnectorRuleManagementV1Api.getConnectorRuleV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConnectorRuleManagementApi.getConnectorRuleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Update an existing connector rule with the one provided in the request body. These fields are immutable: `id`, `name`, `type`
          * @summary Update connector rule
          * @param {string} id ID of the connector rule to update.
-         * @param {ConnectorruleupdaterequestV1} [connectorruleupdaterequestV1] Connector rule with updated data.
+         * @param {Connectorruleupdaterequest} [connectorruleupdaterequest] Connector rule with updated data.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putConnectorRuleV1(id: string, connectorruleupdaterequestV1?: ConnectorruleupdaterequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorruleresponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putConnectorRuleV1(id, connectorruleupdaterequestV1, axiosOptions);
+        async putConnectorRuleV1(id: string, connectorruleupdaterequest?: Connectorruleupdaterequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Connectorruleresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putConnectorRuleV1(id, connectorruleupdaterequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConnectorRuleManagementV1Api.putConnectorRuleV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConnectorRuleManagementApi.putConnectorRuleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Detect issues within the connector rule\'s code to fix and list them.
          * @summary Validate connector rule
-         * @param {SourcecodeV1} sourcecodeV1 Code to validate.
+         * @param {Sourcecode} sourcecode Code to validate.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async testConnectorRuleV1(sourcecodeV1: SourcecodeV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorrulevalidationresponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.testConnectorRuleV1(sourcecodeV1, axiosOptions);
+        async testConnectorRuleV1(sourcecode: Sourcecode, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Connectorrulevalidationresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.testConnectorRuleV1(sourcecode, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConnectorRuleManagementV1Api.testConnectorRuleV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConnectorRuleManagementApi.testConnectorRuleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * ConnectorRuleManagementV1Api - factory interface
+ * ConnectorRuleManagementApi - factory interface
  * @export
  */
-export const ConnectorRuleManagementV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = ConnectorRuleManagementV1ApiFp(configuration)
+export const ConnectorRuleManagementApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = ConnectorRuleManagementApiFp(configuration)
     return {
         /**
          * Create a connector rule from the available types.
          * @summary Create connector rule
-         * @param {ConnectorRuleManagementV1ApiCreateConnectorRuleV1Request} requestParameters Request parameters.
+         * @param {ConnectorRuleManagementApiCreateConnectorRuleV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createConnectorRuleV1(requestParameters: ConnectorRuleManagementV1ApiCreateConnectorRuleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ConnectorruleresponseV1> {
-            return localVarFp.createConnectorRuleV1(requestParameters.connectorrulecreaterequestV1, axiosOptions).then((request) => request(axios, basePath));
+        createConnectorRuleV1(requestParameters: ConnectorRuleManagementApiCreateConnectorRuleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Connectorruleresponse> {
+            return localVarFp.createConnectorRuleV1(requestParameters.connectorrulecreaterequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Delete the connector rule for the given ID.
          * @summary Delete connector rule
-         * @param {ConnectorRuleManagementV1ApiDeleteConnectorRuleV1Request} requestParameters Request parameters.
+         * @param {ConnectorRuleManagementApiDeleteConnectorRuleV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteConnectorRuleV1(requestParameters: ConnectorRuleManagementV1ApiDeleteConnectorRuleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteConnectorRuleV1(requestParameters: ConnectorRuleManagementApiDeleteConnectorRuleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteConnectorRuleV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * List existing connector rules.
          * @summary List connector rules
-         * @param {ConnectorRuleManagementV1ApiGetConnectorRuleListV1Request} requestParameters Request parameters.
+         * @param {ConnectorRuleManagementApiGetConnectorRuleListV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getConnectorRuleListV1(requestParameters: ConnectorRuleManagementV1ApiGetConnectorRuleListV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ConnectorruleresponseV1>> {
+        getConnectorRuleListV1(requestParameters: ConnectorRuleManagementApiGetConnectorRuleListV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Connectorruleresponse>> {
             return localVarFp.getConnectorRuleListV1(requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get a connector rule by ID.
          * @summary Get connector rule
-         * @param {ConnectorRuleManagementV1ApiGetConnectorRuleV1Request} requestParameters Request parameters.
+         * @param {ConnectorRuleManagementApiGetConnectorRuleV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getConnectorRuleV1(requestParameters: ConnectorRuleManagementV1ApiGetConnectorRuleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ConnectorruleresponseV1> {
+        getConnectorRuleV1(requestParameters: ConnectorRuleManagementApiGetConnectorRuleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Connectorruleresponse> {
             return localVarFp.getConnectorRuleV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Update an existing connector rule with the one provided in the request body. These fields are immutable: `id`, `name`, `type`
          * @summary Update connector rule
-         * @param {ConnectorRuleManagementV1ApiPutConnectorRuleV1Request} requestParameters Request parameters.
+         * @param {ConnectorRuleManagementApiPutConnectorRuleV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putConnectorRuleV1(requestParameters: ConnectorRuleManagementV1ApiPutConnectorRuleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ConnectorruleresponseV1> {
-            return localVarFp.putConnectorRuleV1(requestParameters.id, requestParameters.connectorruleupdaterequestV1, axiosOptions).then((request) => request(axios, basePath));
+        putConnectorRuleV1(requestParameters: ConnectorRuleManagementApiPutConnectorRuleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Connectorruleresponse> {
+            return localVarFp.putConnectorRuleV1(requestParameters.id, requestParameters.connectorruleupdaterequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Detect issues within the connector rule\'s code to fix and list them.
          * @summary Validate connector rule
-         * @param {ConnectorRuleManagementV1ApiTestConnectorRuleV1Request} requestParameters Request parameters.
+         * @param {ConnectorRuleManagementApiTestConnectorRuleV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        testConnectorRuleV1(requestParameters: ConnectorRuleManagementV1ApiTestConnectorRuleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ConnectorrulevalidationresponseV1> {
-            return localVarFp.testConnectorRuleV1(requestParameters.sourcecodeV1, axiosOptions).then((request) => request(axios, basePath));
+        testConnectorRuleV1(requestParameters: ConnectorRuleManagementApiTestConnectorRuleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Connectorrulevalidationresponse> {
+            return localVarFp.testConnectorRuleV1(requestParameters.sourcecode, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createConnectorRuleV1 operation in ConnectorRuleManagementV1Api.
+ * Request parameters for createConnectorRuleV1 operation in ConnectorRuleManagementApi.
  * @export
- * @interface ConnectorRuleManagementV1ApiCreateConnectorRuleV1Request
+ * @interface ConnectorRuleManagementApiCreateConnectorRuleV1Request
  */
-export interface ConnectorRuleManagementV1ApiCreateConnectorRuleV1Request {
+export interface ConnectorRuleManagementApiCreateConnectorRuleV1Request {
     /**
      * Connector rule to create.
-     * @type {ConnectorrulecreaterequestV1}
-     * @memberof ConnectorRuleManagementV1ApiCreateConnectorRuleV1
+     * @type {Connectorrulecreaterequest}
+     * @memberof ConnectorRuleManagementApiCreateConnectorRuleV1
      */
-    readonly connectorrulecreaterequestV1: ConnectorrulecreaterequestV1
+    readonly connectorrulecreaterequest: Connectorrulecreaterequest
 }
 
 /**
- * Request parameters for deleteConnectorRuleV1 operation in ConnectorRuleManagementV1Api.
+ * Request parameters for deleteConnectorRuleV1 operation in ConnectorRuleManagementApi.
  * @export
- * @interface ConnectorRuleManagementV1ApiDeleteConnectorRuleV1Request
+ * @interface ConnectorRuleManagementApiDeleteConnectorRuleV1Request
  */
-export interface ConnectorRuleManagementV1ApiDeleteConnectorRuleV1Request {
+export interface ConnectorRuleManagementApiDeleteConnectorRuleV1Request {
     /**
      * ID of the connector rule to delete.
      * @type {string}
-     * @memberof ConnectorRuleManagementV1ApiDeleteConnectorRuleV1
+     * @memberof ConnectorRuleManagementApiDeleteConnectorRuleV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getConnectorRuleListV1 operation in ConnectorRuleManagementV1Api.
+ * Request parameters for getConnectorRuleListV1 operation in ConnectorRuleManagementApi.
  * @export
- * @interface ConnectorRuleManagementV1ApiGetConnectorRuleListV1Request
+ * @interface ConnectorRuleManagementApiGetConnectorRuleListV1Request
  */
-export interface ConnectorRuleManagementV1ApiGetConnectorRuleListV1Request {
+export interface ConnectorRuleManagementApiGetConnectorRuleListV1Request {
     /**
      * Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof ConnectorRuleManagementV1ApiGetConnectorRuleListV1
+     * @memberof ConnectorRuleManagementApiGetConnectorRuleListV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof ConnectorRuleManagementV1ApiGetConnectorRuleListV1
+     * @memberof ConnectorRuleManagementApiGetConnectorRuleListV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof ConnectorRuleManagementV1ApiGetConnectorRuleListV1
+     * @memberof ConnectorRuleManagementApiGetConnectorRuleListV1
      */
     readonly count?: boolean
 }
 
 /**
- * Request parameters for getConnectorRuleV1 operation in ConnectorRuleManagementV1Api.
+ * Request parameters for getConnectorRuleV1 operation in ConnectorRuleManagementApi.
  * @export
- * @interface ConnectorRuleManagementV1ApiGetConnectorRuleV1Request
+ * @interface ConnectorRuleManagementApiGetConnectorRuleV1Request
  */
-export interface ConnectorRuleManagementV1ApiGetConnectorRuleV1Request {
+export interface ConnectorRuleManagementApiGetConnectorRuleV1Request {
     /**
      * ID of the connector rule to get.
      * @type {string}
-     * @memberof ConnectorRuleManagementV1ApiGetConnectorRuleV1
+     * @memberof ConnectorRuleManagementApiGetConnectorRuleV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for putConnectorRuleV1 operation in ConnectorRuleManagementV1Api.
+ * Request parameters for putConnectorRuleV1 operation in ConnectorRuleManagementApi.
  * @export
- * @interface ConnectorRuleManagementV1ApiPutConnectorRuleV1Request
+ * @interface ConnectorRuleManagementApiPutConnectorRuleV1Request
  */
-export interface ConnectorRuleManagementV1ApiPutConnectorRuleV1Request {
+export interface ConnectorRuleManagementApiPutConnectorRuleV1Request {
     /**
      * ID of the connector rule to update.
      * @type {string}
-     * @memberof ConnectorRuleManagementV1ApiPutConnectorRuleV1
+     * @memberof ConnectorRuleManagementApiPutConnectorRuleV1
      */
     readonly id: string
 
     /**
      * Connector rule with updated data.
-     * @type {ConnectorruleupdaterequestV1}
-     * @memberof ConnectorRuleManagementV1ApiPutConnectorRuleV1
+     * @type {Connectorruleupdaterequest}
+     * @memberof ConnectorRuleManagementApiPutConnectorRuleV1
      */
-    readonly connectorruleupdaterequestV1?: ConnectorruleupdaterequestV1
+    readonly connectorruleupdaterequest?: Connectorruleupdaterequest
 }
 
 /**
- * Request parameters for testConnectorRuleV1 operation in ConnectorRuleManagementV1Api.
+ * Request parameters for testConnectorRuleV1 operation in ConnectorRuleManagementApi.
  * @export
- * @interface ConnectorRuleManagementV1ApiTestConnectorRuleV1Request
+ * @interface ConnectorRuleManagementApiTestConnectorRuleV1Request
  */
-export interface ConnectorRuleManagementV1ApiTestConnectorRuleV1Request {
+export interface ConnectorRuleManagementApiTestConnectorRuleV1Request {
     /**
      * Code to validate.
-     * @type {SourcecodeV1}
-     * @memberof ConnectorRuleManagementV1ApiTestConnectorRuleV1
+     * @type {Sourcecode}
+     * @memberof ConnectorRuleManagementApiTestConnectorRuleV1
      */
-    readonly sourcecodeV1: SourcecodeV1
+    readonly sourcecode: Sourcecode
 }
 
 /**
- * ConnectorRuleManagementV1Api - object-oriented interface
+ * ConnectorRuleManagementApi - object-oriented interface
  * @export
- * @class ConnectorRuleManagementV1Api
+ * @class ConnectorRuleManagementApi
  * @extends {BaseAPI}
  */
-export class ConnectorRuleManagementV1Api extends BaseAPI {
+export class ConnectorRuleManagementApi extends BaseAPI {
     /**
      * Create a connector rule from the available types.
      * @summary Create connector rule
-     * @param {ConnectorRuleManagementV1ApiCreateConnectorRuleV1Request} requestParameters Request parameters.
+     * @param {ConnectorRuleManagementApiCreateConnectorRuleV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectorRuleManagementV1Api
+     * @memberof ConnectorRuleManagementApi
      */
-    public createConnectorRuleV1(requestParameters: ConnectorRuleManagementV1ApiCreateConnectorRuleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConnectorRuleManagementV1ApiFp(this.configuration).createConnectorRuleV1(requestParameters.connectorrulecreaterequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createConnectorRuleV1(requestParameters: ConnectorRuleManagementApiCreateConnectorRuleV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConnectorRuleManagementApiFp(this.configuration).createConnectorRuleV1(requestParameters.connectorrulecreaterequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Delete the connector rule for the given ID.
      * @summary Delete connector rule
-     * @param {ConnectorRuleManagementV1ApiDeleteConnectorRuleV1Request} requestParameters Request parameters.
+     * @param {ConnectorRuleManagementApiDeleteConnectorRuleV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectorRuleManagementV1Api
+     * @memberof ConnectorRuleManagementApi
      */
-    public deleteConnectorRuleV1(requestParameters: ConnectorRuleManagementV1ApiDeleteConnectorRuleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConnectorRuleManagementV1ApiFp(this.configuration).deleteConnectorRuleV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteConnectorRuleV1(requestParameters: ConnectorRuleManagementApiDeleteConnectorRuleV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConnectorRuleManagementApiFp(this.configuration).deleteConnectorRuleV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * List existing connector rules.
      * @summary List connector rules
-     * @param {ConnectorRuleManagementV1ApiGetConnectorRuleListV1Request} requestParameters Request parameters.
+     * @param {ConnectorRuleManagementApiGetConnectorRuleListV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectorRuleManagementV1Api
+     * @memberof ConnectorRuleManagementApi
      */
-    public getConnectorRuleListV1(requestParameters: ConnectorRuleManagementV1ApiGetConnectorRuleListV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return ConnectorRuleManagementV1ApiFp(this.configuration).getConnectorRuleListV1(requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getConnectorRuleListV1(requestParameters: ConnectorRuleManagementApiGetConnectorRuleListV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return ConnectorRuleManagementApiFp(this.configuration).getConnectorRuleListV1(requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get a connector rule by ID.
      * @summary Get connector rule
-     * @param {ConnectorRuleManagementV1ApiGetConnectorRuleV1Request} requestParameters Request parameters.
+     * @param {ConnectorRuleManagementApiGetConnectorRuleV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectorRuleManagementV1Api
+     * @memberof ConnectorRuleManagementApi
      */
-    public getConnectorRuleV1(requestParameters: ConnectorRuleManagementV1ApiGetConnectorRuleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConnectorRuleManagementV1ApiFp(this.configuration).getConnectorRuleV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getConnectorRuleV1(requestParameters: ConnectorRuleManagementApiGetConnectorRuleV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConnectorRuleManagementApiFp(this.configuration).getConnectorRuleV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Update an existing connector rule with the one provided in the request body. These fields are immutable: `id`, `name`, `type`
      * @summary Update connector rule
-     * @param {ConnectorRuleManagementV1ApiPutConnectorRuleV1Request} requestParameters Request parameters.
+     * @param {ConnectorRuleManagementApiPutConnectorRuleV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectorRuleManagementV1Api
+     * @memberof ConnectorRuleManagementApi
      */
-    public putConnectorRuleV1(requestParameters: ConnectorRuleManagementV1ApiPutConnectorRuleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConnectorRuleManagementV1ApiFp(this.configuration).putConnectorRuleV1(requestParameters.id, requestParameters.connectorruleupdaterequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putConnectorRuleV1(requestParameters: ConnectorRuleManagementApiPutConnectorRuleV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConnectorRuleManagementApiFp(this.configuration).putConnectorRuleV1(requestParameters.id, requestParameters.connectorruleupdaterequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Detect issues within the connector rule\'s code to fix and list them.
      * @summary Validate connector rule
-     * @param {ConnectorRuleManagementV1ApiTestConnectorRuleV1Request} requestParameters Request parameters.
+     * @param {ConnectorRuleManagementApiTestConnectorRuleV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectorRuleManagementV1Api
+     * @memberof ConnectorRuleManagementApi
      */
-    public testConnectorRuleV1(requestParameters: ConnectorRuleManagementV1ApiTestConnectorRuleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConnectorRuleManagementV1ApiFp(this.configuration).testConnectorRuleV1(requestParameters.sourcecodeV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public testConnectorRuleV1(requestParameters: ConnectorRuleManagementApiTestConnectorRuleV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConnectorRuleManagementApiFp(this.configuration).testConnectorRuleV1(requestParameters.sourcecode, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

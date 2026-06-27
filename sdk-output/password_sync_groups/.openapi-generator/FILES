@@ -7,8 +7,8 @@ GetPasswordSyncGroupsV1401Response.md
 GetPasswordSyncGroupsV1429Response.md
 Index.md
 Localeorigin.md
-PasswordSyncGroupsV1Api.md
-PasswordSyncGroupsV1ApideveloperSite_code_examples.yaml
+PasswordSyncGroupsApi.md
+PasswordSyncGroupsApideveloperSite_code_examples.yaml
 Passwordsyncgroup.md
 README.md
 api.ts

@@ -1,24 +1,24 @@
 ---
-id: v1-workflowlibraryformfields-v1
-title: WorkflowlibraryformfieldsV1
-pagination_label: WorkflowlibraryformfieldsV1
-sidebar_label: WorkflowlibraryformfieldsV1
+id: v1-workflowlibraryformfields
+title: Workflowlibraryformfields
+pagination_label: Workflowlibraryformfields
+sidebar_label: Workflowlibraryformfields
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'WorkflowlibraryformfieldsV1', 'v1WorkflowlibraryformfieldsV1']
-slug: /tools/sdk/typescript/workflows/models/workflowlibraryformfields-v1
-tags: ['SDK', 'Software Development Kit', 'WorkflowlibraryformfieldsV1', 'v1WorkflowlibraryformfieldsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Workflowlibraryformfields', 'v1Workflowlibraryformfields']
+slug: /tools/sdk/typescript/workflows/models/workflowlibraryformfields
+tags: ['SDK', 'Software Development Kit', 'Workflowlibraryformfields', 'v1Workflowlibraryformfields']
 ---
 
-# WorkflowlibraryformfieldsV1
+# Workflowlibraryformfields
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**description** | **(optional)** **string** | Description of the form field | [default to undefined]
-**helpText** | **(optional)** **string** | Describes the form field in the UI | [default to undefined]
-**label** | **(optional)** **string** | A human readable name for this form field in the UI | [default to undefined]
-**name** | **(optional)** **string** | The name of the input attribute | [default to undefined]
-**required** | **(optional)** **boolean** | Denotes if this field is a required attribute | [default to false]
-**type** | **(optional)** **string** | The type of the form field | [default to undefined]
+**description** | **(optional)** `string` | Description of the form field | [default to undefined]
+**helpText** | **(optional)** `string` | Describes the form field in the UI | [default to undefined]
+**label** | **(optional)** `string` | A human readable name for this form field in the UI | [default to undefined]
+**name** | **(optional)** `string` | The name of the input attribute | [default to undefined]
+**required** | **(optional)** `boolean` | Denotes if this field is a required attribute | [default to false]
+**type** | **(optional)** `string` | The type of the form field | [default to undefined]
 

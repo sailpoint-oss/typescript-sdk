@@ -145,8 +145,8 @@ Testinvocation.md
 Trigger.md
 TriggerExampleInput.md
 TriggerExampleOutput.md
-TriggersV1Api.md
-TriggersV1ApideveloperSite_code_examples.yaml
+TriggersApi.md
+TriggersApideveloperSite_code_examples.yaml
 Triggertype.md
 Vaclusterstatuschangeevent.md
 VaclusterstatuschangeeventApplication.md

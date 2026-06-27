@@ -1,8 +1,8 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
-AccessRequestIdentityMetricsV1Api.md
-AccessRequestIdentityMetricsV1ApideveloperSite_code_examples.yaml
+AccessRequestIdentityMetricsApi.md
+AccessRequestIdentityMetricsApideveloperSite_code_examples.yaml
 Errormessagedto.md
 Errorresponsedto.md
 GetAccessRequestIdentityMetricsV1401Response.md

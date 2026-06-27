@@ -1,22 +1,22 @@
 ---
-id: v1-managedclusterrequest-v1
-title: ManagedclusterrequestV1
-pagination_label: ManagedclusterrequestV1
-sidebar_label: ManagedclusterrequestV1
+id: v1-managedclusterrequest
+title: Managedclusterrequest
+pagination_label: Managedclusterrequest
+sidebar_label: Managedclusterrequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ManagedclusterrequestV1', 'v1ManagedclusterrequestV1']
-slug: /tools/sdk/typescript/managed_clusters/models/managedclusterrequest-v1
-tags: ['SDK', 'Software Development Kit', 'ManagedclusterrequestV1', 'v1ManagedclusterrequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Managedclusterrequest', 'v1Managedclusterrequest']
+slug: /tools/sdk/typescript/managed_clusters/models/managedclusterrequest
+tags: ['SDK', 'Software Development Kit', 'Managedclusterrequest', 'v1Managedclusterrequest']
 ---
 
-# ManagedclusterrequestV1
+# Managedclusterrequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** | ManagedCluster name | [default to undefined]
-**type** | **(optional)** **ManagedclustertypesV1** |  | [default to undefined]
+**name** | `string` | ManagedCluster name | [default to undefined]
+**type** | **(optional)** `Managedclustertypes` |  | [default to undefined]
 **configuration** | **(optional)**  | ManagedProcess configuration map | [default to undefined]
-**description** | **(optional)** **string** | ManagedCluster description | [default to undefined]
+**description** | **(optional)** `string` | ManagedCluster description | [default to undefined]
 

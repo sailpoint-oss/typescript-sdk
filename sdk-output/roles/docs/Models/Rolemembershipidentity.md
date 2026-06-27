@@ -1,22 +1,22 @@
 ---
-id: v1-rolemembershipidentity-v1
-title: RolemembershipidentityV1
-pagination_label: RolemembershipidentityV1
-sidebar_label: RolemembershipidentityV1
+id: v1-rolemembershipidentity
+title: Rolemembershipidentity
+pagination_label: Rolemembershipidentity
+sidebar_label: Rolemembershipidentity
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RolemembershipidentityV1', 'v1RolemembershipidentityV1']
-slug: /tools/sdk/typescript/roles/models/rolemembershipidentity-v1
-tags: ['SDK', 'Software Development Kit', 'RolemembershipidentityV1', 'v1RolemembershipidentityV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Rolemembershipidentity', 'v1Rolemembershipidentity']
+slug: /tools/sdk/typescript/roles/models/rolemembershipidentity
+tags: ['SDK', 'Software Development Kit', 'Rolemembershipidentity', 'v1Rolemembershipidentity']
 ---
 
-# RolemembershipidentityV1
+# Rolemembershipidentity
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **DtotypeV1** |  | [default to undefined]
-**id** | **(optional)** **string** | Identity id | [default to undefined]
-**name** | **(optional)** **string** | Human-readable display name of the Identity. | [default to undefined]
-**aliasName** | **(optional)** **string** | User name of the Identity | [default to undefined]
+**type** | **(optional)** `Dtotype` |  | [default to undefined]
+**id** | **(optional)** `string` | Identity id | [default to undefined]
+**name** | **(optional)** `string` | Human-readable display name of the Identity. | [default to undefined]
+**aliasName** | **(optional)** `string` | User name of the Identity | [default to undefined]
 

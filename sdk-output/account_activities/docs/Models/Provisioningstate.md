@@ -1,15 +1,15 @@
 ---
-id: v1-provisioningstate-v1
-title: ProvisioningstateV1
-pagination_label: ProvisioningstateV1
-sidebar_label: ProvisioningstateV1
+id: v1-provisioningstate
+title: Provisioningstate
+pagination_label: Provisioningstate
+sidebar_label: Provisioningstate
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ProvisioningstateV1', 'v1ProvisioningstateV1']
-slug: /tools/sdk/typescript/account_activities/models/provisioningstate-v1
-tags: ['SDK', 'Software Development Kit', 'ProvisioningstateV1', 'v1ProvisioningstateV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Provisioningstate', 'v1Provisioningstate']
+slug: /tools/sdk/typescript/account_activities/models/provisioningstate
+tags: ['SDK', 'Software Development Kit', 'Provisioningstate', 'v1Provisioningstate']
 ---
 
-# ProvisioningstateV1
+# Provisioningstate
 
 ## Enum
 

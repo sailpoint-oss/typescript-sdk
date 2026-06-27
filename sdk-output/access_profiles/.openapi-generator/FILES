@@ -1,8 +1,8 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
-AccessProfilesV1Api.md
-AccessProfilesV1ApideveloperSite_code_examples.yaml
+AccessProfilesApi.md
+AccessProfilesApideveloperSite_code_examples.yaml
 Accessduration.md
 Accessmodelmetadata.md
 AccessmodelmetadataValuesInner.md

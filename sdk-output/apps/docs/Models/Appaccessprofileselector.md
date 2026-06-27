@@ -1,20 +1,20 @@
 ---
-id: v1-appaccessprofileselector-v1
-title: AppaccessprofileselectorV1
-pagination_label: AppaccessprofileselectorV1
-sidebar_label: AppaccessprofileselectorV1
+id: v1-appaccessprofileselector
+title: Appaccessprofileselector
+pagination_label: Appaccessprofileselector
+sidebar_label: Appaccessprofileselector
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AppaccessprofileselectorV1', 'v1AppaccessprofileselectorV1']
-slug: /tools/sdk/typescript/apps/models/appaccessprofileselector-v1
-tags: ['SDK', 'Software Development Kit', 'AppaccessprofileselectorV1', 'v1AppaccessprofileselectorV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Appaccessprofileselector', 'v1Appaccessprofileselector']
+slug: /tools/sdk/typescript/apps/models/appaccessprofileselector
+tags: ['SDK', 'Software Development Kit', 'Appaccessprofileselector', 'v1Appaccessprofileselector']
 ---
 
-# AppaccessprofileselectorV1
+# Appaccessprofileselector
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**applicationId** | **(optional)** **string** | The application id | [default to undefined]
-**accountMatchConfig** | **(optional)** **AppaccessprofileselectorAccountMatchConfigV1** |  | [default to undefined]
+**applicationId** | **(optional)** `string` | The application id | [default to undefined]
+**accountMatchConfig** | **(optional)** `AppaccessprofileselectorAccountMatchConfig` |  | [default to undefined]
 

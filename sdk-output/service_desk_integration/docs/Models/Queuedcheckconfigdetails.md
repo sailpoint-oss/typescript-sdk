@@ -1,20 +1,20 @@
 ---
-id: v1-queuedcheckconfigdetails-v1
-title: QueuedcheckconfigdetailsV1
-pagination_label: QueuedcheckconfigdetailsV1
-sidebar_label: QueuedcheckconfigdetailsV1
+id: v1-queuedcheckconfigdetails
+title: Queuedcheckconfigdetails
+pagination_label: Queuedcheckconfigdetails
+sidebar_label: Queuedcheckconfigdetails
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'QueuedcheckconfigdetailsV1', 'v1QueuedcheckconfigdetailsV1']
-slug: /tools/sdk/typescript/service_desk_integration/models/queuedcheckconfigdetails-v1
-tags: ['SDK', 'Software Development Kit', 'QueuedcheckconfigdetailsV1', 'v1QueuedcheckconfigdetailsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Queuedcheckconfigdetails', 'v1Queuedcheckconfigdetails']
+slug: /tools/sdk/typescript/service_desk_integration/models/queuedcheckconfigdetails
+tags: ['SDK', 'Software Development Kit', 'Queuedcheckconfigdetails', 'v1Queuedcheckconfigdetails']
 ---
 
-# QueuedcheckconfigdetailsV1
+# Queuedcheckconfigdetails
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**provisioningStatusCheckIntervalMinutes** | **string** | Interval in minutes between status checks | [default to undefined]
-**provisioningMaxStatusCheckDays** | **string** | Maximum number of days to check | [default to undefined]
+**provisioningStatusCheckIntervalMinutes** | `string` | Interval in minutes between status checks | [default to undefined]
+**provisioningMaxStatusCheckDays** | `string` | Maximum number of days to check | [default to undefined]
 

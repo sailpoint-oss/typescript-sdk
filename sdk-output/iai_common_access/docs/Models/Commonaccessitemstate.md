@@ -1,15 +1,15 @@
 ---
-id: v1-commonaccessitemstate-v1
-title: CommonaccessitemstateV1
-pagination_label: CommonaccessitemstateV1
-sidebar_label: CommonaccessitemstateV1
+id: v1-commonaccessitemstate
+title: Commonaccessitemstate
+pagination_label: Commonaccessitemstate
+sidebar_label: Commonaccessitemstate
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'CommonaccessitemstateV1', 'v1CommonaccessitemstateV1']
-slug: /tools/sdk/typescript/iai_common_access/models/commonaccessitemstate-v1
-tags: ['SDK', 'Software Development Kit', 'CommonaccessitemstateV1', 'v1CommonaccessitemstateV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Commonaccessitemstate', 'v1Commonaccessitemstate']
+slug: /tools/sdk/typescript/iai_common_access/models/commonaccessitemstate
+tags: ['SDK', 'Software Development Kit', 'Commonaccessitemstate', 'v1Commonaccessitemstate']
 ---
 
-# CommonaccessitemstateV1
+# Commonaccessitemstate
 
 ## Enum
 

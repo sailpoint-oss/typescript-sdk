@@ -1,15 +1,15 @@
 ---
-id: v1-provisioningcriteriaoperation-v1
-title: ProvisioningcriteriaoperationV1
-pagination_label: ProvisioningcriteriaoperationV1
-sidebar_label: ProvisioningcriteriaoperationV1
+id: v1-provisioningcriteriaoperation
+title: Provisioningcriteriaoperation
+pagination_label: Provisioningcriteriaoperation
+sidebar_label: Provisioningcriteriaoperation
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ProvisioningcriteriaoperationV1', 'v1ProvisioningcriteriaoperationV1']
-slug: /tools/sdk/typescript/dimensions/models/provisioningcriteriaoperation-v1
-tags: ['SDK', 'Software Development Kit', 'ProvisioningcriteriaoperationV1', 'v1ProvisioningcriteriaoperationV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Provisioningcriteriaoperation', 'v1Provisioningcriteriaoperation']
+slug: /tools/sdk/typescript/dimensions/models/provisioningcriteriaoperation
+tags: ['SDK', 'Software Development Kit', 'Provisioningcriteriaoperation', 'v1Provisioningcriteriaoperation']
 ---
 
-# ProvisioningcriteriaoperationV1
+# Provisioningcriteriaoperation
 
 ## Enum
 

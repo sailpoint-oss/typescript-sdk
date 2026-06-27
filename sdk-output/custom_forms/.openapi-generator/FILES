@@ -7,8 +7,8 @@ Conditionrule.md
 CreateFormDefinitionFileRequestV1Request.md
 Createformdefinitionrequest.md
 Createforminstancerequest.md
-CustomFormsV1Api.md
-CustomFormsV1ApideveloperSite_code_examples.yaml
+CustomFormsApi.md
+CustomFormsApideveloperSite_code_examples.yaml
 Error.md
 Errormessage.md
 ExportFormDefinitionsByTenantV1200ResponseInner.md

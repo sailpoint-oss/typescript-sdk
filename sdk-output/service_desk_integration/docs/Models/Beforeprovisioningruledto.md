@@ -1,21 +1,21 @@
 ---
-id: v1-beforeprovisioningruledto-v1
-title: BeforeprovisioningruledtoV1
-pagination_label: BeforeprovisioningruledtoV1
-sidebar_label: BeforeprovisioningruledtoV1
+id: v1-beforeprovisioningruledto
+title: Beforeprovisioningruledto
+pagination_label: Beforeprovisioningruledto
+sidebar_label: Beforeprovisioningruledto
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'BeforeprovisioningruledtoV1', 'v1BeforeprovisioningruledtoV1']
-slug: /tools/sdk/typescript/service_desk_integration/models/beforeprovisioningruledto-v1
-tags: ['SDK', 'Software Development Kit', 'BeforeprovisioningruledtoV1', 'v1BeforeprovisioningruledtoV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Beforeprovisioningruledto', 'v1Beforeprovisioningruledto']
+slug: /tools/sdk/typescript/service_desk_integration/models/beforeprovisioningruledto
+tags: ['SDK', 'Software Development Kit', 'Beforeprovisioningruledto', 'v1Beforeprovisioningruledto']
 ---
 
-# BeforeprovisioningruledtoV1
+# Beforeprovisioningruledto
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | Before Provisioning Rule DTO type. | [default to undefined]
-**id** | **(optional)** **string** | Before Provisioning Rule ID. | [default to undefined]
-**name** | **(optional)** **string** | Rule display name. | [default to undefined]
+**type** | **(optional)** `string` | Before Provisioning Rule DTO type. | [default to undefined]
+**id** | **(optional)** `string` | Before Provisioning Rule ID. | [default to undefined]
+**name** | **(optional)** `string` | Rule display name. | [default to undefined]
 

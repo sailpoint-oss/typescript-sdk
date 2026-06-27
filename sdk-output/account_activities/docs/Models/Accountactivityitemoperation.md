@@ -1,15 +1,15 @@
 ---
-id: v1-accountactivityitemoperation-v1
-title: AccountactivityitemoperationV1
-pagination_label: AccountactivityitemoperationV1
-sidebar_label: AccountactivityitemoperationV1
+id: v1-accountactivityitemoperation
+title: Accountactivityitemoperation
+pagination_label: Accountactivityitemoperation
+sidebar_label: Accountactivityitemoperation
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccountactivityitemoperationV1', 'v1AccountactivityitemoperationV1']
-slug: /tools/sdk/typescript/account_activities/models/accountactivityitemoperation-v1
-tags: ['SDK', 'Software Development Kit', 'AccountactivityitemoperationV1', 'v1AccountactivityitemoperationV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accountactivityitemoperation', 'v1Accountactivityitemoperation']
+slug: /tools/sdk/typescript/account_activities/models/accountactivityitemoperation
+tags: ['SDK', 'Software Development Kit', 'Accountactivityitemoperation', 'v1Accountactivityitemoperation']
 ---
 
-# AccountactivityitemoperationV1
+# Accountactivityitemoperation
 
 ## Enum
 

@@ -1,21 +1,21 @@
 ---
-id: v1-machineidentityuserentitlementresponse-entitlement-v1
-title: MachineidentityuserentitlementresponseEntitlementV1
-pagination_label: MachineidentityuserentitlementresponseEntitlementV1
-sidebar_label: MachineidentityuserentitlementresponseEntitlementV1
+id: v1-machineidentityuserentitlementresponse-entitlement
+title: MachineidentityuserentitlementresponseEntitlement
+pagination_label: MachineidentityuserentitlementresponseEntitlement
+sidebar_label: MachineidentityuserentitlementresponseEntitlement
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'MachineidentityuserentitlementresponseEntitlementV1', 'v1MachineidentityuserentitlementresponseEntitlementV1']
-slug: /tools/sdk/typescript/machine_identities/models/machineidentityuserentitlementresponse-entitlement-v1
-tags: ['SDK', 'Software Development Kit', 'MachineidentityuserentitlementresponseEntitlementV1', 'v1MachineidentityuserentitlementresponseEntitlementV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'MachineidentityuserentitlementresponseEntitlement', 'v1MachineidentityuserentitlementresponseEntitlement']
+slug: /tools/sdk/typescript/machine_identities/models/machineidentityuserentitlementresponse-entitlement
+tags: ['SDK', 'Software Development Kit', 'MachineidentityuserentitlementresponseEntitlement', 'v1MachineidentityuserentitlementresponseEntitlement']
 ---
 
-# MachineidentityuserentitlementresponseEntitlementV1
+# MachineidentityuserentitlementresponseEntitlement
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **DtotypeV1** |  | [default to undefined]
-**id** | **(optional)** **string** | ID of the object to which this reference applies | [default to undefined]
-**name** | **(optional)** **string** | Human-readable display name of the object to which this reference applies | [default to undefined]
+**type** | **(optional)** `Dtotype` |  | [default to undefined]
+**id** | **(optional)** `string` | ID of the object to which this reference applies | [default to undefined]
+**name** | **(optional)** `string` | Human-readable display name of the object to which this reference applies | [default to undefined]
 

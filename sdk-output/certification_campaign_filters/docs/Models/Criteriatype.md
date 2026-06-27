@@ -1,15 +1,15 @@
 ---
-id: v1-criteriatype-v1
-title: CriteriatypeV1
-pagination_label: CriteriatypeV1
-sidebar_label: CriteriatypeV1
+id: v1-criteriatype
+title: Criteriatype
+pagination_label: Criteriatype
+sidebar_label: Criteriatype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'CriteriatypeV1', 'v1CriteriatypeV1']
-slug: /tools/sdk/typescript/certification_campaign_filters/models/criteriatype-v1
-tags: ['SDK', 'Software Development Kit', 'CriteriatypeV1', 'v1CriteriatypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Criteriatype', 'v1Criteriatype']
+slug: /tools/sdk/typescript/certification_campaign_filters/models/criteriatype
+tags: ['SDK', 'Software Development Kit', 'Criteriatype', 'v1Criteriatype']
 ---
 
-# CriteriatypeV1
+# Criteriatype
 
 ## Enum
 

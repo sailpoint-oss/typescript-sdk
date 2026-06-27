@@ -1,15 +1,15 @@
 ---
-id: v1-objectmappingbulkpatchrequest-v1
-title: ObjectmappingbulkpatchrequestV1
-pagination_label: ObjectmappingbulkpatchrequestV1
-sidebar_label: ObjectmappingbulkpatchrequestV1
+id: v1-objectmappingbulkpatchrequest
+title: Objectmappingbulkpatchrequest
+pagination_label: Objectmappingbulkpatchrequest
+sidebar_label: Objectmappingbulkpatchrequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ObjectmappingbulkpatchrequestV1', 'v1ObjectmappingbulkpatchrequestV1']
-slug: /tools/sdk/typescript/configuration_hub/models/objectmappingbulkpatchrequest-v1
-tags: ['SDK', 'Software Development Kit', 'ObjectmappingbulkpatchrequestV1', 'v1ObjectmappingbulkpatchrequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Objectmappingbulkpatchrequest', 'v1Objectmappingbulkpatchrequest']
+slug: /tools/sdk/typescript/configuration_hub/models/objectmappingbulkpatchrequest
+tags: ['SDK', 'Software Development Kit', 'Objectmappingbulkpatchrequest', 'v1Objectmappingbulkpatchrequest']
 ---
 
-# ObjectmappingbulkpatchrequestV1
+# Objectmappingbulkpatchrequest
 
 ## Properties
 

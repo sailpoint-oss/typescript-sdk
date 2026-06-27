@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -53,57 +53,57 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetPromptInsightsMetricsV1401ResponseV1
+ * @interface GetPromptInsightsMetricsV1401Response
  */
-export interface GetPromptInsightsMetricsV1401ResponseV1 {
+export interface GetPromptInsightsMetricsV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetPromptInsightsMetricsV1401ResponseV1
+     * @memberof GetPromptInsightsMetricsV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetPromptInsightsMetricsV1429ResponseV1
+ * @interface GetPromptInsightsMetricsV1429Response
  */
-export interface GetPromptInsightsMetricsV1429ResponseV1 {
+export interface GetPromptInsightsMetricsV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetPromptInsightsMetricsV1429ResponseV1
+     * @memberof GetPromptInsightsMetricsV1429Response
      */
     'message'?: any;
 }
@@ -113,132 +113,132 @@ export interface GetPromptInsightsMetricsV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * A prompt security insight event.
  * @export
- * @interface PromptinsightV1
+ * @interface Promptinsight
  */
-export interface PromptinsightV1 {
+export interface Promptinsight {
     /**
      * Event time in UTC.
      * @type {string}
-     * @memberof PromptinsightV1
+     * @memberof Promptinsight
      */
     'timestamp'?: string;
     /**
      * User identifier or display name.
      * @type {string}
-     * @memberof PromptinsightV1
+     * @memberof Promptinsight
      */
     'user'?: string;
     /**
      * The AI agent that processed the prompt.
      * @type {string}
-     * @memberof PromptinsightV1
+     * @memberof Promptinsight
      */
     'agent'?: string;
     /**
      * The policy decision applied to the prompt.
      * @type {string}
-     * @memberof PromptinsightV1
+     * @memberof Promptinsight
      */
-    'policyDecision'?: PromptinsightV1PolicyDecisionV1;
+    'policyDecision'?: PromptinsightPolicyDecisionEnum;
     /**
      * The category of the prompt security finding.
      * @type {string}
-     * @memberof PromptinsightV1
+     * @memberof Promptinsight
      */
-    'category'?: PromptinsightV1CategoryV1;
+    'category'?: PromptinsightCategoryEnum;
     /**
      * The severity of the prompt security finding.
      * @type {string}
-     * @memberof PromptinsightV1
+     * @memberof Promptinsight
      */
-    'severity'?: PromptinsightV1SeverityV1;
+    'severity'?: PromptinsightSeverityEnum;
     /**
      * Human-readable or structured reason for the policy decision.
      * @type {string}
-     * @memberof PromptinsightV1
+     * @memberof Promptinsight
      */
     'reason'?: string;
     /**
      * The rule that matched the prompt.
      * @type {string}
-     * @memberof PromptinsightV1
+     * @memberof Promptinsight
      */
     'rule'?: string;
     /**
      * The policy that matched the prompt.
      * @type {string}
-     * @memberof PromptinsightV1
+     * @memberof Promptinsight
      */
     'policy'?: string;
 }
 
-export const PromptinsightV1PolicyDecisionV1 = {
+export const PromptinsightPolicyDecisionEnum = {
     Allowed: 'ALLOWED',
     Redacted: 'REDACTED'
 } as const;
 
-export type PromptinsightV1PolicyDecisionV1 = typeof PromptinsightV1PolicyDecisionV1[keyof typeof PromptinsightV1PolicyDecisionV1];
-export const PromptinsightV1CategoryV1 = {
+export type PromptinsightPolicyDecisionEnum = typeof PromptinsightPolicyDecisionEnum[keyof typeof PromptinsightPolicyDecisionEnum];
+export const PromptinsightCategoryEnum = {
     Anomalies: 'ANOMALIES',
     DataUploads: 'DATA_UPLOADS',
     McpToolCalls: 'MCP_TOOL_CALLS'
 } as const;
 
-export type PromptinsightV1CategoryV1 = typeof PromptinsightV1CategoryV1[keyof typeof PromptinsightV1CategoryV1];
-export const PromptinsightV1SeverityV1 = {
+export type PromptinsightCategoryEnum = typeof PromptinsightCategoryEnum[keyof typeof PromptinsightCategoryEnum];
+export const PromptinsightSeverityEnum = {
     Low: 'LOW',
     Medium: 'MEDIUM',
     High: 'HIGH',
     Critical: 'CRITICAL'
 } as const;
 
-export type PromptinsightV1SeverityV1 = typeof PromptinsightV1SeverityV1[keyof typeof PromptinsightV1SeverityV1];
+export type PromptinsightSeverityEnum = typeof PromptinsightSeverityEnum[keyof typeof PromptinsightSeverityEnum];
 
 /**
  * Aggregate prompt insights metrics for the requested time window.
  * @export
- * @interface PromptinsightsmetricsV1
+ * @interface Promptinsightsmetrics
  */
-export interface PromptinsightsmetricsV1 {
+export interface Promptinsightsmetrics {
     /**
      * Count of prompts scanned in the interval.
      * @type {number}
-     * @memberof PromptinsightsmetricsV1
+     * @memberof Promptinsightsmetrics
      */
     'promptsScanned'?: number;
     /**
      * Count of prompts redacted in the interval.
      * @type {number}
-     * @memberof PromptinsightsmetricsV1
+     * @memberof Promptinsightsmetrics
      */
     'promptsRedacted'?: number;
 }
 
 /**
- * PromptInsightsV1Api - axios parameter creator
+ * PromptInsightsApi - axios parameter creator
  * @export
  */
-export const PromptInsightsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const PromptInsightsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Returns aggregate prompt insights metrics for the requested time window.
          * @summary Get prompt insights metrics
-         * @param {GetPromptInsightsMetricsV1IntervalV1} interval Relative lookback window for metrics aggregation.
+         * @param {GetPromptInsightsMetricsV1IntervalEnum} interval Relative lookback window for metrics aggregation.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getPromptInsightsMetricsV1: async (interval: GetPromptInsightsMetricsV1IntervalV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getPromptInsightsMetricsV1: async (interval: GetPromptInsightsMetricsV1IntervalEnum, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'interval' is not null or undefined
             assertParamExists('getPromptInsightsMetricsV1', 'interval', interval)
             const localVarPath = `/prompt-insights/v1/metrics`;
@@ -271,14 +271,14 @@ export const PromptInsightsV1ApiAxiosParamCreator = function (configuration?: Co
         /**
          * Returns a paginated list of prompt insights within a lookback window, with optional structured filters. Results are sorted by timestamp descending (most recent first).
          * @summary List prompt insights
-         * @param {ListPromptInsightsV1IntervalV1} interval Relative lookback window for prompt insights.
+         * @param {ListPromptInsightsV1IntervalEnum} interval Relative lookback window for prompt insights.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **policyDecision**: *eq*  **category**: *eq*  **severity**: *eq*  **user**: *eq, sw, co*  **agent**: *eq, sw, co*  **reason**: *eq, sw, co*  **rule**: *eq, sw, co*  **policy**: *eq, sw, co*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listPromptInsightsV1: async (interval: ListPromptInsightsV1IntervalV1, limit?: number, offset?: number, filters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listPromptInsightsV1: async (interval: ListPromptInsightsV1IntervalEnum, limit?: number, offset?: number, filters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'interval' is not null or undefined
             assertParamExists('listPromptInsightsV1', 'interval', interval)
             const localVarPath = `/prompt-insights/v1`;
@@ -324,174 +324,174 @@ export const PromptInsightsV1ApiAxiosParamCreator = function (configuration?: Co
 };
 
 /**
- * PromptInsightsV1Api - functional programming interface
+ * PromptInsightsApi - functional programming interface
  * @export
  */
-export const PromptInsightsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = PromptInsightsV1ApiAxiosParamCreator(configuration)
+export const PromptInsightsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = PromptInsightsApiAxiosParamCreator(configuration)
     return {
         /**
          * Returns aggregate prompt insights metrics for the requested time window.
          * @summary Get prompt insights metrics
-         * @param {GetPromptInsightsMetricsV1IntervalV1} interval Relative lookback window for metrics aggregation.
+         * @param {GetPromptInsightsMetricsV1IntervalEnum} interval Relative lookback window for metrics aggregation.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPromptInsightsMetricsV1(interval: GetPromptInsightsMetricsV1IntervalV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PromptinsightsmetricsV1>> {
+        async getPromptInsightsMetricsV1(interval: GetPromptInsightsMetricsV1IntervalEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Promptinsightsmetrics>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPromptInsightsMetricsV1(interval, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PromptInsightsV1Api.getPromptInsightsMetricsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PromptInsightsApi.getPromptInsightsMetricsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Returns a paginated list of prompt insights within a lookback window, with optional structured filters. Results are sorted by timestamp descending (most recent first).
          * @summary List prompt insights
-         * @param {ListPromptInsightsV1IntervalV1} interval Relative lookback window for prompt insights.
+         * @param {ListPromptInsightsV1IntervalEnum} interval Relative lookback window for prompt insights.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **policyDecision**: *eq*  **category**: *eq*  **severity**: *eq*  **user**: *eq, sw, co*  **agent**: *eq, sw, co*  **reason**: *eq, sw, co*  **rule**: *eq, sw, co*  **policy**: *eq, sw, co*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listPromptInsightsV1(interval: ListPromptInsightsV1IntervalV1, limit?: number, offset?: number, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PromptinsightV1>>> {
+        async listPromptInsightsV1(interval: ListPromptInsightsV1IntervalEnum, limit?: number, offset?: number, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Promptinsight>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listPromptInsightsV1(interval, limit, offset, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PromptInsightsV1Api.listPromptInsightsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PromptInsightsApi.listPromptInsightsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * PromptInsightsV1Api - factory interface
+ * PromptInsightsApi - factory interface
  * @export
  */
-export const PromptInsightsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = PromptInsightsV1ApiFp(configuration)
+export const PromptInsightsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = PromptInsightsApiFp(configuration)
     return {
         /**
          * Returns aggregate prompt insights metrics for the requested time window.
          * @summary Get prompt insights metrics
-         * @param {PromptInsightsV1ApiGetPromptInsightsMetricsV1Request} requestParameters Request parameters.
+         * @param {PromptInsightsApiGetPromptInsightsMetricsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getPromptInsightsMetricsV1(requestParameters: PromptInsightsV1ApiGetPromptInsightsMetricsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PromptinsightsmetricsV1> {
+        getPromptInsightsMetricsV1(requestParameters: PromptInsightsApiGetPromptInsightsMetricsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Promptinsightsmetrics> {
             return localVarFp.getPromptInsightsMetricsV1(requestParameters.interval, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Returns a paginated list of prompt insights within a lookback window, with optional structured filters. Results are sorted by timestamp descending (most recent first).
          * @summary List prompt insights
-         * @param {PromptInsightsV1ApiListPromptInsightsV1Request} requestParameters Request parameters.
+         * @param {PromptInsightsApiListPromptInsightsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listPromptInsightsV1(requestParameters: PromptInsightsV1ApiListPromptInsightsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<PromptinsightV1>> {
+        listPromptInsightsV1(requestParameters: PromptInsightsApiListPromptInsightsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Promptinsight>> {
             return localVarFp.listPromptInsightsV1(requestParameters.interval, requestParameters.limit, requestParameters.offset, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for getPromptInsightsMetricsV1 operation in PromptInsightsV1Api.
+ * Request parameters for getPromptInsightsMetricsV1 operation in PromptInsightsApi.
  * @export
- * @interface PromptInsightsV1ApiGetPromptInsightsMetricsV1Request
+ * @interface PromptInsightsApiGetPromptInsightsMetricsV1Request
  */
-export interface PromptInsightsV1ApiGetPromptInsightsMetricsV1Request {
+export interface PromptInsightsApiGetPromptInsightsMetricsV1Request {
     /**
      * Relative lookback window for metrics aggregation.
      * @type {'-1h' | '-1d' | '-7d' | '-30d'}
-     * @memberof PromptInsightsV1ApiGetPromptInsightsMetricsV1
+     * @memberof PromptInsightsApiGetPromptInsightsMetricsV1
      */
-    readonly interval: GetPromptInsightsMetricsV1IntervalV1
+    readonly interval: GetPromptInsightsMetricsV1IntervalEnum
 }
 
 /**
- * Request parameters for listPromptInsightsV1 operation in PromptInsightsV1Api.
+ * Request parameters for listPromptInsightsV1 operation in PromptInsightsApi.
  * @export
- * @interface PromptInsightsV1ApiListPromptInsightsV1Request
+ * @interface PromptInsightsApiListPromptInsightsV1Request
  */
-export interface PromptInsightsV1ApiListPromptInsightsV1Request {
+export interface PromptInsightsApiListPromptInsightsV1Request {
     /**
      * Relative lookback window for prompt insights.
      * @type {'-1h' | '-1d' | '-7d' | '-30d'}
-     * @memberof PromptInsightsV1ApiListPromptInsightsV1
+     * @memberof PromptInsightsApiListPromptInsightsV1
      */
-    readonly interval: ListPromptInsightsV1IntervalV1
+    readonly interval: ListPromptInsightsV1IntervalEnum
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof PromptInsightsV1ApiListPromptInsightsV1
+     * @memberof PromptInsightsApiListPromptInsightsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof PromptInsightsV1ApiListPromptInsightsV1
+     * @memberof PromptInsightsApiListPromptInsightsV1
      */
     readonly offset?: number
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **policyDecision**: *eq*  **category**: *eq*  **severity**: *eq*  **user**: *eq, sw, co*  **agent**: *eq, sw, co*  **reason**: *eq, sw, co*  **rule**: *eq, sw, co*  **policy**: *eq, sw, co*
      * @type {string}
-     * @memberof PromptInsightsV1ApiListPromptInsightsV1
+     * @memberof PromptInsightsApiListPromptInsightsV1
      */
     readonly filters?: string
 }
 
 /**
- * PromptInsightsV1Api - object-oriented interface
+ * PromptInsightsApi - object-oriented interface
  * @export
- * @class PromptInsightsV1Api
+ * @class PromptInsightsApi
  * @extends {BaseAPI}
  */
-export class PromptInsightsV1Api extends BaseAPI {
+export class PromptInsightsApi extends BaseAPI {
     /**
      * Returns aggregate prompt insights metrics for the requested time window.
      * @summary Get prompt insights metrics
-     * @param {PromptInsightsV1ApiGetPromptInsightsMetricsV1Request} requestParameters Request parameters.
+     * @param {PromptInsightsApiGetPromptInsightsMetricsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof PromptInsightsV1Api
+     * @memberof PromptInsightsApi
      */
-    public getPromptInsightsMetricsV1(requestParameters: PromptInsightsV1ApiGetPromptInsightsMetricsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return PromptInsightsV1ApiFp(this.configuration).getPromptInsightsMetricsV1(requestParameters.interval, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getPromptInsightsMetricsV1(requestParameters: PromptInsightsApiGetPromptInsightsMetricsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return PromptInsightsApiFp(this.configuration).getPromptInsightsMetricsV1(requestParameters.interval, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Returns a paginated list of prompt insights within a lookback window, with optional structured filters. Results are sorted by timestamp descending (most recent first).
      * @summary List prompt insights
-     * @param {PromptInsightsV1ApiListPromptInsightsV1Request} requestParameters Request parameters.
+     * @param {PromptInsightsApiListPromptInsightsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof PromptInsightsV1Api
+     * @memberof PromptInsightsApi
      */
-    public listPromptInsightsV1(requestParameters: PromptInsightsV1ApiListPromptInsightsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return PromptInsightsV1ApiFp(this.configuration).listPromptInsightsV1(requestParameters.interval, requestParameters.limit, requestParameters.offset, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listPromptInsightsV1(requestParameters: PromptInsightsApiListPromptInsightsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return PromptInsightsApiFp(this.configuration).listPromptInsightsV1(requestParameters.interval, requestParameters.limit, requestParameters.offset, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
 /**
  * @export
  */
-export const GetPromptInsightsMetricsV1IntervalV1 = {
+export const GetPromptInsightsMetricsV1IntervalEnum = {
     _1h: '-1h',
     _1d: '-1d',
     _7d: '-7d',
     _30d: '-30d'
 } as const;
-export type GetPromptInsightsMetricsV1IntervalV1 = typeof GetPromptInsightsMetricsV1IntervalV1[keyof typeof GetPromptInsightsMetricsV1IntervalV1];
+export type GetPromptInsightsMetricsV1IntervalEnum = typeof GetPromptInsightsMetricsV1IntervalEnum[keyof typeof GetPromptInsightsMetricsV1IntervalEnum];
 /**
  * @export
  */
-export const ListPromptInsightsV1IntervalV1 = {
+export const ListPromptInsightsV1IntervalEnum = {
     _1h: '-1h',
     _1d: '-1d',
     _7d: '-7d',
     _30d: '-30d'
 } as const;
-export type ListPromptInsightsV1IntervalV1 = typeof ListPromptInsightsV1IntervalV1[keyof typeof ListPromptInsightsV1IntervalV1];
+export type ListPromptInsightsV1IntervalEnum = typeof ListPromptInsightsV1IntervalEnum[keyof typeof ListPromptInsightsV1IntervalEnum];
 
 

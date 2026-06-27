@@ -1,24 +1,24 @@
 ---
-id: v1-sourcecreationerrors-v1
-title: SourcecreationerrorsV1
-pagination_label: SourcecreationerrorsV1
-sidebar_label: SourcecreationerrorsV1
+id: v1-sourcecreationerrors
+title: Sourcecreationerrors
+pagination_label: Sourcecreationerrors
+sidebar_label: Sourcecreationerrors
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SourcecreationerrorsV1', 'v1SourcecreationerrorsV1']
-slug: /tools/sdk/typescript/multi_host_integration/models/sourcecreationerrors-v1
-tags: ['SDK', 'Software Development Kit', 'SourcecreationerrorsV1', 'v1SourcecreationerrorsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Sourcecreationerrors', 'v1Sourcecreationerrors']
+slug: /tools/sdk/typescript/multi_host_integration/models/sourcecreationerrors
+tags: ['SDK', 'Software Development Kit', 'Sourcecreationerrors', 'v1Sourcecreationerrors']
 ---
 
-# SourcecreationerrorsV1
+# Sourcecreationerrors
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**multihostId** | **(optional)** **string** | Multi-Host Integration ID. | [readonly] [default to undefined]
-**source_name** | **(optional)** **string** | Source\'s human-readable name. | [default to undefined]
-**source_error** | **(optional)** **string** | Source\'s human-readable description. | [default to undefined]
-**created** | **(optional)** **string** | Date-time when the source was created | [default to undefined]
-**modified** | **(optional)** **string** | Date-time when the source was last modified. | [default to undefined]
-**operation** | **(optional)** **string** | operation category (e.g. DELETE). | [default to undefined]
+**multihostId** | **(optional)** `string` | Multi-Host Integration ID. | [readonly] [default to undefined]
+**source_name** | **(optional)** `string` | Source\'s human-readable name. | [default to undefined]
+**source_error** | **(optional)** `string` | Source\'s human-readable description. | [default to undefined]
+**created** | **(optional)** `string` | Date-time when the source was created | [default to undefined]
+**modified** | **(optional)** `string` | Date-time when the source was last modified. | [default to undefined]
+**operation** | **(optional)** `string` | operation category (e.g. DELETE). | [default to undefined]
 

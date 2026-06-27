@@ -1,19 +1,19 @@
 ---
-id: v1-deployrequest-v1
-title: DeployrequestV1
-pagination_label: DeployrequestV1
-sidebar_label: DeployrequestV1
+id: v1-deployrequest
+title: Deployrequest
+pagination_label: Deployrequest
+sidebar_label: Deployrequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'DeployrequestV1', 'v1DeployrequestV1']
-slug: /tools/sdk/typescript/configuration_hub/models/deployrequest-v1
-tags: ['SDK', 'Software Development Kit', 'DeployrequestV1', 'v1DeployrequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Deployrequest', 'v1Deployrequest']
+slug: /tools/sdk/typescript/configuration_hub/models/deployrequest
+tags: ['SDK', 'Software Development Kit', 'Deployrequest', 'v1Deployrequest']
 ---
 
-# DeployrequestV1
+# Deployrequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**draftId** | **string** | The id of the draft to be used by this deploy. | [default to undefined]
+**draftId** | `string` | The id of the draft to be used by this deploy. | [default to undefined]
 

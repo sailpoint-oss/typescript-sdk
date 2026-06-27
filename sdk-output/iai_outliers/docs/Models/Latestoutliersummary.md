@@ -1,23 +1,23 @@
 ---
-id: v1-latestoutliersummary-v1
-title: LatestoutliersummaryV1
-pagination_label: LatestoutliersummaryV1
-sidebar_label: LatestoutliersummaryV1
+id: v1-latestoutliersummary
+title: Latestoutliersummary
+pagination_label: Latestoutliersummary
+sidebar_label: Latestoutliersummary
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'LatestoutliersummaryV1', 'v1LatestoutliersummaryV1']
-slug: /tools/sdk/typescript/iai_outliers/models/latestoutliersummary-v1
-tags: ['SDK', 'Software Development Kit', 'LatestoutliersummaryV1', 'v1LatestoutliersummaryV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Latestoutliersummary', 'v1Latestoutliersummary']
+slug: /tools/sdk/typescript/iai_outliers/models/latestoutliersummary
+tags: ['SDK', 'Software Development Kit', 'Latestoutliersummary', 'v1Latestoutliersummary']
 ---
 
-# LatestoutliersummaryV1
+# Latestoutliersummary
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | The type of outlier summary | [default to undefined]
-**snapshotDate** | **(optional)** **string** | The date the bulk outlier detection ran/snapshot was created | [default to undefined]
-**totalOutliers** | **(optional)** **number** | Total number of outliers for the customer making the request | [default to undefined]
-**totalIdentities** | **(optional)** **number** | Total number of identities for the customer making the request | [default to undefined]
-**totalIgnored** | **(optional)** **number** | Total number of ignored outliers | [default to undefined]
+**type** | **(optional)** `string` | The type of outlier summary | [default to undefined]
+**snapshotDate** | **(optional)** `string` | The date the bulk outlier detection ran/snapshot was created | [default to undefined]
+**totalOutliers** | **(optional)** `number` | Total number of outliers for the customer making the request | [default to undefined]
+**totalIdentities** | **(optional)** `number` | Total number of identities for the customer making the request | [default to undefined]
+**totalIgnored** | **(optional)** `number` | Total number of ignored outliers | [default to undefined]
 

@@ -1,20 +1,20 @@
 ---
-id: v1-deliveryresponse-v1
-title: DeliveryresponseV1
-pagination_label: DeliveryresponseV1
-sidebar_label: DeliveryresponseV1
+id: v1-deliveryresponse
+title: Deliveryresponse
+pagination_label: Deliveryresponse
+sidebar_label: Deliveryresponse
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'DeliveryresponseV1', 'v1DeliveryresponseV1']
-slug: /tools/sdk/typescript/shared_signals_framework_ssf/models/deliveryresponse-v1
-tags: ['SDK', 'Software Development Kit', 'DeliveryresponseV1', 'v1DeliveryresponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Deliveryresponse', 'v1Deliveryresponse']
+slug: /tools/sdk/typescript/shared_signals_framework_ssf/models/deliveryresponse
+tags: ['SDK', 'Software Development Kit', 'Deliveryresponse', 'v1Deliveryresponse']
 ---
 
-# DeliveryresponseV1
+# Deliveryresponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**method** | **(optional)** **string** | Delivery method. | [default to undefined]
-**endpoint_url** | **(optional)** **string** | Receiver endpoint URL. | [default to undefined]
+**method** | **(optional)** `string` | Delivery method. | [default to undefined]
+**endpoint_url** | **(optional)** `string` | Receiver endpoint URL. | [default to undefined]
 

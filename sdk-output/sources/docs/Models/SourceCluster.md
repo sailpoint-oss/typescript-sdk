@@ -1,21 +1,21 @@
 ---
-id: v1-source-cluster-v1
-title: SourceClusterV1
-pagination_label: SourceClusterV1
-sidebar_label: SourceClusterV1
+id: v1-source-cluster
+title: SourceCluster
+pagination_label: SourceCluster
+sidebar_label: SourceCluster
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SourceClusterV1', 'v1SourceClusterV1']
-slug: /tools/sdk/typescript/sources/models/source-cluster-v1
-tags: ['SDK', 'Software Development Kit', 'SourceClusterV1', 'v1SourceClusterV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'SourceCluster', 'v1SourceCluster']
+slug: /tools/sdk/typescript/sources/models/source-cluster
+tags: ['SDK', 'Software Development Kit', 'SourceCluster', 'v1SourceCluster']
 ---
 
-# SourceClusterV1
+# SourceCluster
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **string** | Type of object being referenced. | [default to undefined]
-**id** | **string** | Cluster ID. | [default to undefined]
-**name** | **string** | Cluster\'s human-readable display name. | [default to undefined]
+**type** | `string` | Type of object being referenced. | [default to undefined]
+**id** | `string` | Cluster ID. | [default to undefined]
+**name** | `string` | Cluster\'s human-readable display name. | [default to undefined]
 

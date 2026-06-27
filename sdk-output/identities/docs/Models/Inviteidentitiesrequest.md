@@ -1,20 +1,20 @@
 ---
-id: v1-inviteidentitiesrequest-v1
-title: InviteidentitiesrequestV1
-pagination_label: InviteidentitiesrequestV1
-sidebar_label: InviteidentitiesrequestV1
+id: v1-inviteidentitiesrequest
+title: Inviteidentitiesrequest
+pagination_label: Inviteidentitiesrequest
+sidebar_label: Inviteidentitiesrequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'InviteidentitiesrequestV1', 'v1InviteidentitiesrequestV1']
-slug: /tools/sdk/typescript/identities/models/inviteidentitiesrequest-v1
-tags: ['SDK', 'Software Development Kit', 'InviteidentitiesrequestV1', 'v1InviteidentitiesrequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Inviteidentitiesrequest', 'v1Inviteidentitiesrequest']
+slug: /tools/sdk/typescript/identities/models/inviteidentitiesrequest
+tags: ['SDK', 'Software Development Kit', 'Inviteidentitiesrequest', 'v1Inviteidentitiesrequest']
 ---
 
-# InviteidentitiesrequestV1
+# Inviteidentitiesrequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ids** | **(optional)** **Array&lt;string&gt;** | The list of Identities IDs to invite - required when \'uninvited\' is false | [default to undefined]
-**uninvited** | **(optional)** **boolean** | indicator (optional) to invite all unregistered identities in the system within a limit 1000. This parameter makes sense only when \'ids\' is empty. | [default to false]
+**ids** | **(optional)** `Array<string>` | The list of Identities IDs to invite - required when \'uninvited\' is false | [default to undefined]
+**uninvited** | **(optional)** `boolean` | indicator (optional) to invite all unregistered identities in the system within a limit 1000. This parameter makes sense only when \'ids\' is empty. | [default to false]
 

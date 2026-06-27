@@ -1,8 +1,8 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
-AccessRequestsV1Api.md
-AccessRequestsV1ApideveloperSite_code_examples.yaml
+AccessRequestsApi.md
+AccessRequestsApideveloperSite_code_examples.yaml
 Accessitemrequester.md
 Accessitemreviewedby.md
 Accessrequest.md

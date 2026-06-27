@@ -1,20 +1,20 @@
 ---
-id: v1-bulkupdateammkeyvalue-inner-v1
-title: BulkupdateammkeyvalueInnerV1
-pagination_label: BulkupdateammkeyvalueInnerV1
-sidebar_label: BulkupdateammkeyvalueInnerV1
+id: v1-bulkupdateammkeyvalue-inner
+title: BulkupdateammkeyvalueInner
+pagination_label: BulkupdateammkeyvalueInner
+sidebar_label: BulkupdateammkeyvalueInner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'BulkupdateammkeyvalueInnerV1', 'v1BulkupdateammkeyvalueInnerV1']
-slug: /tools/sdk/typescript/access_model_metadata/models/bulkupdateammkeyvalue-inner-v1
-tags: ['SDK', 'Software Development Kit', 'BulkupdateammkeyvalueInnerV1', 'v1BulkupdateammkeyvalueInnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'BulkupdateammkeyvalueInner', 'v1BulkupdateammkeyvalueInner']
+slug: /tools/sdk/typescript/access_model_metadata/models/bulkupdateammkeyvalue-inner
+tags: ['SDK', 'Software Development Kit', 'BulkupdateammkeyvalueInner', 'v1BulkupdateammkeyvalueInner']
 ---
 
-# BulkupdateammkeyvalueInnerV1
+# BulkupdateammkeyvalueInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attribute** | **string** | the key of metadata attribute | [default to undefined]
-**values** | **Array&lt;string&gt;** | the values of attribute to be updated | [default to undefined]
+**attribute** | `string` | the key of metadata attribute | [default to undefined]
+**values** | `Array<string>` | the values of attribute to be updated | [default to undefined]
 

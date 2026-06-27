@@ -1,19 +1,19 @@
 ---
-id: v1-list-sod-policies-v1401-response-v1
-title: ListSodPoliciesV1401ResponseV1
-pagination_label: ListSodPoliciesV1401ResponseV1
-sidebar_label: ListSodPoliciesV1401ResponseV1
+id: v1-list-sod-policies-v1401-response
+title: ListSodPoliciesV1401Response
+pagination_label: ListSodPoliciesV1401Response
+sidebar_label: ListSodPoliciesV1401Response
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ListSodPoliciesV1401ResponseV1', 'v1ListSodPoliciesV1401ResponseV1']
-slug: /tools/sdk/typescript/sod_policies/models/list-sod-policies-v1401-response-v1
-tags: ['SDK', 'Software Development Kit', 'ListSodPoliciesV1401ResponseV1', 'v1ListSodPoliciesV1401ResponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ListSodPoliciesV1401Response', 'v1ListSodPoliciesV1401Response']
+slug: /tools/sdk/typescript/sod_policies/models/list-sod-policies-v1401-response
+tags: ['SDK', 'Software Development Kit', 'ListSodPoliciesV1401Response', 'v1ListSodPoliciesV1401Response']
 ---
 
-# ListSodPoliciesV1401ResponseV1
+# ListSodPoliciesV1401Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**error** | **(optional)** **any** | A message describing the error | [default to undefined]
+**error** | **(optional)** `any` | A message describing the error | [default to undefined]
 

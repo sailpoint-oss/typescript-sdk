@@ -1,19 +1,19 @@
 ---
-id: v1-jsonpatch-v1
-title: JsonpatchV1
-pagination_label: JsonpatchV1
-sidebar_label: JsonpatchV1
+id: v1-jsonpatch
+title: Jsonpatch
+pagination_label: Jsonpatch
+sidebar_label: Jsonpatch
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'JsonpatchV1', 'v1JsonpatchV1']
-slug: /tools/sdk/typescript/configuration_hub/models/jsonpatch-v1
-tags: ['SDK', 'Software Development Kit', 'JsonpatchV1', 'v1JsonpatchV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Jsonpatch', 'v1Jsonpatch']
+slug: /tools/sdk/typescript/configuration_hub/models/jsonpatch
+tags: ['SDK', 'Software Development Kit', 'Jsonpatch', 'v1Jsonpatch']
 ---
 
-# JsonpatchV1
+# Jsonpatch
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**operations** | **(optional)** **Array&lt;JsonpatchoperationV1&gt;** | Operations to be applied | [default to undefined]
+**operations** | **(optional)** `Array<Jsonpatchoperation>` | Operations to be applied | [default to undefined]
 

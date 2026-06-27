@@ -1,21 +1,21 @@
 ---
-id: v1-roletargetdto-v1
-title: RoletargetdtoV1
-pagination_label: RoletargetdtoV1
-sidebar_label: RoletargetdtoV1
+id: v1-roletargetdto
+title: Roletargetdto
+pagination_label: Roletargetdto
+sidebar_label: Roletargetdto
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RoletargetdtoV1', 'v1RoletargetdtoV1']
-slug: /tools/sdk/typescript/identities/models/roletargetdto-v1
-tags: ['SDK', 'Software Development Kit', 'RoletargetdtoV1', 'v1RoletargetdtoV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Roletargetdto', 'v1Roletargetdto']
+slug: /tools/sdk/typescript/identities/models/roletargetdto
+tags: ['SDK', 'Software Development Kit', 'Roletargetdto', 'v1Roletargetdto']
 ---
 
-# RoletargetdtoV1
+# Roletargetdto
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**source** | **(optional)** **BasereferencedtoV1** |  | [default to undefined]
-**accountInfo** | **(optional)** **AccountinfodtoV1** |  | [default to undefined]
-**role** | **(optional)** **BasereferencedtoV1** |  | [default to undefined]
+**source** | **(optional)** `Basereferencedto` |  | [default to undefined]
+**accountInfo** | **(optional)** `Accountinfodto` |  | [default to undefined]
+**role** | **(optional)** `Basereferencedto` |  | [default to undefined]
 

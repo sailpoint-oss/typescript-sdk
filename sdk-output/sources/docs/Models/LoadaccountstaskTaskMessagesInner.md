@@ -1,23 +1,23 @@
 ---
-id: v1-loadaccountstask-task-messages-inner-v1
-title: LoadaccountstaskTaskMessagesInnerV1
-pagination_label: LoadaccountstaskTaskMessagesInnerV1
-sidebar_label: LoadaccountstaskTaskMessagesInnerV1
+id: v1-loadaccountstask-task-messages-inner
+title: LoadaccountstaskTaskMessagesInner
+pagination_label: LoadaccountstaskTaskMessagesInner
+sidebar_label: LoadaccountstaskTaskMessagesInner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'LoadaccountstaskTaskMessagesInnerV1', 'v1LoadaccountstaskTaskMessagesInnerV1']
-slug: /tools/sdk/typescript/sources/models/loadaccountstask-task-messages-inner-v1
-tags: ['SDK', 'Software Development Kit', 'LoadaccountstaskTaskMessagesInnerV1', 'v1LoadaccountstaskTaskMessagesInnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'LoadaccountstaskTaskMessagesInner', 'v1LoadaccountstaskTaskMessagesInner']
+slug: /tools/sdk/typescript/sources/models/loadaccountstask-task-messages-inner
+tags: ['SDK', 'Software Development Kit', 'LoadaccountstaskTaskMessagesInner', 'v1LoadaccountstaskTaskMessagesInner']
 ---
 
-# LoadaccountstaskTaskMessagesInnerV1
+# LoadaccountstaskTaskMessagesInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | Type of the message. | [default to undefined]
-**error** | **(optional)** **boolean** | Flag whether message is an error. | [default to false]
-**warning** | **(optional)** **boolean** | Flag whether message is a warning. | [default to false]
-**key** | **(optional)** **string** | Message string identifier. | [default to undefined]
-**localizedText** | **(optional)** **string** | Message context with the locale based language. | [default to undefined]
+**type** | **(optional)** `string` | Type of the message. | [default to undefined]
+**error** | **(optional)** `boolean` | Flag whether message is an error. | [default to false]
+**warning** | **(optional)** `boolean` | Flag whether message is a warning. | [default to false]
+**key** | **(optional)** `string` | Message string identifier. | [default to undefined]
+**localizedText** | **(optional)** `string` | Message context with the locale based language. | [default to undefined]
 

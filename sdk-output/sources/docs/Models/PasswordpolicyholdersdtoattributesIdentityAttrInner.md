@@ -1,20 +1,20 @@
 ---
-id: v1-passwordpolicyholdersdtoattributes-identity-attr-inner-v1
-title: PasswordpolicyholdersdtoattributesIdentityAttrInnerV1
-pagination_label: PasswordpolicyholdersdtoattributesIdentityAttrInnerV1
-sidebar_label: PasswordpolicyholdersdtoattributesIdentityAttrInnerV1
+id: v1-passwordpolicyholdersdtoattributes-identity-attr-inner
+title: PasswordpolicyholdersdtoattributesIdentityAttrInner
+pagination_label: PasswordpolicyholdersdtoattributesIdentityAttrInner
+sidebar_label: PasswordpolicyholdersdtoattributesIdentityAttrInner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'PasswordpolicyholdersdtoattributesIdentityAttrInnerV1', 'v1PasswordpolicyholdersdtoattributesIdentityAttrInnerV1']
-slug: /tools/sdk/typescript/sources/models/passwordpolicyholdersdtoattributes-identity-attr-inner-v1
-tags: ['SDK', 'Software Development Kit', 'PasswordpolicyholdersdtoattributesIdentityAttrInnerV1', 'v1PasswordpolicyholdersdtoattributesIdentityAttrInnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'PasswordpolicyholdersdtoattributesIdentityAttrInner', 'v1PasswordpolicyholdersdtoattributesIdentityAttrInner']
+slug: /tools/sdk/typescript/sources/models/passwordpolicyholdersdtoattributes-identity-attr-inner
+tags: ['SDK', 'Software Development Kit', 'PasswordpolicyholdersdtoattributesIdentityAttrInner', 'v1PasswordpolicyholdersdtoattributesIdentityAttrInner']
 ---
 
-# PasswordpolicyholdersdtoattributesIdentityAttrInnerV1
+# PasswordpolicyholdersdtoattributesIdentityAttrInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **(optional)** **string** | Attribute\'s name | [default to undefined]
-**value** | **(optional)** **string** | Attribute\'s value | [default to undefined]
+**name** | **(optional)** `string` | Attribute\'s name | [default to undefined]
+**value** | **(optional)** `string` | Attribute\'s value | [default to undefined]
 

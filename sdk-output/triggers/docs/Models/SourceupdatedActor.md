@@ -1,21 +1,21 @@
 ---
-id: v1-sourceupdated-actor-v1
-title: SourceupdatedActorV1
-pagination_label: SourceupdatedActorV1
-sidebar_label: SourceupdatedActorV1
+id: v1-sourceupdated-actor
+title: SourceupdatedActor
+pagination_label: SourceupdatedActor
+sidebar_label: SourceupdatedActor
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SourceupdatedActorV1', 'v1SourceupdatedActorV1']
-slug: /tools/sdk/typescript/triggers/models/sourceupdated-actor-v1
-tags: ['SDK', 'Software Development Kit', 'SourceupdatedActorV1', 'v1SourceupdatedActorV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'SourceupdatedActor', 'v1SourceupdatedActor']
+slug: /tools/sdk/typescript/triggers/models/sourceupdated-actor
+tags: ['SDK', 'Software Development Kit', 'SourceupdatedActor', 'v1SourceupdatedActor']
 ---
 
-# SourceupdatedActorV1
+# SourceupdatedActor
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **string** | DTO type of identity who updated the source. | [default to undefined]
-**id** | **(optional)** **string** | ID of identity who updated the source. | [default to undefined]
-**name** | **string** | Display name of identity who updated the source. | [default to undefined]
+**type** | `string` | DTO type of identity who updated the source. | [default to undefined]
+**id** | **(optional)** `string` | ID of identity who updated the source. | [default to undefined]
+**name** | `string` | Display name of identity who updated the source. | [default to undefined]
 

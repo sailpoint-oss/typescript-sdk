@@ -1,19 +1,19 @@
 ---
-id: v1-import-non-employee-records-in-bulk-v1-request-v1
-title: ImportNonEmployeeRecordsInBulkV1RequestV1
-pagination_label: ImportNonEmployeeRecordsInBulkV1RequestV1
-sidebar_label: ImportNonEmployeeRecordsInBulkV1RequestV1
+id: v1-import-non-employee-records-in-bulk-v1-request
+title: ImportNonEmployeeRecordsInBulkV1Request
+pagination_label: ImportNonEmployeeRecordsInBulkV1Request
+sidebar_label: ImportNonEmployeeRecordsInBulkV1Request
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ImportNonEmployeeRecordsInBulkV1RequestV1', 'v1ImportNonEmployeeRecordsInBulkV1RequestV1']
-slug: /tools/sdk/typescript/non_employee_lifecycle_management/models/import-non-employee-records-in-bulk-v1-request-v1
-tags: ['SDK', 'Software Development Kit', 'ImportNonEmployeeRecordsInBulkV1RequestV1', 'v1ImportNonEmployeeRecordsInBulkV1RequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ImportNonEmployeeRecordsInBulkV1Request', 'v1ImportNonEmployeeRecordsInBulkV1Request']
+slug: /tools/sdk/typescript/non_employee_lifecycle_management/models/import-non-employee-records-in-bulk-v1-request
+tags: ['SDK', 'Software Development Kit', 'ImportNonEmployeeRecordsInBulkV1Request', 'v1ImportNonEmployeeRecordsInBulkV1Request']
 ---
 
-# ImportNonEmployeeRecordsInBulkV1RequestV1
+# ImportNonEmployeeRecordsInBulkV1Request
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **File** |  | [default to undefined]
+**data** | `File` |  | [default to undefined]
 

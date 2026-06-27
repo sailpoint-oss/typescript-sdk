@@ -1,15 +1,15 @@
 ---
-id: v1-array-inner-v1
-title: ArrayInnerV1
-pagination_label: ArrayInnerV1
-sidebar_label: ArrayInnerV1
+id: v1-array-inner
+title: ArrayInner
+pagination_label: ArrayInner
+sidebar_label: ArrayInner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ArrayInnerV1', 'v1ArrayInnerV1']
-slug: /tools/sdk/typescript/custom_user_levels/models/array-inner-v1
-tags: ['SDK', 'Software Development Kit', 'ArrayInnerV1', 'v1ArrayInnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ArrayInner', 'v1ArrayInner']
+slug: /tools/sdk/typescript/custom_user_levels/models/array-inner
+tags: ['SDK', 'Software Development Kit', 'ArrayInner', 'v1ArrayInner']
 ---
 
-# ArrayInnerV1
+# ArrayInner
 
 ## Properties
 

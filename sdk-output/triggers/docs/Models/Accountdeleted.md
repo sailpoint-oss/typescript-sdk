@@ -1,22 +1,22 @@
 ---
-id: v1-accountdeleted-v1
-title: AccountdeletedV1
-pagination_label: AccountdeletedV1
-sidebar_label: AccountdeletedV1
+id: v1-accountdeleted
+title: Accountdeleted
+pagination_label: Accountdeleted
+sidebar_label: Accountdeleted
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccountdeletedV1', 'v1AccountdeletedV1']
-slug: /tools/sdk/typescript/triggers/models/accountdeleted-v1
-tags: ['SDK', 'Software Development Kit', 'AccountdeletedV1', 'v1AccountdeletedV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accountdeleted', 'v1Accountdeleted']
+slug: /tools/sdk/typescript/triggers/models/accountdeleted
+tags: ['SDK', 'Software Development Kit', 'Accountdeleted', 'v1Accountdeleted']
 ---
 
-# AccountdeletedV1
+# Accountdeleted
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**event** | **AccountdeletedEventV1** |  | [default to undefined]
-**source** | **AccountsourcereferenceV1** |  | [default to undefined]
-**account** | **Accountv2V1** |  | [default to undefined]
-**identity** | **Identityreference2V1** |  | [default to undefined]
+**event** | `AccountdeletedEvent` |  | [default to undefined]
+**source** | `Accountsourcereference` |  | [default to undefined]
+**account** | `Accountv2` |  | [default to undefined]
+**identity** | `Identityreference2` |  | [default to undefined]
 

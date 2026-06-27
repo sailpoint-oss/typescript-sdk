@@ -1,19 +1,19 @@
 ---
-id: v1-sodviolationcontext-conflicting-access-criteria-left-criteria-v1
-title: SodviolationcontextConflictingAccessCriteriaLeftCriteriaV1
-pagination_label: SodviolationcontextConflictingAccessCriteriaLeftCriteriaV1
-sidebar_label: SodviolationcontextConflictingAccessCriteriaLeftCriteriaV1
+id: v1-sodviolationcontext-conflicting-access-criteria-left-criteria
+title: SodviolationcontextConflictingAccessCriteriaLeftCriteria
+pagination_label: SodviolationcontextConflictingAccessCriteriaLeftCriteria
+sidebar_label: SodviolationcontextConflictingAccessCriteriaLeftCriteria
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SodviolationcontextConflictingAccessCriteriaLeftCriteriaV1', 'v1SodviolationcontextConflictingAccessCriteriaLeftCriteriaV1']
-slug: /tools/sdk/typescript/access_request_approvals/models/sodviolationcontext-conflicting-access-criteria-left-criteria-v1
-tags: ['SDK', 'Software Development Kit', 'SodviolationcontextConflictingAccessCriteriaLeftCriteriaV1', 'v1SodviolationcontextConflictingAccessCriteriaLeftCriteriaV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'SodviolationcontextConflictingAccessCriteriaLeftCriteria', 'v1SodviolationcontextConflictingAccessCriteriaLeftCriteria']
+slug: /tools/sdk/typescript/access_request_approvals/models/sodviolationcontext-conflicting-access-criteria-left-criteria
+tags: ['SDK', 'Software Development Kit', 'SodviolationcontextConflictingAccessCriteriaLeftCriteria', 'v1SodviolationcontextConflictingAccessCriteriaLeftCriteria']
 ---
 
-# SodviolationcontextConflictingAccessCriteriaLeftCriteriaV1
+# SodviolationcontextConflictingAccessCriteriaLeftCriteria
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**criteriaList** | **(optional)** **Array&lt;SodexemptcriteriaV1&gt;** |  | [default to undefined]
+**criteriaList** | **(optional)** `Array<Sodexemptcriteria>` |  | [default to undefined]
 

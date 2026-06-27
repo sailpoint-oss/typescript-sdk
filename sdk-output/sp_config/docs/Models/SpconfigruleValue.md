@@ -1,15 +1,15 @@
 ---
-id: v1-spconfigrule-value-v1
-title: SpconfigruleValueV1
-pagination_label: SpconfigruleValueV1
-sidebar_label: SpconfigruleValueV1
+id: v1-spconfigrule-value
+title: SpconfigruleValue
+pagination_label: SpconfigruleValue
+sidebar_label: SpconfigruleValue
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SpconfigruleValueV1', 'v1SpconfigruleValueV1']
-slug: /tools/sdk/typescript/sp_config/models/spconfigrule-value-v1
-tags: ['SDK', 'Software Development Kit', 'SpconfigruleValueV1', 'v1SpconfigruleValueV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'SpconfigruleValue', 'v1SpconfigruleValue']
+slug: /tools/sdk/typescript/sp_config/models/spconfigrule-value
+tags: ['SDK', 'Software Development Kit', 'SpconfigruleValue', 'v1SpconfigruleValue']
 ---
 
-# SpconfigruleValueV1
+# SpconfigruleValue
 
 ## Properties
 

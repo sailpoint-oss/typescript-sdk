@@ -1,26 +1,26 @@
 ---
-id: v1-objectmappingresponse-v1
-title: ObjectmappingresponseV1
-pagination_label: ObjectmappingresponseV1
-sidebar_label: ObjectmappingresponseV1
+id: v1-objectmappingresponse
+title: Objectmappingresponse
+pagination_label: Objectmappingresponse
+sidebar_label: Objectmappingresponse
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ObjectmappingresponseV1', 'v1ObjectmappingresponseV1']
-slug: /tools/sdk/typescript/configuration_hub/models/objectmappingresponse-v1
-tags: ['SDK', 'Software Development Kit', 'ObjectmappingresponseV1', 'v1ObjectmappingresponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Objectmappingresponse', 'v1Objectmappingresponse']
+slug: /tools/sdk/typescript/configuration_hub/models/objectmappingresponse
+tags: ['SDK', 'Software Development Kit', 'Objectmappingresponse', 'v1Objectmappingresponse']
 ---
 
-# ObjectmappingresponseV1
+# Objectmappingresponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**objectMappingId** | **(optional)** **string** | Id of the object mapping | [default to undefined]
-**objectType** | **(optional)** **string** | Type of the object the mapping value applies to | [default to undefined]
-**jsonPath** | **(optional)** **string** | JSONPath expression denoting the path within the object where the mapping value should be applied | [default to undefined]
-**sourceValue** | **(optional)** **string** | Original value at the jsonPath location within the object | [default to undefined]
-**targetValue** | **(optional)** **string** | Value to be assigned at the jsonPath location within the object | [default to undefined]
-**enabled** | **(optional)** **boolean** | Whether or not this object mapping is enabled | [default to false]
-**created** | **(optional)** **string** | Object mapping creation timestamp | [default to undefined]
-**modified** | **(optional)** **string** | Object mapping latest update timestamp | [default to undefined]
+**objectMappingId** | **(optional)** `string` | Id of the object mapping | [default to undefined]
+**objectType** | **(optional)** `string` | Type of the object the mapping value applies to | [default to undefined]
+**jsonPath** | **(optional)** `string` | JSONPath expression denoting the path within the object where the mapping value should be applied | [default to undefined]
+**sourceValue** | **(optional)** `string` | Original value at the jsonPath location within the object | [default to undefined]
+**targetValue** | **(optional)** `string` | Value to be assigned at the jsonPath location within the object | [default to undefined]
+**enabled** | **(optional)** `boolean` | Whether or not this object mapping is enabled | [default to false]
+**created** | **(optional)** `string` | Object mapping creation timestamp | [default to undefined]
+**modified** | **(optional)** `string` | Object mapping latest update timestamp | [default to undefined]
 

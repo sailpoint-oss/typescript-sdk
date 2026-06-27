@@ -1,20 +1,20 @@
 ---
-id: v1-campaignalert-v1
-title: CampaignalertV1
-pagination_label: CampaignalertV1
-sidebar_label: CampaignalertV1
+id: v1-campaignalert
+title: Campaignalert
+pagination_label: Campaignalert
+sidebar_label: Campaignalert
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'CampaignalertV1', 'v1CampaignalertV1']
-slug: /tools/sdk/typescript/certification_campaigns/models/campaignalert-v1
-tags: ['SDK', 'Software Development Kit', 'CampaignalertV1', 'v1CampaignalertV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Campaignalert', 'v1Campaignalert']
+slug: /tools/sdk/typescript/certification_campaigns/models/campaignalert
+tags: ['SDK', 'Software Development Kit', 'Campaignalert', 'v1Campaignalert']
 ---
 
-# CampaignalertV1
+# Campaignalert
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**level** | **(optional)** **string** | Denotes the level of the message | [default to undefined]
-**localizations** | **(optional)** **Array&lt;ErrormessagedtoV1&gt;** |  | [default to undefined]
+**level** | **(optional)** `string` | Denotes the level of the message | [default to undefined]
+**localizations** | **(optional)** `Array<Errormessagedto>` |  | [default to undefined]
 

@@ -26,52 +26,52 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface AggregationresultV1
+ * @interface Aggregationresult
  */
-export interface AggregationresultV1 {
+export interface Aggregationresult {
     /**
      * The document containing the results of the aggregation. This document is controlled by Elasticsearch and depends on the type of aggregation query that is run.  See Elasticsearch [Aggregations](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/search-aggregations.html) documentation for information. 
      * @type {object}
-     * @memberof AggregationresultV1
+     * @memberof Aggregationresult
      */
     'aggregations'?: object;
     /**
      * The results of the aggregation search query. 
      * @type {Array<object>}
-     * @memberof AggregationresultV1
+     * @memberof Aggregationresult
      */
     'hits'?: Array<object>;
 }
 /**
  * 
  * @export
- * @interface AggregationsV1
+ * @interface Aggregations
  */
-export interface AggregationsV1 {
+export interface Aggregations {
     /**
      * 
-     * @type {NestedaggregationV1}
-     * @memberof AggregationsV1
+     * @type {Nestedaggregation}
+     * @memberof Aggregations
      */
-    'nested'?: NestedaggregationV1;
+    'nested'?: Nestedaggregation;
     /**
      * 
-     * @type {MetricaggregationV1}
-     * @memberof AggregationsV1
+     * @type {Metricaggregation}
+     * @memberof Aggregations
      */
-    'metric'?: MetricaggregationV1;
+    'metric'?: Metricaggregation;
     /**
      * 
-     * @type {FilteraggregationV1}
-     * @memberof AggregationsV1
+     * @type {Filteraggregation}
+     * @memberof Aggregations
      */
-    'filter'?: FilteraggregationV1;
+    'filter'?: Filteraggregation;
     /**
      * 
-     * @type {BucketaggregationV1}
-     * @memberof AggregationsV1
+     * @type {Bucketaggregation}
+     * @memberof Aggregations
      */
-    'bucket'?: BucketaggregationV1;
+    'bucket'?: Bucketaggregation;
 }
 /**
  * Enum representing the currently available query languages for aggregations, which are used to perform calculations or groupings on search results.  Additional values may be added in the future without notice. 
@@ -79,67 +79,67 @@ export interface AggregationsV1 {
  * @enum {string}
  */
 
-export const AggregationtypeV1 = {
+export const Aggregationtype = {
     Dsl: 'DSL',
     Sailpoint: 'SAILPOINT'
 } as const;
 
-export type AggregationtypeV1 = typeof AggregationtypeV1[keyof typeof AggregationtypeV1];
+export type Aggregationtype = typeof Aggregationtype[keyof typeof Aggregationtype];
 
 
 /**
  * 
  * @export
- * @interface BoundV1
+ * @interface Bound
  */
-export interface BoundV1 {
+export interface Bound {
     /**
      * The value of the range\'s endpoint.
      * @type {string}
-     * @memberof BoundV1
+     * @memberof Bound
      */
     'value': string;
     /**
      * Indicates if the endpoint is included in the range.
      * @type {boolean}
-     * @memberof BoundV1
+     * @memberof Bound
      */
     'inclusive'?: boolean;
 }
 /**
  * The bucket to group the results of the aggregation query by.
  * @export
- * @interface BucketaggregationV1
+ * @interface Bucketaggregation
  */
-export interface BucketaggregationV1 {
+export interface Bucketaggregation {
     /**
      * The name of the bucket aggregate to be included in the result.
      * @type {string}
-     * @memberof BucketaggregationV1
+     * @memberof Bucketaggregation
      */
     'name': string;
     /**
      * 
-     * @type {BuckettypeV1}
-     * @memberof BucketaggregationV1
+     * @type {Buckettype}
+     * @memberof Bucketaggregation
      */
-    'type'?: BuckettypeV1;
+    'type'?: Buckettype;
     /**
      * The field to bucket on. Prefix the field name with \'@\' to reference a nested object.
      * @type {string}
-     * @memberof BucketaggregationV1
+     * @memberof Bucketaggregation
      */
     'field': string;
     /**
      * Maximum number of buckets to include.
      * @type {number}
-     * @memberof BucketaggregationV1
+     * @memberof Bucketaggregation
      */
     'size'?: number;
     /**
      * Minimum number of documents a bucket should have.
      * @type {number}
-     * @memberof BucketaggregationV1
+     * @memberof Bucketaggregation
      */
     'minDocCount'?: number;
 }
@@ -151,35 +151,35 @@ export interface BucketaggregationV1 {
  * @enum {string}
  */
 
-export const BuckettypeV1 = {
+export const Buckettype = {
     Terms: 'TERMS'
 } as const;
 
-export type BuckettypeV1 = typeof BuckettypeV1[keyof typeof BuckettypeV1];
+export type Buckettype = typeof Buckettype[keyof typeof Buckettype];
 
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -188,62 +188,62 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface FilterV1
+ * @interface Filter
  */
-export interface FilterV1 {
+export interface Filter {
     /**
      * 
-     * @type {FiltertypeV1}
-     * @memberof FilterV1
+     * @type {Filtertype}
+     * @memberof Filter
      */
-    'type'?: FiltertypeV1;
+    'type'?: Filtertype;
     /**
      * 
-     * @type {RangeV1}
-     * @memberof FilterV1
+     * @type {Range}
+     * @memberof Filter
      */
-    'range'?: RangeV1;
+    'range'?: Range;
     /**
      * The terms to be filtered.
      * @type {Array<string>}
-     * @memberof FilterV1
+     * @memberof Filter
      */
     'terms'?: Array<string>;
     /**
      * Indicates if the filter excludes results.
      * @type {boolean}
-     * @memberof FilterV1
+     * @memberof Filter
      */
     'exclude'?: boolean;
 }
@@ -252,31 +252,31 @@ export interface FilterV1 {
 /**
  * An additional filter to constrain the results of the search query.
  * @export
- * @interface FilteraggregationV1
+ * @interface Filteraggregation
  */
-export interface FilteraggregationV1 {
+export interface Filteraggregation {
     /**
      * The name of the filter aggregate to be included in the result.
      * @type {string}
-     * @memberof FilteraggregationV1
+     * @memberof Filteraggregation
      */
     'name': string;
     /**
      * 
-     * @type {SearchfiltertypeV1}
-     * @memberof FilteraggregationV1
+     * @type {Searchfiltertype}
+     * @memberof Filteraggregation
      */
-    'type'?: SearchfiltertypeV1;
+    'type'?: Searchfiltertype;
     /**
      * The search field to apply the filter to.  Prefix the field name with \'@\' to reference a nested object. 
      * @type {string}
-     * @memberof FilteraggregationV1
+     * @memberof Filteraggregation
      */
     'field': string;
     /**
      * The value to filter on.
      * @type {string}
-     * @memberof FilteraggregationV1
+     * @memberof Filteraggregation
      */
     'value': string;
 }
@@ -288,13 +288,13 @@ export interface FilteraggregationV1 {
  * @enum {string}
  */
 
-export const FiltertypeV1 = {
+export const Filtertype = {
     Exists: 'EXISTS',
     Range: 'RANGE',
     Terms: 'TERMS'
 } as const;
 
-export type FiltertypeV1 = typeof FiltertypeV1[keyof typeof FiltertypeV1];
+export type Filtertype = typeof Filtertype[keyof typeof Filtertype];
 
 
 /**
@@ -303,7 +303,7 @@ export type FiltertypeV1 = typeof FiltertypeV1[keyof typeof FiltertypeV1];
  * @enum {string}
  */
 
-export const IndexV1 = {
+export const Index = {
     Accessprofiles: 'accessprofiles',
     Accountactivities: 'accountactivities',
     Entitlements: 'entitlements',
@@ -313,25 +313,25 @@ export const IndexV1 = {
     Star: '*'
 } as const;
 
-export type IndexV1 = typeof IndexV1[keyof typeof IndexV1];
+export type Index = typeof Index[keyof typeof Index];
 
 
 /**
  * Inner Hit query object that will cause the specified nested type to be returned as the result matching the supplied query.
  * @export
- * @interface InnerhitV1
+ * @interface Innerhit
  */
-export interface InnerhitV1 {
+export interface Innerhit {
     /**
      * The search query using the Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL extended by SailPoint to support Nested queries.
      * @type {string}
-     * @memberof InnerhitV1
+     * @memberof Innerhit
      */
     'query': string;
     /**
      * The nested type to use in the inner hits query.  The nested type [Nested Type](https://www.elastic.co/guide/en/elasticsearch/reference/current/nested.html) refers to a document \"nested\" within another document. For example, an identity can have nested documents for access, accounts, and apps.
      * @type {string}
-     * @memberof InnerhitV1
+     * @memberof Innerhit
      */
     'type': string;
 }
@@ -341,36 +341,36 @@ export interface InnerhitV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * The calculation done on the results of the query
  * @export
- * @interface MetricaggregationV1
+ * @interface Metricaggregation
  */
-export interface MetricaggregationV1 {
+export interface Metricaggregation {
     /**
      * The name of the metric aggregate to be included in the result. If the metric aggregation is omitted, the resulting aggregation will be a count of the documents in the search results.
      * @type {string}
-     * @memberof MetricaggregationV1
+     * @memberof Metricaggregation
      */
     'name': string;
     /**
      * 
-     * @type {MetrictypeV1}
-     * @memberof MetricaggregationV1
+     * @type {Metrictype}
+     * @memberof Metricaggregation
      */
-    'type'?: MetrictypeV1;
+    'type'?: Metrictype;
     /**
      * The field the calculation is performed on.  Prefix the field name with \'@\' to reference a nested object. 
      * @type {string}
-     * @memberof MetricaggregationV1
+     * @memberof Metricaggregation
      */
     'field': string;
 }
@@ -382,7 +382,7 @@ export interface MetricaggregationV1 {
  * @enum {string}
  */
 
-export const MetrictypeV1 = {
+export const Metrictype = {
     Count: 'COUNT',
     UniqueCount: 'UNIQUE_COUNT',
     Avg: 'AVG',
@@ -392,75 +392,75 @@ export const MetrictypeV1 = {
     Max: 'MAX'
 } as const;
 
-export type MetrictypeV1 = typeof MetrictypeV1[keyof typeof MetrictypeV1];
+export type Metrictype = typeof Metrictype[keyof typeof Metrictype];
 
 
 /**
  * The nested aggregation object.
  * @export
- * @interface NestedaggregationV1
+ * @interface Nestedaggregation
  */
-export interface NestedaggregationV1 {
+export interface Nestedaggregation {
     /**
      * The name of the nested aggregate to be included in the result.
      * @type {string}
-     * @memberof NestedaggregationV1
+     * @memberof Nestedaggregation
      */
     'name': string;
     /**
      * The type of the nested object.
      * @type {string}
-     * @memberof NestedaggregationV1
+     * @memberof Nestedaggregation
      */
     'type': string;
 }
 /**
  * Query parameters used to construct an Elasticsearch query object.
  * @export
- * @interface QueryV1
+ * @interface Query
  */
-export interface QueryV1 {
+export interface Query {
     /**
      * The query using the Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL extended by SailPoint to support Nested queries.
      * @type {string}
-     * @memberof QueryV1
+     * @memberof Query
      */
     'query'?: string;
     /**
      * The fields the query will be applied to.  Fields provide you with a simple way to add additional fields to search, without making the query too complicated.  For example, you can use the fields to specify that you want your query of \"a*\" to be applied to \"name\", \"firstName\", and the \"source.name\".  The response will include all results matching the \"a*\" query found in those three fields.  A field\'s availability depends on the indices being searched.  For example, if you are searching \"identities\", you can apply your search to the \"firstName\" field, but you couldn\'t use \"firstName\" with a search on \"access profiles\".  Refer to the response schema for the respective lists of available fields. 
      * @type {string}
-     * @memberof QueryV1
+     * @memberof Query
      */
     'fields'?: string;
     /**
      * The time zone to be applied to any range query related to dates.
      * @type {string}
-     * @memberof QueryV1
+     * @memberof Query
      */
     'timeZone'?: string;
     /**
      * 
-     * @type {InnerhitV1}
-     * @memberof QueryV1
+     * @type {Innerhit}
+     * @memberof Query
      */
-    'innerHit'?: InnerhitV1;
+    'innerHit'?: Innerhit;
 }
 /**
  * Allows the query results to be filtered by specifying a list of fields to include and/or exclude from the result documents.
  * @export
- * @interface QueryresultfilterV1
+ * @interface Queryresultfilter
  */
-export interface QueryresultfilterV1 {
+export interface Queryresultfilter {
     /**
      * The list of field names to include in the result documents.
      * @type {Array<string>}
-     * @memberof QueryresultfilterV1
+     * @memberof Queryresultfilter
      */
     'includes'?: Array<string>;
     /**
      * The list of field names to exclude from the result documents.
      * @type {Array<string>}
-     * @memberof QueryresultfilterV1
+     * @memberof Queryresultfilter
      */
     'excludes'?: Array<string>;
 }
@@ -470,202 +470,202 @@ export interface QueryresultfilterV1 {
  * @enum {string}
  */
 
-export const QuerytypeV1 = {
+export const Querytype = {
     Dsl: 'DSL',
     Sailpoint: 'SAILPOINT',
     Text: 'TEXT',
     Typeahead: 'TYPEAHEAD'
 } as const;
 
-export type QuerytypeV1 = typeof QuerytypeV1[keyof typeof QuerytypeV1];
+export type Querytype = typeof Querytype[keyof typeof Querytype];
 
 
 /**
  * The range of values to be filtered.
  * @export
- * @interface RangeV1
+ * @interface Range
  */
-export interface RangeV1 {
+export interface Range {
     /**
      * 
-     * @type {BoundV1}
-     * @memberof RangeV1
+     * @type {Bound}
+     * @memberof Range
      */
-    'lower'?: BoundV1;
+    'lower'?: Bound;
     /**
      * 
-     * @type {BoundV1}
-     * @memberof RangeV1
+     * @type {Bound}
+     * @memberof Range
      */
-    'upper'?: BoundV1;
+    'upper'?: Bound;
 }
 /**
  * 
  * @export
- * @interface SearchPostV1401ResponseV1
+ * @interface Search
  */
-export interface SearchPostV1401ResponseV1 {
+export interface Search {
+    /**
+     * The names of the Elasticsearch indices in which to search. If none are provided, then all indices will be searched.
+     * @type {Array<Index>}
+     * @memberof Search
+     */
+    'indices'?: Array<Index>;
+    /**
+     * 
+     * @type {Querytype}
+     * @memberof Search
+     */
+    'queryType'?: Querytype;
+    /**
+     * 
+     * @type {string}
+     * @memberof Search
+     */
+    'queryVersion'?: string;
+    /**
+     * 
+     * @type {Query}
+     * @memberof Search
+     */
+    'query'?: Query;
+    /**
+     * The search query using the Elasticsearch [Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/7.10/query-dsl.html) syntax.
+     * @type {object}
+     * @memberof Search
+     */
+    'queryDsl'?: object;
+    /**
+     * 
+     * @type {Textquery}
+     * @memberof Search
+     */
+    'textQuery'?: Textquery;
+    /**
+     * 
+     * @type {Typeaheadquery}
+     * @memberof Search
+     */
+    'typeAheadQuery'?: Typeaheadquery;
+    /**
+     * Indicates whether nested objects from returned search results should be included.
+     * @type {boolean}
+     * @memberof Search
+     */
+    'includeNested'?: boolean;
+    /**
+     * 
+     * @type {Queryresultfilter}
+     * @memberof Search
+     */
+    'queryResultFilter'?: Queryresultfilter;
+    /**
+     * 
+     * @type {Aggregationtype}
+     * @memberof Search
+     */
+    'aggregationType'?: Aggregationtype;
+    /**
+     * 
+     * @type {string}
+     * @memberof Search
+     */
+    'aggregationsVersion'?: string;
+    /**
+     * The aggregation search query using Elasticsearch [Aggregations](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/search-aggregations.html) syntax.
+     * @type {object}
+     * @memberof Search
+     */
+    'aggregationsDsl'?: object;
+    /**
+     * 
+     * @type {Searchaggregationspecification}
+     * @memberof Search
+     */
+    'aggregations'?: Searchaggregationspecification;
+    /**
+     * The fields to be used to sort the search results. Use + or - to specify the sort direction.
+     * @type {Array<string>}
+     * @memberof Search
+     */
+    'sort'?: Array<string>;
+    /**
+     * Used to begin the search window at the values specified. This parameter consists of the last values of the sorted fields in the current record set. This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value. It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don\'t get duplicate results while paging. For example, when searching for identities, if you are sorting by displayName you will also want to include ID, for example [\"displayName\", \"id\"].  If the last identity ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last displayName is \"John Doe\", then using that displayName and ID will start a new search after this identity. The searchAfter value will look like [\"John Doe\",\"2c91808375d8e80a0175e1f88a575221\"]
+     * @type {Array<string>}
+     * @memberof Search
+     */
+    'searchAfter'?: Array<string>;
+    /**
+     * The filters to be applied for each filtered field name.
+     * @type {{ [key: string]: Filter; }}
+     * @memberof Search
+     */
+    'filters'?: { [key: string]: Filter; };
+}
+
+
+/**
+ * 
+ * @export
+ * @interface SearchPostV1401Response
+ */
+export interface SearchPostV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof SearchPostV1401ResponseV1
+     * @memberof SearchPostV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface SearchPostV1429ResponseV1
+ * @interface SearchPostV1429Response
  */
-export interface SearchPostV1429ResponseV1 {
+export interface SearchPostV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof SearchPostV1429ResponseV1
+     * @memberof SearchPostV1429Response
      */
     'message'?: any;
 }
 /**
  * 
  * @export
- * @interface SearchV1
+ * @interface Searchaggregationspecification
  */
-export interface SearchV1 {
-    /**
-     * The names of the Elasticsearch indices in which to search. If none are provided, then all indices will be searched.
-     * @type {Array<IndexV1>}
-     * @memberof SearchV1
-     */
-    'indices'?: Array<IndexV1>;
+export interface Searchaggregationspecification {
     /**
      * 
-     * @type {QuerytypeV1}
-     * @memberof SearchV1
+     * @type {Nestedaggregation}
+     * @memberof Searchaggregationspecification
      */
-    'queryType'?: QuerytypeV1;
+    'nested'?: Nestedaggregation;
     /**
      * 
-     * @type {string}
-     * @memberof SearchV1
+     * @type {Metricaggregation}
+     * @memberof Searchaggregationspecification
      */
-    'queryVersion'?: string;
+    'metric'?: Metricaggregation;
     /**
      * 
-     * @type {QueryV1}
-     * @memberof SearchV1
+     * @type {Filteraggregation}
+     * @memberof Searchaggregationspecification
      */
-    'query'?: QueryV1;
-    /**
-     * The search query using the Elasticsearch [Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/7.10/query-dsl.html) syntax.
-     * @type {object}
-     * @memberof SearchV1
-     */
-    'queryDsl'?: object;
+    'filter'?: Filteraggregation;
     /**
      * 
-     * @type {TextqueryV1}
-     * @memberof SearchV1
+     * @type {Bucketaggregation}
+     * @memberof Searchaggregationspecification
      */
-    'textQuery'?: TextqueryV1;
+    'bucket'?: Bucketaggregation;
     /**
      * 
-     * @type {TypeaheadqueryV1}
-     * @memberof SearchV1
+     * @type {Subsearchaggregationspecification}
+     * @memberof Searchaggregationspecification
      */
-    'typeAheadQuery'?: TypeaheadqueryV1;
-    /**
-     * Indicates whether nested objects from returned search results should be included.
-     * @type {boolean}
-     * @memberof SearchV1
-     */
-    'includeNested'?: boolean;
-    /**
-     * 
-     * @type {QueryresultfilterV1}
-     * @memberof SearchV1
-     */
-    'queryResultFilter'?: QueryresultfilterV1;
-    /**
-     * 
-     * @type {AggregationtypeV1}
-     * @memberof SearchV1
-     */
-    'aggregationType'?: AggregationtypeV1;
-    /**
-     * 
-     * @type {string}
-     * @memberof SearchV1
-     */
-    'aggregationsVersion'?: string;
-    /**
-     * The aggregation search query using Elasticsearch [Aggregations](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/search-aggregations.html) syntax.
-     * @type {object}
-     * @memberof SearchV1
-     */
-    'aggregationsDsl'?: object;
-    /**
-     * 
-     * @type {SearchaggregationspecificationV1}
-     * @memberof SearchV1
-     */
-    'aggregations'?: SearchaggregationspecificationV1;
-    /**
-     * The fields to be used to sort the search results. Use + or - to specify the sort direction.
-     * @type {Array<string>}
-     * @memberof SearchV1
-     */
-    'sort'?: Array<string>;
-    /**
-     * Used to begin the search window at the values specified. This parameter consists of the last values of the sorted fields in the current record set. This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value. It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don\'t get duplicate results while paging. For example, when searching for identities, if you are sorting by displayName you will also want to include ID, for example [\"displayName\", \"id\"].  If the last identity ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last displayName is \"John Doe\", then using that displayName and ID will start a new search after this identity. The searchAfter value will look like [\"John Doe\",\"2c91808375d8e80a0175e1f88a575221\"]
-     * @type {Array<string>}
-     * @memberof SearchV1
-     */
-    'searchAfter'?: Array<string>;
-    /**
-     * The filters to be applied for each filtered field name.
-     * @type {{ [key: string]: FilterV1; }}
-     * @memberof SearchV1
-     */
-    'filters'?: { [key: string]: FilterV1; };
-}
-
-
-/**
- * 
- * @export
- * @interface SearchaggregationspecificationV1
- */
-export interface SearchaggregationspecificationV1 {
-    /**
-     * 
-     * @type {NestedaggregationV1}
-     * @memberof SearchaggregationspecificationV1
-     */
-    'nested'?: NestedaggregationV1;
-    /**
-     * 
-     * @type {MetricaggregationV1}
-     * @memberof SearchaggregationspecificationV1
-     */
-    'metric'?: MetricaggregationV1;
-    /**
-     * 
-     * @type {FilteraggregationV1}
-     * @memberof SearchaggregationspecificationV1
-     */
-    'filter'?: FilteraggregationV1;
-    /**
-     * 
-     * @type {BucketaggregationV1}
-     * @memberof SearchaggregationspecificationV1
-     */
-    'bucket'?: BucketaggregationV1;
-    /**
-     * 
-     * @type {SubsearchaggregationspecificationV1}
-     * @memberof SearchaggregationspecificationV1
-     */
-    'subAggregation'?: SubsearchaggregationspecificationV1;
+    'subAggregation'?: Subsearchaggregationspecification;
 }
 /**
  * Enum representing the currently supported filter aggregation types. Additional values may be added in the future without notice.
@@ -673,150 +673,150 @@ export interface SearchaggregationspecificationV1 {
  * @enum {string}
  */
 
-export const SearchfiltertypeV1 = {
+export const Searchfiltertype = {
     Term: 'TERM'
 } as const;
 
-export type SearchfiltertypeV1 = typeof SearchfiltertypeV1[keyof typeof SearchfiltertypeV1];
+export type Searchfiltertype = typeof Searchfiltertype[keyof typeof Searchfiltertype];
 
 
 /**
  * 
  * @export
- * @interface SubsearchaggregationspecificationV1
+ * @interface Subsearchaggregationspecification
  */
-export interface SubsearchaggregationspecificationV1 {
+export interface Subsearchaggregationspecification {
     /**
      * 
-     * @type {NestedaggregationV1}
-     * @memberof SubsearchaggregationspecificationV1
+     * @type {Nestedaggregation}
+     * @memberof Subsearchaggregationspecification
      */
-    'nested'?: NestedaggregationV1;
+    'nested'?: Nestedaggregation;
     /**
      * 
-     * @type {MetricaggregationV1}
-     * @memberof SubsearchaggregationspecificationV1
+     * @type {Metricaggregation}
+     * @memberof Subsearchaggregationspecification
      */
-    'metric'?: MetricaggregationV1;
+    'metric'?: Metricaggregation;
     /**
      * 
-     * @type {FilteraggregationV1}
-     * @memberof SubsearchaggregationspecificationV1
+     * @type {Filteraggregation}
+     * @memberof Subsearchaggregationspecification
      */
-    'filter'?: FilteraggregationV1;
+    'filter'?: Filteraggregation;
     /**
      * 
-     * @type {BucketaggregationV1}
-     * @memberof SubsearchaggregationspecificationV1
+     * @type {Bucketaggregation}
+     * @memberof Subsearchaggregationspecification
      */
-    'bucket'?: BucketaggregationV1;
+    'bucket'?: Bucketaggregation;
     /**
      * 
-     * @type {AggregationsV1}
-     * @memberof SubsearchaggregationspecificationV1
+     * @type {Aggregations}
+     * @memberof Subsearchaggregationspecification
      */
-    'subAggregation'?: AggregationsV1;
+    'subAggregation'?: Aggregations;
 }
 /**
  * Query parameters used to construct an Elasticsearch text query object.
  * @export
- * @interface TextqueryV1
+ * @interface Textquery
  */
-export interface TextqueryV1 {
+export interface Textquery {
     /**
      * Words or characters that specify a particular thing to be searched for.
      * @type {Array<string>}
-     * @memberof TextqueryV1
+     * @memberof Textquery
      */
     'terms': Array<string>;
     /**
      * The fields to be searched.
      * @type {Array<string>}
-     * @memberof TextqueryV1
+     * @memberof Textquery
      */
     'fields': Array<string>;
     /**
      * Indicates that at least one of the terms must be found in the specified fields;  otherwise, all terms must be found.
      * @type {boolean}
-     * @memberof TextqueryV1
+     * @memberof Textquery
      */
     'matchAny'?: boolean;
     /**
      * Indicates that the terms can be located anywhere in the specified fields;  otherwise, the fields must begin with the terms.
      * @type {boolean}
-     * @memberof TextqueryV1
+     * @memberof Textquery
      */
     'contains'?: boolean;
 }
 /**
  * Query parameters used to construct an Elasticsearch type ahead query object.  The typeAheadQuery performs a search for top values beginning with the typed values. For example, typing \"Jo\" results in top hits matching \"Jo.\" Typing \"Job\" results in top hits matching \"Job.\" 
  * @export
- * @interface TypeaheadqueryV1
+ * @interface Typeaheadquery
  */
-export interface TypeaheadqueryV1 {
+export interface Typeaheadquery {
     /**
      * The type ahead query string used to construct a phrase prefix match query.
      * @type {string}
-     * @memberof TypeaheadqueryV1
+     * @memberof Typeaheadquery
      */
     'query': string;
     /**
      * The field on which to perform the type ahead search.
      * @type {string}
-     * @memberof TypeaheadqueryV1
+     * @memberof Typeaheadquery
      */
     'field': string;
     /**
      * The nested type.
      * @type {string}
-     * @memberof TypeaheadqueryV1
+     * @memberof Typeaheadquery
      */
     'nestedType'?: string;
     /**
      * The number of suffixes the last term will be expanded into. Influences the performance of the query and the number results returned. Valid values: 1 to 1000.
      * @type {number}
-     * @memberof TypeaheadqueryV1
+     * @memberof Typeaheadquery
      */
     'maxExpansions'?: number;
     /**
      * The max amount of records the search will return.
      * @type {number}
-     * @memberof TypeaheadqueryV1
+     * @memberof Typeaheadquery
      */
     'size'?: number;
     /**
      * The sort order of the returned records.
      * @type {string}
-     * @memberof TypeaheadqueryV1
+     * @memberof Typeaheadquery
      */
     'sort'?: string;
     /**
      * The flag that defines the sort type, by count or value.
      * @type {boolean}
-     * @memberof TypeaheadqueryV1
+     * @memberof Typeaheadquery
      */
     'sortByValue'?: boolean;
 }
 
 /**
- * SearchV1Api - axios parameter creator
+ * SearchApi - axios parameter creator
  * @export
  */
-export const SearchV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const SearchApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Performs a search query aggregation and returns the aggregation result. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
          * @summary Perform a search query aggregation
-         * @param {SearchV1} searchV1 
+         * @param {Search} search 
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchAggregateV1: async (searchV1: SearchV1, offset?: number, limit?: number, count?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'searchV1' is not null or undefined
-            assertParamExists('searchAggregateV1', 'searchV1', searchV1)
+        searchAggregateV1: async (search: Search, offset?: number, limit?: number, count?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'search' is not null or undefined
+            assertParamExists('searchAggregateV1', 'search', search)
             const localVarPath = `/search/v1/aggregate`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -848,7 +848,7 @@ export const SearchV1ApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(searchV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(search, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -858,13 +858,13 @@ export const SearchV1ApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * Performs a search with a provided query and returns the count of results in the X-Total-Count header.
          * @summary Count documents satisfying a query
-         * @param {SearchV1} searchV1 
+         * @param {Search} search 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchCountV1: async (searchV1: SearchV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'searchV1' is not null or undefined
-            assertParamExists('searchCountV1', 'searchV1', searchV1)
+        searchCountV1: async (search: Search, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'search' is not null or undefined
+            assertParamExists('searchCountV1', 'search', search)
             const localVarPath = `/search/v1/count`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -884,7 +884,7 @@ export const SearchV1ApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(searchV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(search, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -894,12 +894,12 @@ export const SearchV1ApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * Fetches a single document from the specified index, using the specified document ID.
          * @summary Get a document by id
-         * @param {SearchGetV1IndexV1} index The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
+         * @param {SearchGetV1IndexEnum} index The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
          * @param {string} id ID of the requested document.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchGetV1: async (index: SearchGetV1IndexV1, id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        searchGetV1: async (index: SearchGetV1IndexEnum, id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'index' is not null or undefined
             assertParamExists('searchGetV1', 'index', index)
             // verify required parameter 'id' is not null or undefined
@@ -932,16 +932,16 @@ export const SearchV1ApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * Perform a search with the provided query and return a matching result collection. To page past 10,000 records, you can use `searchAfter` paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement `searchAfter` paging. The search query itself has a size limitation of approximately 800 objects when filtering by large lists of IDs or values (e.g., using `terms` filters with extensive lists).
          * @summary Perform search
-         * @param {SearchV1} searchV1 
+         * @param {Search} search 
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchPostV1: async (searchV1: SearchV1, offset?: number, limit?: number, count?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'searchV1' is not null or undefined
-            assertParamExists('searchPostV1', 'searchV1', searchV1)
+        searchPostV1: async (search: Search, offset?: number, limit?: number, count?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'search' is not null or undefined
+            assertParamExists('searchPostV1', 'search', search)
             const localVarPath = `/search/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -973,7 +973,7 @@ export const SearchV1ApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(searchV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(search, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -984,289 +984,289 @@ export const SearchV1ApiAxiosParamCreator = function (configuration?: Configurat
 };
 
 /**
- * SearchV1Api - functional programming interface
+ * SearchApi - functional programming interface
  * @export
  */
-export const SearchV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = SearchV1ApiAxiosParamCreator(configuration)
+export const SearchApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SearchApiAxiosParamCreator(configuration)
     return {
         /**
          * Performs a search query aggregation and returns the aggregation result. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
          * @summary Perform a search query aggregation
-         * @param {SearchV1} searchV1 
+         * @param {Search} search 
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchAggregateV1(searchV1: SearchV1, offset?: number, limit?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AggregationresultV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchAggregateV1(searchV1, offset, limit, count, axiosOptions);
+        async searchAggregateV1(search: Search, offset?: number, limit?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Aggregationresult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchAggregateV1(search, offset, limit, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SearchV1Api.searchAggregateV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SearchApi.searchAggregateV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Performs a search with a provided query and returns the count of results in the X-Total-Count header.
          * @summary Count documents satisfying a query
-         * @param {SearchV1} searchV1 
+         * @param {Search} search 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchCountV1(searchV1: SearchV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchCountV1(searchV1, axiosOptions);
+        async searchCountV1(search: Search, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchCountV1(search, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SearchV1Api.searchCountV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SearchApi.searchCountV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Fetches a single document from the specified index, using the specified document ID.
          * @summary Get a document by id
-         * @param {SearchGetV1IndexV1} index The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
+         * @param {SearchGetV1IndexEnum} index The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
          * @param {string} id ID of the requested document.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchGetV1(index: SearchGetV1IndexV1, id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+        async searchGetV1(index: SearchGetV1IndexEnum, id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchGetV1(index, id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SearchV1Api.searchGetV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SearchApi.searchGetV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Perform a search with the provided query and return a matching result collection. To page past 10,000 records, you can use `searchAfter` paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement `searchAfter` paging. The search query itself has a size limitation of approximately 800 objects when filtering by large lists of IDs or values (e.g., using `terms` filters with extensive lists).
          * @summary Perform search
-         * @param {SearchV1} searchV1 
+         * @param {Search} search 
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchPostV1(searchV1: SearchV1, offset?: number, limit?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<object>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchPostV1(searchV1, offset, limit, count, axiosOptions);
+        async searchPostV1(search: Search, offset?: number, limit?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<object>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchPostV1(search, offset, limit, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SearchV1Api.searchPostV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SearchApi.searchPostV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * SearchV1Api - factory interface
+ * SearchApi - factory interface
  * @export
  */
-export const SearchV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = SearchV1ApiFp(configuration)
+export const SearchApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SearchApiFp(configuration)
     return {
         /**
          * Performs a search query aggregation and returns the aggregation result. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
          * @summary Perform a search query aggregation
-         * @param {SearchV1ApiSearchAggregateV1Request} requestParameters Request parameters.
+         * @param {SearchApiSearchAggregateV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchAggregateV1(requestParameters: SearchV1ApiSearchAggregateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AggregationresultV1> {
-            return localVarFp.searchAggregateV1(requestParameters.searchV1, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
+        searchAggregateV1(requestParameters: SearchApiSearchAggregateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Aggregationresult> {
+            return localVarFp.searchAggregateV1(requestParameters.search, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Performs a search with a provided query and returns the count of results in the X-Total-Count header.
          * @summary Count documents satisfying a query
-         * @param {SearchV1ApiSearchCountV1Request} requestParameters Request parameters.
+         * @param {SearchApiSearchCountV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchCountV1(requestParameters: SearchV1ApiSearchCountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.searchCountV1(requestParameters.searchV1, axiosOptions).then((request) => request(axios, basePath));
+        searchCountV1(requestParameters: SearchApiSearchCountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.searchCountV1(requestParameters.search, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Fetches a single document from the specified index, using the specified document ID.
          * @summary Get a document by id
-         * @param {SearchV1ApiSearchGetV1Request} requestParameters Request parameters.
+         * @param {SearchApiSearchGetV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchGetV1(requestParameters: SearchV1ApiSearchGetV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
+        searchGetV1(requestParameters: SearchApiSearchGetV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
             return localVarFp.searchGetV1(requestParameters.index, requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Perform a search with the provided query and return a matching result collection. To page past 10,000 records, you can use `searchAfter` paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement `searchAfter` paging. The search query itself has a size limitation of approximately 800 objects when filtering by large lists of IDs or values (e.g., using `terms` filters with extensive lists).
          * @summary Perform search
-         * @param {SearchV1ApiSearchPostV1Request} requestParameters Request parameters.
+         * @param {SearchApiSearchPostV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchPostV1(requestParameters: SearchV1ApiSearchPostV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<object>> {
-            return localVarFp.searchPostV1(requestParameters.searchV1, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
+        searchPostV1(requestParameters: SearchApiSearchPostV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<object>> {
+            return localVarFp.searchPostV1(requestParameters.search, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for searchAggregateV1 operation in SearchV1Api.
+ * Request parameters for searchAggregateV1 operation in SearchApi.
  * @export
- * @interface SearchV1ApiSearchAggregateV1Request
+ * @interface SearchApiSearchAggregateV1Request
  */
-export interface SearchV1ApiSearchAggregateV1Request {
+export interface SearchApiSearchAggregateV1Request {
     /**
      * 
-     * @type {SearchV1}
-     * @memberof SearchV1ApiSearchAggregateV1
+     * @type {Search}
+     * @memberof SearchApiSearchAggregateV1
      */
-    readonly searchV1: SearchV1
+    readonly search: Search
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof SearchV1ApiSearchAggregateV1
+     * @memberof SearchApiSearchAggregateV1
      */
     readonly offset?: number
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof SearchV1ApiSearchAggregateV1
+     * @memberof SearchApiSearchAggregateV1
      */
     readonly limit?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof SearchV1ApiSearchAggregateV1
+     * @memberof SearchApiSearchAggregateV1
      */
     readonly count?: boolean
 }
 
 /**
- * Request parameters for searchCountV1 operation in SearchV1Api.
+ * Request parameters for searchCountV1 operation in SearchApi.
  * @export
- * @interface SearchV1ApiSearchCountV1Request
+ * @interface SearchApiSearchCountV1Request
  */
-export interface SearchV1ApiSearchCountV1Request {
+export interface SearchApiSearchCountV1Request {
     /**
      * 
-     * @type {SearchV1}
-     * @memberof SearchV1ApiSearchCountV1
+     * @type {Search}
+     * @memberof SearchApiSearchCountV1
      */
-    readonly searchV1: SearchV1
+    readonly search: Search
 }
 
 /**
- * Request parameters for searchGetV1 operation in SearchV1Api.
+ * Request parameters for searchGetV1 operation in SearchApi.
  * @export
- * @interface SearchV1ApiSearchGetV1Request
+ * @interface SearchApiSearchGetV1Request
  */
-export interface SearchV1ApiSearchGetV1Request {
+export interface SearchApiSearchGetV1Request {
     /**
      * The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
      * @type {'accessprofiles' | 'accountactivities' | 'entitlements' | 'events' | 'identities' | 'roles'}
-     * @memberof SearchV1ApiSearchGetV1
+     * @memberof SearchApiSearchGetV1
      */
-    readonly index: SearchGetV1IndexV1
+    readonly index: SearchGetV1IndexEnum
 
     /**
      * ID of the requested document.
      * @type {string}
-     * @memberof SearchV1ApiSearchGetV1
+     * @memberof SearchApiSearchGetV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for searchPostV1 operation in SearchV1Api.
+ * Request parameters for searchPostV1 operation in SearchApi.
  * @export
- * @interface SearchV1ApiSearchPostV1Request
+ * @interface SearchApiSearchPostV1Request
  */
-export interface SearchV1ApiSearchPostV1Request {
+export interface SearchApiSearchPostV1Request {
     /**
      * 
-     * @type {SearchV1}
-     * @memberof SearchV1ApiSearchPostV1
+     * @type {Search}
+     * @memberof SearchApiSearchPostV1
      */
-    readonly searchV1: SearchV1
+    readonly search: Search
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof SearchV1ApiSearchPostV1
+     * @memberof SearchApiSearchPostV1
      */
     readonly offset?: number
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof SearchV1ApiSearchPostV1
+     * @memberof SearchApiSearchPostV1
      */
     readonly limit?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof SearchV1ApiSearchPostV1
+     * @memberof SearchApiSearchPostV1
      */
     readonly count?: boolean
 }
 
 /**
- * SearchV1Api - object-oriented interface
+ * SearchApi - object-oriented interface
  * @export
- * @class SearchV1Api
+ * @class SearchApi
  * @extends {BaseAPI}
  */
-export class SearchV1Api extends BaseAPI {
+export class SearchApi extends BaseAPI {
     /**
      * Performs a search query aggregation and returns the aggregation result. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
      * @summary Perform a search query aggregation
-     * @param {SearchV1ApiSearchAggregateV1Request} requestParameters Request parameters.
+     * @param {SearchApiSearchAggregateV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SearchV1Api
+     * @memberof SearchApi
      */
-    public searchAggregateV1(requestParameters: SearchV1ApiSearchAggregateV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SearchV1ApiFp(this.configuration).searchAggregateV1(requestParameters.searchV1, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public searchAggregateV1(requestParameters: SearchApiSearchAggregateV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SearchApiFp(this.configuration).searchAggregateV1(requestParameters.search, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Performs a search with a provided query and returns the count of results in the X-Total-Count header.
      * @summary Count documents satisfying a query
-     * @param {SearchV1ApiSearchCountV1Request} requestParameters Request parameters.
+     * @param {SearchApiSearchCountV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SearchV1Api
+     * @memberof SearchApi
      */
-    public searchCountV1(requestParameters: SearchV1ApiSearchCountV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SearchV1ApiFp(this.configuration).searchCountV1(requestParameters.searchV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public searchCountV1(requestParameters: SearchApiSearchCountV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SearchApiFp(this.configuration).searchCountV1(requestParameters.search, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Fetches a single document from the specified index, using the specified document ID.
      * @summary Get a document by id
-     * @param {SearchV1ApiSearchGetV1Request} requestParameters Request parameters.
+     * @param {SearchApiSearchGetV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SearchV1Api
+     * @memberof SearchApi
      */
-    public searchGetV1(requestParameters: SearchV1ApiSearchGetV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SearchV1ApiFp(this.configuration).searchGetV1(requestParameters.index, requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public searchGetV1(requestParameters: SearchApiSearchGetV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SearchApiFp(this.configuration).searchGetV1(requestParameters.index, requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Perform a search with the provided query and return a matching result collection. To page past 10,000 records, you can use `searchAfter` paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement `searchAfter` paging. The search query itself has a size limitation of approximately 800 objects when filtering by large lists of IDs or values (e.g., using `terms` filters with extensive lists).
      * @summary Perform search
-     * @param {SearchV1ApiSearchPostV1Request} requestParameters Request parameters.
+     * @param {SearchApiSearchPostV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SearchV1Api
+     * @memberof SearchApi
      */
-    public searchPostV1(requestParameters: SearchV1ApiSearchPostV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SearchV1ApiFp(this.configuration).searchPostV1(requestParameters.searchV1, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public searchPostV1(requestParameters: SearchApiSearchPostV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SearchApiFp(this.configuration).searchPostV1(requestParameters.search, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
 /**
  * @export
  */
-export const SearchGetV1IndexV1 = {
+export const SearchGetV1IndexEnum = {
     Accessprofiles: 'accessprofiles',
     Accountactivities: 'accountactivities',
     Entitlements: 'entitlements',
@@ -1274,6 +1274,6 @@ export const SearchGetV1IndexV1 = {
     Identities: 'identities',
     Roles: 'roles'
 } as const;
-export type SearchGetV1IndexV1 = typeof SearchGetV1IndexV1[keyof typeof SearchGetV1IndexV1];
+export type SearchGetV1IndexEnum = typeof SearchGetV1IndexEnum[keyof typeof SearchGetV1IndexEnum];
 
 

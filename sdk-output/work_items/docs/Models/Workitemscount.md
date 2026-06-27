@@ -1,19 +1,19 @@
 ---
-id: v1-workitemscount-v1
-title: WorkitemscountV1
-pagination_label: WorkitemscountV1
-sidebar_label: WorkitemscountV1
+id: v1-workitemscount
+title: Workitemscount
+pagination_label: Workitemscount
+sidebar_label: Workitemscount
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'WorkitemscountV1', 'v1WorkitemscountV1']
-slug: /tools/sdk/typescript/work_items/models/workitemscount-v1
-tags: ['SDK', 'Software Development Kit', 'WorkitemscountV1', 'v1WorkitemscountV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Workitemscount', 'v1Workitemscount']
+slug: /tools/sdk/typescript/work_items/models/workitemscount
+tags: ['SDK', 'Software Development Kit', 'Workitemscount', 'v1Workitemscount']
 ---
 
-# WorkitemscountV1
+# Workitemscount
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **(optional)** **number** | The count of work items | [default to undefined]
+**count** | **(optional)** `number` | The count of work items | [default to undefined]
 

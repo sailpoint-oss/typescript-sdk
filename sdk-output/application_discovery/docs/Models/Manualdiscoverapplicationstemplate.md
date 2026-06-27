@@ -1,20 +1,20 @@
 ---
-id: v1-manualdiscoverapplicationstemplate-v1
-title: ManualdiscoverapplicationstemplateV1
-pagination_label: ManualdiscoverapplicationstemplateV1
-sidebar_label: ManualdiscoverapplicationstemplateV1
+id: v1-manualdiscoverapplicationstemplate
+title: Manualdiscoverapplicationstemplate
+pagination_label: Manualdiscoverapplicationstemplate
+sidebar_label: Manualdiscoverapplicationstemplate
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ManualdiscoverapplicationstemplateV1', 'v1ManualdiscoverapplicationstemplateV1']
-slug: /tools/sdk/typescript/application_discovery/models/manualdiscoverapplicationstemplate-v1
-tags: ['SDK', 'Software Development Kit', 'ManualdiscoverapplicationstemplateV1', 'v1ManualdiscoverapplicationstemplateV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Manualdiscoverapplicationstemplate', 'v1Manualdiscoverapplicationstemplate']
+slug: /tools/sdk/typescript/application_discovery/models/manualdiscoverapplicationstemplate
+tags: ['SDK', 'Software Development Kit', 'Manualdiscoverapplicationstemplate', 'v1Manualdiscoverapplicationstemplate']
 ---
 
-# ManualdiscoverapplicationstemplateV1
+# Manualdiscoverapplicationstemplate
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**application_name** | **(optional)** **string** | Name of the application. | [default to undefined]
-**description** | **(optional)** **string** | Description of the application. | [default to undefined]
+**application_name** | **(optional)** `string` | Name of the application. | [default to undefined]
+**description** | **(optional)** `string` | Description of the application. | [default to undefined]
 

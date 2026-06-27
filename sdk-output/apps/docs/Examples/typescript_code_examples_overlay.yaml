@@ -4,15 +4,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#create-source-app-v1
       source: |
-        import { AppsV1Api } from 'sailpoint-api-client';
+        import { AppsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AppsV1Api(configuration);
-        const sourceappcreatedtoV1: SourceappcreatedtoV1 = {"name":"new app name","description":"app description","matchAllAccounts":true,"accountSource":{"id":"edcb0951812949d085b60cd8bf35bc78"}}; // SourceappcreatedtoV1 | 
+        const configuration = new Configuration();
+        const apiInstance = new AppsApi(configuration);
+        const sourceappcreatedto: Sourceappcreatedto = {"name":"new app name","description":"app description","matchAllAccounts":true,"accountSource":{"id":"edcb0951812949d085b60cd8bf35bc78"}}; // Sourceappcreatedto | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.createSourceAppV1(sourceappcreatedtoV1);
+        const result = await apiInstance.createSourceAppV1({ sourceappcreatedto: sourceappcreatedto });
         console.log(result);
 - path: /source-apps/v1/{id}/access-profiles/bulk-remove
   method: POST
@@ -20,17 +19,16 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#delete-access-profiles-from-source-app-by-bulk-v1
       source: |
-        import { AppsV1Api } from 'sailpoint-api-client';
+        import { AppsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AppsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AppsApi(configuration);
         const id: string = '2c91808a7813090a017814121e121518'; // string | ID of the source app (default to undefined)
         const requestBody: Array&lt;string&gt; = ["c9575abb5e3a4e3db82b2f989a738aa2","c9dc28e148a24d65b3ccb5fb8ca5ddd9"]; // Array<string> | List of access profile IDs for removal
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.deleteAccessProfilesFromSourceAppByBulkV1(id, requestBody);
+        const result = await apiInstance.deleteAccessProfilesFromSourceAppByBulkV1({ id: id, requestBody: requestBody });
         console.log(result);
 - path: /source-apps/v1/{id}
   method: DELETE
@@ -38,15 +36,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#delete-source-app-v1
       source: |
-        import { AppsV1Api } from 'sailpoint-api-client';
+        import { AppsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AppsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AppsApi(configuration);
         const id: string = '2c9180835d191a86015d28455b4a2329'; // string | source app ID. (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.deleteSourceAppV1(id);
+        const result = await apiInstance.deleteSourceAppV1({ id: id });
         console.log(result);
 - path: /source-apps/v1/{id}
   method: GET
@@ -54,15 +51,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#get-source-app-v1
       source: |
-        import { AppsV1Api } from 'sailpoint-api-client';
+        import { AppsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AppsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AppsApi(configuration);
         const id: string = '2c91808a7813090a017814121e121518'; // string | ID of the source app (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.getSourceAppV1(id);
+        const result = await apiInstance.getSourceAppV1({ id: id });
         console.log(result);
 - path: /source-apps/v1/{id}/access-profiles
   method: GET
@@ -70,18 +66,17 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#list-access-profiles-for-source-app-v1
       source: |
-        import { AppsV1Api } from 'sailpoint-api-client';
+        import { AppsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AppsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AppsApi(configuration);
         const id: string = '2c91808a7813090a017814121e121518'; // string | ID of the source app (default to undefined)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const filters: string = 'name eq "developer access profile"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le* (optional) (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.listAccessProfilesForSourceAppV1(id);
+        const result = await apiInstance.listAccessProfilesForSourceAppV1({ id: id });
         console.log(result);
 - path: /source-apps/v1/all
   method: GET
@@ -89,19 +84,18 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#list-all-source-app-v1
       source: |
-        import { AppsV1Api } from 'sailpoint-api-client';
+        import { AppsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AppsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AppsApi(configuration);
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const sorters: string = 'name,-modified'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, owner.id, accountSource.id** (optional) (default to undefined)
         const filters: string = 'enabled eq true'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, ge, le*  **owner.id**: *eq, in*  **enabled**: *eq* (optional) (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.listAllSourceAppV1();
+        const result = await apiInstance.listAllSourceAppV1({  });
         console.log(result);
 - path: /user-apps/v1/all
   method: GET
@@ -109,18 +103,17 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#list-all-user-apps-v1
       source: |
-        import { AppsV1Api } from 'sailpoint-api-client';
+        import { AppsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AppsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AppsApi(configuration);
         const filters: string = 'name eq "user app name"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **ownerId**: *eq*  **ownerName**: *eq, sw*  **ownerAlias**: *eq, sw*  **accountId**: *eq*  **sourceAppId**: *eq* (default to undefined)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.listAllUserAppsV1(filters);
+        const result = await apiInstance.listAllUserAppsV1({ filters: filters });
         console.log(result);
 - path: /source-apps/v1/assigned
   method: GET
@@ -128,19 +121,18 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#list-assigned-source-app-v1
       source: |
-        import { AppsV1Api } from 'sailpoint-api-client';
+        import { AppsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AppsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AppsApi(configuration);
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const sorters: string = 'name,-modified'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, accountSource.id** (optional) (default to undefined)
         const filters: string = 'name eq "source app name"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **accountSource.id**: *eq, in* (optional) (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.listAssignedSourceAppV1();
+        const result = await apiInstance.listAssignedSourceAppV1({  });
         console.log(result);
 - path: /user-apps/v1/{id}/available-accounts
   method: GET
@@ -148,17 +140,16 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#list-available-accounts-for-user-app-v1
       source: |
-        import { AppsV1Api } from 'sailpoint-api-client';
+        import { AppsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AppsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AppsApi(configuration);
         const id: string = '2c91808a7813090a017814121e121518'; // string | ID of the user app (default to undefined)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.listAvailableAccountsForUserAppV1(id);
+        const result = await apiInstance.listAvailableAccountsForUserAppV1({ id: id });
         console.log(result);
 - path: /source-apps/v1
   method: GET
@@ -166,19 +157,18 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#list-available-source-apps-v1
       source: |
-        import { AppsV1Api } from 'sailpoint-api-client';
+        import { AppsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AppsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AppsApi(configuration);
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const sorters: string = 'name,-modified'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, owner.id, accountSource.id** (optional) (default to undefined)
         const filters: string = 'name eq "source app name"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **accountSource.id**: *eq, in* (optional) (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.listAvailableSourceAppsV1();
+        const result = await apiInstance.listAvailableSourceAppsV1({  });
         console.log(result);
 - path: /user-apps/v1
   method: GET
@@ -186,18 +176,17 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#list-owned-user-apps-v1
       source: |
-        import { AppsV1Api } from 'sailpoint-api-client';
+        import { AppsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AppsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AppsApi(configuration);
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const filters: string = 'name eq "user app name"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **ownerName**: *eq, sw*  **ownerAlias**: *eq, sw*  **accountId**: *eq*  **sourceAppId**: *eq* (optional) (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.listOwnedUserAppsV1();
+        const result = await apiInstance.listOwnedUserAppsV1({  });
         console.log(result);
 - path: /source-apps/v1/{id}
   method: PATCH
@@ -205,16 +194,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#patch-source-app-v1
       source: |
-        import { AppsV1Api } from 'sailpoint-api-client';
+        import { AppsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AppsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AppsApi(configuration);
         const id: string = '2c91808a7813090a017814121e121518'; // string | ID of the source app to patch (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const jsonpatchoperationV1: Array&lt;JsonpatchoperationV1&gt; = [{"op":"replace","path":"/enabled","value":true},{"op":"replace","path":"/matchAllAccounts","value":true}]; // Array<JsonpatchoperationV1> |  (optional)
-        const result = await apiInstance.patchSourceAppV1(id);
+        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/enabled","value":true},{"op":"replace","path":"/matchAllAccounts","value":true}]; // Array<Jsonpatchoperation> |  (optional)
+        const result = await apiInstance.patchSourceAppV1({ id: id });
         console.log(result);
 - path: /user-apps/v1/{id}
   method: PATCH
@@ -222,16 +210,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#patch-user-app-v1
       source: |
-        import { AppsV1Api } from 'sailpoint-api-client';
+        import { AppsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AppsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AppsApi(configuration);
         const id: string = '2c91808a7813090a017814121e121518'; // string | ID of the user app to patch (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const jsonpatchoperationV1: Array&lt;JsonpatchoperationV1&gt; = ; // Array<JsonpatchoperationV1> |  (optional)
-        const result = await apiInstance.patchUserAppV1(id);
+        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = ; // Array<Jsonpatchoperation> |  (optional)
+        const result = await apiInstance.patchUserAppV1({ id: id });
         console.log(result);
 - path: /source-apps/v1/bulk-update
   method: POST
@@ -239,13 +226,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#update-source-apps-in-bulk-v1
       source: |
-        import { AppsV1Api } from 'sailpoint-api-client';
+        import { AppsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AppsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AppsApi(configuration);
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const sourceappbulkupdaterequestV1: SourceappbulkupdaterequestV1 = ; // SourceappbulkupdaterequestV1 |  (optional)
-        const result = await apiInstance.updateSourceAppsInBulkV1();
+        const sourceappbulkupdaterequest: Sourceappbulkupdaterequest = ; // Sourceappbulkupdaterequest |  (optional)
+        const result = await apiInstance.updateSourceAppsInBulkV1({  });
         console.log(result);

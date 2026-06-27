@@ -1,15 +1,15 @@
 ---
-id: v1-reporttype-v1
-title: ReporttypeV1
-pagination_label: ReporttypeV1
-sidebar_label: ReporttypeV1
+id: v1-reporttype
+title: Reporttype
+pagination_label: Reporttype
+sidebar_label: Reporttype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ReporttypeV1', 'v1ReporttypeV1']
-slug: /tools/sdk/typescript/certification_campaigns/models/reporttype-v1
-tags: ['SDK', 'Software Development Kit', 'ReporttypeV1', 'v1ReporttypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Reporttype', 'v1Reporttype']
+slug: /tools/sdk/typescript/certification_campaigns/models/reporttype
+tags: ['SDK', 'Software Development Kit', 'Reporttype', 'v1Reporttype']
 ---
 
-# ReporttypeV1
+# Reporttype
 
 ## Enum
 

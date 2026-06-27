@@ -1,22 +1,22 @@
 ---
-id: v1-roleminingpotentialroleexportresponse-v1
-title: RoleminingpotentialroleexportresponseV1
-pagination_label: RoleminingpotentialroleexportresponseV1
-sidebar_label: RoleminingpotentialroleexportresponseV1
+id: v1-roleminingpotentialroleexportresponse
+title: Roleminingpotentialroleexportresponse
+pagination_label: Roleminingpotentialroleexportresponse
+sidebar_label: Roleminingpotentialroleexportresponse
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RoleminingpotentialroleexportresponseV1', 'v1RoleminingpotentialroleexportresponseV1']
-slug: /tools/sdk/typescript/iai_role_mining/models/roleminingpotentialroleexportresponse-v1
-tags: ['SDK', 'Software Development Kit', 'RoleminingpotentialroleexportresponseV1', 'v1RoleminingpotentialroleexportresponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Roleminingpotentialroleexportresponse', 'v1Roleminingpotentialroleexportresponse']
+slug: /tools/sdk/typescript/iai_role_mining/models/roleminingpotentialroleexportresponse
+tags: ['SDK', 'Software Development Kit', 'Roleminingpotentialroleexportresponse', 'v1Roleminingpotentialroleexportresponse']
 ---
 
-# RoleminingpotentialroleexportresponseV1
+# Roleminingpotentialroleexportresponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**minEntitlementPopularity** | **(optional)** **number** | The minimum popularity among identities in the role which an entitlement must have to be included in the report | [default to undefined]
-**includeCommonAccess** | **(optional)** **boolean** | If false, do not include entitlements that are highly popular among the entire orginization | [default to undefined]
-**exportId** | **(optional)** **string** | ID used to reference this export | [default to undefined]
-**status** | **(optional)** **RoleminingpotentialroleexportstateV1** |  | [default to undefined]
+**minEntitlementPopularity** | **(optional)** `number` | The minimum popularity among identities in the role which an entitlement must have to be included in the report | [default to undefined]
+**includeCommonAccess** | **(optional)** `boolean` | If false, do not include entitlements that are highly popular among the entire orginization | [default to undefined]
+**exportId** | **(optional)** `string` | ID used to reference this export | [default to undefined]
+**status** | **(optional)** `Roleminingpotentialroleexportstate` |  | [default to undefined]
 

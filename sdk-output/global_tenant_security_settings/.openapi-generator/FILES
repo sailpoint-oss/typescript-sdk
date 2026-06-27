@@ -7,8 +7,8 @@ Errorresponsedto.md
 Federationprotocoldetails.md
 GetAuthOrgNetworkConfigV1401Response.md
 GetAuthOrgNetworkConfigV1429Response.md
-GlobalTenantSecuritySettingsV1Api.md
-GlobalTenantSecuritySettingsV1ApideveloperSite_code_examples.yaml
+GlobalTenantSecuritySettingsApi.md
+GlobalTenantSecuritySettingsApideveloperSite_code_examples.yaml
 Idpdetails.md
 Index.md
 Jitconfiguration.md

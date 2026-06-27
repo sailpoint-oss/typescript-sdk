@@ -1,19 +1,19 @@
 ---
-id: v1-campaignended-v1
-title: CampaignendedV1
-pagination_label: CampaignendedV1
-sidebar_label: CampaignendedV1
+id: v1-campaignended
+title: Campaignended
+pagination_label: Campaignended
+sidebar_label: Campaignended
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'CampaignendedV1', 'v1CampaignendedV1']
-slug: /tools/sdk/typescript/triggers/models/campaignended-v1
-tags: ['SDK', 'Software Development Kit', 'CampaignendedV1', 'v1CampaignendedV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Campaignended', 'v1Campaignended']
+slug: /tools/sdk/typescript/triggers/models/campaignended
+tags: ['SDK', 'Software Development Kit', 'Campaignended', 'v1Campaignended']
 ---
 
-# CampaignendedV1
+# Campaignended
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**campaign** | **CampaignendedCampaignV1** |  | [default to undefined]
+**campaign** | `CampaignendedCampaign` |  | [default to undefined]
 

@@ -1,22 +1,22 @@
 ---
-id: v1-import-form-definitions-v1202-response-v1
-title: ImportFormDefinitionsV1202ResponseV1
-pagination_label: ImportFormDefinitionsV1202ResponseV1
-sidebar_label: ImportFormDefinitionsV1202ResponseV1
+id: v1-import-form-definitions-v1202-response
+title: ImportFormDefinitionsV1202Response
+pagination_label: ImportFormDefinitionsV1202Response
+sidebar_label: ImportFormDefinitionsV1202Response
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ImportFormDefinitionsV1202ResponseV1', 'v1ImportFormDefinitionsV1202ResponseV1']
-slug: /tools/sdk/typescript/custom_forms/models/import-form-definitions-v1202-response-v1
-tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitionsV1202ResponseV1', 'v1ImportFormDefinitionsV1202ResponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ImportFormDefinitionsV1202Response', 'v1ImportFormDefinitionsV1202Response']
+slug: /tools/sdk/typescript/custom_forms/models/import-form-definitions-v1202-response
+tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitionsV1202Response', 'v1ImportFormDefinitionsV1202Response']
 ---
 
-# ImportFormDefinitionsV1202ResponseV1
+# ImportFormDefinitionsV1202Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**errors** | **(optional)** **Array&lt;ImportFormDefinitionsV1202ResponseErrorsInnerV1&gt;** |  | [default to undefined]
-**importedObjects** | **(optional)** **Array&lt;ImportFormDefinitionsV1RequestInnerV1&gt;** |  | [default to undefined]
-**infos** | **(optional)** **Array&lt;ImportFormDefinitionsV1202ResponseErrorsInnerV1&gt;** |  | [default to undefined]
-**warnings** | **(optional)** **Array&lt;ImportFormDefinitionsV1202ResponseErrorsInnerV1&gt;** |  | [default to undefined]
+**errors** | **(optional)** `Array<ImportFormDefinitionsV1202ResponseErrorsInner>` |  | [default to undefined]
+**importedObjects** | **(optional)** `Array<ImportFormDefinitionsV1RequestInner>` |  | [default to undefined]
+**infos** | **(optional)** `Array<ImportFormDefinitionsV1202ResponseErrorsInner>` |  | [default to undefined]
+**warnings** | **(optional)** `Array<ImportFormDefinitionsV1202ResponseErrorsInner>` |  | [default to undefined]
 

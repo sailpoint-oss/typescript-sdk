@@ -4,14 +4,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/source_usages/methods/source-usages#get-status-by-source-id-v1
       source: |
-        import { SourceUsagesV1Api } from 'sailpoint-api-client';
+        import { SourceUsagesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourceUsagesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourceUsagesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | ID of IDN source (default to undefined)
-        const result = await apiInstance.getStatusBySourceIdV1(sourceId);
+        const result = await apiInstance.getStatusBySourceIdV1({ sourceId: sourceId });
         console.log(result);
 - path: /source-usages/v1/{sourceId}/summaries
   method: GET
@@ -19,16 +18,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/source_usages/methods/source-usages#get-usages-by-source-id-v1
       source: |
-        import { SourceUsagesV1Api } from 'sailpoint-api-client';
+        import { SourceUsagesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SourceUsagesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SourceUsagesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | ID of IDN source (default to undefined)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const sorters: string = '-date'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date** (optional) (default to undefined)
-        const result = await apiInstance.getUsagesBySourceIdV1(sourceId);
+        const result = await apiInstance.getUsagesBySourceIdV1({ sourceId: sourceId });
         console.log(result);

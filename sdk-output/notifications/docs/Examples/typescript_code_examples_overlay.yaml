@@ -4,14 +4,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#create-domain-dkim-v1
       source: |
-        import { NotificationsV1Api } from 'sailpoint-api-client';
+        import { NotificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NotificationsV1Api(configuration);
-        const domainaddressV1: DomainaddressV1 = ; // DomainaddressV1 | 
-        const result = await apiInstance.createDomainDkimV1(domainaddressV1);
+        const configuration = new Configuration();
+        const apiInstance = new NotificationsApi(configuration);
+        const domainaddress: Domainaddress = ; // Domainaddress | 
+        const result = await apiInstance.createDomainDkimV1({ domainaddress: domainaddress });
         console.log(result);
 - path: /notification-templates/v1
   method: POST
@@ -19,14 +18,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#create-notification-template-v1
       source: |
-        import { NotificationsV1Api } from 'sailpoint-api-client';
+        import { NotificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NotificationsV1Api(configuration);
-        const templatedtoV1: TemplatedtoV1 = ; // TemplatedtoV1 | 
-        const result = await apiInstance.createNotificationTemplateV1(templatedtoV1);
+        const configuration = new Configuration();
+        const apiInstance = new NotificationsApi(configuration);
+        const templatedto: Templatedto = ; // Templatedto | 
+        const result = await apiInstance.createNotificationTemplateV1({ templatedto: templatedto });
         console.log(result);
 - path: /verified-from-addresses/v1
   method: POST
@@ -34,14 +32,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#create-verified-from-address-v1
       source: |
-        import { NotificationsV1Api } from 'sailpoint-api-client';
+        import { NotificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NotificationsV1Api(configuration);
-        const emailstatusdtoV1: EmailstatusdtoV1 = {"email":"sender@example.com"}; // EmailstatusdtoV1 | 
-        const result = await apiInstance.createVerifiedFromAddressV1(emailstatusdtoV1);
+        const configuration = new Configuration();
+        const apiInstance = new NotificationsApi(configuration);
+        const emailstatusdto: Emailstatusdto = {"email":"sender@example.com"}; // Emailstatusdto | 
+        const result = await apiInstance.createVerifiedFromAddressV1({ emailstatusdto: emailstatusdto });
         console.log(result);
 - path: /notification-templates/v1/bulk-delete
   method: POST
@@ -49,14 +46,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#delete-notification-templates-in-bulk-v1
       source: |
-        import { NotificationsV1Api } from 'sailpoint-api-client';
+        import { NotificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NotificationsV1Api(configuration);
-        const templatebulkdeletedtoV1: Array&lt;TemplatebulkdeletedtoV1&gt; = ; // Array<TemplatebulkdeletedtoV1> | 
-        const result = await apiInstance.deleteNotificationTemplatesInBulkV1(templatebulkdeletedtoV1);
+        const configuration = new Configuration();
+        const apiInstance = new NotificationsApi(configuration);
+        const templatebulkdeletedto: Array&lt;Templatebulkdeletedto&gt; = ; // Array<Templatebulkdeletedto> | 
+        const result = await apiInstance.deleteNotificationTemplatesInBulkV1({ templatebulkdeletedto: templatebulkdeletedto });
         console.log(result);
 - path: /verified-from-addresses/v1/{id}
   method: DELETE
@@ -64,14 +60,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#delete-verified-from-address-v1
       source: |
-        import { NotificationsV1Api } from 'sailpoint-api-client';
+        import { NotificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NotificationsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NotificationsApi(configuration);
         const id: string = 'c17bea3a-574d-453c-9e04-4365fbf5af0b'; // string | Unique identifier of the verified sender address to delete. (default to undefined)
-        const result = await apiInstance.deleteVerifiedFromAddressV1(id);
+        const result = await apiInstance.deleteVerifiedFromAddressV1({ id: id });
         console.log(result);
 - path: /verified-domains/v1
   method: GET
@@ -79,15 +74,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#get-dkim-attributes-v1
       source: |
-        import { NotificationsV1Api } from 'sailpoint-api-client';
+        import { NotificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NotificationsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NotificationsApi(configuration);
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        const result = await apiInstance.getDkimAttributesV1();
+        const result = await apiInstance.getDkimAttributesV1({  });
         console.log(result);
 - path: /mail-from-attributes/v1/{identity}
   method: GET
@@ -95,14 +89,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#get-mail-from-attributes-v1
       source: |
-        import { NotificationsV1Api } from 'sailpoint-api-client';
+        import { NotificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NotificationsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NotificationsApi(configuration);
         const identity: string = 'bobsmith@sailpoint.com'; // string | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status (default to undefined)
-        const result = await apiInstance.getMailFromAttributesV1(identity);
+        const result = await apiInstance.getMailFromAttributesV1({ identity: identity });
         console.log(result);
 - path: /notification-preferences/v1/{key}
   method: GET
@@ -110,14 +103,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#get-notification-preferences-v1
       source: |
-        import { NotificationsV1Api } from 'sailpoint-api-client';
+        import { NotificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NotificationsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NotificationsApi(configuration);
         const key: string = 'key_example'; // string | The key. (default to undefined)
-        const result = await apiInstance.getNotificationPreferencesV1(key);
+        const result = await apiInstance.getNotificationPreferencesV1({ key: key });
         console.log(result);
 - path: /notification-templates/v1/{id}
   method: GET
@@ -125,14 +117,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#get-notification-template-v1
       source: |
-        import { NotificationsV1Api } from 'sailpoint-api-client';
+        import { NotificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NotificationsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NotificationsApi(configuration);
         const id: string = 'c17bea3a-574d-453c-9e04-4365fbf5af0b'; // string | Id of the Notification Template (default to undefined)
-        const result = await apiInstance.getNotificationTemplateV1(id);
+        const result = await apiInstance.getNotificationTemplateV1({ id: id });
         console.log(result);
 - path: /notification-template-variables/v1/{key}/{medium}
   method: GET
@@ -140,16 +131,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#get-notification-template-variables-v1
       source: |
-        import { NotificationsV1Api } from 'sailpoint-api-client';
+        import { NotificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NotificationsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NotificationsApi(configuration);
         const key: string = 'approval_request_notification'; // string | The notification template key. Valid keys (and key/medium pairs) are available from the list notification templates operation.  (default to undefined)
         const medium: string = 'EMAIL'; // 'EMAIL' | 'SLACK' | 'TEAMS' | The notification template medium (e.g. EMAIL, SLACK, TEAMS). Valid key/medium pairs are available from the list notification templates operation.  (default to undefined)
         const sorters: string = '-description'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, type, description** (optional) (default to undefined)
-        const result = await apiInstance.getNotificationTemplateVariablesV1(key, medium);
+        const result = await apiInstance.getNotificationTemplateVariablesV1({ key: key, medium: medium });
         console.log(result);
 - path: /notification-template-context/v1
   method: GET
@@ -157,13 +147,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#get-notifications-template-context-v1
       source: |
-        import { NotificationsV1Api } from 'sailpoint-api-client';
+        import { NotificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NotificationsV1Api(configuration);
-        const result = await apiInstance.getNotificationsTemplateContextV1();
+        const configuration = new Configuration();
+        const apiInstance = new NotificationsApi(configuration);
+        const result = await apiInstance.getNotificationsTemplateContextV1({  });
         console.log(result);
 - path: /verified-from-addresses/v1
   method: GET
@@ -171,18 +160,17 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#list-from-addresses-v1
       source: |
-        import { NotificationsV1Api } from 'sailpoint-api-client';
+        import { NotificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NotificationsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NotificationsApi(configuration);
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const filters: string = 'email eq "john.doe@company.com"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, gt, lt* (optional) (default to undefined)
         const sorters: string = 'email'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email** (optional) (default to undefined)
-        const result = await apiInstance.listFromAddressesV1();
+        const result = await apiInstance.listFromAddressesV1({  });
         console.log(result);
 - path: /notification-template-defaults/v1
   method: GET
@@ -190,16 +178,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#list-notification-template-defaults-v1
       source: |
-        import { NotificationsV1Api } from 'sailpoint-api-client';
+        import { NotificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NotificationsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NotificationsApi(configuration);
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const filters: string = 'key eq "cloud_manual_work_item_summary"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional) (default to undefined)
-        const result = await apiInstance.listNotificationTemplateDefaultsV1();
+        const result = await apiInstance.listNotificationTemplateDefaultsV1({  });
         console.log(result);
 - path: /notification-templates/v1
   method: GET
@@ -207,17 +194,16 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#list-notification-templates-v1
       source: |
-        import { NotificationsV1Api } from 'sailpoint-api-client';
+        import { NotificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NotificationsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new NotificationsApi(configuration);
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const filters: string = 'medium eq "EMAIL"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional) (default to undefined)
         const sorters: string = 'key, -name'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, name, medium** (optional) (default to undefined)
-        const result = await apiInstance.listNotificationTemplatesV1();
+        const result = await apiInstance.listNotificationTemplatesV1({  });
         console.log(result);
 - path: /mail-from-attributes/v1
   method: PUT
@@ -225,14 +211,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#put-mail-from-attributes-v1
       source: |
-        import { NotificationsV1Api } from 'sailpoint-api-client';
+        import { NotificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NotificationsV1Api(configuration);
-        const mailfromattributesdtoV1: MailfromattributesdtoV1 = {"identity":"BobSmith@sailpoint.com","mailFromDomain":"example.sailpoint.com"}; // MailfromattributesdtoV1 | 
-        const result = await apiInstance.putMailFromAttributesV1(mailfromattributesdtoV1);
+        const configuration = new Configuration();
+        const apiInstance = new NotificationsApi(configuration);
+        const mailfromattributesdto: Mailfromattributesdto = {"identity":"BobSmith@sailpoint.com","mailFromDomain":"example.sailpoint.com"}; // Mailfromattributesdto | 
+        const result = await apiInstance.putMailFromAttributesV1({ mailfromattributesdto: mailfromattributesdto });
         console.log(result);
 - path: /send-test-notification/v1
   method: POST
@@ -240,12 +225,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#send-test-notification-v1
       source: |
-        import { NotificationsV1Api } from 'sailpoint-api-client';
+        import { NotificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new NotificationsV1Api(configuration);
-        const sendtestnotificationrequestdtoV1: SendtestnotificationrequestdtoV1 = {"key":"cloud_manual_work_item_summary","medium":"EMAIL","context":{"numberOfPendingTasks":"4","ownerId":"201327fda1c44704ac01181e963d463c"}}; // SendtestnotificationrequestdtoV1 | 
-        const result = await apiInstance.sendTestNotificationV1(sendtestnotificationrequestdtoV1);
+        const configuration = new Configuration();
+        const apiInstance = new NotificationsApi(configuration);
+        const sendtestnotificationrequestdto: Sendtestnotificationrequestdto = {"key":"cloud_manual_work_item_summary","medium":"EMAIL","context":{"numberOfPendingTasks":"4","ownerId":"201327fda1c44704ac01181e963d463c"}}; // Sendtestnotificationrequestdto | 
+        const result = await apiInstance.sendTestNotificationV1({ sendtestnotificationrequestdto: sendtestnotificationrequestdto });
         console.log(result);

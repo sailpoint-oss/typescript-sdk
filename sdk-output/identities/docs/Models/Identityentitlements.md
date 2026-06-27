@@ -1,20 +1,20 @@
 ---
-id: v1-identityentitlements-v1
-title: IdentityentitlementsV1
-pagination_label: IdentityentitlementsV1
-sidebar_label: IdentityentitlementsV1
+id: v1-identityentitlements
+title: Identityentitlements
+pagination_label: Identityentitlements
+sidebar_label: Identityentitlements
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'IdentityentitlementsV1', 'v1IdentityentitlementsV1']
-slug: /tools/sdk/typescript/identities/models/identityentitlements-v1
-tags: ['SDK', 'Software Development Kit', 'IdentityentitlementsV1', 'v1IdentityentitlementsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Identityentitlements', 'v1Identityentitlements']
+slug: /tools/sdk/typescript/identities/models/identityentitlements
+tags: ['SDK', 'Software Development Kit', 'Identityentitlements', 'v1Identityentitlements']
 ---
 
-# IdentityentitlementsV1
+# Identityentitlements
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**objectRef** | **(optional)** **TaggedobjectdtoV1** |  | [default to undefined]
-**tags** | **(optional)** **Array&lt;string&gt;** | Labels to be applied to object. | [default to undefined]
+**objectRef** | **(optional)** `Taggedobjectdto` |  | [default to undefined]
+**tags** | **(optional)** `Array<string>` | Labels to be applied to object. | [default to undefined]
 

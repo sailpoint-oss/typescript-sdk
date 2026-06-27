@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -53,33 +53,33 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -87,83 +87,83 @@ export interface ErrorresponsedtoV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface SetIconV1200ResponseV1
+ * @interface SetIconV1200Response
  */
-export interface SetIconV1200ResponseV1 {
+export interface SetIconV1200Response {
     /**
      * url to file with icon
      * @type {string}
-     * @memberof SetIconV1200ResponseV1
+     * @memberof SetIconV1200Response
      */
     'icon'?: string;
 }
 /**
  * 
  * @export
- * @interface SetIconV1401ResponseV1
+ * @interface SetIconV1401Response
  */
-export interface SetIconV1401ResponseV1 {
+export interface SetIconV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof SetIconV1401ResponseV1
+     * @memberof SetIconV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface SetIconV1429ResponseV1
+ * @interface SetIconV1429Response
  */
-export interface SetIconV1429ResponseV1 {
+export interface SetIconV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof SetIconV1429ResponseV1
+     * @memberof SetIconV1429Response
      */
     'message'?: any;
 }
 /**
  * 
  * @export
- * @interface SetIconV1RequestV1
+ * @interface SetIconV1Request
  */
-export interface SetIconV1RequestV1 {
+export interface SetIconV1Request {
     /**
      * file with icon. Allowed mime-types [\'image/png\', \'image/jpeg\']
      * @type {File}
-     * @memberof SetIconV1RequestV1
+     * @memberof SetIconV1Request
      */
     'image': File;
 }
 
 /**
- * IconsV1Api - axios parameter creator
+ * IconsApi - axios parameter creator
  * @export
  */
-export const IconsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const IconsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This API endpoint delete an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
          * @summary Delete an icon
-         * @param {DeleteIconV1ObjectTypeV1} objectType Object type. Available options [\&#39;application\&#39;]
+         * @param {DeleteIconV1ObjectTypeEnum} objectType Object type. Available options [\&#39;application\&#39;]
          * @param {string} objectId Object id.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteIconV1: async (objectType: DeleteIconV1ObjectTypeV1, objectId: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteIconV1: async (objectType: DeleteIconV1ObjectTypeEnum, objectId: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'objectType' is not null or undefined
             assertParamExists('deleteIconV1', 'objectType', objectType)
             // verify required parameter 'objectId' is not null or undefined
@@ -203,14 +203,14 @@ export const IconsV1ApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * This API endpoint updates an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
          * @summary Update an icon
-         * @param {SetIconV1ObjectTypeV1} objectType Object type. Available options [\&#39;application\&#39;]
+         * @param {SetIconV1ObjectTypeEnum} objectType Object type. Available options [\&#39;application\&#39;]
          * @param {string} objectId Object id.
          * @param {File} image file with icon. Allowed mime-types [\\\&#39;image/png\\\&#39;, \\\&#39;image/jpeg\\\&#39;]
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setIconV1: async (objectType: SetIconV1ObjectTypeV1, objectId: string, image: File, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        setIconV1: async (objectType: SetIconV1ObjectTypeEnum, objectId: string, image: File, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'objectType' is not null or undefined
             assertParamExists('setIconV1', 'objectType', objectType)
             // verify required parameter 'objectId' is not null or undefined
@@ -261,184 +261,184 @@ export const IconsV1ApiAxiosParamCreator = function (configuration?: Configurati
 };
 
 /**
- * IconsV1Api - functional programming interface
+ * IconsApi - functional programming interface
  * @export
  */
-export const IconsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = IconsV1ApiAxiosParamCreator(configuration)
+export const IconsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = IconsApiAxiosParamCreator(configuration)
     return {
         /**
          * This API endpoint delete an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
          * @summary Delete an icon
-         * @param {DeleteIconV1ObjectTypeV1} objectType Object type. Available options [\&#39;application\&#39;]
+         * @param {DeleteIconV1ObjectTypeEnum} objectType Object type. Available options [\&#39;application\&#39;]
          * @param {string} objectId Object id.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteIconV1(objectType: DeleteIconV1ObjectTypeV1, objectId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async deleteIconV1(objectType: DeleteIconV1ObjectTypeEnum, objectId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIconV1(objectType, objectId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IconsV1Api.deleteIconV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IconsApi.deleteIconV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API endpoint updates an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
          * @summary Update an icon
-         * @param {SetIconV1ObjectTypeV1} objectType Object type. Available options [\&#39;application\&#39;]
+         * @param {SetIconV1ObjectTypeEnum} objectType Object type. Available options [\&#39;application\&#39;]
          * @param {string} objectId Object id.
          * @param {File} image file with icon. Allowed mime-types [\\\&#39;image/png\\\&#39;, \\\&#39;image/jpeg\\\&#39;]
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setIconV1(objectType: SetIconV1ObjectTypeV1, objectId: string, image: File, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SetIconV1200ResponseV1>> {
+        async setIconV1(objectType: SetIconV1ObjectTypeEnum, objectId: string, image: File, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SetIconV1200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.setIconV1(objectType, objectId, image, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IconsV1Api.setIconV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IconsApi.setIconV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * IconsV1Api - factory interface
+ * IconsApi - factory interface
  * @export
  */
-export const IconsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = IconsV1ApiFp(configuration)
+export const IconsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = IconsApiFp(configuration)
     return {
         /**
          * This API endpoint delete an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
          * @summary Delete an icon
-         * @param {IconsV1ApiDeleteIconV1Request} requestParameters Request parameters.
+         * @param {IconsApiDeleteIconV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteIconV1(requestParameters: IconsV1ApiDeleteIconV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteIconV1(requestParameters: IconsApiDeleteIconV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteIconV1(requestParameters.objectType, requestParameters.objectId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API endpoint updates an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
          * @summary Update an icon
-         * @param {IconsV1ApiSetIconV1Request} requestParameters Request parameters.
+         * @param {IconsApiSetIconV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setIconV1(requestParameters: IconsV1ApiSetIconV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SetIconV1200ResponseV1> {
+        setIconV1(requestParameters: IconsApiSetIconV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SetIconV1200Response> {
             return localVarFp.setIconV1(requestParameters.objectType, requestParameters.objectId, requestParameters.image, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for deleteIconV1 operation in IconsV1Api.
+ * Request parameters for deleteIconV1 operation in IconsApi.
  * @export
- * @interface IconsV1ApiDeleteIconV1Request
+ * @interface IconsApiDeleteIconV1Request
  */
-export interface IconsV1ApiDeleteIconV1Request {
+export interface IconsApiDeleteIconV1Request {
     /**
      * Object type. Available options [\&#39;application\&#39;]
      * @type {'application'}
-     * @memberof IconsV1ApiDeleteIconV1
+     * @memberof IconsApiDeleteIconV1
      */
-    readonly objectType: DeleteIconV1ObjectTypeV1
+    readonly objectType: DeleteIconV1ObjectTypeEnum
 
     /**
      * Object id.
      * @type {string}
-     * @memberof IconsV1ApiDeleteIconV1
+     * @memberof IconsApiDeleteIconV1
      */
     readonly objectId: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IconsV1ApiDeleteIconV1
+     * @memberof IconsApiDeleteIconV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for setIconV1 operation in IconsV1Api.
+ * Request parameters for setIconV1 operation in IconsApi.
  * @export
- * @interface IconsV1ApiSetIconV1Request
+ * @interface IconsApiSetIconV1Request
  */
-export interface IconsV1ApiSetIconV1Request {
+export interface IconsApiSetIconV1Request {
     /**
      * Object type. Available options [\&#39;application\&#39;]
      * @type {'application'}
-     * @memberof IconsV1ApiSetIconV1
+     * @memberof IconsApiSetIconV1
      */
-    readonly objectType: SetIconV1ObjectTypeV1
+    readonly objectType: SetIconV1ObjectTypeEnum
 
     /**
      * Object id.
      * @type {string}
-     * @memberof IconsV1ApiSetIconV1
+     * @memberof IconsApiSetIconV1
      */
     readonly objectId: string
 
     /**
      * file with icon. Allowed mime-types [\\\&#39;image/png\\\&#39;, \\\&#39;image/jpeg\\\&#39;]
      * @type {File}
-     * @memberof IconsV1ApiSetIconV1
+     * @memberof IconsApiSetIconV1
      */
     readonly image: File
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IconsV1ApiSetIconV1
+     * @memberof IconsApiSetIconV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * IconsV1Api - object-oriented interface
+ * IconsApi - object-oriented interface
  * @export
- * @class IconsV1Api
+ * @class IconsApi
  * @extends {BaseAPI}
  */
-export class IconsV1Api extends BaseAPI {
+export class IconsApi extends BaseAPI {
     /**
      * This API endpoint delete an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
      * @summary Delete an icon
-     * @param {IconsV1ApiDeleteIconV1Request} requestParameters Request parameters.
+     * @param {IconsApiDeleteIconV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IconsV1Api
+     * @memberof IconsApi
      */
-    public deleteIconV1(requestParameters: IconsV1ApiDeleteIconV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IconsV1ApiFp(this.configuration).deleteIconV1(requestParameters.objectType, requestParameters.objectId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteIconV1(requestParameters: IconsApiDeleteIconV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IconsApiFp(this.configuration).deleteIconV1(requestParameters.objectType, requestParameters.objectId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API endpoint updates an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
      * @summary Update an icon
-     * @param {IconsV1ApiSetIconV1Request} requestParameters Request parameters.
+     * @param {IconsApiSetIconV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IconsV1Api
+     * @memberof IconsApi
      */
-    public setIconV1(requestParameters: IconsV1ApiSetIconV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IconsV1ApiFp(this.configuration).setIconV1(requestParameters.objectType, requestParameters.objectId, requestParameters.image, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public setIconV1(requestParameters: IconsApiSetIconV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IconsApiFp(this.configuration).setIconV1(requestParameters.objectType, requestParameters.objectId, requestParameters.image, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
 /**
  * @export
  */
-export const DeleteIconV1ObjectTypeV1 = {
+export const DeleteIconV1ObjectTypeEnum = {
     Application: 'application'
 } as const;
-export type DeleteIconV1ObjectTypeV1 = typeof DeleteIconV1ObjectTypeV1[keyof typeof DeleteIconV1ObjectTypeV1];
+export type DeleteIconV1ObjectTypeEnum = typeof DeleteIconV1ObjectTypeEnum[keyof typeof DeleteIconV1ObjectTypeEnum];
 /**
  * @export
  */
-export const SetIconV1ObjectTypeV1 = {
+export const SetIconV1ObjectTypeEnum = {
     Application: 'application'
 } as const;
-export type SetIconV1ObjectTypeV1 = typeof SetIconV1ObjectTypeV1[keyof typeof SetIconV1ObjectTypeV1];
+export type SetIconV1ObjectTypeEnum = typeof SetIconV1ObjectTypeEnum[keyof typeof SetIconV1ObjectTypeEnum];
 
 

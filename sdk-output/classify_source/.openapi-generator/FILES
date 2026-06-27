@@ -1,8 +1,8 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
-ClassifySourceV1Api.md
-ClassifySourceV1ApideveloperSite_code_examples.yaml
+ClassifySourceApi.md
+ClassifySourceApideveloperSite_code_examples.yaml
 Errormessagedto.md
 Errorresponsedto.md
 GetClassifyMachineAccountFromSourceStatusV1401Response.md

@@ -1,24 +1,24 @@
 ---
-id: v1-launcherrequest-v1
-title: LauncherrequestV1
-pagination_label: LauncherrequestV1
-sidebar_label: LauncherrequestV1
+id: v1-launcherrequest
+title: Launcherrequest
+pagination_label: Launcherrequest
+sidebar_label: Launcherrequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'LauncherrequestV1', 'v1LauncherrequestV1']
-slug: /tools/sdk/typescript/launchers/models/launcherrequest-v1
-tags: ['SDK', 'Software Development Kit', 'LauncherrequestV1', 'v1LauncherrequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Launcherrequest', 'v1Launcherrequest']
+slug: /tools/sdk/typescript/launchers/models/launcherrequest
+tags: ['SDK', 'Software Development Kit', 'Launcherrequest', 'v1Launcherrequest']
 ---
 
-# LauncherrequestV1
+# Launcherrequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** | Name of the Launcher, limited to 255 characters | [default to undefined]
-**description** | **string** | Description of the Launcher, limited to 2000 characters | [default to undefined]
-**type** | **string** | Launcher type | [default to undefined]
-**disabled** | **boolean** | State of the Launcher | [default to undefined]
-**reference** | **(optional)** **LauncherrequestReferenceV1** |  | [default to undefined]
-**config** | **string** | JSON configuration associated with this Launcher, restricted to a max size of 4KB  | [default to undefined]
+**name** | `string` | Name of the Launcher, limited to 255 characters | [default to undefined]
+**description** | `string` | Description of the Launcher, limited to 2000 characters | [default to undefined]
+**type** | `string` | Launcher type | [default to undefined]
+**disabled** | `boolean` | State of the Launcher | [default to undefined]
+**reference** | **(optional)** `LauncherrequestReference` |  | [default to undefined]
+**config** | `string` | JSON configuration associated with this Launcher, restricted to a max size of 4KB  | [default to undefined]
 

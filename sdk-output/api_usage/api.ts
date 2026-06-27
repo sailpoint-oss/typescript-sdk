@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -53,57 +53,57 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetTotalCountV1401ResponseV1
+ * @interface GetTotalCountV1401Response
  */
-export interface GetTotalCountV1401ResponseV1 {
+export interface GetTotalCountV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetTotalCountV1401ResponseV1
+     * @memberof GetTotalCountV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetTotalCountV1429ResponseV1
+ * @interface GetTotalCountV1429Response
  */
-export interface GetTotalCountV1429ResponseV1 {
+export interface GetTotalCountV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetTotalCountV1429ResponseV1
+     * @memberof GetTotalCountV1429Response
      */
     'message'?: any;
 }
@@ -113,39 +113,39 @@ export interface GetTotalCountV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface SummaryresponseV1
+ * @interface Summaryresponse
  */
-export interface SummaryresponseV1 {
+export interface Summaryresponse {
     /**
      * The endpoint of a SailPoint API
      * @type {string}
-     * @memberof SummaryresponseV1
+     * @memberof Summaryresponse
      */
     'RequestedUri'?: string;
     /**
      * Number of calls made to a specific SailPoint API
      * @type {number}
-     * @memberof SummaryresponseV1
+     * @memberof Summaryresponse
      */
     'NumberOfCalls'?: number;
 }
 
 /**
- * ApiUsageV1Api - axios parameter creator
+ * ApiUsageApi - axios parameter creator
  * @export
  */
-export const ApiUsageV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const ApiUsageApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This API gets an aggregated number of all API calls from an org in a specific timespan. Unless specified, the results are aggregated between the first day of the current month and today.
@@ -247,11 +247,11 @@ export const ApiUsageV1ApiAxiosParamCreator = function (configuration?: Configur
 };
 
 /**
- * ApiUsageV1Api - functional programming interface
+ * ApiUsageApi - functional programming interface
  * @export
  */
-export const ApiUsageV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = ApiUsageV1ApiAxiosParamCreator(configuration)
+export const ApiUsageApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = ApiUsageApiAxiosParamCreator(configuration)
     return {
         /**
          * This API gets an aggregated number of all API calls from an org in a specific timespan. Unless specified, the results are aggregated between the first day of the current month and today.
@@ -264,7 +264,7 @@ export const ApiUsageV1ApiFp = function(configuration?: Configuration) {
         async getTotalCountV1(xSailPointExperimental?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTotalCountV1(xSailPointExperimental, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ApiUsageV1Api.getTotalCountV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ApiUsageApi.getTotalCountV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -277,130 +277,130 @@ export const ApiUsageV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listApiSummaryV1(xSailPointExperimental?: string, filters?: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SummaryresponseV1>>> {
+        async listApiSummaryV1(xSailPointExperimental?: string, filters?: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Summaryresponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listApiSummaryV1(xSailPointExperimental, filters, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ApiUsageV1Api.listApiSummaryV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ApiUsageApi.listApiSummaryV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * ApiUsageV1Api - factory interface
+ * ApiUsageApi - factory interface
  * @export
  */
-export const ApiUsageV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = ApiUsageV1ApiFp(configuration)
+export const ApiUsageApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = ApiUsageApiFp(configuration)
     return {
         /**
          * This API gets an aggregated number of all API calls from an org in a specific timespan. Unless specified, the results are aggregated between the first day of the current month and today.
          * @summary Total number of API requests
-         * @param {ApiUsageV1ApiGetTotalCountV1Request} requestParameters Request parameters.
+         * @param {ApiUsageApiGetTotalCountV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getTotalCountV1(requestParameters: ApiUsageV1ApiGetTotalCountV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
+        getTotalCountV1(requestParameters: ApiUsageApiGetTotalCountV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
             return localVarFp.getTotalCountV1(requestParameters.xSailPointExperimental, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API gets a list of APIs called by the org in a specific timespan, sorted by number of calls. Unless specified,  the results are aggregated between the first day of the current month and today.
          * @summary Get Api Summary
-         * @param {ApiUsageV1ApiListApiSummaryV1Request} requestParameters Request parameters.
+         * @param {ApiUsageApiListApiSummaryV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listApiSummaryV1(requestParameters: ApiUsageV1ApiListApiSummaryV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SummaryresponseV1>> {
+        listApiSummaryV1(requestParameters: ApiUsageApiListApiSummaryV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Summaryresponse>> {
             return localVarFp.listApiSummaryV1(requestParameters.xSailPointExperimental, requestParameters.filters, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for getTotalCountV1 operation in ApiUsageV1Api.
+ * Request parameters for getTotalCountV1 operation in ApiUsageApi.
  * @export
- * @interface ApiUsageV1ApiGetTotalCountV1Request
+ * @interface ApiUsageApiGetTotalCountV1Request
  */
-export interface ApiUsageV1ApiGetTotalCountV1Request {
+export interface ApiUsageApiGetTotalCountV1Request {
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof ApiUsageV1ApiGetTotalCountV1
+     * @memberof ApiUsageApiGetTotalCountV1
      */
     readonly xSailPointExperimental?: string
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **method**: *eq*  **startDate**: *gt, eq*  **endDate**: *lt, eq*
      * @type {string}
-     * @memberof ApiUsageV1ApiGetTotalCountV1
+     * @memberof ApiUsageApiGetTotalCountV1
      */
     readonly filters?: string
 }
 
 /**
- * Request parameters for listApiSummaryV1 operation in ApiUsageV1Api.
+ * Request parameters for listApiSummaryV1 operation in ApiUsageApi.
  * @export
- * @interface ApiUsageV1ApiListApiSummaryV1Request
+ * @interface ApiUsageApiListApiSummaryV1Request
  */
-export interface ApiUsageV1ApiListApiSummaryV1Request {
+export interface ApiUsageApiListApiSummaryV1Request {
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof ApiUsageV1ApiListApiSummaryV1
+     * @memberof ApiUsageApiListApiSummaryV1
      */
     readonly xSailPointExperimental?: string
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **method**: *eq*  **startDate**: *gt, eq*  **endDate**: *lt, eq*
      * @type {string}
-     * @memberof ApiUsageV1ApiListApiSummaryV1
+     * @memberof ApiUsageApiListApiSummaryV1
      */
     readonly filters?: string
 
     /**
      * Max number of results to return.
      * @type {number}
-     * @memberof ApiUsageV1ApiListApiSummaryV1
+     * @memberof ApiUsageApiListApiSummaryV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified.
      * @type {number}
-     * @memberof ApiUsageV1ApiListApiSummaryV1
+     * @memberof ApiUsageApiListApiSummaryV1
      */
     readonly offset?: number
 }
 
 /**
- * ApiUsageV1Api - object-oriented interface
+ * ApiUsageApi - object-oriented interface
  * @export
- * @class ApiUsageV1Api
+ * @class ApiUsageApi
  * @extends {BaseAPI}
  */
-export class ApiUsageV1Api extends BaseAPI {
+export class ApiUsageApi extends BaseAPI {
     /**
      * This API gets an aggregated number of all API calls from an org in a specific timespan. Unless specified, the results are aggregated between the first day of the current month and today.
      * @summary Total number of API requests
-     * @param {ApiUsageV1ApiGetTotalCountV1Request} requestParameters Request parameters.
+     * @param {ApiUsageApiGetTotalCountV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApiUsageV1Api
+     * @memberof ApiUsageApi
      */
-    public getTotalCountV1(requestParameters: ApiUsageV1ApiGetTotalCountV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return ApiUsageV1ApiFp(this.configuration).getTotalCountV1(requestParameters.xSailPointExperimental, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getTotalCountV1(requestParameters: ApiUsageApiGetTotalCountV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return ApiUsageApiFp(this.configuration).getTotalCountV1(requestParameters.xSailPointExperimental, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API gets a list of APIs called by the org in a specific timespan, sorted by number of calls. Unless specified,  the results are aggregated between the first day of the current month and today.
      * @summary Get Api Summary
-     * @param {ApiUsageV1ApiListApiSummaryV1Request} requestParameters Request parameters.
+     * @param {ApiUsageApiListApiSummaryV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApiUsageV1Api
+     * @memberof ApiUsageApi
      */
-    public listApiSummaryV1(requestParameters: ApiUsageV1ApiListApiSummaryV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return ApiUsageV1ApiFp(this.configuration).listApiSummaryV1(requestParameters.xSailPointExperimental, requestParameters.filters, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listApiSummaryV1(requestParameters: ApiUsageApiListApiSummaryV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return ApiUsageApiFp(this.configuration).listApiSummaryV1(requestParameters.xSailPointExperimental, requestParameters.filters, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

@@ -1,20 +1,20 @@
 ---
-id: v1-typedreference-v1
-title: TypedreferenceV1
-pagination_label: TypedreferenceV1
-sidebar_label: TypedreferenceV1
+id: v1-typedreference
+title: Typedreference
+pagination_label: Typedreference
+sidebar_label: Typedreference
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'TypedreferenceV1', 'v1TypedreferenceV1']
-slug: /tools/sdk/typescript/scheduled_search/models/typedreference-v1
-tags: ['SDK', 'Software Development Kit', 'TypedreferenceV1', 'v1TypedreferenceV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Typedreference', 'v1Typedreference']
+slug: /tools/sdk/typescript/scheduled_search/models/typedreference
+tags: ['SDK', 'Software Development Kit', 'Typedreference', 'v1Typedreference']
 ---
 
-# TypedreferenceV1
+# Typedreference
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **DtotypeV1** |  | [default to undefined]
-**id** | **string** | The id of the object.  | [default to undefined]
+**type** | `Dtotype` |  | [default to undefined]
+**id** | `string` | The id of the object.  | [default to undefined]
 

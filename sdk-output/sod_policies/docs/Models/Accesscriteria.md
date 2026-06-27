@@ -1,20 +1,20 @@
 ---
-id: v1-accesscriteria-v1
-title: AccesscriteriaV1
-pagination_label: AccesscriteriaV1
-sidebar_label: AccesscriteriaV1
+id: v1-accesscriteria
+title: Accesscriteria
+pagination_label: Accesscriteria
+sidebar_label: Accesscriteria
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccesscriteriaV1', 'v1AccesscriteriaV1']
-slug: /tools/sdk/typescript/sod_policies/models/accesscriteria-v1
-tags: ['SDK', 'Software Development Kit', 'AccesscriteriaV1', 'v1AccesscriteriaV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accesscriteria', 'v1Accesscriteria']
+slug: /tools/sdk/typescript/sod_policies/models/accesscriteria
+tags: ['SDK', 'Software Development Kit', 'Accesscriteria', 'v1Accesscriteria']
 ---
 
-# AccesscriteriaV1
+# Accesscriteria
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **(optional)** **string** | Business name for the access construct list | [default to undefined]
-**criteriaList** | **(optional)** **Array&lt;AccesscriteriaCriteriaListInnerV1&gt;** | List of criteria. There is a min of 1 and max of 50 items in the list. | [default to undefined]
+**name** | **(optional)** `string` | Business name for the access construct list | [default to undefined]
+**criteriaList** | **(optional)** `Array<AccesscriteriaCriteriaListInner>` | List of criteria. There is a min of 1 and max of 50 items in the list. | [default to undefined]
 

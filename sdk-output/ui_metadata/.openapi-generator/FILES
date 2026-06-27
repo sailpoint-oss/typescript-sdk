@@ -10,8 +10,8 @@ Localeorigin.md
 README.md
 Tenantuimetadataitemresponse.md
 Tenantuimetadataitemupdaterequest.md
-UIMetadataV1Api.md
-UIMetadataV1ApideveloperSite_code_examples.yaml
+UIMetadataApi.md
+UIMetadataApideveloperSite_code_examples.yaml
 api.ts
 base.ts
 common.ts

@@ -1,15 +1,15 @@
 ---
-id: v1-accountattributes-v1
-title: AccountattributesV1
-pagination_label: AccountattributesV1
-sidebar_label: AccountattributesV1
+id: v1-accountattributes
+title: Accountattributes
+pagination_label: Accountattributes
+sidebar_label: Accountattributes
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccountattributesV1', 'v1AccountattributesV1']
-slug: /tools/sdk/typescript/accounts/models/accountattributes-v1
-tags: ['SDK', 'Software Development Kit', 'AccountattributesV1', 'v1AccountattributesV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accountattributes', 'v1Accountattributes']
+slug: /tools/sdk/typescript/accounts/models/accountattributes
+tags: ['SDK', 'Software Development Kit', 'Accountattributes', 'v1Accountattributes']
 ---
 
-# AccountattributesV1
+# Accountattributes
 
 ## Properties
 

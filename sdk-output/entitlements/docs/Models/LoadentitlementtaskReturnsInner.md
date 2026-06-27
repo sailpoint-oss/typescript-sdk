@@ -1,20 +1,20 @@
 ---
-id: v1-loadentitlementtask-returns-inner-v1
-title: LoadentitlementtaskReturnsInnerV1
-pagination_label: LoadentitlementtaskReturnsInnerV1
-sidebar_label: LoadentitlementtaskReturnsInnerV1
+id: v1-loadentitlementtask-returns-inner
+title: LoadentitlementtaskReturnsInner
+pagination_label: LoadentitlementtaskReturnsInner
+sidebar_label: LoadentitlementtaskReturnsInner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'LoadentitlementtaskReturnsInnerV1', 'v1LoadentitlementtaskReturnsInnerV1']
-slug: /tools/sdk/typescript/entitlements/models/loadentitlementtask-returns-inner-v1
-tags: ['SDK', 'Software Development Kit', 'LoadentitlementtaskReturnsInnerV1', 'v1LoadentitlementtaskReturnsInnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'LoadentitlementtaskReturnsInner', 'v1LoadentitlementtaskReturnsInner']
+slug: /tools/sdk/typescript/entitlements/models/loadentitlementtask-returns-inner
+tags: ['SDK', 'Software Development Kit', 'LoadentitlementtaskReturnsInner', 'v1LoadentitlementtaskReturnsInner']
 ---
 
-# LoadentitlementtaskReturnsInnerV1
+# LoadentitlementtaskReturnsInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**displayLabel** | **(optional)** **string** | The display label for the return value | [default to undefined]
-**attributeName** | **(optional)** **string** | The attribute name for the return value | [default to undefined]
+**displayLabel** | **(optional)** `string` | The display label for the return value | [default to undefined]
+**attributeName** | **(optional)** `string` | The attribute name for the return value | [default to undefined]
 

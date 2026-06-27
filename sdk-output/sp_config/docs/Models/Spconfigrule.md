@@ -1,21 +1,21 @@
 ---
-id: v1-spconfigrule-v1
-title: SpconfigruleV1
-pagination_label: SpconfigruleV1
-sidebar_label: SpconfigruleV1
+id: v1-spconfigrule
+title: Spconfigrule
+pagination_label: Spconfigrule
+sidebar_label: Spconfigrule
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SpconfigruleV1', 'v1SpconfigruleV1']
-slug: /tools/sdk/typescript/sp_config/models/spconfigrule-v1
-tags: ['SDK', 'Software Development Kit', 'SpconfigruleV1', 'v1SpconfigruleV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Spconfigrule', 'v1Spconfigrule']
+slug: /tools/sdk/typescript/sp_config/models/spconfigrule
+tags: ['SDK', 'Software Development Kit', 'Spconfigrule', 'v1Spconfigrule']
 ---
 
-# SpconfigruleV1
+# Spconfigrule
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**path** | **(optional)** **string** | JSONPath expression denoting the path within the object where a value substitution should be applied. | [default to undefined]
-**value** | **(optional)** **SpconfigruleValueV1** |  | [default to undefined]
-**modes** | **(optional)** **Array&lt;string&gt;** | Draft modes the rule will apply to. | [default to undefined]
+**path** | **(optional)** `string` | JSONPath expression denoting the path within the object where a value substitution should be applied. | [default to undefined]
+**value** | **(optional)** `SpconfigruleValue` |  | [default to undefined]
+**modes** | **(optional)** `Array<string>` | Draft modes the rule will apply to. | [default to undefined]
 

@@ -3,8 +3,8 @@
 .openapi-generator-ignore
 Campaignfilterdetails.md
 CampaignfilterdetailsCriteriaListInner.md
-CertificationCampaignFiltersV1Api.md
-CertificationCampaignFiltersV1ApideveloperSite_code_examples.yaml
+CertificationCampaignFiltersApi.md
+CertificationCampaignFiltersApideveloperSite_code_examples.yaml
 Criteriatype.md
 Errormessagedto.md
 Errorresponsedto.md

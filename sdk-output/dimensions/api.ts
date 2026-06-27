@@ -26,236 +26,236 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface AccessdurationV1
+ * @interface Accessduration
  */
-export interface AccessdurationV1 {
+export interface Accessduration {
     /**
      * The numeric value representing the amount of time, which is defined in the **timeUnit**.
      * @type {number}
-     * @memberof AccessdurationV1
+     * @memberof Accessduration
      */
     'value'?: number;
     /**
      * The unit of time that corresponds to the **value**. It defines the scale of the time period.
      * @type {string}
-     * @memberof AccessdurationV1
+     * @memberof Accessduration
      */
-    'timeUnit'?: AccessdurationV1TimeUnitV1;
+    'timeUnit'?: AccessdurationTimeUnitEnum;
 }
 
-export const AccessdurationV1TimeUnitV1 = {
+export const AccessdurationTimeUnitEnum = {
     Hours: 'HOURS',
     Days: 'DAYS',
     Weeks: 'WEEKS',
     Months: 'MONTHS'
 } as const;
 
-export type AccessdurationV1TimeUnitV1 = typeof AccessdurationV1TimeUnitV1[keyof typeof AccessdurationV1TimeUnitV1];
+export type AccessdurationTimeUnitEnum = typeof AccessdurationTimeUnitEnum[keyof typeof AccessdurationTimeUnitEnum];
 
 /**
  * Metadata that describes an access item
  * @export
- * @interface AccessmodelmetadataV1
+ * @interface Accessmodelmetadata
  */
-export interface AccessmodelmetadataV1 {
+export interface Accessmodelmetadata {
     /**
      * Unique identifier for the metadata type
      * @type {string}
-     * @memberof AccessmodelmetadataV1
+     * @memberof Accessmodelmetadata
      */
     'key'?: string;
     /**
      * Human readable name of the metadata type
      * @type {string}
-     * @memberof AccessmodelmetadataV1
+     * @memberof Accessmodelmetadata
      */
     'name'?: string;
     /**
      * Allows selecting multiple values
      * @type {boolean}
-     * @memberof AccessmodelmetadataV1
+     * @memberof Accessmodelmetadata
      */
     'multiselect'?: boolean;
     /**
      * The state of the metadata item
      * @type {string}
-     * @memberof AccessmodelmetadataV1
+     * @memberof Accessmodelmetadata
      */
     'status'?: string;
     /**
      * The type of the metadata item
      * @type {string}
-     * @memberof AccessmodelmetadataV1
+     * @memberof Accessmodelmetadata
      */
     'type'?: string;
     /**
      * The types of objects
      * @type {Array<string>}
-     * @memberof AccessmodelmetadataV1
+     * @memberof Accessmodelmetadata
      */
     'objectTypes'?: Array<string>;
     /**
      * Describes the metadata item
      * @type {string}
-     * @memberof AccessmodelmetadataV1
+     * @memberof Accessmodelmetadata
      */
     'description'?: string;
     /**
      * The value to assign to the metadata item
-     * @type {Array<AccessmodelmetadataValuesInnerV1>}
-     * @memberof AccessmodelmetadataV1
+     * @type {Array<AccessmodelmetadataValuesInner>}
+     * @memberof Accessmodelmetadata
      */
-    'values'?: Array<AccessmodelmetadataValuesInnerV1>;
+    'values'?: Array<AccessmodelmetadataValuesInner>;
 }
 /**
  * An individual value to assign to the metadata item
  * @export
- * @interface AccessmodelmetadataValuesInnerV1
+ * @interface AccessmodelmetadataValuesInner
  */
-export interface AccessmodelmetadataValuesInnerV1 {
+export interface AccessmodelmetadataValuesInner {
     /**
      * The value to assign to the metdata item
      * @type {string}
-     * @memberof AccessmodelmetadataValuesInnerV1
+     * @memberof AccessmodelmetadataValuesInner
      */
     'value'?: string;
     /**
      * Display name of the value
      * @type {string}
-     * @memberof AccessmodelmetadataValuesInnerV1
+     * @memberof AccessmodelmetadataValuesInner
      */
     'name'?: string;
     /**
      * The status of the individual value
      * @type {string}
-     * @memberof AccessmodelmetadataValuesInnerV1
+     * @memberof AccessmodelmetadataValuesInner
      */
     'status'?: string;
 }
 /**
  * Access profile.
  * @export
- * @interface AccessprofileV1
+ * @interface Accessprofile
  */
-export interface AccessprofileV1 {
+export interface Accessprofile {
     /**
      * Access profile ID.
      * @type {string}
-     * @memberof AccessprofileV1
+     * @memberof Accessprofile
      */
     'id'?: string;
     /**
      * Access profile name.
      * @type {string}
-     * @memberof AccessprofileV1
+     * @memberof Accessprofile
      */
     'name': string;
     /**
      * Access profile description.
      * @type {string}
-     * @memberof AccessprofileV1
+     * @memberof Accessprofile
      */
     'description'?: string | null;
     /**
      * Date and time when the access profile was created.
      * @type {string}
-     * @memberof AccessprofileV1
+     * @memberof Accessprofile
      */
     'created'?: string;
     /**
      * Date and time when the access profile was last modified.
      * @type {string}
-     * @memberof AccessprofileV1
+     * @memberof Accessprofile
      */
     'modified'?: string;
     /**
      * Indicates whether the access profile is enabled. If it\'s enabled, you must include at least one entitlement.
      * @type {boolean}
-     * @memberof AccessprofileV1
+     * @memberof Accessprofile
      */
     'enabled'?: boolean;
     /**
      * 
-     * @type {OwnerreferenceV1}
-     * @memberof AccessprofileV1
+     * @type {Ownerreference}
+     * @memberof Accessprofile
      */
-    'owner': OwnerreferenceV1 | null;
+    'owner': Ownerreference | null;
     /**
      * 
-     * @type {AccessprofilesourcerefV1}
-     * @memberof AccessprofileV1
+     * @type {Accessprofilesourceref}
+     * @memberof Accessprofile
      */
-    'source': AccessprofilesourcerefV1;
+    'source': Accessprofilesourceref;
     /**
      * List of entitlements associated with the access profile. If `enabled` is false, this can be empty. Otherwise, it must contain at least one entitlement.
-     * @type {Array<EntitlementrefV1>}
-     * @memberof AccessprofileV1
+     * @type {Array<Entitlementref>}
+     * @memberof Accessprofile
      */
-    'entitlements'?: Array<EntitlementrefV1> | null;
+    'entitlements'?: Array<Entitlementref> | null;
     /**
      * Indicates whether the access profile is requestable by access request. Currently, making an access profile non-requestable is only supported  for customers enabled with the new Request Center. Otherwise, attempting to create an access profile with a value  **false** in this field results in a 400 error.
      * @type {boolean}
-     * @memberof AccessprofileV1
+     * @memberof Accessprofile
      */
     'requestable'?: boolean;
     /**
      * 
-     * @type {RequestabilityV1}
-     * @memberof AccessprofileV1
+     * @type {Requestability}
+     * @memberof Accessprofile
      */
-    'accessRequestConfig'?: RequestabilityV1 | null;
+    'accessRequestConfig'?: Requestability | null;
     /**
      * 
-     * @type {RevocabilityV1}
-     * @memberof AccessprofileV1
+     * @type {Revocability}
+     * @memberof Accessprofile
      */
-    'revocationRequestConfig'?: RevocabilityV1 | null;
+    'revocationRequestConfig'?: Revocability | null;
     /**
      * List of segment IDs, if any, that the access profile is assigned to.
      * @type {Array<string>}
-     * @memberof AccessprofileV1
+     * @memberof Accessprofile
      */
     'segments'?: Array<string> | null;
     /**
      * 
-     * @type {AttributedtolistV1}
-     * @memberof AccessprofileV1
+     * @type {Attributedtolist}
+     * @memberof Accessprofile
      */
-    'accessModelMetadata'?: AttributedtolistV1;
+    'accessModelMetadata'?: Attributedtolist;
     /**
      * 
-     * @type {Provisioningcriterialevel1V1}
-     * @memberof AccessprofileV1
+     * @type {Provisioningcriterialevel1}
+     * @memberof Accessprofile
      */
-    'provisioningCriteria'?: Provisioningcriterialevel1V1 | null;
+    'provisioningCriteria'?: Provisioningcriterialevel1 | null;
     /**
      * List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP).
-     * @type {Array<AdditionalownerrefV1>}
-     * @memberof AccessprofileV1
+     * @type {Array<Additionalownerref>}
+     * @memberof Accessprofile
      */
-    'additionalOwners'?: Array<AdditionalownerrefV1> | null;
+    'additionalOwners'?: Array<Additionalownerref> | null;
 }
 /**
  * 
  * @export
- * @interface AccessprofileapprovalschemeV1
+ * @interface Accessprofileapprovalscheme
  */
-export interface AccessprofileapprovalschemeV1 {
+export interface Accessprofileapprovalscheme {
     /**
      * Describes the individual or group that is responsible for an approval step. These are the possible values: **APP_OWNER**: The owner of the Application  **OWNER**: Owner of the associated Access Profile or Role  **SOURCE_OWNER**: Owner of the Source associated with an Access Profile  **MANAGER**: Manager of the Identity making the request  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field  **WORKFLOW**: A Workflow, the ID of which is specified by the **approverId** field. Workflow is exclusive to other types of approvals and License required.  **ALL_OWNERS**: All owners of the Access Profile, including the primary owner and any secondary owners  **ADDITIONAL_OWNER**: An additional owner of the Access Profile, the ID of which is specified by the **approverId** field  **ADDITIONAL_GOVERNANCE_GROUP**: An additional Governance Group, the ID of which is specified by the **approverId** field
      * @type {string}
-     * @memberof AccessprofileapprovalschemeV1
+     * @memberof Accessprofileapprovalscheme
      */
-    'approverType'?: AccessprofileapprovalschemeV1ApproverTypeV1;
+    'approverType'?: AccessprofileapprovalschemeApproverTypeEnum;
     /**
      * Id of the specific approver, used when approverType is GOVERNANCE_GROUP, WORKFLOW, or ADDITIONAL_GOVERNANCE_GROUP.
      * @type {string}
-     * @memberof AccessprofileapprovalschemeV1
+     * @memberof Accessprofileapprovalscheme
      */
     'approverId'?: string | null;
 }
 
-export const AccessprofileapprovalschemeV1ApproverTypeV1 = {
+export const AccessprofileapprovalschemeApproverTypeEnum = {
     AppOwner: 'APP_OWNER',
     Owner: 'OWNER',
     SourceOwner: 'SOURCE_OWNER',
@@ -267,301 +267,301 @@ export const AccessprofileapprovalschemeV1ApproverTypeV1 = {
     AdditionalGovernanceGroup: 'ADDITIONAL_GOVERNANCE_GROUP'
 } as const;
 
-export type AccessprofileapprovalschemeV1ApproverTypeV1 = typeof AccessprofileapprovalschemeV1ApproverTypeV1[keyof typeof AccessprofileapprovalschemeV1ApproverTypeV1];
+export type AccessprofileapprovalschemeApproverTypeEnum = typeof AccessprofileapprovalschemeApproverTypeEnum[keyof typeof AccessprofileapprovalschemeApproverTypeEnum];
 
 /**
  * 
  * @export
- * @interface AccessprofilerefV1
+ * @interface Accessprofileref
  */
-export interface AccessprofilerefV1 {
+export interface Accessprofileref {
     /**
      * ID of the Access Profile
      * @type {string}
-     * @memberof AccessprofilerefV1
+     * @memberof Accessprofileref
      */
     'id'?: string;
     /**
      * Type of requested object. This field must be either left null or set to \'ACCESS_PROFILE\' when creating an Access Profile, otherwise a 400 Bad Request error will result.
      * @type {string}
-     * @memberof AccessprofilerefV1
+     * @memberof Accessprofileref
      */
-    'type'?: AccessprofilerefV1TypeV1;
+    'type'?: AccessprofilerefTypeEnum;
     /**
      * Human-readable display name of the Access Profile. This field is ignored on input.
      * @type {string}
-     * @memberof AccessprofilerefV1
+     * @memberof Accessprofileref
      */
     'name'?: string;
 }
 
-export const AccessprofilerefV1TypeV1 = {
+export const AccessprofilerefTypeEnum = {
     AccessProfile: 'ACCESS_PROFILE'
 } as const;
 
-export type AccessprofilerefV1TypeV1 = typeof AccessprofilerefV1TypeV1[keyof typeof AccessprofilerefV1TypeV1];
+export type AccessprofilerefTypeEnum = typeof AccessprofilerefTypeEnum[keyof typeof AccessprofilerefTypeEnum];
 
 /**
  * 
  * @export
- * @interface AccessprofilesourcerefV1
+ * @interface Accessprofilesourceref
  */
-export interface AccessprofilesourcerefV1 {
+export interface Accessprofilesourceref {
     /**
      * ID of the source the access profile is associated with.
      * @type {string}
-     * @memberof AccessprofilesourcerefV1
+     * @memberof Accessprofilesourceref
      */
     'id'?: string;
     /**
      * Source\'s DTO type.
      * @type {string}
-     * @memberof AccessprofilesourcerefV1
+     * @memberof Accessprofilesourceref
      */
-    'type'?: AccessprofilesourcerefV1TypeV1;
+    'type'?: AccessprofilesourcerefTypeEnum;
     /**
      * Source name.
      * @type {string}
-     * @memberof AccessprofilesourcerefV1
+     * @memberof Accessprofilesourceref
      */
     'name'?: string;
 }
 
-export const AccessprofilesourcerefV1TypeV1 = {
+export const AccessprofilesourcerefTypeEnum = {
     Source: 'SOURCE'
 } as const;
 
-export type AccessprofilesourcerefV1TypeV1 = typeof AccessprofilesourcerefV1TypeV1[keyof typeof AccessprofilesourcerefV1TypeV1];
+export type AccessprofilesourcerefTypeEnum = typeof AccessprofilesourcerefTypeEnum[keyof typeof AccessprofilesourcerefTypeEnum];
 
 /**
  * Reference to an additional owner (identity or governance group).
  * @export
- * @interface AdditionalownerrefV1
+ * @interface Additionalownerref
  */
-export interface AdditionalownerrefV1 {
+export interface Additionalownerref {
     /**
      * Type of the additional owner; IDENTITY for an identity, GOVERNANCE_GROUP for a governance group.
      * @type {string}
-     * @memberof AdditionalownerrefV1
+     * @memberof Additionalownerref
      */
-    'type'?: AdditionalownerrefV1TypeV1;
+    'type'?: AdditionalownerrefTypeEnum;
     /**
      * ID of the identity or governance group.
      * @type {string}
-     * @memberof AdditionalownerrefV1
+     * @memberof Additionalownerref
      */
     'id'?: string;
     /**
      * Display name. It may be left null or omitted on input. If set, it must match the current display name of the identity or governance group, otherwise a 400 Bad Request error may result.
      * @type {string}
-     * @memberof AdditionalownerrefV1
+     * @memberof Additionalownerref
      */
     'name'?: string | null;
 }
 
-export const AdditionalownerrefV1TypeV1 = {
+export const AdditionalownerrefTypeEnum = {
     Identity: 'IDENTITY',
     GovernanceGroup: 'GOVERNANCE_GROUP'
 } as const;
 
-export type AdditionalownerrefV1TypeV1 = typeof AdditionalownerrefV1TypeV1[keyof typeof AdditionalownerrefV1TypeV1];
+export type AdditionalownerrefTypeEnum = typeof AdditionalownerrefTypeEnum[keyof typeof AdditionalownerrefTypeEnum];
 
 /**
  * 
  * @export
- * @interface ArrayInnerV1
+ * @interface ArrayInner
  */
-export interface ArrayInnerV1 {
+export interface ArrayInner {
 }
 /**
  * 
  * @export
- * @interface AttributedtoV1
+ * @interface Attributedto
  */
-export interface AttributedtoV1 {
+export interface Attributedto {
     /**
      * Technical name of the Attribute. This is unique and cannot be changed after creation.
      * @type {string}
-     * @memberof AttributedtoV1
+     * @memberof Attributedto
      */
     'key'?: string;
     /**
      * The display name of the key.
      * @type {string}
-     * @memberof AttributedtoV1
+     * @memberof Attributedto
      */
     'name'?: string;
     /**
      * Indicates whether the attribute can have multiple values.
      * @type {boolean}
-     * @memberof AttributedtoV1
+     * @memberof Attributedto
      */
     'multiselect'?: boolean;
     /**
      * The status of the Attribute.
      * @type {string}
-     * @memberof AttributedtoV1
+     * @memberof Attributedto
      */
     'status'?: string;
     /**
      * The type of the Attribute. This can be either \"custom\" or \"governance\".
      * @type {string}
-     * @memberof AttributedtoV1
+     * @memberof Attributedto
      */
     'type'?: string;
     /**
      * An array of object types this attributes values can be applied to. Possible values are \"all\" or \"entitlement\". Value \"all\" means this attribute can be used with all object types that are supported.
      * @type {Array<string>}
-     * @memberof AttributedtoV1
+     * @memberof Attributedto
      */
     'objectTypes'?: Array<string> | null;
     /**
      * The description of the Attribute.
      * @type {string}
-     * @memberof AttributedtoV1
+     * @memberof Attributedto
      */
     'description'?: string;
     /**
      * 
-     * @type {Array<AttributevaluedtoV1>}
-     * @memberof AttributedtoV1
+     * @type {Array<Attributevaluedto>}
+     * @memberof Attributedto
      */
-    'values'?: Array<AttributevaluedtoV1> | null;
+    'values'?: Array<Attributevaluedto> | null;
 }
 /**
  * 
  * @export
- * @interface AttributedtolistV1
+ * @interface Attributedtolist
  */
-export interface AttributedtolistV1 {
+export interface Attributedtolist {
     /**
      * 
-     * @type {Array<AttributedtoV1>}
-     * @memberof AttributedtolistV1
+     * @type {Array<Attributedto>}
+     * @memberof Attributedtolist
      */
-    'attributes'?: Array<AttributedtoV1> | null;
+    'attributes'?: Array<Attributedto> | null;
 }
 /**
  * 
  * @export
- * @interface AttributevaluedtoV1
+ * @interface Attributevaluedto
  */
-export interface AttributevaluedtoV1 {
+export interface Attributevaluedto {
     /**
      * Technical name of the Attribute value. This is unique and cannot be changed after creation.
      * @type {string}
-     * @memberof AttributevaluedtoV1
+     * @memberof Attributevaluedto
      */
     'value'?: string;
     /**
      * The display name of the Attribute value.
      * @type {string}
-     * @memberof AttributevaluedtoV1
+     * @memberof Attributevaluedto
      */
     'name'?: string;
     /**
      * The status of the Attribute value.
      * @type {string}
-     * @memberof AttributevaluedtoV1
+     * @memberof Attributevaluedto
      */
     'status'?: string;
 }
 /**
  * A Dimension
  * @export
- * @interface DimensionV1
+ * @interface Dimension
  */
-export interface DimensionV1 {
+export interface Dimension {
     /**
      * The id of the Dimension. This field must be left null when creating a dimension, otherwise a 400 Bad Request error will result.
      * @type {string}
-     * @memberof DimensionV1
+     * @memberof Dimension
      */
     'id'?: string;
     /**
      * The human-readable display name of the Dimension
      * @type {string}
-     * @memberof DimensionV1
+     * @memberof Dimension
      */
     'name': string;
     /**
      * Date the Dimension was created
      * @type {string}
-     * @memberof DimensionV1
+     * @memberof Dimension
      */
     'created'?: string;
     /**
      * Date the Dimension was last modified.
      * @type {string}
-     * @memberof DimensionV1
+     * @memberof Dimension
      */
     'modified'?: string;
     /**
      * A human-readable description of the Dimension
      * @type {string}
-     * @memberof DimensionV1
+     * @memberof Dimension
      */
     'description'?: string | null;
     /**
      * 
-     * @type {OwnerreferenceV1}
-     * @memberof DimensionV1
+     * @type {Ownerreference}
+     * @memberof Dimension
      */
-    'owner': OwnerreferenceV1 | null;
+    'owner': Ownerreference | null;
     /**
      * 
-     * @type {Array<AccessprofilerefV1>}
-     * @memberof DimensionV1
+     * @type {Array<Accessprofileref>}
+     * @memberof Dimension
      */
-    'accessProfiles'?: Array<AccessprofilerefV1> | null;
+    'accessProfiles'?: Array<Accessprofileref> | null;
     /**
      * 
-     * @type {Array<EntitlementrefV1>}
-     * @memberof DimensionV1
+     * @type {Array<Entitlementref>}
+     * @memberof Dimension
      */
-    'entitlements'?: Array<EntitlementrefV1>;
+    'entitlements'?: Array<Entitlementref>;
     /**
      * 
-     * @type {DimensionmembershipselectorV1}
-     * @memberof DimensionV1
+     * @type {Dimensionmembershipselector}
+     * @memberof Dimension
      */
-    'membership'?: DimensionmembershipselectorV1 | null;
+    'membership'?: Dimensionmembershipselector | null;
     /**
      * The ID of the parent role. This field can be left null when creating a dimension, but if provided, it must match the role ID specified in the path variable of the API call.
      * @type {string}
-     * @memberof DimensionV1
+     * @memberof Dimension
      */
     'parentId'?: string | null;
 }
 /**
  * 
  * @export
- * @interface DimensionbulkdeleterequestV1
+ * @interface Dimensionbulkdeleterequest
  */
-export interface DimensionbulkdeleterequestV1 {
+export interface Dimensionbulkdeleterequest {
     /**
      * List of IDs of Dimensions to be deleted.
      * @type {Array<string>}
-     * @memberof DimensionbulkdeleterequestV1
+     * @memberof Dimensionbulkdeleterequest
      */
     'dimensionIds': Array<string>;
 }
 /**
  * Refers to a specific Identity attribute used in Dimension membership criteria.
  * @export
- * @interface DimensioncriteriakeyV1
+ * @interface Dimensioncriteriakey
  */
-export interface DimensioncriteriakeyV1 {
+export interface Dimensioncriteriakey {
     /**
      * 
-     * @type {DimensioncriteriakeytypeV1}
-     * @memberof DimensioncriteriakeyV1
+     * @type {Dimensioncriteriakeytype}
+     * @memberof Dimensioncriteriakey
      */
-    'type': DimensioncriteriakeytypeV1;
+    'type': Dimensioncriteriakeytype;
     /**
      * The name of the identity attribute to which the associated criteria applies.
      * @type {string}
-     * @memberof DimensioncriteriakeyV1
+     * @memberof Dimensioncriteriakey
      */
     'property': string;
 }
@@ -573,101 +573,101 @@ export interface DimensioncriteriakeyV1 {
  * @enum {string}
  */
 
-export const DimensioncriteriakeytypeV1 = {
+export const Dimensioncriteriakeytype = {
     Identity: 'IDENTITY'
 } as const;
 
-export type DimensioncriteriakeytypeV1 = typeof DimensioncriteriakeytypeV1[keyof typeof DimensioncriteriakeytypeV1];
+export type Dimensioncriteriakeytype = typeof Dimensioncriteriakeytype[keyof typeof Dimensioncriteriakeytype];
 
 
 /**
  * Defines STANDARD type Dimension membership
  * @export
- * @interface Dimensioncriterialevel1V1
+ * @interface Dimensioncriterialevel1
  */
-export interface Dimensioncriterialevel1V1 {
+export interface Dimensioncriterialevel1 {
     /**
      * 
-     * @type {DimensioncriteriaoperationV1}
-     * @memberof Dimensioncriterialevel1V1
+     * @type {Dimensioncriteriaoperation}
+     * @memberof Dimensioncriterialevel1
      */
-    'operation'?: DimensioncriteriaoperationV1;
+    'operation'?: Dimensioncriteriaoperation;
     /**
      * 
-     * @type {DimensioncriteriakeyV1}
-     * @memberof Dimensioncriterialevel1V1
+     * @type {Dimensioncriteriakey}
+     * @memberof Dimensioncriterialevel1
      */
-    'key'?: DimensioncriteriakeyV1 | null;
+    'key'?: Dimensioncriteriakey | null;
     /**
      * String value to test the Identity attribute specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is  EQUALS, this field is required. Otherwise, specifying it is an error.
      * @type {string}
-     * @memberof Dimensioncriterialevel1V1
+     * @memberof Dimensioncriterialevel1
      */
     'stringValue'?: string | null;
     /**
      * Array of child criteria. Required if the operation is AND or OR, otherwise it must be left null. A maximum of three levels of criteria are supported, including leaf nodes. Additionally, AND nodes can only be children or OR nodes and vice-versa.
-     * @type {Array<Dimensioncriterialevel2V1>}
-     * @memberof Dimensioncriterialevel1V1
+     * @type {Array<Dimensioncriterialevel2>}
+     * @memberof Dimensioncriterialevel1
      */
-    'children'?: Array<Dimensioncriterialevel2V1> | null;
+    'children'?: Array<Dimensioncriterialevel2> | null;
 }
 
 
 /**
  * Defines STANDARD type Role membership
  * @export
- * @interface Dimensioncriterialevel2V1
+ * @interface Dimensioncriterialevel2
  */
-export interface Dimensioncriterialevel2V1 {
+export interface Dimensioncriterialevel2 {
     /**
      * 
-     * @type {DimensioncriteriaoperationV1}
-     * @memberof Dimensioncriterialevel2V1
+     * @type {Dimensioncriteriaoperation}
+     * @memberof Dimensioncriterialevel2
      */
-    'operation'?: DimensioncriteriaoperationV1;
+    'operation'?: Dimensioncriteriaoperation;
     /**
      * 
-     * @type {DimensioncriteriakeyV1}
-     * @memberof Dimensioncriterialevel2V1
+     * @type {Dimensioncriteriakey}
+     * @memberof Dimensioncriterialevel2
      */
-    'key'?: DimensioncriteriakeyV1 | null;
+    'key'?: Dimensioncriteriakey | null;
     /**
      * String value to test the Identity attribute specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, this field is required. Otherwise, specifying it is an error.
      * @type {string}
-     * @memberof Dimensioncriterialevel2V1
+     * @memberof Dimensioncriterialevel2
      */
     'stringValue'?: string | null;
     /**
      * Array of child criteria. Required if the operation is AND or OR, otherwise it must be left null. A maximum of three levels of criteria are supported, including leaf nodes. Additionally, AND nodes can only be children or OR nodes and vice-versa.
-     * @type {Array<Dimensioncriterialevel3V1>}
-     * @memberof Dimensioncriterialevel2V1
+     * @type {Array<Dimensioncriterialevel3>}
+     * @memberof Dimensioncriterialevel2
      */
-    'children'?: Array<Dimensioncriterialevel3V1> | null;
+    'children'?: Array<Dimensioncriterialevel3> | null;
 }
 
 
 /**
  * Defines STANDARD type Dimension membership
  * @export
- * @interface Dimensioncriterialevel3V1
+ * @interface Dimensioncriterialevel3
  */
-export interface Dimensioncriterialevel3V1 {
+export interface Dimensioncriterialevel3 {
     /**
      * 
-     * @type {DimensioncriteriaoperationV1}
-     * @memberof Dimensioncriterialevel3V1
+     * @type {Dimensioncriteriaoperation}
+     * @memberof Dimensioncriterialevel3
      */
-    'operation'?: DimensioncriteriaoperationV1;
+    'operation'?: Dimensioncriteriaoperation;
     /**
      * 
-     * @type {DimensioncriteriakeyV1}
-     * @memberof Dimensioncriterialevel3V1
+     * @type {Dimensioncriteriakey}
+     * @memberof Dimensioncriterialevel3
      */
-    'key'?: DimensioncriteriakeyV1 | null;
+    'key'?: Dimensioncriteriakey | null;
     /**
      * String value to test the Identity attribute specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, this field is required. Otherwise, specifying it is an error.
      * @type {string}
-     * @memberof Dimensioncriterialevel3V1
+     * @memberof Dimensioncriterialevel3
      */
     'stringValue'?: string;
 }
@@ -679,33 +679,33 @@ export interface Dimensioncriterialevel3V1 {
  * @enum {string}
  */
 
-export const DimensioncriteriaoperationV1 = {
+export const Dimensioncriteriaoperation = {
     Equals: 'EQUALS',
     And: 'AND',
     Or: 'OR'
 } as const;
 
-export type DimensioncriteriaoperationV1 = typeof DimensioncriteriaoperationV1[keyof typeof DimensioncriteriaoperationV1];
+export type Dimensioncriteriaoperation = typeof Dimensioncriteriaoperation[keyof typeof Dimensioncriteriaoperation];
 
 
 /**
  * When present, specifies that the Dimension is to be granted to Identities which either satisfy specific criteria.
  * @export
- * @interface DimensionmembershipselectorV1
+ * @interface Dimensionmembershipselector
  */
-export interface DimensionmembershipselectorV1 {
+export interface Dimensionmembershipselector {
     /**
      * 
-     * @type {DimensionmembershipselectortypeV1}
-     * @memberof DimensionmembershipselectorV1
+     * @type {Dimensionmembershipselectortype}
+     * @memberof Dimensionmembershipselector
      */
-    'type'?: DimensionmembershipselectortypeV1;
+    'type'?: Dimensionmembershipselectortype;
     /**
      * 
-     * @type {Dimensioncriterialevel1V1}
-     * @memberof DimensionmembershipselectorV1
+     * @type {Dimensioncriterialevel1}
+     * @memberof Dimensionmembershipselector
      */
-    'criteria'?: Dimensioncriterialevel1V1 | null;
+    'criteria'?: Dimensioncriterialevel1 | null;
 }
 
 
@@ -715,258 +715,258 @@ export interface DimensionmembershipselectorV1 {
  * @enum {string}
  */
 
-export const DimensionmembershipselectortypeV1 = {
+export const Dimensionmembershipselectortype = {
     Standard: 'STANDARD'
 } as const;
 
-export type DimensionmembershipselectortypeV1 = typeof DimensionmembershipselectortypeV1[keyof typeof DimensionmembershipselectortypeV1];
+export type Dimensionmembershipselectortype = typeof Dimensionmembershipselectortype[keyof typeof Dimensionmembershipselectortype];
 
-
-/**
- * Additional data to classify the entitlement
- * @export
- * @interface EntitlementAccessModelMetadataV1
- */
-export interface EntitlementAccessModelMetadataV1 {
-    /**
-     * 
-     * @type {Array<AccessmodelmetadataV1>}
-     * @memberof EntitlementAccessModelMetadataV1
-     */
-    'attributes'?: Array<AccessmodelmetadataV1>;
-}
-/**
- * The identity that owns the entitlement
- * @export
- * @interface EntitlementOwnerV1
- */
-export interface EntitlementOwnerV1 {
-    /**
-     * The identity ID
-     * @type {string}
-     * @memberof EntitlementOwnerV1
-     */
-    'id'?: string;
-    /**
-     * The type of object
-     * @type {string}
-     * @memberof EntitlementOwnerV1
-     */
-    'type'?: EntitlementOwnerV1TypeV1;
-    /**
-     * The display name of the identity
-     * @type {string}
-     * @memberof EntitlementOwnerV1
-     */
-    'name'?: string;
-}
-
-export const EntitlementOwnerV1TypeV1 = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type EntitlementOwnerV1TypeV1 = typeof EntitlementOwnerV1TypeV1[keyof typeof EntitlementOwnerV1TypeV1];
 
 /**
  * 
  * @export
- * @interface EntitlementSourceV1
+ * @interface Entitlement
  */
-export interface EntitlementSourceV1 {
-    /**
-     * The source ID
-     * @type {string}
-     * @memberof EntitlementSourceV1
-     */
-    'id'?: string;
-    /**
-     * The source type, will always be \"SOURCE\"
-     * @type {string}
-     * @memberof EntitlementSourceV1
-     */
-    'type'?: string;
-    /**
-     * The source name
-     * @type {string}
-     * @memberof EntitlementSourceV1
-     */
-    'name'?: string;
-}
-/**
- * 
- * @export
- * @interface EntitlementV1
- */
-export interface EntitlementV1 {
+export interface Entitlement {
     /**
      * The entitlement id
      * @type {string}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'id'?: string;
     /**
      * The entitlement name
      * @type {string}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'name'?: string;
     /**
      * The entitlement attribute name
      * @type {string}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'attribute'?: string;
     /**
      * The value of the entitlement
      * @type {string}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'value'?: string;
     /**
      * The object type of the entitlement from the source schema
      * @type {string}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'sourceSchemaObjectType'?: string;
     /**
      * The description of the entitlement
      * @type {string}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'description'?: string | null;
     /**
      * True if the entitlement is privileged
      * @type {boolean}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'privileged'?: boolean;
     /**
      * True if the entitlement is cloud governed
      * @type {boolean}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'cloudGoverned'?: boolean;
     /**
      * True if the entitlement is able to be directly requested
      * @type {boolean}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'requestable'?: boolean;
     /**
      * 
-     * @type {EntitlementOwnerV1}
-     * @memberof EntitlementV1
+     * @type {EntitlementOwner}
+     * @memberof Entitlement
      */
-    'owner'?: EntitlementOwnerV1 | null;
+    'owner'?: EntitlementOwner | null;
     /**
      * List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP).
-     * @type {Array<AdditionalownerrefV1>}
-     * @memberof EntitlementV1
+     * @type {Array<Additionalownerref>}
+     * @memberof Entitlement
      */
-    'additionalOwners'?: Array<AdditionalownerrefV1> | null;
+    'additionalOwners'?: Array<Additionalownerref> | null;
     /**
      * A map of entitlement fields that have been manually updated. The key is the field name in UPPER_SNAKE_CASE format, and the value is true or false to indicate if the field has been updated.
      * @type {{ [key: string]: any; }}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'manuallyUpdatedFields'?: { [key: string]: any; } | null;
     /**
      * 
-     * @type {EntitlementAccessModelMetadataV1}
-     * @memberof EntitlementV1
+     * @type {EntitlementAccessModelMetadata}
+     * @memberof Entitlement
      */
-    'accessModelMetadata'?: EntitlementAccessModelMetadataV1;
+    'accessModelMetadata'?: EntitlementAccessModelMetadata;
     /**
      * Time when the entitlement was created
      * @type {string}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'created'?: string;
     /**
      * Time when the entitlement was last modified
      * @type {string}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'modified'?: string;
     /**
      * 
-     * @type {EntitlementSourceV1}
-     * @memberof EntitlementV1
+     * @type {EntitlementSource}
+     * @memberof Entitlement
      */
-    'source'?: EntitlementSourceV1;
+    'source'?: EntitlementSource;
     /**
      * A map of free-form key-value pairs from the source system
      * @type {{ [key: string]: any; }}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'attributes'?: { [key: string]: any; };
     /**
      * List of IDs of segments, if any, to which this Entitlement is assigned.
      * @type {Array<string>}
-     * @memberof EntitlementV1
+     * @memberof Entitlement
      */
     'segments'?: Array<string> | null;
     /**
      * 
-     * @type {Array<PermissiondtoV1>}
-     * @memberof EntitlementV1
+     * @type {Array<Permissiondto>}
+     * @memberof Entitlement
      */
-    'directPermissions'?: Array<PermissiondtoV1>;
+    'directPermissions'?: Array<Permissiondto>;
+}
+/**
+ * Additional data to classify the entitlement
+ * @export
+ * @interface EntitlementAccessModelMetadata
+ */
+export interface EntitlementAccessModelMetadata {
+    /**
+     * 
+     * @type {Array<Accessmodelmetadata>}
+     * @memberof EntitlementAccessModelMetadata
+     */
+    'attributes'?: Array<Accessmodelmetadata>;
+}
+/**
+ * The identity that owns the entitlement
+ * @export
+ * @interface EntitlementOwner
+ */
+export interface EntitlementOwner {
+    /**
+     * The identity ID
+     * @type {string}
+     * @memberof EntitlementOwner
+     */
+    'id'?: string;
+    /**
+     * The type of object
+     * @type {string}
+     * @memberof EntitlementOwner
+     */
+    'type'?: EntitlementOwnerTypeEnum;
+    /**
+     * The display name of the identity
+     * @type {string}
+     * @memberof EntitlementOwner
+     */
+    'name'?: string;
+}
+
+export const EntitlementOwnerTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type EntitlementOwnerTypeEnum = typeof EntitlementOwnerTypeEnum[keyof typeof EntitlementOwnerTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface EntitlementSource
+ */
+export interface EntitlementSource {
+    /**
+     * The source ID
+     * @type {string}
+     * @memberof EntitlementSource
+     */
+    'id'?: string;
+    /**
+     * The source type, will always be \"SOURCE\"
+     * @type {string}
+     * @memberof EntitlementSource
+     */
+    'type'?: string;
+    /**
+     * The source name
+     * @type {string}
+     * @memberof EntitlementSource
+     */
+    'name'?: string;
 }
 /**
  * Entitlement including a specific set of access.
  * @export
- * @interface EntitlementrefV1
+ * @interface Entitlementref
  */
-export interface EntitlementrefV1 {
+export interface Entitlementref {
     /**
      * Entitlement\'s DTO type.
      * @type {string}
-     * @memberof EntitlementrefV1
+     * @memberof Entitlementref
      */
-    'type'?: EntitlementrefV1TypeV1;
+    'type'?: EntitlementrefTypeEnum;
     /**
      * Entitlement\'s ID.
      * @type {string}
-     * @memberof EntitlementrefV1
+     * @memberof Entitlementref
      */
     'id'?: string;
     /**
      * Entitlement\'s display name.
      * @type {string}
-     * @memberof EntitlementrefV1
+     * @memberof Entitlementref
      */
     'name'?: string | null;
 }
 
-export const EntitlementrefV1TypeV1 = {
+export const EntitlementrefTypeEnum = {
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type EntitlementrefV1TypeV1 = typeof EntitlementrefV1TypeV1[keyof typeof EntitlementrefV1TypeV1];
+export type EntitlementrefTypeEnum = typeof EntitlementrefTypeEnum[keyof typeof EntitlementrefTypeEnum];
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -975,61 +975,61 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface JsonpatchoperationV1
+ * @interface Jsonpatchoperation
  */
-export interface JsonpatchoperationV1 {
+export interface Jsonpatchoperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
-    'op': JsonpatchoperationV1OpV1;
+    'op': JsonpatchoperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValueV1}
-     * @memberof JsonpatchoperationV1
+     * @type {JsonpatchoperationValue}
+     * @memberof Jsonpatchoperation
      */
-    'value'?: JsonpatchoperationValueV1;
+    'value'?: JsonpatchoperationValue;
 }
 
-export const JsonpatchoperationV1OpV1 = {
+export const JsonpatchoperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -1038,38 +1038,38 @@ export const JsonpatchoperationV1OpV1 = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationV1OpV1 = typeof JsonpatchoperationV1OpV1[keyof typeof JsonpatchoperationV1OpV1];
+export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
 
 /**
- * @type JsonpatchoperationValueV1
+ * @type JsonpatchoperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number | object | string;
+export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * 
  * @export
- * @interface ListDimensionsV1401ResponseV1
+ * @interface ListDimensionsV1401Response
  */
-export interface ListDimensionsV1401ResponseV1 {
+export interface ListDimensionsV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListDimensionsV1401ResponseV1
+     * @memberof ListDimensionsV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ListDimensionsV1429ResponseV1
+ * @interface ListDimensionsV1429Response
  */
-export interface ListDimensionsV1429ResponseV1 {
+export interface ListDimensionsV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListDimensionsV1429ResponseV1
+     * @memberof ListDimensionsV1429Response
      */
     'message'?: any;
 }
@@ -1079,159 +1079,159 @@ export interface ListDimensionsV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * Owner of the object.
  * @export
- * @interface OwnerreferenceV1
+ * @interface Ownerreference
  */
-export interface OwnerreferenceV1 {
+export interface Ownerreference {
     /**
      * Owner type. This field must be either left null or set to \'IDENTITY\' on input, otherwise a 400 Bad Request error will result.
      * @type {string}
-     * @memberof OwnerreferenceV1
+     * @memberof Ownerreference
      */
-    'type'?: OwnerreferenceV1TypeV1;
+    'type'?: OwnerreferenceTypeEnum;
     /**
      * Owner\'s identity ID.
      * @type {string}
-     * @memberof OwnerreferenceV1
+     * @memberof Ownerreference
      */
     'id'?: string;
     /**
      * Owner\'s name. It may be left null or omitted in a POST or PATCH. If set, it must match the current value of the owner\'s display name, otherwise a 400 Bad Request error will result.
      * @type {string}
-     * @memberof OwnerreferenceV1
+     * @memberof Ownerreference
      */
     'name'?: string;
 }
 
-export const OwnerreferenceV1TypeV1 = {
+export const OwnerreferenceTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type OwnerreferenceV1TypeV1 = typeof OwnerreferenceV1TypeV1[keyof typeof OwnerreferenceV1TypeV1];
+export type OwnerreferenceTypeEnum = typeof OwnerreferenceTypeEnum[keyof typeof OwnerreferenceTypeEnum];
 
 /**
  * Simplified DTO for the Permission objects stored in SailPoint\'s database. The data is aggregated from customer systems and is free-form, so its appearance can vary largely between different clients/customers.
  * @export
- * @interface PermissiondtoV1
+ * @interface Permissiondto
  */
-export interface PermissiondtoV1 {
+export interface Permissiondto {
     /**
      * All the rights (e.g. actions) that this permission allows on the target
      * @type {Array<string>}
-     * @memberof PermissiondtoV1
+     * @memberof Permissiondto
      */
     'rights'?: Array<string>;
     /**
      * The target the permission would grants rights on.
      * @type {string}
-     * @memberof PermissiondtoV1
+     * @memberof Permissiondto
      */
     'target'?: string;
 }
 /**
  * Defines matching criteria for an account to be provisioned with a specific access profile.
  * @export
- * @interface Provisioningcriterialevel1V1
+ * @interface Provisioningcriterialevel1
  */
-export interface Provisioningcriterialevel1V1 {
+export interface Provisioningcriterialevel1 {
     /**
      * 
-     * @type {ProvisioningcriteriaoperationV1}
-     * @memberof Provisioningcriterialevel1V1
+     * @type {Provisioningcriteriaoperation}
+     * @memberof Provisioningcriterialevel1
      */
-    'operation'?: ProvisioningcriteriaoperationV1;
+    'operation'?: Provisioningcriteriaoperation;
     /**
      * Name of the account attribute to be tested. If **operation** is one of `EQUALS`, `NOT_EQUALS`, `CONTAINS`, or `HAS`, this field is required. Otherwise, specifying it results in an error.
      * @type {string}
-     * @memberof Provisioningcriterialevel1V1
+     * @memberof Provisioningcriterialevel1
      */
     'attribute'?: string | null;
     /**
      * String value to test the account attribute w/r/t the specified operation. If the operation is one of `EQUALS`, `NOT_EQUALS`, or `CONTAINS`, this field is required. Otherwise, specifying it results in an error. If the attribute is not string-typed, the API will convert it to the appropriate type.
      * @type {string}
-     * @memberof Provisioningcriterialevel1V1
+     * @memberof Provisioningcriterialevel1
      */
     'value'?: string | null;
     /**
      * Array of child criteria. This field is required if the operation is `AND` or `OR`. Otherwise, it must be left null. A maximum of three levels of criteria are supported, including leaf nodes.
-     * @type {Array<Provisioningcriterialevel2V1>}
-     * @memberof Provisioningcriterialevel1V1
+     * @type {Array<Provisioningcriterialevel2>}
+     * @memberof Provisioningcriterialevel1
      */
-    'children'?: Array<Provisioningcriterialevel2V1> | null;
+    'children'?: Array<Provisioningcriterialevel2> | null;
 }
 
 
 /**
  * Defines matching criteria for an account to be provisioned with a specific access profile.
  * @export
- * @interface Provisioningcriterialevel2V1
+ * @interface Provisioningcriterialevel2
  */
-export interface Provisioningcriterialevel2V1 {
+export interface Provisioningcriterialevel2 {
     /**
      * 
-     * @type {ProvisioningcriteriaoperationV1}
-     * @memberof Provisioningcriterialevel2V1
+     * @type {Provisioningcriteriaoperation}
+     * @memberof Provisioningcriterialevel2
      */
-    'operation'?: ProvisioningcriteriaoperationV1;
+    'operation'?: Provisioningcriteriaoperation;
     /**
      * Name of the account attribute to be tested. If **operation** is one of `EQUALS`, `NOT_EQUALS`, `CONTAINS`, or `HAS`, this field is required. Otherwise, specifying it results in an error.
      * @type {string}
-     * @memberof Provisioningcriterialevel2V1
+     * @memberof Provisioningcriterialevel2
      */
     'attribute'?: string | null;
     /**
      * String value to test the account attribute w/r/t the specified operation. If the operation is one of `EQUALS`, `NOT_EQUALS`, or `CONTAINS`, this field is required. Otherwise, specifying it results in an error. If the attribute is not string-typed, the API will convert it to the appropriate type.
      * @type {string}
-     * @memberof Provisioningcriterialevel2V1
+     * @memberof Provisioningcriterialevel2
      */
     'value'?: string | null;
     /**
      * Array of child criteria. This field is required if the operation is `AND` or `OR`. Otherwise, it must be left null. A maximum of three levels of criteria are supported, including leaf nodes.
-     * @type {Array<Provisioningcriterialevel3V1>}
-     * @memberof Provisioningcriterialevel2V1
+     * @type {Array<Provisioningcriterialevel3>}
+     * @memberof Provisioningcriterialevel2
      */
-    'children'?: Array<Provisioningcriterialevel3V1> | null;
+    'children'?: Array<Provisioningcriterialevel3> | null;
 }
 
 
 /**
  * Defines matching criteria for an account to be provisioned with a specific access profile.
  * @export
- * @interface Provisioningcriterialevel3V1
+ * @interface Provisioningcriterialevel3
  */
-export interface Provisioningcriterialevel3V1 {
+export interface Provisioningcriterialevel3 {
     /**
      * 
-     * @type {ProvisioningcriteriaoperationV1}
-     * @memberof Provisioningcriterialevel3V1
+     * @type {Provisioningcriteriaoperation}
+     * @memberof Provisioningcriterialevel3
      */
-    'operation'?: ProvisioningcriteriaoperationV1;
+    'operation'?: Provisioningcriteriaoperation;
     /**
      * Name of the account attribute to be tested. If **operation** is one of `EQUALS`, `NOT_EQUALS`, `CONTAINS`, or `HAS`, this field is required. Otherwise, specifying it results in an error.
      * @type {string}
-     * @memberof Provisioningcriterialevel3V1
+     * @memberof Provisioningcriterialevel3
      */
     'attribute'?: string | null;
     /**
      * String value to test the account attribute w/r/t the specified operation. If the operation is one of `EQUALS`, `NOT_EQUALS`, or `CONTAINS`, this field is required. Otherwise, specifying it results in an error. If the attribute is not string-typed, the API will convert it to the appropriate type.
      * @type {string}
-     * @memberof Provisioningcriterialevel3V1
+     * @memberof Provisioningcriterialevel3
      */
     'value'?: string | null;
     /**
      * Array of child criteria. This field is required if the operation is `AND` or `OR`. Otherwise, it must be left null. A maximum of three levels of criteria are supported, including leaf nodes.
      * @type {string}
-     * @memberof Provisioningcriterialevel3V1
+     * @memberof Provisioningcriterialevel3
      */
     'children'?: string | null;
 }
@@ -1243,7 +1243,7 @@ export interface Provisioningcriterialevel3V1 {
  * @enum {string}
  */
 
-export const ProvisioningcriteriaoperationV1 = {
+export const Provisioningcriteriaoperation = {
     Equals: 'EQUALS',
     NotEquals: 'NOT_EQUALS',
     Contains: 'CONTAINS',
@@ -1252,117 +1252,117 @@ export const ProvisioningcriteriaoperationV1 = {
     Or: 'OR'
 } as const;
 
-export type ProvisioningcriteriaoperationV1 = typeof ProvisioningcriteriaoperationV1[keyof typeof ProvisioningcriteriaoperationV1];
+export type Provisioningcriteriaoperation = typeof Provisioningcriteriaoperation[keyof typeof Provisioningcriteriaoperation];
 
 
 /**
  * 
  * @export
- * @interface RequestabilityV1
+ * @interface Requestability
  */
-export interface RequestabilityV1 {
+export interface Requestability {
     /**
      * Indicates whether the requester of the containing object must provide comments justifying the request.
      * @type {boolean}
-     * @memberof RequestabilityV1
+     * @memberof Requestability
      */
     'commentsRequired'?: boolean | null;
     /**
      * Indicates whether an approver must provide comments when denying the request.
      * @type {boolean}
-     * @memberof RequestabilityV1
+     * @memberof Requestability
      */
     'denialCommentsRequired'?: boolean | null;
     /**
      * Indicates whether reauthorization is required for the request.
      * @type {boolean}
-     * @memberof RequestabilityV1
+     * @memberof Requestability
      */
     'reauthorizationRequired'?: boolean | null;
     /**
      * Indicates whether the requester of the containing object must provide access end date.
      * @type {boolean}
-     * @memberof RequestabilityV1
+     * @memberof Requestability
      */
     'requireEndDate'?: boolean | null;
     /**
      * 
-     * @type {AccessdurationV1}
-     * @memberof RequestabilityV1
+     * @type {Accessduration}
+     * @memberof Requestability
      */
-    'maxPermittedAccessDuration'?: AccessdurationV1 | null;
+    'maxPermittedAccessDuration'?: Accessduration | null;
     /**
      * List describing the steps involved in approving the request.
-     * @type {Array<AccessprofileapprovalschemeV1>}
-     * @memberof RequestabilityV1
+     * @type {Array<Accessprofileapprovalscheme>}
+     * @memberof Requestability
      */
-    'approvalSchemes'?: Array<AccessprofileapprovalschemeV1> | null;
+    'approvalSchemes'?: Array<Accessprofileapprovalscheme> | null;
 }
 /**
  * 
  * @export
- * @interface RevocabilityV1
+ * @interface Revocability
  */
-export interface RevocabilityV1 {
+export interface Revocability {
     /**
      * List describing the steps involved in approving the revocation request.
-     * @type {Array<AccessprofileapprovalschemeV1>}
-     * @memberof RevocabilityV1
+     * @type {Array<Accessprofileapprovalscheme>}
+     * @memberof Revocability
      */
-    'approvalSchemes'?: Array<AccessprofileapprovalschemeV1> | null;
+    'approvalSchemes'?: Array<Accessprofileapprovalscheme> | null;
 }
 /**
  * Task result.
  * @export
- * @interface TaskresultdtoV1
+ * @interface Taskresultdto
  */
-export interface TaskresultdtoV1 {
+export interface Taskresultdto {
     /**
      * Task result DTO type.
      * @type {string}
-     * @memberof TaskresultdtoV1
+     * @memberof Taskresultdto
      */
-    'type'?: TaskresultdtoV1TypeV1;
+    'type'?: TaskresultdtoTypeEnum;
     /**
      * Task result ID.
      * @type {string}
-     * @memberof TaskresultdtoV1
+     * @memberof Taskresultdto
      */
     'id'?: string;
     /**
      * Task result display name.
      * @type {string}
-     * @memberof TaskresultdtoV1
+     * @memberof Taskresultdto
      */
     'name'?: string | null;
 }
 
-export const TaskresultdtoV1TypeV1 = {
+export const TaskresultdtoTypeEnum = {
     TaskResult: 'TASK_RESULT'
 } as const;
 
-export type TaskresultdtoV1TypeV1 = typeof TaskresultdtoV1TypeV1[keyof typeof TaskresultdtoV1TypeV1];
+export type TaskresultdtoTypeEnum = typeof TaskresultdtoTypeEnum[keyof typeof TaskresultdtoTypeEnum];
 
 
 /**
- * DimensionsV1Api - axios parameter creator
+ * DimensionsApi - axios parameter creator
  * @export
  */
-export const DimensionsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const DimensionsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This API creates a dimension. You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority to call this API.  Additionally, a ROLE_SUBADMIN cannot create a dimension that includes an access profile or entitlement if that access profile or entitlement is linked to a source that the ROLE_SUBADMIN is not associated with.  The maximum supported length for the description field is 2000 characters.
          * @summary Create a dimension
          * @param {string} roleId Parent Role Id of the dimension.
-         * @param {DimensionV1} dimensionV1 
+         * @param {Dimension} dimension 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createDimensionV1: async (roleId: string, dimensionV1: DimensionV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createDimensionV1: async (roleId: string, dimension: Dimension, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'roleId' is not null or undefined
             assertParamExists('createDimensionV1', 'roleId', roleId)
-            // verify required parameter 'dimensionV1' is not null or undefined
-            assertParamExists('createDimensionV1', 'dimensionV1', dimensionV1)
+            // verify required parameter 'dimension' is not null or undefined
+            assertParamExists('createDimensionV1', 'dimension', dimension)
             const localVarPath = `/roles/v1/{roleId}/dimensions`
                 .replace(`{${"roleId"}}`, encodeURIComponent(String(roleId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1383,7 +1383,7 @@ export const DimensionsV1ApiAxiosParamCreator = function (configuration?: Config
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(dimensionV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(dimension, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1394,15 +1394,15 @@ export const DimensionsV1ApiAxiosParamCreator = function (configuration?: Config
          * This endpoint initiates a bulk deletion of one or more dimensions. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 roles per request.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this endpoint. In addition, a token with ROLE_SUBADMIN authority can only call this endpoint if all dimensions included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
          * @summary Delete dimension(s)
          * @param {string} roleId Parent Role Id of the dimensions.
-         * @param {DimensionbulkdeleterequestV1} dimensionbulkdeleterequestV1 
+         * @param {Dimensionbulkdeleterequest} dimensionbulkdeleterequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteBulkDimensionsV1: async (roleId: string, dimensionbulkdeleterequestV1: DimensionbulkdeleterequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteBulkDimensionsV1: async (roleId: string, dimensionbulkdeleterequest: Dimensionbulkdeleterequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'roleId' is not null or undefined
             assertParamExists('deleteBulkDimensionsV1', 'roleId', roleId)
-            // verify required parameter 'dimensionbulkdeleterequestV1' is not null or undefined
-            assertParamExists('deleteBulkDimensionsV1', 'dimensionbulkdeleterequestV1', dimensionbulkdeleterequestV1)
+            // verify required parameter 'dimensionbulkdeleterequest' is not null or undefined
+            assertParamExists('deleteBulkDimensionsV1', 'dimensionbulkdeleterequest', dimensionbulkdeleterequest)
             const localVarPath = `/roles/v1/{roleId}/dimensions/bulk-delete`
                 .replace(`{${"roleId"}}`, encodeURIComponent(String(roleId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1423,7 +1423,7 @@ export const DimensionsV1ApiAxiosParamCreator = function (configuration?: Config
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(dimensionbulkdeleterequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(dimensionbulkdeleterequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1701,17 +1701,17 @@ export const DimensionsV1ApiAxiosParamCreator = function (configuration?: Config
          * @summary Patch a specified dimension
          * @param {string} roleId Parent Role Id of the dimension.
          * @param {string} dimensionId Id of the Dimension
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchDimensionV1: async (roleId: string, dimensionId: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchDimensionV1: async (roleId: string, dimensionId: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'roleId' is not null or undefined
             assertParamExists('patchDimensionV1', 'roleId', roleId)
             // verify required parameter 'dimensionId' is not null or undefined
             assertParamExists('patchDimensionV1', 'dimensionId', dimensionId)
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('patchDimensionV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('patchDimensionV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/roles/v1/{roleId}/dimensions/{dimensionId}`
                 .replace(`{${"roleId"}}`, encodeURIComponent(String(roleId)))
                 .replace(`{${"dimensionId"}}`, encodeURIComponent(String(dimensionId)));
@@ -1733,7 +1733,7 @@ export const DimensionsV1ApiAxiosParamCreator = function (configuration?: Config
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1744,38 +1744,38 @@ export const DimensionsV1ApiAxiosParamCreator = function (configuration?: Config
 };
 
 /**
- * DimensionsV1Api - functional programming interface
+ * DimensionsApi - functional programming interface
  * @export
  */
-export const DimensionsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = DimensionsV1ApiAxiosParamCreator(configuration)
+export const DimensionsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = DimensionsApiAxiosParamCreator(configuration)
     return {
         /**
          * This API creates a dimension. You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority to call this API.  Additionally, a ROLE_SUBADMIN cannot create a dimension that includes an access profile or entitlement if that access profile or entitlement is linked to a source that the ROLE_SUBADMIN is not associated with.  The maximum supported length for the description field is 2000 characters.
          * @summary Create a dimension
          * @param {string} roleId Parent Role Id of the dimension.
-         * @param {DimensionV1} dimensionV1 
+         * @param {Dimension} dimension 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createDimensionV1(roleId: string, dimensionV1: DimensionV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DimensionV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createDimensionV1(roleId, dimensionV1, axiosOptions);
+        async createDimensionV1(roleId: string, dimension: Dimension, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Dimension>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createDimensionV1(roleId, dimension, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DimensionsV1Api.createDimensionV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DimensionsApi.createDimensionV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This endpoint initiates a bulk deletion of one or more dimensions. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 roles per request.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this endpoint. In addition, a token with ROLE_SUBADMIN authority can only call this endpoint if all dimensions included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
          * @summary Delete dimension(s)
          * @param {string} roleId Parent Role Id of the dimensions.
-         * @param {DimensionbulkdeleterequestV1} dimensionbulkdeleterequestV1 
+         * @param {Dimensionbulkdeleterequest} dimensionbulkdeleterequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteBulkDimensionsV1(roleId: string, dimensionbulkdeleterequestV1: DimensionbulkdeleterequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskresultdtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteBulkDimensionsV1(roleId, dimensionbulkdeleterequestV1, axiosOptions);
+        async deleteBulkDimensionsV1(roleId: string, dimensionbulkdeleterequest: Dimensionbulkdeleterequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Taskresultdto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteBulkDimensionsV1(roleId, dimensionbulkdeleterequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DimensionsV1Api.deleteBulkDimensionsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DimensionsApi.deleteBulkDimensionsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1789,7 +1789,7 @@ export const DimensionsV1ApiFp = function(configuration?: Configuration) {
         async deleteDimensionV1(roleId: string, dimensionId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDimensionV1(roleId, dimensionId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DimensionsV1Api.deleteDimensionV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DimensionsApi.deleteDimensionV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1805,10 +1805,10 @@ export const DimensionsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getDimensionEntitlementsV1(roleId: string, dimensionId: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementV1>>> {
+        async getDimensionEntitlementsV1(roleId: string, dimensionId: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Entitlement>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDimensionEntitlementsV1(roleId, dimensionId, limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DimensionsV1Api.getDimensionEntitlementsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DimensionsApi.getDimensionEntitlementsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1819,10 +1819,10 @@ export const DimensionsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getDimensionV1(roleId: string, dimensionId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DimensionV1>> {
+        async getDimensionV1(roleId: string, dimensionId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Dimension>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDimensionV1(roleId, dimensionId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DimensionsV1Api.getDimensionV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DimensionsApi.getDimensionV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1838,10 +1838,10 @@ export const DimensionsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listDimensionAccessProfilesV1(roleId: string, dimensionId: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessprofileV1>>> {
+        async listDimensionAccessProfilesV1(roleId: string, dimensionId: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Accessprofile>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listDimensionAccessProfilesV1(roleId, dimensionId, limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DimensionsV1Api.listDimensionAccessProfilesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DimensionsApi.listDimensionAccessProfilesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1857,10 +1857,10 @@ export const DimensionsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listDimensionsV1(roleId: string, forSubadmin?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DimensionV1>>> {
+        async listDimensionsV1(roleId: string, forSubadmin?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Dimension>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listDimensionsV1(roleId, forSubadmin, limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DimensionsV1Api.listDimensionsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DimensionsApi.listDimensionsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1868,490 +1868,490 @@ export const DimensionsV1ApiFp = function(configuration?: Configuration) {
          * @summary Patch a specified dimension
          * @param {string} roleId Parent Role Id of the dimension.
          * @param {string} dimensionId Id of the Dimension
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchDimensionV1(roleId: string, dimensionId: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DimensionV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchDimensionV1(roleId, dimensionId, jsonpatchoperationV1, axiosOptions);
+        async patchDimensionV1(roleId: string, dimensionId: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Dimension>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchDimensionV1(roleId, dimensionId, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DimensionsV1Api.patchDimensionV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DimensionsApi.patchDimensionV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * DimensionsV1Api - factory interface
+ * DimensionsApi - factory interface
  * @export
  */
-export const DimensionsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = DimensionsV1ApiFp(configuration)
+export const DimensionsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = DimensionsApiFp(configuration)
     return {
         /**
          * This API creates a dimension. You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority to call this API.  Additionally, a ROLE_SUBADMIN cannot create a dimension that includes an access profile or entitlement if that access profile or entitlement is linked to a source that the ROLE_SUBADMIN is not associated with.  The maximum supported length for the description field is 2000 characters.
          * @summary Create a dimension
-         * @param {DimensionsV1ApiCreateDimensionV1Request} requestParameters Request parameters.
+         * @param {DimensionsApiCreateDimensionV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createDimensionV1(requestParameters: DimensionsV1ApiCreateDimensionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<DimensionV1> {
-            return localVarFp.createDimensionV1(requestParameters.roleId, requestParameters.dimensionV1, axiosOptions).then((request) => request(axios, basePath));
+        createDimensionV1(requestParameters: DimensionsApiCreateDimensionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Dimension> {
+            return localVarFp.createDimensionV1(requestParameters.roleId, requestParameters.dimension, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint initiates a bulk deletion of one or more dimensions. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 roles per request.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this endpoint. In addition, a token with ROLE_SUBADMIN authority can only call this endpoint if all dimensions included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
          * @summary Delete dimension(s)
-         * @param {DimensionsV1ApiDeleteBulkDimensionsV1Request} requestParameters Request parameters.
+         * @param {DimensionsApiDeleteBulkDimensionsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteBulkDimensionsV1(requestParameters: DimensionsV1ApiDeleteBulkDimensionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TaskresultdtoV1> {
-            return localVarFp.deleteBulkDimensionsV1(requestParameters.roleId, requestParameters.dimensionbulkdeleterequestV1, axiosOptions).then((request) => request(axios, basePath));
+        deleteBulkDimensionsV1(requestParameters: DimensionsApiDeleteBulkDimensionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Taskresultdto> {
+            return localVarFp.deleteBulkDimensionsV1(requestParameters.roleId, requestParameters.dimensionbulkdeleterequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API deletes a Dimension by its ID. A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles/Entitlements included in the Dimension are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
          * @summary Delete a dimension
-         * @param {DimensionsV1ApiDeleteDimensionV1Request} requestParameters Request parameters.
+         * @param {DimensionsApiDeleteDimensionV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteDimensionV1(requestParameters: DimensionsV1ApiDeleteDimensionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteDimensionV1(requestParameters: DimensionsApiDeleteDimensionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteDimensionV1(requestParameters.roleId, requestParameters.dimensionId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API lists the Entitlements associated with a given dimension.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
          * @summary List dimension\'s entitlements
-         * @param {DimensionsV1ApiGetDimensionEntitlementsV1Request} requestParameters Request parameters.
+         * @param {DimensionsApiGetDimensionEntitlementsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getDimensionEntitlementsV1(requestParameters: DimensionsV1ApiGetDimensionEntitlementsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<EntitlementV1>> {
+        getDimensionEntitlementsV1(requestParameters: DimensionsApiGetDimensionEntitlementsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Entitlement>> {
             return localVarFp.getDimensionEntitlementsV1(requestParameters.roleId, requestParameters.dimensionId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a Dimension by its ID.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles or Entitlements included in the Dimension or Parent Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
          * @summary Get a dimension under role.
-         * @param {DimensionsV1ApiGetDimensionV1Request} requestParameters Request parameters.
+         * @param {DimensionsApiGetDimensionV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getDimensionV1(requestParameters: DimensionsV1ApiGetDimensionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<DimensionV1> {
+        getDimensionV1(requestParameters: DimensionsApiGetDimensionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Dimension> {
             return localVarFp.getDimensionV1(requestParameters.roleId, requestParameters.dimensionId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API lists the Access Profiles associated with a given Dimension  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
          * @summary List dimension\'s access profiles
-         * @param {DimensionsV1ApiListDimensionAccessProfilesV1Request} requestParameters Request parameters.
+         * @param {DimensionsApiListDimensionAccessProfilesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listDimensionAccessProfilesV1(requestParameters: DimensionsV1ApiListDimensionAccessProfilesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccessprofileV1>> {
+        listDimensionAccessProfilesV1(requestParameters: DimensionsApiListDimensionAccessProfilesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Accessprofile>> {
             return localVarFp.listDimensionAccessProfilesV1(requestParameters.roleId, requestParameters.dimensionId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of dimensions under a specified role.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
          * @summary List dimensions
-         * @param {DimensionsV1ApiListDimensionsV1Request} requestParameters Request parameters.
+         * @param {DimensionsApiListDimensionsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listDimensionsV1(requestParameters: DimensionsV1ApiListDimensionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<DimensionV1>> {
+        listDimensionsV1(requestParameters: DimensionsApiListDimensionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Dimension>> {
             return localVarFp.listDimensionsV1(requestParameters.roleId, requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API updates an existing dimension using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: **name** **description** **owner** **accessProfiles** **entitlements** **membership** A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all access profiles/entitlements included in the dimension are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member. The maximum supported length for the description field is 2000 characters. When you use this API to modify a dimension\'s membership identities, you can only modify up to a limit of 500 membership identities at a time.
          * @summary Patch a specified dimension
-         * @param {DimensionsV1ApiPatchDimensionV1Request} requestParameters Request parameters.
+         * @param {DimensionsApiPatchDimensionV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchDimensionV1(requestParameters: DimensionsV1ApiPatchDimensionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<DimensionV1> {
-            return localVarFp.patchDimensionV1(requestParameters.roleId, requestParameters.dimensionId, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        patchDimensionV1(requestParameters: DimensionsApiPatchDimensionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Dimension> {
+            return localVarFp.patchDimensionV1(requestParameters.roleId, requestParameters.dimensionId, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createDimensionV1 operation in DimensionsV1Api.
+ * Request parameters for createDimensionV1 operation in DimensionsApi.
  * @export
- * @interface DimensionsV1ApiCreateDimensionV1Request
+ * @interface DimensionsApiCreateDimensionV1Request
  */
-export interface DimensionsV1ApiCreateDimensionV1Request {
+export interface DimensionsApiCreateDimensionV1Request {
     /**
      * Parent Role Id of the dimension.
      * @type {string}
-     * @memberof DimensionsV1ApiCreateDimensionV1
+     * @memberof DimensionsApiCreateDimensionV1
      */
     readonly roleId: string
 
     /**
      * 
-     * @type {DimensionV1}
-     * @memberof DimensionsV1ApiCreateDimensionV1
+     * @type {Dimension}
+     * @memberof DimensionsApiCreateDimensionV1
      */
-    readonly dimensionV1: DimensionV1
+    readonly dimension: Dimension
 }
 
 /**
- * Request parameters for deleteBulkDimensionsV1 operation in DimensionsV1Api.
+ * Request parameters for deleteBulkDimensionsV1 operation in DimensionsApi.
  * @export
- * @interface DimensionsV1ApiDeleteBulkDimensionsV1Request
+ * @interface DimensionsApiDeleteBulkDimensionsV1Request
  */
-export interface DimensionsV1ApiDeleteBulkDimensionsV1Request {
+export interface DimensionsApiDeleteBulkDimensionsV1Request {
     /**
      * Parent Role Id of the dimensions.
      * @type {string}
-     * @memberof DimensionsV1ApiDeleteBulkDimensionsV1
+     * @memberof DimensionsApiDeleteBulkDimensionsV1
      */
     readonly roleId: string
 
     /**
      * 
-     * @type {DimensionbulkdeleterequestV1}
-     * @memberof DimensionsV1ApiDeleteBulkDimensionsV1
+     * @type {Dimensionbulkdeleterequest}
+     * @memberof DimensionsApiDeleteBulkDimensionsV1
      */
-    readonly dimensionbulkdeleterequestV1: DimensionbulkdeleterequestV1
+    readonly dimensionbulkdeleterequest: Dimensionbulkdeleterequest
 }
 
 /**
- * Request parameters for deleteDimensionV1 operation in DimensionsV1Api.
+ * Request parameters for deleteDimensionV1 operation in DimensionsApi.
  * @export
- * @interface DimensionsV1ApiDeleteDimensionV1Request
+ * @interface DimensionsApiDeleteDimensionV1Request
  */
-export interface DimensionsV1ApiDeleteDimensionV1Request {
+export interface DimensionsApiDeleteDimensionV1Request {
     /**
      * Parent Role Id of the dimension.
      * @type {string}
-     * @memberof DimensionsV1ApiDeleteDimensionV1
+     * @memberof DimensionsApiDeleteDimensionV1
      */
     readonly roleId: string
 
     /**
      * Id of the Dimension
      * @type {string}
-     * @memberof DimensionsV1ApiDeleteDimensionV1
+     * @memberof DimensionsApiDeleteDimensionV1
      */
     readonly dimensionId: string
 }
 
 /**
- * Request parameters for getDimensionEntitlementsV1 operation in DimensionsV1Api.
+ * Request parameters for getDimensionEntitlementsV1 operation in DimensionsApi.
  * @export
- * @interface DimensionsV1ApiGetDimensionEntitlementsV1Request
+ * @interface DimensionsApiGetDimensionEntitlementsV1Request
  */
-export interface DimensionsV1ApiGetDimensionEntitlementsV1Request {
+export interface DimensionsApiGetDimensionEntitlementsV1Request {
     /**
      * Parent Role Id of the dimension.
      * @type {string}
-     * @memberof DimensionsV1ApiGetDimensionEntitlementsV1
+     * @memberof DimensionsApiGetDimensionEntitlementsV1
      */
     readonly roleId: string
 
     /**
      * Id of the Dimension
      * @type {string}
-     * @memberof DimensionsV1ApiGetDimensionEntitlementsV1
+     * @memberof DimensionsApiGetDimensionEntitlementsV1
      */
     readonly dimensionId: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof DimensionsV1ApiGetDimensionEntitlementsV1
+     * @memberof DimensionsApiGetDimensionEntitlementsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof DimensionsV1ApiGetDimensionEntitlementsV1
+     * @memberof DimensionsApiGetDimensionEntitlementsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof DimensionsV1ApiGetDimensionEntitlementsV1
+     * @memberof DimensionsApiGetDimensionEntitlementsV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **attribute**: *eq, sw*  **value**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in*
      * @type {string}
-     * @memberof DimensionsV1ApiGetDimensionEntitlementsV1
+     * @memberof DimensionsApiGetDimensionEntitlementsV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified**
      * @type {string}
-     * @memberof DimensionsV1ApiGetDimensionEntitlementsV1
+     * @memberof DimensionsApiGetDimensionEntitlementsV1
      */
     readonly sorters?: string
 }
 
 /**
- * Request parameters for getDimensionV1 operation in DimensionsV1Api.
+ * Request parameters for getDimensionV1 operation in DimensionsApi.
  * @export
- * @interface DimensionsV1ApiGetDimensionV1Request
+ * @interface DimensionsApiGetDimensionV1Request
  */
-export interface DimensionsV1ApiGetDimensionV1Request {
+export interface DimensionsApiGetDimensionV1Request {
     /**
      * Parent Role Id of the dimension.
      * @type {string}
-     * @memberof DimensionsV1ApiGetDimensionV1
+     * @memberof DimensionsApiGetDimensionV1
      */
     readonly roleId: string
 
     /**
      * Id of the Dimension
      * @type {string}
-     * @memberof DimensionsV1ApiGetDimensionV1
+     * @memberof DimensionsApiGetDimensionV1
      */
     readonly dimensionId: string
 }
 
 /**
- * Request parameters for listDimensionAccessProfilesV1 operation in DimensionsV1Api.
+ * Request parameters for listDimensionAccessProfilesV1 operation in DimensionsApi.
  * @export
- * @interface DimensionsV1ApiListDimensionAccessProfilesV1Request
+ * @interface DimensionsApiListDimensionAccessProfilesV1Request
  */
-export interface DimensionsV1ApiListDimensionAccessProfilesV1Request {
+export interface DimensionsApiListDimensionAccessProfilesV1Request {
     /**
      * Parent Role Id of the dimension.
      * @type {string}
-     * @memberof DimensionsV1ApiListDimensionAccessProfilesV1
+     * @memberof DimensionsApiListDimensionAccessProfilesV1
      */
     readonly roleId: string
 
     /**
      * Id of the Dimension
      * @type {string}
-     * @memberof DimensionsV1ApiListDimensionAccessProfilesV1
+     * @memberof DimensionsApiListDimensionAccessProfilesV1
      */
     readonly dimensionId: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof DimensionsV1ApiListDimensionAccessProfilesV1
+     * @memberof DimensionsApiListDimensionAccessProfilesV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof DimensionsV1ApiListDimensionAccessProfilesV1
+     * @memberof DimensionsApiListDimensionAccessProfilesV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof DimensionsV1ApiListDimensionAccessProfilesV1
+     * @memberof DimensionsApiListDimensionAccessProfilesV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in*
      * @type {string}
-     * @memberof DimensionsV1ApiListDimensionAccessProfilesV1
+     * @memberof DimensionsApiListDimensionAccessProfilesV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
      * @type {string}
-     * @memberof DimensionsV1ApiListDimensionAccessProfilesV1
+     * @memberof DimensionsApiListDimensionAccessProfilesV1
      */
     readonly sorters?: string
 }
 
 /**
- * Request parameters for listDimensionsV1 operation in DimensionsV1Api.
+ * Request parameters for listDimensionsV1 operation in DimensionsApi.
  * @export
- * @interface DimensionsV1ApiListDimensionsV1Request
+ * @interface DimensionsApiListDimensionsV1Request
  */
-export interface DimensionsV1ApiListDimensionsV1Request {
+export interface DimensionsApiListDimensionsV1Request {
     /**
      * Parent Role Id of the dimension.
      * @type {string}
-     * @memberof DimensionsV1ApiListDimensionsV1
+     * @memberof DimensionsApiListDimensionsV1
      */
     readonly roleId: string
 
     /**
      * If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\&#39;s ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin.
      * @type {string}
-     * @memberof DimensionsV1ApiListDimensionsV1
+     * @memberof DimensionsApiListDimensionsV1
      */
     readonly forSubadmin?: string
 
     /**
      * Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof DimensionsV1ApiListDimensionsV1
+     * @memberof DimensionsApiListDimensionsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof DimensionsV1ApiListDimensionsV1
+     * @memberof DimensionsApiListDimensionsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof DimensionsV1ApiListDimensionsV1
+     * @memberof DimensionsApiListDimensionsV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*
      * @type {string}
-     * @memberof DimensionsV1ApiListDimensionsV1
+     * @memberof DimensionsApiListDimensionsV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
      * @type {string}
-     * @memberof DimensionsV1ApiListDimensionsV1
+     * @memberof DimensionsApiListDimensionsV1
      */
     readonly sorters?: string
 }
 
 /**
- * Request parameters for patchDimensionV1 operation in DimensionsV1Api.
+ * Request parameters for patchDimensionV1 operation in DimensionsApi.
  * @export
- * @interface DimensionsV1ApiPatchDimensionV1Request
+ * @interface DimensionsApiPatchDimensionV1Request
  */
-export interface DimensionsV1ApiPatchDimensionV1Request {
+export interface DimensionsApiPatchDimensionV1Request {
     /**
      * Parent Role Id of the dimension.
      * @type {string}
-     * @memberof DimensionsV1ApiPatchDimensionV1
+     * @memberof DimensionsApiPatchDimensionV1
      */
     readonly roleId: string
 
     /**
      * Id of the Dimension
      * @type {string}
-     * @memberof DimensionsV1ApiPatchDimensionV1
+     * @memberof DimensionsApiPatchDimensionV1
      */
     readonly dimensionId: string
 
     /**
      * 
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof DimensionsV1ApiPatchDimensionV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof DimensionsApiPatchDimensionV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * DimensionsV1Api - object-oriented interface
+ * DimensionsApi - object-oriented interface
  * @export
- * @class DimensionsV1Api
+ * @class DimensionsApi
  * @extends {BaseAPI}
  */
-export class DimensionsV1Api extends BaseAPI {
+export class DimensionsApi extends BaseAPI {
     /**
      * This API creates a dimension. You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority to call this API.  Additionally, a ROLE_SUBADMIN cannot create a dimension that includes an access profile or entitlement if that access profile or entitlement is linked to a source that the ROLE_SUBADMIN is not associated with.  The maximum supported length for the description field is 2000 characters.
      * @summary Create a dimension
-     * @param {DimensionsV1ApiCreateDimensionV1Request} requestParameters Request parameters.
+     * @param {DimensionsApiCreateDimensionV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DimensionsV1Api
+     * @memberof DimensionsApi
      */
-    public createDimensionV1(requestParameters: DimensionsV1ApiCreateDimensionV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DimensionsV1ApiFp(this.configuration).createDimensionV1(requestParameters.roleId, requestParameters.dimensionV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createDimensionV1(requestParameters: DimensionsApiCreateDimensionV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DimensionsApiFp(this.configuration).createDimensionV1(requestParameters.roleId, requestParameters.dimension, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint initiates a bulk deletion of one or more dimensions. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 roles per request.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this endpoint. In addition, a token with ROLE_SUBADMIN authority can only call this endpoint if all dimensions included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
      * @summary Delete dimension(s)
-     * @param {DimensionsV1ApiDeleteBulkDimensionsV1Request} requestParameters Request parameters.
+     * @param {DimensionsApiDeleteBulkDimensionsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DimensionsV1Api
+     * @memberof DimensionsApi
      */
-    public deleteBulkDimensionsV1(requestParameters: DimensionsV1ApiDeleteBulkDimensionsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DimensionsV1ApiFp(this.configuration).deleteBulkDimensionsV1(requestParameters.roleId, requestParameters.dimensionbulkdeleterequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteBulkDimensionsV1(requestParameters: DimensionsApiDeleteBulkDimensionsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DimensionsApiFp(this.configuration).deleteBulkDimensionsV1(requestParameters.roleId, requestParameters.dimensionbulkdeleterequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API deletes a Dimension by its ID. A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles/Entitlements included in the Dimension are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
      * @summary Delete a dimension
-     * @param {DimensionsV1ApiDeleteDimensionV1Request} requestParameters Request parameters.
+     * @param {DimensionsApiDeleteDimensionV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DimensionsV1Api
+     * @memberof DimensionsApi
      */
-    public deleteDimensionV1(requestParameters: DimensionsV1ApiDeleteDimensionV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DimensionsV1ApiFp(this.configuration).deleteDimensionV1(requestParameters.roleId, requestParameters.dimensionId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteDimensionV1(requestParameters: DimensionsApiDeleteDimensionV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DimensionsApiFp(this.configuration).deleteDimensionV1(requestParameters.roleId, requestParameters.dimensionId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API lists the Entitlements associated with a given dimension.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
      * @summary List dimension\'s entitlements
-     * @param {DimensionsV1ApiGetDimensionEntitlementsV1Request} requestParameters Request parameters.
+     * @param {DimensionsApiGetDimensionEntitlementsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DimensionsV1Api
+     * @memberof DimensionsApi
      */
-    public getDimensionEntitlementsV1(requestParameters: DimensionsV1ApiGetDimensionEntitlementsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DimensionsV1ApiFp(this.configuration).getDimensionEntitlementsV1(requestParameters.roleId, requestParameters.dimensionId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getDimensionEntitlementsV1(requestParameters: DimensionsApiGetDimensionEntitlementsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DimensionsApiFp(this.configuration).getDimensionEntitlementsV1(requestParameters.roleId, requestParameters.dimensionId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a Dimension by its ID.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles or Entitlements included in the Dimension or Parent Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
      * @summary Get a dimension under role.
-     * @param {DimensionsV1ApiGetDimensionV1Request} requestParameters Request parameters.
+     * @param {DimensionsApiGetDimensionV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DimensionsV1Api
+     * @memberof DimensionsApi
      */
-    public getDimensionV1(requestParameters: DimensionsV1ApiGetDimensionV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DimensionsV1ApiFp(this.configuration).getDimensionV1(requestParameters.roleId, requestParameters.dimensionId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getDimensionV1(requestParameters: DimensionsApiGetDimensionV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DimensionsApiFp(this.configuration).getDimensionV1(requestParameters.roleId, requestParameters.dimensionId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API lists the Access Profiles associated with a given Dimension  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
      * @summary List dimension\'s access profiles
-     * @param {DimensionsV1ApiListDimensionAccessProfilesV1Request} requestParameters Request parameters.
+     * @param {DimensionsApiListDimensionAccessProfilesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DimensionsV1Api
+     * @memberof DimensionsApi
      */
-    public listDimensionAccessProfilesV1(requestParameters: DimensionsV1ApiListDimensionAccessProfilesV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DimensionsV1ApiFp(this.configuration).listDimensionAccessProfilesV1(requestParameters.roleId, requestParameters.dimensionId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listDimensionAccessProfilesV1(requestParameters: DimensionsApiListDimensionAccessProfilesV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DimensionsApiFp(this.configuration).listDimensionAccessProfilesV1(requestParameters.roleId, requestParameters.dimensionId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a list of dimensions under a specified role.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
      * @summary List dimensions
-     * @param {DimensionsV1ApiListDimensionsV1Request} requestParameters Request parameters.
+     * @param {DimensionsApiListDimensionsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DimensionsV1Api
+     * @memberof DimensionsApi
      */
-    public listDimensionsV1(requestParameters: DimensionsV1ApiListDimensionsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DimensionsV1ApiFp(this.configuration).listDimensionsV1(requestParameters.roleId, requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listDimensionsV1(requestParameters: DimensionsApiListDimensionsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DimensionsApiFp(this.configuration).listDimensionsV1(requestParameters.roleId, requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API updates an existing dimension using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: **name** **description** **owner** **accessProfiles** **entitlements** **membership** A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all access profiles/entitlements included in the dimension are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member. The maximum supported length for the description field is 2000 characters. When you use this API to modify a dimension\'s membership identities, you can only modify up to a limit of 500 membership identities at a time.
      * @summary Patch a specified dimension
-     * @param {DimensionsV1ApiPatchDimensionV1Request} requestParameters Request parameters.
+     * @param {DimensionsApiPatchDimensionV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof DimensionsV1Api
+     * @memberof DimensionsApi
      */
-    public patchDimensionV1(requestParameters: DimensionsV1ApiPatchDimensionV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DimensionsV1ApiFp(this.configuration).patchDimensionV1(requestParameters.roleId, requestParameters.dimensionId, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchDimensionV1(requestParameters: DimensionsApiPatchDimensionV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DimensionsApiFp(this.configuration).patchDimensionV1(requestParameters.roleId, requestParameters.dimensionId, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

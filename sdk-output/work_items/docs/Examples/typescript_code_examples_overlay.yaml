@@ -4,15 +4,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/work_items/methods/work-items#approve-approval-item-v1
       source: |
-        import { WorkItemsV1Api } from 'sailpoint-api-client';
+        import { WorkItemsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new WorkItemsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new WorkItemsApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The ID of the work item (default to undefined)
         const approvalItemId: string = '1211bcaa32112bcef6122adb21cef1ac'; // string | The ID of the approval item. (default to undefined)
-        const result = await apiInstance.approveApprovalItemV1(id, approvalItemId);
+        const result = await apiInstance.approveApprovalItemV1({ id: id, approvalItemId: approvalItemId });
         console.log(result);
 - path: /work-items/v1/bulk-approve/{id}
   method: POST
@@ -20,14 +19,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/work_items/methods/work-items#approve-approval-items-in-bulk-v1
       source: |
-        import { WorkItemsV1Api } from 'sailpoint-api-client';
+        import { WorkItemsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new WorkItemsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new WorkItemsApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The ID of the work item (default to undefined)
-        const result = await apiInstance.approveApprovalItemsInBulkV1(id);
+        const result = await apiInstance.approveApprovalItemsInBulkV1({ id: id });
         console.log(result);
 - path: /work-items/v1/{id}
   method: POST
@@ -35,15 +33,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/work_items/methods/work-items#complete-work-item-v1
       source: |
-        import { WorkItemsV1Api } from 'sailpoint-api-client';
+        import { WorkItemsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new WorkItemsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new WorkItemsApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The ID of the work item (default to undefined)
         const body: string = body_example; // string | Body is the request payload to create form definition request (optional)
-        const result = await apiInstance.completeWorkItemV1(id);
+        const result = await apiInstance.completeWorkItemV1({ id: id });
         console.log(result);
 - path: /work-items/v1/{id}/forward
   method: POST
@@ -51,15 +48,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/work_items/methods/work-items#forward-work-item-v1
       source: |
-        import { WorkItemsV1Api } from 'sailpoint-api-client';
+        import { WorkItemsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new WorkItemsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new WorkItemsApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The ID of the work item (default to undefined)
-        const workitemforwardV1: WorkitemforwardV1 = ; // WorkitemforwardV1 | 
-        const result = await apiInstance.forwardWorkItemV1(id, workitemforwardV1);
+        const workitemforward: Workitemforward = ; // Workitemforward | 
+        const result = await apiInstance.forwardWorkItemV1({ id: id, workitemforward: workitemforward });
         console.log(result);
 - path: /work-items/v1/completed
   method: GET
@@ -67,17 +63,16 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/work_items/methods/work-items#get-completed-work-items-v1
       source: |
-        import { WorkItemsV1Api } from 'sailpoint-api-client';
+        import { WorkItemsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new WorkItemsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new WorkItemsApi(configuration);
         const ownerId: string = '1211bcaa32112bcef6122adb21cef1ac'; // string | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request. (optional) (default to undefined)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
-        const result = await apiInstance.getCompletedWorkItemsV1();
+        const result = await apiInstance.getCompletedWorkItemsV1({  });
         console.log(result);
 - path: /work-items/v1/completed/count
   method: GET
@@ -85,14 +80,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/work_items/methods/work-items#get-count-completed-work-items-v1
       source: |
-        import { WorkItemsV1Api } from 'sailpoint-api-client';
+        import { WorkItemsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new WorkItemsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new WorkItemsApi(configuration);
         const ownerId: string = 'ownerId_example'; // string | ID of the work item owner. (optional) (default to undefined)
-        const result = await apiInstance.getCountCompletedWorkItemsV1();
+        const result = await apiInstance.getCountCompletedWorkItemsV1({  });
         console.log(result);
 - path: /work-items/v1/count
   method: GET
@@ -100,14 +94,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/work_items/methods/work-items#get-count-work-items-v1
       source: |
-        import { WorkItemsV1Api } from 'sailpoint-api-client';
+        import { WorkItemsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new WorkItemsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new WorkItemsApi(configuration);
         const ownerId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | ID of the work item owner. (optional) (default to undefined)
-        const result = await apiInstance.getCountWorkItemsV1();
+        const result = await apiInstance.getCountWorkItemsV1({  });
         console.log(result);
 - path: /work-items/v1/{id}
   method: GET
@@ -115,14 +108,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/work_items/methods/work-items#get-work-item-v1
       source: |
-        import { WorkItemsV1Api } from 'sailpoint-api-client';
+        import { WorkItemsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new WorkItemsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new WorkItemsApi(configuration);
         const id: string = '2c9180835d191a86015d28455b4a2329'; // string | ID of the work item. (default to undefined)
-        const result = await apiInstance.getWorkItemV1(id);
+        const result = await apiInstance.getWorkItemV1({ id: id });
         console.log(result);
 - path: /work-items/v1/summary
   method: GET
@@ -130,14 +122,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/work_items/methods/work-items#get-work-items-summary-v1
       source: |
-        import { WorkItemsV1Api } from 'sailpoint-api-client';
+        import { WorkItemsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new WorkItemsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new WorkItemsApi(configuration);
         const ownerId: string = '1211bcaa32112bcef6122adb21cef1ac'; // string | ID of the work item owner. (optional) (default to undefined)
-        const result = await apiInstance.getWorkItemsSummaryV1();
+        const result = await apiInstance.getWorkItemsSummaryV1({  });
         console.log(result);
 - path: /work-items/v1
   method: GET
@@ -145,17 +136,16 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/work_items/methods/work-items#list-work-items-v1
       source: |
-        import { WorkItemsV1Api } from 'sailpoint-api-client';
+        import { WorkItemsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new WorkItemsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new WorkItemsApi(configuration);
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const ownerId: string = '1211bcaa32112bcef6122adb21cef1ac'; // string | ID of the work item owner. (optional) (default to undefined)
-        const result = await apiInstance.listWorkItemsV1();
+        const result = await apiInstance.listWorkItemsV1({  });
         console.log(result);
 - path: /work-items/v1/{id}/reject/{approvalItemId}
   method: POST
@@ -163,15 +153,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/work_items/methods/work-items#reject-approval-item-v1
       source: |
-        import { WorkItemsV1Api } from 'sailpoint-api-client';
+        import { WorkItemsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new WorkItemsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new WorkItemsApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The ID of the work item (default to undefined)
         const approvalItemId: string = '1211bcaa32112bcef6122adb21cef1ac'; // string | The ID of the approval item. (default to undefined)
-        const result = await apiInstance.rejectApprovalItemV1(id, approvalItemId);
+        const result = await apiInstance.rejectApprovalItemV1({ id: id, approvalItemId: approvalItemId });
         console.log(result);
 - path: /work-items/v1/bulk-reject/{id}
   method: POST
@@ -179,14 +168,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/work_items/methods/work-items#reject-approval-items-in-bulk-v1
       source: |
-        import { WorkItemsV1Api } from 'sailpoint-api-client';
+        import { WorkItemsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new WorkItemsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new WorkItemsApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The ID of the work item (default to undefined)
-        const result = await apiInstance.rejectApprovalItemsInBulkV1(id);
+        const result = await apiInstance.rejectApprovalItemsInBulkV1({ id: id });
         console.log(result);
 - path: /work-items/v1/{id}/submit-account-selection
   method: POST
@@ -194,13 +182,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/work_items/methods/work-items#submit-account-selection-v1
       source: |
-        import { WorkItemsV1Api } from 'sailpoint-api-client';
+        import { WorkItemsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new WorkItemsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new WorkItemsApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The ID of the work item (default to undefined)
         const requestBody: { [key: string]: any; } = {"fieldName":"fieldValue"}; // { [key: string]: any; } | Account Selection Data map, keyed on fieldName
-        const result = await apiInstance.submitAccountSelectionV1(id, requestBody);
+        const result = await apiInstance.submitAccountSelectionV1({ id: id, requestBody: requestBody });
         console.log(result);

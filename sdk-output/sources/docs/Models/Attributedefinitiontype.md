@@ -1,15 +1,15 @@
 ---
-id: v1-attributedefinitiontype-v1
-title: AttributedefinitiontypeV1
-pagination_label: AttributedefinitiontypeV1
-sidebar_label: AttributedefinitiontypeV1
+id: v1-attributedefinitiontype
+title: Attributedefinitiontype
+pagination_label: Attributedefinitiontype
+sidebar_label: Attributedefinitiontype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AttributedefinitiontypeV1', 'v1AttributedefinitiontypeV1']
-slug: /tools/sdk/typescript/sources/models/attributedefinitiontype-v1
-tags: ['SDK', 'Software Development Kit', 'AttributedefinitiontypeV1', 'v1AttributedefinitiontypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Attributedefinitiontype', 'v1Attributedefinitiontype']
+slug: /tools/sdk/typescript/sources/models/attributedefinitiontype
+tags: ['SDK', 'Software Development Kit', 'Attributedefinitiontype', 'v1Attributedefinitiontype']
 ---
 
-# AttributedefinitiontypeV1
+# Attributedefinitiontype
 
 ## Enum
 

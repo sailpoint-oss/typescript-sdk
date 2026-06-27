@@ -1,21 +1,21 @@
 ---
-id: v1-connectorrulevalidationresponse-details-inner-v1
-title: ConnectorrulevalidationresponseDetailsInnerV1
-pagination_label: ConnectorrulevalidationresponseDetailsInnerV1
-sidebar_label: ConnectorrulevalidationresponseDetailsInnerV1
+id: v1-connectorrulevalidationresponse-details-inner
+title: ConnectorrulevalidationresponseDetailsInner
+pagination_label: ConnectorrulevalidationresponseDetailsInner
+sidebar_label: ConnectorrulevalidationresponseDetailsInner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ConnectorrulevalidationresponseDetailsInnerV1', 'v1ConnectorrulevalidationresponseDetailsInnerV1']
-slug: /tools/sdk/typescript/connector_rule_management/models/connectorrulevalidationresponse-details-inner-v1
-tags: ['SDK', 'Software Development Kit', 'ConnectorrulevalidationresponseDetailsInnerV1', 'v1ConnectorrulevalidationresponseDetailsInnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ConnectorrulevalidationresponseDetailsInner', 'v1ConnectorrulevalidationresponseDetailsInner']
+slug: /tools/sdk/typescript/connector_rule_management/models/connectorrulevalidationresponse-details-inner
+tags: ['SDK', 'Software Development Kit', 'ConnectorrulevalidationresponseDetailsInner', 'v1ConnectorrulevalidationresponseDetailsInner']
 ---
 
-# ConnectorrulevalidationresponseDetailsInnerV1
+# ConnectorrulevalidationresponseDetailsInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**line** | **number** | The line number where the issue occurred | [default to undefined]
-**column** | **number** | the column number where the issue occurred | [default to undefined]
-**messsage** | **(optional)** **string** | a description of the issue in the code | [default to undefined]
+**line** | `number` | The line number where the issue occurred | [default to undefined]
+**column** | `number` | the column number where the issue occurred | [default to undefined]
+**messsage** | **(optional)** `string` | a description of the issue in the code | [default to undefined]
 

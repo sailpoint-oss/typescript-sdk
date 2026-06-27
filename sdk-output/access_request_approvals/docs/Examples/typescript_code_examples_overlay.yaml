@@ -4,15 +4,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_request_approvals/methods/access-request-approvals#approve-access-request-v1
       source: |
-        import { AccessRequestApprovalsV1Api } from 'sailpoint-api-client';
+        import { AccessRequestApprovalsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessRequestApprovalsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AccessRequestApprovalsApi(configuration);
         const approvalId: string = '2c91808b7294bea301729568c68c002e'; // string | Approval ID. (default to undefined)
-        const commentdtoV1: CommentdtoV1 = ; // CommentdtoV1 | Reviewer\'s comment. (optional)
-        const result = await apiInstance.approveAccessRequestV1(approvalId);
+        const commentdto: Commentdto = ; // Commentdto | Reviewer\'s comment. (optional)
+        const result = await apiInstance.approveAccessRequestV1({ approvalId: approvalId });
         console.log(result);
 - path: /access-request-approvals/v1/{approvalId}/forward
   method: POST
@@ -20,15 +19,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_request_approvals/methods/access-request-approvals#forward-access-request-v1
       source: |
-        import { AccessRequestApprovalsV1Api } from 'sailpoint-api-client';
+        import { AccessRequestApprovalsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessRequestApprovalsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AccessRequestApprovalsApi(configuration);
         const approvalId: string = '2c91808b7294bea301729568c68c002e'; // string | Approval ID. (default to undefined)
-        const forwardapprovaldtoV1: ForwardapprovaldtoV1 = ; // ForwardapprovaldtoV1 | Information about the forwarded approval.
-        const result = await apiInstance.forwardAccessRequestV1(approvalId, forwardapprovaldtoV1);
+        const forwardapprovaldto: Forwardapprovaldto = ; // Forwardapprovaldto | Information about the forwarded approval.
+        const result = await apiInstance.forwardAccessRequestV1({ approvalId: approvalId, forwardapprovaldto: forwardapprovaldto });
         console.log(result);
 - path: /access-request-approvals/v1/approval-summary
   method: GET
@@ -36,15 +34,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_request_approvals/methods/access-request-approvals#get-access-request-approval-summary-v1
       source: |
-        import { AccessRequestApprovalsV1Api } from 'sailpoint-api-client';
+        import { AccessRequestApprovalsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessRequestApprovalsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AccessRequestApprovalsApi(configuration);
         const ownerId: string = '2c91808568c529c60168cca6f90c1313'; // string | The ID of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional) (default to undefined)
         const fromDate: string = 'from-date=2020-03-19T19:59:11Z'; // string | This is the date and time the results will be shown from. It must be in a valid ISO-8601 format. (optional) (default to undefined)
-        const result = await apiInstance.getAccessRequestApprovalSummaryV1();
+        const result = await apiInstance.getAccessRequestApprovalSummaryV1({  });
         console.log(result);
 - path: /access-request-approvals/v1/{accessRequestId}/approvers
   method: GET
@@ -52,17 +49,16 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_request_approvals/methods/access-request-approvals#list-access-request-approvers-v1
       source: |
-        import { AccessRequestApprovalsV1Api } from 'sailpoint-api-client';
+        import { AccessRequestApprovalsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessRequestApprovalsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AccessRequestApprovalsApi(configuration);
         const accessRequestId: string = '2c91808568c529c60168cca6f90c1313'; // string | Access Request ID. (default to undefined)
         const limit: number = 100; // number | Max number of results to return. (optional) (default to 250)
         const offset: number = 10; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional) (default to undefined)
         const count: boolean = false; // boolean | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored. (optional) (default to false)
-        const result = await apiInstance.listAccessRequestApproversV1(accessRequestId);
+        const result = await apiInstance.listAccessRequestApproversV1({ accessRequestId: accessRequestId });
         console.log(result);
 - path: /access-request-approvals/v1/completed
   method: GET
@@ -70,19 +66,18 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_request_approvals/methods/access-request-approvals#list-completed-approvals-v1
       source: |
-        import { AccessRequestApprovalsV1Api } from 'sailpoint-api-client';
+        import { AccessRequestApprovalsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessRequestApprovalsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AccessRequestApprovalsApi(configuration);
         const ownerId: string = '2c91808568c529c60168cca6f90c1313'; // string | If present, the value returns only completed approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional) (default to undefined)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const filters: string = 'id eq "2c91808568c529c60168cca6f90c1313"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **requestedFor.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **modified**: *gt, lt, ge, le, eq, in, ne, sw* (optional) (default to undefined)
         const sorters: string = 'modified'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional) (default to undefined)
-        const result = await apiInstance.listCompletedApprovalsV1();
+        const result = await apiInstance.listCompletedApprovalsV1({  });
         console.log(result);
 - path: /access-request-approvals/v1/pending
   method: GET
@@ -90,19 +85,18 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_request_approvals/methods/access-request-approvals#list-pending-approvals-v1
       source: |
-        import { AccessRequestApprovalsV1Api } from 'sailpoint-api-client';
+        import { AccessRequestApprovalsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessRequestApprovalsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AccessRequestApprovalsApi(configuration);
         const ownerId: string = '2c91808568c529c60168cca6f90c1313'; // string | If present, the value returns only pending approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional) (default to undefined)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const filters: string = 'id eq "2c91808568c529c60168cca6f90c1313"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **requestedFor.id**: *eq, in*  **modified**: *gt, lt, ge, le, eq, in*  **accessRequestId**: *eq, in*  **created**: *gt, lt, ge, le, eq, in* (optional) (default to undefined)
         const sorters: string = 'modified'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional) (default to undefined)
-        const result = await apiInstance.listPendingApprovalsV1();
+        const result = await apiInstance.listPendingApprovalsV1({  });
         console.log(result);
 - path: /access-request-approvals/v1/{approvalId}/reject
   method: POST
@@ -110,13 +104,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_request_approvals/methods/access-request-approvals#reject-access-request-v1
       source: |
-        import { AccessRequestApprovalsV1Api } from 'sailpoint-api-client';
+        import { AccessRequestApprovalsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new AccessRequestApprovalsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new AccessRequestApprovalsApi(configuration);
         const approvalId: string = '2c91808b7294bea301729568c68c002e'; // string | Approval ID. (default to undefined)
-        const commentdtoV1: CommentdtoV1 = ; // CommentdtoV1 | Reviewer\'s comment.
-        const result = await apiInstance.rejectAccessRequestV1(approvalId, commentdtoV1);
+        const commentdto: Commentdto = ; // Commentdto | Reviewer\'s comment.
+        const result = await apiInstance.rejectAccessRequestV1({ approvalId: approvalId, commentdto: commentdto });
         console.log(result);

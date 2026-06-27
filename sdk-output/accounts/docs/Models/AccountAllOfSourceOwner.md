@@ -1,21 +1,21 @@
 ---
-id: v1-account-all-of-source-owner-v1
-title: AccountAllOfSourceOwnerV1
-pagination_label: AccountAllOfSourceOwnerV1
-sidebar_label: AccountAllOfSourceOwnerV1
+id: v1-account-all-of-source-owner
+title: AccountAllOfSourceOwner
+pagination_label: AccountAllOfSourceOwner
+sidebar_label: AccountAllOfSourceOwner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccountAllOfSourceOwnerV1', 'v1AccountAllOfSourceOwnerV1']
-slug: /tools/sdk/typescript/accounts/models/account-all-of-source-owner-v1
-tags: ['SDK', 'Software Development Kit', 'AccountAllOfSourceOwnerV1', 'v1AccountAllOfSourceOwnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'AccountAllOfSourceOwner', 'v1AccountAllOfSourceOwner']
+slug: /tools/sdk/typescript/accounts/models/account-all-of-source-owner
+tags: ['SDK', 'Software Development Kit', 'AccountAllOfSourceOwner', 'v1AccountAllOfSourceOwner']
 ---
 
-# AccountAllOfSourceOwnerV1
+# AccountAllOfSourceOwner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **(optional)** **string** | The ID of the identity | [default to undefined]
-**type** | **(optional)** **string** | The type of object being referenced | [default to undefined]
-**name** | **(optional)** **string** | display name of identity | [default to undefined]
+**id** | **(optional)** `string` | The ID of the identity | [default to undefined]
+**type** | **(optional)** `string` | The type of object being referenced | [default to undefined]
+**name** | **(optional)** `string` | display name of identity | [default to undefined]
 

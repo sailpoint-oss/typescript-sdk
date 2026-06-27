@@ -1,15 +1,15 @@
 ---
-id: v1-aggregationtype-v1
-title: AggregationtypeV1
-pagination_label: AggregationtypeV1
-sidebar_label: AggregationtypeV1
+id: v1-aggregationtype
+title: Aggregationtype
+pagination_label: Aggregationtype
+sidebar_label: Aggregationtype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AggregationtypeV1', 'v1AggregationtypeV1']
-slug: /tools/sdk/typescript/search/models/aggregationtype-v1
-tags: ['SDK', 'Software Development Kit', 'AggregationtypeV1', 'v1AggregationtypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Aggregationtype', 'v1Aggregationtype']
+slug: /tools/sdk/typescript/search/models/aggregationtype
+tags: ['SDK', 'Software Development Kit', 'Aggregationtype', 'v1Aggregationtype']
 ---
 
-# AggregationtypeV1
+# Aggregationtype
 
 ## Enum
 

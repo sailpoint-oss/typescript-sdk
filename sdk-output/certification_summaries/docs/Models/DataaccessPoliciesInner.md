@@ -1,19 +1,19 @@
 ---
-id: v1-dataaccess-policies-inner-v1
-title: DataaccessPoliciesInnerV1
-pagination_label: DataaccessPoliciesInnerV1
-sidebar_label: DataaccessPoliciesInnerV1
+id: v1-dataaccess-policies-inner
+title: DataaccessPoliciesInner
+pagination_label: DataaccessPoliciesInner
+sidebar_label: DataaccessPoliciesInner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'DataaccessPoliciesInnerV1', 'v1DataaccessPoliciesInnerV1']
-slug: /tools/sdk/typescript/certification_summaries/models/dataaccess-policies-inner-v1
-tags: ['SDK', 'Software Development Kit', 'DataaccessPoliciesInnerV1', 'v1DataaccessPoliciesInnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'DataaccessPoliciesInner', 'v1DataaccessPoliciesInner']
+slug: /tools/sdk/typescript/certification_summaries/models/dataaccess-policies-inner
+tags: ['SDK', 'Software Development Kit', 'DataaccessPoliciesInner', 'v1DataaccessPoliciesInner']
 ---
 
-# DataaccessPoliciesInnerV1
+# DataaccessPoliciesInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **(optional)** **string** | Value of the policy | [default to undefined]
+**value** | **(optional)** `string` | Value of the policy | [default to undefined]
 

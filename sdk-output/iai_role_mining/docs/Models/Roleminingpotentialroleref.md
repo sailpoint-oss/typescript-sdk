@@ -1,20 +1,20 @@
 ---
-id: v1-roleminingpotentialroleref-v1
-title: RoleminingpotentialrolerefV1
-pagination_label: RoleminingpotentialrolerefV1
-sidebar_label: RoleminingpotentialrolerefV1
+id: v1-roleminingpotentialroleref
+title: Roleminingpotentialroleref
+pagination_label: Roleminingpotentialroleref
+sidebar_label: Roleminingpotentialroleref
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RoleminingpotentialrolerefV1', 'v1RoleminingpotentialrolerefV1']
-slug: /tools/sdk/typescript/iai_role_mining/models/roleminingpotentialroleref-v1
-tags: ['SDK', 'Software Development Kit', 'RoleminingpotentialrolerefV1', 'v1RoleminingpotentialrolerefV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Roleminingpotentialroleref', 'v1Roleminingpotentialroleref']
+slug: /tools/sdk/typescript/iai_role_mining/models/roleminingpotentialroleref
+tags: ['SDK', 'Software Development Kit', 'Roleminingpotentialroleref', 'v1Roleminingpotentialroleref']
 ---
 
-# RoleminingpotentialrolerefV1
+# Roleminingpotentialroleref
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **(optional)** **string** | Id of the potential role | [default to undefined]
-**name** | **(optional)** **string** | Name of the potential role | [default to undefined]
+**id** | **(optional)** `string` | Id of the potential role | [default to undefined]
+**name** | **(optional)** `string` | Name of the potential role | [default to undefined]
 

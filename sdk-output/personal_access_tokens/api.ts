@@ -26,124 +26,124 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ArrayInnerV1
+ * @interface ArrayInner
  */
-export interface ArrayInnerV1 {
+export interface ArrayInner {
 }
 /**
  * Object for specifying the name of a personal access token to create
  * @export
- * @interface CreatepersonalaccesstokenrequestV1
+ * @interface Createpersonalaccesstokenrequest
  */
-export interface CreatepersonalaccesstokenrequestV1 {
+export interface Createpersonalaccesstokenrequest {
     /**
      * The name of the personal access token (PAT) to be created. Cannot be the same as another PAT owned by the user for whom this PAT is being created.
      * @type {string}
-     * @memberof CreatepersonalaccesstokenrequestV1
+     * @memberof Createpersonalaccesstokenrequest
      */
     'name': string;
     /**
      * Scopes of the personal  access token. If no scope is specified, the token will be created with the default scope \"sp:scopes:all\". This means the personal access token will have all the rights of the owner who created it.
      * @type {Array<string>}
-     * @memberof CreatepersonalaccesstokenrequestV1
+     * @memberof Createpersonalaccesstokenrequest
      */
     'scope'?: Array<string> | null;
     /**
      * Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200.
      * @type {number}
-     * @memberof CreatepersonalaccesstokenrequestV1
+     * @memberof Createpersonalaccesstokenrequest
      */
     'accessTokenValiditySeconds'?: number | null;
     /**
      * Date and time, down to the millisecond, when this personal access token will expire. **Important:** When `expirationDate` is `null` or empty (not included in the request body), the token will never expire. **Required Validation:** If `expirationDate` is `null` or empty, `userAwareTokenNeverExpires` must be set to `true`. This is a required validation rule. **Valid Values (dependent on `userAwareTokenNeverExpires`):** * **When `userAwareTokenNeverExpires` is `true` (or required to be `true`):** `expirationDate` can be `null` or omitted from the request body. When `expirationDate` is `null` or empty, the token will never expire. * **When `userAwareTokenNeverExpires` is `false` or omitted:** `expirationDate` must be provided and must be a valid date-time string representing a future date (after the current date/time). There is no upper limit on how far in the future the expiration date can be set. `expirationDate` cannot be `null` in this case. **Validation Rules:** * **If `expirationDate` is `null` or not included in the request body:** `userAwareTokenNeverExpires` must be set to `true` (required). The token will never expire. * **If `expirationDate` is provided and is not `null`:** `userAwareTokenNeverExpires` can be omitted.
      * @type {string}
-     * @memberof CreatepersonalaccesstokenrequestV1
+     * @memberof Createpersonalaccesstokenrequest
      */
     'expirationDate'?: string | null;
     /**
      * Indicates that the user creating this Personal Access Token is aware of and acknowledges the security implications of creating a token that will never expire. When set to `true`, this flag confirms that the user understands the security risks associated with non-expiring tokens. **Security Awareness:** Setting this field to `true` serves as an explicit acknowledgment that the user creating the token understands: * Tokens that never expire pose a greater security risk if compromised * Non-expiring tokens should be used only when necessary and with appropriate security measures * Regular rotation and monitoring of non-expiring tokens is recommended **Required Validation:** If `expirationDate` is `null` or empty (not included in the request body), `userAwareTokenNeverExpires` must be set to `true`. This is a required validation rule. **Validation Rules:** * **If `expirationDate` is `null` or not included in the request body:** `userAwareTokenNeverExpires` must be set to `true` (required). * **If `expirationDate` is provided and is not `null`:** `userAwareTokenNeverExpires` can be omitted. **Behavior:** * When set to `true`: Indicates that the user acknowledges they are creating a token that will never expire. When `expirationDate` is `null` or empty, the token will never expire. * When set to `false` or not specified (and `expirationDate` is provided): The token will follow normal expiration rules based on the `expirationDate` field and `accessTokenValiditySeconds` setting.
      * @type {boolean}
-     * @memberof CreatepersonalaccesstokenrequestV1
+     * @memberof Createpersonalaccesstokenrequest
      */
     'userAwareTokenNeverExpires'?: boolean | null;
 }
 /**
  * 
  * @export
- * @interface CreatepersonalaccesstokenresponseV1
+ * @interface Createpersonalaccesstokenresponse
  */
-export interface CreatepersonalaccesstokenresponseV1 {
+export interface Createpersonalaccesstokenresponse {
     /**
      * The ID of the personal access token (to be used as the username for Basic Auth).
      * @type {string}
-     * @memberof CreatepersonalaccesstokenresponseV1
+     * @memberof Createpersonalaccesstokenresponse
      */
     'id': string;
     /**
      * The secret of the personal access token (to be used as the password for Basic Auth).
      * @type {string}
-     * @memberof CreatepersonalaccesstokenresponseV1
+     * @memberof Createpersonalaccesstokenresponse
      */
     'secret': string;
     /**
      * Scopes of the personal  access token.
      * @type {Array<string>}
-     * @memberof CreatepersonalaccesstokenresponseV1
+     * @memberof Createpersonalaccesstokenresponse
      */
     'scope': Array<string> | null;
     /**
      * The name of the personal access token. Cannot be the same as other personal access tokens owned by a user.
      * @type {string}
-     * @memberof CreatepersonalaccesstokenresponseV1
+     * @memberof Createpersonalaccesstokenresponse
      */
     'name': string;
     /**
      * 
-     * @type {PatownerV1}
-     * @memberof CreatepersonalaccesstokenresponseV1
+     * @type {Patowner}
+     * @memberof Createpersonalaccesstokenresponse
      */
-    'owner': PatownerV1;
+    'owner': Patowner;
     /**
      * The date and time, down to the millisecond, when this personal access token was created.
      * @type {string}
-     * @memberof CreatepersonalaccesstokenresponseV1
+     * @memberof Createpersonalaccesstokenresponse
      */
     'created': string;
     /**
      * Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200.
      * @type {number}
-     * @memberof CreatepersonalaccesstokenresponseV1
+     * @memberof Createpersonalaccesstokenresponse
      */
     'accessTokenValiditySeconds': number;
     /**
      * Date and time, down to the millisecond, when this personal access token will expire. If not provided, the token will expire 6 months after its creation date. The value must be a valid date-time string between the current date and 6 months from the creation date.
      * @type {string}
-     * @memberof CreatepersonalaccesstokenresponseV1
+     * @memberof Createpersonalaccesstokenresponse
      */
     'expirationDate': string;
 }
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -152,128 +152,128 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetpersonalaccesstokenresponseV1
+ * @interface Getpersonalaccesstokenresponse
  */
-export interface GetpersonalaccesstokenresponseV1 {
+export interface Getpersonalaccesstokenresponse {
     /**
      * The ID of the personal access token (to be used as the username for Basic Auth).
      * @type {string}
-     * @memberof GetpersonalaccesstokenresponseV1
+     * @memberof Getpersonalaccesstokenresponse
      */
     'id': string;
     /**
      * The name of the personal access token. Cannot be the same as other personal access tokens owned by a user.
      * @type {string}
-     * @memberof GetpersonalaccesstokenresponseV1
+     * @memberof Getpersonalaccesstokenresponse
      */
     'name': string;
     /**
      * Scopes of the personal  access token.
      * @type {Array<string>}
-     * @memberof GetpersonalaccesstokenresponseV1
+     * @memberof Getpersonalaccesstokenresponse
      */
     'scope': Array<string> | null;
     /**
      * 
-     * @type {PatownerV1}
-     * @memberof GetpersonalaccesstokenresponseV1
+     * @type {Patowner}
+     * @memberof Getpersonalaccesstokenresponse
      */
-    'owner': PatownerV1;
+    'owner': Patowner;
     /**
      * The date and time, down to the millisecond, when this personal access token was created.
      * @type {string}
-     * @memberof GetpersonalaccesstokenresponseV1
+     * @memberof Getpersonalaccesstokenresponse
      */
     'created': string;
     /**
      * The date and time, down to the millisecond, when this personal access token was last used to generate an access token. This timestamp does not get updated on every PAT usage, but only once a day. This property can be useful for identifying which PATs are no longer actively used and can be removed.
      * @type {string}
-     * @memberof GetpersonalaccesstokenresponseV1
+     * @memberof Getpersonalaccesstokenresponse
      */
     'lastUsed'?: string | null;
     /**
      * If true, this token is managed by the SailPoint platform, and is not visible in the user interface. For example, Workflows will create managed personal access tokens for users who create workflows.
      * @type {boolean}
-     * @memberof GetpersonalaccesstokenresponseV1
+     * @memberof Getpersonalaccesstokenresponse
      */
     'managed'?: boolean;
     /**
      * Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200.
      * @type {number}
-     * @memberof GetpersonalaccesstokenresponseV1
+     * @memberof Getpersonalaccesstokenresponse
      */
     'accessTokenValiditySeconds'?: number;
     /**
      * Date and time, down to the millisecond, when this personal access token will expire. **Important:** When `expirationDate` is `null` or empty, the token will never expire (and `userAwareTokenNeverExpires` will be `true`). When `expirationDate` is provided, this value must be a future date. There is no upper limit on how far in the future the expiration date can be set.
      * @type {string}
-     * @memberof GetpersonalaccesstokenresponseV1
+     * @memberof Getpersonalaccesstokenresponse
      */
     'expirationDate'?: string | null;
     /**
      * Indicates that the user who created or updated this Personal Access Token is aware of and acknowledges the security implications of creating a token that will never expire. When `true`, this flag confirms that the user understood the security risks associated with non-expiring tokens at the time of creation or update. **Security Awareness:** This field serves as a record that the user acknowledged: * Tokens that never expire pose a greater security risk if compromised * Non-expiring tokens should be used only when necessary and with appropriate security measures * Regular rotation and monitoring of non-expiring tokens is recommended **Behavior:** * When `true`: Indicates that the user acknowledged they were creating a token that will never expire. When `expirationDate` is `null`, the token will never expire. * When `false`: The token follows normal expiration rules based on the `expirationDate` field and `accessTokenValiditySeconds` setting.
      * @type {boolean}
-     * @memberof GetpersonalaccesstokenresponseV1
+     * @memberof Getpersonalaccesstokenresponse
      */
     'userAwareTokenNeverExpires'?: boolean;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface JsonpatchoperationV1
+ * @interface Jsonpatchoperation
  */
-export interface JsonpatchoperationV1 {
+export interface Jsonpatchoperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
-    'op': JsonpatchoperationV1OpV1;
+    'op': JsonpatchoperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValueV1}
-     * @memberof JsonpatchoperationV1
+     * @type {JsonpatchoperationValue}
+     * @memberof Jsonpatchoperation
      */
-    'value'?: JsonpatchoperationValueV1;
+    'value'?: JsonpatchoperationValue;
 }
 
-export const JsonpatchoperationV1OpV1 = {
+export const JsonpatchoperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -282,38 +282,38 @@ export const JsonpatchoperationV1OpV1 = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationV1OpV1 = typeof JsonpatchoperationV1OpV1[keyof typeof JsonpatchoperationV1OpV1];
+export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
 
 /**
- * @type JsonpatchoperationValueV1
+ * @type JsonpatchoperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number | object | string;
+export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * 
  * @export
- * @interface ListPersonalAccessTokensV1401ResponseV1
+ * @interface ListPersonalAccessTokensV1401Response
  */
-export interface ListPersonalAccessTokensV1401ResponseV1 {
+export interface ListPersonalAccessTokensV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListPersonalAccessTokensV1401ResponseV1
+     * @memberof ListPersonalAccessTokensV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ListPersonalAccessTokensV1429ResponseV1
+ * @interface ListPersonalAccessTokensV1429Response
  */
-export interface ListPersonalAccessTokensV1429ResponseV1 {
+export interface ListPersonalAccessTokensV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListPersonalAccessTokensV1429ResponseV1
+     * @memberof ListPersonalAccessTokensV1429Response
      */
     'message'?: any;
 }
@@ -323,63 +323,63 @@ export interface ListPersonalAccessTokensV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * Personal access token owner\'s identity.
  * @export
- * @interface PatownerV1
+ * @interface Patowner
  */
-export interface PatownerV1 {
+export interface Patowner {
     /**
      * Personal access token owner\'s DTO type.
      * @type {string}
-     * @memberof PatownerV1
+     * @memberof Patowner
      */
-    'type'?: PatownerV1TypeV1;
+    'type'?: PatownerTypeEnum;
     /**
      * Personal access token owner\'s identity ID.
      * @type {string}
-     * @memberof PatownerV1
+     * @memberof Patowner
      */
     'id'?: string;
     /**
      * Personal access token owner\'s human-readable display name.
      * @type {string}
-     * @memberof PatownerV1
+     * @memberof Patowner
      */
     'name'?: string;
 }
 
-export const PatownerV1TypeV1 = {
+export const PatownerTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type PatownerV1TypeV1 = typeof PatownerV1TypeV1[keyof typeof PatownerV1TypeV1];
+export type PatownerTypeEnum = typeof PatownerTypeEnum[keyof typeof PatownerTypeEnum];
 
 
 /**
- * PersonalAccessTokensV1Api - axios parameter creator
+ * PersonalAccessTokensApi - axios parameter creator
  * @export
  */
-export const PersonalAccessTokensV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const PersonalAccessTokensApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This creates a personal access token. **expirationDate and userAwareTokenNeverExpires Relationship:** **Important:** When `expirationDate` is `null` or empty (not included in the request body), the token will never expire. **Required Validation:** If `expirationDate` is `null` or empty, `userAwareTokenNeverExpires` must be set to `true`. This is a required validation rule. The valid values for `expirationDate` depend on the value provided for `userAwareTokenNeverExpires`: * **When `userAwareTokenNeverExpires` is `true` (or required to be `true`):** `expirationDate` can be `null` or omitted from the request body. When `expirationDate` is `null` or empty, the token will never expire. This creates a PAT that never expires and serves as an explicit acknowledgment that the user is aware of the security implications of creating a non-expiring token. * **When `userAwareTokenNeverExpires` is `false` or omitted:** `expirationDate` must be provided and must be a valid date-time string representing a future date (there is no upper limit). `expirationDate` cannot be `null` in this case. In this scenario, `userAwareTokenNeverExpires` can be omitted. **Validation Rules:** * **If `expirationDate` is `null` or not included in the request body:** `userAwareTokenNeverExpires` must be set to `true` (required). The token will never expire. * **If `expirationDate` is provided and is not `null`:** `userAwareTokenNeverExpires` can be omitted. **Security Considerations:** The `userAwareTokenNeverExpires` field is designed to ensure that users explicitly acknowledge the security implications of creating tokens that never expire. Setting this field to `true` indicates that the user understands the increased security risks and has made an informed decision to proceed. **Note:** The `userAwareTokenNeverExpires` field indicates that the user acknowledges they are creating a token that will never expire. It does not affect token behavior beyond indicating this acknowledgment.
          * @summary Create personal access token
-         * @param {CreatepersonalaccesstokenrequestV1} createpersonalaccesstokenrequestV1 Configuration for creating a personal access token, including name, scope, expiration settings, and user acknowledgment of never-expiring tokens. **Important:** See the endpoint description for validation rules regarding the relationship between &#x60;expirationDate&#x60; and &#x60;userAwareTokenNeverExpires&#x60;.
+         * @param {Createpersonalaccesstokenrequest} createpersonalaccesstokenrequest Configuration for creating a personal access token, including name, scope, expiration settings, and user acknowledgment of never-expiring tokens. **Important:** See the endpoint description for validation rules regarding the relationship between &#x60;expirationDate&#x60; and &#x60;userAwareTokenNeverExpires&#x60;.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createPersonalAccessTokenV1: async (createpersonalaccesstokenrequestV1: CreatepersonalaccesstokenrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'createpersonalaccesstokenrequestV1' is not null or undefined
-            assertParamExists('createPersonalAccessTokenV1', 'createpersonalaccesstokenrequestV1', createpersonalaccesstokenrequestV1)
+        createPersonalAccessTokenV1: async (createpersonalaccesstokenrequest: Createpersonalaccesstokenrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'createpersonalaccesstokenrequest' is not null or undefined
+            assertParamExists('createPersonalAccessTokenV1', 'createpersonalaccesstokenrequest', createpersonalaccesstokenrequest)
             const localVarPath = `/personal-access-tokens/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -399,7 +399,7 @@ export const PersonalAccessTokensV1ApiAxiosParamCreator = function (configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createpersonalaccesstokenrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(createpersonalaccesstokenrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -484,15 +484,15 @@ export const PersonalAccessTokensV1ApiAxiosParamCreator = function (configuratio
          * This performs a targeted update to the field(s) of a Personal Access Token. Changing scopes for a Personal Access Token does not impact existing bearer tokens. You will need to create a new bearer token to have the new scopes. Please note that it can take up to 20 minutes for scope changes to be seen on new bearer tokens. **expirationDate and userAwareTokenNeverExpires Relationship:** **Important:** When `expirationDate` is `null` or empty (replaced to `null` or omitted from the patch request), the token will never expire. **Required Validation:** If `expirationDate` is being replaced to `null` or is empty, `userAwareTokenNeverExpires` must be set to `true` in the patch request. This is a required validation rule. When patching `expirationDate` and `userAwareTokenNeverExpires`, the valid values for `expirationDate` depend on the value provided for `userAwareTokenNeverExpires`: * **When `userAwareTokenNeverExpires` is being set to `true` (or required to be `true`):** `expirationDate` can be replaced to `null` or omitted from the patch request. When `expirationDate` is `null` or empty, the token will never expire. This sets the PAT to never expire and serves as an explicit acknowledgment that the user is aware of the security implications of creating a non-expiring token. * **When `userAwareTokenNeverExpires` is `false` or omitted:** `expirationDate` must be provided and must be a valid date-time string representing a future date (there is no upper limit). `expirationDate` cannot be `null` in this case. In this scenario, `userAwareTokenNeverExpires` can be omitted. **Validation Rules:** * **If `expirationDate` is being replaced to `null`:** `userAwareTokenNeverExpires` must also be present in the patch request with a value of `true` (required). The token will never expire. * **If `expirationDate` is not being replaced to `null` (i.e., set to a future date):** `userAwareTokenNeverExpires` can be omitted. **Security Considerations:** The `userAwareTokenNeverExpires` field is designed to ensure that users explicitly acknowledge the security implications of creating tokens that never expire. Setting this field to `true` indicates that the user understands the increased security risks and has made an informed decision to proceed. **Note:** The `userAwareTokenNeverExpires` field indicates that the user acknowledges they are creating a token that will never expire. It does not affect token behavior beyond indicating this acknowledgment.
          * @summary Patch personal access token
          * @param {string} id The Personal Access Token id
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope * expirationDate * userAwareTokenNeverExpires  **Important:** See the endpoint description for validation rules regarding the relationship between &#x60;expirationDate&#x60; and &#x60;userAwareTokenNeverExpires&#x60;. 
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope * expirationDate * userAwareTokenNeverExpires  **Important:** See the endpoint description for validation rules regarding the relationship between &#x60;expirationDate&#x60; and &#x60;userAwareTokenNeverExpires&#x60;. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchPersonalAccessTokenV1: async (id: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchPersonalAccessTokenV1: async (id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchPersonalAccessTokenV1', 'id', id)
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('patchPersonalAccessTokenV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('patchPersonalAccessTokenV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/personal-access-tokens/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -513,7 +513,7 @@ export const PersonalAccessTokensV1ApiAxiosParamCreator = function (configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -524,23 +524,23 @@ export const PersonalAccessTokensV1ApiAxiosParamCreator = function (configuratio
 };
 
 /**
- * PersonalAccessTokensV1Api - functional programming interface
+ * PersonalAccessTokensApi - functional programming interface
  * @export
  */
-export const PersonalAccessTokensV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = PersonalAccessTokensV1ApiAxiosParamCreator(configuration)
+export const PersonalAccessTokensApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = PersonalAccessTokensApiAxiosParamCreator(configuration)
     return {
         /**
          * This creates a personal access token. **expirationDate and userAwareTokenNeverExpires Relationship:** **Important:** When `expirationDate` is `null` or empty (not included in the request body), the token will never expire. **Required Validation:** If `expirationDate` is `null` or empty, `userAwareTokenNeverExpires` must be set to `true`. This is a required validation rule. The valid values for `expirationDate` depend on the value provided for `userAwareTokenNeverExpires`: * **When `userAwareTokenNeverExpires` is `true` (or required to be `true`):** `expirationDate` can be `null` or omitted from the request body. When `expirationDate` is `null` or empty, the token will never expire. This creates a PAT that never expires and serves as an explicit acknowledgment that the user is aware of the security implications of creating a non-expiring token. * **When `userAwareTokenNeverExpires` is `false` or omitted:** `expirationDate` must be provided and must be a valid date-time string representing a future date (there is no upper limit). `expirationDate` cannot be `null` in this case. In this scenario, `userAwareTokenNeverExpires` can be omitted. **Validation Rules:** * **If `expirationDate` is `null` or not included in the request body:** `userAwareTokenNeverExpires` must be set to `true` (required). The token will never expire. * **If `expirationDate` is provided and is not `null`:** `userAwareTokenNeverExpires` can be omitted. **Security Considerations:** The `userAwareTokenNeverExpires` field is designed to ensure that users explicitly acknowledge the security implications of creating tokens that never expire. Setting this field to `true` indicates that the user understands the increased security risks and has made an informed decision to proceed. **Note:** The `userAwareTokenNeverExpires` field indicates that the user acknowledges they are creating a token that will never expire. It does not affect token behavior beyond indicating this acknowledgment.
          * @summary Create personal access token
-         * @param {CreatepersonalaccesstokenrequestV1} createpersonalaccesstokenrequestV1 Configuration for creating a personal access token, including name, scope, expiration settings, and user acknowledgment of never-expiring tokens. **Important:** See the endpoint description for validation rules regarding the relationship between &#x60;expirationDate&#x60; and &#x60;userAwareTokenNeverExpires&#x60;.
+         * @param {Createpersonalaccesstokenrequest} createpersonalaccesstokenrequest Configuration for creating a personal access token, including name, scope, expiration settings, and user acknowledgment of never-expiring tokens. **Important:** See the endpoint description for validation rules regarding the relationship between &#x60;expirationDate&#x60; and &#x60;userAwareTokenNeverExpires&#x60;.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createPersonalAccessTokenV1(createpersonalaccesstokenrequestV1: CreatepersonalaccesstokenrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreatepersonalaccesstokenresponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createPersonalAccessTokenV1(createpersonalaccesstokenrequestV1, axiosOptions);
+        async createPersonalAccessTokenV1(createpersonalaccesstokenrequest: Createpersonalaccesstokenrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Createpersonalaccesstokenresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createPersonalAccessTokenV1(createpersonalaccesstokenrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PersonalAccessTokensV1Api.createPersonalAccessTokenV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PersonalAccessTokensApi.createPersonalAccessTokenV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -553,7 +553,7 @@ export const PersonalAccessTokensV1ApiFp = function(configuration?: Configuratio
         async deletePersonalAccessTokenV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deletePersonalAccessTokenV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PersonalAccessTokensV1Api.deletePersonalAccessTokenV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PersonalAccessTokensApi.deletePersonalAccessTokenV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -564,202 +564,202 @@ export const PersonalAccessTokensV1ApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listPersonalAccessTokensV1(ownerId?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetpersonalaccesstokenresponseV1>>> {
+        async listPersonalAccessTokensV1(ownerId?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Getpersonalaccesstokenresponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listPersonalAccessTokensV1(ownerId, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PersonalAccessTokensV1Api.listPersonalAccessTokensV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PersonalAccessTokensApi.listPersonalAccessTokensV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This performs a targeted update to the field(s) of a Personal Access Token. Changing scopes for a Personal Access Token does not impact existing bearer tokens. You will need to create a new bearer token to have the new scopes. Please note that it can take up to 20 minutes for scope changes to be seen on new bearer tokens. **expirationDate and userAwareTokenNeverExpires Relationship:** **Important:** When `expirationDate` is `null` or empty (replaced to `null` or omitted from the patch request), the token will never expire. **Required Validation:** If `expirationDate` is being replaced to `null` or is empty, `userAwareTokenNeverExpires` must be set to `true` in the patch request. This is a required validation rule. When patching `expirationDate` and `userAwareTokenNeverExpires`, the valid values for `expirationDate` depend on the value provided for `userAwareTokenNeverExpires`: * **When `userAwareTokenNeverExpires` is being set to `true` (or required to be `true`):** `expirationDate` can be replaced to `null` or omitted from the patch request. When `expirationDate` is `null` or empty, the token will never expire. This sets the PAT to never expire and serves as an explicit acknowledgment that the user is aware of the security implications of creating a non-expiring token. * **When `userAwareTokenNeverExpires` is `false` or omitted:** `expirationDate` must be provided and must be a valid date-time string representing a future date (there is no upper limit). `expirationDate` cannot be `null` in this case. In this scenario, `userAwareTokenNeverExpires` can be omitted. **Validation Rules:** * **If `expirationDate` is being replaced to `null`:** `userAwareTokenNeverExpires` must also be present in the patch request with a value of `true` (required). The token will never expire. * **If `expirationDate` is not being replaced to `null` (i.e., set to a future date):** `userAwareTokenNeverExpires` can be omitted. **Security Considerations:** The `userAwareTokenNeverExpires` field is designed to ensure that users explicitly acknowledge the security implications of creating tokens that never expire. Setting this field to `true` indicates that the user understands the increased security risks and has made an informed decision to proceed. **Note:** The `userAwareTokenNeverExpires` field indicates that the user acknowledges they are creating a token that will never expire. It does not affect token behavior beyond indicating this acknowledgment.
          * @summary Patch personal access token
          * @param {string} id The Personal Access Token id
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope * expirationDate * userAwareTokenNeverExpires  **Important:** See the endpoint description for validation rules regarding the relationship between &#x60;expirationDate&#x60; and &#x60;userAwareTokenNeverExpires&#x60;. 
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope * expirationDate * userAwareTokenNeverExpires  **Important:** See the endpoint description for validation rules regarding the relationship between &#x60;expirationDate&#x60; and &#x60;userAwareTokenNeverExpires&#x60;. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchPersonalAccessTokenV1(id: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetpersonalaccesstokenresponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchPersonalAccessTokenV1(id, jsonpatchoperationV1, axiosOptions);
+        async patchPersonalAccessTokenV1(id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Getpersonalaccesstokenresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchPersonalAccessTokenV1(id, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PersonalAccessTokensV1Api.patchPersonalAccessTokenV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PersonalAccessTokensApi.patchPersonalAccessTokenV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * PersonalAccessTokensV1Api - factory interface
+ * PersonalAccessTokensApi - factory interface
  * @export
  */
-export const PersonalAccessTokensV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = PersonalAccessTokensV1ApiFp(configuration)
+export const PersonalAccessTokensApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = PersonalAccessTokensApiFp(configuration)
     return {
         /**
          * This creates a personal access token. **expirationDate and userAwareTokenNeverExpires Relationship:** **Important:** When `expirationDate` is `null` or empty (not included in the request body), the token will never expire. **Required Validation:** If `expirationDate` is `null` or empty, `userAwareTokenNeverExpires` must be set to `true`. This is a required validation rule. The valid values for `expirationDate` depend on the value provided for `userAwareTokenNeverExpires`: * **When `userAwareTokenNeverExpires` is `true` (or required to be `true`):** `expirationDate` can be `null` or omitted from the request body. When `expirationDate` is `null` or empty, the token will never expire. This creates a PAT that never expires and serves as an explicit acknowledgment that the user is aware of the security implications of creating a non-expiring token. * **When `userAwareTokenNeverExpires` is `false` or omitted:** `expirationDate` must be provided and must be a valid date-time string representing a future date (there is no upper limit). `expirationDate` cannot be `null` in this case. In this scenario, `userAwareTokenNeverExpires` can be omitted. **Validation Rules:** * **If `expirationDate` is `null` or not included in the request body:** `userAwareTokenNeverExpires` must be set to `true` (required). The token will never expire. * **If `expirationDate` is provided and is not `null`:** `userAwareTokenNeverExpires` can be omitted. **Security Considerations:** The `userAwareTokenNeverExpires` field is designed to ensure that users explicitly acknowledge the security implications of creating tokens that never expire. Setting this field to `true` indicates that the user understands the increased security risks and has made an informed decision to proceed. **Note:** The `userAwareTokenNeverExpires` field indicates that the user acknowledges they are creating a token that will never expire. It does not affect token behavior beyond indicating this acknowledgment.
          * @summary Create personal access token
-         * @param {PersonalAccessTokensV1ApiCreatePersonalAccessTokenV1Request} requestParameters Request parameters.
+         * @param {PersonalAccessTokensApiCreatePersonalAccessTokenV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createPersonalAccessTokenV1(requestParameters: PersonalAccessTokensV1ApiCreatePersonalAccessTokenV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CreatepersonalaccesstokenresponseV1> {
-            return localVarFp.createPersonalAccessTokenV1(requestParameters.createpersonalaccesstokenrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        createPersonalAccessTokenV1(requestParameters: PersonalAccessTokensApiCreatePersonalAccessTokenV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Createpersonalaccesstokenresponse> {
+            return localVarFp.createPersonalAccessTokenV1(requestParameters.createpersonalaccesstokenrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This deletes a personal access token.
          * @summary Delete personal access token
-         * @param {PersonalAccessTokensV1ApiDeletePersonalAccessTokenV1Request} requestParameters Request parameters.
+         * @param {PersonalAccessTokensApiDeletePersonalAccessTokenV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deletePersonalAccessTokenV1(requestParameters: PersonalAccessTokensV1ApiDeletePersonalAccessTokenV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deletePersonalAccessTokenV1(requestParameters: PersonalAccessTokensApiDeletePersonalAccessTokenV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deletePersonalAccessTokenV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the \'idn:all-personal-access-tokens:read\' right.
          * @summary List personal access tokens
-         * @param {PersonalAccessTokensV1ApiListPersonalAccessTokensV1Request} requestParameters Request parameters.
+         * @param {PersonalAccessTokensApiListPersonalAccessTokensV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listPersonalAccessTokensV1(requestParameters: PersonalAccessTokensV1ApiListPersonalAccessTokensV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<GetpersonalaccesstokenresponseV1>> {
+        listPersonalAccessTokensV1(requestParameters: PersonalAccessTokensApiListPersonalAccessTokensV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Getpersonalaccesstokenresponse>> {
             return localVarFp.listPersonalAccessTokensV1(requestParameters.ownerId, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This performs a targeted update to the field(s) of a Personal Access Token. Changing scopes for a Personal Access Token does not impact existing bearer tokens. You will need to create a new bearer token to have the new scopes. Please note that it can take up to 20 minutes for scope changes to be seen on new bearer tokens. **expirationDate and userAwareTokenNeverExpires Relationship:** **Important:** When `expirationDate` is `null` or empty (replaced to `null` or omitted from the patch request), the token will never expire. **Required Validation:** If `expirationDate` is being replaced to `null` or is empty, `userAwareTokenNeverExpires` must be set to `true` in the patch request. This is a required validation rule. When patching `expirationDate` and `userAwareTokenNeverExpires`, the valid values for `expirationDate` depend on the value provided for `userAwareTokenNeverExpires`: * **When `userAwareTokenNeverExpires` is being set to `true` (or required to be `true`):** `expirationDate` can be replaced to `null` or omitted from the patch request. When `expirationDate` is `null` or empty, the token will never expire. This sets the PAT to never expire and serves as an explicit acknowledgment that the user is aware of the security implications of creating a non-expiring token. * **When `userAwareTokenNeverExpires` is `false` or omitted:** `expirationDate` must be provided and must be a valid date-time string representing a future date (there is no upper limit). `expirationDate` cannot be `null` in this case. In this scenario, `userAwareTokenNeverExpires` can be omitted. **Validation Rules:** * **If `expirationDate` is being replaced to `null`:** `userAwareTokenNeverExpires` must also be present in the patch request with a value of `true` (required). The token will never expire. * **If `expirationDate` is not being replaced to `null` (i.e., set to a future date):** `userAwareTokenNeverExpires` can be omitted. **Security Considerations:** The `userAwareTokenNeverExpires` field is designed to ensure that users explicitly acknowledge the security implications of creating tokens that never expire. Setting this field to `true` indicates that the user understands the increased security risks and has made an informed decision to proceed. **Note:** The `userAwareTokenNeverExpires` field indicates that the user acknowledges they are creating a token that will never expire. It does not affect token behavior beyond indicating this acknowledgment.
          * @summary Patch personal access token
-         * @param {PersonalAccessTokensV1ApiPatchPersonalAccessTokenV1Request} requestParameters Request parameters.
+         * @param {PersonalAccessTokensApiPatchPersonalAccessTokenV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchPersonalAccessTokenV1(requestParameters: PersonalAccessTokensV1ApiPatchPersonalAccessTokenV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetpersonalaccesstokenresponseV1> {
-            return localVarFp.patchPersonalAccessTokenV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        patchPersonalAccessTokenV1(requestParameters: PersonalAccessTokensApiPatchPersonalAccessTokenV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Getpersonalaccesstokenresponse> {
+            return localVarFp.patchPersonalAccessTokenV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createPersonalAccessTokenV1 operation in PersonalAccessTokensV1Api.
+ * Request parameters for createPersonalAccessTokenV1 operation in PersonalAccessTokensApi.
  * @export
- * @interface PersonalAccessTokensV1ApiCreatePersonalAccessTokenV1Request
+ * @interface PersonalAccessTokensApiCreatePersonalAccessTokenV1Request
  */
-export interface PersonalAccessTokensV1ApiCreatePersonalAccessTokenV1Request {
+export interface PersonalAccessTokensApiCreatePersonalAccessTokenV1Request {
     /**
      * Configuration for creating a personal access token, including name, scope, expiration settings, and user acknowledgment of never-expiring tokens. **Important:** See the endpoint description for validation rules regarding the relationship between &#x60;expirationDate&#x60; and &#x60;userAwareTokenNeverExpires&#x60;.
-     * @type {CreatepersonalaccesstokenrequestV1}
-     * @memberof PersonalAccessTokensV1ApiCreatePersonalAccessTokenV1
+     * @type {Createpersonalaccesstokenrequest}
+     * @memberof PersonalAccessTokensApiCreatePersonalAccessTokenV1
      */
-    readonly createpersonalaccesstokenrequestV1: CreatepersonalaccesstokenrequestV1
+    readonly createpersonalaccesstokenrequest: Createpersonalaccesstokenrequest
 }
 
 /**
- * Request parameters for deletePersonalAccessTokenV1 operation in PersonalAccessTokensV1Api.
+ * Request parameters for deletePersonalAccessTokenV1 operation in PersonalAccessTokensApi.
  * @export
- * @interface PersonalAccessTokensV1ApiDeletePersonalAccessTokenV1Request
+ * @interface PersonalAccessTokensApiDeletePersonalAccessTokenV1Request
  */
-export interface PersonalAccessTokensV1ApiDeletePersonalAccessTokenV1Request {
+export interface PersonalAccessTokensApiDeletePersonalAccessTokenV1Request {
     /**
      * The personal access token id
      * @type {string}
-     * @memberof PersonalAccessTokensV1ApiDeletePersonalAccessTokenV1
+     * @memberof PersonalAccessTokensApiDeletePersonalAccessTokenV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for listPersonalAccessTokensV1 operation in PersonalAccessTokensV1Api.
+ * Request parameters for listPersonalAccessTokensV1 operation in PersonalAccessTokensApi.
  * @export
- * @interface PersonalAccessTokensV1ApiListPersonalAccessTokensV1Request
+ * @interface PersonalAccessTokensApiListPersonalAccessTokensV1Request
  */
-export interface PersonalAccessTokensV1ApiListPersonalAccessTokensV1Request {
+export interface PersonalAccessTokensApiListPersonalAccessTokensV1Request {
     /**
      * The identity ID of the owner whose personal access tokens should be listed.  If \&quot;me\&quot;, the caller should have the following right: \&#39;idn:my-personal-access-tokens:read\&#39; If an actual owner ID or if the &#x60;owner-id&#x60; parameter is omitted in the request,  the caller should have the following right: \&#39;idn:all-personal-access-tokens:read\&#39;.  If the caller has the following right, then managed personal access tokens associated with &#x60;owner-id&#x60;  will be retrieved: \&#39;idn:managed-personal-access-tokens:read\&#39;
      * @type {string}
-     * @memberof PersonalAccessTokensV1ApiListPersonalAccessTokensV1
+     * @memberof PersonalAccessTokensApiListPersonalAccessTokensV1
      */
     readonly ownerId?: string
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull*
      * @type {string}
-     * @memberof PersonalAccessTokensV1ApiListPersonalAccessTokensV1
+     * @memberof PersonalAccessTokensApiListPersonalAccessTokensV1
      */
     readonly filters?: string
 }
 
 /**
- * Request parameters for patchPersonalAccessTokenV1 operation in PersonalAccessTokensV1Api.
+ * Request parameters for patchPersonalAccessTokenV1 operation in PersonalAccessTokensApi.
  * @export
- * @interface PersonalAccessTokensV1ApiPatchPersonalAccessTokenV1Request
+ * @interface PersonalAccessTokensApiPatchPersonalAccessTokenV1Request
  */
-export interface PersonalAccessTokensV1ApiPatchPersonalAccessTokenV1Request {
+export interface PersonalAccessTokensApiPatchPersonalAccessTokenV1Request {
     /**
      * The Personal Access Token id
      * @type {string}
-     * @memberof PersonalAccessTokensV1ApiPatchPersonalAccessTokenV1
+     * @memberof PersonalAccessTokensApiPatchPersonalAccessTokenV1
      */
     readonly id: string
 
     /**
      * A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope * expirationDate * userAwareTokenNeverExpires  **Important:** See the endpoint description for validation rules regarding the relationship between &#x60;expirationDate&#x60; and &#x60;userAwareTokenNeverExpires&#x60;. 
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof PersonalAccessTokensV1ApiPatchPersonalAccessTokenV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof PersonalAccessTokensApiPatchPersonalAccessTokenV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * PersonalAccessTokensV1Api - object-oriented interface
+ * PersonalAccessTokensApi - object-oriented interface
  * @export
- * @class PersonalAccessTokensV1Api
+ * @class PersonalAccessTokensApi
  * @extends {BaseAPI}
  */
-export class PersonalAccessTokensV1Api extends BaseAPI {
+export class PersonalAccessTokensApi extends BaseAPI {
     /**
      * This creates a personal access token. **expirationDate and userAwareTokenNeverExpires Relationship:** **Important:** When `expirationDate` is `null` or empty (not included in the request body), the token will never expire. **Required Validation:** If `expirationDate` is `null` or empty, `userAwareTokenNeverExpires` must be set to `true`. This is a required validation rule. The valid values for `expirationDate` depend on the value provided for `userAwareTokenNeverExpires`: * **When `userAwareTokenNeverExpires` is `true` (or required to be `true`):** `expirationDate` can be `null` or omitted from the request body. When `expirationDate` is `null` or empty, the token will never expire. This creates a PAT that never expires and serves as an explicit acknowledgment that the user is aware of the security implications of creating a non-expiring token. * **When `userAwareTokenNeverExpires` is `false` or omitted:** `expirationDate` must be provided and must be a valid date-time string representing a future date (there is no upper limit). `expirationDate` cannot be `null` in this case. In this scenario, `userAwareTokenNeverExpires` can be omitted. **Validation Rules:** * **If `expirationDate` is `null` or not included in the request body:** `userAwareTokenNeverExpires` must be set to `true` (required). The token will never expire. * **If `expirationDate` is provided and is not `null`:** `userAwareTokenNeverExpires` can be omitted. **Security Considerations:** The `userAwareTokenNeverExpires` field is designed to ensure that users explicitly acknowledge the security implications of creating tokens that never expire. Setting this field to `true` indicates that the user understands the increased security risks and has made an informed decision to proceed. **Note:** The `userAwareTokenNeverExpires` field indicates that the user acknowledges they are creating a token that will never expire. It does not affect token behavior beyond indicating this acknowledgment.
      * @summary Create personal access token
-     * @param {PersonalAccessTokensV1ApiCreatePersonalAccessTokenV1Request} requestParameters Request parameters.
+     * @param {PersonalAccessTokensApiCreatePersonalAccessTokenV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof PersonalAccessTokensV1Api
+     * @memberof PersonalAccessTokensApi
      */
-    public createPersonalAccessTokenV1(requestParameters: PersonalAccessTokensV1ApiCreatePersonalAccessTokenV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return PersonalAccessTokensV1ApiFp(this.configuration).createPersonalAccessTokenV1(requestParameters.createpersonalaccesstokenrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createPersonalAccessTokenV1(requestParameters: PersonalAccessTokensApiCreatePersonalAccessTokenV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return PersonalAccessTokensApiFp(this.configuration).createPersonalAccessTokenV1(requestParameters.createpersonalaccesstokenrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This deletes a personal access token.
      * @summary Delete personal access token
-     * @param {PersonalAccessTokensV1ApiDeletePersonalAccessTokenV1Request} requestParameters Request parameters.
+     * @param {PersonalAccessTokensApiDeletePersonalAccessTokenV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof PersonalAccessTokensV1Api
+     * @memberof PersonalAccessTokensApi
      */
-    public deletePersonalAccessTokenV1(requestParameters: PersonalAccessTokensV1ApiDeletePersonalAccessTokenV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return PersonalAccessTokensV1ApiFp(this.configuration).deletePersonalAccessTokenV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deletePersonalAccessTokenV1(requestParameters: PersonalAccessTokensApiDeletePersonalAccessTokenV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return PersonalAccessTokensApiFp(this.configuration).deletePersonalAccessTokenV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the \'idn:all-personal-access-tokens:read\' right.
      * @summary List personal access tokens
-     * @param {PersonalAccessTokensV1ApiListPersonalAccessTokensV1Request} requestParameters Request parameters.
+     * @param {PersonalAccessTokensApiListPersonalAccessTokensV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof PersonalAccessTokensV1Api
+     * @memberof PersonalAccessTokensApi
      */
-    public listPersonalAccessTokensV1(requestParameters: PersonalAccessTokensV1ApiListPersonalAccessTokensV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return PersonalAccessTokensV1ApiFp(this.configuration).listPersonalAccessTokensV1(requestParameters.ownerId, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listPersonalAccessTokensV1(requestParameters: PersonalAccessTokensApiListPersonalAccessTokensV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return PersonalAccessTokensApiFp(this.configuration).listPersonalAccessTokensV1(requestParameters.ownerId, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This performs a targeted update to the field(s) of a Personal Access Token. Changing scopes for a Personal Access Token does not impact existing bearer tokens. You will need to create a new bearer token to have the new scopes. Please note that it can take up to 20 minutes for scope changes to be seen on new bearer tokens. **expirationDate and userAwareTokenNeverExpires Relationship:** **Important:** When `expirationDate` is `null` or empty (replaced to `null` or omitted from the patch request), the token will never expire. **Required Validation:** If `expirationDate` is being replaced to `null` or is empty, `userAwareTokenNeverExpires` must be set to `true` in the patch request. This is a required validation rule. When patching `expirationDate` and `userAwareTokenNeverExpires`, the valid values for `expirationDate` depend on the value provided for `userAwareTokenNeverExpires`: * **When `userAwareTokenNeverExpires` is being set to `true` (or required to be `true`):** `expirationDate` can be replaced to `null` or omitted from the patch request. When `expirationDate` is `null` or empty, the token will never expire. This sets the PAT to never expire and serves as an explicit acknowledgment that the user is aware of the security implications of creating a non-expiring token. * **When `userAwareTokenNeverExpires` is `false` or omitted:** `expirationDate` must be provided and must be a valid date-time string representing a future date (there is no upper limit). `expirationDate` cannot be `null` in this case. In this scenario, `userAwareTokenNeverExpires` can be omitted. **Validation Rules:** * **If `expirationDate` is being replaced to `null`:** `userAwareTokenNeverExpires` must also be present in the patch request with a value of `true` (required). The token will never expire. * **If `expirationDate` is not being replaced to `null` (i.e., set to a future date):** `userAwareTokenNeverExpires` can be omitted. **Security Considerations:** The `userAwareTokenNeverExpires` field is designed to ensure that users explicitly acknowledge the security implications of creating tokens that never expire. Setting this field to `true` indicates that the user understands the increased security risks and has made an informed decision to proceed. **Note:** The `userAwareTokenNeverExpires` field indicates that the user acknowledges they are creating a token that will never expire. It does not affect token behavior beyond indicating this acknowledgment.
      * @summary Patch personal access token
-     * @param {PersonalAccessTokensV1ApiPatchPersonalAccessTokenV1Request} requestParameters Request parameters.
+     * @param {PersonalAccessTokensApiPatchPersonalAccessTokenV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof PersonalAccessTokensV1Api
+     * @memberof PersonalAccessTokensApi
      */
-    public patchPersonalAccessTokenV1(requestParameters: PersonalAccessTokensV1ApiPatchPersonalAccessTokenV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return PersonalAccessTokensV1ApiFp(this.configuration).patchPersonalAccessTokenV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchPersonalAccessTokenV1(requestParameters: PersonalAccessTokensApiPatchPersonalAccessTokenV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return PersonalAccessTokensApiFp(this.configuration).patchPersonalAccessTokenV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

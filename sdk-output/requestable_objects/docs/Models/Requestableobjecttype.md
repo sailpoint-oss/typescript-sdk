@@ -1,15 +1,15 @@
 ---
-id: v1-requestableobjecttype-v1
-title: RequestableobjecttypeV1
-pagination_label: RequestableobjecttypeV1
-sidebar_label: RequestableobjecttypeV1
+id: v1-requestableobjecttype
+title: Requestableobjecttype
+pagination_label: Requestableobjecttype
+sidebar_label: Requestableobjecttype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RequestableobjecttypeV1', 'v1RequestableobjecttypeV1']
-slug: /tools/sdk/typescript/requestable_objects/models/requestableobjecttype-v1
-tags: ['SDK', 'Software Development Kit', 'RequestableobjecttypeV1', 'v1RequestableobjecttypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Requestableobjecttype', 'v1Requestableobjecttype']
+slug: /tools/sdk/typescript/requestable_objects/models/requestableobjecttype
+tags: ['SDK', 'Software Development Kit', 'Requestableobjecttype', 'v1Requestableobjecttype']
 ---
 
-# RequestableobjecttypeV1
+# Requestableobjecttype
 
 ## Enum
 

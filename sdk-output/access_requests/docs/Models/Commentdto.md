@@ -1,21 +1,21 @@
 ---
-id: v1-commentdto-v1
-title: CommentdtoV1
-pagination_label: CommentdtoV1
-sidebar_label: CommentdtoV1
+id: v1-commentdto
+title: Commentdto
+pagination_label: Commentdto
+sidebar_label: Commentdto
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'CommentdtoV1', 'v1CommentdtoV1']
-slug: /tools/sdk/typescript/access_requests/models/commentdto-v1
-tags: ['SDK', 'Software Development Kit', 'CommentdtoV1', 'v1CommentdtoV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Commentdto', 'v1Commentdto']
+slug: /tools/sdk/typescript/access_requests/models/commentdto
+tags: ['SDK', 'Software Development Kit', 'Commentdto', 'v1Commentdto']
 ---
 
-# CommentdtoV1
+# Commentdto
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**comment** | **(optional)** **string** | Comment content. | [default to undefined]
-**created** | **(optional)** **string** | Date and time comment was created. | [default to undefined]
-**author** | **(optional)** **CommentdtoAuthorV1** |  | [default to undefined]
+**comment** | **(optional)** `string` | Comment content. | [default to undefined]
+**created** | **(optional)** `string` | Date and time comment was created. | [default to undefined]
+**author** | **(optional)** `CommentdtoAuthor` |  | [default to undefined]
 

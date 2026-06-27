@@ -1,21 +1,21 @@
 ---
-id: v1-sourceappcreatedto-account-source-v1
-title: SourceappcreatedtoAccountSourceV1
-pagination_label: SourceappcreatedtoAccountSourceV1
-sidebar_label: SourceappcreatedtoAccountSourceV1
+id: v1-sourceappcreatedto-account-source
+title: SourceappcreatedtoAccountSource
+pagination_label: SourceappcreatedtoAccountSource
+sidebar_label: SourceappcreatedtoAccountSource
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SourceappcreatedtoAccountSourceV1', 'v1SourceappcreatedtoAccountSourceV1']
-slug: /tools/sdk/typescript/apps/models/sourceappcreatedto-account-source-v1
-tags: ['SDK', 'Software Development Kit', 'SourceappcreatedtoAccountSourceV1', 'v1SourceappcreatedtoAccountSourceV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'SourceappcreatedtoAccountSource', 'v1SourceappcreatedtoAccountSource']
+slug: /tools/sdk/typescript/apps/models/sourceappcreatedto-account-source
+tags: ['SDK', 'Software Development Kit', 'SourceappcreatedtoAccountSource', 'v1SourceappcreatedtoAccountSource']
 ---
 
-# SourceappcreatedtoAccountSourceV1
+# SourceappcreatedtoAccountSource
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | The source ID | [default to undefined]
-**type** | **(optional)** **string** | The source type, will always be \"SOURCE\" | [default to undefined]
-**name** | **(optional)** **string** | The source name | [default to undefined]
+**id** | `string` | The source ID | [default to undefined]
+**type** | **(optional)** `string` | The source type, will always be \"SOURCE\" | [default to undefined]
+**name** | **(optional)** `string` | The source name | [default to undefined]
 

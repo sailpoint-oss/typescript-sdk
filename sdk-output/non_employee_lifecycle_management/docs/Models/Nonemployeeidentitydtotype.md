@@ -1,15 +1,15 @@
 ---
-id: v1-nonemployeeidentitydtotype-v1
-title: NonemployeeidentitydtotypeV1
-pagination_label: NonemployeeidentitydtotypeV1
-sidebar_label: NonemployeeidentitydtotypeV1
+id: v1-nonemployeeidentitydtotype
+title: Nonemployeeidentitydtotype
+pagination_label: Nonemployeeidentitydtotype
+sidebar_label: Nonemployeeidentitydtotype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'NonemployeeidentitydtotypeV1', 'v1NonemployeeidentitydtotypeV1']
-slug: /tools/sdk/typescript/non_employee_lifecycle_management/models/nonemployeeidentitydtotype-v1
-tags: ['SDK', 'Software Development Kit', 'NonemployeeidentitydtotypeV1', 'v1NonemployeeidentitydtotypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Nonemployeeidentitydtotype', 'v1Nonemployeeidentitydtotype']
+slug: /tools/sdk/typescript/non_employee_lifecycle_management/models/nonemployeeidentitydtotype
+tags: ['SDK', 'Software Development Kit', 'Nonemployeeidentitydtotype', 'v1Nonemployeeidentitydtotype']
 ---
 
-# NonemployeeidentitydtotypeV1
+# Nonemployeeidentitydtotype
 
 ## Enum
 

@@ -1,19 +1,19 @@
 ---
-id: v1-get-multi-host-integrations-list-v1401-response-v1
-title: GetMultiHostIntegrationsListV1401ResponseV1
-pagination_label: GetMultiHostIntegrationsListV1401ResponseV1
-sidebar_label: GetMultiHostIntegrationsListV1401ResponseV1
+id: v1-get-multi-host-integrations-list-v1401-response
+title: GetMultiHostIntegrationsListV1401Response
+pagination_label: GetMultiHostIntegrationsListV1401Response
+sidebar_label: GetMultiHostIntegrationsListV1401Response
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'GetMultiHostIntegrationsListV1401ResponseV1', 'v1GetMultiHostIntegrationsListV1401ResponseV1']
-slug: /tools/sdk/typescript/multi_host_integration/models/get-multi-host-integrations-list-v1401-response-v1
-tags: ['SDK', 'Software Development Kit', 'GetMultiHostIntegrationsListV1401ResponseV1', 'v1GetMultiHostIntegrationsListV1401ResponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'GetMultiHostIntegrationsListV1401Response', 'v1GetMultiHostIntegrationsListV1401Response']
+slug: /tools/sdk/typescript/multi_host_integration/models/get-multi-host-integrations-list-v1401-response
+tags: ['SDK', 'Software Development Kit', 'GetMultiHostIntegrationsListV1401Response', 'v1GetMultiHostIntegrationsListV1401Response']
 ---
 
-# GetMultiHostIntegrationsListV1401ResponseV1
+# GetMultiHostIntegrationsListV1401Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**error** | **(optional)** **any** | A message describing the error | [default to undefined]
+**error** | **(optional)** `any` | A message describing the error | [default to undefined]
 

@@ -1,21 +1,21 @@
 ---
-id: v1-searchcriteria-text-query-v1
-title: SearchcriteriaTextQueryV1
-pagination_label: SearchcriteriaTextQueryV1
-sidebar_label: SearchcriteriaTextQueryV1
+id: v1-searchcriteria-text-query
+title: SearchcriteriaTextQuery
+pagination_label: SearchcriteriaTextQuery
+sidebar_label: SearchcriteriaTextQuery
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SearchcriteriaTextQueryV1', 'v1SearchcriteriaTextQueryV1']
-slug: /tools/sdk/typescript/suggested_entitlement_description/models/searchcriteria-text-query-v1
-tags: ['SDK', 'Software Development Kit', 'SearchcriteriaTextQueryV1', 'v1SearchcriteriaTextQueryV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'SearchcriteriaTextQuery', 'v1SearchcriteriaTextQuery']
+slug: /tools/sdk/typescript/suggested_entitlement_description/models/searchcriteria-text-query
+tags: ['SDK', 'Software Development Kit', 'SearchcriteriaTextQuery', 'v1SearchcriteriaTextQuery']
 ---
 
-# SearchcriteriaTextQueryV1
+# SearchcriteriaTextQuery
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**terms** | **(optional)** **Array&lt;string&gt;** | Terms to search for. | [default to undefined]
-**fields** | **(optional)** **Array&lt;string&gt;** | Fields to search within. | [default to undefined]
-**matchAny** | **(optional)** **boolean** | Whether to match any of the terms. | [default to false]
+**terms** | **(optional)** `Array<string>` | Terms to search for. | [default to undefined]
+**fields** | **(optional)** `Array<string>` | Fields to search within. | [default to undefined]
+**matchAny** | **(optional)** `boolean` | Whether to match any of the terms. | [default to false]
 

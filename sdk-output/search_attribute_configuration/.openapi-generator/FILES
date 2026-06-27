@@ -11,8 +11,8 @@ Jsonpatchoperation.md
 JsonpatchoperationValue.md
 Localeorigin.md
 README.md
-SearchAttributeConfigurationV1Api.md
-SearchAttributeConfigurationV1ApideveloperSite_code_examples.yaml
+SearchAttributeConfigurationApi.md
+SearchAttributeConfigurationApideveloperSite_code_examples.yaml
 Searchattributeconfig.md
 api.ts
 base.ts

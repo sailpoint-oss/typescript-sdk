@@ -3,8 +3,8 @@
 .openapi-generator-ignore
 Errormessagedto.md
 Errorresponsedto.md
-IdentityAttributesV1Api.md
-IdentityAttributesV1ApideveloperSite_code_examples.yaml
+IdentityAttributesApi.md
+IdentityAttributesApideveloperSite_code_examples.yaml
 Identityattribute2.md
 Identityattributenames.md
 Index.md

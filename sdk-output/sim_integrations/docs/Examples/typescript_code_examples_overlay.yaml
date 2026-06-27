@@ -4,15 +4,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sim_integrations/methods/sim-integrations#create-sim-integration-v1
       source: |
-        import { SIMIntegrationsV1Api } from 'sailpoint-api-client';
+        import { SIMIntegrationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SIMIntegrationsV1Api(configuration);
-        const simintegrationdetailsV1: SimintegrationdetailsV1 = ; // SimintegrationdetailsV1 | DTO containing the details of the SIM integration
+        const configuration = new Configuration();
+        const apiInstance = new SIMIntegrationsApi(configuration);
+        const simintegrationdetails: Simintegrationdetails = ; // Simintegrationdetails | DTO containing the details of the SIM integration
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.createSIMIntegrationV1(simintegrationdetailsV1);
+        const result = await apiInstance.createSIMIntegrationV1({ simintegrationdetails: simintegrationdetails });
         console.log(result);
 - path: /sim-integrations/v1/{id}
   method: DELETE
@@ -20,15 +19,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sim_integrations/methods/sim-integrations#delete-sim-integration-v1
       source: |
-        import { SIMIntegrationsV1Api } from 'sailpoint-api-client';
+        import { SIMIntegrationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SIMIntegrationsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SIMIntegrationsApi(configuration);
         const id: string = '12345'; // string | The id of the integration to delete. (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.deleteSIMIntegrationV1(id);
+        const result = await apiInstance.deleteSIMIntegrationV1({ id: id });
         console.log(result);
 - path: /sim-integrations/v1/{id}
   method: GET
@@ -36,15 +34,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sim_integrations/methods/sim-integrations#get-sim-integration-v1
       source: |
-        import { SIMIntegrationsV1Api } from 'sailpoint-api-client';
+        import { SIMIntegrationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SIMIntegrationsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SIMIntegrationsApi(configuration);
         const id: string = '12345'; // string | The id of the integration. (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.getSIMIntegrationV1(id);
+        const result = await apiInstance.getSIMIntegrationV1({ id: id });
         console.log(result);
 - path: /sim-integrations/v1
   method: GET
@@ -52,14 +49,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sim_integrations/methods/sim-integrations#get-sim-integrations-v1
       source: |
-        import { SIMIntegrationsV1Api } from 'sailpoint-api-client';
+        import { SIMIntegrationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SIMIntegrationsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SIMIntegrationsApi(configuration);
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.getSIMIntegrationsV1();
+        const result = await apiInstance.getSIMIntegrationsV1({  });
         console.log(result);
 - path: /sim-integrations/v1/{id}/beforeProvisioningRule
   method: PATCH
@@ -67,16 +63,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sim_integrations/methods/sim-integrations#patch-before-provisioning-rule-v1
       source: |
-        import { SIMIntegrationsV1Api } from 'sailpoint-api-client';
+        import { SIMIntegrationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SIMIntegrationsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SIMIntegrationsApi(configuration);
         const id: string = '12345'; // string | SIM integration id (default to undefined)
-        const jsonpatchV1: JsonpatchV1 = ; // JsonpatchV1 | The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
+        const jsonpatch: Jsonpatch = ; // Jsonpatch | The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.patchBeforeProvisioningRuleV1(id, jsonpatchV1);
+        const result = await apiInstance.patchBeforeProvisioningRuleV1({ id: id, jsonpatch: jsonpatch });
         console.log(result);
 - path: /sim-integrations/v1/{id}
   method: PATCH
@@ -84,16 +79,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sim_integrations/methods/sim-integrations#patch-sim-attributes-v1
       source: |
-        import { SIMIntegrationsV1Api } from 'sailpoint-api-client';
+        import { SIMIntegrationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SIMIntegrationsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SIMIntegrationsApi(configuration);
         const id: string = '12345'; // string | SIM integration id (default to undefined)
-        const jsonpatchV1: JsonpatchV1 = ; // JsonpatchV1 | The JsonPatch object that describes the changes of SIM
+        const jsonpatch: Jsonpatch = ; // Jsonpatch | The JsonPatch object that describes the changes of SIM
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.patchSIMAttributesV1(id, jsonpatchV1);
+        const result = await apiInstance.patchSIMAttributesV1({ id: id, jsonpatch: jsonpatch });
         console.log(result);
 - path: /sim-integrations/v1/{id}
   method: PUT
@@ -101,14 +95,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sim_integrations/methods/sim-integrations#put-sim-integration-v1
       source: |
-        import { SIMIntegrationsV1Api } from 'sailpoint-api-client';
+        import { SIMIntegrationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SIMIntegrationsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SIMIntegrationsApi(configuration);
         const id: string = '12345'; // string | The id of the integration. (default to undefined)
-        const simintegrationdetailsV1: SimintegrationdetailsV1 = ; // SimintegrationdetailsV1 | The full DTO of the integration containing the updated model
+        const simintegrationdetails: Simintegrationdetails = ; // Simintegrationdetails | The full DTO of the integration containing the updated model
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.putSIMIntegrationV1(id, simintegrationdetailsV1);
+        const result = await apiInstance.putSIMIntegrationV1({ id: id, simintegrationdetails: simintegrationdetails });
         console.log(result);

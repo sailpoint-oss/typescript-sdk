@@ -1,21 +1,21 @@
 ---
-id: v1-jitaccessoperationrequest-v1
-title: JitaccessoperationrequestV1
-pagination_label: JitaccessoperationrequestV1
-sidebar_label: JitaccessoperationrequestV1
+id: v1-jitaccessoperationrequest
+title: Jitaccessoperationrequest
+pagination_label: Jitaccessoperationrequest
+sidebar_label: Jitaccessoperationrequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'JitaccessoperationrequestV1', 'v1JitaccessoperationrequestV1']
-slug: /tools/sdk/typescript/jit_access/models/jitaccessoperationrequest-v1
-tags: ['SDK', 'Software Development Kit', 'JitaccessoperationrequestV1', 'v1JitaccessoperationrequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Jitaccessoperationrequest', 'v1Jitaccessoperationrequest']
+slug: /tools/sdk/typescript/jit_access/models/jitaccessoperationrequest
+tags: ['SDK', 'Software Development Kit', 'Jitaccessoperationrequest', 'v1Jitaccessoperationrequest']
 ---
 
-# JitaccessoperationrequestV1
+# Jitaccessoperationrequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**op** | **(optional)** **string** | Operation type. Defaults to `replace` if omitted. | [default to OpV1_Replace]
-**path** | **string** | Path to replace. Only the following JSON Pointer-style paths are supported.  | [default to undefined]
-**value** | **JitaccessoperationrequestValueV1** |  | [default to undefined]
+**op** | **(optional)** `string` | Operation type. Defaults to `replace` if omitted. | [default to OpEnum_Replace]
+**path** | `string` | Path to replace. Only the following JSON Pointer-style paths are supported.  | [default to undefined]
+**value** | `JitaccessoperationrequestValue` |  | [default to undefined]
 

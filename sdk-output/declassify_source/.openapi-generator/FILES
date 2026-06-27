@@ -1,8 +1,8 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
-DeclassifySourceV1Api.md
-DeclassifySourceV1ApideveloperSite_code_examples.yaml
+DeclassifySourceApi.md
+DeclassifySourceApideveloperSite_code_examples.yaml
 Errormessagedto.md
 Errorresponsedto.md
 Index.md

@@ -1,15 +1,15 @@
 ---
-id: v1-operation-v1
-title: OperationV1
-pagination_label: OperationV1
-sidebar_label: OperationV1
+id: v1-operation
+title: Operation
+pagination_label: Operation
+sidebar_label: Operation
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'OperationV1', 'v1OperationV1']
-slug: /tools/sdk/typescript/certification_campaign_filters/models/operation-v1
-tags: ['SDK', 'Software Development Kit', 'OperationV1', 'v1OperationV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Operation', 'v1Operation']
+slug: /tools/sdk/typescript/certification_campaign_filters/models/operation
+tags: ['SDK', 'Software Development Kit', 'Operation', 'v1Operation']
 ---
 
-# OperationV1
+# Operation
 
 ## Enum
 

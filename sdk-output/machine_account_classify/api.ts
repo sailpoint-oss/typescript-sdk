@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -53,33 +53,33 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -87,69 +87,69 @@ export interface ErrorresponsedtoV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface SendClassifyMachineAccountV1200ResponseV1
+ * @interface SendClassifyMachineAccountV1200Response
  */
-export interface SendClassifyMachineAccountV1200ResponseV1 {
+export interface SendClassifyMachineAccountV1200Response {
     /**
      * Indicates if account is classified as machine
      * @type {boolean}
-     * @memberof SendClassifyMachineAccountV1200ResponseV1
+     * @memberof SendClassifyMachineAccountV1200Response
      */
     'isMachine'?: boolean;
 }
 /**
  * 
  * @export
- * @interface SendClassifyMachineAccountV1401ResponseV1
+ * @interface SendClassifyMachineAccountV1401Response
  */
-export interface SendClassifyMachineAccountV1401ResponseV1 {
+export interface SendClassifyMachineAccountV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof SendClassifyMachineAccountV1401ResponseV1
+     * @memberof SendClassifyMachineAccountV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface SendClassifyMachineAccountV1429ResponseV1
+ * @interface SendClassifyMachineAccountV1429Response
  */
-export interface SendClassifyMachineAccountV1429ResponseV1 {
+export interface SendClassifyMachineAccountV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof SendClassifyMachineAccountV1429ResponseV1
+     * @memberof SendClassifyMachineAccountV1429Response
      */
     'message'?: any;
 }
 
 /**
- * MachineAccountClassifyV1Api - axios parameter creator
+ * MachineAccountClassifyApi - axios parameter creator
  * @export
  */
-export const MachineAccountClassifyV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const MachineAccountClassifyApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Use this API to classify a single machine account. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Classify single machine account
          * @param {string} id Account ID.
-         * @param {SendClassifyMachineAccountV1ClassificationModeV1} [classificationMode] Specifies how the accounts should be classified.        default - uses criteria to classify account as machine or human, excludes accounts that were manually classified.       ignoreManual - like default, but includes accounts that were manually classified.       forceMachine - forces account to be classified as machine.       forceHuman - forces account to be classified as human.
+         * @param {SendClassifyMachineAccountV1ClassificationModeEnum} [classificationMode] Specifies how the accounts should be classified.        default - uses criteria to classify account as machine or human, excludes accounts that were manually classified.       ignoreManual - like default, but includes accounts that were manually classified.       forceMachine - forces account to be classified as machine.       forceHuman - forces account to be classified as human.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        sendClassifyMachineAccountV1: async (id: string, classificationMode?: SendClassifyMachineAccountV1ClassificationModeV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        sendClassifyMachineAccountV1: async (id: string, classificationMode?: SendClassifyMachineAccountV1ClassificationModeEnum, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('sendClassifyMachineAccountV1', 'id', id)
             const localVarPath = `/accounts/v1/{id}/classify`
@@ -184,99 +184,99 @@ export const MachineAccountClassifyV1ApiAxiosParamCreator = function (configurat
 };
 
 /**
- * MachineAccountClassifyV1Api - functional programming interface
+ * MachineAccountClassifyApi - functional programming interface
  * @export
  */
-export const MachineAccountClassifyV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = MachineAccountClassifyV1ApiAxiosParamCreator(configuration)
+export const MachineAccountClassifyApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = MachineAccountClassifyApiAxiosParamCreator(configuration)
     return {
         /**
          * Use this API to classify a single machine account. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Classify single machine account
          * @param {string} id Account ID.
-         * @param {SendClassifyMachineAccountV1ClassificationModeV1} [classificationMode] Specifies how the accounts should be classified.        default - uses criteria to classify account as machine or human, excludes accounts that were manually classified.       ignoreManual - like default, but includes accounts that were manually classified.       forceMachine - forces account to be classified as machine.       forceHuman - forces account to be classified as human.
+         * @param {SendClassifyMachineAccountV1ClassificationModeEnum} [classificationMode] Specifies how the accounts should be classified.        default - uses criteria to classify account as machine or human, excludes accounts that were manually classified.       ignoreManual - like default, but includes accounts that were manually classified.       forceMachine - forces account to be classified as machine.       forceHuman - forces account to be classified as human.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async sendClassifyMachineAccountV1(id: string, classificationMode?: SendClassifyMachineAccountV1ClassificationModeV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SendClassifyMachineAccountV1200ResponseV1>> {
+        async sendClassifyMachineAccountV1(id: string, classificationMode?: SendClassifyMachineAccountV1ClassificationModeEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SendClassifyMachineAccountV1200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.sendClassifyMachineAccountV1(id, classificationMode, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MachineAccountClassifyV1Api.sendClassifyMachineAccountV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountClassifyApi.sendClassifyMachineAccountV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * MachineAccountClassifyV1Api - factory interface
+ * MachineAccountClassifyApi - factory interface
  * @export
  */
-export const MachineAccountClassifyV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = MachineAccountClassifyV1ApiFp(configuration)
+export const MachineAccountClassifyApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = MachineAccountClassifyApiFp(configuration)
     return {
         /**
          * Use this API to classify a single machine account. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Classify single machine account
-         * @param {MachineAccountClassifyV1ApiSendClassifyMachineAccountV1Request} requestParameters Request parameters.
+         * @param {MachineAccountClassifyApiSendClassifyMachineAccountV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        sendClassifyMachineAccountV1(requestParameters: MachineAccountClassifyV1ApiSendClassifyMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SendClassifyMachineAccountV1200ResponseV1> {
+        sendClassifyMachineAccountV1(requestParameters: MachineAccountClassifyApiSendClassifyMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SendClassifyMachineAccountV1200Response> {
             return localVarFp.sendClassifyMachineAccountV1(requestParameters.id, requestParameters.classificationMode, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for sendClassifyMachineAccountV1 operation in MachineAccountClassifyV1Api.
+ * Request parameters for sendClassifyMachineAccountV1 operation in MachineAccountClassifyApi.
  * @export
- * @interface MachineAccountClassifyV1ApiSendClassifyMachineAccountV1Request
+ * @interface MachineAccountClassifyApiSendClassifyMachineAccountV1Request
  */
-export interface MachineAccountClassifyV1ApiSendClassifyMachineAccountV1Request {
+export interface MachineAccountClassifyApiSendClassifyMachineAccountV1Request {
     /**
      * Account ID.
      * @type {string}
-     * @memberof MachineAccountClassifyV1ApiSendClassifyMachineAccountV1
+     * @memberof MachineAccountClassifyApiSendClassifyMachineAccountV1
      */
     readonly id: string
 
     /**
      * Specifies how the accounts should be classified.        default - uses criteria to classify account as machine or human, excludes accounts that were manually classified.       ignoreManual - like default, but includes accounts that were manually classified.       forceMachine - forces account to be classified as machine.       forceHuman - forces account to be classified as human.
      * @type {'default' | 'ignoreManual' | 'forceMachine' | 'forceHuman'}
-     * @memberof MachineAccountClassifyV1ApiSendClassifyMachineAccountV1
+     * @memberof MachineAccountClassifyApiSendClassifyMachineAccountV1
      */
-    readonly classificationMode?: SendClassifyMachineAccountV1ClassificationModeV1
+    readonly classificationMode?: SendClassifyMachineAccountV1ClassificationModeEnum
 }
 
 /**
- * MachineAccountClassifyV1Api - object-oriented interface
+ * MachineAccountClassifyApi - object-oriented interface
  * @export
- * @class MachineAccountClassifyV1Api
+ * @class MachineAccountClassifyApi
  * @extends {BaseAPI}
  */
-export class MachineAccountClassifyV1Api extends BaseAPI {
+export class MachineAccountClassifyApi extends BaseAPI {
     /**
      * Use this API to classify a single machine account. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary Classify single machine account
-     * @param {MachineAccountClassifyV1ApiSendClassifyMachineAccountV1Request} requestParameters Request parameters.
+     * @param {MachineAccountClassifyApiSendClassifyMachineAccountV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof MachineAccountClassifyV1Api
+     * @memberof MachineAccountClassifyApi
      */
-    public sendClassifyMachineAccountV1(requestParameters: MachineAccountClassifyV1ApiSendClassifyMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineAccountClassifyV1ApiFp(this.configuration).sendClassifyMachineAccountV1(requestParameters.id, requestParameters.classificationMode, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public sendClassifyMachineAccountV1(requestParameters: MachineAccountClassifyApiSendClassifyMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountClassifyApiFp(this.configuration).sendClassifyMachineAccountV1(requestParameters.id, requestParameters.classificationMode, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
 /**
  * @export
  */
-export const SendClassifyMachineAccountV1ClassificationModeV1 = {
+export const SendClassifyMachineAccountV1ClassificationModeEnum = {
     Default: 'default',
     IgnoreManual: 'ignoreManual',
     ForceMachine: 'forceMachine',
     ForceHuman: 'forceHuman'
 } as const;
-export type SendClassifyMachineAccountV1ClassificationModeV1 = typeof SendClassifyMachineAccountV1ClassificationModeV1[keyof typeof SendClassifyMachineAccountV1ClassificationModeV1];
+export type SendClassifyMachineAccountV1ClassificationModeEnum = typeof SendClassifyMachineAccountV1ClassificationModeEnum[keyof typeof SendClassifyMachineAccountV1ClassificationModeEnum];
 
 

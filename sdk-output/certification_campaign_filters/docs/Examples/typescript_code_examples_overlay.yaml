@@ -4,14 +4,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaign_filters/methods/certification-campaign-filters#create-campaign-filter-v1
       source: |
-        import { CertificationCampaignFiltersV1Api } from 'sailpoint-api-client';
+        import { CertificationCampaignFiltersApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CertificationCampaignFiltersV1Api(configuration);
-        const campaignfilterdetailsV1: CampaignfilterdetailsV1 = ; // CampaignfilterdetailsV1 | 
-        const result = await apiInstance.createCampaignFilterV1(campaignfilterdetailsV1);
+        const configuration = new Configuration();
+        const apiInstance = new CertificationCampaignFiltersApi(configuration);
+        const campaignfilterdetails: Campaignfilterdetails = ; // Campaignfilterdetails | 
+        const result = await apiInstance.createCampaignFilterV1({ campaignfilterdetails: campaignfilterdetails });
         console.log(result);
 - path: /campaign-filters/v1/delete
   method: POST
@@ -19,14 +18,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaign_filters/methods/certification-campaign-filters#delete-campaign-filters-v1
       source: |
-        import { CertificationCampaignFiltersV1Api } from 'sailpoint-api-client';
+        import { CertificationCampaignFiltersApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CertificationCampaignFiltersV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CertificationCampaignFiltersApi(configuration);
         const requestBody: Array&lt;string&gt; = ; // Array<string> | A json list of IDs of campaign filters to delete.
-        const result = await apiInstance.deleteCampaignFiltersV1(requestBody);
+        const result = await apiInstance.deleteCampaignFiltersV1({ requestBody: requestBody });
         console.log(result);
 - path: /campaign-filters/v1/{id}
   method: GET
@@ -34,14 +32,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaign_filters/methods/certification-campaign-filters#get-campaign-filter-by-id-v1
       source: |
-        import { CertificationCampaignFiltersV1Api } from 'sailpoint-api-client';
+        import { CertificationCampaignFiltersApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CertificationCampaignFiltersV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CertificationCampaignFiltersApi(configuration);
         const id: string = 'e9f9a1397b842fd5a65842087040d3ac'; // string | The ID of the campaign filter to be retrieved. (default to undefined)
-        const result = await apiInstance.getCampaignFilterByIdV1(id);
+        const result = await apiInstance.getCampaignFilterByIdV1({ id: id });
         console.log(result);
 - path: /campaign-filters/v1
   method: GET
@@ -49,16 +46,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaign_filters/methods/certification-campaign-filters#list-campaign-filters-v1
       source: |
-        import { CertificationCampaignFiltersV1Api } from 'sailpoint-api-client';
+        import { CertificationCampaignFiltersApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CertificationCampaignFiltersV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CertificationCampaignFiltersApi(configuration);
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const start: number = 0; // number | Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const includeSystemFilters: boolean = true; // boolean | If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true.  (optional) (default to true)
-        const result = await apiInstance.listCampaignFiltersV1();
+        const result = await apiInstance.listCampaignFiltersV1({  });
         console.log(result);
 - path: /campaign-filters/v1/{id}
   method: POST
@@ -66,13 +62,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaign_filters/methods/certification-campaign-filters#update-campaign-filter-v1
       source: |
-        import { CertificationCampaignFiltersV1Api } from 'sailpoint-api-client';
+        import { CertificationCampaignFiltersApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CertificationCampaignFiltersV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CertificationCampaignFiltersApi(configuration);
         const id: string = 'e9f9a1397b842fd5a65842087040d3ac'; // string | The ID of the campaign filter being modified. (default to undefined)
-        const campaignfilterdetailsV1: CampaignfilterdetailsV1 = ; // CampaignfilterdetailsV1 | A campaign filter details with updated field values.
-        const result = await apiInstance.updateCampaignFilterV1(id, campaignfilterdetailsV1);
+        const campaignfilterdetails: Campaignfilterdetails = ; // Campaignfilterdetails | A campaign filter details with updated field values.
+        const result = await apiInstance.updateCampaignFilterV1({ id: id, campaignfilterdetails: campaignfilterdetails });
         console.log(result);

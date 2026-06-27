@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -53,125 +53,125 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface Identityattribute2V1
+ * @interface Identityattribute2
  */
-export interface Identityattribute2V1 {
+export interface Identityattribute2 {
     /**
      * Identity attribute\'s technical name.
      * @type {string}
-     * @memberof Identityattribute2V1
+     * @memberof Identityattribute2
      */
     'name': string;
     /**
      * Identity attribute\'s business-friendly name.
      * @type {string}
-     * @memberof Identityattribute2V1
+     * @memberof Identityattribute2
      */
     'displayName'?: string;
     /**
      * Indicates whether the attribute is \'standard\' or \'default\'.
      * @type {boolean}
-     * @memberof Identityattribute2V1
+     * @memberof Identityattribute2
      */
     'standard'?: boolean;
     /**
      * Identity attribute\'s type.
      * @type {string}
-     * @memberof Identityattribute2V1
+     * @memberof Identityattribute2
      */
     'type'?: string | null;
     /**
      * Indicates whether the identity attribute is multi-valued.
      * @type {boolean}
-     * @memberof Identityattribute2V1
+     * @memberof Identityattribute2
      */
     'multi'?: boolean;
     /**
      * Indicates whether the identity attribute is searchable.
      * @type {boolean}
-     * @memberof Identityattribute2V1
+     * @memberof Identityattribute2
      */
     'searchable'?: boolean;
     /**
      * Indicates whether the identity attribute is \'system\', meaning that it doesn\'t have a source and isn\'t configurable.
      * @type {boolean}
-     * @memberof Identityattribute2V1
+     * @memberof Identityattribute2
      */
     'system'?: boolean;
     /**
      * Identity attribute\'s list of sources - this specifies how the rule\'s value is derived.
-     * @type {Array<Source2V1>}
-     * @memberof Identityattribute2V1
+     * @type {Array<Source2>}
+     * @memberof Identityattribute2
      */
-    'sources'?: Array<Source2V1>;
+    'sources'?: Array<Source2>;
 }
 /**
  * Identity attribute IDs.
  * @export
- * @interface IdentityattributenamesV1
+ * @interface Identityattributenames
  */
-export interface IdentityattributenamesV1 {
+export interface Identityattributenames {
     /**
      * List of identity attributes\' technical names.
      * @type {Array<string>}
-     * @memberof IdentityattributenamesV1
+     * @memberof Identityattributenames
      */
     'ids'?: Array<string>;
 }
 /**
  * 
  * @export
- * @interface ListIdentityAttributesV1401ResponseV1
+ * @interface ListIdentityAttributesV1401Response
  */
-export interface ListIdentityAttributesV1401ResponseV1 {
+export interface ListIdentityAttributesV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListIdentityAttributesV1401ResponseV1
+     * @memberof ListIdentityAttributesV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ListIdentityAttributesV1429ResponseV1
+ * @interface ListIdentityAttributesV1429Response
  */
-export interface ListIdentityAttributesV1429ResponseV1 {
+export interface ListIdentityAttributesV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListIdentityAttributesV1429ResponseV1
+     * @memberof ListIdentityAttributesV1429Response
      */
     'message'?: any;
 }
@@ -181,50 +181,50 @@ export interface ListIdentityAttributesV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface Source2V1
+ * @interface Source2
  */
-export interface Source2V1 {
+export interface Source2 {
     /**
      * Attribute mapping type.
      * @type {string}
-     * @memberof Source2V1
+     * @memberof Source2
      */
     'type'?: string;
     /**
      * Attribute mapping properties.
      * @type {object}
-     * @memberof Source2V1
+     * @memberof Source2
      */
     'properties'?: object;
 }
 
 /**
- * IdentityAttributesV1Api - axios parameter creator
+ * IdentityAttributesApi - axios parameter creator
  * @export
  */
-export const IdentityAttributesV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const IdentityAttributesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Use this API to create a new identity attribute.
          * @summary Create identity attribute
-         * @param {Identityattribute2V1} identityattribute2V1 
+         * @param {Identityattribute2} identityattribute2 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createIdentityAttributeV1: async (identityattribute2V1: Identityattribute2V1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'identityattribute2V1' is not null or undefined
-            assertParamExists('createIdentityAttributeV1', 'identityattribute2V1', identityattribute2V1)
+        createIdentityAttributeV1: async (identityattribute2: Identityattribute2, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityattribute2' is not null or undefined
+            assertParamExists('createIdentityAttributeV1', 'identityattribute2', identityattribute2)
             const localVarPath = `/identity-attributes/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -244,7 +244,7 @@ export const IdentityAttributesV1ApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(identityattribute2V1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(identityattribute2, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -288,13 +288,13 @@ export const IdentityAttributesV1ApiAxiosParamCreator = function (configuration?
         /**
          * Use this API to bulk delete identity attributes for a given set of names. Attributes that are currently mapped in an identity profile cannot be deleted.  The `system` and `standard` properties must be set to \'false\' before you can delete an identity attribute.
          * @summary Bulk delete identity attributes
-         * @param {IdentityattributenamesV1} identityattributenamesV1 
+         * @param {Identityattributenames} identityattributenames 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteIdentityAttributesInBulkV1: async (identityattributenamesV1: IdentityattributenamesV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'identityattributenamesV1' is not null or undefined
-            assertParamExists('deleteIdentityAttributesInBulkV1', 'identityattributenamesV1', identityattributenamesV1)
+        deleteIdentityAttributesInBulkV1: async (identityattributenames: Identityattributenames, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityattributenames' is not null or undefined
+            assertParamExists('deleteIdentityAttributesInBulkV1', 'identityattributenames', identityattributenames)
             const localVarPath = `/identity-attributes/v1/bulk-delete`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -314,7 +314,7 @@ export const IdentityAttributesV1ApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(identityattributenamesV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(identityattributenames, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -409,15 +409,15 @@ export const IdentityAttributesV1ApiAxiosParamCreator = function (configuration?
          * This updates an existing identity attribute.  Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.
          * @summary Update identity attribute
          * @param {string} name The attribute\&#39;s technical name.
-         * @param {Identityattribute2V1} identityattribute2V1 
+         * @param {Identityattribute2} identityattribute2 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putIdentityAttributeV1: async (name: string, identityattribute2V1: Identityattribute2V1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putIdentityAttributeV1: async (name: string, identityattribute2: Identityattribute2, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('putIdentityAttributeV1', 'name', name)
-            // verify required parameter 'identityattribute2V1' is not null or undefined
-            assertParamExists('putIdentityAttributeV1', 'identityattribute2V1', identityattribute2V1)
+            // verify required parameter 'identityattribute2' is not null or undefined
+            assertParamExists('putIdentityAttributeV1', 'identityattribute2', identityattribute2)
             const localVarPath = `/identity-attributes/v1/{name}`
                 .replace(`{${"name"}}`, encodeURIComponent(String(name)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -438,7 +438,7 @@ export const IdentityAttributesV1ApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(identityattribute2V1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(identityattribute2, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -449,23 +449,23 @@ export const IdentityAttributesV1ApiAxiosParamCreator = function (configuration?
 };
 
 /**
- * IdentityAttributesV1Api - functional programming interface
+ * IdentityAttributesApi - functional programming interface
  * @export
  */
-export const IdentityAttributesV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = IdentityAttributesV1ApiAxiosParamCreator(configuration)
+export const IdentityAttributesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = IdentityAttributesApiAxiosParamCreator(configuration)
     return {
         /**
          * Use this API to create a new identity attribute.
          * @summary Create identity attribute
-         * @param {Identityattribute2V1} identityattribute2V1 
+         * @param {Identityattribute2} identityattribute2 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createIdentityAttributeV1(identityattribute2V1: Identityattribute2V1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Identityattribute2V1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createIdentityAttributeV1(identityattribute2V1, axiosOptions);
+        async createIdentityAttributeV1(identityattribute2: Identityattribute2, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Identityattribute2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createIdentityAttributeV1(identityattribute2, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityAttributesV1Api.createIdentityAttributeV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IdentityAttributesApi.createIdentityAttributeV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -478,20 +478,20 @@ export const IdentityAttributesV1ApiFp = function(configuration?: Configuration)
         async deleteIdentityAttributeV1(name: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityAttributeV1(name, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityAttributesV1Api.deleteIdentityAttributeV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IdentityAttributesApi.deleteIdentityAttributeV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Use this API to bulk delete identity attributes for a given set of names. Attributes that are currently mapped in an identity profile cannot be deleted.  The `system` and `standard` properties must be set to \'false\' before you can delete an identity attribute.
          * @summary Bulk delete identity attributes
-         * @param {IdentityattributenamesV1} identityattributenamesV1 
+         * @param {Identityattributenames} identityattributenames 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteIdentityAttributesInBulkV1(identityattributenamesV1: IdentityattributenamesV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityAttributesInBulkV1(identityattributenamesV1, axiosOptions);
+        async deleteIdentityAttributesInBulkV1(identityattributenames: Identityattributenames, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityAttributesInBulkV1(identityattributenames, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityAttributesV1Api.deleteIdentityAttributesInBulkV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IdentityAttributesApi.deleteIdentityAttributesInBulkV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -501,10 +501,10 @@ export const IdentityAttributesV1ApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityAttributeV1(name: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Identityattribute2V1>> {
+        async getIdentityAttributeV1(name: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Identityattribute2>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityAttributeV1(name, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityAttributesV1Api.getIdentityAttributeV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IdentityAttributesApi.getIdentityAttributeV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -517,288 +517,288 @@ export const IdentityAttributesV1ApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listIdentityAttributesV1(includeSystem?: boolean, includeSilent?: boolean, searchableOnly?: boolean, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Identityattribute2V1>>> {
+        async listIdentityAttributesV1(includeSystem?: boolean, includeSilent?: boolean, searchableOnly?: boolean, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Identityattribute2>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityAttributesV1(includeSystem, includeSilent, searchableOnly, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityAttributesV1Api.listIdentityAttributesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IdentityAttributesApi.listIdentityAttributesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This updates an existing identity attribute.  Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.
          * @summary Update identity attribute
          * @param {string} name The attribute\&#39;s technical name.
-         * @param {Identityattribute2V1} identityattribute2V1 
+         * @param {Identityattribute2} identityattribute2 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putIdentityAttributeV1(name: string, identityattribute2V1: Identityattribute2V1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Identityattribute2V1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putIdentityAttributeV1(name, identityattribute2V1, axiosOptions);
+        async putIdentityAttributeV1(name: string, identityattribute2: Identityattribute2, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Identityattribute2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putIdentityAttributeV1(name, identityattribute2, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityAttributesV1Api.putIdentityAttributeV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IdentityAttributesApi.putIdentityAttributeV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * IdentityAttributesV1Api - factory interface
+ * IdentityAttributesApi - factory interface
  * @export
  */
-export const IdentityAttributesV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = IdentityAttributesV1ApiFp(configuration)
+export const IdentityAttributesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = IdentityAttributesApiFp(configuration)
     return {
         /**
          * Use this API to create a new identity attribute.
          * @summary Create identity attribute
-         * @param {IdentityAttributesV1ApiCreateIdentityAttributeV1Request} requestParameters Request parameters.
+         * @param {IdentityAttributesApiCreateIdentityAttributeV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createIdentityAttributeV1(requestParameters: IdentityAttributesV1ApiCreateIdentityAttributeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Identityattribute2V1> {
-            return localVarFp.createIdentityAttributeV1(requestParameters.identityattribute2V1, axiosOptions).then((request) => request(axios, basePath));
+        createIdentityAttributeV1(requestParameters: IdentityAttributesApiCreateIdentityAttributeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Identityattribute2> {
+            return localVarFp.createIdentityAttributeV1(requestParameters.identityattribute2, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This deletes an identity attribute with the given name.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.
          * @summary Delete identity attribute
-         * @param {IdentityAttributesV1ApiDeleteIdentityAttributeV1Request} requestParameters Request parameters.
+         * @param {IdentityAttributesApiDeleteIdentityAttributeV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteIdentityAttributeV1(requestParameters: IdentityAttributesV1ApiDeleteIdentityAttributeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteIdentityAttributeV1(requestParameters: IdentityAttributesApiDeleteIdentityAttributeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteIdentityAttributeV1(requestParameters.name, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to bulk delete identity attributes for a given set of names. Attributes that are currently mapped in an identity profile cannot be deleted.  The `system` and `standard` properties must be set to \'false\' before you can delete an identity attribute.
          * @summary Bulk delete identity attributes
-         * @param {IdentityAttributesV1ApiDeleteIdentityAttributesInBulkV1Request} requestParameters Request parameters.
+         * @param {IdentityAttributesApiDeleteIdentityAttributesInBulkV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteIdentityAttributesInBulkV1(requestParameters: IdentityAttributesV1ApiDeleteIdentityAttributesInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.deleteIdentityAttributesInBulkV1(requestParameters.identityattributenamesV1, axiosOptions).then((request) => request(axios, basePath));
+        deleteIdentityAttributesInBulkV1(requestParameters: IdentityAttributesApiDeleteIdentityAttributesInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteIdentityAttributesInBulkV1(requestParameters.identityattributenames, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets an identity attribute for a given technical name.
          * @summary Get identity attribute
-         * @param {IdentityAttributesV1ApiGetIdentityAttributeV1Request} requestParameters Request parameters.
+         * @param {IdentityAttributesApiGetIdentityAttributeV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentityAttributeV1(requestParameters: IdentityAttributesV1ApiGetIdentityAttributeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Identityattribute2V1> {
+        getIdentityAttributeV1(requestParameters: IdentityAttributesApiGetIdentityAttributeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Identityattribute2> {
             return localVarFp.getIdentityAttributeV1(requestParameters.name, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to get a collection of identity attributes.
          * @summary List identity attributes
-         * @param {IdentityAttributesV1ApiListIdentityAttributesV1Request} requestParameters Request parameters.
+         * @param {IdentityAttributesApiListIdentityAttributesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listIdentityAttributesV1(requestParameters: IdentityAttributesV1ApiListIdentityAttributesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Identityattribute2V1>> {
+        listIdentityAttributesV1(requestParameters: IdentityAttributesApiListIdentityAttributesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Identityattribute2>> {
             return localVarFp.listIdentityAttributesV1(requestParameters.includeSystem, requestParameters.includeSilent, requestParameters.searchableOnly, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This updates an existing identity attribute.  Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.
          * @summary Update identity attribute
-         * @param {IdentityAttributesV1ApiPutIdentityAttributeV1Request} requestParameters Request parameters.
+         * @param {IdentityAttributesApiPutIdentityAttributeV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putIdentityAttributeV1(requestParameters: IdentityAttributesV1ApiPutIdentityAttributeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Identityattribute2V1> {
-            return localVarFp.putIdentityAttributeV1(requestParameters.name, requestParameters.identityattribute2V1, axiosOptions).then((request) => request(axios, basePath));
+        putIdentityAttributeV1(requestParameters: IdentityAttributesApiPutIdentityAttributeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Identityattribute2> {
+            return localVarFp.putIdentityAttributeV1(requestParameters.name, requestParameters.identityattribute2, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createIdentityAttributeV1 operation in IdentityAttributesV1Api.
+ * Request parameters for createIdentityAttributeV1 operation in IdentityAttributesApi.
  * @export
- * @interface IdentityAttributesV1ApiCreateIdentityAttributeV1Request
+ * @interface IdentityAttributesApiCreateIdentityAttributeV1Request
  */
-export interface IdentityAttributesV1ApiCreateIdentityAttributeV1Request {
+export interface IdentityAttributesApiCreateIdentityAttributeV1Request {
     /**
      * 
-     * @type {Identityattribute2V1}
-     * @memberof IdentityAttributesV1ApiCreateIdentityAttributeV1
+     * @type {Identityattribute2}
+     * @memberof IdentityAttributesApiCreateIdentityAttributeV1
      */
-    readonly identityattribute2V1: Identityattribute2V1
+    readonly identityattribute2: Identityattribute2
 }
 
 /**
- * Request parameters for deleteIdentityAttributeV1 operation in IdentityAttributesV1Api.
+ * Request parameters for deleteIdentityAttributeV1 operation in IdentityAttributesApi.
  * @export
- * @interface IdentityAttributesV1ApiDeleteIdentityAttributeV1Request
+ * @interface IdentityAttributesApiDeleteIdentityAttributeV1Request
  */
-export interface IdentityAttributesV1ApiDeleteIdentityAttributeV1Request {
+export interface IdentityAttributesApiDeleteIdentityAttributeV1Request {
     /**
      * The attribute\&#39;s technical name.
      * @type {string}
-     * @memberof IdentityAttributesV1ApiDeleteIdentityAttributeV1
+     * @memberof IdentityAttributesApiDeleteIdentityAttributeV1
      */
     readonly name: string
 }
 
 /**
- * Request parameters for deleteIdentityAttributesInBulkV1 operation in IdentityAttributesV1Api.
+ * Request parameters for deleteIdentityAttributesInBulkV1 operation in IdentityAttributesApi.
  * @export
- * @interface IdentityAttributesV1ApiDeleteIdentityAttributesInBulkV1Request
+ * @interface IdentityAttributesApiDeleteIdentityAttributesInBulkV1Request
  */
-export interface IdentityAttributesV1ApiDeleteIdentityAttributesInBulkV1Request {
+export interface IdentityAttributesApiDeleteIdentityAttributesInBulkV1Request {
     /**
      * 
-     * @type {IdentityattributenamesV1}
-     * @memberof IdentityAttributesV1ApiDeleteIdentityAttributesInBulkV1
+     * @type {Identityattributenames}
+     * @memberof IdentityAttributesApiDeleteIdentityAttributesInBulkV1
      */
-    readonly identityattributenamesV1: IdentityattributenamesV1
+    readonly identityattributenames: Identityattributenames
 }
 
 /**
- * Request parameters for getIdentityAttributeV1 operation in IdentityAttributesV1Api.
+ * Request parameters for getIdentityAttributeV1 operation in IdentityAttributesApi.
  * @export
- * @interface IdentityAttributesV1ApiGetIdentityAttributeV1Request
+ * @interface IdentityAttributesApiGetIdentityAttributeV1Request
  */
-export interface IdentityAttributesV1ApiGetIdentityAttributeV1Request {
+export interface IdentityAttributesApiGetIdentityAttributeV1Request {
     /**
      * The attribute\&#39;s technical name.
      * @type {string}
-     * @memberof IdentityAttributesV1ApiGetIdentityAttributeV1
+     * @memberof IdentityAttributesApiGetIdentityAttributeV1
      */
     readonly name: string
 }
 
 /**
- * Request parameters for listIdentityAttributesV1 operation in IdentityAttributesV1Api.
+ * Request parameters for listIdentityAttributesV1 operation in IdentityAttributesApi.
  * @export
- * @interface IdentityAttributesV1ApiListIdentityAttributesV1Request
+ * @interface IdentityAttributesApiListIdentityAttributesV1Request
  */
-export interface IdentityAttributesV1ApiListIdentityAttributesV1Request {
+export interface IdentityAttributesApiListIdentityAttributesV1Request {
     /**
      * Include \&#39;system\&#39; attributes in the response.
      * @type {boolean}
-     * @memberof IdentityAttributesV1ApiListIdentityAttributesV1
+     * @memberof IdentityAttributesApiListIdentityAttributesV1
      */
     readonly includeSystem?: boolean
 
     /**
      * Include \&#39;silent\&#39; attributes in the response.
      * @type {boolean}
-     * @memberof IdentityAttributesV1ApiListIdentityAttributesV1
+     * @memberof IdentityAttributesApiListIdentityAttributesV1
      */
     readonly includeSilent?: boolean
 
     /**
      * Include only \&#39;searchable\&#39; attributes in the response.
      * @type {boolean}
-     * @memberof IdentityAttributesV1ApiListIdentityAttributesV1
+     * @memberof IdentityAttributesApiListIdentityAttributesV1
      */
     readonly searchableOnly?: boolean
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof IdentityAttributesV1ApiListIdentityAttributesV1
+     * @memberof IdentityAttributesApiListIdentityAttributesV1
      */
     readonly count?: boolean
 }
 
 /**
- * Request parameters for putIdentityAttributeV1 operation in IdentityAttributesV1Api.
+ * Request parameters for putIdentityAttributeV1 operation in IdentityAttributesApi.
  * @export
- * @interface IdentityAttributesV1ApiPutIdentityAttributeV1Request
+ * @interface IdentityAttributesApiPutIdentityAttributeV1Request
  */
-export interface IdentityAttributesV1ApiPutIdentityAttributeV1Request {
+export interface IdentityAttributesApiPutIdentityAttributeV1Request {
     /**
      * The attribute\&#39;s technical name.
      * @type {string}
-     * @memberof IdentityAttributesV1ApiPutIdentityAttributeV1
+     * @memberof IdentityAttributesApiPutIdentityAttributeV1
      */
     readonly name: string
 
     /**
      * 
-     * @type {Identityattribute2V1}
-     * @memberof IdentityAttributesV1ApiPutIdentityAttributeV1
+     * @type {Identityattribute2}
+     * @memberof IdentityAttributesApiPutIdentityAttributeV1
      */
-    readonly identityattribute2V1: Identityattribute2V1
+    readonly identityattribute2: Identityattribute2
 }
 
 /**
- * IdentityAttributesV1Api - object-oriented interface
+ * IdentityAttributesApi - object-oriented interface
  * @export
- * @class IdentityAttributesV1Api
+ * @class IdentityAttributesApi
  * @extends {BaseAPI}
  */
-export class IdentityAttributesV1Api extends BaseAPI {
+export class IdentityAttributesApi extends BaseAPI {
     /**
      * Use this API to create a new identity attribute.
      * @summary Create identity attribute
-     * @param {IdentityAttributesV1ApiCreateIdentityAttributeV1Request} requestParameters Request parameters.
+     * @param {IdentityAttributesApiCreateIdentityAttributeV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdentityAttributesV1Api
+     * @memberof IdentityAttributesApi
      */
-    public createIdentityAttributeV1(requestParameters: IdentityAttributesV1ApiCreateIdentityAttributeV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IdentityAttributesV1ApiFp(this.configuration).createIdentityAttributeV1(requestParameters.identityattribute2V1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createIdentityAttributeV1(requestParameters: IdentityAttributesApiCreateIdentityAttributeV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IdentityAttributesApiFp(this.configuration).createIdentityAttributeV1(requestParameters.identityattribute2, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This deletes an identity attribute with the given name.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.
      * @summary Delete identity attribute
-     * @param {IdentityAttributesV1ApiDeleteIdentityAttributeV1Request} requestParameters Request parameters.
+     * @param {IdentityAttributesApiDeleteIdentityAttributeV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdentityAttributesV1Api
+     * @memberof IdentityAttributesApi
      */
-    public deleteIdentityAttributeV1(requestParameters: IdentityAttributesV1ApiDeleteIdentityAttributeV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IdentityAttributesV1ApiFp(this.configuration).deleteIdentityAttributeV1(requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteIdentityAttributeV1(requestParameters: IdentityAttributesApiDeleteIdentityAttributeV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IdentityAttributesApiFp(this.configuration).deleteIdentityAttributeV1(requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to bulk delete identity attributes for a given set of names. Attributes that are currently mapped in an identity profile cannot be deleted.  The `system` and `standard` properties must be set to \'false\' before you can delete an identity attribute.
      * @summary Bulk delete identity attributes
-     * @param {IdentityAttributesV1ApiDeleteIdentityAttributesInBulkV1Request} requestParameters Request parameters.
+     * @param {IdentityAttributesApiDeleteIdentityAttributesInBulkV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdentityAttributesV1Api
+     * @memberof IdentityAttributesApi
      */
-    public deleteIdentityAttributesInBulkV1(requestParameters: IdentityAttributesV1ApiDeleteIdentityAttributesInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IdentityAttributesV1ApiFp(this.configuration).deleteIdentityAttributesInBulkV1(requestParameters.identityattributenamesV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteIdentityAttributesInBulkV1(requestParameters: IdentityAttributesApiDeleteIdentityAttributesInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IdentityAttributesApiFp(this.configuration).deleteIdentityAttributesInBulkV1(requestParameters.identityattributenames, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets an identity attribute for a given technical name.
      * @summary Get identity attribute
-     * @param {IdentityAttributesV1ApiGetIdentityAttributeV1Request} requestParameters Request parameters.
+     * @param {IdentityAttributesApiGetIdentityAttributeV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdentityAttributesV1Api
+     * @memberof IdentityAttributesApi
      */
-    public getIdentityAttributeV1(requestParameters: IdentityAttributesV1ApiGetIdentityAttributeV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IdentityAttributesV1ApiFp(this.configuration).getIdentityAttributeV1(requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getIdentityAttributeV1(requestParameters: IdentityAttributesApiGetIdentityAttributeV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IdentityAttributesApiFp(this.configuration).getIdentityAttributeV1(requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to get a collection of identity attributes.
      * @summary List identity attributes
-     * @param {IdentityAttributesV1ApiListIdentityAttributesV1Request} requestParameters Request parameters.
+     * @param {IdentityAttributesApiListIdentityAttributesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdentityAttributesV1Api
+     * @memberof IdentityAttributesApi
      */
-    public listIdentityAttributesV1(requestParameters: IdentityAttributesV1ApiListIdentityAttributesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return IdentityAttributesV1ApiFp(this.configuration).listIdentityAttributesV1(requestParameters.includeSystem, requestParameters.includeSilent, requestParameters.searchableOnly, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listIdentityAttributesV1(requestParameters: IdentityAttributesApiListIdentityAttributesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return IdentityAttributesApiFp(this.configuration).listIdentityAttributesV1(requestParameters.includeSystem, requestParameters.includeSilent, requestParameters.searchableOnly, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This updates an existing identity attribute.  Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.
      * @summary Update identity attribute
-     * @param {IdentityAttributesV1ApiPutIdentityAttributeV1Request} requestParameters Request parameters.
+     * @param {IdentityAttributesApiPutIdentityAttributeV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IdentityAttributesV1Api
+     * @memberof IdentityAttributesApi
      */
-    public putIdentityAttributeV1(requestParameters: IdentityAttributesV1ApiPutIdentityAttributeV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IdentityAttributesV1ApiFp(this.configuration).putIdentityAttributeV1(requestParameters.name, requestParameters.identityattribute2V1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putIdentityAttributeV1(requestParameters: IdentityAttributesApiPutIdentityAttributeV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IdentityAttributesApiFp(this.configuration).putIdentityAttributeV1(requestParameters.name, requestParameters.identityattribute2, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

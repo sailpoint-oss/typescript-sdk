@@ -1,23 +1,23 @@
 ---
-id: v1-machineidentityuserentitlementresponse-v1
-title: MachineidentityuserentitlementresponseV1
-pagination_label: MachineidentityuserentitlementresponseV1
-sidebar_label: MachineidentityuserentitlementresponseV1
+id: v1-machineidentityuserentitlementresponse
+title: Machineidentityuserentitlementresponse
+pagination_label: Machineidentityuserentitlementresponse
+sidebar_label: Machineidentityuserentitlementresponse
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'MachineidentityuserentitlementresponseV1', 'v1MachineidentityuserentitlementresponseV1']
-slug: /tools/sdk/typescript/machine_identities/models/machineidentityuserentitlementresponse-v1
-tags: ['SDK', 'Software Development Kit', 'MachineidentityuserentitlementresponseV1', 'v1MachineidentityuserentitlementresponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Machineidentityuserentitlementresponse', 'v1Machineidentityuserentitlementresponse']
+slug: /tools/sdk/typescript/machine_identities/models/machineidentityuserentitlementresponse
+tags: ['SDK', 'Software Development Kit', 'Machineidentityuserentitlementresponse', 'v1Machineidentityuserentitlementresponse']
 ---
 
-# MachineidentityuserentitlementresponseV1
+# Machineidentityuserentitlementresponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **(optional)** **string** | System-generated unique ID of the Object | [default to undefined]
-**machineIdentityId** | **(optional)** **string** | System-generated unique ID of the Machine Identity | [default to undefined]
-**source** | **(optional)** **MachineidentityuserentitlementresponseSourceV1** |  | [default to undefined]
-**entitlement** | **(optional)** **MachineidentityuserentitlementresponseEntitlementV1** |  | [default to undefined]
-**created** | **(optional)** **string** | Creation date of the Object | [readonly] [default to undefined]
+**id** | **(optional)** `string` | System-generated unique ID of the Object | [default to undefined]
+**machineIdentityId** | **(optional)** `string` | System-generated unique ID of the Machine Identity | [default to undefined]
+**source** | **(optional)** `MachineidentityuserentitlementresponseSource` |  | [default to undefined]
+**entitlement** | **(optional)** `MachineidentityuserentitlementresponseEntitlement` |  | [default to undefined]
+**created** | **(optional)** `string` | Creation date of the Object | [readonly] [default to undefined]
 

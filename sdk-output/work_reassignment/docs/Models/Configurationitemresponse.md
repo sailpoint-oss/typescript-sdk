@@ -1,20 +1,20 @@
 ---
-id: v1-configurationitemresponse-v1
-title: ConfigurationitemresponseV1
-pagination_label: ConfigurationitemresponseV1
-sidebar_label: ConfigurationitemresponseV1
+id: v1-configurationitemresponse
+title: Configurationitemresponse
+pagination_label: Configurationitemresponse
+sidebar_label: Configurationitemresponse
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ConfigurationitemresponseV1', 'v1ConfigurationitemresponseV1']
-slug: /tools/sdk/typescript/work_reassignment/models/configurationitemresponse-v1
-tags: ['SDK', 'Software Development Kit', 'ConfigurationitemresponseV1', 'v1ConfigurationitemresponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Configurationitemresponse', 'v1Configurationitemresponse']
+slug: /tools/sdk/typescript/work_reassignment/models/configurationitemresponse
+tags: ['SDK', 'Software Development Kit', 'Configurationitemresponse', 'v1Configurationitemresponse']
 ---
 
-# ConfigurationitemresponseV1
+# Configurationitemresponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identity** | **(optional)** **Identity2V1** |  | [default to undefined]
-**configDetails** | **(optional)** **Array&lt;ConfigurationdetailsresponseV1&gt;** | Details of how work should be reassigned for an Identity | [default to undefined]
+**identity** | **(optional)** `Identity2` |  | [default to undefined]
+**configDetails** | **(optional)** `Array<Configurationdetailsresponse>` | Details of how work should be reassigned for an Identity | [default to undefined]
 

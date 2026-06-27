@@ -4,14 +4,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#approve-bulk-entitlement-recommendations-v1
       source: |
-        import { SuggestedEntitlementDescriptionV1Api } from 'sailpoint-api-client';
+        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SuggestedEntitlementDescriptionV1Api(configuration);
-        const bulkapproveentitlementrecommendationrequestV1: BulkapproveentitlementrecommendationrequestV1 = ; // BulkapproveentitlementrecommendationrequestV1 | The list of recommendation items to approve.
-        const result = await apiInstance.approveBulkEntitlementRecommendationsV1(bulkapproveentitlementrecommendationrequestV1);
+        const configuration = new Configuration();
+        const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
+        const bulkapproveentitlementrecommendationrequest: Bulkapproveentitlementrecommendationrequest = ; // Bulkapproveentitlementrecommendationrequest | The list of recommendation items to approve.
+        const result = await apiInstance.approveBulkEntitlementRecommendationsV1({ bulkapproveentitlementrecommendationrequest: bulkapproveentitlementrecommendationrequest });
         console.log(result);
 - path: /suggested-entitlement-descriptions/v1/auto-write-settings
   method: POST
@@ -19,14 +18,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#create-auto-write-settings-v1
       source: |
-        import { SuggestedEntitlementDescriptionV1Api } from 'sailpoint-api-client';
+        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SuggestedEntitlementDescriptionV1Api(configuration);
-        const autowritesettingV1: AutowritesettingV1 = ; // AutowritesettingV1 | Auto-write settings to create
-        const result = await apiInstance.createAutoWriteSettingsV1(autowritesettingV1);
+        const configuration = new Configuration();
+        const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
+        const autowritesetting: Autowritesetting = ; // Autowritesetting | Auto-write settings to create
+        const result = await apiInstance.createAutoWriteSettingsV1({ autowritesetting: autowritesetting });
         console.log(result);
 - path: /suggested-entitlement-descriptions/v1/auto-write-settings
   method: GET
@@ -34,13 +32,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#get-auto-write-settings-v1
       source: |
-        import { SuggestedEntitlementDescriptionV1Api } from 'sailpoint-api-client';
+        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SuggestedEntitlementDescriptionV1Api(configuration);
-        const result = await apiInstance.getAutoWriteSettingsV1();
+        const configuration = new Configuration();
+        const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
+        const result = await apiInstance.getAutoWriteSettingsV1({  });
         console.log(result);
 - path: /suggested-entitlement-description-batches/v1/{batchId}/stats
   method: GET
@@ -48,14 +45,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#get-sed-batch-stats-v1
       source: |
-        import { SuggestedEntitlementDescriptionV1Api } from 'sailpoint-api-client';
+        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SuggestedEntitlementDescriptionV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
         const batchId: string = '8c190e67-87aa-4ed9-a90b-d9d5344523fb'; // string | Batch Id (default to undefined)
-        const result = await apiInstance.getSedBatchStatsV1(batchId);
+        const result = await apiInstance.getSedBatchStatsV1({ batchId: batchId });
         console.log(result);
 - path: /suggested-entitlement-description-batches/v1
   method: GET
@@ -63,18 +59,17 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#get-sed-batches-v1
       source: |
-        import { SuggestedEntitlementDescriptionV1Api } from 'sailpoint-api-client';
+        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SuggestedEntitlementDescriptionV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
         const offset: number = 0; // number | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
         const limit: number = 250; // number | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
         const count: boolean = true; // boolean | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). Since requesting a total count can have a performance impact, it is recommended not to send `count=true` if that value will not be used. (optional) (default to false)
         const countOnly: boolean = true; // boolean | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array. (optional) (default to false)
         const status: string = 'completed, failed, submitted, materialized, failed'; // string | Batch Status (optional) (default to undefined)
-        const result = await apiInstance.getSedBatchesV1();
+        const result = await apiInstance.getSedBatchesV1({  });
         console.log(result);
 - path: /entitlement-recommendations/v1/pending-approvals
   method: GET
@@ -82,15 +77,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#list-pending-entitlement-recommendation-approvals-v1
       source: |
-        import { SuggestedEntitlementDescriptionV1Api } from 'sailpoint-api-client';
+        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SuggestedEntitlementDescriptionV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        const result = await apiInstance.listPendingEntitlementRecommendationApprovalsV1();
+        const result = await apiInstance.listPendingEntitlementRecommendationApprovalsV1({  });
         console.log(result);
 - path: /privileged-recommendations/v1
   method: GET
@@ -98,15 +92,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#list-privileged-entitlement-recommendations-v1
       source: |
-        import { SuggestedEntitlementDescriptionV1Api } from 'sailpoint-api-client';
+        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SuggestedEntitlementDescriptionV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        const result = await apiInstance.listPrivilegedEntitlementRecommendationsV1();
+        const result = await apiInstance.listPrivilegedEntitlementRecommendationsV1({  });
         console.log(result);
 - path: /suggested-entitlement-descriptions/v1
   method: GET
@@ -114,12 +107,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#list-seds-v1
       source: |
-        import { SuggestedEntitlementDescriptionV1Api } from 'sailpoint-api-client';
+        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SuggestedEntitlementDescriptionV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
@@ -128,7 +120,7 @@
         const countOnly: boolean = count-only=true; // boolean | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array. (optional) (default to false)
         const requestedByAnyone: boolean = requested-by-anyone=true; // boolean | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested (optional) (default to false)
         const showPendingStatusOnly: boolean = show-pending-status-only=true; // boolean | Will limit records to items that are in \"suggested\" or \"approved\" status (optional) (default to false)
-        const result = await apiInstance.listSedsV1();
+        const result = await apiInstance.listSedsV1({  });
         console.log(result);
 - path: /entitlement-recommendations/v1/{id}
   method: PATCH
@@ -136,15 +128,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#patch-entitlement-recommendation-v1
       source: |
-        import { SuggestedEntitlementDescriptionV1Api } from 'sailpoint-api-client';
+        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SuggestedEntitlementDescriptionV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
         const id: string = '79db50d4-723c-4aa0-a824-83c2205d82d1'; // string | The unique identifier of the entitlement recommendation to update. (default to undefined)
-        const jsonpatchoperationV1: Array&lt;JsonpatchoperationV1&gt; = ; // Array<JsonpatchoperationV1> | The patch operations to apply to the entitlement recommendation record.
-        const result = await apiInstance.patchEntitlementRecommendationV1(id, jsonpatchoperationV1);
+        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = ; // Array<Jsonpatchoperation> | The patch operations to apply to the entitlement recommendation record.
+        const result = await apiInstance.patchEntitlementRecommendationV1({ id: id, jsonpatchoperation: jsonpatchoperation });
         console.log(result);
 - path: /suggested-entitlement-descriptions/v1
   method: PATCH
@@ -152,15 +143,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#patch-sed-v1
       source: |
-        import { SuggestedEntitlementDescriptionV1Api } from 'sailpoint-api-client';
+        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SuggestedEntitlementDescriptionV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
         const id: string = 'ebab396f-0af1-4050-89b7-dafc63ec70e7'; // string | id is sed id (default to undefined)
-        const sedpatchV1: Array&lt;SedpatchV1&gt; = ; // Array<SedpatchV1> | Sed Patch Request
-        const result = await apiInstance.patchSedV1(id, sedpatchV1);
+        const sedpatch: Array&lt;Sedpatch&gt; = ; // Array<Sedpatch> | Sed Patch Request
+        const result = await apiInstance.patchSedV1({ id: id, sedpatch: sedpatch });
         console.log(result);
 - path: /entitlement-recommendations/v1/assign
   method: POST
@@ -168,14 +158,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#submit-entitlement-recommendations-assignment-v1
       source: |
-        import { SuggestedEntitlementDescriptionV1Api } from 'sailpoint-api-client';
+        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SuggestedEntitlementDescriptionV1Api(configuration);
-        const entitlementrecommendationassignrequestV1: EntitlementrecommendationassignrequestV1 = ; // EntitlementrecommendationassignrequestV1 | The recommendation IDs and the target assignee.
-        const result = await apiInstance.submitEntitlementRecommendationsAssignmentV1(entitlementrecommendationassignrequestV1);
+        const configuration = new Configuration();
+        const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
+        const entitlementrecommendationassignrequest: Entitlementrecommendationassignrequest = ; // Entitlementrecommendationassignrequest | The recommendation IDs and the target assignee.
+        const result = await apiInstance.submitEntitlementRecommendationsAssignmentV1({ entitlementrecommendationassignrequest: entitlementrecommendationassignrequest });
         console.log(result);
 - path: /suggested-entitlement-description-approvals/v1
   method: POST
@@ -183,14 +172,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#submit-sed-approval-v1
       source: |
-        import { SuggestedEntitlementDescriptionV1Api } from 'sailpoint-api-client';
+        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SuggestedEntitlementDescriptionV1Api(configuration);
-        const sedapprovalV1: Array&lt;SedapprovalV1&gt; = ; // Array<SedapprovalV1> | Sed Approval
-        const result = await apiInstance.submitSedApprovalV1(sedapprovalV1);
+        const configuration = new Configuration();
+        const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
+        const sedapproval: Array&lt;Sedapproval&gt; = ; // Array<Sedapproval> | Sed Approval
+        const result = await apiInstance.submitSedApprovalV1({ sedapproval: sedapproval });
         console.log(result);
 - path: /suggested-entitlement-description-assignments/v1
   method: POST
@@ -198,14 +186,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#submit-sed-assignment-v1
       source: |
-        import { SuggestedEntitlementDescriptionV1Api } from 'sailpoint-api-client';
+        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SuggestedEntitlementDescriptionV1Api(configuration);
-        const sedassignmentV1: SedassignmentV1 = ; // SedassignmentV1 | Sed Assignment Request
-        const result = await apiInstance.submitSedAssignmentV1(sedassignmentV1);
+        const configuration = new Configuration();
+        const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
+        const sedassignment: Sedassignment = ; // Sedassignment | Sed Assignment Request
+        const result = await apiInstance.submitSedAssignmentV1({ sedassignment: sedassignment });
         console.log(result);
 - path: /suggested-entitlement-description-batches/v1
   method: POST
@@ -213,14 +200,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#submit-sed-batch-request-v1
       source: |
-        import { SuggestedEntitlementDescriptionV1Api } from 'sailpoint-api-client';
+        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SuggestedEntitlementDescriptionV1Api(configuration);
-        const sedbatchrequestV1: SedbatchrequestV1 = ; // SedbatchrequestV1 | Sed Batch Request (optional)
-        const result = await apiInstance.submitSedBatchRequestV1();
+        const configuration = new Configuration();
+        const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
+        const sedbatchrequest: Sedbatchrequest = ; // Sedbatchrequest | Sed Batch Request (optional)
+        const result = await apiInstance.submitSedBatchRequestV1({  });
         console.log(result);
 - path: /suggested-entitlement-descriptions/v1/auto-write-settings
   method: PATCH
@@ -228,12 +214,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#update-auto-write-settings-v1
       source: |
-        import { SuggestedEntitlementDescriptionV1Api } from 'sailpoint-api-client';
+        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new SuggestedEntitlementDescriptionV1Api(configuration);
-        const autowritesettingpatchV1: Array&lt;AutowritesettingpatchV1&gt; = ; // Array<AutowritesettingpatchV1> | Patch operations for auto-write settings
-        const result = await apiInstance.updateAutoWriteSettingsV1(autowritesettingpatchV1);
+        const configuration = new Configuration();
+        const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
+        const autowritesettingpatch: Array&lt;Autowritesettingpatch&gt; = ; // Array<Autowritesettingpatch> | Patch operations for auto-write settings
+        const result = await apiInstance.updateAutoWriteSettingsV1({ autowritesettingpatch: autowritesettingpatch });
         console.log(result);

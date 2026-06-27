@@ -1,23 +1,23 @@
 ---
-id: v1-configurationdetailsresponse-v1
-title: ConfigurationdetailsresponseV1
-pagination_label: ConfigurationdetailsresponseV1
-sidebar_label: ConfigurationdetailsresponseV1
+id: v1-configurationdetailsresponse
+title: Configurationdetailsresponse
+pagination_label: Configurationdetailsresponse
+sidebar_label: Configurationdetailsresponse
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ConfigurationdetailsresponseV1', 'v1ConfigurationdetailsresponseV1']
-slug: /tools/sdk/typescript/work_reassignment/models/configurationdetailsresponse-v1
-tags: ['SDK', 'Software Development Kit', 'ConfigurationdetailsresponseV1', 'v1ConfigurationdetailsresponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Configurationdetailsresponse', 'v1Configurationdetailsresponse']
+slug: /tools/sdk/typescript/work_reassignment/models/configurationdetailsresponse
+tags: ['SDK', 'Software Development Kit', 'Configurationdetailsresponse', 'v1Configurationdetailsresponse']
 ---
 
-# ConfigurationdetailsresponseV1
+# Configurationdetailsresponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**configType** | **(optional)** **ConfigtypeenumV1** |  | [default to undefined]
-**targetIdentity** | **(optional)** **Identity2V1** |  | [default to undefined]
-**startDate** | **(optional)** **string** | The date from which to start reassigning work items | [default to undefined]
-**endDate** | **(optional)** **string** | The date from which to stop reassigning work items.  If this is an empty string it indicates a permanent reassignment. | [default to undefined]
-**auditDetails** | **(optional)** **AuditdetailsV1** |  | [default to undefined]
+**configType** | **(optional)** `Configtypeenum` |  | [default to undefined]
+**targetIdentity** | **(optional)** `Identity2` |  | [default to undefined]
+**startDate** | **(optional)** `string` | The date from which to start reassigning work items | [default to undefined]
+**endDate** | **(optional)** `string` | The date from which to stop reassigning work items.  If this is an empty string it indicates a permanent reassignment. | [default to undefined]
+**auditDetails** | **(optional)** `Auditdetails` |  | [default to undefined]
 

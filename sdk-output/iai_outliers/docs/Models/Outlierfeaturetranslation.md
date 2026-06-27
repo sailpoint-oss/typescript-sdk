@@ -1,20 +1,20 @@
 ---
-id: v1-outlierfeaturetranslation-v1
-title: OutlierfeaturetranslationV1
-pagination_label: OutlierfeaturetranslationV1
-sidebar_label: OutlierfeaturetranslationV1
+id: v1-outlierfeaturetranslation
+title: Outlierfeaturetranslation
+pagination_label: Outlierfeaturetranslation
+sidebar_label: Outlierfeaturetranslation
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'OutlierfeaturetranslationV1', 'v1OutlierfeaturetranslationV1']
-slug: /tools/sdk/typescript/iai_outliers/models/outlierfeaturetranslation-v1
-tags: ['SDK', 'Software Development Kit', 'OutlierfeaturetranslationV1', 'v1OutlierfeaturetranslationV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Outlierfeaturetranslation', 'v1Outlierfeaturetranslation']
+slug: /tools/sdk/typescript/iai_outliers/models/outlierfeaturetranslation
+tags: ['SDK', 'Software Development Kit', 'Outlierfeaturetranslation', 'v1Outlierfeaturetranslation']
 ---
 
-# OutlierfeaturetranslationV1
+# Outlierfeaturetranslation
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**displayName** | **(optional)** **TranslationmessageV1** |  | [default to undefined]
-**description** | **(optional)** **TranslationmessageV1** |  | [default to undefined]
+**displayName** | **(optional)** `Translationmessage` |  | [default to undefined]
+**description** | **(optional)** `Translationmessage` |  | [default to undefined]
 

@@ -1,15 +1,15 @@
 ---
-id: v1-scopetype-v1
-title: ScopetypeV1
-pagination_label: ScopetypeV1
-sidebar_label: ScopetypeV1
+id: v1-scopetype
+title: Scopetype
+pagination_label: Scopetype
+sidebar_label: Scopetype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ScopetypeV1', 'v1ScopetypeV1']
-slug: /tools/sdk/typescript/data_segmentation/models/scopetype-v1
-tags: ['SDK', 'Software Development Kit', 'ScopetypeV1', 'v1ScopetypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Scopetype', 'v1Scopetype']
+slug: /tools/sdk/typescript/data_segmentation/models/scopetype
+tags: ['SDK', 'Software Development Kit', 'Scopetype', 'v1Scopetype']
 ---
 
-# ScopetypeV1
+# Scopetype
 
 ## Enum
 

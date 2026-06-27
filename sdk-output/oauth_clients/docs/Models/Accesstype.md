@@ -1,15 +1,15 @@
 ---
-id: v1-accesstype-v1
-title: AccesstypeV1
-pagination_label: AccesstypeV1
-sidebar_label: AccesstypeV1
+id: v1-accesstype
+title: Accesstype
+pagination_label: Accesstype
+sidebar_label: Accesstype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccesstypeV1', 'v1AccesstypeV1']
-slug: /tools/sdk/typescript/oauth_clients/models/accesstype-v1
-tags: ['SDK', 'Software Development Kit', 'AccesstypeV1', 'v1AccesstypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accesstype', 'v1Accesstype']
+slug: /tools/sdk/typescript/oauth_clients/models/accesstype
+tags: ['SDK', 'Software Development Kit', 'Accesstype', 'v1Accesstype']
 ---
 
-# AccesstypeV1
+# Accesstype
 
 ## Enum
 

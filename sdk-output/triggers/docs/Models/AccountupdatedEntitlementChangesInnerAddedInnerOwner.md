@@ -1,21 +1,21 @@
 ---
-id: v1-accountupdated-entitlement-changes-inner-added-inner-owner-v1
-title: AccountupdatedEntitlementChangesInnerAddedInnerOwnerV1
-pagination_label: AccountupdatedEntitlementChangesInnerAddedInnerOwnerV1
-sidebar_label: AccountupdatedEntitlementChangesInnerAddedInnerOwnerV1
+id: v1-accountupdated-entitlement-changes-inner-added-inner-owner
+title: AccountupdatedEntitlementChangesInnerAddedInnerOwner
+pagination_label: AccountupdatedEntitlementChangesInnerAddedInnerOwner
+sidebar_label: AccountupdatedEntitlementChangesInnerAddedInnerOwner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccountupdatedEntitlementChangesInnerAddedInnerOwnerV1', 'v1AccountupdatedEntitlementChangesInnerAddedInnerOwnerV1']
-slug: /tools/sdk/typescript/triggers/models/accountupdated-entitlement-changes-inner-added-inner-owner-v1
-tags: ['SDK', 'Software Development Kit', 'AccountupdatedEntitlementChangesInnerAddedInnerOwnerV1', 'v1AccountupdatedEntitlementChangesInnerAddedInnerOwnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'AccountupdatedEntitlementChangesInnerAddedInnerOwner', 'v1AccountupdatedEntitlementChangesInnerAddedInnerOwner']
+slug: /tools/sdk/typescript/triggers/models/accountupdated-entitlement-changes-inner-added-inner-owner
+tags: ['SDK', 'Software Development Kit', 'AccountupdatedEntitlementChangesInnerAddedInnerOwner', 'v1AccountupdatedEntitlementChangesInnerAddedInnerOwner']
 ---
 
-# AccountupdatedEntitlementChangesInnerAddedInnerOwnerV1
+# AccountupdatedEntitlementChangesInnerAddedInnerOwner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **(optional)** **string** | The unique identifier of the owner. | [default to undefined]
-**name** | **(optional)** **string** | The name of the owner. | [default to undefined]
-**type** | **(optional)** **string** | The type of the owner. | [default to undefined]
+**id** | **(optional)** `string` | The unique identifier of the owner. | [default to undefined]
+**name** | **(optional)** `string` | The name of the owner. | [default to undefined]
+**type** | **(optional)** `string` | The type of the owner. | [default to undefined]
 

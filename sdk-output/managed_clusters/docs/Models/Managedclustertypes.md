@@ -1,15 +1,15 @@
 ---
-id: v1-managedclustertypes-v1
-title: ManagedclustertypesV1
-pagination_label: ManagedclustertypesV1
-sidebar_label: ManagedclustertypesV1
+id: v1-managedclustertypes
+title: Managedclustertypes
+pagination_label: Managedclustertypes
+sidebar_label: Managedclustertypes
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ManagedclustertypesV1', 'v1ManagedclustertypesV1']
-slug: /tools/sdk/typescript/managed_clusters/models/managedclustertypes-v1
-tags: ['SDK', 'Software Development Kit', 'ManagedclustertypesV1', 'v1ManagedclustertypesV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Managedclustertypes', 'v1Managedclustertypes']
+slug: /tools/sdk/typescript/managed_clusters/models/managedclustertypes
+tags: ['SDK', 'Software Development Kit', 'Managedclustertypes', 'v1Managedclustertypes']
 ---
 
-# ManagedclustertypesV1
+# Managedclustertypes
 
 ## Enum
 

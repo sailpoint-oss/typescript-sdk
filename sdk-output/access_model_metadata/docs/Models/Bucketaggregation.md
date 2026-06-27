@@ -1,23 +1,23 @@
 ---
-id: v1-bucketaggregation-v1
-title: BucketaggregationV1
-pagination_label: BucketaggregationV1
-sidebar_label: BucketaggregationV1
+id: v1-bucketaggregation
+title: Bucketaggregation
+pagination_label: Bucketaggregation
+sidebar_label: Bucketaggregation
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'BucketaggregationV1', 'v1BucketaggregationV1']
-slug: /tools/sdk/typescript/access_model_metadata/models/bucketaggregation-v1
-tags: ['SDK', 'Software Development Kit', 'BucketaggregationV1', 'v1BucketaggregationV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Bucketaggregation', 'v1Bucketaggregation']
+slug: /tools/sdk/typescript/access_model_metadata/models/bucketaggregation
+tags: ['SDK', 'Software Development Kit', 'Bucketaggregation', 'v1Bucketaggregation']
 ---
 
-# BucketaggregationV1
+# Bucketaggregation
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** | The name of the bucket aggregate to be included in the result. | [default to undefined]
-**type** | **(optional)** **BuckettypeV1** |  | [default to undefined]
-**field** | **string** | The field to bucket on. Prefix the field name with \'@\' to reference a nested object. | [default to undefined]
-**size** | **(optional)** **number** | Maximum number of buckets to include. | [default to undefined]
-**minDocCount** | **(optional)** **number** | Minimum number of documents a bucket should have. | [default to undefined]
+**name** | `string` | The name of the bucket aggregate to be included in the result. | [default to undefined]
+**type** | **(optional)** `Buckettype` |  | [default to undefined]
+**field** | `string` | The field to bucket on. Prefix the field name with \'@\' to reference a nested object. | [default to undefined]
+**size** | **(optional)** `number` | Maximum number of buckets to include. | [default to undefined]
+**minDocCount** | **(optional)** `number` | Minimum number of documents a bucket should have. | [default to undefined]
 

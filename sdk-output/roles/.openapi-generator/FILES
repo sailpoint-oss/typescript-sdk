@@ -56,8 +56,8 @@ Rolemetadatabulkupdatebyidrequest.md
 RolemetadatabulkupdatebyidrequestValuesInner.md
 Rolemetadatabulkupdatebyqueryrequest.md
 RolemetadatabulkupdatebyqueryrequestValuesInner.md
-RolesV1Api.md
-RolesV1ApideveloperSite_code_examples.yaml
+RolesApi.md
+RolesApideveloperSite_code_examples.yaml
 Taskresultdto.md
 api.ts
 base.ts

@@ -1,20 +1,20 @@
 ---
-id: v1-accountdeleted-event-v1
-title: AccountdeletedEventV1
-pagination_label: AccountdeletedEventV1
-sidebar_label: AccountdeletedEventV1
+id: v1-accountdeleted-event
+title: AccountdeletedEvent
+pagination_label: AccountdeletedEvent
+sidebar_label: AccountdeletedEvent
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccountdeletedEventV1', 'v1AccountdeletedEventV1']
-slug: /tools/sdk/typescript/triggers/models/accountdeleted-event-v1
-tags: ['SDK', 'Software Development Kit', 'AccountdeletedEventV1', 'v1AccountdeletedEventV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'AccountdeletedEvent', 'v1AccountdeletedEvent']
+slug: /tools/sdk/typescript/triggers/models/accountdeleted-event
+tags: ['SDK', 'Software Development Kit', 'AccountdeletedEvent', 'v1AccountdeletedEvent']
 ---
 
-# AccountdeletedEventV1
+# AccountdeletedEvent
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **string** | The type of event. | [default to undefined]
-**cause** | **string** | The cause of the event. | [default to undefined]
+**type** | `string` | The type of event. | [default to undefined]
+**cause** | `string` | The cause of the event. | [default to undefined]
 

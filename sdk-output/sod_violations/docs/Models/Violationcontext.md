@@ -1,20 +1,20 @@
 ---
-id: v1-violationcontext-v1
-title: ViolationcontextV1
-pagination_label: ViolationcontextV1
-sidebar_label: ViolationcontextV1
+id: v1-violationcontext
+title: Violationcontext
+pagination_label: Violationcontext
+sidebar_label: Violationcontext
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ViolationcontextV1', 'v1ViolationcontextV1']
-slug: /tools/sdk/typescript/sod_violations/models/violationcontext-v1
-tags: ['SDK', 'Software Development Kit', 'ViolationcontextV1', 'v1ViolationcontextV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Violationcontext', 'v1Violationcontext']
+slug: /tools/sdk/typescript/sod_violations/models/violationcontext
+tags: ['SDK', 'Software Development Kit', 'Violationcontext', 'v1Violationcontext']
 ---
 
-# ViolationcontextV1
+# Violationcontext
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**policy** | **(optional)** **ViolationcontextPolicyV1** |  | [default to undefined]
-**conflictingAccessCriteria** | **(optional)** **ExceptionaccesscriteriaV1** |  | [default to undefined]
+**policy** | **(optional)** `ViolationcontextPolicy` |  | [default to undefined]
+**conflictingAccessCriteria** | **(optional)** `Exceptionaccesscriteria` |  | [default to undefined]
 

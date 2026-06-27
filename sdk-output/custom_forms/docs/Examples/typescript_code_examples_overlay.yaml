@@ -4,14 +4,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#create-form-definition-dynamic-schema-v1
       source: |
-        import { CustomFormsV1Api } from 'sailpoint-api-client';
+        import { CustomFormsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomFormsV1Api(configuration);
-        const body: FormdefinitiondynamicschemarequestV1 = {"id":"sp:forms","attributes":{"formDefinitionId":"00000000-0000-0000-0000-000000000000"},"description":"AnotherDescription","type":"action","versionNumber":1}; // FormdefinitiondynamicschemarequestV1 | Body is the request payload to create a form definition dynamic schema (optional)
-        const result = await apiInstance.createFormDefinitionDynamicSchemaV1();
+        const configuration = new Configuration();
+        const apiInstance = new CustomFormsApi(configuration);
+        const body: Formdefinitiondynamicschemarequest = {"id":"sp:forms","attributes":{"formDefinitionId":"00000000-0000-0000-0000-000000000000"},"description":"AnotherDescription","type":"action","versionNumber":1}; // Formdefinitiondynamicschemarequest | Body is the request payload to create a form definition dynamic schema (optional)
+        const result = await apiInstance.createFormDefinitionDynamicSchemaV1({  });
         console.log(result);
 - path: /form-definitions/v1/{formDefinitionID}/upload
   method: POST
@@ -19,15 +18,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#create-form-definition-file-request-v1
       source: |
-        import { CustomFormsV1Api } from 'sailpoint-api-client';
+        import { CustomFormsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomFormsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CustomFormsApi(configuration);
         const formDefinitionID: string = '00000000-0000-0000-0000-000000000000'; // string | FormDefinitionID  String specifying FormDefinitionID (default to undefined)
         const file: File = BINARY_DATA_HERE; // File | File specifying the multipart (default to undefined)
-        const result = await apiInstance.createFormDefinitionFileRequestV1(formDefinitionID, file);
+        const result = await apiInstance.createFormDefinitionFileRequestV1({ formDefinitionID: formDefinitionID, file: file });
         console.log(result);
 - path: /form-definitions/v1
   method: POST
@@ -35,14 +33,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#create-form-definition-v1
       source: |
-        import { CustomFormsV1Api } from 'sailpoint-api-client';
+        import { CustomFormsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomFormsV1Api(configuration);
-        const body: CreateformdefinitionrequestV1 = {"name":"my form","description":"my form description","owner":{"type":"IDENTITY","id":"00000000-0000-0000-0000-000000000000"},"formElements":[{"id":"000000000000","elementType":"SECTION","config":{"alignment":"LEFT","description":"elementType must be 'SECTION' for the root formElements,  child formElements must be within the 'config' attribute","label":"Section","labelStyle":"h2","showLabel":true,"formElements":[{"id":"0000000000000","key":"textField","elementType":"TEXT","config":{"default":"","description":"","helpText":"form element type text","label":"Text Field","placeholder":"","required":false},"validations":[]}]}}]}; // CreateformdefinitionrequestV1 | Body is the request payload to create form definition request (optional)
-        const result = await apiInstance.createFormDefinitionV1();
+        const configuration = new Configuration();
+        const apiInstance = new CustomFormsApi(configuration);
+        const body: Createformdefinitionrequest = {"name":"my form","description":"my form description","owner":{"type":"IDENTITY","id":"00000000-0000-0000-0000-000000000000"},"formElements":[{"id":"000000000000","elementType":"SECTION","config":{"alignment":"LEFT","description":"elementType must be 'SECTION' for the root formElements,  child formElements must be within the 'config' attribute","label":"Section","labelStyle":"h2","showLabel":true,"formElements":[{"id":"0000000000000","key":"textField","elementType":"TEXT","config":{"default":"","description":"","helpText":"form element type text","label":"Text Field","placeholder":"","required":false},"validations":[]}]}}]}; // Createformdefinitionrequest | Body is the request payload to create form definition request (optional)
+        const result = await apiInstance.createFormDefinitionV1({  });
         console.log(result);
 - path: /form-instances/v1
   method: POST
@@ -50,14 +47,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#create-form-instance-v1
       source: |
-        import { CustomFormsV1Api } from 'sailpoint-api-client';
+        import { CustomFormsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomFormsV1Api(configuration);
-        const body: CreateforminstancerequestV1 = {"expire":"2023-06-20T15:57:55.332882Z","formDefinitionId":"00000000-0000-0000-0000-000000000000","recipients":[{"type":"IDENTITY","id":"an-identity-id"}],"createdBy":{"type":"WORKFLOW_EXECUTION","id":"a-workflow-execution-id"}}; // CreateforminstancerequestV1 | Body is the request payload to create a form instance (optional)
-        const result = await apiInstance.createFormInstanceV1();
+        const configuration = new Configuration();
+        const apiInstance = new CustomFormsApi(configuration);
+        const body: Createforminstancerequest = {"expire":"2023-06-20T15:57:55.332882Z","formDefinitionId":"00000000-0000-0000-0000-000000000000","recipients":[{"type":"IDENTITY","id":"an-identity-id"}],"createdBy":{"type":"WORKFLOW_EXECUTION","id":"a-workflow-execution-id"}}; // Createforminstancerequest | Body is the request payload to create a form instance (optional)
+        const result = await apiInstance.createFormInstanceV1({  });
         console.log(result);
 - path: /form-definitions/v1/{formDefinitionID}
   method: DELETE
@@ -65,14 +61,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#delete-form-definition-v1
       source: |
-        import { CustomFormsV1Api } from 'sailpoint-api-client';
+        import { CustomFormsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomFormsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CustomFormsApi(configuration);
         const formDefinitionID: string = '00000000-0000-0000-0000-000000000000'; // string | Form definition ID (default to undefined)
-        const result = await apiInstance.deleteFormDefinitionV1(formDefinitionID);
+        const result = await apiInstance.deleteFormDefinitionV1({ formDefinitionID: formDefinitionID });
         console.log(result);
 - path: /form-definitions/v1/export
   method: GET
@@ -80,17 +75,16 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#export-form-definitions-by-tenant-v1
       source: |
-        import { CustomFormsV1Api } from 'sailpoint-api-client';
+        import { CustomFormsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomFormsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CustomFormsApi(configuration);
         const offset: number = 0; // number | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
         const limit: number = 250; // number | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
         const filters: string = 'name sw "my form"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in* (optional) (default to undefined)
         const sorters: string = 'name'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, created, modified** (optional) (default to 'name')
-        const result = await apiInstance.exportFormDefinitionsByTenantV1();
+        const result = await apiInstance.exportFormDefinitionsByTenantV1({  });
         console.log(result);
 - path: /form-definitions/v1/{formDefinitionID}/file/{fileID}
   method: GET
@@ -98,15 +92,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#get-file-from-s3-v1
       source: |
-        import { CustomFormsV1Api } from 'sailpoint-api-client';
+        import { CustomFormsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomFormsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CustomFormsApi(configuration);
         const formDefinitionID: string = '00000000-0000-0000-0000-000000000000'; // string | FormDefinitionID  Form definition ID (default to undefined)
         const fileID: string = '00000031N0J7R2B57M8YG73J7M.png'; // string | FileID  String specifying the hashed name of the uploaded file we are retrieving. (default to undefined)
-        const result = await apiInstance.getFileFromS3V1(formDefinitionID, fileID);
+        const result = await apiInstance.getFileFromS3V1({ formDefinitionID: formDefinitionID, fileID: fileID });
         console.log(result);
 - path: /form-definitions/v1/{formDefinitionID}
   method: GET
@@ -114,14 +107,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#get-form-definition-by-key-v1
       source: |
-        import { CustomFormsV1Api } from 'sailpoint-api-client';
+        import { CustomFormsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomFormsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CustomFormsApi(configuration);
         const formDefinitionID: string = '00000000-0000-0000-0000-000000000000'; // string | Form definition ID (default to undefined)
-        const result = await apiInstance.getFormDefinitionByKeyV1(formDefinitionID);
+        const result = await apiInstance.getFormDefinitionByKeyV1({ formDefinitionID: formDefinitionID });
         console.log(result);
 - path: /form-instances/v1/{formInstanceID}
   method: GET
@@ -129,14 +121,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#get-form-instance-by-key-v1
       source: |
-        import { CustomFormsV1Api } from 'sailpoint-api-client';
+        import { CustomFormsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomFormsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CustomFormsApi(configuration);
         const formInstanceID: string = '00000000-0000-0000-0000-000000000000'; // string | Form instance ID (default to undefined)
-        const result = await apiInstance.getFormInstanceByKeyV1(formInstanceID);
+        const result = await apiInstance.getFormInstanceByKeyV1({ formInstanceID: formInstanceID });
         console.log(result);
 - path: /form-instances/v1/{formInstanceID}/file/{fileID}
   method: GET
@@ -144,15 +135,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#get-form-instance-file-v1
       source: |
-        import { CustomFormsV1Api } from 'sailpoint-api-client';
+        import { CustomFormsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomFormsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CustomFormsApi(configuration);
         const formInstanceID: string = '00000000-0000-0000-0000-000000000000'; // string | FormInstanceID  Form instance ID (default to undefined)
         const fileID: string = '00000031N0J7R2B57M8YG73J7M.png'; // string | FileID  String specifying the hashed name of the uploaded file we are retrieving. (default to undefined)
-        const result = await apiInstance.getFormInstanceFileV1(formInstanceID, fileID);
+        const result = await apiInstance.getFormInstanceFileV1({ formInstanceID: formInstanceID, fileID: fileID });
         console.log(result);
 - path: /form-definitions/v1/import
   method: POST
@@ -160,14 +150,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#import-form-definitions-v1
       source: |
-        import { CustomFormsV1Api } from 'sailpoint-api-client';
+        import { CustomFormsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomFormsV1Api(configuration);
-        const body: Array&lt;ImportFormDefinitionsV1RequestInnerV1&gt; = [{"version":1,"self":{"name":"All fields not required","id":"05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa","type":"FORM_DEFINITION"},"object":{"id":"05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa","name":"All fields not required","description":"description","owner":{"type":"IDENTITY","id":"3447d8ec2602455ab6f1e8408a0f0150"},"usedBy":[{"type":"WORKFLOW","id":"5008594c-dacc-4295-8fee-41df60477304"},{"type":"WORKFLOW","id":"97e75a75-c179-4fbc-a2da-b5fa4aaa8743"}],"formInput":[{"type":"STRING","label":"input1","description":"A single dynamic scalar value (i.e. number, string, date, etc) that can be passed into the form for use in conditional logic"}],"formElements":[{"id":"3069272797630701","elementType":"SECTION","config":{"label":"First Section","formElements":[{"id":"3069272797630700","elementType":"TEXT","key":"firstName","config":{"label":"First Name"}},{"id":"3498415402897539","elementType":"TEXT","key":"lastName","config":{"label":"Last Name"}}]}}],"formConditions":[{"ruleOperator":"AND","rules":[{"sourceType":"INPUT","source":"Department","operator":"EQ","valueType":"STRING","value":"Sales"}],"effects":[{"effectType":"HIDE","config":{"element":"2614088730489570"}}]}],"created":"2022-10-04T19:27:04.456Z","modified":"2022-11-16T20:45:02.172Z"}}]; // Array<ImportFormDefinitionsV1RequestInnerV1> | Body is the request payload to import form definitions (optional)
-        const result = await apiInstance.importFormDefinitionsV1();
+        const configuration = new Configuration();
+        const apiInstance = new CustomFormsApi(configuration);
+        const body: Array&lt;ImportFormDefinitionsV1RequestInner&gt; = [{"version":1,"self":{"name":"All fields not required","id":"05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa","type":"FORM_DEFINITION"},"object":{"id":"05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa","name":"All fields not required","description":"description","owner":{"type":"IDENTITY","id":"3447d8ec2602455ab6f1e8408a0f0150"},"usedBy":[{"type":"WORKFLOW","id":"5008594c-dacc-4295-8fee-41df60477304"},{"type":"WORKFLOW","id":"97e75a75-c179-4fbc-a2da-b5fa4aaa8743"}],"formInput":[{"type":"STRING","label":"input1","description":"A single dynamic scalar value (i.e. number, string, date, etc) that can be passed into the form for use in conditional logic"}],"formElements":[{"id":"3069272797630701","elementType":"SECTION","config":{"label":"First Section","formElements":[{"id":"3069272797630700","elementType":"TEXT","key":"firstName","config":{"label":"First Name"}},{"id":"3498415402897539","elementType":"TEXT","key":"lastName","config":{"label":"Last Name"}}]}}],"formConditions":[{"ruleOperator":"AND","rules":[{"sourceType":"INPUT","source":"Department","operator":"EQ","valueType":"STRING","value":"Sales"}],"effects":[{"effectType":"HIDE","config":{"element":"2614088730489570"}}]}],"created":"2022-10-04T19:27:04.456Z","modified":"2022-11-16T20:45:02.172Z"}}]; // Array<ImportFormDefinitionsV1RequestInner> | Body is the request payload to import form definitions (optional)
+        const result = await apiInstance.importFormDefinitionsV1({  });
         console.log(result);
 - path: /form-definitions/v1/{formDefinitionID}
   method: PATCH
@@ -175,15 +164,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#patch-form-definition-v1
       source: |
-        import { CustomFormsV1Api } from 'sailpoint-api-client';
+        import { CustomFormsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomFormsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CustomFormsApi(configuration);
         const formDefinitionID: string = '00000000-0000-0000-0000-000000000000'; // string | Form definition ID (default to undefined)
         const body: Array&lt;{ [key: string]: object; }&gt; = [{"op":"replace","path":"/description","value":"test-description"}]; // Array<{ [key: string]: object; }> | Body is the request payload to patch a form definition, check: https://jsonpatch.com (optional)
-        const result = await apiInstance.patchFormDefinitionV1(formDefinitionID);
+        const result = await apiInstance.patchFormDefinitionV1({ formDefinitionID: formDefinitionID });
         console.log(result);
 - path: /form-instances/v1/{formInstanceID}
   method: PATCH
@@ -191,15 +179,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#patch-form-instance-v1
       source: |
-        import { CustomFormsV1Api } from 'sailpoint-api-client';
+        import { CustomFormsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomFormsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CustomFormsApi(configuration);
         const formInstanceID: string = '00000000-0000-0000-0000-000000000000'; // string | Form instance ID (default to undefined)
         const body: Array&lt;{ [key: string]: object; }&gt; = [{"op":"replace","path":"/state","value":"SUBMITTED"},{"op":"replace","path":"/formData","value":{"a-key-1":"a-value-1","a-key-2":true,"a-key-3":1}}]; // Array<{ [key: string]: object; }> | Body is the request payload to patch a form instance, check: https://jsonpatch.com (optional)
-        const result = await apiInstance.patchFormInstanceV1(formInstanceID);
+        const result = await apiInstance.patchFormInstanceV1({ formInstanceID: formInstanceID });
         console.log(result);
 - path: /form-definitions/v1
   method: GET
@@ -207,17 +194,16 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#search-form-definitions-by-tenant-v1
       source: |
-        import { CustomFormsV1Api } from 'sailpoint-api-client';
+        import { CustomFormsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomFormsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CustomFormsApi(configuration);
         const offset: number = 250; // number | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
         const limit: number = 250; // number | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
         const filters: string = 'name sw "my form"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in* (optional) (default to undefined)
         const sorters: string = 'name'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, created, modified** (optional) (default to 'name')
-        const result = await apiInstance.searchFormDefinitionsByTenantV1();
+        const result = await apiInstance.searchFormDefinitionsByTenantV1({  });
         console.log(result);
 - path: /form-instances/v1/{formInstanceID}/data-source/{formElementID}
   method: GET
@@ -225,18 +211,17 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#search-form-element-data-by-element-idv1
       source: |
-        import { CustomFormsV1Api } from 'sailpoint-api-client';
+        import { CustomFormsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomFormsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CustomFormsApi(configuration);
         const formInstanceID: string = '00000000-0000-0000-0000-000000000000'; // string | Form instance ID (default to undefined)
         const formElementID: string = '1'; // string | Form element ID (default to undefined)
         const limit: number = 250; // number | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
         const filters: string = 'value eq "ID01"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the `in` operator. The `not` composite operator must be used in front of the field. For example, the following is valid: `not value in (\"ID01\")` (optional) (default to undefined)
         const query: string = 'support'; // string | String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a \"starts with\" filter against  several fields. (optional) (default to undefined)
-        const result = await apiInstance.searchFormElementDataByElementIDV1(formInstanceID, formElementID);
+        const result = await apiInstance.searchFormElementDataByElementIDV1({ formInstanceID: formInstanceID, formElementID: formElementID });
         console.log(result);
 - path: /form-instances/v1
   method: GET
@@ -244,16 +229,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#search-form-instances-by-tenant-v1
       source: |
-        import { CustomFormsV1Api } from 'sailpoint-api-client';
+        import { CustomFormsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomFormsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CustomFormsApi(configuration);
         const offset: number = 0; // number | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
         const limit: number = 100; // number | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
         const filters: string = 'formDefinitionId eq "351c1daa-56f6-4bbf-b32c-49844c0b716e"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq* (optional) (default to undefined)
-        const result = await apiInstance.searchFormInstancesByTenantV1();
+        const result = await apiInstance.searchFormInstancesByTenantV1({  });
         console.log(result);
 - path: /form-definitions/v1/predefined-select-options
   method: GET
@@ -261,13 +245,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#search-pre-defined-select-options-v1
       source: |
-        import { CustomFormsV1Api } from 'sailpoint-api-client';
+        import { CustomFormsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomFormsV1Api(configuration);
-        const result = await apiInstance.searchPreDefinedSelectOptionsV1();
+        const configuration = new Configuration();
+        const apiInstance = new CustomFormsApi(configuration);
+        const result = await apiInstance.searchPreDefinedSelectOptionsV1({  });
         console.log(result);
 - path: /form-definitions/v1/{formDefinitionID}/data-source
   method: POST
@@ -275,16 +258,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#show-preview-data-source-v1
       source: |
-        import { CustomFormsV1Api } from 'sailpoint-api-client';
+        import { CustomFormsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new CustomFormsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new CustomFormsApi(configuration);
         const formDefinitionID: string = '00000000-0000-0000-0000-000000000000'; // string | Form definition ID (default to undefined)
         const limit: number = 10; // number | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 10)
         const filters: string = 'value eq "ID01"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the `in` operator. The `not` composite operator must be used in front of the field. For example, the following is valid: `not value in (\"ID01\")` (optional) (default to undefined)
         const query: string = 'ac'; // string | String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a \"starts with\" filter against  several fields. (optional) (default to undefined)
-        const formelementpreviewrequestV1: FormelementpreviewrequestV1 = ; // FormelementpreviewrequestV1 | Body is the request payload to create a form definition dynamic schema (optional)
-        const result = await apiInstance.showPreviewDataSourceV1(formDefinitionID);
+        const formelementpreviewrequest: Formelementpreviewrequest = ; // Formelementpreviewrequest | Body is the request payload to create a form definition dynamic schema (optional)
+        const result = await apiInstance.showPreviewDataSourceV1({ formDefinitionID: formDefinitionID });
         console.log(result);

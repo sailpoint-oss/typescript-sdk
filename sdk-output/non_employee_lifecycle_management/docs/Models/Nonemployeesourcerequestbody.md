@@ -1,24 +1,24 @@
 ---
-id: v1-nonemployeesourcerequestbody-v1
-title: NonemployeesourcerequestbodyV1
-pagination_label: NonemployeesourcerequestbodyV1
-sidebar_label: NonemployeesourcerequestbodyV1
+id: v1-nonemployeesourcerequestbody
+title: Nonemployeesourcerequestbody
+pagination_label: Nonemployeesourcerequestbody
+sidebar_label: Nonemployeesourcerequestbody
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'NonemployeesourcerequestbodyV1', 'v1NonemployeesourcerequestbodyV1']
-slug: /tools/sdk/typescript/non_employee_lifecycle_management/models/nonemployeesourcerequestbody-v1
-tags: ['SDK', 'Software Development Kit', 'NonemployeesourcerequestbodyV1', 'v1NonemployeesourcerequestbodyV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Nonemployeesourcerequestbody', 'v1Nonemployeesourcerequestbody']
+slug: /tools/sdk/typescript/non_employee_lifecycle_management/models/nonemployeesourcerequestbody
+tags: ['SDK', 'Software Development Kit', 'Nonemployeesourcerequestbody', 'v1Nonemployeesourcerequestbody']
 ---
 
-# NonemployeesourcerequestbodyV1
+# Nonemployeesourcerequestbody
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** | Name of non-employee source. | [default to undefined]
-**description** | **string** | Description of non-employee source. | [default to undefined]
-**owner** | **NonemployeeidnuserrequestV1** |  | [default to undefined]
-**managementWorkgroup** | **(optional)** **string** | The ID for the management workgroup that contains source sub-admins | [default to undefined]
-**approvers** | **(optional)** **Array&lt;NonemployeeidnuserrequestV1&gt;** | List of approvers. | [default to undefined]
-**accountManagers** | **(optional)** **Array&lt;NonemployeeidnuserrequestV1&gt;** | List of account managers. | [default to undefined]
+**name** | `string` | Name of non-employee source. | [default to undefined]
+**description** | `string` | Description of non-employee source. | [default to undefined]
+**owner** | `Nonemployeeidnuserrequest` |  | [default to undefined]
+**managementWorkgroup** | **(optional)** `string` | The ID for the management workgroup that contains source sub-admins | [default to undefined]
+**approvers** | **(optional)** `Array<Nonemployeeidnuserrequest>` | List of approvers. | [default to undefined]
+**accountManagers** | **(optional)** `Array<Nonemployeeidnuserrequest>` | List of account managers. | [default to undefined]
 

@@ -7,8 +7,8 @@ GetPasswordDictionaryV1401Response.md
 GetPasswordDictionaryV1429Response.md
 Index.md
 Localeorigin.md
-PasswordDictionaryV1Api.md
-PasswordDictionaryV1ApideveloperSite_code_examples.yaml
+PasswordDictionaryApi.md
+PasswordDictionaryApideveloperSite_code_examples.yaml
 PutPasswordDictionaryV1Request.md
 README.md
 api.ts

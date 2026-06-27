@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -53,57 +53,57 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetStatusBySourceIdV1401ResponseV1
+ * @interface GetStatusBySourceIdV1401Response
  */
-export interface GetStatusBySourceIdV1401ResponseV1 {
+export interface GetStatusBySourceIdV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetStatusBySourceIdV1401ResponseV1
+     * @memberof GetStatusBySourceIdV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetStatusBySourceIdV1429ResponseV1
+ * @interface GetStatusBySourceIdV1429Response
  */
-export interface GetStatusBySourceIdV1429ResponseV1 {
+export interface GetStatusBySourceIdV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetStatusBySourceIdV1429ResponseV1
+     * @memberof GetStatusBySourceIdV1429Response
      */
     'message'?: any;
 }
@@ -113,60 +113,60 @@ export interface GetStatusBySourceIdV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface SourceusageV1
+ * @interface Sourceusage
  */
-export interface SourceusageV1 {
+export interface Sourceusage {
     /**
      * The first day of the month for which activity is aggregated.
      * @type {string}
-     * @memberof SourceusageV1
+     * @memberof Sourceusage
      */
     'date'?: string;
     /**
      * The average number of days that accounts were active within this source, for the month.
      * @type {number}
-     * @memberof SourceusageV1
+     * @memberof Sourceusage
      */
     'count'?: number;
 }
 /**
  * 
  * @export
- * @interface SourceusagestatusV1
+ * @interface Sourceusagestatus
  */
-export interface SourceusagestatusV1 {
+export interface Sourceusagestatus {
     /**
      * Source Usage Status. Acceptable values are:   - COMPLETE       - This status means that an activity data source has been setup and usage insights are available for the source.   - INCOMPLETE       - This status means that an activity data source has not been setup and usage insights are not available for the source.
      * @type {string}
-     * @memberof SourceusagestatusV1
+     * @memberof Sourceusagestatus
      */
-    'status'?: SourceusagestatusV1StatusV1;
+    'status'?: SourceusagestatusStatusEnum;
 }
 
-export const SourceusagestatusV1StatusV1 = {
+export const SourceusagestatusStatusEnum = {
     Complete: 'COMPLETE',
     Incomplete: 'INCOMPLETE'
 } as const;
 
-export type SourceusagestatusV1StatusV1 = typeof SourceusagestatusV1StatusV1[keyof typeof SourceusagestatusV1StatusV1];
+export type SourceusagestatusStatusEnum = typeof SourceusagestatusStatusEnum[keyof typeof SourceusagestatusStatusEnum];
 
 
 /**
- * SourceUsagesV1Api - axios parameter creator
+ * SourceUsagesApi - axios parameter creator
  * @export
  */
-export const SourceUsagesV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const SourceUsagesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This API returns the status of the source usage insights setup by IDN source ID.
@@ -260,11 +260,11 @@ export const SourceUsagesV1ApiAxiosParamCreator = function (configuration?: Conf
 };
 
 /**
- * SourceUsagesV1Api - functional programming interface
+ * SourceUsagesApi - functional programming interface
  * @export
  */
-export const SourceUsagesV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = SourceUsagesV1ApiAxiosParamCreator(configuration)
+export const SourceUsagesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SourceUsagesApiAxiosParamCreator(configuration)
     return {
         /**
          * This API returns the status of the source usage insights setup by IDN source ID.
@@ -273,10 +273,10 @@ export const SourceUsagesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getStatusBySourceIdV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceusagestatusV1>> {
+        async getStatusBySourceIdV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sourceusagestatus>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getStatusBySourceIdV1(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourceUsagesV1Api.getStatusBySourceIdV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourceUsagesApi.getStatusBySourceIdV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -290,130 +290,130 @@ export const SourceUsagesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getUsagesBySourceIdV1(sourceId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SourceusageV1>>> {
+        async getUsagesBySourceIdV1(sourceId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Sourceusage>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUsagesBySourceIdV1(sourceId, limit, offset, count, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SourceUsagesV1Api.getUsagesBySourceIdV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SourceUsagesApi.getUsagesBySourceIdV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * SourceUsagesV1Api - factory interface
+ * SourceUsagesApi - factory interface
  * @export
  */
-export const SourceUsagesV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = SourceUsagesV1ApiFp(configuration)
+export const SourceUsagesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SourceUsagesApiFp(configuration)
     return {
         /**
          * This API returns the status of the source usage insights setup by IDN source ID.
          * @summary Finds status of source usage
-         * @param {SourceUsagesV1ApiGetStatusBySourceIdV1Request} requestParameters Request parameters.
+         * @param {SourceUsagesApiGetStatusBySourceIdV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getStatusBySourceIdV1(requestParameters: SourceUsagesV1ApiGetStatusBySourceIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceusagestatusV1> {
+        getStatusBySourceIdV1(requestParameters: SourceUsagesApiGetStatusBySourceIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sourceusagestatus> {
             return localVarFp.getStatusBySourceIdV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a summary of source usage insights for past 12 months.
          * @summary Returns source usage insights
-         * @param {SourceUsagesV1ApiGetUsagesBySourceIdV1Request} requestParameters Request parameters.
+         * @param {SourceUsagesApiGetUsagesBySourceIdV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getUsagesBySourceIdV1(requestParameters: SourceUsagesV1ApiGetUsagesBySourceIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SourceusageV1>> {
+        getUsagesBySourceIdV1(requestParameters: SourceUsagesApiGetUsagesBySourceIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Sourceusage>> {
             return localVarFp.getUsagesBySourceIdV1(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for getStatusBySourceIdV1 operation in SourceUsagesV1Api.
+ * Request parameters for getStatusBySourceIdV1 operation in SourceUsagesApi.
  * @export
- * @interface SourceUsagesV1ApiGetStatusBySourceIdV1Request
+ * @interface SourceUsagesApiGetStatusBySourceIdV1Request
  */
-export interface SourceUsagesV1ApiGetStatusBySourceIdV1Request {
+export interface SourceUsagesApiGetStatusBySourceIdV1Request {
     /**
      * ID of IDN source
      * @type {string}
-     * @memberof SourceUsagesV1ApiGetStatusBySourceIdV1
+     * @memberof SourceUsagesApiGetStatusBySourceIdV1
      */
     readonly sourceId: string
 }
 
 /**
- * Request parameters for getUsagesBySourceIdV1 operation in SourceUsagesV1Api.
+ * Request parameters for getUsagesBySourceIdV1 operation in SourceUsagesApi.
  * @export
- * @interface SourceUsagesV1ApiGetUsagesBySourceIdV1Request
+ * @interface SourceUsagesApiGetUsagesBySourceIdV1Request
  */
-export interface SourceUsagesV1ApiGetUsagesBySourceIdV1Request {
+export interface SourceUsagesApiGetUsagesBySourceIdV1Request {
     /**
      * ID of IDN source
      * @type {string}
-     * @memberof SourceUsagesV1ApiGetUsagesBySourceIdV1
+     * @memberof SourceUsagesApiGetUsagesBySourceIdV1
      */
     readonly sourceId: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof SourceUsagesV1ApiGetUsagesBySourceIdV1
+     * @memberof SourceUsagesApiGetUsagesBySourceIdV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof SourceUsagesV1ApiGetUsagesBySourceIdV1
+     * @memberof SourceUsagesApiGetUsagesBySourceIdV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof SourceUsagesV1ApiGetUsagesBySourceIdV1
+     * @memberof SourceUsagesApiGetUsagesBySourceIdV1
      */
     readonly count?: boolean
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date**
      * @type {string}
-     * @memberof SourceUsagesV1ApiGetUsagesBySourceIdV1
+     * @memberof SourceUsagesApiGetUsagesBySourceIdV1
      */
     readonly sorters?: string
 }
 
 /**
- * SourceUsagesV1Api - object-oriented interface
+ * SourceUsagesApi - object-oriented interface
  * @export
- * @class SourceUsagesV1Api
+ * @class SourceUsagesApi
  * @extends {BaseAPI}
  */
-export class SourceUsagesV1Api extends BaseAPI {
+export class SourceUsagesApi extends BaseAPI {
     /**
      * This API returns the status of the source usage insights setup by IDN source ID.
      * @summary Finds status of source usage
-     * @param {SourceUsagesV1ApiGetStatusBySourceIdV1Request} requestParameters Request parameters.
+     * @param {SourceUsagesApiGetStatusBySourceIdV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourceUsagesV1Api
+     * @memberof SourceUsagesApi
      */
-    public getStatusBySourceIdV1(requestParameters: SourceUsagesV1ApiGetStatusBySourceIdV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourceUsagesV1ApiFp(this.configuration).getStatusBySourceIdV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getStatusBySourceIdV1(requestParameters: SourceUsagesApiGetStatusBySourceIdV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourceUsagesApiFp(this.configuration).getStatusBySourceIdV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a summary of source usage insights for past 12 months.
      * @summary Returns source usage insights
-     * @param {SourceUsagesV1ApiGetUsagesBySourceIdV1Request} requestParameters Request parameters.
+     * @param {SourceUsagesApiGetUsagesBySourceIdV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SourceUsagesV1Api
+     * @memberof SourceUsagesApi
      */
-    public getUsagesBySourceIdV1(requestParameters: SourceUsagesV1ApiGetUsagesBySourceIdV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourceUsagesV1ApiFp(this.configuration).getUsagesBySourceIdV1(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getUsagesBySourceIdV1(requestParameters: SourceUsagesApiGetUsagesBySourceIdV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourceUsagesApiFp(this.configuration).getUsagesBySourceIdV1(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

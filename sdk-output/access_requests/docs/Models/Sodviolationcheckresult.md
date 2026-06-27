@@ -1,22 +1,22 @@
 ---
-id: v1-sodviolationcheckresult-v1
-title: SodviolationcheckresultV1
-pagination_label: SodviolationcheckresultV1
-sidebar_label: SodviolationcheckresultV1
+id: v1-sodviolationcheckresult
+title: Sodviolationcheckresult
+pagination_label: Sodviolationcheckresult
+sidebar_label: Sodviolationcheckresult
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SodviolationcheckresultV1', 'v1SodviolationcheckresultV1']
-slug: /tools/sdk/typescript/access_requests/models/sodviolationcheckresult-v1
-tags: ['SDK', 'Software Development Kit', 'SodviolationcheckresultV1', 'v1SodviolationcheckresultV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Sodviolationcheckresult', 'v1Sodviolationcheckresult']
+slug: /tools/sdk/typescript/access_requests/models/sodviolationcheckresult
+tags: ['SDK', 'Software Development Kit', 'Sodviolationcheckresult', 'v1Sodviolationcheckresult']
 ---
 
-# SodviolationcheckresultV1
+# Sodviolationcheckresult
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **(optional)** **ErrormessagedtoV1** |  | [default to undefined]
+**message** | **(optional)** `Errormessagedto` |  | [default to undefined]
 **clientMetadata** | **(optional)**  | Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on completion of the violation check. | [default to undefined]
-**violationContexts** | **(optional)** **Array&lt;SodviolationcontextV1&gt;** |  | [default to undefined]
-**violatedPolicies** | **(optional)** **Array&lt;SodpolicydtoV1&gt;** | A list of the SOD policies that were violated. | [default to undefined]
+**violationContexts** | **(optional)** `Array<Sodviolationcontext>` |  | [default to undefined]
+**violatedPolicies** | **(optional)** `Array<Sodpolicydto>` | A list of the SOD policies that were violated. | [default to undefined]
 

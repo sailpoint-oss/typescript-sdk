@@ -4,14 +4,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/reports_data_extraction/methods/reports-data-extraction#cancel-report-v1
       source: |
-        import { ReportsDataExtractionV1Api } from 'sailpoint-api-client';
+        import { ReportsDataExtractionApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new ReportsDataExtractionV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new ReportsDataExtractionApi(configuration);
         const id: string = 'a1ed223247144cc29d23c632624b4767'; // string | ID of the running Report to cancel (default to undefined)
-        const result = await apiInstance.cancelReportV1(id);
+        const result = await apiInstance.cancelReportV1({ id: id });
         console.log(result);
 - path: /reports/v1/{taskResultId}/result
   method: GET
@@ -19,15 +18,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/reports_data_extraction/methods/reports-data-extraction#get-report-result-v1
       source: |
-        import { ReportsDataExtractionV1Api } from 'sailpoint-api-client';
+        import { ReportsDataExtractionApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new ReportsDataExtractionV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new ReportsDataExtractionApi(configuration);
         const taskResultId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Unique identifier of the task result which handled report (default to undefined)
         const completed: boolean = true; // boolean | state of task result to apply ordering when results are fetching from the DB (optional) (default to false)
-        const result = await apiInstance.getReportResultV1(taskResultId);
+        const result = await apiInstance.getReportResultV1({ taskResultId: taskResultId });
         console.log(result);
 - path: /reports/v1/{taskResultId}
   method: GET
@@ -35,17 +33,16 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/reports_data_extraction/methods/reports-data-extraction#get-report-v1
       source: |
-        import { ReportsDataExtractionV1Api } from 'sailpoint-api-client';
+        import { ReportsDataExtractionApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new ReportsDataExtractionV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new ReportsDataExtractionApi(configuration);
         const taskResultId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Unique identifier of the task result which handled report (default to undefined)
         const fileFormat: string = 'csv'; // 'csv' | 'pdf' | Output format of the requested report file (default to undefined)
         const name: string = 'Identities Details Report'; // string | preferred Report file name, by default will be used report name from task result. (optional) (default to undefined)
         const auditable: boolean = true; // boolean | Enables auditing for current report download. Will create an audit event and sent it to the REPORT cloud-audit kafka topic.  Event will be created if there is any result present by requested taskResultId. (optional) (default to false)
-        const result = await apiInstance.getReportV1(taskResultId, fileFormat);
+        const result = await apiInstance.getReportV1({ taskResultId: taskResultId, fileFormat: fileFormat });
         console.log(result);
 - path: /reports/v1/run
   method: POST
@@ -53,12 +50,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/reports_data_extraction/methods/reports-data-extraction#start-report-v1
       source: |
-        import { ReportsDataExtractionV1Api } from 'sailpoint-api-client';
+        import { ReportsDataExtractionApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new ReportsDataExtractionV1Api(configuration);
-        const reportdetailsV1: ReportdetailsV1 = ; // ReportdetailsV1 | 
-        const result = await apiInstance.startReportV1(reportdetailsV1);
+        const configuration = new Configuration();
+        const apiInstance = new ReportsDataExtractionApi(configuration);
+        const reportdetails: Reportdetails = ; // Reportdetails | 
+        const result = await apiInstance.startReportV1({ reportdetails: reportdetails });
         console.log(result);

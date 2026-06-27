@@ -1,21 +1,21 @@
 ---
-id: v1-violationcontext-policy-v1
-title: ViolationcontextPolicyV1
-pagination_label: ViolationcontextPolicyV1
-sidebar_label: ViolationcontextPolicyV1
+id: v1-violationcontext-policy
+title: ViolationcontextPolicy
+pagination_label: ViolationcontextPolicy
+sidebar_label: ViolationcontextPolicy
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ViolationcontextPolicyV1', 'v1ViolationcontextPolicyV1']
-slug: /tools/sdk/typescript/sod_violations/models/violationcontext-policy-v1
-tags: ['SDK', 'Software Development Kit', 'ViolationcontextPolicyV1', 'v1ViolationcontextPolicyV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ViolationcontextPolicy', 'v1ViolationcontextPolicy']
+slug: /tools/sdk/typescript/sod_violations/models/violationcontext-policy
+tags: ['SDK', 'Software Development Kit', 'ViolationcontextPolicy', 'v1ViolationcontextPolicy']
 ---
 
-# ViolationcontextPolicyV1
+# ViolationcontextPolicy
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | The type of object that is referenced | [default to undefined]
-**id** | **(optional)** **string** | SOD policy ID. | [default to undefined]
-**name** | **(optional)** **string** |  | [default to undefined]
+**type** | **(optional)** `string` | The type of object that is referenced | [default to undefined]
+**id** | **(optional)** `string` | SOD policy ID. | [default to undefined]
+**name** | **(optional)** `string` |  | [default to undefined]
 

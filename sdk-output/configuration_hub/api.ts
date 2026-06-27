@@ -26,77 +26,77 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ApprovalcommentV1
+ * @interface Approvalcomment
  */
-export interface ApprovalcommentV1 {
+export interface Approvalcomment {
     /**
      * Comment provided either by the approval requester or the approver.
      * @type {string}
-     * @memberof ApprovalcommentV1
+     * @memberof Approvalcomment
      */
     'comment': string;
     /**
      * The time when this comment was provided.
      * @type {string}
-     * @memberof ApprovalcommentV1
+     * @memberof Approvalcomment
      */
     'timestamp': string;
     /**
      * Name of the user that provided this comment.
      * @type {string}
-     * @memberof ApprovalcommentV1
+     * @memberof Approvalcomment
      */
     'user': string;
     /**
      * Id of the user that provided this comment.
      * @type {string}
-     * @memberof ApprovalcommentV1
+     * @memberof Approvalcomment
      */
     'id': string;
     /**
      * Status transition of the draft.
      * @type {string}
-     * @memberof ApprovalcommentV1
+     * @memberof Approvalcomment
      */
-    'changedToStatus': ApprovalcommentV1ChangedToStatusV1;
+    'changedToStatus': ApprovalcommentChangedToStatusEnum;
 }
 
-export const ApprovalcommentV1ChangedToStatusV1 = {
+export const ApprovalcommentChangedToStatusEnum = {
     PendingApproval: 'PENDING_APPROVAL',
     Approved: 'APPROVED',
     Rejected: 'REJECTED'
 } as const;
 
-export type ApprovalcommentV1ChangedToStatusV1 = typeof ApprovalcommentV1ChangedToStatusV1[keyof typeof ApprovalcommentV1ChangedToStatusV1];
+export type ApprovalcommentChangedToStatusEnum = typeof ApprovalcommentChangedToStatusEnum[keyof typeof ApprovalcommentChangedToStatusEnum];
 
 /**
  * 
  * @export
- * @interface ArrayInnerV1
+ * @interface ArrayInner
  */
-export interface ArrayInnerV1 {
+export interface ArrayInner {
 }
 /**
  * Backup options control what will be included in the backup.
  * @export
- * @interface BackupoptionsV1
+ * @interface Backupoptions
  */
-export interface BackupoptionsV1 {
+export interface Backupoptions {
     /**
      * Object type names to be included in a Configuration Hub backup command.
      * @type {Array<string>}
-     * @memberof BackupoptionsV1
+     * @memberof Backupoptions
      */
-    'includeTypes'?: Array<BackupoptionsV1IncludeTypesV1>;
+    'includeTypes'?: Array<BackupoptionsIncludeTypesEnum>;
     /**
      * Additional options targeting specific objects related to each item in the includeTypes field.
-     * @type {{ [key: string]: ObjectexportimportnamesV1; }}
-     * @memberof BackupoptionsV1
+     * @type {{ [key: string]: Objectexportimportnames; }}
+     * @memberof Backupoptions
      */
-    'objectOptions'?: { [key: string]: ObjectexportimportnamesV1; };
+    'objectOptions'?: { [key: string]: Objectexportimportnames; };
 }
 
-export const BackupoptionsV1IncludeTypesV1 = {
+export const BackupoptionsIncludeTypesEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestConfig: 'ACCESS_REQUEST_CONFIG',
     AttrSyncSourceConfig: 'ATTR_SYNC_SOURCE_CONFIG',
@@ -123,119 +123,119 @@ export const BackupoptionsV1IncludeTypesV1 = {
     Workflow: 'WORKFLOW'
 } as const;
 
-export type BackupoptionsV1IncludeTypesV1 = typeof BackupoptionsV1IncludeTypesV1[keyof typeof BackupoptionsV1IncludeTypesV1];
+export type BackupoptionsIncludeTypesEnum = typeof BackupoptionsIncludeTypesEnum[keyof typeof BackupoptionsIncludeTypesEnum];
 
 /**
  * 
  * @export
- * @interface BackupresponseV1
+ * @interface Backupresponse
  */
-export interface BackupresponseV1 {
+export interface Backupresponse {
     /**
      * Unique id assigned to this backup.
      * @type {string}
-     * @memberof BackupresponseV1
+     * @memberof Backupresponse
      */
     'jobId'?: string;
     /**
      * Status of the backup.
      * @type {string}
-     * @memberof BackupresponseV1
+     * @memberof Backupresponse
      */
-    'status'?: BackupresponseV1StatusV1;
+    'status'?: BackupresponseStatusEnum;
     /**
      * Type of the job, will always be BACKUP for this type of job.
      * @type {string}
-     * @memberof BackupresponseV1
+     * @memberof Backupresponse
      */
-    'type'?: BackupresponseV1TypeV1;
+    'type'?: BackupresponseTypeEnum;
     /**
      * The name of the tenant performing the upload
      * @type {string}
-     * @memberof BackupresponseV1
+     * @memberof Backupresponse
      */
     'tenant'?: string;
     /**
      * The name of the requester.
      * @type {string}
-     * @memberof BackupresponseV1
+     * @memberof Backupresponse
      */
     'requesterName'?: string;
     /**
      * Whether or not a file was created and stored for this backup.
      * @type {boolean}
-     * @memberof BackupresponseV1
+     * @memberof Backupresponse
      */
     'fileExists'?: boolean;
     /**
      * The time the job was started.
      * @type {string}
-     * @memberof BackupresponseV1
+     * @memberof Backupresponse
      */
     'created'?: string;
     /**
      * The time of the last update to the job.
      * @type {string}
-     * @memberof BackupresponseV1
+     * @memberof Backupresponse
      */
     'modified'?: string;
     /**
      * The time the job was completed.
      * @type {string}
-     * @memberof BackupresponseV1
+     * @memberof Backupresponse
      */
     'completed'?: string;
     /**
      * The name assigned to the upload file in the request body.
      * @type {string}
-     * @memberof BackupresponseV1
+     * @memberof Backupresponse
      */
     'name'?: string;
     /**
      * Whether this backup can be deleted by a regular user.
      * @type {boolean}
-     * @memberof BackupresponseV1
+     * @memberof Backupresponse
      */
     'userCanDelete'?: boolean;
     /**
      * Whether this backup contains all supported object types or only some of them.
      * @type {boolean}
-     * @memberof BackupresponseV1
+     * @memberof Backupresponse
      */
     'isPartial'?: boolean;
     /**
      * Denotes how this backup was created. - MANUAL - The backup was created by a user. - AUTOMATED - The backup was created by devops. - AUTOMATED_DRAFT - The backup was created during a draft process. - UPLOADED - The backup was created by uploading an existing configuration file.
      * @type {string}
-     * @memberof BackupresponseV1
+     * @memberof Backupresponse
      */
-    'backupType'?: BackupresponseV1BackupTypeV1;
+    'backupType'?: BackupresponseBackupTypeEnum;
     /**
      * 
-     * @type {BackupoptionsV1}
-     * @memberof BackupresponseV1
+     * @type {Backupoptions}
+     * @memberof Backupresponse
      */
-    'options'?: BackupoptionsV1 | null;
+    'options'?: Backupoptions | null;
     /**
      * Whether the object details of this backup are ready.
      * @type {string}
-     * @memberof BackupresponseV1
+     * @memberof Backupresponse
      */
-    'hydrationStatus'?: BackupresponseV1HydrationStatusV1;
+    'hydrationStatus'?: BackupresponseHydrationStatusEnum;
     /**
      * Number of objects contained in this backup.
      * @type {number}
-     * @memberof BackupresponseV1
+     * @memberof Backupresponse
      */
     'totalObjectCount'?: number;
     /**
      * Whether this backup has been transferred to a customer storage location.
      * @type {string}
-     * @memberof BackupresponseV1
+     * @memberof Backupresponse
      */
-    'cloudStorageStatus'?: BackupresponseV1CloudStorageStatusV1;
+    'cloudStorageStatus'?: BackupresponseCloudStorageStatusEnum;
 }
 
-export const BackupresponseV1StatusV1 = {
+export const BackupresponseStatusEnum = {
     NotStarted: 'NOT_STARTED',
     InProgress: 'IN_PROGRESS',
     Complete: 'COMPLETE',
@@ -243,146 +243,146 @@ export const BackupresponseV1StatusV1 = {
     Failed: 'FAILED'
 } as const;
 
-export type BackupresponseV1StatusV1 = typeof BackupresponseV1StatusV1[keyof typeof BackupresponseV1StatusV1];
-export const BackupresponseV1TypeV1 = {
+export type BackupresponseStatusEnum = typeof BackupresponseStatusEnum[keyof typeof BackupresponseStatusEnum];
+export const BackupresponseTypeEnum = {
     Backup: 'BACKUP'
 } as const;
 
-export type BackupresponseV1TypeV1 = typeof BackupresponseV1TypeV1[keyof typeof BackupresponseV1TypeV1];
-export const BackupresponseV1BackupTypeV1 = {
+export type BackupresponseTypeEnum = typeof BackupresponseTypeEnum[keyof typeof BackupresponseTypeEnum];
+export const BackupresponseBackupTypeEnum = {
     Uploaded: 'UPLOADED',
     Automated: 'AUTOMATED',
     Manual: 'MANUAL'
 } as const;
 
-export type BackupresponseV1BackupTypeV1 = typeof BackupresponseV1BackupTypeV1[keyof typeof BackupresponseV1BackupTypeV1];
-export const BackupresponseV1HydrationStatusV1 = {
+export type BackupresponseBackupTypeEnum = typeof BackupresponseBackupTypeEnum[keyof typeof BackupresponseBackupTypeEnum];
+export const BackupresponseHydrationStatusEnum = {
     Hydrated: 'HYDRATED',
     NotHydrated: 'NOT_HYDRATED'
 } as const;
 
-export type BackupresponseV1HydrationStatusV1 = typeof BackupresponseV1HydrationStatusV1[keyof typeof BackupresponseV1HydrationStatusV1];
-export const BackupresponseV1CloudStorageStatusV1 = {
+export type BackupresponseHydrationStatusEnum = typeof BackupresponseHydrationStatusEnum[keyof typeof BackupresponseHydrationStatusEnum];
+export const BackupresponseCloudStorageStatusEnum = {
     Synced: 'SYNCED',
     NotSynced: 'NOT_SYNCED',
     SyncFailed: 'SYNC_FAILED'
 } as const;
 
-export type BackupresponseV1CloudStorageStatusV1 = typeof BackupresponseV1CloudStorageStatusV1[keyof typeof BackupresponseV1CloudStorageStatusV1];
+export type BackupresponseCloudStorageStatusEnum = typeof BackupresponseCloudStorageStatusEnum[keyof typeof BackupresponseCloudStorageStatusEnum];
 
 /**
  * 
  * @export
- * @interface CreateUploadedConfigurationV1RequestV1
+ * @interface CreateUploadedConfigurationV1Request
  */
-export interface CreateUploadedConfigurationV1RequestV1 {
+export interface CreateUploadedConfigurationV1Request {
     /**
      * JSON file containing the objects to be imported.
      * @type {File}
-     * @memberof CreateUploadedConfigurationV1RequestV1
+     * @memberof CreateUploadedConfigurationV1Request
      */
     'data': File;
     /**
      * Name that will be assigned to the uploaded configuration file.
      * @type {string}
-     * @memberof CreateUploadedConfigurationV1RequestV1
+     * @memberof CreateUploadedConfigurationV1Request
      */
     'name': string;
 }
 /**
  * 
  * @export
- * @interface DeployrequestV1
+ * @interface Deployrequest
  */
-export interface DeployrequestV1 {
+export interface Deployrequest {
     /**
      * The id of the draft to be used by this deploy.
      * @type {string}
-     * @memberof DeployrequestV1
+     * @memberof Deployrequest
      */
     'draftId': string;
 }
 /**
  * 
  * @export
- * @interface DeployresponseV1
+ * @interface Deployresponse
  */
-export interface DeployresponseV1 {
+export interface Deployresponse {
     /**
      * Unique id assigned to this job.
      * @type {string}
-     * @memberof DeployresponseV1
+     * @memberof Deployresponse
      */
     'jobId'?: string;
     /**
      * Status of the job.
      * @type {string}
-     * @memberof DeployresponseV1
+     * @memberof Deployresponse
      */
-    'status'?: DeployresponseV1StatusV1;
+    'status'?: DeployresponseStatusEnum;
     /**
      * Type of the job, will always be CONFIG_DEPLOY_DRAFT for this type of job.
      * @type {string}
-     * @memberof DeployresponseV1
+     * @memberof Deployresponse
      */
-    'type'?: DeployresponseV1TypeV1;
+    'type'?: DeployresponseTypeEnum;
     /**
      * Message providing information about the outcome of the deploy process.
      * @type {string}
-     * @memberof DeployresponseV1
+     * @memberof Deployresponse
      */
     'message'?: string;
     /**
      * The name of the user that initiated the deploy process.
      * @type {string}
-     * @memberof DeployresponseV1
+     * @memberof Deployresponse
      */
     'requesterName'?: string;
     /**
      * Whether or not a results file was created and stored for this deploy.
      * @type {boolean}
-     * @memberof DeployresponseV1
+     * @memberof Deployresponse
      */
     'fileExists'?: boolean;
     /**
      * The time the job was started.
      * @type {string}
-     * @memberof DeployresponseV1
+     * @memberof Deployresponse
      */
     'created'?: string;
     /**
      * The time of the last update to the job.
      * @type {string}
-     * @memberof DeployresponseV1
+     * @memberof Deployresponse
      */
     'modified'?: string;
     /**
      * The time the job was completed.
      * @type {string}
-     * @memberof DeployresponseV1
+     * @memberof Deployresponse
      */
     'completed'?: string;
     /**
      * The id of the draft that was used for this deploy.
      * @type {string}
-     * @memberof DeployresponseV1
+     * @memberof Deployresponse
      */
     'draftId'?: string;
     /**
      * The name of the draft that was used for this deploy.
      * @type {string}
-     * @memberof DeployresponseV1
+     * @memberof Deployresponse
      */
     'draftName'?: string;
     /**
      * Whether this deploy results file has been transferred to a customer storage location.
      * @type {string}
-     * @memberof DeployresponseV1
+     * @memberof Deployresponse
      */
-    'cloudStorageStatus'?: DeployresponseV1CloudStorageStatusV1;
+    'cloudStorageStatus'?: DeployresponseCloudStorageStatusEnum;
 }
 
-export const DeployresponseV1StatusV1 = {
+export const DeployresponseStatusEnum = {
     NotStarted: 'NOT_STARTED',
     InProgress: 'IN_PROGRESS',
     Complete: 'COMPLETE',
@@ -390,125 +390,125 @@ export const DeployresponseV1StatusV1 = {
     Failed: 'FAILED'
 } as const;
 
-export type DeployresponseV1StatusV1 = typeof DeployresponseV1StatusV1[keyof typeof DeployresponseV1StatusV1];
-export const DeployresponseV1TypeV1 = {
+export type DeployresponseStatusEnum = typeof DeployresponseStatusEnum[keyof typeof DeployresponseStatusEnum];
+export const DeployresponseTypeEnum = {
     ConfigDeployDraft: 'CONFIG_DEPLOY_DRAFT'
 } as const;
 
-export type DeployresponseV1TypeV1 = typeof DeployresponseV1TypeV1[keyof typeof DeployresponseV1TypeV1];
-export const DeployresponseV1CloudStorageStatusV1 = {
+export type DeployresponseTypeEnum = typeof DeployresponseTypeEnum[keyof typeof DeployresponseTypeEnum];
+export const DeployresponseCloudStorageStatusEnum = {
     Synced: 'SYNCED',
     NotSynced: 'NOT_SYNCED',
     SyncFailed: 'SYNC_FAILED'
 } as const;
 
-export type DeployresponseV1CloudStorageStatusV1 = typeof DeployresponseV1CloudStorageStatusV1[keyof typeof DeployresponseV1CloudStorageStatusV1];
+export type DeployresponseCloudStorageStatusEnum = typeof DeployresponseCloudStorageStatusEnum[keyof typeof DeployresponseCloudStorageStatusEnum];
 
 /**
  * 
  * @export
- * @interface DraftresponseV1
+ * @interface Draftresponse
  */
-export interface DraftresponseV1 {
+export interface Draftresponse {
     /**
      * Unique id assigned to this job.
      * @type {string}
-     * @memberof DraftresponseV1
+     * @memberof Draftresponse
      */
     'jobId'?: string;
     /**
      * Status of the job.
      * @type {string}
-     * @memberof DraftresponseV1
+     * @memberof Draftresponse
      */
-    'status'?: DraftresponseV1StatusV1;
+    'status'?: DraftresponseStatusEnum;
     /**
      * Type of the job, will always be CREATE_DRAFT for this type of job.
      * @type {string}
-     * @memberof DraftresponseV1
+     * @memberof Draftresponse
      */
-    'type'?: DraftresponseV1TypeV1;
+    'type'?: DraftresponseTypeEnum;
     /**
      * Message providing information about the outcome of the draft process.
      * @type {string}
-     * @memberof DraftresponseV1
+     * @memberof Draftresponse
      */
     'message'?: string;
     /**
      * The name of user that that initiated the draft process.
      * @type {string}
-     * @memberof DraftresponseV1
+     * @memberof Draftresponse
      */
     'requesterName'?: string;
     /**
      * Whether or not a file was generated for this draft.
      * @type {boolean}
-     * @memberof DraftresponseV1
+     * @memberof Draftresponse
      */
     'fileExists'?: boolean;
     /**
      * The time the job was started.
      * @type {string}
-     * @memberof DraftresponseV1
+     * @memberof Draftresponse
      */
     'created'?: string;
     /**
      * The time of the last update to the job.
      * @type {string}
-     * @memberof DraftresponseV1
+     * @memberof Draftresponse
      */
     'modified'?: string;
     /**
      * The time the job was completed.
      * @type {string}
-     * @memberof DraftresponseV1
+     * @memberof Draftresponse
      */
     'completed'?: string;
     /**
      * Name of the draft.
      * @type {string}
-     * @memberof DraftresponseV1
+     * @memberof Draftresponse
      */
     'name'?: string;
     /**
      * Tenant owner of the backup from which the draft was generated.
      * @type {string}
-     * @memberof DraftresponseV1
+     * @memberof Draftresponse
      */
     'sourceTenant'?: string;
     /**
      * Id of the backup from which the draft was generated.
      * @type {string}
-     * @memberof DraftresponseV1
+     * @memberof Draftresponse
      */
     'sourceBackupId'?: string;
     /**
      * Name of the backup from which the draft was generated.
      * @type {string}
-     * @memberof DraftresponseV1
+     * @memberof Draftresponse
      */
     'sourceBackupName'?: string;
     /**
      * Denotes the origin of the source backup from which the draft was generated. - RESTORE - Same tenant. - PROMOTE - Different tenant. - UPLOAD - Uploaded configuration.
      * @type {string}
-     * @memberof DraftresponseV1
+     * @memberof Draftresponse
      */
-    'mode'?: DraftresponseV1ModeV1;
+    'mode'?: DraftresponseModeEnum;
     /**
      * Approval status of the draft used to determine whether or not the draft can be deployed.
      * @type {string}
-     * @memberof DraftresponseV1
+     * @memberof Draftresponse
      */
-    'approvalStatus'?: DraftresponseV1ApprovalStatusV1;
+    'approvalStatus'?: DraftresponseApprovalStatusEnum;
     /**
      * List of comments that have been exchanged between an approval requester and an approver.
-     * @type {Array<ApprovalcommentV1>}
-     * @memberof DraftresponseV1
+     * @type {Array<Approvalcomment>}
+     * @memberof Draftresponse
      */
-    'approvalComment'?: Array<ApprovalcommentV1>;
+    'approvalComment'?: Array<Approvalcomment>;
 }
 
-export const DraftresponseV1StatusV1 = {
+export const DraftresponseStatusEnum = {
     NotStarted: 'NOT_STARTED',
     InProgress: 'IN_PROGRESS',
     Complete: 'COMPLETE',
@@ -516,50 +516,50 @@ export const DraftresponseV1StatusV1 = {
     Failed: 'FAILED'
 } as const;
 
-export type DraftresponseV1StatusV1 = typeof DraftresponseV1StatusV1[keyof typeof DraftresponseV1StatusV1];
-export const DraftresponseV1TypeV1 = {
+export type DraftresponseStatusEnum = typeof DraftresponseStatusEnum[keyof typeof DraftresponseStatusEnum];
+export const DraftresponseTypeEnum = {
     CreateDraft: 'CREATE_DRAFT'
 } as const;
 
-export type DraftresponseV1TypeV1 = typeof DraftresponseV1TypeV1[keyof typeof DraftresponseV1TypeV1];
-export const DraftresponseV1ModeV1 = {
+export type DraftresponseTypeEnum = typeof DraftresponseTypeEnum[keyof typeof DraftresponseTypeEnum];
+export const DraftresponseModeEnum = {
     Restore: 'RESTORE',
     Promote: 'PROMOTE',
     Upload: 'UPLOAD'
 } as const;
 
-export type DraftresponseV1ModeV1 = typeof DraftresponseV1ModeV1[keyof typeof DraftresponseV1ModeV1];
-export const DraftresponseV1ApprovalStatusV1 = {
+export type DraftresponseModeEnum = typeof DraftresponseModeEnum[keyof typeof DraftresponseModeEnum];
+export const DraftresponseApprovalStatusEnum = {
     Default: 'DEFAULT',
     PendingApproval: 'PENDING_APPROVAL',
     Approved: 'APPROVED',
     Denied: 'DENIED'
 } as const;
 
-export type DraftresponseV1ApprovalStatusV1 = typeof DraftresponseV1ApprovalStatusV1[keyof typeof DraftresponseV1ApprovalStatusV1];
+export type DraftresponseApprovalStatusEnum = typeof DraftresponseApprovalStatusEnum[keyof typeof DraftresponseApprovalStatusEnum];
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -568,100 +568,100 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetObjectMappingsV1401ResponseV1
+ * @interface GetObjectMappingsV1401Response
  */
-export interface GetObjectMappingsV1401ResponseV1 {
+export interface GetObjectMappingsV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetObjectMappingsV1401ResponseV1
+     * @memberof GetObjectMappingsV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetObjectMappingsV1429ResponseV1
+ * @interface GetObjectMappingsV1429Response
  */
-export interface GetObjectMappingsV1429ResponseV1 {
+export interface GetObjectMappingsV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetObjectMappingsV1429ResponseV1
+     * @memberof GetObjectMappingsV1429Response
      */
     'message'?: any;
 }
 /**
  * A JSONPatch document as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface JsonpatchV1
+ * @interface Jsonpatch
  */
-export interface JsonpatchV1 {
+export interface Jsonpatch {
     /**
      * Operations to be applied
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof JsonpatchV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof Jsonpatch
      */
-    'operations'?: Array<JsonpatchoperationV1>;
+    'operations'?: Array<Jsonpatchoperation>;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface JsonpatchoperationV1
+ * @interface Jsonpatchoperation
  */
-export interface JsonpatchoperationV1 {
+export interface Jsonpatchoperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
-    'op': JsonpatchoperationV1OpV1;
+    'op': JsonpatchoperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValueV1}
-     * @memberof JsonpatchoperationV1
+     * @type {JsonpatchoperationValue}
+     * @memberof Jsonpatchoperation
      */
-    'value'?: JsonpatchoperationValueV1;
+    'value'?: JsonpatchoperationValue;
 }
 
-export const JsonpatchoperationV1OpV1 = {
+export const JsonpatchoperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -670,27 +670,27 @@ export const JsonpatchoperationV1OpV1 = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationV1OpV1 = typeof JsonpatchoperationV1OpV1[keyof typeof JsonpatchoperationV1OpV1];
+export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
 
 /**
- * @type JsonpatchoperationValueV1
+ * @type JsonpatchoperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number | object | string;
+export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * 
  * @export
- * @interface ListDeploysV1200ResponseV1
+ * @interface ListDeploysV1200Response
  */
-export interface ListDeploysV1200ResponseV1 {
+export interface ListDeploysV1200Response {
     /**
      * list of deployments
-     * @type {Array<DeployresponseV1>}
-     * @memberof ListDeploysV1200ResponseV1
+     * @type {Array<Deployresponse>}
+     * @memberof ListDeploysV1200Response
      */
-    'items'?: Array<DeployresponseV1>;
+    'items'?: Array<Deployresponse>;
 }
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -698,118 +698,118 @@ export interface ListDeploysV1200ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface ObjectexportimportnamesV1
+ * @interface Objectexportimportnames
  */
-export interface ObjectexportimportnamesV1 {
+export interface Objectexportimportnames {
     /**
      * Object names to be included in a backup.
      * @type {Array<string>}
-     * @memberof ObjectexportimportnamesV1
+     * @memberof Objectexportimportnames
      */
     'includedNames'?: Array<string>;
 }
 /**
  * 
  * @export
- * @interface ObjectmappingbulkcreaterequestV1
+ * @interface Objectmappingbulkcreaterequest
  */
-export interface ObjectmappingbulkcreaterequestV1 {
+export interface Objectmappingbulkcreaterequest {
     /**
      * 
-     * @type {Array<ObjectmappingrequestV1>}
-     * @memberof ObjectmappingbulkcreaterequestV1
+     * @type {Array<Objectmappingrequest>}
+     * @memberof Objectmappingbulkcreaterequest
      */
-    'newObjectsMappings': Array<ObjectmappingrequestV1>;
+    'newObjectsMappings': Array<Objectmappingrequest>;
 }
 /**
  * 
  * @export
- * @interface ObjectmappingbulkcreateresponseV1
+ * @interface Objectmappingbulkcreateresponse
  */
-export interface ObjectmappingbulkcreateresponseV1 {
+export interface Objectmappingbulkcreateresponse {
     /**
      * 
-     * @type {Array<ObjectmappingresponseV1>}
-     * @memberof ObjectmappingbulkcreateresponseV1
+     * @type {Array<Objectmappingresponse>}
+     * @memberof Objectmappingbulkcreateresponse
      */
-    'addedObjects'?: Array<ObjectmappingresponseV1>;
+    'addedObjects'?: Array<Objectmappingresponse>;
 }
 /**
  * 
  * @export
- * @interface ObjectmappingbulkpatchrequestV1
+ * @interface Objectmappingbulkpatchrequest
  */
-export interface ObjectmappingbulkpatchrequestV1 {
+export interface Objectmappingbulkpatchrequest {
     /**
      * Map of id of the object mapping to a JsonPatchOperation describing what to patch on that object mapping.
-     * @type {{ [key: string]: Array<JsonpatchoperationV1>; }}
-     * @memberof ObjectmappingbulkpatchrequestV1
+     * @type {{ [key: string]: Array<Jsonpatchoperation>; }}
+     * @memberof Objectmappingbulkpatchrequest
      */
-    'patches': { [key: string]: Array<JsonpatchoperationV1>; };
+    'patches': { [key: string]: Array<Jsonpatchoperation>; };
 }
 /**
  * 
  * @export
- * @interface ObjectmappingbulkpatchresponseV1
+ * @interface Objectmappingbulkpatchresponse
  */
-export interface ObjectmappingbulkpatchresponseV1 {
+export interface Objectmappingbulkpatchresponse {
     /**
      * 
-     * @type {Array<ObjectmappingresponseV1>}
-     * @memberof ObjectmappingbulkpatchresponseV1
+     * @type {Array<Objectmappingresponse>}
+     * @memberof Objectmappingbulkpatchresponse
      */
-    'patchedObjects'?: Array<ObjectmappingresponseV1>;
+    'patchedObjects'?: Array<Objectmappingresponse>;
 }
 /**
  * 
  * @export
- * @interface ObjectmappingrequestV1
+ * @interface Objectmappingrequest
  */
-export interface ObjectmappingrequestV1 {
+export interface Objectmappingrequest {
     /**
      * Type of the object the mapping value applies to, must be one from enum
      * @type {string}
-     * @memberof ObjectmappingrequestV1
+     * @memberof Objectmappingrequest
      */
-    'objectType': ObjectmappingrequestV1ObjectTypeV1;
+    'objectType': ObjectmappingrequestObjectTypeEnum;
     /**
      * JSONPath expression denoting the path within the object where the mapping value should be applied
      * @type {string}
-     * @memberof ObjectmappingrequestV1
+     * @memberof Objectmappingrequest
      */
     'jsonPath': string;
     /**
      * Original value at the jsonPath location within the object
      * @type {string}
-     * @memberof ObjectmappingrequestV1
+     * @memberof Objectmappingrequest
      */
     'sourceValue': string;
     /**
      * Value to be assigned at the jsonPath location within the object
      * @type {string}
-     * @memberof ObjectmappingrequestV1
+     * @memberof Objectmappingrequest
      */
     'targetValue': string;
     /**
      * Whether or not this object mapping is enabled
      * @type {boolean}
-     * @memberof ObjectmappingrequestV1
+     * @memberof Objectmappingrequest
      */
     'enabled'?: boolean;
 }
 
-export const ObjectmappingrequestV1ObjectTypeV1 = {
+export const ObjectmappingrequestObjectTypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestConfig: 'ACCESS_REQUEST_CONFIG',
     AttrSyncSourceConfig: 'ATTR_SYNC_SOURCE_CONFIG',
@@ -838,65 +838,65 @@ export const ObjectmappingrequestV1ObjectTypeV1 = {
     Workflow: 'WORKFLOW'
 } as const;
 
-export type ObjectmappingrequestV1ObjectTypeV1 = typeof ObjectmappingrequestV1ObjectTypeV1[keyof typeof ObjectmappingrequestV1ObjectTypeV1];
+export type ObjectmappingrequestObjectTypeEnum = typeof ObjectmappingrequestObjectTypeEnum[keyof typeof ObjectmappingrequestObjectTypeEnum];
 
 /**
  * 
  * @export
- * @interface ObjectmappingresponseV1
+ * @interface Objectmappingresponse
  */
-export interface ObjectmappingresponseV1 {
+export interface Objectmappingresponse {
     /**
      * Id of the object mapping
      * @type {string}
-     * @memberof ObjectmappingresponseV1
+     * @memberof Objectmappingresponse
      */
     'objectMappingId'?: string;
     /**
      * Type of the object the mapping value applies to
      * @type {string}
-     * @memberof ObjectmappingresponseV1
+     * @memberof Objectmappingresponse
      */
-    'objectType'?: ObjectmappingresponseV1ObjectTypeV1;
+    'objectType'?: ObjectmappingresponseObjectTypeEnum;
     /**
      * JSONPath expression denoting the path within the object where the mapping value should be applied
      * @type {string}
-     * @memberof ObjectmappingresponseV1
+     * @memberof Objectmappingresponse
      */
     'jsonPath'?: string;
     /**
      * Original value at the jsonPath location within the object
      * @type {string}
-     * @memberof ObjectmappingresponseV1
+     * @memberof Objectmappingresponse
      */
     'sourceValue'?: string;
     /**
      * Value to be assigned at the jsonPath location within the object
      * @type {string}
-     * @memberof ObjectmappingresponseV1
+     * @memberof Objectmappingresponse
      */
     'targetValue'?: string;
     /**
      * Whether or not this object mapping is enabled
      * @type {boolean}
-     * @memberof ObjectmappingresponseV1
+     * @memberof Objectmappingresponse
      */
     'enabled'?: boolean;
     /**
      * Object mapping creation timestamp
      * @type {string}
-     * @memberof ObjectmappingresponseV1
+     * @memberof Objectmappingresponse
      */
     'created'?: string;
     /**
      * Object mapping latest update timestamp
      * @type {string}
-     * @memberof ObjectmappingresponseV1
+     * @memberof Objectmappingresponse
      */
     'modified'?: string;
 }
 
-export const ObjectmappingresponseV1ObjectTypeV1 = {
+export const ObjectmappingresponseObjectTypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestConfig: 'ACCESS_REQUEST_CONFIG',
     AttrSyncSourceConfig: 'ATTR_SYNC_SOURCE_CONFIG',
@@ -925,254 +925,254 @@ export const ObjectmappingresponseV1ObjectTypeV1 = {
     Workflow: 'WORKFLOW'
 } as const;
 
-export type ObjectmappingresponseV1ObjectTypeV1 = typeof ObjectmappingresponseV1ObjectTypeV1[keyof typeof ObjectmappingresponseV1ObjectTypeV1];
+export type ObjectmappingresponseObjectTypeEnum = typeof ObjectmappingresponseObjectTypeEnum[keyof typeof ObjectmappingresponseObjectTypeEnum];
 
 /**
- * Options for BACKUP type jobs. Required for BACKUP jobs.
- * @export
- * @interface ScheduledactionpayloadContentBackupOptionsV1
- */
-export interface ScheduledactionpayloadContentBackupOptionsV1 {
-    /**
-     * Object types that are to be included in the backup.
-     * @type {Array<string>}
-     * @memberof ScheduledactionpayloadContentBackupOptionsV1
-     */
-    'includeTypes'?: Array<string>;
-    /**
-     * Map of objectType string to the options to be passed to the target service for that objectType.
-     * @type {{ [key: string]: ScheduledactionresponseContentBackupOptionsObjectOptionsValueV1; }}
-     * @memberof ScheduledactionpayloadContentBackupOptionsV1
-     */
-    'objectOptions'?: { [key: string]: ScheduledactionresponseContentBackupOptionsObjectOptionsValueV1; };
-}
-/**
  * 
  * @export
- * @interface ScheduledactionpayloadContentV1
+ * @interface Scheduledactionpayload
  */
-export interface ScheduledactionpayloadContentV1 {
-    /**
-     * Name of the scheduled action (maximum 50 characters).
-     * @type {string}
-     * @memberof ScheduledactionpayloadContentV1
-     */
-    'name': string;
-    /**
-     * 
-     * @type {ScheduledactionpayloadContentBackupOptionsV1}
-     * @memberof ScheduledactionpayloadContentV1
-     */
-    'backupOptions'?: ScheduledactionpayloadContentBackupOptionsV1;
-    /**
-     * ID of the source backup. Required for CREATE_DRAFT jobs.
-     * @type {string}
-     * @memberof ScheduledactionpayloadContentV1
-     */
-    'sourceBackupId'?: string;
-    /**
-     * Source tenant identifier. Required for CREATE_DRAFT jobs.
-     * @type {string}
-     * @memberof ScheduledactionpayloadContentV1
-     */
-    'sourceTenant'?: string;
-    /**
-     * ID of the draft to be deployed. Required for CONFIG_DEPLOY_DRAFT jobs.
-     * @type {string}
-     * @memberof ScheduledactionpayloadContentV1
-     */
-    'draftId'?: string;
-}
-/**
- * 
- * @export
- * @interface ScheduledactionpayloadV1
- */
-export interface ScheduledactionpayloadV1 {
+export interface Scheduledactionpayload {
     /**
      * Type of the scheduled job.
      * @type {string}
-     * @memberof ScheduledactionpayloadV1
+     * @memberof Scheduledactionpayload
      */
-    'jobType': ScheduledactionpayloadV1JobTypeV1;
+    'jobType': ScheduledactionpayloadJobTypeEnum;
     /**
      * The time when this scheduled action should start. Optional.
      * @type {string}
-     * @memberof ScheduledactionpayloadV1
+     * @memberof Scheduledactionpayload
      */
     'startTime'?: string;
     /**
      * Cron expression defining the schedule for this action. Optional for repeated events.
      * @type {string}
-     * @memberof ScheduledactionpayloadV1
+     * @memberof Scheduledactionpayload
      */
     'cronString'?: string;
     /**
      * Time zone ID for interpreting the cron expression. Optional, will default to current time zone.
      * @type {string}
-     * @memberof ScheduledactionpayloadV1
+     * @memberof Scheduledactionpayload
      */
     'timeZoneId'?: string;
     /**
      * 
-     * @type {ScheduledactionpayloadContentV1}
-     * @memberof ScheduledactionpayloadV1
+     * @type {ScheduledactionpayloadContent}
+     * @memberof Scheduledactionpayload
      */
-    'content': ScheduledactionpayloadContentV1;
+    'content': ScheduledactionpayloadContent;
 }
 
-export const ScheduledactionpayloadV1JobTypeV1 = {
+export const ScheduledactionpayloadJobTypeEnum = {
     Backup: 'BACKUP',
     CreateDraft: 'CREATE_DRAFT',
     ConfigDeployDraft: 'CONFIG_DEPLOY_DRAFT'
 } as const;
 
-export type ScheduledactionpayloadV1JobTypeV1 = typeof ScheduledactionpayloadV1JobTypeV1[keyof typeof ScheduledactionpayloadV1JobTypeV1];
+export type ScheduledactionpayloadJobTypeEnum = typeof ScheduledactionpayloadJobTypeEnum[keyof typeof ScheduledactionpayloadJobTypeEnum];
 
 /**
  * 
  * @export
- * @interface ScheduledactionresponseContentBackupOptionsObjectOptionsValueV1
+ * @interface ScheduledactionpayloadContent
  */
-export interface ScheduledactionresponseContentBackupOptionsObjectOptionsValueV1 {
-    /**
-     * Set of names to be included.
-     * @type {Array<string>}
-     * @memberof ScheduledactionresponseContentBackupOptionsObjectOptionsValueV1
-     */
-    'includedNames'?: Array<string>;
-}
-/**
- * Options for BACKUP type jobs. Optional, applicable for BACKUP jobs only.
- * @export
- * @interface ScheduledactionresponseContentBackupOptionsV1
- */
-export interface ScheduledactionresponseContentBackupOptionsV1 {
-    /**
-     * Object types that are to be included in the backup.
-     * @type {Array<string>}
-     * @memberof ScheduledactionresponseContentBackupOptionsV1
-     */
-    'includeTypes'?: Array<string>;
-    /**
-     * Map of objectType string to the options to be passed to the target service for that objectType.
-     * @type {{ [key: string]: ScheduledactionresponseContentBackupOptionsObjectOptionsValueV1; }}
-     * @memberof ScheduledactionresponseContentBackupOptionsV1
-     */
-    'objectOptions'?: { [key: string]: ScheduledactionresponseContentBackupOptionsObjectOptionsValueV1; };
-}
-/**
- * Content details for the scheduled action.
- * @export
- * @interface ScheduledactionresponseContentV1
- */
-export interface ScheduledactionresponseContentV1 {
+export interface ScheduledactionpayloadContent {
     /**
      * Name of the scheduled action (maximum 50 characters).
      * @type {string}
-     * @memberof ScheduledactionresponseContentV1
+     * @memberof ScheduledactionpayloadContent
      */
-    'name'?: string;
+    'name': string;
     /**
      * 
-     * @type {ScheduledactionresponseContentBackupOptionsV1}
-     * @memberof ScheduledactionresponseContentV1
+     * @type {ScheduledactionpayloadContentBackupOptions}
+     * @memberof ScheduledactionpayloadContent
      */
-    'backupOptions'?: ScheduledactionresponseContentBackupOptionsV1;
+    'backupOptions'?: ScheduledactionpayloadContentBackupOptions;
     /**
-     * ID of the source backup. Required for CREATE_DRAFT jobs only.
+     * ID of the source backup. Required for CREATE_DRAFT jobs.
      * @type {string}
-     * @memberof ScheduledactionresponseContentV1
+     * @memberof ScheduledactionpayloadContent
      */
     'sourceBackupId'?: string;
     /**
-     * Source tenant identifier. Required for CREATE_DRAFT jobs only.
+     * Source tenant identifier. Required for CREATE_DRAFT jobs.
      * @type {string}
-     * @memberof ScheduledactionresponseContentV1
+     * @memberof ScheduledactionpayloadContent
      */
     'sourceTenant'?: string;
     /**
-     * ID of the draft to be deployed. Required for CONFIG_DEPLOY_DRAFT jobs only.
+     * ID of the draft to be deployed. Required for CONFIG_DEPLOY_DRAFT jobs.
      * @type {string}
-     * @memberof ScheduledactionresponseContentV1
+     * @memberof ScheduledactionpayloadContent
      */
     'draftId'?: string;
 }
 /**
+ * Options for BACKUP type jobs. Required for BACKUP jobs.
+ * @export
+ * @interface ScheduledactionpayloadContentBackupOptions
+ */
+export interface ScheduledactionpayloadContentBackupOptions {
+    /**
+     * Object types that are to be included in the backup.
+     * @type {Array<string>}
+     * @memberof ScheduledactionpayloadContentBackupOptions
+     */
+    'includeTypes'?: Array<string>;
+    /**
+     * Map of objectType string to the options to be passed to the target service for that objectType.
+     * @type {{ [key: string]: ScheduledactionresponseContentBackupOptionsObjectOptionsValue; }}
+     * @memberof ScheduledactionpayloadContentBackupOptions
+     */
+    'objectOptions'?: { [key: string]: ScheduledactionresponseContentBackupOptionsObjectOptionsValue; };
+}
+/**
  * 
  * @export
- * @interface ScheduledactionresponseV1
+ * @interface Scheduledactionresponse
  */
-export interface ScheduledactionresponseV1 {
+export interface Scheduledactionresponse {
     /**
      * Unique identifier for this scheduled action.
      * @type {string}
-     * @memberof ScheduledactionresponseV1
+     * @memberof Scheduledactionresponse
      */
     'id'?: string;
     /**
      * The time when this scheduled action was created.
      * @type {string}
-     * @memberof ScheduledactionresponseV1
+     * @memberof Scheduledactionresponse
      */
     'created'?: string;
     /**
      * Type of the scheduled job.
      * @type {string}
-     * @memberof ScheduledactionresponseV1
+     * @memberof Scheduledactionresponse
      */
-    'jobType'?: ScheduledactionresponseV1JobTypeV1;
+    'jobType'?: ScheduledactionresponseJobTypeEnum;
     /**
      * 
-     * @type {ScheduledactionresponseContentV1}
-     * @memberof ScheduledactionresponseV1
+     * @type {ScheduledactionresponseContent}
+     * @memberof Scheduledactionresponse
      */
-    'content'?: ScheduledactionresponseContentV1;
+    'content'?: ScheduledactionresponseContent;
     /**
      * The time when this scheduled action should start.
      * @type {string}
-     * @memberof ScheduledactionresponseV1
+     * @memberof Scheduledactionresponse
      */
     'startTime'?: string;
     /**
      * Cron expression defining the schedule for this action.
      * @type {string}
-     * @memberof ScheduledactionresponseV1
+     * @memberof Scheduledactionresponse
      */
     'cronString'?: string;
     /**
      * Time zone ID for interpreting the cron expression.
      * @type {string}
-     * @memberof ScheduledactionresponseV1
+     * @memberof Scheduledactionresponse
      */
     'timeZoneId'?: string;
 }
 
-export const ScheduledactionresponseV1JobTypeV1 = {
+export const ScheduledactionresponseJobTypeEnum = {
     Backup: 'BACKUP',
     CreateDraft: 'CREATE_DRAFT',
     ConfigDeployDraft: 'CONFIG_DEPLOY_DRAFT'
 } as const;
 
-export type ScheduledactionresponseV1JobTypeV1 = typeof ScheduledactionresponseV1JobTypeV1[keyof typeof ScheduledactionresponseV1JobTypeV1];
-
+export type ScheduledactionresponseJobTypeEnum = typeof ScheduledactionresponseJobTypeEnum[keyof typeof ScheduledactionresponseJobTypeEnum];
 
 /**
- * ConfigurationHubV1Api - axios parameter creator
+ * Content details for the scheduled action.
+ * @export
+ * @interface ScheduledactionresponseContent
+ */
+export interface ScheduledactionresponseContent {
+    /**
+     * Name of the scheduled action (maximum 50 characters).
+     * @type {string}
+     * @memberof ScheduledactionresponseContent
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {ScheduledactionresponseContentBackupOptions}
+     * @memberof ScheduledactionresponseContent
+     */
+    'backupOptions'?: ScheduledactionresponseContentBackupOptions;
+    /**
+     * ID of the source backup. Required for CREATE_DRAFT jobs only.
+     * @type {string}
+     * @memberof ScheduledactionresponseContent
+     */
+    'sourceBackupId'?: string;
+    /**
+     * Source tenant identifier. Required for CREATE_DRAFT jobs only.
+     * @type {string}
+     * @memberof ScheduledactionresponseContent
+     */
+    'sourceTenant'?: string;
+    /**
+     * ID of the draft to be deployed. Required for CONFIG_DEPLOY_DRAFT jobs only.
+     * @type {string}
+     * @memberof ScheduledactionresponseContent
+     */
+    'draftId'?: string;
+}
+/**
+ * Options for BACKUP type jobs. Optional, applicable for BACKUP jobs only.
+ * @export
+ * @interface ScheduledactionresponseContentBackupOptions
+ */
+export interface ScheduledactionresponseContentBackupOptions {
+    /**
+     * Object types that are to be included in the backup.
+     * @type {Array<string>}
+     * @memberof ScheduledactionresponseContentBackupOptions
+     */
+    'includeTypes'?: Array<string>;
+    /**
+     * Map of objectType string to the options to be passed to the target service for that objectType.
+     * @type {{ [key: string]: ScheduledactionresponseContentBackupOptionsObjectOptionsValue; }}
+     * @memberof ScheduledactionresponseContentBackupOptions
+     */
+    'objectOptions'?: { [key: string]: ScheduledactionresponseContentBackupOptionsObjectOptionsValue; };
+}
+/**
+ * 
+ * @export
+ * @interface ScheduledactionresponseContentBackupOptionsObjectOptionsValue
+ */
+export interface ScheduledactionresponseContentBackupOptionsObjectOptionsValue {
+    /**
+     * Set of names to be included.
+     * @type {Array<string>}
+     * @memberof ScheduledactionresponseContentBackupOptionsObjectOptionsValue
+     */
+    'includedNames'?: Array<string>;
+}
+
+/**
+ * ConfigurationHubApi - axios parameter creator
  * @export
  */
-export const ConfigurationHubV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const ConfigurationHubApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This API performs a deploy based on an existing daft.
          * @summary Create a deploy
-         * @param {DeployrequestV1} deployrequestV1 The deploy request body.
+         * @param {Deployrequest} deployrequest The deploy request body.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createDeployV1: async (deployrequestV1: DeployrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'deployrequestV1' is not null or undefined
-            assertParamExists('createDeployV1', 'deployrequestV1', deployrequestV1)
+        createDeployV1: async (deployrequest: Deployrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'deployrequest' is not null or undefined
+            assertParamExists('createDeployV1', 'deployrequest', deployrequest)
             const localVarPath = `/configuration-hub/v1/deploys`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1192,7 +1192,7 @@ export const ConfigurationHubV1ApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(deployrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(deployrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1203,15 +1203,15 @@ export const ConfigurationHubV1ApiAxiosParamCreator = function (configuration?: 
          * This creates an object mapping between current org and source org. Source org should be \"default\" when creating an object mapping that is not to be associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Creates an object mapping
          * @param {string} sourceOrg The name of the source org.
-         * @param {ObjectmappingrequestV1} objectmappingrequestV1 The object mapping request body.
+         * @param {Objectmappingrequest} objectmappingrequest The object mapping request body.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createObjectMappingV1: async (sourceOrg: string, objectmappingrequestV1: ObjectmappingrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createObjectMappingV1: async (sourceOrg: string, objectmappingrequest: Objectmappingrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceOrg' is not null or undefined
             assertParamExists('createObjectMappingV1', 'sourceOrg', sourceOrg)
-            // verify required parameter 'objectmappingrequestV1' is not null or undefined
-            assertParamExists('createObjectMappingV1', 'objectmappingrequestV1', objectmappingrequestV1)
+            // verify required parameter 'objectmappingrequest' is not null or undefined
+            assertParamExists('createObjectMappingV1', 'objectmappingrequest', objectmappingrequest)
             const localVarPath = `/configuration-hub/v1/object-mappings/{sourceOrg}`
                 .replace(`{${"sourceOrg"}}`, encodeURIComponent(String(sourceOrg)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1232,7 +1232,7 @@ export const ConfigurationHubV1ApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(objectmappingrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(objectmappingrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1243,15 +1243,15 @@ export const ConfigurationHubV1ApiAxiosParamCreator = function (configuration?: 
          * This creates a set of object mappings (Max 25) between current org and source org. Source org should be \"default\" when creating object mappings that are not to be associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Bulk creates object mappings
          * @param {string} sourceOrg The name of the source org.
-         * @param {ObjectmappingbulkcreaterequestV1} objectmappingbulkcreaterequestV1 The bulk create object mapping request body.
+         * @param {Objectmappingbulkcreaterequest} objectmappingbulkcreaterequest The bulk create object mapping request body.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createObjectMappingsV1: async (sourceOrg: string, objectmappingbulkcreaterequestV1: ObjectmappingbulkcreaterequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createObjectMappingsV1: async (sourceOrg: string, objectmappingbulkcreaterequest: Objectmappingbulkcreaterequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceOrg' is not null or undefined
             assertParamExists('createObjectMappingsV1', 'sourceOrg', sourceOrg)
-            // verify required parameter 'objectmappingbulkcreaterequestV1' is not null or undefined
-            assertParamExists('createObjectMappingsV1', 'objectmappingbulkcreaterequestV1', objectmappingbulkcreaterequestV1)
+            // verify required parameter 'objectmappingbulkcreaterequest' is not null or undefined
+            assertParamExists('createObjectMappingsV1', 'objectmappingbulkcreaterequest', objectmappingbulkcreaterequest)
             const localVarPath = `/configuration-hub/v1/object-mappings/{sourceOrg}/bulk-create`
                 .replace(`{${"sourceOrg"}}`, encodeURIComponent(String(sourceOrg)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1272,7 +1272,7 @@ export const ConfigurationHubV1ApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(objectmappingbulkcreaterequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(objectmappingbulkcreaterequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1282,13 +1282,13 @@ export const ConfigurationHubV1ApiAxiosParamCreator = function (configuration?: 
         /**
          * This API creates a new scheduled action for the current tenant.
          * @summary Create scheduled action
-         * @param {ScheduledactionpayloadV1} scheduledactionpayloadV1 The scheduled action creation request body.
+         * @param {Scheduledactionpayload} scheduledactionpayload The scheduled action creation request body.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createScheduledActionV1: async (scheduledactionpayloadV1: ScheduledactionpayloadV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'scheduledactionpayloadV1' is not null or undefined
-            assertParamExists('createScheduledActionV1', 'scheduledactionpayloadV1', scheduledactionpayloadV1)
+        createScheduledActionV1: async (scheduledactionpayload: Scheduledactionpayload, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'scheduledactionpayload' is not null or undefined
+            assertParamExists('createScheduledActionV1', 'scheduledactionpayload', scheduledactionpayload)
             const localVarPath = `/configuration-hub/v1/scheduled-actions`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1308,7 +1308,7 @@ export const ConfigurationHubV1ApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(scheduledactionpayloadV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(scheduledactionpayload, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1808,15 +1808,15 @@ export const ConfigurationHubV1ApiAxiosParamCreator = function (configuration?: 
          * This updates a set of object mappings, only enabled and targetValue fields can be updated. Source org should be \"default\" when updating object mappings that are not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Bulk updates object mappings
          * @param {string} sourceOrg The name of the source org.
-         * @param {ObjectmappingbulkpatchrequestV1} objectmappingbulkpatchrequestV1 The object mapping request body.
+         * @param {Objectmappingbulkpatchrequest} objectmappingbulkpatchrequest The object mapping request body.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateObjectMappingsV1: async (sourceOrg: string, objectmappingbulkpatchrequestV1: ObjectmappingbulkpatchrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateObjectMappingsV1: async (sourceOrg: string, objectmappingbulkpatchrequest: Objectmappingbulkpatchrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceOrg' is not null or undefined
             assertParamExists('updateObjectMappingsV1', 'sourceOrg', sourceOrg)
-            // verify required parameter 'objectmappingbulkpatchrequestV1' is not null or undefined
-            assertParamExists('updateObjectMappingsV1', 'objectmappingbulkpatchrequestV1', objectmappingbulkpatchrequestV1)
+            // verify required parameter 'objectmappingbulkpatchrequest' is not null or undefined
+            assertParamExists('updateObjectMappingsV1', 'objectmappingbulkpatchrequest', objectmappingbulkpatchrequest)
             const localVarPath = `/configuration-hub/v1/object-mappings/{sourceOrg}/bulk-patch`
                 .replace(`{${"sourceOrg"}}`, encodeURIComponent(String(sourceOrg)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1837,7 +1837,7 @@ export const ConfigurationHubV1ApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(objectmappingbulkpatchrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(objectmappingbulkpatchrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1848,15 +1848,15 @@ export const ConfigurationHubV1ApiAxiosParamCreator = function (configuration?: 
          * This API updates an existing scheduled action using JSON Patch format.
          * @summary Update scheduled action
          * @param {string} id The ID of the scheduled action.
-         * @param {JsonpatchV1} jsonpatchV1 The JSON Patch document containing the changes to apply to the scheduled action.
+         * @param {Jsonpatch} jsonpatch The JSON Patch document containing the changes to apply to the scheduled action.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateScheduledActionV1: async (id: string, jsonpatchV1: JsonpatchV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateScheduledActionV1: async (id: string, jsonpatch: Jsonpatch, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateScheduledActionV1', 'id', id)
-            // verify required parameter 'jsonpatchV1' is not null or undefined
-            assertParamExists('updateScheduledActionV1', 'jsonpatchV1', jsonpatchV1)
+            // verify required parameter 'jsonpatch' is not null or undefined
+            assertParamExists('updateScheduledActionV1', 'jsonpatch', jsonpatch)
             const localVarPath = `/configuration-hub/v1/scheduled-actions/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1877,7 +1877,7 @@ export const ConfigurationHubV1ApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatch, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1888,64 +1888,64 @@ export const ConfigurationHubV1ApiAxiosParamCreator = function (configuration?: 
 };
 
 /**
- * ConfigurationHubV1Api - functional programming interface
+ * ConfigurationHubApi - functional programming interface
  * @export
  */
-export const ConfigurationHubV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = ConfigurationHubV1ApiAxiosParamCreator(configuration)
+export const ConfigurationHubApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = ConfigurationHubApiAxiosParamCreator(configuration)
     return {
         /**
          * This API performs a deploy based on an existing daft.
          * @summary Create a deploy
-         * @param {DeployrequestV1} deployrequestV1 The deploy request body.
+         * @param {Deployrequest} deployrequest The deploy request body.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createDeployV1(deployrequestV1: DeployrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DeployresponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createDeployV1(deployrequestV1, axiosOptions);
+        async createDeployV1(deployrequest: Deployrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Deployresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createDeployV1(deployrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubV1Api.createDeployV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubApi.createDeployV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This creates an object mapping between current org and source org. Source org should be \"default\" when creating an object mapping that is not to be associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Creates an object mapping
          * @param {string} sourceOrg The name of the source org.
-         * @param {ObjectmappingrequestV1} objectmappingrequestV1 The object mapping request body.
+         * @param {Objectmappingrequest} objectmappingrequest The object mapping request body.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createObjectMappingV1(sourceOrg: string, objectmappingrequestV1: ObjectmappingrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ObjectmappingresponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createObjectMappingV1(sourceOrg, objectmappingrequestV1, axiosOptions);
+        async createObjectMappingV1(sourceOrg: string, objectmappingrequest: Objectmappingrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Objectmappingresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createObjectMappingV1(sourceOrg, objectmappingrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubV1Api.createObjectMappingV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubApi.createObjectMappingV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This creates a set of object mappings (Max 25) between current org and source org. Source org should be \"default\" when creating object mappings that are not to be associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Bulk creates object mappings
          * @param {string} sourceOrg The name of the source org.
-         * @param {ObjectmappingbulkcreaterequestV1} objectmappingbulkcreaterequestV1 The bulk create object mapping request body.
+         * @param {Objectmappingbulkcreaterequest} objectmappingbulkcreaterequest The bulk create object mapping request body.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createObjectMappingsV1(sourceOrg: string, objectmappingbulkcreaterequestV1: ObjectmappingbulkcreaterequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ObjectmappingbulkcreateresponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createObjectMappingsV1(sourceOrg, objectmappingbulkcreaterequestV1, axiosOptions);
+        async createObjectMappingsV1(sourceOrg: string, objectmappingbulkcreaterequest: Objectmappingbulkcreaterequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Objectmappingbulkcreateresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createObjectMappingsV1(sourceOrg, objectmappingbulkcreaterequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubV1Api.createObjectMappingsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubApi.createObjectMappingsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API creates a new scheduled action for the current tenant.
          * @summary Create scheduled action
-         * @param {ScheduledactionpayloadV1} scheduledactionpayloadV1 The scheduled action creation request body.
+         * @param {Scheduledactionpayload} scheduledactionpayload The scheduled action creation request body.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createScheduledActionV1(scheduledactionpayloadV1: ScheduledactionpayloadV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScheduledactionresponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createScheduledActionV1(scheduledactionpayloadV1, axiosOptions);
+        async createScheduledActionV1(scheduledactionpayload: Scheduledactionpayload, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scheduledactionresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createScheduledActionV1(scheduledactionpayload, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubV1Api.createScheduledActionV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubApi.createScheduledActionV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1956,10 +1956,10 @@ export const ConfigurationHubV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createUploadedConfigurationV1(data: File, name: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BackupresponseV1>> {
+        async createUploadedConfigurationV1(data: File, name: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Backupresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createUploadedConfigurationV1(data, name, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubV1Api.createUploadedConfigurationV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubApi.createUploadedConfigurationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1972,7 +1972,7 @@ export const ConfigurationHubV1ApiFp = function(configuration?: Configuration) {
         async deleteBackupV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteBackupV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubV1Api.deleteBackupV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubApi.deleteBackupV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1985,7 +1985,7 @@ export const ConfigurationHubV1ApiFp = function(configuration?: Configuration) {
         async deleteDraftV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDraftV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubV1Api.deleteDraftV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubApi.deleteDraftV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1999,7 +1999,7 @@ export const ConfigurationHubV1ApiFp = function(configuration?: Configuration) {
         async deleteObjectMappingV1(sourceOrg: string, objectMappingId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteObjectMappingV1(sourceOrg, objectMappingId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubV1Api.deleteObjectMappingV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubApi.deleteObjectMappingV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2012,7 +2012,7 @@ export const ConfigurationHubV1ApiFp = function(configuration?: Configuration) {
         async deleteScheduledActionV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteScheduledActionV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubV1Api.deleteScheduledActionV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubApi.deleteScheduledActionV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2025,7 +2025,7 @@ export const ConfigurationHubV1ApiFp = function(configuration?: Configuration) {
         async deleteUploadedConfigurationV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteUploadedConfigurationV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubV1Api.deleteUploadedConfigurationV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubApi.deleteUploadedConfigurationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2035,10 +2035,10 @@ export const ConfigurationHubV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getDeployV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DeployresponseV1>> {
+        async getDeployV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Deployresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDeployV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubV1Api.getDeployV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubApi.getDeployV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2048,10 +2048,10 @@ export const ConfigurationHubV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getObjectMappingsV1(sourceOrg: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ObjectmappingresponseV1>>> {
+        async getObjectMappingsV1(sourceOrg: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Objectmappingresponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getObjectMappingsV1(sourceOrg, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubV1Api.getObjectMappingsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubApi.getObjectMappingsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2061,10 +2061,10 @@ export const ConfigurationHubV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getUploadedConfigurationV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BackupresponseV1>> {
+        async getUploadedConfigurationV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Backupresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUploadedConfigurationV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubV1Api.getUploadedConfigurationV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubApi.getUploadedConfigurationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2074,10 +2074,10 @@ export const ConfigurationHubV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listBackupsV1(filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BackupresponseV1>>> {
+        async listBackupsV1(filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Backupresponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listBackupsV1(filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubV1Api.listBackupsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubApi.listBackupsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2086,10 +2086,10 @@ export const ConfigurationHubV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listDeploysV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListDeploysV1200ResponseV1>> {
+        async listDeploysV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListDeploysV1200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listDeploysV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubV1Api.listDeploysV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubApi.listDeploysV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2099,10 +2099,10 @@ export const ConfigurationHubV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listDraftsV1(filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DraftresponseV1>>> {
+        async listDraftsV1(filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Draftresponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listDraftsV1(filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubV1Api.listDraftsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubApi.listDraftsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2111,10 +2111,10 @@ export const ConfigurationHubV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listScheduledActionsV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ScheduledactionresponseV1>>> {
+        async listScheduledActionsV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Scheduledactionresponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listScheduledActionsV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubV1Api.listScheduledActionsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubApi.listScheduledActionsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2124,188 +2124,188 @@ export const ConfigurationHubV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listUploadedConfigurationsV1(filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BackupresponseV1>>> {
+        async listUploadedConfigurationsV1(filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Backupresponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listUploadedConfigurationsV1(filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubV1Api.listUploadedConfigurationsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubApi.listUploadedConfigurationsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This updates a set of object mappings, only enabled and targetValue fields can be updated. Source org should be \"default\" when updating object mappings that are not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Bulk updates object mappings
          * @param {string} sourceOrg The name of the source org.
-         * @param {ObjectmappingbulkpatchrequestV1} objectmappingbulkpatchrequestV1 The object mapping request body.
+         * @param {Objectmappingbulkpatchrequest} objectmappingbulkpatchrequest The object mapping request body.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateObjectMappingsV1(sourceOrg: string, objectmappingbulkpatchrequestV1: ObjectmappingbulkpatchrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ObjectmappingbulkpatchresponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateObjectMappingsV1(sourceOrg, objectmappingbulkpatchrequestV1, axiosOptions);
+        async updateObjectMappingsV1(sourceOrg: string, objectmappingbulkpatchrequest: Objectmappingbulkpatchrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Objectmappingbulkpatchresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateObjectMappingsV1(sourceOrg, objectmappingbulkpatchrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubV1Api.updateObjectMappingsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubApi.updateObjectMappingsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API updates an existing scheduled action using JSON Patch format.
          * @summary Update scheduled action
          * @param {string} id The ID of the scheduled action.
-         * @param {JsonpatchV1} jsonpatchV1 The JSON Patch document containing the changes to apply to the scheduled action.
+         * @param {Jsonpatch} jsonpatch The JSON Patch document containing the changes to apply to the scheduled action.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateScheduledActionV1(id: string, jsonpatchV1: JsonpatchV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScheduledactionresponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateScheduledActionV1(id, jsonpatchV1, axiosOptions);
+        async updateScheduledActionV1(id: string, jsonpatch: Jsonpatch, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scheduledactionresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateScheduledActionV1(id, jsonpatch, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubV1Api.updateScheduledActionV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConfigurationHubApi.updateScheduledActionV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * ConfigurationHubV1Api - factory interface
+ * ConfigurationHubApi - factory interface
  * @export
  */
-export const ConfigurationHubV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = ConfigurationHubV1ApiFp(configuration)
+export const ConfigurationHubApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = ConfigurationHubApiFp(configuration)
     return {
         /**
          * This API performs a deploy based on an existing daft.
          * @summary Create a deploy
-         * @param {ConfigurationHubV1ApiCreateDeployV1Request} requestParameters Request parameters.
+         * @param {ConfigurationHubApiCreateDeployV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createDeployV1(requestParameters: ConfigurationHubV1ApiCreateDeployV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<DeployresponseV1> {
-            return localVarFp.createDeployV1(requestParameters.deployrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        createDeployV1(requestParameters: ConfigurationHubApiCreateDeployV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Deployresponse> {
+            return localVarFp.createDeployV1(requestParameters.deployrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This creates an object mapping between current org and source org. Source org should be \"default\" when creating an object mapping that is not to be associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Creates an object mapping
-         * @param {ConfigurationHubV1ApiCreateObjectMappingV1Request} requestParameters Request parameters.
+         * @param {ConfigurationHubApiCreateObjectMappingV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createObjectMappingV1(requestParameters: ConfigurationHubV1ApiCreateObjectMappingV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ObjectmappingresponseV1> {
-            return localVarFp.createObjectMappingV1(requestParameters.sourceOrg, requestParameters.objectmappingrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        createObjectMappingV1(requestParameters: ConfigurationHubApiCreateObjectMappingV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Objectmappingresponse> {
+            return localVarFp.createObjectMappingV1(requestParameters.sourceOrg, requestParameters.objectmappingrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This creates a set of object mappings (Max 25) between current org and source org. Source org should be \"default\" when creating object mappings that are not to be associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Bulk creates object mappings
-         * @param {ConfigurationHubV1ApiCreateObjectMappingsV1Request} requestParameters Request parameters.
+         * @param {ConfigurationHubApiCreateObjectMappingsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createObjectMappingsV1(requestParameters: ConfigurationHubV1ApiCreateObjectMappingsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ObjectmappingbulkcreateresponseV1> {
-            return localVarFp.createObjectMappingsV1(requestParameters.sourceOrg, requestParameters.objectmappingbulkcreaterequestV1, axiosOptions).then((request) => request(axios, basePath));
+        createObjectMappingsV1(requestParameters: ConfigurationHubApiCreateObjectMappingsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Objectmappingbulkcreateresponse> {
+            return localVarFp.createObjectMappingsV1(requestParameters.sourceOrg, requestParameters.objectmappingbulkcreaterequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API creates a new scheduled action for the current tenant.
          * @summary Create scheduled action
-         * @param {ConfigurationHubV1ApiCreateScheduledActionV1Request} requestParameters Request parameters.
+         * @param {ConfigurationHubApiCreateScheduledActionV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createScheduledActionV1(requestParameters: ConfigurationHubV1ApiCreateScheduledActionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ScheduledactionresponseV1> {
-            return localVarFp.createScheduledActionV1(requestParameters.scheduledactionpayloadV1, axiosOptions).then((request) => request(axios, basePath));
+        createScheduledActionV1(requestParameters: ConfigurationHubApiCreateScheduledActionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Scheduledactionresponse> {
+            return localVarFp.createScheduledActionV1(requestParameters.scheduledactionpayload, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API uploads a JSON configuration file into a tenant.  Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types supported by upload configuration file functionality are the same as the ones supported by our regular backup functionality.  Refer to [SaaS Configuration](https://developer.sailpoint.com/docs/extensibility/configuration-management/saas-configuration#supported-objects) for more information about supported objects.
          * @summary Upload a configuration
-         * @param {ConfigurationHubV1ApiCreateUploadedConfigurationV1Request} requestParameters Request parameters.
+         * @param {ConfigurationHubApiCreateUploadedConfigurationV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createUploadedConfigurationV1(requestParameters: ConfigurationHubV1ApiCreateUploadedConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<BackupresponseV1> {
+        createUploadedConfigurationV1(requestParameters: ConfigurationHubApiCreateUploadedConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Backupresponse> {
             return localVarFp.createUploadedConfigurationV1(requestParameters.data, requestParameters.name, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API deletes an existing backup for the current tenant.  On success, this endpoint will return an empty response.  The backup id can be obtained from the response after a backup was successfully created, or from the list backups endpoint.
          * @summary Delete a backup
-         * @param {ConfigurationHubV1ApiDeleteBackupV1Request} requestParameters Request parameters.
+         * @param {ConfigurationHubApiDeleteBackupV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteBackupV1(requestParameters: ConfigurationHubV1ApiDeleteBackupV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteBackupV1(requestParameters: ConfigurationHubApiDeleteBackupV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteBackupV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API deletes an existing draft for the current tenant.  On success, this endpoint will return an empty response.  The draft id can be obtained from the response after a draft was successfully created, or from the list drafts endpoint.
          * @summary Delete a draft
-         * @param {ConfigurationHubV1ApiDeleteDraftV1Request} requestParameters Request parameters.
+         * @param {ConfigurationHubApiDeleteDraftV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteDraftV1(requestParameters: ConfigurationHubV1ApiDeleteDraftV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteDraftV1(requestParameters: ConfigurationHubApiDeleteDraftV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteDraftV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This deletes an existing object mapping. Source org should be \"default\" when deleting an object mapping that is not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Deletes an object mapping
-         * @param {ConfigurationHubV1ApiDeleteObjectMappingV1Request} requestParameters Request parameters.
+         * @param {ConfigurationHubApiDeleteObjectMappingV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteObjectMappingV1(requestParameters: ConfigurationHubV1ApiDeleteObjectMappingV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteObjectMappingV1(requestParameters: ConfigurationHubApiDeleteObjectMappingV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteObjectMappingV1(requestParameters.sourceOrg, requestParameters.objectMappingId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API deletes an existing scheduled action.
          * @summary Delete scheduled action
-         * @param {ConfigurationHubV1ApiDeleteScheduledActionV1Request} requestParameters Request parameters.
+         * @param {ConfigurationHubApiDeleteScheduledActionV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteScheduledActionV1(requestParameters: ConfigurationHubV1ApiDeleteScheduledActionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteScheduledActionV1(requestParameters: ConfigurationHubApiDeleteScheduledActionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteScheduledActionV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API deletes an uploaded configuration based on Id.  On success, this endpoint will return an empty response.  The uploaded configuration id can be obtained from the response after a successful upload, or the list uploaded configurations endpoint.
          * @summary Delete an uploaded configuration
-         * @param {ConfigurationHubV1ApiDeleteUploadedConfigurationV1Request} requestParameters Request parameters.
+         * @param {ConfigurationHubApiDeleteUploadedConfigurationV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteUploadedConfigurationV1(requestParameters: ConfigurationHubV1ApiDeleteUploadedConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteUploadedConfigurationV1(requestParameters: ConfigurationHubApiDeleteUploadedConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteUploadedConfigurationV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API gets an existing deploy for the current tenant.
          * @summary Get a deploy
-         * @param {ConfigurationHubV1ApiGetDeployV1Request} requestParameters Request parameters.
+         * @param {ConfigurationHubApiGetDeployV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getDeployV1(requestParameters: ConfigurationHubV1ApiGetDeployV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<DeployresponseV1> {
+        getDeployV1(requestParameters: ConfigurationHubApiGetDeployV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Deployresponse> {
             return localVarFp.getDeployV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a list of existing object mappings between current org and source org. Source org should be \"default\" when getting object mappings that are not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:read
          * @summary Gets list of object mappings
-         * @param {ConfigurationHubV1ApiGetObjectMappingsV1Request} requestParameters Request parameters.
+         * @param {ConfigurationHubApiGetObjectMappingsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getObjectMappingsV1(requestParameters: ConfigurationHubV1ApiGetObjectMappingsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ObjectmappingresponseV1>> {
+        getObjectMappingsV1(requestParameters: ConfigurationHubApiGetObjectMappingsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Objectmappingresponse>> {
             return localVarFp.getObjectMappingsV1(requestParameters.sourceOrg, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API gets an existing uploaded configuration for the current tenant.
          * @summary Get an uploaded configuration
-         * @param {ConfigurationHubV1ApiGetUploadedConfigurationV1Request} requestParameters Request parameters.
+         * @param {ConfigurationHubApiGetUploadedConfigurationV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getUploadedConfigurationV1(requestParameters: ConfigurationHubV1ApiGetUploadedConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<BackupresponseV1> {
+        getUploadedConfigurationV1(requestParameters: ConfigurationHubApiGetUploadedConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Backupresponse> {
             return localVarFp.getUploadedConfigurationV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API gets a list of existing backups for the current tenant.
          * @summary List backups
-         * @param {ConfigurationHubV1ApiListBackupsV1Request} requestParameters Request parameters.
+         * @param {ConfigurationHubApiListBackupsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listBackupsV1(requestParameters: ConfigurationHubV1ApiListBackupsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<BackupresponseV1>> {
+        listBackupsV1(requestParameters: ConfigurationHubApiListBackupsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Backupresponse>> {
             return localVarFp.listBackupsV1(requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2314,17 +2314,17 @@ export const ConfigurationHubV1ApiFactory = function (configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listDeploysV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ListDeploysV1200ResponseV1> {
+        listDeploysV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ListDeploysV1200Response> {
             return localVarFp.listDeploysV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API gets a list of existing drafts for the current tenant.
          * @summary List drafts
-         * @param {ConfigurationHubV1ApiListDraftsV1Request} requestParameters Request parameters.
+         * @param {ConfigurationHubApiListDraftsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listDraftsV1(requestParameters: ConfigurationHubV1ApiListDraftsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<DraftresponseV1>> {
+        listDraftsV1(requestParameters: ConfigurationHubApiListDraftsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Draftresponse>> {
             return localVarFp.listDraftsV1(requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2333,509 +2333,509 @@ export const ConfigurationHubV1ApiFactory = function (configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listScheduledActionsV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ScheduledactionresponseV1>> {
+        listScheduledActionsV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Scheduledactionresponse>> {
             return localVarFp.listScheduledActionsV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API gets a list of existing uploaded configurations for the current tenant.
          * @summary List uploaded configurations
-         * @param {ConfigurationHubV1ApiListUploadedConfigurationsV1Request} requestParameters Request parameters.
+         * @param {ConfigurationHubApiListUploadedConfigurationsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listUploadedConfigurationsV1(requestParameters: ConfigurationHubV1ApiListUploadedConfigurationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<BackupresponseV1>> {
+        listUploadedConfigurationsV1(requestParameters: ConfigurationHubApiListUploadedConfigurationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Backupresponse>> {
             return localVarFp.listUploadedConfigurationsV1(requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This updates a set of object mappings, only enabled and targetValue fields can be updated. Source org should be \"default\" when updating object mappings that are not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Bulk updates object mappings
-         * @param {ConfigurationHubV1ApiUpdateObjectMappingsV1Request} requestParameters Request parameters.
+         * @param {ConfigurationHubApiUpdateObjectMappingsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateObjectMappingsV1(requestParameters: ConfigurationHubV1ApiUpdateObjectMappingsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ObjectmappingbulkpatchresponseV1> {
-            return localVarFp.updateObjectMappingsV1(requestParameters.sourceOrg, requestParameters.objectmappingbulkpatchrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        updateObjectMappingsV1(requestParameters: ConfigurationHubApiUpdateObjectMappingsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Objectmappingbulkpatchresponse> {
+            return localVarFp.updateObjectMappingsV1(requestParameters.sourceOrg, requestParameters.objectmappingbulkpatchrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API updates an existing scheduled action using JSON Patch format.
          * @summary Update scheduled action
-         * @param {ConfigurationHubV1ApiUpdateScheduledActionV1Request} requestParameters Request parameters.
+         * @param {ConfigurationHubApiUpdateScheduledActionV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateScheduledActionV1(requestParameters: ConfigurationHubV1ApiUpdateScheduledActionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ScheduledactionresponseV1> {
-            return localVarFp.updateScheduledActionV1(requestParameters.id, requestParameters.jsonpatchV1, axiosOptions).then((request) => request(axios, basePath));
+        updateScheduledActionV1(requestParameters: ConfigurationHubApiUpdateScheduledActionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Scheduledactionresponse> {
+            return localVarFp.updateScheduledActionV1(requestParameters.id, requestParameters.jsonpatch, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createDeployV1 operation in ConfigurationHubV1Api.
+ * Request parameters for createDeployV1 operation in ConfigurationHubApi.
  * @export
- * @interface ConfigurationHubV1ApiCreateDeployV1Request
+ * @interface ConfigurationHubApiCreateDeployV1Request
  */
-export interface ConfigurationHubV1ApiCreateDeployV1Request {
+export interface ConfigurationHubApiCreateDeployV1Request {
     /**
      * The deploy request body.
-     * @type {DeployrequestV1}
-     * @memberof ConfigurationHubV1ApiCreateDeployV1
+     * @type {Deployrequest}
+     * @memberof ConfigurationHubApiCreateDeployV1
      */
-    readonly deployrequestV1: DeployrequestV1
+    readonly deployrequest: Deployrequest
 }
 
 /**
- * Request parameters for createObjectMappingV1 operation in ConfigurationHubV1Api.
+ * Request parameters for createObjectMappingV1 operation in ConfigurationHubApi.
  * @export
- * @interface ConfigurationHubV1ApiCreateObjectMappingV1Request
+ * @interface ConfigurationHubApiCreateObjectMappingV1Request
  */
-export interface ConfigurationHubV1ApiCreateObjectMappingV1Request {
+export interface ConfigurationHubApiCreateObjectMappingV1Request {
     /**
      * The name of the source org.
      * @type {string}
-     * @memberof ConfigurationHubV1ApiCreateObjectMappingV1
+     * @memberof ConfigurationHubApiCreateObjectMappingV1
      */
     readonly sourceOrg: string
 
     /**
      * The object mapping request body.
-     * @type {ObjectmappingrequestV1}
-     * @memberof ConfigurationHubV1ApiCreateObjectMappingV1
+     * @type {Objectmappingrequest}
+     * @memberof ConfigurationHubApiCreateObjectMappingV1
      */
-    readonly objectmappingrequestV1: ObjectmappingrequestV1
+    readonly objectmappingrequest: Objectmappingrequest
 }
 
 /**
- * Request parameters for createObjectMappingsV1 operation in ConfigurationHubV1Api.
+ * Request parameters for createObjectMappingsV1 operation in ConfigurationHubApi.
  * @export
- * @interface ConfigurationHubV1ApiCreateObjectMappingsV1Request
+ * @interface ConfigurationHubApiCreateObjectMappingsV1Request
  */
-export interface ConfigurationHubV1ApiCreateObjectMappingsV1Request {
+export interface ConfigurationHubApiCreateObjectMappingsV1Request {
     /**
      * The name of the source org.
      * @type {string}
-     * @memberof ConfigurationHubV1ApiCreateObjectMappingsV1
+     * @memberof ConfigurationHubApiCreateObjectMappingsV1
      */
     readonly sourceOrg: string
 
     /**
      * The bulk create object mapping request body.
-     * @type {ObjectmappingbulkcreaterequestV1}
-     * @memberof ConfigurationHubV1ApiCreateObjectMappingsV1
+     * @type {Objectmappingbulkcreaterequest}
+     * @memberof ConfigurationHubApiCreateObjectMappingsV1
      */
-    readonly objectmappingbulkcreaterequestV1: ObjectmappingbulkcreaterequestV1
+    readonly objectmappingbulkcreaterequest: Objectmappingbulkcreaterequest
 }
 
 /**
- * Request parameters for createScheduledActionV1 operation in ConfigurationHubV1Api.
+ * Request parameters for createScheduledActionV1 operation in ConfigurationHubApi.
  * @export
- * @interface ConfigurationHubV1ApiCreateScheduledActionV1Request
+ * @interface ConfigurationHubApiCreateScheduledActionV1Request
  */
-export interface ConfigurationHubV1ApiCreateScheduledActionV1Request {
+export interface ConfigurationHubApiCreateScheduledActionV1Request {
     /**
      * The scheduled action creation request body.
-     * @type {ScheduledactionpayloadV1}
-     * @memberof ConfigurationHubV1ApiCreateScheduledActionV1
+     * @type {Scheduledactionpayload}
+     * @memberof ConfigurationHubApiCreateScheduledActionV1
      */
-    readonly scheduledactionpayloadV1: ScheduledactionpayloadV1
+    readonly scheduledactionpayload: Scheduledactionpayload
 }
 
 /**
- * Request parameters for createUploadedConfigurationV1 operation in ConfigurationHubV1Api.
+ * Request parameters for createUploadedConfigurationV1 operation in ConfigurationHubApi.
  * @export
- * @interface ConfigurationHubV1ApiCreateUploadedConfigurationV1Request
+ * @interface ConfigurationHubApiCreateUploadedConfigurationV1Request
  */
-export interface ConfigurationHubV1ApiCreateUploadedConfigurationV1Request {
+export interface ConfigurationHubApiCreateUploadedConfigurationV1Request {
     /**
      * JSON file containing the objects to be imported.
      * @type {File}
-     * @memberof ConfigurationHubV1ApiCreateUploadedConfigurationV1
+     * @memberof ConfigurationHubApiCreateUploadedConfigurationV1
      */
     readonly data: File
 
     /**
      * Name that will be assigned to the uploaded configuration file.
      * @type {string}
-     * @memberof ConfigurationHubV1ApiCreateUploadedConfigurationV1
+     * @memberof ConfigurationHubApiCreateUploadedConfigurationV1
      */
     readonly name: string
 }
 
 /**
- * Request parameters for deleteBackupV1 operation in ConfigurationHubV1Api.
+ * Request parameters for deleteBackupV1 operation in ConfigurationHubApi.
  * @export
- * @interface ConfigurationHubV1ApiDeleteBackupV1Request
+ * @interface ConfigurationHubApiDeleteBackupV1Request
  */
-export interface ConfigurationHubV1ApiDeleteBackupV1Request {
+export interface ConfigurationHubApiDeleteBackupV1Request {
     /**
      * The id of the backup to delete.
      * @type {string}
-     * @memberof ConfigurationHubV1ApiDeleteBackupV1
+     * @memberof ConfigurationHubApiDeleteBackupV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for deleteDraftV1 operation in ConfigurationHubV1Api.
+ * Request parameters for deleteDraftV1 operation in ConfigurationHubApi.
  * @export
- * @interface ConfigurationHubV1ApiDeleteDraftV1Request
+ * @interface ConfigurationHubApiDeleteDraftV1Request
  */
-export interface ConfigurationHubV1ApiDeleteDraftV1Request {
+export interface ConfigurationHubApiDeleteDraftV1Request {
     /**
      * The id of the draft to delete.
      * @type {string}
-     * @memberof ConfigurationHubV1ApiDeleteDraftV1
+     * @memberof ConfigurationHubApiDeleteDraftV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for deleteObjectMappingV1 operation in ConfigurationHubV1Api.
+ * Request parameters for deleteObjectMappingV1 operation in ConfigurationHubApi.
  * @export
- * @interface ConfigurationHubV1ApiDeleteObjectMappingV1Request
+ * @interface ConfigurationHubApiDeleteObjectMappingV1Request
  */
-export interface ConfigurationHubV1ApiDeleteObjectMappingV1Request {
+export interface ConfigurationHubApiDeleteObjectMappingV1Request {
     /**
      * The name of the source org.
      * @type {string}
-     * @memberof ConfigurationHubV1ApiDeleteObjectMappingV1
+     * @memberof ConfigurationHubApiDeleteObjectMappingV1
      */
     readonly sourceOrg: string
 
     /**
      * The id of the object mapping to be deleted.
      * @type {string}
-     * @memberof ConfigurationHubV1ApiDeleteObjectMappingV1
+     * @memberof ConfigurationHubApiDeleteObjectMappingV1
      */
     readonly objectMappingId: string
 }
 
 /**
- * Request parameters for deleteScheduledActionV1 operation in ConfigurationHubV1Api.
+ * Request parameters for deleteScheduledActionV1 operation in ConfigurationHubApi.
  * @export
- * @interface ConfigurationHubV1ApiDeleteScheduledActionV1Request
+ * @interface ConfigurationHubApiDeleteScheduledActionV1Request
  */
-export interface ConfigurationHubV1ApiDeleteScheduledActionV1Request {
+export interface ConfigurationHubApiDeleteScheduledActionV1Request {
     /**
      * The ID of the scheduled action.
      * @type {string}
-     * @memberof ConfigurationHubV1ApiDeleteScheduledActionV1
+     * @memberof ConfigurationHubApiDeleteScheduledActionV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for deleteUploadedConfigurationV1 operation in ConfigurationHubV1Api.
+ * Request parameters for deleteUploadedConfigurationV1 operation in ConfigurationHubApi.
  * @export
- * @interface ConfigurationHubV1ApiDeleteUploadedConfigurationV1Request
+ * @interface ConfigurationHubApiDeleteUploadedConfigurationV1Request
  */
-export interface ConfigurationHubV1ApiDeleteUploadedConfigurationV1Request {
+export interface ConfigurationHubApiDeleteUploadedConfigurationV1Request {
     /**
      * The id of the uploaded configuration.
      * @type {string}
-     * @memberof ConfigurationHubV1ApiDeleteUploadedConfigurationV1
+     * @memberof ConfigurationHubApiDeleteUploadedConfigurationV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getDeployV1 operation in ConfigurationHubV1Api.
+ * Request parameters for getDeployV1 operation in ConfigurationHubApi.
  * @export
- * @interface ConfigurationHubV1ApiGetDeployV1Request
+ * @interface ConfigurationHubApiGetDeployV1Request
  */
-export interface ConfigurationHubV1ApiGetDeployV1Request {
+export interface ConfigurationHubApiGetDeployV1Request {
     /**
      * The id of the deploy.
      * @type {string}
-     * @memberof ConfigurationHubV1ApiGetDeployV1
+     * @memberof ConfigurationHubApiGetDeployV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getObjectMappingsV1 operation in ConfigurationHubV1Api.
+ * Request parameters for getObjectMappingsV1 operation in ConfigurationHubApi.
  * @export
- * @interface ConfigurationHubV1ApiGetObjectMappingsV1Request
+ * @interface ConfigurationHubApiGetObjectMappingsV1Request
  */
-export interface ConfigurationHubV1ApiGetObjectMappingsV1Request {
+export interface ConfigurationHubApiGetObjectMappingsV1Request {
     /**
      * The name of the source org.
      * @type {string}
-     * @memberof ConfigurationHubV1ApiGetObjectMappingsV1
+     * @memberof ConfigurationHubApiGetObjectMappingsV1
      */
     readonly sourceOrg: string
 }
 
 /**
- * Request parameters for getUploadedConfigurationV1 operation in ConfigurationHubV1Api.
+ * Request parameters for getUploadedConfigurationV1 operation in ConfigurationHubApi.
  * @export
- * @interface ConfigurationHubV1ApiGetUploadedConfigurationV1Request
+ * @interface ConfigurationHubApiGetUploadedConfigurationV1Request
  */
-export interface ConfigurationHubV1ApiGetUploadedConfigurationV1Request {
+export interface ConfigurationHubApiGetUploadedConfigurationV1Request {
     /**
      * The id of the uploaded configuration.
      * @type {string}
-     * @memberof ConfigurationHubV1ApiGetUploadedConfigurationV1
+     * @memberof ConfigurationHubApiGetUploadedConfigurationV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for listBackupsV1 operation in ConfigurationHubV1Api.
+ * Request parameters for listBackupsV1 operation in ConfigurationHubApi.
  * @export
- * @interface ConfigurationHubV1ApiListBackupsV1Request
+ * @interface ConfigurationHubApiListBackupsV1Request
  */
-export interface ConfigurationHubV1ApiListBackupsV1Request {
+export interface ConfigurationHubApiListBackupsV1Request {
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*
      * @type {string}
-     * @memberof ConfigurationHubV1ApiListBackupsV1
+     * @memberof ConfigurationHubApiListBackupsV1
      */
     readonly filters?: string
 }
 
 /**
- * Request parameters for listDraftsV1 operation in ConfigurationHubV1Api.
+ * Request parameters for listDraftsV1 operation in ConfigurationHubApi.
  * @export
- * @interface ConfigurationHubV1ApiListDraftsV1Request
+ * @interface ConfigurationHubApiListDraftsV1Request
  */
-export interface ConfigurationHubV1ApiListDraftsV1Request {
+export interface ConfigurationHubApiListDraftsV1Request {
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **approvalStatus**: *eq*
      * @type {string}
-     * @memberof ConfigurationHubV1ApiListDraftsV1
+     * @memberof ConfigurationHubApiListDraftsV1
      */
     readonly filters?: string
 }
 
 /**
- * Request parameters for listUploadedConfigurationsV1 operation in ConfigurationHubV1Api.
+ * Request parameters for listUploadedConfigurationsV1 operation in ConfigurationHubApi.
  * @export
- * @interface ConfigurationHubV1ApiListUploadedConfigurationsV1Request
+ * @interface ConfigurationHubApiListUploadedConfigurationsV1Request
  */
-export interface ConfigurationHubV1ApiListUploadedConfigurationsV1Request {
+export interface ConfigurationHubApiListUploadedConfigurationsV1Request {
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*
      * @type {string}
-     * @memberof ConfigurationHubV1ApiListUploadedConfigurationsV1
+     * @memberof ConfigurationHubApiListUploadedConfigurationsV1
      */
     readonly filters?: string
 }
 
 /**
- * Request parameters for updateObjectMappingsV1 operation in ConfigurationHubV1Api.
+ * Request parameters for updateObjectMappingsV1 operation in ConfigurationHubApi.
  * @export
- * @interface ConfigurationHubV1ApiUpdateObjectMappingsV1Request
+ * @interface ConfigurationHubApiUpdateObjectMappingsV1Request
  */
-export interface ConfigurationHubV1ApiUpdateObjectMappingsV1Request {
+export interface ConfigurationHubApiUpdateObjectMappingsV1Request {
     /**
      * The name of the source org.
      * @type {string}
-     * @memberof ConfigurationHubV1ApiUpdateObjectMappingsV1
+     * @memberof ConfigurationHubApiUpdateObjectMappingsV1
      */
     readonly sourceOrg: string
 
     /**
      * The object mapping request body.
-     * @type {ObjectmappingbulkpatchrequestV1}
-     * @memberof ConfigurationHubV1ApiUpdateObjectMappingsV1
+     * @type {Objectmappingbulkpatchrequest}
+     * @memberof ConfigurationHubApiUpdateObjectMappingsV1
      */
-    readonly objectmappingbulkpatchrequestV1: ObjectmappingbulkpatchrequestV1
+    readonly objectmappingbulkpatchrequest: Objectmappingbulkpatchrequest
 }
 
 /**
- * Request parameters for updateScheduledActionV1 operation in ConfigurationHubV1Api.
+ * Request parameters for updateScheduledActionV1 operation in ConfigurationHubApi.
  * @export
- * @interface ConfigurationHubV1ApiUpdateScheduledActionV1Request
+ * @interface ConfigurationHubApiUpdateScheduledActionV1Request
  */
-export interface ConfigurationHubV1ApiUpdateScheduledActionV1Request {
+export interface ConfigurationHubApiUpdateScheduledActionV1Request {
     /**
      * The ID of the scheduled action.
      * @type {string}
-     * @memberof ConfigurationHubV1ApiUpdateScheduledActionV1
+     * @memberof ConfigurationHubApiUpdateScheduledActionV1
      */
     readonly id: string
 
     /**
      * The JSON Patch document containing the changes to apply to the scheduled action.
-     * @type {JsonpatchV1}
-     * @memberof ConfigurationHubV1ApiUpdateScheduledActionV1
+     * @type {Jsonpatch}
+     * @memberof ConfigurationHubApiUpdateScheduledActionV1
      */
-    readonly jsonpatchV1: JsonpatchV1
+    readonly jsonpatch: Jsonpatch
 }
 
 /**
- * ConfigurationHubV1Api - object-oriented interface
+ * ConfigurationHubApi - object-oriented interface
  * @export
- * @class ConfigurationHubV1Api
+ * @class ConfigurationHubApi
  * @extends {BaseAPI}
  */
-export class ConfigurationHubV1Api extends BaseAPI {
+export class ConfigurationHubApi extends BaseAPI {
     /**
      * This API performs a deploy based on an existing daft.
      * @summary Create a deploy
-     * @param {ConfigurationHubV1ApiCreateDeployV1Request} requestParameters Request parameters.
+     * @param {ConfigurationHubApiCreateDeployV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationHubV1Api
+     * @memberof ConfigurationHubApi
      */
-    public createDeployV1(requestParameters: ConfigurationHubV1ApiCreateDeployV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConfigurationHubV1ApiFp(this.configuration).createDeployV1(requestParameters.deployrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createDeployV1(requestParameters: ConfigurationHubApiCreateDeployV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).createDeployV1(requestParameters.deployrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This creates an object mapping between current org and source org. Source org should be \"default\" when creating an object mapping that is not to be associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
      * @summary Creates an object mapping
-     * @param {ConfigurationHubV1ApiCreateObjectMappingV1Request} requestParameters Request parameters.
+     * @param {ConfigurationHubApiCreateObjectMappingV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationHubV1Api
+     * @memberof ConfigurationHubApi
      */
-    public createObjectMappingV1(requestParameters: ConfigurationHubV1ApiCreateObjectMappingV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConfigurationHubV1ApiFp(this.configuration).createObjectMappingV1(requestParameters.sourceOrg, requestParameters.objectmappingrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createObjectMappingV1(requestParameters: ConfigurationHubApiCreateObjectMappingV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).createObjectMappingV1(requestParameters.sourceOrg, requestParameters.objectmappingrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This creates a set of object mappings (Max 25) between current org and source org. Source org should be \"default\" when creating object mappings that are not to be associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
      * @summary Bulk creates object mappings
-     * @param {ConfigurationHubV1ApiCreateObjectMappingsV1Request} requestParameters Request parameters.
+     * @param {ConfigurationHubApiCreateObjectMappingsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationHubV1Api
+     * @memberof ConfigurationHubApi
      */
-    public createObjectMappingsV1(requestParameters: ConfigurationHubV1ApiCreateObjectMappingsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConfigurationHubV1ApiFp(this.configuration).createObjectMappingsV1(requestParameters.sourceOrg, requestParameters.objectmappingbulkcreaterequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createObjectMappingsV1(requestParameters: ConfigurationHubApiCreateObjectMappingsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).createObjectMappingsV1(requestParameters.sourceOrg, requestParameters.objectmappingbulkcreaterequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API creates a new scheduled action for the current tenant.
      * @summary Create scheduled action
-     * @param {ConfigurationHubV1ApiCreateScheduledActionV1Request} requestParameters Request parameters.
+     * @param {ConfigurationHubApiCreateScheduledActionV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationHubV1Api
+     * @memberof ConfigurationHubApi
      */
-    public createScheduledActionV1(requestParameters: ConfigurationHubV1ApiCreateScheduledActionV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConfigurationHubV1ApiFp(this.configuration).createScheduledActionV1(requestParameters.scheduledactionpayloadV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createScheduledActionV1(requestParameters: ConfigurationHubApiCreateScheduledActionV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).createScheduledActionV1(requestParameters.scheduledactionpayload, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API uploads a JSON configuration file into a tenant.  Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types supported by upload configuration file functionality are the same as the ones supported by our regular backup functionality.  Refer to [SaaS Configuration](https://developer.sailpoint.com/docs/extensibility/configuration-management/saas-configuration#supported-objects) for more information about supported objects.
      * @summary Upload a configuration
-     * @param {ConfigurationHubV1ApiCreateUploadedConfigurationV1Request} requestParameters Request parameters.
+     * @param {ConfigurationHubApiCreateUploadedConfigurationV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationHubV1Api
+     * @memberof ConfigurationHubApi
      */
-    public createUploadedConfigurationV1(requestParameters: ConfigurationHubV1ApiCreateUploadedConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConfigurationHubV1ApiFp(this.configuration).createUploadedConfigurationV1(requestParameters.data, requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createUploadedConfigurationV1(requestParameters: ConfigurationHubApiCreateUploadedConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).createUploadedConfigurationV1(requestParameters.data, requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API deletes an existing backup for the current tenant.  On success, this endpoint will return an empty response.  The backup id can be obtained from the response after a backup was successfully created, or from the list backups endpoint.
      * @summary Delete a backup
-     * @param {ConfigurationHubV1ApiDeleteBackupV1Request} requestParameters Request parameters.
+     * @param {ConfigurationHubApiDeleteBackupV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationHubV1Api
+     * @memberof ConfigurationHubApi
      */
-    public deleteBackupV1(requestParameters: ConfigurationHubV1ApiDeleteBackupV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConfigurationHubV1ApiFp(this.configuration).deleteBackupV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteBackupV1(requestParameters: ConfigurationHubApiDeleteBackupV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).deleteBackupV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API deletes an existing draft for the current tenant.  On success, this endpoint will return an empty response.  The draft id can be obtained from the response after a draft was successfully created, or from the list drafts endpoint.
      * @summary Delete a draft
-     * @param {ConfigurationHubV1ApiDeleteDraftV1Request} requestParameters Request parameters.
+     * @param {ConfigurationHubApiDeleteDraftV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationHubV1Api
+     * @memberof ConfigurationHubApi
      */
-    public deleteDraftV1(requestParameters: ConfigurationHubV1ApiDeleteDraftV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConfigurationHubV1ApiFp(this.configuration).deleteDraftV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteDraftV1(requestParameters: ConfigurationHubApiDeleteDraftV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).deleteDraftV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This deletes an existing object mapping. Source org should be \"default\" when deleting an object mapping that is not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
      * @summary Deletes an object mapping
-     * @param {ConfigurationHubV1ApiDeleteObjectMappingV1Request} requestParameters Request parameters.
+     * @param {ConfigurationHubApiDeleteObjectMappingV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationHubV1Api
+     * @memberof ConfigurationHubApi
      */
-    public deleteObjectMappingV1(requestParameters: ConfigurationHubV1ApiDeleteObjectMappingV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConfigurationHubV1ApiFp(this.configuration).deleteObjectMappingV1(requestParameters.sourceOrg, requestParameters.objectMappingId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteObjectMappingV1(requestParameters: ConfigurationHubApiDeleteObjectMappingV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).deleteObjectMappingV1(requestParameters.sourceOrg, requestParameters.objectMappingId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API deletes an existing scheduled action.
      * @summary Delete scheduled action
-     * @param {ConfigurationHubV1ApiDeleteScheduledActionV1Request} requestParameters Request parameters.
+     * @param {ConfigurationHubApiDeleteScheduledActionV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationHubV1Api
+     * @memberof ConfigurationHubApi
      */
-    public deleteScheduledActionV1(requestParameters: ConfigurationHubV1ApiDeleteScheduledActionV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConfigurationHubV1ApiFp(this.configuration).deleteScheduledActionV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteScheduledActionV1(requestParameters: ConfigurationHubApiDeleteScheduledActionV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).deleteScheduledActionV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API deletes an uploaded configuration based on Id.  On success, this endpoint will return an empty response.  The uploaded configuration id can be obtained from the response after a successful upload, or the list uploaded configurations endpoint.
      * @summary Delete an uploaded configuration
-     * @param {ConfigurationHubV1ApiDeleteUploadedConfigurationV1Request} requestParameters Request parameters.
+     * @param {ConfigurationHubApiDeleteUploadedConfigurationV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationHubV1Api
+     * @memberof ConfigurationHubApi
      */
-    public deleteUploadedConfigurationV1(requestParameters: ConfigurationHubV1ApiDeleteUploadedConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConfigurationHubV1ApiFp(this.configuration).deleteUploadedConfigurationV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteUploadedConfigurationV1(requestParameters: ConfigurationHubApiDeleteUploadedConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).deleteUploadedConfigurationV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API gets an existing deploy for the current tenant.
      * @summary Get a deploy
-     * @param {ConfigurationHubV1ApiGetDeployV1Request} requestParameters Request parameters.
+     * @param {ConfigurationHubApiGetDeployV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationHubV1Api
+     * @memberof ConfigurationHubApi
      */
-    public getDeployV1(requestParameters: ConfigurationHubV1ApiGetDeployV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConfigurationHubV1ApiFp(this.configuration).getDeployV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getDeployV1(requestParameters: ConfigurationHubApiGetDeployV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).getDeployV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a list of existing object mappings between current org and source org. Source org should be \"default\" when getting object mappings that are not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:read
      * @summary Gets list of object mappings
-     * @param {ConfigurationHubV1ApiGetObjectMappingsV1Request} requestParameters Request parameters.
+     * @param {ConfigurationHubApiGetObjectMappingsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationHubV1Api
+     * @memberof ConfigurationHubApi
      */
-    public getObjectMappingsV1(requestParameters: ConfigurationHubV1ApiGetObjectMappingsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConfigurationHubV1ApiFp(this.configuration).getObjectMappingsV1(requestParameters.sourceOrg, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getObjectMappingsV1(requestParameters: ConfigurationHubApiGetObjectMappingsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).getObjectMappingsV1(requestParameters.sourceOrg, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API gets an existing uploaded configuration for the current tenant.
      * @summary Get an uploaded configuration
-     * @param {ConfigurationHubV1ApiGetUploadedConfigurationV1Request} requestParameters Request parameters.
+     * @param {ConfigurationHubApiGetUploadedConfigurationV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationHubV1Api
+     * @memberof ConfigurationHubApi
      */
-    public getUploadedConfigurationV1(requestParameters: ConfigurationHubV1ApiGetUploadedConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConfigurationHubV1ApiFp(this.configuration).getUploadedConfigurationV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getUploadedConfigurationV1(requestParameters: ConfigurationHubApiGetUploadedConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).getUploadedConfigurationV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API gets a list of existing backups for the current tenant.
      * @summary List backups
-     * @param {ConfigurationHubV1ApiListBackupsV1Request} requestParameters Request parameters.
+     * @param {ConfigurationHubApiListBackupsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationHubV1Api
+     * @memberof ConfigurationHubApi
      */
-    public listBackupsV1(requestParameters: ConfigurationHubV1ApiListBackupsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return ConfigurationHubV1ApiFp(this.configuration).listBackupsV1(requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listBackupsV1(requestParameters: ConfigurationHubApiListBackupsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).listBackupsV1(requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2843,22 +2843,22 @@ export class ConfigurationHubV1Api extends BaseAPI {
      * @summary List deploys
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationHubV1Api
+     * @memberof ConfigurationHubApi
      */
     public listDeploysV1(axiosOptions?: RawAxiosRequestConfig) {
-        return ConfigurationHubV1ApiFp(this.configuration).listDeploysV1(axiosOptions).then((request) => request(this.axios, this.basePath));
+        return ConfigurationHubApiFp(this.configuration).listDeploysV1(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API gets a list of existing drafts for the current tenant.
      * @summary List drafts
-     * @param {ConfigurationHubV1ApiListDraftsV1Request} requestParameters Request parameters.
+     * @param {ConfigurationHubApiListDraftsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationHubV1Api
+     * @memberof ConfigurationHubApi
      */
-    public listDraftsV1(requestParameters: ConfigurationHubV1ApiListDraftsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return ConfigurationHubV1ApiFp(this.configuration).listDraftsV1(requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listDraftsV1(requestParameters: ConfigurationHubApiListDraftsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).listDraftsV1(requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2866,46 +2866,46 @@ export class ConfigurationHubV1Api extends BaseAPI {
      * @summary List scheduled actions
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationHubV1Api
+     * @memberof ConfigurationHubApi
      */
     public listScheduledActionsV1(axiosOptions?: RawAxiosRequestConfig) {
-        return ConfigurationHubV1ApiFp(this.configuration).listScheduledActionsV1(axiosOptions).then((request) => request(this.axios, this.basePath));
+        return ConfigurationHubApiFp(this.configuration).listScheduledActionsV1(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API gets a list of existing uploaded configurations for the current tenant.
      * @summary List uploaded configurations
-     * @param {ConfigurationHubV1ApiListUploadedConfigurationsV1Request} requestParameters Request parameters.
+     * @param {ConfigurationHubApiListUploadedConfigurationsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationHubV1Api
+     * @memberof ConfigurationHubApi
      */
-    public listUploadedConfigurationsV1(requestParameters: ConfigurationHubV1ApiListUploadedConfigurationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return ConfigurationHubV1ApiFp(this.configuration).listUploadedConfigurationsV1(requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listUploadedConfigurationsV1(requestParameters: ConfigurationHubApiListUploadedConfigurationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).listUploadedConfigurationsV1(requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This updates a set of object mappings, only enabled and targetValue fields can be updated. Source org should be \"default\" when updating object mappings that are not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
      * @summary Bulk updates object mappings
-     * @param {ConfigurationHubV1ApiUpdateObjectMappingsV1Request} requestParameters Request parameters.
+     * @param {ConfigurationHubApiUpdateObjectMappingsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationHubV1Api
+     * @memberof ConfigurationHubApi
      */
-    public updateObjectMappingsV1(requestParameters: ConfigurationHubV1ApiUpdateObjectMappingsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConfigurationHubV1ApiFp(this.configuration).updateObjectMappingsV1(requestParameters.sourceOrg, requestParameters.objectmappingbulkpatchrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateObjectMappingsV1(requestParameters: ConfigurationHubApiUpdateObjectMappingsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).updateObjectMappingsV1(requestParameters.sourceOrg, requestParameters.objectmappingbulkpatchrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API updates an existing scheduled action using JSON Patch format.
      * @summary Update scheduled action
-     * @param {ConfigurationHubV1ApiUpdateScheduledActionV1Request} requestParameters Request parameters.
+     * @param {ConfigurationHubApiUpdateScheduledActionV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConfigurationHubV1Api
+     * @memberof ConfigurationHubApi
      */
-    public updateScheduledActionV1(requestParameters: ConfigurationHubV1ApiUpdateScheduledActionV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConfigurationHubV1ApiFp(this.configuration).updateScheduledActionV1(requestParameters.id, requestParameters.jsonpatchV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateScheduledActionV1(requestParameters: ConfigurationHubApiUpdateScheduledActionV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).updateScheduledActionV1(requestParameters.id, requestParameters.jsonpatch, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

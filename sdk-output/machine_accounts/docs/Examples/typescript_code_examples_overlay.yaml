@@ -4,16 +4,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_accounts/methods/machine-accounts#create-machine-account-subtype-v1
       source: |
-        import { MachineAccountsV1Api } from 'sailpoint-api-client';
+        import { MachineAccountsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new MachineAccountsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountsApi(configuration);
         const sourceId: string = '6d0458373bec4b4b80460992b76016da'; // string | The ID of the source. (default to undefined)
-        const createMachineAccountSubtypeV1RequestV1: CreateMachineAccountSubtypeV1RequestV1 = {"technicalName":"foo","displayName":"Mr Foo","description":"fighters","type":"MACHINE"}; // CreateMachineAccountSubtypeV1RequestV1 | 
+        const createMachineAccountSubtypeV1Request: CreateMachineAccountSubtypeV1Request = {"technicalName":"foo","displayName":"Mr Foo","description":"fighters","type":"MACHINE"}; // CreateMachineAccountSubtypeV1Request | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.createMachineAccountSubtypeV1(sourceId, createMachineAccountSubtypeV1RequestV1);
+        const result = await apiInstance.createMachineAccountSubtypeV1({ sourceId: sourceId, createMachineAccountSubtypeV1Request: createMachineAccountSubtypeV1Request });
         console.log(result);
 - path: /sources/v1/{sourceId}/subtypes/{technicalName}
   method: DELETE
@@ -21,16 +20,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_accounts/methods/machine-accounts#delete-machine-account-subtype-by-technical-name-v1
       source: |
-        import { MachineAccountsV1Api } from 'sailpoint-api-client';
+        import { MachineAccountsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new MachineAccountsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountsApi(configuration);
         const sourceId: string = '6d0458373bec4b4b80460992b76016da'; // string | The ID of the source. (default to undefined)
         const technicalName: string = 'foo'; // string | The technical name of the subtype. (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.deleteMachineAccountSubtypeByTechnicalNameV1(sourceId, technicalName);
+        const result = await apiInstance.deleteMachineAccountSubtypeByTechnicalNameV1({ sourceId: sourceId, technicalName: technicalName });
         console.log(result);
 - path: /sources/v1/subtypes/{subtypeId}
   method: GET
@@ -38,15 +36,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_accounts/methods/machine-accounts#get-machine-account-subtype-by-id-v1
       source: |
-        import { MachineAccountsV1Api } from 'sailpoint-api-client';
+        import { MachineAccountsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new MachineAccountsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountsApi(configuration);
         const subtypeId: string = '43bdd144-4b17-4fce-a744-17c7fd3e717b'; // string | The ID of the machine account subtype. (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.getMachineAccountSubtypeByIdV1(subtypeId);
+        const result = await apiInstance.getMachineAccountSubtypeByIdV1({ subtypeId: subtypeId });
         console.log(result);
 - path: /sources/v1/{sourceId}/subtypes/{technicalName}
   method: GET
@@ -54,16 +51,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_accounts/methods/machine-accounts#get-machine-account-subtype-by-technical-name-v1
       source: |
-        import { MachineAccountsV1Api } from 'sailpoint-api-client';
+        import { MachineAccountsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new MachineAccountsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountsApi(configuration);
         const sourceId: string = '6d0458373bec4b4b80460992b76016da'; // string | The ID of the source. (default to undefined)
         const technicalName: string = 'foo'; // string | The technical name of the subtype. (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.getMachineAccountSubtypeByTechnicalNameV1(sourceId, technicalName);
+        const result = await apiInstance.getMachineAccountSubtypeByTechnicalNameV1({ sourceId: sourceId, technicalName: technicalName });
         console.log(result);
 - path: /machine-accounts/v1/{id}
   method: GET
@@ -71,15 +67,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_accounts/methods/machine-accounts#get-machine-account-v1
       source: |
-        import { MachineAccountsV1Api } from 'sailpoint-api-client';
+        import { MachineAccountsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new MachineAccountsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountsApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Machine Account ID. (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.getMachineAccountV1(id);
+        const result = await apiInstance.getMachineAccountV1({ id: id });
         console.log(result);
 - path: /sources/v1/{sourceId}/subtypes
   method: GET
@@ -87,12 +82,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_accounts/methods/machine-accounts#list-machine-account-subtypes-v1
       source: |
-        import { MachineAccountsV1Api } from 'sailpoint-api-client';
+        import { MachineAccountsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new MachineAccountsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountsApi(configuration);
         const sourceId: string = '6d0458373bec4b4b80460992b76016da'; // string | The ID of the source. (default to undefined)
         const filters: string = 'displayName eq "sail"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw* (optional) (default to undefined)
         const sorters: string = 'displayName'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName** (optional) (default to undefined)
@@ -100,7 +94,7 @@
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        const result = await apiInstance.listMachineAccountSubtypesV1(sourceId);
+        const result = await apiInstance.listMachineAccountSubtypesV1({ sourceId: sourceId });
         console.log(result);
 - path: /machine-accounts/v1
   method: GET
@@ -108,19 +102,18 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_accounts/methods/machine-accounts#list-machine-accounts-v1
       source: |
-        import { MachineAccountsV1Api } from 'sailpoint-api-client';
+        import { MachineAccountsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new MachineAccountsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountsApi(configuration);
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const filters: string = 'hasEntitlements eq true'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **uuid**: *eq, in*  **description**: *eq, in, sw*  **machineIdentity.id**: *eq, in*  **machineIdentity.name**: *eq, in, sw*  **subtype.technicalName**: *eq, in, sw*  **subtype.displayName**: *eq, in, sw*  **accessType**: *eq, in, sw*  **environment**: *eq, in, sw*  **ownerIdentity**: *eq, in*  **ownerIdentity.id**: *eq, in*  **ownerIdentity.name**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **enabled**: *eq*  **locked**: *eq*  **hasEntitlements**: *eq*  **attributes**: *eq*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **created**: *eq, gt, lt, ge, le*  **modified**: *eq, gt, lt, ge, le* (optional) (default to undefined)
         const sorters: string = 'id,name'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, nativeIdentity, ownerIdentity, uuid, description, machineIdentity.id, machineIdentity.name, subtype.technicalName, subtype.displayName, accessType, environment, manuallyCorrelated, enabled, locked, hasEntitlements, ownerIdentity.id, ownerIdentity.name, attributes, source.id, source.name, created, modified** (optional) (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.listMachineAccountsV1();
+        const result = await apiInstance.listMachineAccountsV1({  });
         console.log(result);
 - path: /sources/v1/{sourceId}/subtypes/{technicalName}
   method: PATCH
@@ -128,17 +121,16 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_accounts/methods/machine-accounts#patch-machine-account-subtype-by-technical-name-v1
       source: |
-        import { MachineAccountsV1Api } from 'sailpoint-api-client';
+        import { MachineAccountsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new MachineAccountsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountsApi(configuration);
         const sourceId: string = '6d0458373bec4b4b80460992b76016da'; // string | The ID of the source. (default to undefined)
         const technicalName: string = 'foo'; // string | The technical name of the subtype. (default to undefined)
         const requestBody: Array&lt;object&gt; = [{"op":"replace","path":"/displayName","value":"Test New DisplayName"}]; // Array<object> | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.patchMachineAccountSubtypeByTechnicalNameV1(sourceId, technicalName, requestBody);
+        const result = await apiInstance.patchMachineAccountSubtypeByTechnicalNameV1({ sourceId: sourceId, technicalName: technicalName, requestBody: requestBody });
         console.log(result);
 - path: /machine-accounts/v1/{id}
   method: PATCH
@@ -146,14 +138,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_accounts/methods/machine-accounts#update-machine-account-v1
       source: |
-        import { MachineAccountsV1Api } from 'sailpoint-api-client';
+        import { MachineAccountsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new MachineAccountsV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountsApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Machine Account ID. (default to undefined)
         const requestBody: Array&lt;object&gt; = [{"op":"add","path":"/environment","value":"test"}]; // Array<object> | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable:           * description           * ownerIdentity           * subType           * accessType           * environment           * attributes           * classificationMethod           * manuallyEdited           * nativeIdentity           * uuid           * source           * manuallyCorrelated           * enabled           * locked           * hasEntitlements           * connectorAttributes
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.updateMachineAccountV1(id, requestBody);
+        const result = await apiInstance.updateMachineAccountV1({ id: id, requestBody: requestBody });
         console.log(result);

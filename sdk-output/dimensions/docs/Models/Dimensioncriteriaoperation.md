@@ -1,15 +1,15 @@
 ---
-id: v1-dimensioncriteriaoperation-v1
-title: DimensioncriteriaoperationV1
-pagination_label: DimensioncriteriaoperationV1
-sidebar_label: DimensioncriteriaoperationV1
+id: v1-dimensioncriteriaoperation
+title: Dimensioncriteriaoperation
+pagination_label: Dimensioncriteriaoperation
+sidebar_label: Dimensioncriteriaoperation
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'DimensioncriteriaoperationV1', 'v1DimensioncriteriaoperationV1']
-slug: /tools/sdk/typescript/dimensions/models/dimensioncriteriaoperation-v1
-tags: ['SDK', 'Software Development Kit', 'DimensioncriteriaoperationV1', 'v1DimensioncriteriaoperationV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Dimensioncriteriaoperation', 'v1Dimensioncriteriaoperation']
+slug: /tools/sdk/typescript/dimensions/models/dimensioncriteriaoperation
+tags: ['SDK', 'Software Development Kit', 'Dimensioncriteriaoperation', 'v1Dimensioncriteriaoperation']
 ---
 
-# DimensioncriteriaoperationV1
+# Dimensioncriteriaoperation
 
 ## Enum
 

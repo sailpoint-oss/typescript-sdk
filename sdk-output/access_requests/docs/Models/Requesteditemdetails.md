@@ -1,20 +1,20 @@
 ---
-id: v1-requesteditemdetails-v1
-title: RequesteditemdetailsV1
-pagination_label: RequesteditemdetailsV1
-sidebar_label: RequesteditemdetailsV1
+id: v1-requesteditemdetails
+title: Requesteditemdetails
+pagination_label: Requesteditemdetails
+sidebar_label: Requesteditemdetails
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RequesteditemdetailsV1', 'v1RequesteditemdetailsV1']
-slug: /tools/sdk/typescript/access_requests/models/requesteditemdetails-v1
-tags: ['SDK', 'Software Development Kit', 'RequesteditemdetailsV1', 'v1RequesteditemdetailsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Requesteditemdetails', 'v1Requesteditemdetails']
+slug: /tools/sdk/typescript/access_requests/models/requesteditemdetails
+tags: ['SDK', 'Software Development Kit', 'Requesteditemdetails', 'v1Requesteditemdetails']
 ---
 
-# RequesteditemdetailsV1
+# Requesteditemdetails
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | The type of access item requested. | [default to undefined]
-**id** | **(optional)** **string** | The id of the access item requested. | [default to undefined]
+**type** | **(optional)** `string` | The type of access item requested. | [default to undefined]
+**id** | **(optional)** `string` | The id of the access item requested. | [default to undefined]
 

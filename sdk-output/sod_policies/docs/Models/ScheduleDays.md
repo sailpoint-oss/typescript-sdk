@@ -1,21 +1,21 @@
 ---
-id: v1-schedule-days-v1
-title: ScheduleDaysV1
-pagination_label: ScheduleDaysV1
-sidebar_label: ScheduleDaysV1
+id: v1-schedule-days
+title: ScheduleDays
+pagination_label: ScheduleDays
+sidebar_label: ScheduleDays
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ScheduleDaysV1', 'v1ScheduleDaysV1']
-slug: /tools/sdk/typescript/sod_policies/models/schedule-days-v1
-tags: ['SDK', 'Software Development Kit', 'ScheduleDaysV1', 'v1ScheduleDaysV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ScheduleDays', 'v1ScheduleDays']
+slug: /tools/sdk/typescript/sod_policies/models/schedule-days
+tags: ['SDK', 'Software Development Kit', 'ScheduleDays', 'v1ScheduleDays']
 ---
 
-# ScheduleDaysV1
+# ScheduleDays
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **SelectortypeV1** |  | [default to undefined]
-**values** | **Array&lt;string&gt;** | The selected values.  | [default to undefined]
-**interval** | **(optional)** **number** | The selected interval for RANGE selectors.  | [default to undefined]
+**type** | `Selectortype` |  | [default to undefined]
+**values** | `Array<string>` | The selected values.  | [default to undefined]
+**interval** | **(optional)** `number` | The selected interval for RANGE selectors.  | [default to undefined]
 

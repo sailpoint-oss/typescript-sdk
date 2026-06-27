@@ -13,8 +13,8 @@ Ownerreferencesegments.md
 README.md
 Segment.md
 SegmentVisibilityCriteria.md
-SegmentsV1Api.md
-SegmentsV1ApideveloperSite_code_examples.yaml
+SegmentsApi.md
+SegmentsApideveloperSite_code_examples.yaml
 Value.md
 Visibilitycriteria.md
 api.ts

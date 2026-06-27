@@ -1,19 +1,19 @@
 ---
-id: v1-dataaccess-impact-score-v1
-title: DataaccessImpactScoreV1
-pagination_label: DataaccessImpactScoreV1
-sidebar_label: DataaccessImpactScoreV1
+id: v1-dataaccess-impact-score
+title: DataaccessImpactScore
+pagination_label: DataaccessImpactScore
+sidebar_label: DataaccessImpactScore
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'DataaccessImpactScoreV1', 'v1DataaccessImpactScoreV1']
-slug: /tools/sdk/typescript/certifications/models/dataaccess-impact-score-v1
-tags: ['SDK', 'Software Development Kit', 'DataaccessImpactScoreV1', 'v1DataaccessImpactScoreV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'DataaccessImpactScore', 'v1DataaccessImpactScore']
+slug: /tools/sdk/typescript/certifications/models/dataaccess-impact-score
+tags: ['SDK', 'Software Development Kit', 'DataaccessImpactScore', 'v1DataaccessImpactScore']
 ---
 
-# DataaccessImpactScoreV1
+# DataaccessImpactScore
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **(optional)** **string** | Impact Score for this data | [default to undefined]
+**value** | **(optional)** `string` | Impact Score for this data | [default to undefined]
 

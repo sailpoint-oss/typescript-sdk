@@ -4,13 +4,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/public_identities_config/methods/public-identities-config#get-public-identity-config-v1
       source: |
-        import { PublicIdentitiesConfigV1Api } from 'sailpoint-api-client';
+        import { PublicIdentitiesConfigApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new PublicIdentitiesConfigV1Api(configuration);
-        const result = await apiInstance.getPublicIdentityConfigV1();
+        const configuration = new Configuration();
+        const apiInstance = new PublicIdentitiesConfigApi(configuration);
+        const result = await apiInstance.getPublicIdentityConfigV1({  });
         console.log(result);
 - path: /public-identities-config/v1
   method: PUT
@@ -18,12 +17,11 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/public_identities_config/methods/public-identities-config#update-public-identity-config-v1
       source: |
-        import { PublicIdentitiesConfigV1Api } from 'sailpoint-api-client';
+        import { PublicIdentitiesConfigApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new PublicIdentitiesConfigV1Api(configuration);
-        const publicidentityconfigV1: PublicidentityconfigV1 = ; // PublicidentityconfigV1 | 
-        const result = await apiInstance.updatePublicIdentityConfigV1(publicidentityconfigV1);
+        const configuration = new Configuration();
+        const apiInstance = new PublicIdentitiesConfigApi(configuration);
+        const publicidentityconfig: Publicidentityconfig = ; // Publicidentityconfig | 
+        const result = await apiInstance.updatePublicIdentityConfigV1({ publicidentityconfig: publicidentityconfig });
         console.log(result);

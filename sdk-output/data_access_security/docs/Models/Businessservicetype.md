@@ -1,15 +1,15 @@
 ---
-id: v1-businessservicetype-v1
-title: BusinessservicetypeV1
-pagination_label: BusinessservicetypeV1
-sidebar_label: BusinessservicetypeV1
+id: v1-businessservicetype
+title: Businessservicetype
+pagination_label: Businessservicetype
+sidebar_label: Businessservicetype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'BusinessservicetypeV1', 'v1BusinessservicetypeV1']
-slug: /tools/sdk/typescript/data_access_security/models/businessservicetype-v1
-tags: ['SDK', 'Software Development Kit', 'BusinessservicetypeV1', 'v1BusinessservicetypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Businessservicetype', 'v1Businessservicetype']
+slug: /tools/sdk/typescript/data_access_security/models/businessservicetype
+tags: ['SDK', 'Software Development Kit', 'Businessservicetype', 'v1Businessservicetype']
 ---
 
-# BusinessservicetypeV1
+# Businessservicetype
 
 ## Enum
 

@@ -1,15 +1,15 @@
 ---
-id: v1-roleminingroletype-v1
-title: RoleminingroletypeV1
-pagination_label: RoleminingroletypeV1
-sidebar_label: RoleminingroletypeV1
+id: v1-roleminingroletype
+title: Roleminingroletype
+pagination_label: Roleminingroletype
+sidebar_label: Roleminingroletype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RoleminingroletypeV1', 'v1RoleminingroletypeV1']
-slug: /tools/sdk/typescript/iai_role_mining/models/roleminingroletype-v1
-tags: ['SDK', 'Software Development Kit', 'RoleminingroletypeV1', 'v1RoleminingroletypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Roleminingroletype', 'v1Roleminingroletype']
+slug: /tools/sdk/typescript/iai_role_mining/models/roleminingroletype
+tags: ['SDK', 'Software Development Kit', 'Roleminingroletype', 'v1Roleminingroletype']
 ---
 
-# RoleminingroletypeV1
+# Roleminingroletype
 
 ## Enum
 

@@ -1,21 +1,21 @@
 ---
-id: v1-dataaccess-v1
-title: DataaccessV1
-pagination_label: DataaccessV1
-sidebar_label: DataaccessV1
+id: v1-dataaccess
+title: Dataaccess
+pagination_label: Dataaccess
+sidebar_label: Dataaccess
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'DataaccessV1', 'v1DataaccessV1']
-slug: /tools/sdk/typescript/certifications/models/dataaccess-v1
-tags: ['SDK', 'Software Development Kit', 'DataaccessV1', 'v1DataaccessV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Dataaccess', 'v1Dataaccess']
+slug: /tools/sdk/typescript/certifications/models/dataaccess
+tags: ['SDK', 'Software Development Kit', 'Dataaccess', 'v1Dataaccess']
 ---
 
-# DataaccessV1
+# Dataaccess
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**policies** | **(optional)** **Array&lt;DataaccessPoliciesInnerV1&gt;** | List of classification policies that apply to resources the entitlement \\ groups has access to | [default to undefined]
-**categories** | **(optional)** **Array&lt;DataaccessCategoriesInnerV1&gt;** | List of classification categories that apply to resources the entitlement \\ groups has access to | [default to undefined]
-**impactScore** | **(optional)** **DataaccessImpactScoreV1** |  | [default to undefined]
+**policies** | **(optional)** `Array<DataaccessPoliciesInner>` | List of classification policies that apply to resources the entitlement \\ groups has access to | [default to undefined]
+**categories** | **(optional)** `Array<DataaccessCategoriesInner>` | List of classification categories that apply to resources the entitlement \\ groups has access to | [default to undefined]
+**impactScore** | **(optional)** `DataaccessImpactScore` |  | [default to undefined]
 

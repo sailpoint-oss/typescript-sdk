@@ -1,15 +1,15 @@
 ---
-id: v1-triggertype-v1
-title: TriggertypeV1
-pagination_label: TriggertypeV1
-sidebar_label: TriggertypeV1
+id: v1-triggertype
+title: Triggertype
+pagination_label: Triggertype
+sidebar_label: Triggertype
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'TriggertypeV1', 'v1TriggertypeV1']
-slug: /tools/sdk/typescript/triggers/models/triggertype-v1
-tags: ['SDK', 'Software Development Kit', 'TriggertypeV1', 'v1TriggertypeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Triggertype', 'v1Triggertype']
+slug: /tools/sdk/typescript/triggers/models/triggertype
+tags: ['SDK', 'Software Development Kit', 'Triggertype', 'v1Triggertype']
 ---
 
-# TriggertypeV1
+# Triggertype
 
 ## Enum
 

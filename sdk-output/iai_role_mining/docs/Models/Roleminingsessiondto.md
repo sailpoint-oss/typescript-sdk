@@ -1,29 +1,29 @@
 ---
-id: v1-roleminingsessiondto-v1
-title: RoleminingsessiondtoV1
-pagination_label: RoleminingsessiondtoV1
-sidebar_label: RoleminingsessiondtoV1
+id: v1-roleminingsessiondto
+title: Roleminingsessiondto
+pagination_label: Roleminingsessiondto
+sidebar_label: Roleminingsessiondto
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RoleminingsessiondtoV1', 'v1RoleminingsessiondtoV1']
-slug: /tools/sdk/typescript/iai_role_mining/models/roleminingsessiondto-v1
-tags: ['SDK', 'Software Development Kit', 'RoleminingsessiondtoV1', 'v1RoleminingsessiondtoV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Roleminingsessiondto', 'v1Roleminingsessiondto']
+slug: /tools/sdk/typescript/iai_role_mining/models/roleminingsessiondto
+tags: ['SDK', 'Software Development Kit', 'Roleminingsessiondto', 'v1Roleminingsessiondto']
 ---
 
-# RoleminingsessiondtoV1
+# Roleminingsessiondto
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**scope** | **(optional)** **RoleminingsessionscopeV1** |  | [default to undefined]
-**pruneThreshold** | **(optional)** **number** | The prune threshold to be used or null to calculate prescribedPruneThreshold | [default to undefined]
-**prescribedPruneThreshold** | **(optional)** **number** | The calculated prescribedPruneThreshold | [default to undefined]
-**minNumIdentitiesInPotentialRole** | **(optional)** **number** | Minimum number of identities in a potential role | [default to undefined]
-**potentialRoleCount** | **(optional)** **number** | Number of potential roles | [default to undefined]
-**potentialRolesReadyCount** | **(optional)** **number** | Number of potential roles ready | [default to undefined]
-**type** | **(optional)** **RoleminingroletypeV1** |  | [default to undefined]
-**emailRecipientId** | **(optional)** **string** | The id of the user who will receive an email about the role mining session | [default to undefined]
-**identityCount** | **(optional)** **number** | Number of identities in the population which meet the search criteria or identity list provided | [default to undefined]
-**saved** | **(optional)** **boolean** | The session\'s saved status | [default to false]
-**name** | **(optional)** **string** | The session\'s saved name | [default to undefined]
+**scope** | **(optional)** `Roleminingsessionscope` |  | [default to undefined]
+**pruneThreshold** | **(optional)** `number` | The prune threshold to be used or null to calculate prescribedPruneThreshold | [default to undefined]
+**prescribedPruneThreshold** | **(optional)** `number` | The calculated prescribedPruneThreshold | [default to undefined]
+**minNumIdentitiesInPotentialRole** | **(optional)** `number` | Minimum number of identities in a potential role | [default to undefined]
+**potentialRoleCount** | **(optional)** `number` | Number of potential roles | [default to undefined]
+**potentialRolesReadyCount** | **(optional)** `number` | Number of potential roles ready | [default to undefined]
+**type** | **(optional)** `Roleminingroletype` |  | [default to undefined]
+**emailRecipientId** | **(optional)** `string` | The id of the user who will receive an email about the role mining session | [default to undefined]
+**identityCount** | **(optional)** `number` | Number of identities in the population which meet the search criteria or identity list provided | [default to undefined]
+**saved** | **(optional)** `boolean` | The session\'s saved status | [default to false]
+**name** | **(optional)** `string` | The session\'s saved name | [default to undefined]
 

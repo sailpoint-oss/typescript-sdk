@@ -26,102 +26,102 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface AccesscriteriaCriteriaListInnerV1
+ * @interface Accesscriteria
  */
-export interface AccesscriteriaCriteriaListInnerV1 {
+export interface Accesscriteria {
+    /**
+     * Business name for the access construct list
+     * @type {string}
+     * @memberof Accesscriteria
+     */
+    'name'?: string;
+    /**
+     * List of criteria. There is a min of 1 and max of 50 items in the list.
+     * @type {Array<AccesscriteriaCriteriaListInner>}
+     * @memberof Accesscriteria
+     */
+    'criteriaList'?: Array<AccesscriteriaCriteriaListInner>;
+}
+/**
+ * 
+ * @export
+ * @interface AccesscriteriaCriteriaListInner
+ */
+export interface AccesscriteriaCriteriaListInner {
     /**
      * Type of the propery to which this reference applies to
      * @type {string}
-     * @memberof AccesscriteriaCriteriaListInnerV1
+     * @memberof AccesscriteriaCriteriaListInner
      */
-    'type'?: AccesscriteriaCriteriaListInnerV1TypeV1;
+    'type'?: AccesscriteriaCriteriaListInnerTypeEnum;
     /**
      * ID of the object to which this reference applies to
      * @type {string}
-     * @memberof AccesscriteriaCriteriaListInnerV1
+     * @memberof AccesscriteriaCriteriaListInner
      */
     'id'?: string;
     /**
      * Human-readable display name of the object to which this reference applies to
      * @type {string}
-     * @memberof AccesscriteriaCriteriaListInnerV1
+     * @memberof AccesscriteriaCriteriaListInner
      */
     'name'?: string;
 }
 
-export const AccesscriteriaCriteriaListInnerV1TypeV1 = {
+export const AccesscriteriaCriteriaListInnerTypeEnum = {
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type AccesscriteriaCriteriaListInnerV1TypeV1 = typeof AccesscriteriaCriteriaListInnerV1TypeV1[keyof typeof AccesscriteriaCriteriaListInnerV1TypeV1];
+export type AccesscriteriaCriteriaListInnerTypeEnum = typeof AccesscriteriaCriteriaListInnerTypeEnum[keyof typeof AccesscriteriaCriteriaListInnerTypeEnum];
 
 /**
  * 
  * @export
- * @interface AccesscriteriaV1
+ * @interface ArrayInner
  */
-export interface AccesscriteriaV1 {
-    /**
-     * Business name for the access construct list
-     * @type {string}
-     * @memberof AccesscriteriaV1
-     */
-    'name'?: string;
-    /**
-     * List of criteria. There is a min of 1 and max of 50 items in the list.
-     * @type {Array<AccesscriteriaCriteriaListInnerV1>}
-     * @memberof AccesscriteriaV1
-     */
-    'criteriaList'?: Array<AccesscriteriaCriteriaListInnerV1>;
+export interface ArrayInner {
 }
 /**
  * 
  * @export
- * @interface ArrayInnerV1
+ * @interface Conflictingaccesscriteria
  */
-export interface ArrayInnerV1 {
-}
-/**
- * 
- * @export
- * @interface ConflictingaccesscriteriaV1
- */
-export interface ConflictingaccesscriteriaV1 {
+export interface Conflictingaccesscriteria {
     /**
      * 
-     * @type {AccesscriteriaV1}
-     * @memberof ConflictingaccesscriteriaV1
+     * @type {Accesscriteria}
+     * @memberof Conflictingaccesscriteria
      */
-    'leftCriteria'?: AccesscriteriaV1;
+    'leftCriteria'?: Accesscriteria;
     /**
      * 
-     * @type {AccesscriteriaV1}
-     * @memberof ConflictingaccesscriteriaV1
+     * @type {Accesscriteria}
+     * @memberof Conflictingaccesscriteria
      */
-    'rightCriteria'?: AccesscriteriaV1;
+    'rightCriteria'?: Accesscriteria;
 }
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -130,61 +130,61 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface JsonpatchoperationV1
+ * @interface Jsonpatchoperation
  */
-export interface JsonpatchoperationV1 {
+export interface Jsonpatchoperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
-    'op': JsonpatchoperationV1OpV1;
+    'op': JsonpatchoperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValueV1}
-     * @memberof JsonpatchoperationV1
+     * @type {JsonpatchoperationValue}
+     * @memberof Jsonpatchoperation
      */
-    'value'?: JsonpatchoperationValueV1;
+    'value'?: JsonpatchoperationValue;
 }
 
-export const JsonpatchoperationV1OpV1 = {
+export const JsonpatchoperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -193,38 +193,38 @@ export const JsonpatchoperationV1OpV1 = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationV1OpV1 = typeof JsonpatchoperationV1OpV1[keyof typeof JsonpatchoperationV1OpV1];
+export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
 
 /**
- * @type JsonpatchoperationValueV1
+ * @type JsonpatchoperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number | object | string;
+export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * 
  * @export
- * @interface ListSodPoliciesV1401ResponseV1
+ * @interface ListSodPoliciesV1401Response
  */
-export interface ListSodPoliciesV1401ResponseV1 {
+export interface ListSodPoliciesV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListSodPoliciesV1401ResponseV1
+     * @memberof ListSodPoliciesV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ListSodPoliciesV1429ResponseV1
+ * @interface ListSodPoliciesV1429Response
  */
-export interface ListSodPoliciesV1429ResponseV1 {
+export interface ListSodPoliciesV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListSodPoliciesV1429ResponseV1
+     * @memberof ListSodPoliciesV1429Response
      */
     'message'?: any;
 }
@@ -234,65 +234,65 @@ export interface ListSodPoliciesV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface MultipolicyrequestV1
+ * @interface Multipolicyrequest
  */
-export interface MultipolicyrequestV1 {
+export interface Multipolicyrequest {
     /**
      * Multi-policy report will be run for this list of ids
      * @type {Array<string>}
-     * @memberof MultipolicyrequestV1
+     * @memberof Multipolicyrequest
      */
     'filteredPolicyList'?: Array<string>;
 }
 /**
  * 
  * @export
- * @interface ReportresultreferenceV1
+ * @interface Reportresultreference
  */
-export interface ReportresultreferenceV1 {
+export interface Reportresultreference {
     /**
      * SOD policy violation report result DTO type.
      * @type {string}
-     * @memberof ReportresultreferenceV1
+     * @memberof Reportresultreference
      */
-    'type'?: ReportresultreferenceV1TypeV1;
+    'type'?: ReportresultreferenceTypeEnum;
     /**
      * SOD policy violation report result ID.
      * @type {string}
-     * @memberof ReportresultreferenceV1
+     * @memberof Reportresultreference
      */
     'id'?: string;
     /**
      * Human-readable name of the SOD policy violation report result.
      * @type {string}
-     * @memberof ReportresultreferenceV1
+     * @memberof Reportresultreference
      */
     'name'?: string;
     /**
      * Status of a SOD policy violation report.
      * @type {string}
-     * @memberof ReportresultreferenceV1
+     * @memberof Reportresultreference
      */
-    'status'?: ReportresultreferenceV1StatusV1;
+    'status'?: ReportresultreferenceStatusEnum;
 }
 
-export const ReportresultreferenceV1TypeV1 = {
+export const ReportresultreferenceTypeEnum = {
     ReportResult: 'REPORT_RESULT'
 } as const;
 
-export type ReportresultreferenceV1TypeV1 = typeof ReportresultreferenceV1TypeV1[keyof typeof ReportresultreferenceV1TypeV1];
-export const ReportresultreferenceV1StatusV1 = {
+export type ReportresultreferenceTypeEnum = typeof ReportresultreferenceTypeEnum[keyof typeof ReportresultreferenceTypeEnum];
+export const ReportresultreferenceStatusEnum = {
     Success: 'SUCCESS',
     Warning: 'WARNING',
     Error: 'ERROR',
@@ -301,131 +301,131 @@ export const ReportresultreferenceV1StatusV1 = {
     Pending: 'PENDING'
 } as const;
 
-export type ReportresultreferenceV1StatusV1 = typeof ReportresultreferenceV1StatusV1[keyof typeof ReportresultreferenceV1StatusV1];
-
-/**
- * 
- * @export
- * @interface ScheduleDaysV1
- */
-export interface ScheduleDaysV1 {
-    /**
-     * 
-     * @type {SelectortypeV1}
-     * @memberof ScheduleDaysV1
-     */
-    'type': SelectortypeV1;
-    /**
-     * The selected values. 
-     * @type {Array<string>}
-     * @memberof ScheduleDaysV1
-     */
-    'values': Array<string>;
-    /**
-     * The selected interval for RANGE selectors. 
-     * @type {number}
-     * @memberof ScheduleDaysV1
-     */
-    'interval'?: number | null;
-}
-
-
-/**
- * 
- * @export
- * @interface ScheduleHoursV1
- */
-export interface ScheduleHoursV1 {
-    /**
-     * 
-     * @type {SelectortypeV1}
-     * @memberof ScheduleHoursV1
-     */
-    'type': SelectortypeV1;
-    /**
-     * The selected values. 
-     * @type {Array<string>}
-     * @memberof ScheduleHoursV1
-     */
-    'values': Array<string>;
-    /**
-     * The selected interval for RANGE selectors. 
-     * @type {number}
-     * @memberof ScheduleHoursV1
-     */
-    'interval'?: number | null;
-}
-
-
-/**
- * 
- * @export
- * @interface ScheduleMonthsV1
- */
-export interface ScheduleMonthsV1 {
-    /**
-     * 
-     * @type {SelectortypeV1}
-     * @memberof ScheduleMonthsV1
-     */
-    'type': SelectortypeV1;
-    /**
-     * The selected values. 
-     * @type {Array<string>}
-     * @memberof ScheduleMonthsV1
-     */
-    'values': Array<string>;
-    /**
-     * The selected interval for RANGE selectors. 
-     * @type {number}
-     * @memberof ScheduleMonthsV1
-     */
-    'interval'?: number | null;
-}
-
+export type ReportresultreferenceStatusEnum = typeof ReportresultreferenceStatusEnum[keyof typeof ReportresultreferenceStatusEnum];
 
 /**
  * The schedule information.
  * @export
- * @interface ScheduleV1
+ * @interface Schedule
  */
-export interface ScheduleV1 {
+export interface Schedule {
     /**
      * 
-     * @type {ScheduletypeV1}
-     * @memberof ScheduleV1
+     * @type {Scheduletype}
+     * @memberof Schedule
      */
-    'type': ScheduletypeV1;
+    'type': Scheduletype;
     /**
      * 
-     * @type {ScheduleMonthsV1}
-     * @memberof ScheduleV1
+     * @type {ScheduleMonths}
+     * @memberof Schedule
      */
-    'months'?: ScheduleMonthsV1;
+    'months'?: ScheduleMonths;
     /**
      * 
-     * @type {ScheduleDaysV1}
-     * @memberof ScheduleV1
+     * @type {ScheduleDays}
+     * @memberof Schedule
      */
-    'days'?: ScheduleDaysV1;
+    'days'?: ScheduleDays;
     /**
      * 
-     * @type {ScheduleHoursV1}
-     * @memberof ScheduleV1
+     * @type {ScheduleHours}
+     * @memberof Schedule
      */
-    'hours': ScheduleHoursV1;
+    'hours': ScheduleHours;
     /**
      * A date-time in ISO-8601 format
      * @type {string}
-     * @memberof ScheduleV1
+     * @memberof Schedule
      */
     'expiration'?: string | null;
     /**
      * The canonical TZ identifier the schedule will run in (ex. America/New_York).  If no timezone is specified, the org\'s default timezone is used.
      * @type {string}
-     * @memberof ScheduleV1
+     * @memberof Schedule
      */
     'timeZoneId'?: string | null;
+}
+
+
+/**
+ * 
+ * @export
+ * @interface ScheduleDays
+ */
+export interface ScheduleDays {
+    /**
+     * 
+     * @type {Selectortype}
+     * @memberof ScheduleDays
+     */
+    'type': Selectortype;
+    /**
+     * The selected values. 
+     * @type {Array<string>}
+     * @memberof ScheduleDays
+     */
+    'values': Array<string>;
+    /**
+     * The selected interval for RANGE selectors. 
+     * @type {number}
+     * @memberof ScheduleDays
+     */
+    'interval'?: number | null;
+}
+
+
+/**
+ * 
+ * @export
+ * @interface ScheduleHours
+ */
+export interface ScheduleHours {
+    /**
+     * 
+     * @type {Selectortype}
+     * @memberof ScheduleHours
+     */
+    'type': Selectortype;
+    /**
+     * The selected values. 
+     * @type {Array<string>}
+     * @memberof ScheduleHours
+     */
+    'values': Array<string>;
+    /**
+     * The selected interval for RANGE selectors. 
+     * @type {number}
+     * @memberof ScheduleHours
+     */
+    'interval'?: number | null;
+}
+
+
+/**
+ * 
+ * @export
+ * @interface ScheduleMonths
+ */
+export interface ScheduleMonths {
+    /**
+     * 
+     * @type {Selectortype}
+     * @memberof ScheduleMonths
+     */
+    'type': Selectortype;
+    /**
+     * The selected values. 
+     * @type {Array<string>}
+     * @memberof ScheduleMonths
+     */
+    'values': Array<string>;
+    /**
+     * The selected interval for RANGE selectors. 
+     * @type {number}
+     * @memberof ScheduleMonths
+     */
+    'interval'?: number | null;
 }
 
 
@@ -435,7 +435,7 @@ export interface ScheduleV1 {
  * @enum {string}
  */
 
-export const ScheduletypeV1 = {
+export const Scheduletype = {
     Daily: 'DAILY',
     Weekly: 'WEEKLY',
     Monthly: 'MONTHLY',
@@ -443,31 +443,31 @@ export const ScheduletypeV1 = {
     Annually: 'ANNUALLY'
 } as const;
 
-export type ScheduletypeV1 = typeof ScheduletypeV1[keyof typeof ScheduletypeV1];
+export type Scheduletype = typeof Scheduletype[keyof typeof Scheduletype];
 
 
 /**
  * 
  * @export
- * @interface SelectorV1
+ * @interface Selector
  */
-export interface SelectorV1 {
+export interface Selector {
     /**
      * 
-     * @type {SelectortypeV1}
-     * @memberof SelectorV1
+     * @type {Selectortype}
+     * @memberof Selector
      */
-    'type': SelectortypeV1;
+    'type': Selectortype;
     /**
      * The selected values. 
      * @type {Array<string>}
-     * @memberof SelectorV1
+     * @memberof Selector
      */
     'values': Array<string>;
     /**
      * The selected interval for RANGE selectors. 
      * @type {number}
-     * @memberof SelectorV1
+     * @memberof Selector
      */
     'interval'?: number | null;
 }
@@ -479,398 +479,398 @@ export interface SelectorV1 {
  * @enum {string}
  */
 
-export const SelectortypeV1 = {
+export const Selectortype = {
     List: 'LIST',
     Range: 'RANGE'
 } as const;
 
-export type SelectortypeV1 = typeof SelectortypeV1[keyof typeof SelectortypeV1];
+export type Selectortype = typeof Selectortype[keyof typeof Selectortype];
 
 
 /**
  * 
  * @export
- * @interface SodpolicyConflictingAccessCriteriaV1
+ * @interface Sodpolicy
  */
-export interface SodpolicyConflictingAccessCriteriaV1 {
-    /**
-     * 
-     * @type {AccesscriteriaV1}
-     * @memberof SodpolicyConflictingAccessCriteriaV1
-     */
-    'leftCriteria'?: AccesscriteriaV1;
-    /**
-     * 
-     * @type {AccesscriteriaV1}
-     * @memberof SodpolicyConflictingAccessCriteriaV1
-     */
-    'rightCriteria'?: AccesscriteriaV1;
-}
-/**
- * The owner of the SOD policy.
- * @export
- * @interface SodpolicyOwnerRefV1
- */
-export interface SodpolicyOwnerRefV1 {
-    /**
-     * Owner type.
-     * @type {string}
-     * @memberof SodpolicyOwnerRefV1
-     */
-    'type'?: SodpolicyOwnerRefV1TypeV1;
-    /**
-     * Owner\'s ID.
-     * @type {string}
-     * @memberof SodpolicyOwnerRefV1
-     */
-    'id'?: string;
-    /**
-     * Owner\'s name.
-     * @type {string}
-     * @memberof SodpolicyOwnerRefV1
-     */
-    'name'?: string;
-}
-
-export const SodpolicyOwnerRefV1TypeV1 = {
-    Identity: 'IDENTITY',
-    GovernanceGroup: 'GOVERNANCE_GROUP'
-} as const;
-
-export type SodpolicyOwnerRefV1TypeV1 = typeof SodpolicyOwnerRefV1TypeV1[keyof typeof SodpolicyOwnerRefV1TypeV1];
-
-/**
- * 
- * @export
- * @interface SodpolicyV1
- */
-export interface SodpolicyV1 {
+export interface Sodpolicy {
     /**
      * Policy id
      * @type {string}
-     * @memberof SodpolicyV1
+     * @memberof Sodpolicy
      */
     'id'?: string;
     /**
      * Policy Business Name
      * @type {string}
-     * @memberof SodpolicyV1
+     * @memberof Sodpolicy
      */
     'name'?: string;
     /**
      * The time when this SOD policy is created.
      * @type {string}
-     * @memberof SodpolicyV1
+     * @memberof Sodpolicy
      */
     'created'?: string;
     /**
      * The time when this SOD policy is modified.
      * @type {string}
-     * @memberof SodpolicyV1
+     * @memberof Sodpolicy
      */
     'modified'?: string;
     /**
      * Optional description of the SOD policy
      * @type {string}
-     * @memberof SodpolicyV1
+     * @memberof Sodpolicy
      */
     'description'?: string | null;
     /**
      * 
-     * @type {SodpolicyOwnerRefV1}
-     * @memberof SodpolicyV1
+     * @type {SodpolicyOwnerRef}
+     * @memberof Sodpolicy
      */
-    'ownerRef'?: SodpolicyOwnerRefV1;
+    'ownerRef'?: SodpolicyOwnerRef;
     /**
      * Optional External Policy Reference
      * @type {string}
-     * @memberof SodpolicyV1
+     * @memberof Sodpolicy
      */
     'externalPolicyReference'?: string | null;
     /**
      * Search query of the SOD policy
      * @type {string}
-     * @memberof SodpolicyV1
+     * @memberof Sodpolicy
      */
     'policyQuery'?: string;
     /**
      * Optional compensating controls(Mitigating Controls)
      * @type {string}
-     * @memberof SodpolicyV1
+     * @memberof Sodpolicy
      */
     'compensatingControls'?: string | null;
     /**
      * Optional correction advice
      * @type {string}
-     * @memberof SodpolicyV1
+     * @memberof Sodpolicy
      */
     'correctionAdvice'?: string | null;
     /**
      * whether the policy is enforced or not
      * @type {string}
-     * @memberof SodpolicyV1
+     * @memberof Sodpolicy
      */
-    'state'?: SodpolicyV1StateV1;
+    'state'?: SodpolicyStateEnum;
     /**
      * tags for this policy object
      * @type {Array<string>}
-     * @memberof SodpolicyV1
+     * @memberof Sodpolicy
      */
     'tags'?: Array<string>;
     /**
      * Policy\'s creator ID
      * @type {string}
-     * @memberof SodpolicyV1
+     * @memberof Sodpolicy
      */
     'creatorId'?: string;
     /**
      * Policy\'s modifier ID
      * @type {string}
-     * @memberof SodpolicyV1
+     * @memberof Sodpolicy
      */
     'modifierId'?: string | null;
     /**
      * 
-     * @type {ViolationownerassignmentconfigV1}
-     * @memberof SodpolicyV1
+     * @type {Violationownerassignmentconfig}
+     * @memberof Sodpolicy
      */
-    'violationOwnerAssignmentConfig'?: ViolationownerassignmentconfigV1;
+    'violationOwnerAssignmentConfig'?: Violationownerassignmentconfig;
     /**
      * defines whether a policy has been scheduled or not
      * @type {boolean}
-     * @memberof SodpolicyV1
+     * @memberof Sodpolicy
      */
     'scheduled'?: boolean;
     /**
      * whether a policy is query based or conflicting access based
      * @type {string}
-     * @memberof SodpolicyV1
+     * @memberof Sodpolicy
      */
-    'type'?: SodpolicyV1TypeV1;
+    'type'?: SodpolicyTypeEnum;
     /**
      * 
-     * @type {SodpolicyConflictingAccessCriteriaV1}
-     * @memberof SodpolicyV1
+     * @type {SodpolicyConflictingAccessCriteria}
+     * @memberof Sodpolicy
      */
-    'conflictingAccessCriteria'?: SodpolicyConflictingAccessCriteriaV1;
+    'conflictingAccessCriteria'?: SodpolicyConflictingAccessCriteria;
 }
 
-export const SodpolicyV1StateV1 = {
+export const SodpolicyStateEnum = {
     Enforced: 'ENFORCED',
     NotEnforced: 'NOT_ENFORCED'
 } as const;
 
-export type SodpolicyV1StateV1 = typeof SodpolicyV1StateV1[keyof typeof SodpolicyV1StateV1];
-export const SodpolicyV1TypeV1 = {
+export type SodpolicyStateEnum = typeof SodpolicyStateEnum[keyof typeof SodpolicyStateEnum];
+export const SodpolicyTypeEnum = {
     General: 'GENERAL',
     ConflictingAccessBased: 'CONFLICTING_ACCESS_BASED'
 } as const;
 
-export type SodpolicyV1TypeV1 = typeof SodpolicyV1TypeV1[keyof typeof SodpolicyV1TypeV1];
+export type SodpolicyTypeEnum = typeof SodpolicyTypeEnum[keyof typeof SodpolicyTypeEnum];
 
 /**
  * 
  * @export
- * @interface SodpolicyscheduleV1
+ * @interface SodpolicyConflictingAccessCriteria
  */
-export interface SodpolicyscheduleV1 {
+export interface SodpolicyConflictingAccessCriteria {
+    /**
+     * 
+     * @type {Accesscriteria}
+     * @memberof SodpolicyConflictingAccessCriteria
+     */
+    'leftCriteria'?: Accesscriteria;
+    /**
+     * 
+     * @type {Accesscriteria}
+     * @memberof SodpolicyConflictingAccessCriteria
+     */
+    'rightCriteria'?: Accesscriteria;
+}
+/**
+ * The owner of the SOD policy.
+ * @export
+ * @interface SodpolicyOwnerRef
+ */
+export interface SodpolicyOwnerRef {
+    /**
+     * Owner type.
+     * @type {string}
+     * @memberof SodpolicyOwnerRef
+     */
+    'type'?: SodpolicyOwnerRefTypeEnum;
+    /**
+     * Owner\'s ID.
+     * @type {string}
+     * @memberof SodpolicyOwnerRef
+     */
+    'id'?: string;
+    /**
+     * Owner\'s name.
+     * @type {string}
+     * @memberof SodpolicyOwnerRef
+     */
+    'name'?: string;
+}
+
+export const SodpolicyOwnerRefTypeEnum = {
+    Identity: 'IDENTITY',
+    GovernanceGroup: 'GOVERNANCE_GROUP'
+} as const;
+
+export type SodpolicyOwnerRefTypeEnum = typeof SodpolicyOwnerRefTypeEnum[keyof typeof SodpolicyOwnerRefTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface Sodpolicyschedule
+ */
+export interface Sodpolicyschedule {
     /**
      * SOD Policy schedule name
      * @type {string}
-     * @memberof SodpolicyscheduleV1
+     * @memberof Sodpolicyschedule
      */
     'name'?: string;
     /**
      * The time when this SOD policy schedule is created.
      * @type {string}
-     * @memberof SodpolicyscheduleV1
+     * @memberof Sodpolicyschedule
      */
     'created'?: string;
     /**
      * The time when this SOD policy schedule is modified.
      * @type {string}
-     * @memberof SodpolicyscheduleV1
+     * @memberof Sodpolicyschedule
      */
     'modified'?: string;
     /**
      * SOD Policy schedule description
      * @type {string}
-     * @memberof SodpolicyscheduleV1
+     * @memberof Sodpolicyschedule
      */
     'description'?: string;
     /**
      * 
-     * @type {ScheduleV1}
-     * @memberof SodpolicyscheduleV1
+     * @type {Schedule}
+     * @memberof Sodpolicyschedule
      */
-    'schedule'?: ScheduleV1;
+    'schedule'?: Schedule;
     /**
      * 
-     * @type {Array<SodrecipientV1>}
-     * @memberof SodpolicyscheduleV1
+     * @type {Array<Sodrecipient>}
+     * @memberof Sodpolicyschedule
      */
-    'recipients'?: Array<SodrecipientV1>;
+    'recipients'?: Array<Sodrecipient>;
     /**
      * Indicates if empty results need to be emailed
      * @type {boolean}
-     * @memberof SodpolicyscheduleV1
+     * @memberof Sodpolicyschedule
      */
     'emailEmptyResults'?: boolean;
     /**
      * Policy\'s creator ID
      * @type {string}
-     * @memberof SodpolicyscheduleV1
+     * @memberof Sodpolicyschedule
      */
     'creatorId'?: string;
     /**
      * Policy\'s modifier ID
      * @type {string}
-     * @memberof SodpolicyscheduleV1
+     * @memberof Sodpolicyschedule
      */
     'modifierId'?: string;
 }
 /**
  * SOD policy recipient.
  * @export
- * @interface SodrecipientV1
+ * @interface Sodrecipient
  */
-export interface SodrecipientV1 {
+export interface Sodrecipient {
     /**
      * SOD policy recipient DTO type.
      * @type {string}
-     * @memberof SodrecipientV1
+     * @memberof Sodrecipient
      */
-    'type'?: SodrecipientV1TypeV1;
+    'type'?: SodrecipientTypeEnum;
     /**
      * SOD policy recipient\'s identity ID.
      * @type {string}
-     * @memberof SodrecipientV1
+     * @memberof Sodrecipient
      */
     'id'?: string;
     /**
      * SOD policy recipient\'s display name.
      * @type {string}
-     * @memberof SodrecipientV1
+     * @memberof Sodrecipient
      */
     'name'?: string;
 }
 
-export const SodrecipientV1TypeV1 = {
+export const SodrecipientTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type SodrecipientV1TypeV1 = typeof SodrecipientV1TypeV1[keyof typeof SodrecipientV1TypeV1];
+export type SodrecipientTypeEnum = typeof SodrecipientTypeEnum[keyof typeof SodrecipientTypeEnum];
 
 /**
  * SOD policy violation report result.
  * @export
- * @interface SodreportresultdtoV1
+ * @interface Sodreportresultdto
  */
-export interface SodreportresultdtoV1 {
+export interface Sodreportresultdto {
     /**
      * SOD policy violation report result DTO type.
      * @type {string}
-     * @memberof SodreportresultdtoV1
+     * @memberof Sodreportresultdto
      */
-    'type'?: SodreportresultdtoV1TypeV1;
+    'type'?: SodreportresultdtoTypeEnum;
     /**
      * SOD policy violation report result ID.
      * @type {string}
-     * @memberof SodreportresultdtoV1
+     * @memberof Sodreportresultdto
      */
     'id'?: string;
     /**
      * Human-readable name of the SOD policy violation report result.
      * @type {string}
-     * @memberof SodreportresultdtoV1
+     * @memberof Sodreportresultdto
      */
     'name'?: string;
 }
 
-export const SodreportresultdtoV1TypeV1 = {
+export const SodreportresultdtoTypeEnum = {
     ReportResult: 'REPORT_RESULT'
 } as const;
 
-export type SodreportresultdtoV1TypeV1 = typeof SodreportresultdtoV1TypeV1[keyof typeof SodreportresultdtoV1TypeV1];
+export type SodreportresultdtoTypeEnum = typeof SodreportresultdtoTypeEnum[keyof typeof SodreportresultdtoTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface Violationownerassignmentconfig
+ */
+export interface Violationownerassignmentconfig {
+    /**
+     * Details about the violations owner. MANAGER - identity\'s manager STATIC - Governance Group or Identity
+     * @type {string}
+     * @memberof Violationownerassignmentconfig
+     */
+    'assignmentRule'?: ViolationownerassignmentconfigAssignmentRuleEnum | null;
+    /**
+     * 
+     * @type {ViolationownerassignmentconfigOwnerRef}
+     * @memberof Violationownerassignmentconfig
+     */
+    'ownerRef'?: ViolationownerassignmentconfigOwnerRef | null;
+}
+
+export const ViolationownerassignmentconfigAssignmentRuleEnum = {
+    Manager: 'MANAGER',
+    Static: 'STATIC'
+} as const;
+
+export type ViolationownerassignmentconfigAssignmentRuleEnum = typeof ViolationownerassignmentconfigAssignmentRuleEnum[keyof typeof ViolationownerassignmentconfigAssignmentRuleEnum];
 
 /**
  * The owner of the violation assignment config.
  * @export
- * @interface ViolationownerassignmentconfigOwnerRefV1
+ * @interface ViolationownerassignmentconfigOwnerRef
  */
-export interface ViolationownerassignmentconfigOwnerRefV1 {
+export interface ViolationownerassignmentconfigOwnerRef {
     /**
      * Owner type.
      * @type {string}
-     * @memberof ViolationownerassignmentconfigOwnerRefV1
+     * @memberof ViolationownerassignmentconfigOwnerRef
      */
-    'type'?: ViolationownerassignmentconfigOwnerRefV1TypeV1 | null;
+    'type'?: ViolationownerassignmentconfigOwnerRefTypeEnum | null;
     /**
      * Owner\'s ID.
      * @type {string}
-     * @memberof ViolationownerassignmentconfigOwnerRefV1
+     * @memberof ViolationownerassignmentconfigOwnerRef
      */
     'id'?: string;
     /**
      * Owner\'s name.
      * @type {string}
-     * @memberof ViolationownerassignmentconfigOwnerRefV1
+     * @memberof ViolationownerassignmentconfigOwnerRef
      */
     'name'?: string;
 }
 
-export const ViolationownerassignmentconfigOwnerRefV1TypeV1 = {
+export const ViolationownerassignmentconfigOwnerRefTypeEnum = {
     Identity: 'IDENTITY',
     GovernanceGroup: 'GOVERNANCE_GROUP',
     Manager: 'MANAGER'
 } as const;
 
-export type ViolationownerassignmentconfigOwnerRefV1TypeV1 = typeof ViolationownerassignmentconfigOwnerRefV1TypeV1[keyof typeof ViolationownerassignmentconfigOwnerRefV1TypeV1];
-
-/**
- * 
- * @export
- * @interface ViolationownerassignmentconfigV1
- */
-export interface ViolationownerassignmentconfigV1 {
-    /**
-     * Details about the violations owner. MANAGER - identity\'s manager STATIC - Governance Group or Identity
-     * @type {string}
-     * @memberof ViolationownerassignmentconfigV1
-     */
-    'assignmentRule'?: ViolationownerassignmentconfigV1AssignmentRuleV1 | null;
-    /**
-     * 
-     * @type {ViolationownerassignmentconfigOwnerRefV1}
-     * @memberof ViolationownerassignmentconfigV1
-     */
-    'ownerRef'?: ViolationownerassignmentconfigOwnerRefV1 | null;
-}
-
-export const ViolationownerassignmentconfigV1AssignmentRuleV1 = {
-    Manager: 'MANAGER',
-    Static: 'STATIC'
-} as const;
-
-export type ViolationownerassignmentconfigV1AssignmentRuleV1 = typeof ViolationownerassignmentconfigV1AssignmentRuleV1[keyof typeof ViolationownerassignmentconfigV1AssignmentRuleV1];
+export type ViolationownerassignmentconfigOwnerRefTypeEnum = typeof ViolationownerassignmentconfigOwnerRefTypeEnum[keyof typeof ViolationownerassignmentconfigOwnerRefTypeEnum];
 
 
 /**
- * SODPoliciesV1Api - axios parameter creator
+ * SODPoliciesApi - axios parameter creator
  * @export
  */
-export const SODPoliciesV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const SODPoliciesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy. Requires role of ORG_ADMIN.
          * @summary Create sod policy
-         * @param {SodpolicyV1} sodpolicyV1 
+         * @param {Sodpolicy} sodpolicy 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createSodPolicyV1: async (sodpolicyV1: SodpolicyV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'sodpolicyV1' is not null or undefined
-            assertParamExists('createSodPolicyV1', 'sodpolicyV1', sodpolicyV1)
+        createSodPolicyV1: async (sodpolicy: Sodpolicy, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sodpolicy' is not null or undefined
+            assertParamExists('createSodPolicyV1', 'sodpolicy', sodpolicy)
             const localVarPath = `/sod-policies/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -890,7 +890,7 @@ export const SODPoliciesV1ApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(sodpolicyV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(sodpolicy, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1267,15 +1267,15 @@ export const SODPoliciesV1ApiAxiosParamCreator = function (configuration?: Confi
          * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
          * @summary Patch sod policy by id
          * @param {string} id The ID of the SOD policy being modified.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchSodPolicyV1: async (id: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchSodPolicyV1: async (id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchSodPolicyV1', 'id', id)
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('patchSodPolicyV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('patchSodPolicyV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/sod-policies/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1296,7 +1296,7 @@ export const SODPoliciesV1ApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1307,15 +1307,15 @@ export const SODPoliciesV1ApiAxiosParamCreator = function (configuration?: Confi
          * This updates schedule for a specified SOD policy.
          * @summary Update sod policy schedule
          * @param {string} id The ID of the SOD policy to update its schedule.
-         * @param {SodpolicyscheduleV1} sodpolicyscheduleV1 
+         * @param {Sodpolicyschedule} sodpolicyschedule 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putPolicyScheduleV1: async (id: string, sodpolicyscheduleV1: SodpolicyscheduleV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putPolicyScheduleV1: async (id: string, sodpolicyschedule: Sodpolicyschedule, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('putPolicyScheduleV1', 'id', id)
-            // verify required parameter 'sodpolicyscheduleV1' is not null or undefined
-            assertParamExists('putPolicyScheduleV1', 'sodpolicyscheduleV1', sodpolicyscheduleV1)
+            // verify required parameter 'sodpolicyschedule' is not null or undefined
+            assertParamExists('putPolicyScheduleV1', 'sodpolicyschedule', sodpolicyschedule)
             const localVarPath = `/sod-policies/v1/{id}/schedule`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1336,7 +1336,7 @@ export const SODPoliciesV1ApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(sodpolicyscheduleV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(sodpolicyschedule, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1347,15 +1347,15 @@ export const SODPoliciesV1ApiAxiosParamCreator = function (configuration?: Confi
          * This updates a specified SOD policy. Requires role of ORG_ADMIN.
          * @summary Update sod policy by id
          * @param {string} id The ID of the SOD policy to update.
-         * @param {SodpolicyV1} sodpolicyV1 
+         * @param {Sodpolicy} sodpolicy 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putSodPolicyV1: async (id: string, sodpolicyV1: SodpolicyV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putSodPolicyV1: async (id: string, sodpolicy: Sodpolicy, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('putSodPolicyV1', 'id', id)
-            // verify required parameter 'sodpolicyV1' is not null or undefined
-            assertParamExists('putSodPolicyV1', 'sodpolicyV1', sodpolicyV1)
+            // verify required parameter 'sodpolicy' is not null or undefined
+            assertParamExists('putSodPolicyV1', 'sodpolicy', sodpolicy)
             const localVarPath = `/sod-policies/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1376,7 +1376,7 @@ export const SODPoliciesV1ApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(sodpolicyV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(sodpolicy, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1420,11 +1420,11 @@ export const SODPoliciesV1ApiAxiosParamCreator = function (configuration?: Confi
         /**
          * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
          * @summary Runs all policies for org
-         * @param {MultipolicyrequestV1} [multipolicyrequestV1] 
+         * @param {Multipolicyrequest} [multipolicyrequest] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startSodAllPoliciesForOrgV1: async (multipolicyrequestV1?: MultipolicyrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        startSodAllPoliciesForOrgV1: async (multipolicyrequest?: Multipolicyrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/sod-violation-report/v1/run`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1444,7 +1444,7 @@ export const SODPoliciesV1ApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(multipolicyrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(multipolicyrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1489,23 +1489,23 @@ export const SODPoliciesV1ApiAxiosParamCreator = function (configuration?: Confi
 };
 
 /**
- * SODPoliciesV1Api - functional programming interface
+ * SODPoliciesApi - functional programming interface
  * @export
  */
-export const SODPoliciesV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = SODPoliciesV1ApiAxiosParamCreator(configuration)
+export const SODPoliciesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SODPoliciesApiAxiosParamCreator(configuration)
     return {
         /**
          * This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy. Requires role of ORG_ADMIN.
          * @summary Create sod policy
-         * @param {SodpolicyV1} sodpolicyV1 
+         * @param {Sodpolicy} sodpolicy 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSodPolicyV1(sodpolicyV1: SodpolicyV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodpolicyV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSodPolicyV1(sodpolicyV1, axiosOptions);
+        async createSodPolicyV1(sodpolicy: Sodpolicy, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sodpolicy>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSodPolicyV1(sodpolicy, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SODPoliciesV1Api.createSodPolicyV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SODPoliciesApi.createSodPolicyV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1518,7 +1518,7 @@ export const SODPoliciesV1ApiFp = function(configuration?: Configuration) {
         async deleteSodPolicyScheduleV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSodPolicyScheduleV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SODPoliciesV1Api.deleteSodPolicyScheduleV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SODPoliciesApi.deleteSodPolicyScheduleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1532,7 +1532,7 @@ export const SODPoliciesV1ApiFp = function(configuration?: Configuration) {
         async deleteSodPolicyV1(id: string, logical?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSodPolicyV1(id, logical, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SODPoliciesV1Api.deleteSodPolicyV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SODPoliciesApi.deleteSodPolicyV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1546,7 +1546,7 @@ export const SODPoliciesV1ApiFp = function(configuration?: Configuration) {
         async getCustomViolationReportV1(reportResultId: string, fileName: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomViolationReportV1(reportResultId, fileName, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SODPoliciesV1Api.getCustomViolationReportV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SODPoliciesApi.getCustomViolationReportV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1559,7 +1559,7 @@ export const SODPoliciesV1ApiFp = function(configuration?: Configuration) {
         async getDefaultViolationReportV1(reportResultId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDefaultViolationReportV1(reportResultId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SODPoliciesV1Api.getDefaultViolationReportV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SODPoliciesApi.getDefaultViolationReportV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1568,10 +1568,10 @@ export const SODPoliciesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSodAllReportRunStatusV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportresultreferenceV1>> {
+        async getSodAllReportRunStatusV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Reportresultreference>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSodAllReportRunStatusV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SODPoliciesV1Api.getSodAllReportRunStatusV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SODPoliciesApi.getSodAllReportRunStatusV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1581,10 +1581,10 @@ export const SODPoliciesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSodPolicyScheduleV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodpolicyscheduleV1>> {
+        async getSodPolicyScheduleV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sodpolicyschedule>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSodPolicyScheduleV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SODPoliciesV1Api.getSodPolicyScheduleV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SODPoliciesApi.getSodPolicyScheduleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1594,10 +1594,10 @@ export const SODPoliciesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSodPolicyV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodpolicyV1>> {
+        async getSodPolicyV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sodpolicy>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSodPolicyV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SODPoliciesV1Api.getSodPolicyV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SODPoliciesApi.getSodPolicyV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1607,10 +1607,10 @@ export const SODPoliciesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSodViolationReportRunStatusV1(reportResultId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportresultreferenceV1>> {
+        async getSodViolationReportRunStatusV1(reportResultId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Reportresultreference>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSodViolationReportRunStatusV1(reportResultId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SODPoliciesV1Api.getSodViolationReportRunStatusV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SODPoliciesApi.getSodViolationReportRunStatusV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1620,10 +1620,10 @@ export const SODPoliciesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSodViolationReportStatusV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportresultreferenceV1>> {
+        async getSodViolationReportStatusV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Reportresultreference>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSodViolationReportStatusV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SODPoliciesV1Api.getSodViolationReportStatusV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SODPoliciesApi.getSodViolationReportStatusV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1637,52 +1637,52 @@ export const SODPoliciesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listSodPoliciesV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SodpolicyV1>>> {
+        async listSodPoliciesV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Sodpolicy>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listSodPoliciesV1(limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SODPoliciesV1Api.listSodPoliciesV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SODPoliciesApi.listSodPoliciesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
          * @summary Patch sod policy by id
          * @param {string} id The ID of the SOD policy being modified.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchSodPolicyV1(id: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodpolicyV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSodPolicyV1(id, jsonpatchoperationV1, axiosOptions);
+        async patchSodPolicyV1(id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sodpolicy>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSodPolicyV1(id, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SODPoliciesV1Api.patchSodPolicyV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SODPoliciesApi.patchSodPolicyV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This updates schedule for a specified SOD policy.
          * @summary Update sod policy schedule
          * @param {string} id The ID of the SOD policy to update its schedule.
-         * @param {SodpolicyscheduleV1} sodpolicyscheduleV1 
+         * @param {Sodpolicyschedule} sodpolicyschedule 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putPolicyScheduleV1(id: string, sodpolicyscheduleV1: SodpolicyscheduleV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodpolicyscheduleV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putPolicyScheduleV1(id, sodpolicyscheduleV1, axiosOptions);
+        async putPolicyScheduleV1(id: string, sodpolicyschedule: Sodpolicyschedule, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sodpolicyschedule>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putPolicyScheduleV1(id, sodpolicyschedule, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SODPoliciesV1Api.putPolicyScheduleV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SODPoliciesApi.putPolicyScheduleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This updates a specified SOD policy. Requires role of ORG_ADMIN.
          * @summary Update sod policy by id
          * @param {string} id The ID of the SOD policy to update.
-         * @param {SodpolicyV1} sodpolicyV1 
+         * @param {Sodpolicy} sodpolicy 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putSodPolicyV1(id: string, sodpolicyV1: SodpolicyV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodpolicyV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putSodPolicyV1(id, sodpolicyV1, axiosOptions);
+        async putSodPolicyV1(id: string, sodpolicy: Sodpolicy, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sodpolicy>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putSodPolicyV1(id, sodpolicy, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SODPoliciesV1Api.putSodPolicyV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SODPoliciesApi.putSodPolicyV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1692,23 +1692,23 @@ export const SODPoliciesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startEvaluateSodPolicyV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportresultreferenceV1>> {
+        async startEvaluateSodPolicyV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Reportresultreference>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.startEvaluateSodPolicyV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SODPoliciesV1Api.startEvaluateSodPolicyV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SODPoliciesApi.startEvaluateSodPolicyV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
          * @summary Runs all policies for org
-         * @param {MultipolicyrequestV1} [multipolicyrequestV1] 
+         * @param {Multipolicyrequest} [multipolicyrequest] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startSodAllPoliciesForOrgV1(multipolicyrequestV1?: MultipolicyrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportresultreferenceV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startSodAllPoliciesForOrgV1(multipolicyrequestV1, axiosOptions);
+        async startSodAllPoliciesForOrgV1(multipolicyrequest?: Multipolicyrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Reportresultreference>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startSodAllPoliciesForOrgV1(multipolicyrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SODPoliciesV1Api.startSodAllPoliciesForOrgV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SODPoliciesApi.startSodAllPoliciesForOrgV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1718,70 +1718,70 @@ export const SODPoliciesV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startSodPolicyV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportresultreferenceV1>> {
+        async startSodPolicyV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Reportresultreference>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.startSodPolicyV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SODPoliciesV1Api.startSodPolicyV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['SODPoliciesApi.startSodPolicyV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * SODPoliciesV1Api - factory interface
+ * SODPoliciesApi - factory interface
  * @export
  */
-export const SODPoliciesV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = SODPoliciesV1ApiFp(configuration)
+export const SODPoliciesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SODPoliciesApiFp(configuration)
     return {
         /**
          * This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy. Requires role of ORG_ADMIN.
          * @summary Create sod policy
-         * @param {SODPoliciesV1ApiCreateSodPolicyV1Request} requestParameters Request parameters.
+         * @param {SODPoliciesApiCreateSodPolicyV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createSodPolicyV1(requestParameters: SODPoliciesV1ApiCreateSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SodpolicyV1> {
-            return localVarFp.createSodPolicyV1(requestParameters.sodpolicyV1, axiosOptions).then((request) => request(axios, basePath));
+        createSodPolicyV1(requestParameters: SODPoliciesApiCreateSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sodpolicy> {
+            return localVarFp.createSodPolicyV1(requestParameters.sodpolicy, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This deletes schedule for a specified SOD policy by ID.
          * @summary Delete sod policy schedule
-         * @param {SODPoliciesV1ApiDeleteSodPolicyScheduleV1Request} requestParameters Request parameters.
+         * @param {SODPoliciesApiDeleteSodPolicyScheduleV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteSodPolicyScheduleV1(requestParameters: SODPoliciesV1ApiDeleteSodPolicyScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteSodPolicyScheduleV1(requestParameters: SODPoliciesApiDeleteSodPolicyScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteSodPolicyScheduleV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This deletes a specified SOD policy. Requires role of ORG_ADMIN.
          * @summary Delete sod policy by id
-         * @param {SODPoliciesV1ApiDeleteSodPolicyV1Request} requestParameters Request parameters.
+         * @param {SODPoliciesApiDeleteSodPolicyV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteSodPolicyV1(requestParameters: SODPoliciesV1ApiDeleteSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteSodPolicyV1(requestParameters: SODPoliciesApiDeleteSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteSodPolicyV1(requestParameters.id, requestParameters.logical, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This allows to download a specified named violation report for a given report reference.
          * @summary Download custom violation report
-         * @param {SODPoliciesV1ApiGetCustomViolationReportV1Request} requestParameters Request parameters.
+         * @param {SODPoliciesApiGetCustomViolationReportV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCustomViolationReportV1(requestParameters: SODPoliciesV1ApiGetCustomViolationReportV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<File> {
+        getCustomViolationReportV1(requestParameters: SODPoliciesApiGetCustomViolationReportV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<File> {
             return localVarFp.getCustomViolationReportV1(requestParameters.reportResultId, requestParameters.fileName, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This allows to download a violation report for a given report reference.
          * @summary Download violation report
-         * @param {SODPoliciesV1ApiGetDefaultViolationReportV1Request} requestParameters Request parameters.
+         * @param {SODPoliciesApiGetDefaultViolationReportV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getDefaultViolationReportV1(requestParameters: SODPoliciesV1ApiGetDefaultViolationReportV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<File> {
+        getDefaultViolationReportV1(requestParameters: SODPoliciesApiGetDefaultViolationReportV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<File> {
             return localVarFp.getDefaultViolationReportV1(requestParameters.reportResultId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1790,474 +1790,474 @@ export const SODPoliciesV1ApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSodAllReportRunStatusV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ReportresultreferenceV1> {
+        getSodAllReportRunStatusV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Reportresultreference> {
             return localVarFp.getSodAllReportRunStatusV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint gets a specified SOD policy\'s schedule.
          * @summary Get sod policy schedule
-         * @param {SODPoliciesV1ApiGetSodPolicyScheduleV1Request} requestParameters Request parameters.
+         * @param {SODPoliciesApiGetSodPolicyScheduleV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSodPolicyScheduleV1(requestParameters: SODPoliciesV1ApiGetSodPolicyScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SodpolicyscheduleV1> {
+        getSodPolicyScheduleV1(requestParameters: SODPoliciesApiGetSodPolicyScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sodpolicyschedule> {
             return localVarFp.getSodPolicyScheduleV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets specified SOD policy. Requires role of ORG_ADMIN.
          * @summary Get sod policy by id
-         * @param {SODPoliciesV1ApiGetSodPolicyV1Request} requestParameters Request parameters.
+         * @param {SODPoliciesApiGetSodPolicyV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSodPolicyV1(requestParameters: SODPoliciesV1ApiGetSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SodpolicyV1> {
+        getSodPolicyV1(requestParameters: SODPoliciesApiGetSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sodpolicy> {
             return localVarFp.getSodPolicyV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets the status for a violation report run task that has already been invoked.
          * @summary Get violation report run status
-         * @param {SODPoliciesV1ApiGetSodViolationReportRunStatusV1Request} requestParameters Request parameters.
+         * @param {SODPoliciesApiGetSodViolationReportRunStatusV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSodViolationReportRunStatusV1(requestParameters: SODPoliciesV1ApiGetSodViolationReportRunStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ReportresultreferenceV1> {
+        getSodViolationReportRunStatusV1(requestParameters: SODPoliciesApiGetSodViolationReportRunStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Reportresultreference> {
             return localVarFp.getSodViolationReportRunStatusV1(requestParameters.reportResultId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets the status for a violation report run task that has already been invoked.
          * @summary Get sod violation report status
-         * @param {SODPoliciesV1ApiGetSodViolationReportStatusV1Request} requestParameters Request parameters.
+         * @param {SODPoliciesApiGetSodViolationReportStatusV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSodViolationReportStatusV1(requestParameters: SODPoliciesV1ApiGetSodViolationReportStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ReportresultreferenceV1> {
+        getSodViolationReportStatusV1(requestParameters: SODPoliciesApiGetSodViolationReportStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Reportresultreference> {
             return localVarFp.getSodViolationReportStatusV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets list of all SOD policies. Requires role of ORG_ADMIN
          * @summary List sod policies
-         * @param {SODPoliciesV1ApiListSodPoliciesV1Request} requestParameters Request parameters.
+         * @param {SODPoliciesApiListSodPoliciesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listSodPoliciesV1(requestParameters: SODPoliciesV1ApiListSodPoliciesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SodpolicyV1>> {
+        listSodPoliciesV1(requestParameters: SODPoliciesApiListSodPoliciesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Sodpolicy>> {
             return localVarFp.listSodPoliciesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
          * @summary Patch sod policy by id
-         * @param {SODPoliciesV1ApiPatchSodPolicyV1Request} requestParameters Request parameters.
+         * @param {SODPoliciesApiPatchSodPolicyV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchSodPolicyV1(requestParameters: SODPoliciesV1ApiPatchSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SodpolicyV1> {
-            return localVarFp.patchSodPolicyV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        patchSodPolicyV1(requestParameters: SODPoliciesApiPatchSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sodpolicy> {
+            return localVarFp.patchSodPolicyV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This updates schedule for a specified SOD policy.
          * @summary Update sod policy schedule
-         * @param {SODPoliciesV1ApiPutPolicyScheduleV1Request} requestParameters Request parameters.
+         * @param {SODPoliciesApiPutPolicyScheduleV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putPolicyScheduleV1(requestParameters: SODPoliciesV1ApiPutPolicyScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SodpolicyscheduleV1> {
-            return localVarFp.putPolicyScheduleV1(requestParameters.id, requestParameters.sodpolicyscheduleV1, axiosOptions).then((request) => request(axios, basePath));
+        putPolicyScheduleV1(requestParameters: SODPoliciesApiPutPolicyScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sodpolicyschedule> {
+            return localVarFp.putPolicyScheduleV1(requestParameters.id, requestParameters.sodpolicyschedule, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This updates a specified SOD policy. Requires role of ORG_ADMIN.
          * @summary Update sod policy by id
-         * @param {SODPoliciesV1ApiPutSodPolicyV1Request} requestParameters Request parameters.
+         * @param {SODPoliciesApiPutSodPolicyV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putSodPolicyV1(requestParameters: SODPoliciesV1ApiPutSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SodpolicyV1> {
-            return localVarFp.putSodPolicyV1(requestParameters.id, requestParameters.sodpolicyV1, axiosOptions).then((request) => request(axios, basePath));
+        putSodPolicyV1(requestParameters: SODPoliciesApiPutSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sodpolicy> {
+            return localVarFp.putSodPolicyV1(requestParameters.id, requestParameters.sodpolicy, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Runs the scheduled report for the policy retrieved by passed policy ID.  The report schedule is fetched from the policy retrieved by ID.
          * @summary Evaluate one policy by id
-         * @param {SODPoliciesV1ApiStartEvaluateSodPolicyV1Request} requestParameters Request parameters.
+         * @param {SODPoliciesApiStartEvaluateSodPolicyV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startEvaluateSodPolicyV1(requestParameters: SODPoliciesV1ApiStartEvaluateSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ReportresultreferenceV1> {
+        startEvaluateSodPolicyV1(requestParameters: SODPoliciesApiStartEvaluateSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Reportresultreference> {
             return localVarFp.startEvaluateSodPolicyV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
          * @summary Runs all policies for org
-         * @param {SODPoliciesV1ApiStartSodAllPoliciesForOrgV1Request} requestParameters Request parameters.
+         * @param {SODPoliciesApiStartSodAllPoliciesForOrgV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startSodAllPoliciesForOrgV1(requestParameters: SODPoliciesV1ApiStartSodAllPoliciesForOrgV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ReportresultreferenceV1> {
-            return localVarFp.startSodAllPoliciesForOrgV1(requestParameters.multipolicyrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        startSodAllPoliciesForOrgV1(requestParameters: SODPoliciesApiStartSodAllPoliciesForOrgV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Reportresultreference> {
+            return localVarFp.startSodAllPoliciesForOrgV1(requestParameters.multipolicyrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message.
          * @summary Runs sod policy violation report
-         * @param {SODPoliciesV1ApiStartSodPolicyV1Request} requestParameters Request parameters.
+         * @param {SODPoliciesApiStartSodPolicyV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startSodPolicyV1(requestParameters: SODPoliciesV1ApiStartSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ReportresultreferenceV1> {
+        startSodPolicyV1(requestParameters: SODPoliciesApiStartSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Reportresultreference> {
             return localVarFp.startSodPolicyV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createSodPolicyV1 operation in SODPoliciesV1Api.
+ * Request parameters for createSodPolicyV1 operation in SODPoliciesApi.
  * @export
- * @interface SODPoliciesV1ApiCreateSodPolicyV1Request
+ * @interface SODPoliciesApiCreateSodPolicyV1Request
  */
-export interface SODPoliciesV1ApiCreateSodPolicyV1Request {
+export interface SODPoliciesApiCreateSodPolicyV1Request {
     /**
      * 
-     * @type {SodpolicyV1}
-     * @memberof SODPoliciesV1ApiCreateSodPolicyV1
+     * @type {Sodpolicy}
+     * @memberof SODPoliciesApiCreateSodPolicyV1
      */
-    readonly sodpolicyV1: SodpolicyV1
+    readonly sodpolicy: Sodpolicy
 }
 
 /**
- * Request parameters for deleteSodPolicyScheduleV1 operation in SODPoliciesV1Api.
+ * Request parameters for deleteSodPolicyScheduleV1 operation in SODPoliciesApi.
  * @export
- * @interface SODPoliciesV1ApiDeleteSodPolicyScheduleV1Request
+ * @interface SODPoliciesApiDeleteSodPolicyScheduleV1Request
  */
-export interface SODPoliciesV1ApiDeleteSodPolicyScheduleV1Request {
+export interface SODPoliciesApiDeleteSodPolicyScheduleV1Request {
     /**
      * The ID of the SOD policy the schedule must be deleted for.
      * @type {string}
-     * @memberof SODPoliciesV1ApiDeleteSodPolicyScheduleV1
+     * @memberof SODPoliciesApiDeleteSodPolicyScheduleV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for deleteSodPolicyV1 operation in SODPoliciesV1Api.
+ * Request parameters for deleteSodPolicyV1 operation in SODPoliciesApi.
  * @export
- * @interface SODPoliciesV1ApiDeleteSodPolicyV1Request
+ * @interface SODPoliciesApiDeleteSodPolicyV1Request
  */
-export interface SODPoliciesV1ApiDeleteSodPolicyV1Request {
+export interface SODPoliciesApiDeleteSodPolicyV1Request {
     /**
      * The ID of the SOD Policy to delete.
      * @type {string}
-     * @memberof SODPoliciesV1ApiDeleteSodPolicyV1
+     * @memberof SODPoliciesApiDeleteSodPolicyV1
      */
     readonly id: string
 
     /**
      * Indicates whether this is a soft delete (logical true) or a hard delete.  Soft delete marks the policy as deleted and just save it with this status. It could be fully deleted or recovered further.  Hard delete vise versa permanently delete SOD request during this call.
      * @type {boolean}
-     * @memberof SODPoliciesV1ApiDeleteSodPolicyV1
+     * @memberof SODPoliciesApiDeleteSodPolicyV1
      */
     readonly logical?: boolean
 }
 
 /**
- * Request parameters for getCustomViolationReportV1 operation in SODPoliciesV1Api.
+ * Request parameters for getCustomViolationReportV1 operation in SODPoliciesApi.
  * @export
- * @interface SODPoliciesV1ApiGetCustomViolationReportV1Request
+ * @interface SODPoliciesApiGetCustomViolationReportV1Request
  */
-export interface SODPoliciesV1ApiGetCustomViolationReportV1Request {
+export interface SODPoliciesApiGetCustomViolationReportV1Request {
     /**
      * The ID of the report reference to download.
      * @type {string}
-     * @memberof SODPoliciesV1ApiGetCustomViolationReportV1
+     * @memberof SODPoliciesApiGetCustomViolationReportV1
      */
     readonly reportResultId: string
 
     /**
      * Custom Name for the  file.
      * @type {string}
-     * @memberof SODPoliciesV1ApiGetCustomViolationReportV1
+     * @memberof SODPoliciesApiGetCustomViolationReportV1
      */
     readonly fileName: string
 }
 
 /**
- * Request parameters for getDefaultViolationReportV1 operation in SODPoliciesV1Api.
+ * Request parameters for getDefaultViolationReportV1 operation in SODPoliciesApi.
  * @export
- * @interface SODPoliciesV1ApiGetDefaultViolationReportV1Request
+ * @interface SODPoliciesApiGetDefaultViolationReportV1Request
  */
-export interface SODPoliciesV1ApiGetDefaultViolationReportV1Request {
+export interface SODPoliciesApiGetDefaultViolationReportV1Request {
     /**
      * The ID of the report reference to download.
      * @type {string}
-     * @memberof SODPoliciesV1ApiGetDefaultViolationReportV1
+     * @memberof SODPoliciesApiGetDefaultViolationReportV1
      */
     readonly reportResultId: string
 }
 
 /**
- * Request parameters for getSodPolicyScheduleV1 operation in SODPoliciesV1Api.
+ * Request parameters for getSodPolicyScheduleV1 operation in SODPoliciesApi.
  * @export
- * @interface SODPoliciesV1ApiGetSodPolicyScheduleV1Request
+ * @interface SODPoliciesApiGetSodPolicyScheduleV1Request
  */
-export interface SODPoliciesV1ApiGetSodPolicyScheduleV1Request {
+export interface SODPoliciesApiGetSodPolicyScheduleV1Request {
     /**
      * The ID of the SOD policy schedule to retrieve.
      * @type {string}
-     * @memberof SODPoliciesV1ApiGetSodPolicyScheduleV1
+     * @memberof SODPoliciesApiGetSodPolicyScheduleV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getSodPolicyV1 operation in SODPoliciesV1Api.
+ * Request parameters for getSodPolicyV1 operation in SODPoliciesApi.
  * @export
- * @interface SODPoliciesV1ApiGetSodPolicyV1Request
+ * @interface SODPoliciesApiGetSodPolicyV1Request
  */
-export interface SODPoliciesV1ApiGetSodPolicyV1Request {
+export interface SODPoliciesApiGetSodPolicyV1Request {
     /**
      * The ID of the SOD Policy to retrieve.
      * @type {string}
-     * @memberof SODPoliciesV1ApiGetSodPolicyV1
+     * @memberof SODPoliciesApiGetSodPolicyV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getSodViolationReportRunStatusV1 operation in SODPoliciesV1Api.
+ * Request parameters for getSodViolationReportRunStatusV1 operation in SODPoliciesApi.
  * @export
- * @interface SODPoliciesV1ApiGetSodViolationReportRunStatusV1Request
+ * @interface SODPoliciesApiGetSodViolationReportRunStatusV1Request
  */
-export interface SODPoliciesV1ApiGetSodViolationReportRunStatusV1Request {
+export interface SODPoliciesApiGetSodViolationReportRunStatusV1Request {
     /**
      * The ID of the report reference to retrieve.
      * @type {string}
-     * @memberof SODPoliciesV1ApiGetSodViolationReportRunStatusV1
+     * @memberof SODPoliciesApiGetSodViolationReportRunStatusV1
      */
     readonly reportResultId: string
 }
 
 /**
- * Request parameters for getSodViolationReportStatusV1 operation in SODPoliciesV1Api.
+ * Request parameters for getSodViolationReportStatusV1 operation in SODPoliciesApi.
  * @export
- * @interface SODPoliciesV1ApiGetSodViolationReportStatusV1Request
+ * @interface SODPoliciesApiGetSodViolationReportStatusV1Request
  */
-export interface SODPoliciesV1ApiGetSodViolationReportStatusV1Request {
+export interface SODPoliciesApiGetSodViolationReportStatusV1Request {
     /**
      * The ID of the violation report to retrieve status for.
      * @type {string}
-     * @memberof SODPoliciesV1ApiGetSodViolationReportStatusV1
+     * @memberof SODPoliciesApiGetSodViolationReportStatusV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for listSodPoliciesV1 operation in SODPoliciesV1Api.
+ * Request parameters for listSodPoliciesV1 operation in SODPoliciesApi.
  * @export
- * @interface SODPoliciesV1ApiListSodPoliciesV1Request
+ * @interface SODPoliciesApiListSodPoliciesV1Request
  */
-export interface SODPoliciesV1ApiListSodPoliciesV1Request {
+export interface SODPoliciesApiListSodPoliciesV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof SODPoliciesV1ApiListSodPoliciesV1
+     * @memberof SODPoliciesApiListSodPoliciesV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof SODPoliciesV1ApiListSodPoliciesV1
+     * @memberof SODPoliciesApiListSodPoliciesV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof SODPoliciesV1ApiListSodPoliciesV1
+     * @memberof SODPoliciesApiListSodPoliciesV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **state**: *eq, in*
      * @type {string}
-     * @memberof SODPoliciesV1ApiListSodPoliciesV1
+     * @memberof SODPoliciesApiListSodPoliciesV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description**
      * @type {string}
-     * @memberof SODPoliciesV1ApiListSodPoliciesV1
+     * @memberof SODPoliciesApiListSodPoliciesV1
      */
     readonly sorters?: string
 }
 
 /**
- * Request parameters for patchSodPolicyV1 operation in SODPoliciesV1Api.
+ * Request parameters for patchSodPolicyV1 operation in SODPoliciesApi.
  * @export
- * @interface SODPoliciesV1ApiPatchSodPolicyV1Request
+ * @interface SODPoliciesApiPatchSodPolicyV1Request
  */
-export interface SODPoliciesV1ApiPatchSodPolicyV1Request {
+export interface SODPoliciesApiPatchSodPolicyV1Request {
     /**
      * The ID of the SOD policy being modified.
      * @type {string}
-     * @memberof SODPoliciesV1ApiPatchSodPolicyV1
+     * @memberof SODPoliciesApiPatchSodPolicyV1
      */
     readonly id: string
 
     /**
      * A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof SODPoliciesV1ApiPatchSodPolicyV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof SODPoliciesApiPatchSodPolicyV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * Request parameters for putPolicyScheduleV1 operation in SODPoliciesV1Api.
+ * Request parameters for putPolicyScheduleV1 operation in SODPoliciesApi.
  * @export
- * @interface SODPoliciesV1ApiPutPolicyScheduleV1Request
+ * @interface SODPoliciesApiPutPolicyScheduleV1Request
  */
-export interface SODPoliciesV1ApiPutPolicyScheduleV1Request {
+export interface SODPoliciesApiPutPolicyScheduleV1Request {
     /**
      * The ID of the SOD policy to update its schedule.
      * @type {string}
-     * @memberof SODPoliciesV1ApiPutPolicyScheduleV1
+     * @memberof SODPoliciesApiPutPolicyScheduleV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {SodpolicyscheduleV1}
-     * @memberof SODPoliciesV1ApiPutPolicyScheduleV1
+     * @type {Sodpolicyschedule}
+     * @memberof SODPoliciesApiPutPolicyScheduleV1
      */
-    readonly sodpolicyscheduleV1: SodpolicyscheduleV1
+    readonly sodpolicyschedule: Sodpolicyschedule
 }
 
 /**
- * Request parameters for putSodPolicyV1 operation in SODPoliciesV1Api.
+ * Request parameters for putSodPolicyV1 operation in SODPoliciesApi.
  * @export
- * @interface SODPoliciesV1ApiPutSodPolicyV1Request
+ * @interface SODPoliciesApiPutSodPolicyV1Request
  */
-export interface SODPoliciesV1ApiPutSodPolicyV1Request {
+export interface SODPoliciesApiPutSodPolicyV1Request {
     /**
      * The ID of the SOD policy to update.
      * @type {string}
-     * @memberof SODPoliciesV1ApiPutSodPolicyV1
+     * @memberof SODPoliciesApiPutSodPolicyV1
      */
     readonly id: string
 
     /**
      * 
-     * @type {SodpolicyV1}
-     * @memberof SODPoliciesV1ApiPutSodPolicyV1
+     * @type {Sodpolicy}
+     * @memberof SODPoliciesApiPutSodPolicyV1
      */
-    readonly sodpolicyV1: SodpolicyV1
+    readonly sodpolicy: Sodpolicy
 }
 
 /**
- * Request parameters for startEvaluateSodPolicyV1 operation in SODPoliciesV1Api.
+ * Request parameters for startEvaluateSodPolicyV1 operation in SODPoliciesApi.
  * @export
- * @interface SODPoliciesV1ApiStartEvaluateSodPolicyV1Request
+ * @interface SODPoliciesApiStartEvaluateSodPolicyV1Request
  */
-export interface SODPoliciesV1ApiStartEvaluateSodPolicyV1Request {
+export interface SODPoliciesApiStartEvaluateSodPolicyV1Request {
     /**
      * The SOD policy ID to run.
      * @type {string}
-     * @memberof SODPoliciesV1ApiStartEvaluateSodPolicyV1
+     * @memberof SODPoliciesApiStartEvaluateSodPolicyV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for startSodAllPoliciesForOrgV1 operation in SODPoliciesV1Api.
+ * Request parameters for startSodAllPoliciesForOrgV1 operation in SODPoliciesApi.
  * @export
- * @interface SODPoliciesV1ApiStartSodAllPoliciesForOrgV1Request
+ * @interface SODPoliciesApiStartSodAllPoliciesForOrgV1Request
  */
-export interface SODPoliciesV1ApiStartSodAllPoliciesForOrgV1Request {
+export interface SODPoliciesApiStartSodAllPoliciesForOrgV1Request {
     /**
      * 
-     * @type {MultipolicyrequestV1}
-     * @memberof SODPoliciesV1ApiStartSodAllPoliciesForOrgV1
+     * @type {Multipolicyrequest}
+     * @memberof SODPoliciesApiStartSodAllPoliciesForOrgV1
      */
-    readonly multipolicyrequestV1?: MultipolicyrequestV1
+    readonly multipolicyrequest?: Multipolicyrequest
 }
 
 /**
- * Request parameters for startSodPolicyV1 operation in SODPoliciesV1Api.
+ * Request parameters for startSodPolicyV1 operation in SODPoliciesApi.
  * @export
- * @interface SODPoliciesV1ApiStartSodPolicyV1Request
+ * @interface SODPoliciesApiStartSodPolicyV1Request
  */
-export interface SODPoliciesV1ApiStartSodPolicyV1Request {
+export interface SODPoliciesApiStartSodPolicyV1Request {
     /**
      * The SOD policy ID to run.
      * @type {string}
-     * @memberof SODPoliciesV1ApiStartSodPolicyV1
+     * @memberof SODPoliciesApiStartSodPolicyV1
      */
     readonly id: string
 }
 
 /**
- * SODPoliciesV1Api - object-oriented interface
+ * SODPoliciesApi - object-oriented interface
  * @export
- * @class SODPoliciesV1Api
+ * @class SODPoliciesApi
  * @extends {BaseAPI}
  */
-export class SODPoliciesV1Api extends BaseAPI {
+export class SODPoliciesApi extends BaseAPI {
     /**
      * This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy. Requires role of ORG_ADMIN.
      * @summary Create sod policy
-     * @param {SODPoliciesV1ApiCreateSodPolicyV1Request} requestParameters Request parameters.
+     * @param {SODPoliciesApiCreateSodPolicyV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SODPoliciesV1Api
+     * @memberof SODPoliciesApi
      */
-    public createSodPolicyV1(requestParameters: SODPoliciesV1ApiCreateSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SODPoliciesV1ApiFp(this.configuration).createSodPolicyV1(requestParameters.sodpolicyV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createSodPolicyV1(requestParameters: SODPoliciesApiCreateSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).createSodPolicyV1(requestParameters.sodpolicy, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This deletes schedule for a specified SOD policy by ID.
      * @summary Delete sod policy schedule
-     * @param {SODPoliciesV1ApiDeleteSodPolicyScheduleV1Request} requestParameters Request parameters.
+     * @param {SODPoliciesApiDeleteSodPolicyScheduleV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SODPoliciesV1Api
+     * @memberof SODPoliciesApi
      */
-    public deleteSodPolicyScheduleV1(requestParameters: SODPoliciesV1ApiDeleteSodPolicyScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SODPoliciesV1ApiFp(this.configuration).deleteSodPolicyScheduleV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteSodPolicyScheduleV1(requestParameters: SODPoliciesApiDeleteSodPolicyScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).deleteSodPolicyScheduleV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This deletes a specified SOD policy. Requires role of ORG_ADMIN.
      * @summary Delete sod policy by id
-     * @param {SODPoliciesV1ApiDeleteSodPolicyV1Request} requestParameters Request parameters.
+     * @param {SODPoliciesApiDeleteSodPolicyV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SODPoliciesV1Api
+     * @memberof SODPoliciesApi
      */
-    public deleteSodPolicyV1(requestParameters: SODPoliciesV1ApiDeleteSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SODPoliciesV1ApiFp(this.configuration).deleteSodPolicyV1(requestParameters.id, requestParameters.logical, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteSodPolicyV1(requestParameters: SODPoliciesApiDeleteSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).deleteSodPolicyV1(requestParameters.id, requestParameters.logical, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This allows to download a specified named violation report for a given report reference.
      * @summary Download custom violation report
-     * @param {SODPoliciesV1ApiGetCustomViolationReportV1Request} requestParameters Request parameters.
+     * @param {SODPoliciesApiGetCustomViolationReportV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SODPoliciesV1Api
+     * @memberof SODPoliciesApi
      */
-    public getCustomViolationReportV1(requestParameters: SODPoliciesV1ApiGetCustomViolationReportV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SODPoliciesV1ApiFp(this.configuration).getCustomViolationReportV1(requestParameters.reportResultId, requestParameters.fileName, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getCustomViolationReportV1(requestParameters: SODPoliciesApiGetCustomViolationReportV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).getCustomViolationReportV1(requestParameters.reportResultId, requestParameters.fileName, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This allows to download a violation report for a given report reference.
      * @summary Download violation report
-     * @param {SODPoliciesV1ApiGetDefaultViolationReportV1Request} requestParameters Request parameters.
+     * @param {SODPoliciesApiGetDefaultViolationReportV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SODPoliciesV1Api
+     * @memberof SODPoliciesApi
      */
-    public getDefaultViolationReportV1(requestParameters: SODPoliciesV1ApiGetDefaultViolationReportV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SODPoliciesV1ApiFp(this.configuration).getDefaultViolationReportV1(requestParameters.reportResultId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getDefaultViolationReportV1(requestParameters: SODPoliciesApiGetDefaultViolationReportV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).getDefaultViolationReportV1(requestParameters.reportResultId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2265,142 +2265,142 @@ export class SODPoliciesV1Api extends BaseAPI {
      * @summary Get multi-report run task status
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SODPoliciesV1Api
+     * @memberof SODPoliciesApi
      */
     public getSodAllReportRunStatusV1(axiosOptions?: RawAxiosRequestConfig) {
-        return SODPoliciesV1ApiFp(this.configuration).getSodAllReportRunStatusV1(axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SODPoliciesApiFp(this.configuration).getSodAllReportRunStatusV1(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint gets a specified SOD policy\'s schedule.
      * @summary Get sod policy schedule
-     * @param {SODPoliciesV1ApiGetSodPolicyScheduleV1Request} requestParameters Request parameters.
+     * @param {SODPoliciesApiGetSodPolicyScheduleV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SODPoliciesV1Api
+     * @memberof SODPoliciesApi
      */
-    public getSodPolicyScheduleV1(requestParameters: SODPoliciesV1ApiGetSodPolicyScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SODPoliciesV1ApiFp(this.configuration).getSodPolicyScheduleV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSodPolicyScheduleV1(requestParameters: SODPoliciesApiGetSodPolicyScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).getSodPolicyScheduleV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets specified SOD policy. Requires role of ORG_ADMIN.
      * @summary Get sod policy by id
-     * @param {SODPoliciesV1ApiGetSodPolicyV1Request} requestParameters Request parameters.
+     * @param {SODPoliciesApiGetSodPolicyV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SODPoliciesV1Api
+     * @memberof SODPoliciesApi
      */
-    public getSodPolicyV1(requestParameters: SODPoliciesV1ApiGetSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SODPoliciesV1ApiFp(this.configuration).getSodPolicyV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSodPolicyV1(requestParameters: SODPoliciesApiGetSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).getSodPolicyV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets the status for a violation report run task that has already been invoked.
      * @summary Get violation report run status
-     * @param {SODPoliciesV1ApiGetSodViolationReportRunStatusV1Request} requestParameters Request parameters.
+     * @param {SODPoliciesApiGetSodViolationReportRunStatusV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SODPoliciesV1Api
+     * @memberof SODPoliciesApi
      */
-    public getSodViolationReportRunStatusV1(requestParameters: SODPoliciesV1ApiGetSodViolationReportRunStatusV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SODPoliciesV1ApiFp(this.configuration).getSodViolationReportRunStatusV1(requestParameters.reportResultId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSodViolationReportRunStatusV1(requestParameters: SODPoliciesApiGetSodViolationReportRunStatusV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).getSodViolationReportRunStatusV1(requestParameters.reportResultId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets the status for a violation report run task that has already been invoked.
      * @summary Get sod violation report status
-     * @param {SODPoliciesV1ApiGetSodViolationReportStatusV1Request} requestParameters Request parameters.
+     * @param {SODPoliciesApiGetSodViolationReportStatusV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SODPoliciesV1Api
+     * @memberof SODPoliciesApi
      */
-    public getSodViolationReportStatusV1(requestParameters: SODPoliciesV1ApiGetSodViolationReportStatusV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SODPoliciesV1ApiFp(this.configuration).getSodViolationReportStatusV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSodViolationReportStatusV1(requestParameters: SODPoliciesApiGetSodViolationReportStatusV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).getSodViolationReportStatusV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets list of all SOD policies. Requires role of ORG_ADMIN
      * @summary List sod policies
-     * @param {SODPoliciesV1ApiListSodPoliciesV1Request} requestParameters Request parameters.
+     * @param {SODPoliciesApiListSodPoliciesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SODPoliciesV1Api
+     * @memberof SODPoliciesApi
      */
-    public listSodPoliciesV1(requestParameters: SODPoliciesV1ApiListSodPoliciesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return SODPoliciesV1ApiFp(this.configuration).listSodPoliciesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listSodPoliciesV1(requestParameters: SODPoliciesApiListSodPoliciesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).listSodPoliciesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
      * @summary Patch sod policy by id
-     * @param {SODPoliciesV1ApiPatchSodPolicyV1Request} requestParameters Request parameters.
+     * @param {SODPoliciesApiPatchSodPolicyV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SODPoliciesV1Api
+     * @memberof SODPoliciesApi
      */
-    public patchSodPolicyV1(requestParameters: SODPoliciesV1ApiPatchSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SODPoliciesV1ApiFp(this.configuration).patchSodPolicyV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchSodPolicyV1(requestParameters: SODPoliciesApiPatchSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).patchSodPolicyV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This updates schedule for a specified SOD policy.
      * @summary Update sod policy schedule
-     * @param {SODPoliciesV1ApiPutPolicyScheduleV1Request} requestParameters Request parameters.
+     * @param {SODPoliciesApiPutPolicyScheduleV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SODPoliciesV1Api
+     * @memberof SODPoliciesApi
      */
-    public putPolicyScheduleV1(requestParameters: SODPoliciesV1ApiPutPolicyScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SODPoliciesV1ApiFp(this.configuration).putPolicyScheduleV1(requestParameters.id, requestParameters.sodpolicyscheduleV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putPolicyScheduleV1(requestParameters: SODPoliciesApiPutPolicyScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).putPolicyScheduleV1(requestParameters.id, requestParameters.sodpolicyschedule, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This updates a specified SOD policy. Requires role of ORG_ADMIN.
      * @summary Update sod policy by id
-     * @param {SODPoliciesV1ApiPutSodPolicyV1Request} requestParameters Request parameters.
+     * @param {SODPoliciesApiPutSodPolicyV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SODPoliciesV1Api
+     * @memberof SODPoliciesApi
      */
-    public putSodPolicyV1(requestParameters: SODPoliciesV1ApiPutSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SODPoliciesV1ApiFp(this.configuration).putSodPolicyV1(requestParameters.id, requestParameters.sodpolicyV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putSodPolicyV1(requestParameters: SODPoliciesApiPutSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).putSodPolicyV1(requestParameters.id, requestParameters.sodpolicy, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Runs the scheduled report for the policy retrieved by passed policy ID.  The report schedule is fetched from the policy retrieved by ID.
      * @summary Evaluate one policy by id
-     * @param {SODPoliciesV1ApiStartEvaluateSodPolicyV1Request} requestParameters Request parameters.
+     * @param {SODPoliciesApiStartEvaluateSodPolicyV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SODPoliciesV1Api
+     * @memberof SODPoliciesApi
      */
-    public startEvaluateSodPolicyV1(requestParameters: SODPoliciesV1ApiStartEvaluateSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SODPoliciesV1ApiFp(this.configuration).startEvaluateSodPolicyV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public startEvaluateSodPolicyV1(requestParameters: SODPoliciesApiStartEvaluateSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).startEvaluateSodPolicyV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
      * @summary Runs all policies for org
-     * @param {SODPoliciesV1ApiStartSodAllPoliciesForOrgV1Request} requestParameters Request parameters.
+     * @param {SODPoliciesApiStartSodAllPoliciesForOrgV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SODPoliciesV1Api
+     * @memberof SODPoliciesApi
      */
-    public startSodAllPoliciesForOrgV1(requestParameters: SODPoliciesV1ApiStartSodAllPoliciesForOrgV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return SODPoliciesV1ApiFp(this.configuration).startSodAllPoliciesForOrgV1(requestParameters.multipolicyrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public startSodAllPoliciesForOrgV1(requestParameters: SODPoliciesApiStartSodAllPoliciesForOrgV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).startSodAllPoliciesForOrgV1(requestParameters.multipolicyrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message.
      * @summary Runs sod policy violation report
-     * @param {SODPoliciesV1ApiStartSodPolicyV1Request} requestParameters Request parameters.
+     * @param {SODPoliciesApiStartSodPolicyV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof SODPoliciesV1Api
+     * @memberof SODPoliciesApi
      */
-    public startSodPolicyV1(requestParameters: SODPoliciesV1ApiStartSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SODPoliciesV1ApiFp(this.configuration).startSodPolicyV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public startSodPolicyV1(requestParameters: SODPoliciesApiStartSodPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).startSodPolicyV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

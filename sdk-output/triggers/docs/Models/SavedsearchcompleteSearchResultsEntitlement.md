@@ -1,21 +1,21 @@
 ---
-id: v1-savedsearchcomplete-search-results-entitlement-v1
-title: SavedsearchcompleteSearchResultsEntitlementV1
-pagination_label: SavedsearchcompleteSearchResultsEntitlementV1
-sidebar_label: SavedsearchcompleteSearchResultsEntitlementV1
+id: v1-savedsearchcomplete-search-results-entitlement
+title: SavedsearchcompleteSearchResultsEntitlement
+pagination_label: SavedsearchcompleteSearchResultsEntitlement
+sidebar_label: SavedsearchcompleteSearchResultsEntitlement
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SavedsearchcompleteSearchResultsEntitlementV1', 'v1SavedsearchcompleteSearchResultsEntitlementV1']
-slug: /tools/sdk/typescript/triggers/models/savedsearchcomplete-search-results-entitlement-v1
-tags: ['SDK', 'Software Development Kit', 'SavedsearchcompleteSearchResultsEntitlementV1', 'v1SavedsearchcompleteSearchResultsEntitlementV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'SavedsearchcompleteSearchResultsEntitlement', 'v1SavedsearchcompleteSearchResultsEntitlement']
+slug: /tools/sdk/typescript/triggers/models/savedsearchcomplete-search-results-entitlement
+tags: ['SDK', 'Software Development Kit', 'SavedsearchcompleteSearchResultsEntitlement', 'v1SavedsearchcompleteSearchResultsEntitlement']
 ---
 
-# SavedsearchcompleteSearchResultsEntitlementV1
+# SavedsearchcompleteSearchResultsEntitlement
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **string** | The number of rows in the table. | [default to undefined]
-**noun** | **string** | The type of object represented in the table. | [default to undefined]
-**preview** | **Array&lt;Array&lt;string&gt;&gt;** | A sample of the data in the table. | [default to undefined]
+**count** | `string` | The number of rows in the table. | [default to undefined]
+**noun** | `string` | The type of object represented in the table. | [default to undefined]
+**preview** | `Array<Array<string>>` | A sample of the data in the table. | [default to undefined]
 

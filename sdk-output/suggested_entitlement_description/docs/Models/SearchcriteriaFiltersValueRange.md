@@ -1,20 +1,20 @@
 ---
-id: v1-searchcriteria-filters-value-range-v1
-title: SearchcriteriaFiltersValueRangeV1
-pagination_label: SearchcriteriaFiltersValueRangeV1
-sidebar_label: SearchcriteriaFiltersValueRangeV1
+id: v1-searchcriteria-filters-value-range
+title: SearchcriteriaFiltersValueRange
+pagination_label: SearchcriteriaFiltersValueRange
+sidebar_label: SearchcriteriaFiltersValueRange
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SearchcriteriaFiltersValueRangeV1', 'v1SearchcriteriaFiltersValueRangeV1']
-slug: /tools/sdk/typescript/suggested_entitlement_description/models/searchcriteria-filters-value-range-v1
-tags: ['SDK', 'Software Development Kit', 'SearchcriteriaFiltersValueRangeV1', 'v1SearchcriteriaFiltersValueRangeV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'SearchcriteriaFiltersValueRange', 'v1SearchcriteriaFiltersValueRange']
+slug: /tools/sdk/typescript/suggested_entitlement_description/models/searchcriteria-filters-value-range
+tags: ['SDK', 'Software Development Kit', 'SearchcriteriaFiltersValueRange', 'v1SearchcriteriaFiltersValueRange']
 ---
 
-# SearchcriteriaFiltersValueRangeV1
+# SearchcriteriaFiltersValueRange
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**lower** | **(optional)** **SearchcriteriaFiltersValueRangeLowerV1** |  | [default to undefined]
-**upper** | **(optional)** **SearchcriteriaFiltersValueRangeUpperV1** |  | [default to undefined]
+**lower** | **(optional)** `SearchcriteriaFiltersValueRangeLower` |  | [default to undefined]
+**upper** | **(optional)** `SearchcriteriaFiltersValueRangeUpper` |  | [default to undefined]
 

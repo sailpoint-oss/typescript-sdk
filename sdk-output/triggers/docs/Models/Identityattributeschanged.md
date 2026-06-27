@@ -1,20 +1,20 @@
 ---
-id: v1-identityattributeschanged-v1
-title: IdentityattributeschangedV1
-pagination_label: IdentityattributeschangedV1
-sidebar_label: IdentityattributeschangedV1
+id: v1-identityattributeschanged
+title: Identityattributeschanged
+pagination_label: Identityattributeschanged
+sidebar_label: Identityattributeschanged
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'IdentityattributeschangedV1', 'v1IdentityattributeschangedV1']
-slug: /tools/sdk/typescript/triggers/models/identityattributeschanged-v1
-tags: ['SDK', 'Software Development Kit', 'IdentityattributeschangedV1', 'v1IdentityattributeschangedV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Identityattributeschanged', 'v1Identityattributeschanged']
+slug: /tools/sdk/typescript/triggers/models/identityattributeschanged
+tags: ['SDK', 'Software Development Kit', 'Identityattributeschanged', 'v1Identityattributeschanged']
 ---
 
-# IdentityattributeschangedV1
+# Identityattributeschanged
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identity** | **IdentityattributeschangedIdentityV1** |  | [default to undefined]
-**changes** | **Array&lt;IdentityattributeschangedChangesInnerV1&gt;** | A list of one or more identity attributes that changed on the identity. | [default to undefined]
+**identity** | `IdentityattributeschangedIdentity` |  | [default to undefined]
+**changes** | `Array<IdentityattributeschangedChangesInner>` | A list of one or more identity attributes that changed on the identity. | [default to undefined]
 

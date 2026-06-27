@@ -1,22 +1,22 @@
 ---
-id: v1-objectimportresult-v1
-title: ObjectimportresultV1
-pagination_label: ObjectimportresultV1
-sidebar_label: ObjectimportresultV1
+id: v1-objectimportresult
+title: Objectimportresult
+pagination_label: Objectimportresult
+sidebar_label: Objectimportresult
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ObjectimportresultV1', 'v1ObjectimportresultV1']
-slug: /tools/sdk/typescript/identity_profiles/models/objectimportresult-v1
-tags: ['SDK', 'Software Development Kit', 'ObjectimportresultV1', 'v1ObjectimportresultV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Objectimportresult', 'v1Objectimportresult']
+slug: /tools/sdk/typescript/identity_profiles/models/objectimportresult
+tags: ['SDK', 'Software Development Kit', 'Objectimportresult', 'v1Objectimportresult']
 ---
 
-# ObjectimportresultV1
+# Objectimportresult
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**infos** | **Array&lt;SpconfigmessageV1&gt;** | Informational messages returned from the target service on import. | [default to undefined]
-**warnings** | **Array&lt;SpconfigmessageV1&gt;** | Warning messages returned from the target service on import. | [default to undefined]
-**errors** | **Array&lt;SpconfigmessageV1&gt;** | Error messages returned from the target service on import. | [default to undefined]
-**importedObjects** | **Array&lt;ImportobjectV1&gt;** | References to objects that were created or updated by the import. | [default to undefined]
+**infos** | `Array<Spconfigmessage>` | Informational messages returned from the target service on import. | [default to undefined]
+**warnings** | `Array<Spconfigmessage>` | Warning messages returned from the target service on import. | [default to undefined]
+**errors** | `Array<Spconfigmessage>` | Error messages returned from the target service on import. | [default to undefined]
+**importedObjects** | `Array<Importobject>` | References to objects that were created or updated by the import. | [default to undefined]
 

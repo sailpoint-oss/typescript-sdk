@@ -1,22 +1,22 @@
 ---
-id: v1-managedclientstatus-v1
-title: ManagedclientstatusV1
-pagination_label: ManagedclientstatusV1
-sidebar_label: ManagedclientstatusV1
+id: v1-managedclientstatus
+title: Managedclientstatus
+pagination_label: Managedclientstatus
+sidebar_label: Managedclientstatus
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ManagedclientstatusV1', 'v1ManagedclientstatusV1']
-slug: /tools/sdk/typescript/managed_clients/models/managedclientstatus-v1
-tags: ['SDK', 'Software Development Kit', 'ManagedclientstatusV1', 'v1ManagedclientstatusV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Managedclientstatus', 'v1Managedclientstatus']
+slug: /tools/sdk/typescript/managed_clients/models/managedclientstatus
+tags: ['SDK', 'Software Development Kit', 'Managedclientstatus', 'v1Managedclientstatus']
 ---
 
-# ManagedclientstatusV1
+# Managedclientstatus
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**body** | **object** | ManagedClientStatus body information | [default to undefined]
-**status** | **ManagedclientstatuscodeV1** |  | [default to undefined]
-**type** | **ManagedclienttypeV1** |  | [default to undefined]
-**timestamp** | **string** | timestamp on the Client Status update | [default to undefined]
+**body** | `object` | ManagedClientStatus body information | [default to undefined]
+**status** | `Managedclientstatuscode` |  | [default to undefined]
+**type** | `Managedclienttype` |  | [default to undefined]
+**timestamp** | `string` | timestamp on the Client Status update | [default to undefined]
 

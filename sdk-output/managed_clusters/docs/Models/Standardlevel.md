@@ -1,15 +1,15 @@
 ---
-id: v1-standardlevel-v1
-title: StandardlevelV1
-pagination_label: StandardlevelV1
-sidebar_label: StandardlevelV1
+id: v1-standardlevel
+title: Standardlevel
+pagination_label: Standardlevel
+sidebar_label: Standardlevel
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'StandardlevelV1', 'v1StandardlevelV1']
-slug: /tools/sdk/typescript/managed_clusters/models/standardlevel-v1
-tags: ['SDK', 'Software Development Kit', 'StandardlevelV1', 'v1StandardlevelV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Standardlevel', 'v1Standardlevel']
+slug: /tools/sdk/typescript/managed_clusters/models/standardlevel
+tags: ['SDK', 'Software Development Kit', 'Standardlevel', 'v1Standardlevel']
 ---
 
-# StandardlevelV1
+# Standardlevel
 
 ## Enum
 

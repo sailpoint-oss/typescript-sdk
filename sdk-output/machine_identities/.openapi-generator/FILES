@@ -11,8 +11,8 @@ ListMachineIdentitiesV1401Response.md
 ListMachineIdentitiesV1429Response.md
 Localeorigin.md
 Localizedmessage.md
-MachineIdentitiesV1Api.md
-MachineIdentitiesV1ApideveloperSite_code_examples.yaml
+MachineIdentitiesApi.md
+MachineIdentitiesApideveloperSite_code_examples.yaml
 MachineIdentityDtoOwners.md
 MachineIdentityRequestUserEntitlements.md
 MachineIdentityResponseUserEntitlements.md

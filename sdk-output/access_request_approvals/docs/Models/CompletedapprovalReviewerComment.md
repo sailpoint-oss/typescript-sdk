@@ -1,21 +1,21 @@
 ---
-id: v1-completedapproval-reviewer-comment-v1
-title: CompletedapprovalReviewerCommentV1
-pagination_label: CompletedapprovalReviewerCommentV1
-sidebar_label: CompletedapprovalReviewerCommentV1
+id: v1-completedapproval-reviewer-comment
+title: CompletedapprovalReviewerComment
+pagination_label: CompletedapprovalReviewerComment
+sidebar_label: CompletedapprovalReviewerComment
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'CompletedapprovalReviewerCommentV1', 'v1CompletedapprovalReviewerCommentV1']
-slug: /tools/sdk/typescript/access_request_approvals/models/completedapproval-reviewer-comment-v1
-tags: ['SDK', 'Software Development Kit', 'CompletedapprovalReviewerCommentV1', 'v1CompletedapprovalReviewerCommentV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'CompletedapprovalReviewerComment', 'v1CompletedapprovalReviewerComment']
+slug: /tools/sdk/typescript/access_request_approvals/models/completedapproval-reviewer-comment
+tags: ['SDK', 'Software Development Kit', 'CompletedapprovalReviewerComment', 'v1CompletedapprovalReviewerComment']
 ---
 
-# CompletedapprovalReviewerCommentV1
+# CompletedapprovalReviewerComment
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**comment** | **(optional)** **string** | Comment content. | [default to undefined]
-**created** | **(optional)** **string** | Date and time comment was created. | [default to undefined]
-**author** | **(optional)** **CommentdtoAuthorV1** |  | [default to undefined]
+**comment** | **(optional)** `string` | Comment content. | [default to undefined]
+**created** | **(optional)** `string` | Date and time comment was created. | [default to undefined]
+**author** | **(optional)** `CommentdtoAuthor` |  | [default to undefined]
 

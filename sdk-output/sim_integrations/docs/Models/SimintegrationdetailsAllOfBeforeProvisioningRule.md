@@ -1,21 +1,21 @@
 ---
-id: v1-simintegrationdetails-all-of-before-provisioning-rule-v1
-title: SimintegrationdetailsAllOfBeforeProvisioningRuleV1
-pagination_label: SimintegrationdetailsAllOfBeforeProvisioningRuleV1
-sidebar_label: SimintegrationdetailsAllOfBeforeProvisioningRuleV1
+id: v1-simintegrationdetails-all-of-before-provisioning-rule
+title: SimintegrationdetailsAllOfBeforeProvisioningRule
+pagination_label: SimintegrationdetailsAllOfBeforeProvisioningRule
+sidebar_label: SimintegrationdetailsAllOfBeforeProvisioningRule
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SimintegrationdetailsAllOfBeforeProvisioningRuleV1', 'v1SimintegrationdetailsAllOfBeforeProvisioningRuleV1']
-slug: /tools/sdk/typescript/sim_integrations/models/simintegrationdetails-all-of-before-provisioning-rule-v1
-tags: ['SDK', 'Software Development Kit', 'SimintegrationdetailsAllOfBeforeProvisioningRuleV1', 'v1SimintegrationdetailsAllOfBeforeProvisioningRuleV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'SimintegrationdetailsAllOfBeforeProvisioningRule', 'v1SimintegrationdetailsAllOfBeforeProvisioningRule']
+slug: /tools/sdk/typescript/sim_integrations/models/simintegrationdetails-all-of-before-provisioning-rule
+tags: ['SDK', 'Software Development Kit', 'SimintegrationdetailsAllOfBeforeProvisioningRule', 'v1SimintegrationdetailsAllOfBeforeProvisioningRule']
 ---
 
-# SimintegrationdetailsAllOfBeforeProvisioningRuleV1
+# SimintegrationdetailsAllOfBeforeProvisioningRule
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **DtotypeV1** |  | [default to undefined]
-**id** | **(optional)** **string** | ID of the rule | [default to undefined]
-**name** | **(optional)** **string** | Human-readable display name of the rule | [default to undefined]
+**type** | **(optional)** `Dtotype` |  | [default to undefined]
+**id** | **(optional)** `string` | ID of the rule | [default to undefined]
+**name** | **(optional)** `string` | Human-readable display name of the rule | [default to undefined]
 

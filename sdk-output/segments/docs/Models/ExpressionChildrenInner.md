@@ -1,22 +1,22 @@
 ---
-id: v1-expression-children-inner-v1
-title: ExpressionChildrenInnerV1
-pagination_label: ExpressionChildrenInnerV1
-sidebar_label: ExpressionChildrenInnerV1
+id: v1-expression-children-inner
+title: ExpressionChildrenInner
+pagination_label: ExpressionChildrenInner
+sidebar_label: ExpressionChildrenInner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ExpressionChildrenInnerV1', 'v1ExpressionChildrenInnerV1']
-slug: /tools/sdk/typescript/segments/models/expression-children-inner-v1
-tags: ['SDK', 'Software Development Kit', 'ExpressionChildrenInnerV1', 'v1ExpressionChildrenInnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'ExpressionChildrenInner', 'v1ExpressionChildrenInner']
+slug: /tools/sdk/typescript/segments/models/expression-children-inner
+tags: ['SDK', 'Software Development Kit', 'ExpressionChildrenInner', 'v1ExpressionChildrenInner']
 ---
 
-# ExpressionChildrenInnerV1
+# ExpressionChildrenInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**operator** | **(optional)** **string** | Operator for the expression | [default to undefined]
-**attribute** | **(optional)** **string** | Name for the attribute | [default to undefined]
-**value** | **(optional)** **ValueV1** |  | [default to undefined]
-**children** | **(optional)** **string** | There cannot be anymore nested children. This will always be null. | [default to undefined]
+**operator** | **(optional)** `string` | Operator for the expression | [default to undefined]
+**attribute** | **(optional)** `string` | Name for the attribute | [default to undefined]
+**value** | **(optional)** `Value` |  | [default to undefined]
+**children** | **(optional)** `string` | There cannot be anymore nested children. This will always be null. | [default to undefined]
 

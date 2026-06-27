@@ -5,8 +5,8 @@ Approvalcomment.md
 ArrayInner.md
 Backupoptions.md
 Backupresponse.md
-ConfigurationHubV1Api.md
-ConfigurationHubV1ApideveloperSite_code_examples.yaml
+ConfigurationHubApi.md
+ConfigurationHubApideveloperSite_code_examples.yaml
 CreateUploadedConfigurationV1Request.md
 Deployrequest.md
 Deployresponse.md

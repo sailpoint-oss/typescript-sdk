@@ -1,19 +1,19 @@
 ---
-id: v1-segment-visibility-criteria-v1
-title: SegmentVisibilityCriteriaV1
-pagination_label: SegmentVisibilityCriteriaV1
-sidebar_label: SegmentVisibilityCriteriaV1
+id: v1-segment-visibility-criteria
+title: SegmentVisibilityCriteria
+pagination_label: SegmentVisibilityCriteria
+sidebar_label: SegmentVisibilityCriteria
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SegmentVisibilityCriteriaV1', 'v1SegmentVisibilityCriteriaV1']
-slug: /tools/sdk/typescript/segments/models/segment-visibility-criteria-v1
-tags: ['SDK', 'Software Development Kit', 'SegmentVisibilityCriteriaV1', 'v1SegmentVisibilityCriteriaV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'SegmentVisibilityCriteria', 'v1SegmentVisibilityCriteria']
+slug: /tools/sdk/typescript/segments/models/segment-visibility-criteria
+tags: ['SDK', 'Software Development Kit', 'SegmentVisibilityCriteria', 'v1SegmentVisibilityCriteria']
 ---
 
-# SegmentVisibilityCriteriaV1
+# SegmentVisibilityCriteria
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**expression** | **(optional)** **ExpressionV1** |  | [default to undefined]
+**expression** | **(optional)** `Expression` |  | [default to undefined]
 

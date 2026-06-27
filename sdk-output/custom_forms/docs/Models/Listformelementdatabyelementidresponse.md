@@ -1,19 +1,19 @@
 ---
-id: v1-listformelementdatabyelementidresponse-v1
-title: ListformelementdatabyelementidresponseV1
-pagination_label: ListformelementdatabyelementidresponseV1
-sidebar_label: ListformelementdatabyelementidresponseV1
+id: v1-listformelementdatabyelementidresponse
+title: Listformelementdatabyelementidresponse
+pagination_label: Listformelementdatabyelementidresponse
+sidebar_label: Listformelementdatabyelementidresponse
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ListformelementdatabyelementidresponseV1', 'v1ListformelementdatabyelementidresponseV1']
-slug: /tools/sdk/typescript/custom_forms/models/listformelementdatabyelementidresponse-v1
-tags: ['SDK', 'Software Development Kit', 'ListformelementdatabyelementidresponseV1', 'v1ListformelementdatabyelementidresponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Listformelementdatabyelementidresponse', 'v1Listformelementdatabyelementidresponse']
+slug: /tools/sdk/typescript/custom_forms/models/listformelementdatabyelementidresponse
+tags: ['SDK', 'Software Development Kit', 'Listformelementdatabyelementidresponse', 'v1Listformelementdatabyelementidresponse']
 ---
 
-# ListformelementdatabyelementidresponseV1
+# Listformelementdatabyelementidresponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**results** | **(optional)** **Array&lt;FormelementdatasourceconfigoptionsV1&gt;** | Results holds a list of FormElementDataSourceConfigOptions items | [default to undefined]
+**results** | **(optional)** `Array<Formelementdatasourceconfigoptions>` | Results holds a list of FormElementDataSourceConfigOptions items | [default to undefined]
 

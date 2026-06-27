@@ -1,8 +1,8 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
-AccountActivitiesV1Api.md
-AccountActivitiesV1ApideveloperSite_code_examples.yaml
+AccountActivitiesApi.md
+AccountActivitiesApideveloperSite_code_examples.yaml
 Accountactivity.md
 Accountactivityapprovalstatus.md
 Accountactivityitem.md

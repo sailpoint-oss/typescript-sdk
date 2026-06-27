@@ -4,14 +4,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/role_propagation/methods/role-propagation#cancel-role-propagation-v1
       source: |
-        import { RolePropagationV1Api } from 'sailpoint-api-client';
+        import { RolePropagationApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new RolePropagationV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new RolePropagationApi(configuration);
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.cancelRolePropagationV1();
+        const result = await apiInstance.cancelRolePropagationV1({  });
         console.log(result);
 - path: /role-propagation/v1/is-running
   method: GET
@@ -19,14 +18,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/role_propagation/methods/role-propagation#get-ongoing-role-propagation-v1
       source: |
-        import { RolePropagationV1Api } from 'sailpoint-api-client';
+        import { RolePropagationApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new RolePropagationV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new RolePropagationApi(configuration);
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.getOngoingRolePropagationV1();
+        const result = await apiInstance.getOngoingRolePropagationV1({  });
         console.log(result);
 - path: /role-propagation-config/v1
   method: GET
@@ -34,14 +32,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/role_propagation/methods/role-propagation#get-role-propagation-config-v1
       source: |
-        import { RolePropagationV1Api } from 'sailpoint-api-client';
+        import { RolePropagationApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new RolePropagationV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new RolePropagationApi(configuration);
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.getRolePropagationConfigV1();
+        const result = await apiInstance.getRolePropagationConfigV1({  });
         console.log(result);
 - path: /role-propagation/v1/{rolePropagationId}/status
   method: GET
@@ -49,15 +46,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/role_propagation/methods/role-propagation#get-role-propagation-status-v1
       source: |
-        import { RolePropagationV1Api } from 'sailpoint-api-client';
+        import { RolePropagationApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new RolePropagationV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new RolePropagationApi(configuration);
         const rolePropagationId: string = '47b9fb02-e12e-42ba-8bfe-1860d78c88eb'; // string | The ID of the role propagation process to retrieve the status for. (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.getRolePropagationStatusV1(rolePropagationId);
+        const result = await apiInstance.getRolePropagationStatusV1({ rolePropagationId: rolePropagationId });
         console.log(result);
 - path: /role-propagation-config/v1
   method: PUT
@@ -65,15 +61,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/role_propagation/methods/role-propagation#set-role-propagation-config-v1
       source: |
-        import { RolePropagationV1Api } from 'sailpoint-api-client';
+        import { RolePropagationApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new RolePropagationV1Api(configuration);
-        const rolePropagationConfigInputV1: RolePropagationConfigInputV1 = ; // RolePropagationConfigInputV1 | 
+        const configuration = new Configuration();
+        const apiInstance = new RolePropagationApi(configuration);
+        const rolePropagationConfigInput: RolePropagationConfigInput = ; // RolePropagationConfigInput | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.setRolePropagationConfigV1(rolePropagationConfigInputV1);
+        const result = await apiInstance.setRolePropagationConfigV1({ rolePropagationConfigInput: rolePropagationConfigInput });
         console.log(result);
 - path: /role-propagation/v1
   method: POST
@@ -81,13 +76,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/role_propagation/methods/role-propagation#start-role-propagation-v1
       source: |
-        import { RolePropagationV1Api } from 'sailpoint-api-client';
+        import { RolePropagationApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new RolePropagationV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new RolePropagationApi(configuration);
         const skipRoleRefresh: boolean = true; // boolean | When true, the role refresh is not performed. Keeping it false is recommended. (optional) (default to false)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.startRolePropagationV1();
+        const result = await apiInstance.startRolePropagationV1({  });
         console.log(result);

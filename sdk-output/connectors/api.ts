@@ -26,145 +26,145 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ArrayInnerV1
+ * @interface ArrayInner
  */
-export interface ArrayInnerV1 {
+export interface ArrayInner {
 }
 /**
  * 
  * @export
- * @interface ConnectordetailV1
+ * @interface Connectordetail
  */
-export interface ConnectordetailV1 {
+export interface Connectordetail {
     /**
      * The connector name
      * @type {string}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'name'?: string;
     /**
      * The connector type
      * @type {string}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'type'?: string;
     /**
      * The connector class name
      * @type {string}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'className'?: string;
     /**
      * The connector script name
      * @type {string}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'scriptName'?: string;
     /**
      * The connector application xml
      * @type {string}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'applicationXml'?: string;
     /**
      * The connector correlation config xml
      * @type {string}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'correlationConfigXml'?: string;
     /**
      * The connector source config xml
      * @type {string}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'sourceConfigXml'?: string;
     /**
      * The connector source config
      * @type {string}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'sourceConfig'?: string | null;
     /**
      * The connector source config origin
      * @type {string}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'sourceConfigFrom'?: string | null;
     /**
      * storage path key for this connector
      * @type {string}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     's3Location'?: string;
     /**
      * The list of uploaded files supported by the connector. If there was any executable files uploaded to thee connector. Typically this be empty as the executable be uploaded at source creation.
      * @type {Array<string>}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'uploadedFiles'?: Array<string> | null;
     /**
      * true if the source is file upload
      * @type {boolean}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'fileUpload'?: boolean;
     /**
      * true if the source is a direct connect source
      * @type {boolean}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'directConnect'?: boolean;
     /**
      * A map containing translation attributes by loacale key
      * @type {{ [key: string]: any; }}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'translationProperties'?: { [key: string]: any; };
     /**
      * A map containing metadata pertinent to the UI to be used
      * @type {{ [key: string]: any; }}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
     'connectorMetadata'?: { [key: string]: any; };
     /**
      * The connector status
      * @type {string}
-     * @memberof ConnectordetailV1
+     * @memberof Connectordetail
      */
-    'status'?: ConnectordetailV1StatusV1;
+    'status'?: ConnectordetailStatusEnum;
 }
 
-export const ConnectordetailV1StatusV1 = {
+export const ConnectordetailStatusEnum = {
     Deprecated: 'DEPRECATED',
     Development: 'DEVELOPMENT',
     Demo: 'DEMO',
     Released: 'RELEASED'
 } as const;
 
-export type ConnectordetailV1StatusV1 = typeof ConnectordetailV1StatusV1[keyof typeof ConnectordetailV1StatusV1];
+export type ConnectordetailStatusEnum = typeof ConnectordetailStatusEnum[keyof typeof ConnectordetailStatusEnum];
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -173,87 +173,87 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetConnectorV1401ResponseV1
+ * @interface GetConnectorV1401Response
  */
-export interface GetConnectorV1401ResponseV1 {
+export interface GetConnectorV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetConnectorV1401ResponseV1
+     * @memberof GetConnectorV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetConnectorV1429ResponseV1
+ * @interface GetConnectorV1429Response
  */
-export interface GetConnectorV1429ResponseV1 {
+export interface GetConnectorV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetConnectorV1429ResponseV1
+     * @memberof GetConnectorV1429Response
      */
     'message'?: any;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface JsonpatchoperationV1
+ * @interface Jsonpatchoperation
  */
-export interface JsonpatchoperationV1 {
+export interface Jsonpatchoperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
-    'op': JsonpatchoperationV1OpV1;
+    'op': JsonpatchoperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValueV1}
-     * @memberof JsonpatchoperationV1
+     * @type {JsonpatchoperationValue}
+     * @memberof Jsonpatchoperation
      */
-    'value'?: JsonpatchoperationValueV1;
+    'value'?: JsonpatchoperationValue;
 }
 
-export const JsonpatchoperationV1OpV1 = {
+export const JsonpatchoperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -262,14 +262,14 @@ export const JsonpatchoperationV1OpV1 = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationV1OpV1 = typeof JsonpatchoperationV1OpV1[keyof typeof JsonpatchoperationV1OpV1];
+export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
 
 /**
- * @type JsonpatchoperationValueV1
+ * @type JsonpatchoperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number | object | string;
+export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -277,222 +277,222 @@ export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number |
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface PutConnectorCorrelationConfigV1RequestV1
+ * @interface PutConnectorCorrelationConfigV1Request
  */
-export interface PutConnectorCorrelationConfigV1RequestV1 {
+export interface PutConnectorCorrelationConfigV1Request {
     /**
      * connector correlation config xml file
      * @type {File}
-     * @memberof PutConnectorCorrelationConfigV1RequestV1
+     * @memberof PutConnectorCorrelationConfigV1Request
      */
     'file': File;
 }
 /**
  * 
  * @export
- * @interface PutConnectorSourceConfigV1RequestV1
+ * @interface PutConnectorSourceConfigV1Request
  */
-export interface PutConnectorSourceConfigV1RequestV1 {
+export interface PutConnectorSourceConfigV1Request {
     /**
      * connector source config xml file
      * @type {File}
-     * @memberof PutConnectorSourceConfigV1RequestV1
+     * @memberof PutConnectorSourceConfigV1Request
      */
     'file': File;
 }
 /**
  * 
  * @export
- * @interface PutConnectorSourceTemplateV1RequestV1
+ * @interface PutConnectorSourceTemplateV1Request
  */
-export interface PutConnectorSourceTemplateV1RequestV1 {
+export interface PutConnectorSourceTemplateV1Request {
     /**
      * connector source template xml file
      * @type {File}
-     * @memberof PutConnectorSourceTemplateV1RequestV1
+     * @memberof PutConnectorSourceTemplateV1Request
      */
     'file': File;
 }
 /**
  * 
  * @export
- * @interface UpdatedetailV1
+ * @interface Updatedetail
  */
-export interface UpdatedetailV1 {
+export interface Updatedetail {
     /**
      * The detailed message for an update. Typically the relevent error message when status is error.
      * @type {string}
-     * @memberof UpdatedetailV1
+     * @memberof Updatedetail
      */
     'message'?: string;
     /**
      * The connector script name
      * @type {string}
-     * @memberof UpdatedetailV1
+     * @memberof Updatedetail
      */
     'scriptName'?: string;
     /**
      * The list of updated files supported by the connector
      * @type {Array<string>}
-     * @memberof UpdatedetailV1
+     * @memberof Updatedetail
      */
     'updatedFiles'?: Array<string> | null;
     /**
      * The connector update status
      * @type {string}
-     * @memberof UpdatedetailV1
+     * @memberof Updatedetail
      */
-    'status'?: UpdatedetailV1StatusV1;
+    'status'?: UpdatedetailStatusEnum;
 }
 
-export const UpdatedetailV1StatusV1 = {
+export const UpdatedetailStatusEnum = {
     Error: 'ERROR',
     Updated: 'UPDATED',
     Unchanged: 'UNCHANGED',
     Skipped: 'SKIPPED'
 } as const;
 
-export type UpdatedetailV1StatusV1 = typeof UpdatedetailV1StatusV1[keyof typeof UpdatedetailV1StatusV1];
+export type UpdatedetailStatusEnum = typeof UpdatedetailStatusEnum[keyof typeof UpdatedetailStatusEnum];
 
 /**
  * 
  * @export
- * @interface V3connectordtoV1
+ * @interface V3connectordto
  */
-export interface V3connectordtoV1 {
+export interface V3connectordto {
     /**
      * The connector name
      * @type {string}
-     * @memberof V3connectordtoV1
+     * @memberof V3connectordto
      */
     'name'?: string;
     /**
      * The connector type
      * @type {string}
-     * @memberof V3connectordtoV1
+     * @memberof V3connectordto
      */
     'type'?: string;
     /**
      * The connector script name
      * @type {string}
-     * @memberof V3connectordtoV1
+     * @memberof V3connectordto
      */
     'scriptName'?: string;
     /**
      * The connector class name.
      * @type {string}
-     * @memberof V3connectordtoV1
+     * @memberof V3connectordto
      */
     'className'?: string | null;
     /**
      * The list of features supported by the connector
      * @type {Array<string>}
-     * @memberof V3connectordtoV1
+     * @memberof V3connectordto
      */
     'features'?: Array<string> | null;
     /**
      * true if the source is a direct connect source
      * @type {boolean}
-     * @memberof V3connectordtoV1
+     * @memberof V3connectordto
      */
     'directConnect'?: boolean;
     /**
      * A map containing metadata pertinent to the connector
      * @type {{ [key: string]: any; }}
-     * @memberof V3connectordtoV1
+     * @memberof V3connectordto
      */
     'connectorMetadata'?: { [key: string]: any; };
     /**
      * The connector status
      * @type {string}
-     * @memberof V3connectordtoV1
+     * @memberof V3connectordto
      */
-    'status'?: V3connectordtoV1StatusV1;
+    'status'?: V3connectordtoStatusEnum;
 }
 
-export const V3connectordtoV1StatusV1 = {
+export const V3connectordtoStatusEnum = {
     Deprecated: 'DEPRECATED',
     Development: 'DEVELOPMENT',
     Demo: 'DEMO',
     Released: 'RELEASED'
 } as const;
 
-export type V3connectordtoV1StatusV1 = typeof V3connectordtoV1StatusV1[keyof typeof V3connectordtoV1StatusV1];
+export type V3connectordtoStatusEnum = typeof V3connectordtoStatusEnum[keyof typeof V3connectordtoStatusEnum];
 
 /**
  * 
  * @export
- * @interface V3createconnectordtoV1
+ * @interface V3createconnectordto
  */
-export interface V3createconnectordtoV1 {
+export interface V3createconnectordto {
     /**
      * The connector name. Need to be unique per tenant. The name will able be used to derive a url friendly unique scriptname that will be in response. Script name can then be used for all update endpoints
      * @type {string}
-     * @memberof V3createconnectordtoV1
+     * @memberof V3createconnectordto
      */
     'name': string;
     /**
      * The connector type. If not specified will be defaulted to \'custom \'+name
      * @type {string}
-     * @memberof V3createconnectordtoV1
+     * @memberof V3createconnectordto
      */
     'type'?: string;
     /**
      * The connector class name. If you are implementing openconnector standard (what is recommended), then this need to be set to sailpoint.connector.OpenConnectorAdapter
      * @type {string}
-     * @memberof V3createconnectordtoV1
+     * @memberof V3createconnectordto
      */
     'className': string;
     /**
      * true if the source is a direct connect source
      * @type {boolean}
-     * @memberof V3createconnectordtoV1
+     * @memberof V3createconnectordto
      */
     'directConnect'?: boolean;
     /**
      * The connector status
      * @type {string}
-     * @memberof V3createconnectordtoV1
+     * @memberof V3createconnectordto
      */
-    'status'?: V3createconnectordtoV1StatusV1;
+    'status'?: V3createconnectordtoStatusEnum;
 }
 
-export const V3createconnectordtoV1StatusV1 = {
+export const V3createconnectordtoStatusEnum = {
     Development: 'DEVELOPMENT',
     Demo: 'DEMO',
     Released: 'RELEASED'
 } as const;
 
-export type V3createconnectordtoV1StatusV1 = typeof V3createconnectordtoV1StatusV1[keyof typeof V3createconnectordtoV1StatusV1];
+export type V3createconnectordtoStatusEnum = typeof V3createconnectordtoStatusEnum[keyof typeof V3createconnectordtoStatusEnum];
 
 
 /**
- * ConnectorsV1Api - axios parameter creator
+ * ConnectorsApi - axios parameter creator
  * @export
  */
-export const ConnectorsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const ConnectorsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Create custom connector.    
          * @summary Create custom connector
-         * @param {V3createconnectordtoV1} v3createconnectordtoV1 
+         * @param {V3createconnectordto} v3createconnectordto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createCustomConnectorV1: async (v3createconnectordtoV1: V3createconnectordtoV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'v3createconnectordtoV1' is not null or undefined
-            assertParamExists('createCustomConnectorV1', 'v3createconnectordtoV1', v3createconnectordtoV1)
+        createCustomConnectorV1: async (v3createconnectordto: V3createconnectordto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'v3createconnectordto' is not null or undefined
+            assertParamExists('createCustomConnectorV1', 'v3createconnectordto', v3createconnectordto)
             const localVarPath = `/connectors/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -512,7 +512,7 @@ export const ConnectorsV1ApiAxiosParamCreator = function (configuration?: Config
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(v3createconnectordtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(v3createconnectordto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -594,11 +594,11 @@ export const ConnectorsV1ApiAxiosParamCreator = function (configuration?: Config
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {GetConnectorListV1LocaleV1} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {GetConnectorListV1LocaleEnum} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getConnectorListV1: async (filters?: string, limit?: number, offset?: number, count?: boolean, locale?: GetConnectorListV1LocaleV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getConnectorListV1: async (filters?: string, limit?: number, offset?: number, count?: boolean, locale?: GetConnectorListV1LocaleEnum, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/connectors/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -714,11 +714,11 @@ export const ConnectorsV1ApiAxiosParamCreator = function (configuration?: Config
          * Fetches a connector\'s translations using its script name.    
          * @summary Get connector translations
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-         * @param {GetConnectorTranslationsV1LocaleV1} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {GetConnectorTranslationsV1LocaleEnum} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getConnectorTranslationsV1: async (scriptName: string, locale: GetConnectorTranslationsV1LocaleV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getConnectorTranslationsV1: async (scriptName: string, locale: GetConnectorTranslationsV1LocaleEnum, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'scriptName' is not null or undefined
             assertParamExists('getConnectorTranslationsV1', 'scriptName', scriptName)
             // verify required parameter 'locale' is not null or undefined
@@ -752,11 +752,11 @@ export const ConnectorsV1ApiAxiosParamCreator = function (configuration?: Config
          * Fetches a connector that using its script name.    
          * @summary Get connector by script name
          * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
-         * @param {GetConnectorV1LocaleV1} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {GetConnectorV1LocaleEnum} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getConnectorV1: async (scriptName: string, locale?: GetConnectorV1LocaleV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getConnectorV1: async (scriptName: string, locale?: GetConnectorV1LocaleEnum, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'scriptName' is not null or undefined
             assertParamExists('getConnectorV1', 'scriptName', scriptName)
             const localVarPath = `/connectors/v1/{scriptName}`
@@ -926,11 +926,11 @@ export const ConnectorsV1ApiAxiosParamCreator = function (configuration?: Config
          * Update a connector\'s translations using its script name.    
          * @summary Update connector translations
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-         * @param {PutConnectorTranslationsV1LocaleV1} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {PutConnectorTranslationsV1LocaleEnum} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putConnectorTranslationsV1: async (scriptName: string, locale: PutConnectorTranslationsV1LocaleV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putConnectorTranslationsV1: async (scriptName: string, locale: PutConnectorTranslationsV1LocaleEnum, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'scriptName' is not null or undefined
             assertParamExists('putConnectorTranslationsV1', 'scriptName', scriptName)
             // verify required parameter 'locale' is not null or undefined
@@ -964,15 +964,15 @@ export const ConnectorsV1ApiAxiosParamCreator = function (configuration?: Config
          * This API updates a custom connector by script name using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable:   * connectorMetadata  * applicationXml  * correlationConfigXml  * sourceConfigXml 
          * @summary Update connector by script name
          * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of connector detail update operations 
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of connector detail update operations 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateConnectorV1: async (scriptName: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateConnectorV1: async (scriptName: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'scriptName' is not null or undefined
             assertParamExists('updateConnectorV1', 'scriptName', scriptName)
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('updateConnectorV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('updateConnectorV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/connectors/v1/{scriptName}`
                 .replace(`{${"scriptName"}}`, encodeURIComponent(String(scriptName)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -993,7 +993,7 @@ export const ConnectorsV1ApiAxiosParamCreator = function (configuration?: Config
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1004,23 +1004,23 @@ export const ConnectorsV1ApiAxiosParamCreator = function (configuration?: Config
 };
 
 /**
- * ConnectorsV1Api - functional programming interface
+ * ConnectorsApi - functional programming interface
  * @export
  */
-export const ConnectorsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = ConnectorsV1ApiAxiosParamCreator(configuration)
+export const ConnectorsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = ConnectorsApiAxiosParamCreator(configuration)
     return {
         /**
          * Create custom connector.    
          * @summary Create custom connector
-         * @param {V3createconnectordtoV1} v3createconnectordtoV1 
+         * @param {V3createconnectordto} v3createconnectordto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createCustomConnectorV1(v3createconnectordtoV1: V3createconnectordtoV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V3connectordtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createCustomConnectorV1(v3createconnectordtoV1, axiosOptions);
+        async createCustomConnectorV1(v3createconnectordto: V3createconnectordto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V3connectordto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCustomConnectorV1(v3createconnectordto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConnectorsV1Api.createCustomConnectorV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.createCustomConnectorV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1033,7 +1033,7 @@ export const ConnectorsV1ApiFp = function(configuration?: Configuration) {
         async deleteCustomConnectorV1(scriptName: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCustomConnectorV1(scriptName, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConnectorsV1Api.deleteCustomConnectorV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.deleteCustomConnectorV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1046,7 +1046,7 @@ export const ConnectorsV1ApiFp = function(configuration?: Configuration) {
         async getConnectorCorrelationConfigV1(scriptName: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorCorrelationConfigV1(scriptName, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConnectorsV1Api.getConnectorCorrelationConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.getConnectorCorrelationConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1056,14 +1056,14 @@ export const ConnectorsV1ApiFp = function(configuration?: Configuration) {
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {GetConnectorListV1LocaleV1} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {GetConnectorListV1LocaleEnum} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getConnectorListV1(filters?: string, limit?: number, offset?: number, count?: boolean, locale?: GetConnectorListV1LocaleV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<V3connectordtoV1>>> {
+        async getConnectorListV1(filters?: string, limit?: number, offset?: number, count?: boolean, locale?: GetConnectorListV1LocaleEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<V3connectordto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorListV1(filters, limit, offset, count, locale, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConnectorsV1Api.getConnectorListV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.getConnectorListV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1076,7 +1076,7 @@ export const ConnectorsV1ApiFp = function(configuration?: Configuration) {
         async getConnectorSourceConfigV1(scriptName: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorSourceConfigV1(scriptName, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConnectorsV1Api.getConnectorSourceConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.getConnectorSourceConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1089,35 +1089,35 @@ export const ConnectorsV1ApiFp = function(configuration?: Configuration) {
         async getConnectorSourceTemplateV1(scriptName: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorSourceTemplateV1(scriptName, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConnectorsV1Api.getConnectorSourceTemplateV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.getConnectorSourceTemplateV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Fetches a connector\'s translations using its script name.    
          * @summary Get connector translations
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-         * @param {GetConnectorTranslationsV1LocaleV1} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {GetConnectorTranslationsV1LocaleEnum} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getConnectorTranslationsV1(scriptName: string, locale: GetConnectorTranslationsV1LocaleV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async getConnectorTranslationsV1(scriptName: string, locale: GetConnectorTranslationsV1LocaleEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorTranslationsV1(scriptName, locale, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConnectorsV1Api.getConnectorTranslationsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.getConnectorTranslationsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Fetches a connector that using its script name.    
          * @summary Get connector by script name
          * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
-         * @param {GetConnectorV1LocaleV1} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {GetConnectorV1LocaleEnum} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getConnectorV1(scriptName: string, locale?: GetConnectorV1LocaleV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectordetailV1>> {
+        async getConnectorV1(scriptName: string, locale?: GetConnectorV1LocaleEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Connectordetail>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorV1(scriptName, locale, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConnectorsV1Api.getConnectorV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.getConnectorV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1128,10 +1128,10 @@ export const ConnectorsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putConnectorCorrelationConfigV1(scriptName: string, file: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdatedetailV1>> {
+        async putConnectorCorrelationConfigV1(scriptName: string, file: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Updatedetail>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putConnectorCorrelationConfigV1(scriptName, file, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConnectorsV1Api.putConnectorCorrelationConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.putConnectorCorrelationConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1142,10 +1142,10 @@ export const ConnectorsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putConnectorSourceConfigV1(scriptName: string, file: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdatedetailV1>> {
+        async putConnectorSourceConfigV1(scriptName: string, file: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Updatedetail>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putConnectorSourceConfigV1(scriptName, file, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConnectorsV1Api.putConnectorSourceConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.putConnectorSourceConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1156,610 +1156,610 @@ export const ConnectorsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putConnectorSourceTemplateV1(scriptName: string, file: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdatedetailV1>> {
+        async putConnectorSourceTemplateV1(scriptName: string, file: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Updatedetail>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putConnectorSourceTemplateV1(scriptName, file, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConnectorsV1Api.putConnectorSourceTemplateV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.putConnectorSourceTemplateV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Update a connector\'s translations using its script name.    
          * @summary Update connector translations
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-         * @param {PutConnectorTranslationsV1LocaleV1} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {PutConnectorTranslationsV1LocaleEnum} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putConnectorTranslationsV1(scriptName: string, locale: PutConnectorTranslationsV1LocaleV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdatedetailV1>> {
+        async putConnectorTranslationsV1(scriptName: string, locale: PutConnectorTranslationsV1LocaleEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Updatedetail>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putConnectorTranslationsV1(scriptName, locale, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConnectorsV1Api.putConnectorTranslationsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.putConnectorTranslationsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API updates a custom connector by script name using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable:   * connectorMetadata  * applicationXml  * correlationConfigXml  * sourceConfigXml 
          * @summary Update connector by script name
          * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of connector detail update operations 
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of connector detail update operations 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateConnectorV1(scriptName: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectordetailV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateConnectorV1(scriptName, jsonpatchoperationV1, axiosOptions);
+        async updateConnectorV1(scriptName: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Connectordetail>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateConnectorV1(scriptName, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConnectorsV1Api.updateConnectorV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.updateConnectorV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * ConnectorsV1Api - factory interface
+ * ConnectorsApi - factory interface
  * @export
  */
-export const ConnectorsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = ConnectorsV1ApiFp(configuration)
+export const ConnectorsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = ConnectorsApiFp(configuration)
     return {
         /**
          * Create custom connector.    
          * @summary Create custom connector
-         * @param {ConnectorsV1ApiCreateCustomConnectorV1Request} requestParameters Request parameters.
+         * @param {ConnectorsApiCreateCustomConnectorV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createCustomConnectorV1(requestParameters: ConnectorsV1ApiCreateCustomConnectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<V3connectordtoV1> {
-            return localVarFp.createCustomConnectorV1(requestParameters.v3createconnectordtoV1, axiosOptions).then((request) => request(axios, basePath));
+        createCustomConnectorV1(requestParameters: ConnectorsApiCreateCustomConnectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<V3connectordto> {
+            return localVarFp.createCustomConnectorV1(requestParameters.v3createconnectordto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Delete a custom connector that using its script name.
          * @summary Delete connector by script name
-         * @param {ConnectorsV1ApiDeleteCustomConnectorV1Request} requestParameters Request parameters.
+         * @param {ConnectorsApiDeleteCustomConnectorV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteCustomConnectorV1(requestParameters: ConnectorsV1ApiDeleteCustomConnectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteCustomConnectorV1(requestParameters: ConnectorsApiDeleteCustomConnectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteCustomConnectorV1(requestParameters.scriptName, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Fetches a connector\'s correlation config using its script name.    
          * @summary Get connector correlation configuration
-         * @param {ConnectorsV1ApiGetConnectorCorrelationConfigV1Request} requestParameters Request parameters.
+         * @param {ConnectorsApiGetConnectorCorrelationConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getConnectorCorrelationConfigV1(requestParameters: ConnectorsV1ApiGetConnectorCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<string> {
+        getConnectorCorrelationConfigV1(requestParameters: ConnectorsApiGetConnectorCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.getConnectorCorrelationConfigV1(requestParameters.scriptName, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Fetches list of connectors that have \'RELEASED\' status using filtering and pagination.
          * @summary Get connector list
-         * @param {ConnectorsV1ApiGetConnectorListV1Request} requestParameters Request parameters.
+         * @param {ConnectorsApiGetConnectorListV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getConnectorListV1(requestParameters: ConnectorsV1ApiGetConnectorListV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<V3connectordtoV1>> {
+        getConnectorListV1(requestParameters: ConnectorsApiGetConnectorListV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<V3connectordto>> {
             return localVarFp.getConnectorListV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.locale, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Fetches a connector\'s source config using its script name.    
          * @summary Get connector source configuration
-         * @param {ConnectorsV1ApiGetConnectorSourceConfigV1Request} requestParameters Request parameters.
+         * @param {ConnectorsApiGetConnectorSourceConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getConnectorSourceConfigV1(requestParameters: ConnectorsV1ApiGetConnectorSourceConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<string> {
+        getConnectorSourceConfigV1(requestParameters: ConnectorsApiGetConnectorSourceConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.getConnectorSourceConfigV1(requestParameters.scriptName, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Fetches a connector\'s source template using its script name.    
          * @summary Get connector source template
-         * @param {ConnectorsV1ApiGetConnectorSourceTemplateV1Request} requestParameters Request parameters.
+         * @param {ConnectorsApiGetConnectorSourceTemplateV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getConnectorSourceTemplateV1(requestParameters: ConnectorsV1ApiGetConnectorSourceTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<string> {
+        getConnectorSourceTemplateV1(requestParameters: ConnectorsApiGetConnectorSourceTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.getConnectorSourceTemplateV1(requestParameters.scriptName, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Fetches a connector\'s translations using its script name.    
          * @summary Get connector translations
-         * @param {ConnectorsV1ApiGetConnectorTranslationsV1Request} requestParameters Request parameters.
+         * @param {ConnectorsApiGetConnectorTranslationsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getConnectorTranslationsV1(requestParameters: ConnectorsV1ApiGetConnectorTranslationsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<string> {
+        getConnectorTranslationsV1(requestParameters: ConnectorsApiGetConnectorTranslationsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.getConnectorTranslationsV1(requestParameters.scriptName, requestParameters.locale, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Fetches a connector that using its script name.    
          * @summary Get connector by script name
-         * @param {ConnectorsV1ApiGetConnectorV1Request} requestParameters Request parameters.
+         * @param {ConnectorsApiGetConnectorV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getConnectorV1(requestParameters: ConnectorsV1ApiGetConnectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ConnectordetailV1> {
+        getConnectorV1(requestParameters: ConnectorsApiGetConnectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Connectordetail> {
             return localVarFp.getConnectorV1(requestParameters.scriptName, requestParameters.locale, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Update a connector\'s correlation config using its script name.    
          * @summary Update connector correlation configuration
-         * @param {ConnectorsV1ApiPutConnectorCorrelationConfigV1Request} requestParameters Request parameters.
+         * @param {ConnectorsApiPutConnectorCorrelationConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putConnectorCorrelationConfigV1(requestParameters: ConnectorsV1ApiPutConnectorCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<UpdatedetailV1> {
+        putConnectorCorrelationConfigV1(requestParameters: ConnectorsApiPutConnectorCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Updatedetail> {
             return localVarFp.putConnectorCorrelationConfigV1(requestParameters.scriptName, requestParameters.file, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Update a connector\'s source config using its script name.    
          * @summary Update connector source configuration
-         * @param {ConnectorsV1ApiPutConnectorSourceConfigV1Request} requestParameters Request parameters.
+         * @param {ConnectorsApiPutConnectorSourceConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putConnectorSourceConfigV1(requestParameters: ConnectorsV1ApiPutConnectorSourceConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<UpdatedetailV1> {
+        putConnectorSourceConfigV1(requestParameters: ConnectorsApiPutConnectorSourceConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Updatedetail> {
             return localVarFp.putConnectorSourceConfigV1(requestParameters.scriptName, requestParameters.file, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Update a connector\'s source template using its script name.    
          * @summary Update connector source template
-         * @param {ConnectorsV1ApiPutConnectorSourceTemplateV1Request} requestParameters Request parameters.
+         * @param {ConnectorsApiPutConnectorSourceTemplateV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putConnectorSourceTemplateV1(requestParameters: ConnectorsV1ApiPutConnectorSourceTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<UpdatedetailV1> {
+        putConnectorSourceTemplateV1(requestParameters: ConnectorsApiPutConnectorSourceTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Updatedetail> {
             return localVarFp.putConnectorSourceTemplateV1(requestParameters.scriptName, requestParameters.file, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Update a connector\'s translations using its script name.    
          * @summary Update connector translations
-         * @param {ConnectorsV1ApiPutConnectorTranslationsV1Request} requestParameters Request parameters.
+         * @param {ConnectorsApiPutConnectorTranslationsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putConnectorTranslationsV1(requestParameters: ConnectorsV1ApiPutConnectorTranslationsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<UpdatedetailV1> {
+        putConnectorTranslationsV1(requestParameters: ConnectorsApiPutConnectorTranslationsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Updatedetail> {
             return localVarFp.putConnectorTranslationsV1(requestParameters.scriptName, requestParameters.locale, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API updates a custom connector by script name using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable:   * connectorMetadata  * applicationXml  * correlationConfigXml  * sourceConfigXml 
          * @summary Update connector by script name
-         * @param {ConnectorsV1ApiUpdateConnectorV1Request} requestParameters Request parameters.
+         * @param {ConnectorsApiUpdateConnectorV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateConnectorV1(requestParameters: ConnectorsV1ApiUpdateConnectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ConnectordetailV1> {
-            return localVarFp.updateConnectorV1(requestParameters.scriptName, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        updateConnectorV1(requestParameters: ConnectorsApiUpdateConnectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Connectordetail> {
+            return localVarFp.updateConnectorV1(requestParameters.scriptName, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createCustomConnectorV1 operation in ConnectorsV1Api.
+ * Request parameters for createCustomConnectorV1 operation in ConnectorsApi.
  * @export
- * @interface ConnectorsV1ApiCreateCustomConnectorV1Request
+ * @interface ConnectorsApiCreateCustomConnectorV1Request
  */
-export interface ConnectorsV1ApiCreateCustomConnectorV1Request {
+export interface ConnectorsApiCreateCustomConnectorV1Request {
     /**
      * 
-     * @type {V3createconnectordtoV1}
-     * @memberof ConnectorsV1ApiCreateCustomConnectorV1
+     * @type {V3createconnectordto}
+     * @memberof ConnectorsApiCreateCustomConnectorV1
      */
-    readonly v3createconnectordtoV1: V3createconnectordtoV1
+    readonly v3createconnectordto: V3createconnectordto
 }
 
 /**
- * Request parameters for deleteCustomConnectorV1 operation in ConnectorsV1Api.
+ * Request parameters for deleteCustomConnectorV1 operation in ConnectorsApi.
  * @export
- * @interface ConnectorsV1ApiDeleteCustomConnectorV1Request
+ * @interface ConnectorsApiDeleteCustomConnectorV1Request
  */
-export interface ConnectorsV1ApiDeleteCustomConnectorV1Request {
+export interface ConnectorsApiDeleteCustomConnectorV1Request {
     /**
      * The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
      * @type {string}
-     * @memberof ConnectorsV1ApiDeleteCustomConnectorV1
+     * @memberof ConnectorsApiDeleteCustomConnectorV1
      */
     readonly scriptName: string
 }
 
 /**
- * Request parameters for getConnectorCorrelationConfigV1 operation in ConnectorsV1Api.
+ * Request parameters for getConnectorCorrelationConfigV1 operation in ConnectorsApi.
  * @export
- * @interface ConnectorsV1ApiGetConnectorCorrelationConfigV1Request
+ * @interface ConnectorsApiGetConnectorCorrelationConfigV1Request
  */
-export interface ConnectorsV1ApiGetConnectorCorrelationConfigV1Request {
+export interface ConnectorsApiGetConnectorCorrelationConfigV1Request {
     /**
      * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
      * @type {string}
-     * @memberof ConnectorsV1ApiGetConnectorCorrelationConfigV1
+     * @memberof ConnectorsApiGetConnectorCorrelationConfigV1
      */
     readonly scriptName: string
 }
 
 /**
- * Request parameters for getConnectorListV1 operation in ConnectorsV1Api.
+ * Request parameters for getConnectorListV1 operation in ConnectorsApi.
  * @export
- * @interface ConnectorsV1ApiGetConnectorListV1Request
+ * @interface ConnectorsApiGetConnectorListV1Request
  */
-export interface ConnectorsV1ApiGetConnectorListV1Request {
+export interface ConnectorsApiGetConnectorListV1Request {
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw, co*  **type**: *sw, co, eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca*  **labels**: *ca*
      * @type {string}
-     * @memberof ConnectorsV1ApiGetConnectorListV1
+     * @memberof ConnectorsApiGetConnectorListV1
      */
     readonly filters?: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof ConnectorsV1ApiGetConnectorListV1
+     * @memberof ConnectorsApiGetConnectorListV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof ConnectorsV1ApiGetConnectorListV1
+     * @memberof ConnectorsApiGetConnectorListV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof ConnectorsV1ApiGetConnectorListV1
+     * @memberof ConnectorsApiGetConnectorListV1
      */
     readonly count?: boolean
 
     /**
      * The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
      * @type {'de' | 'no' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'}
-     * @memberof ConnectorsV1ApiGetConnectorListV1
+     * @memberof ConnectorsApiGetConnectorListV1
      */
-    readonly locale?: GetConnectorListV1LocaleV1
+    readonly locale?: GetConnectorListV1LocaleEnum
 }
 
 /**
- * Request parameters for getConnectorSourceConfigV1 operation in ConnectorsV1Api.
+ * Request parameters for getConnectorSourceConfigV1 operation in ConnectorsApi.
  * @export
- * @interface ConnectorsV1ApiGetConnectorSourceConfigV1Request
+ * @interface ConnectorsApiGetConnectorSourceConfigV1Request
  */
-export interface ConnectorsV1ApiGetConnectorSourceConfigV1Request {
+export interface ConnectorsApiGetConnectorSourceConfigV1Request {
     /**
      * The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
      * @type {string}
-     * @memberof ConnectorsV1ApiGetConnectorSourceConfigV1
+     * @memberof ConnectorsApiGetConnectorSourceConfigV1
      */
     readonly scriptName: string
 }
 
 /**
- * Request parameters for getConnectorSourceTemplateV1 operation in ConnectorsV1Api.
+ * Request parameters for getConnectorSourceTemplateV1 operation in ConnectorsApi.
  * @export
- * @interface ConnectorsV1ApiGetConnectorSourceTemplateV1Request
+ * @interface ConnectorsApiGetConnectorSourceTemplateV1Request
  */
-export interface ConnectorsV1ApiGetConnectorSourceTemplateV1Request {
+export interface ConnectorsApiGetConnectorSourceTemplateV1Request {
     /**
      * The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
      * @type {string}
-     * @memberof ConnectorsV1ApiGetConnectorSourceTemplateV1
+     * @memberof ConnectorsApiGetConnectorSourceTemplateV1
      */
     readonly scriptName: string
 }
 
 /**
- * Request parameters for getConnectorTranslationsV1 operation in ConnectorsV1Api.
+ * Request parameters for getConnectorTranslationsV1 operation in ConnectorsApi.
  * @export
- * @interface ConnectorsV1ApiGetConnectorTranslationsV1Request
+ * @interface ConnectorsApiGetConnectorTranslationsV1Request
  */
-export interface ConnectorsV1ApiGetConnectorTranslationsV1Request {
+export interface ConnectorsApiGetConnectorTranslationsV1Request {
     /**
      * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
      * @type {string}
-     * @memberof ConnectorsV1ApiGetConnectorTranslationsV1
+     * @memberof ConnectorsApiGetConnectorTranslationsV1
      */
     readonly scriptName: string
 
     /**
      * The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
      * @type {'de' | 'no' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'}
-     * @memberof ConnectorsV1ApiGetConnectorTranslationsV1
+     * @memberof ConnectorsApiGetConnectorTranslationsV1
      */
-    readonly locale: GetConnectorTranslationsV1LocaleV1
+    readonly locale: GetConnectorTranslationsV1LocaleEnum
 }
 
 /**
- * Request parameters for getConnectorV1 operation in ConnectorsV1Api.
+ * Request parameters for getConnectorV1 operation in ConnectorsApi.
  * @export
- * @interface ConnectorsV1ApiGetConnectorV1Request
+ * @interface ConnectorsApiGetConnectorV1Request
  */
-export interface ConnectorsV1ApiGetConnectorV1Request {
+export interface ConnectorsApiGetConnectorV1Request {
     /**
      * The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
      * @type {string}
-     * @memberof ConnectorsV1ApiGetConnectorV1
+     * @memberof ConnectorsApiGetConnectorV1
      */
     readonly scriptName: string
 
     /**
      * The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
      * @type {'de' | 'no' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'}
-     * @memberof ConnectorsV1ApiGetConnectorV1
+     * @memberof ConnectorsApiGetConnectorV1
      */
-    readonly locale?: GetConnectorV1LocaleV1
+    readonly locale?: GetConnectorV1LocaleEnum
 }
 
 /**
- * Request parameters for putConnectorCorrelationConfigV1 operation in ConnectorsV1Api.
+ * Request parameters for putConnectorCorrelationConfigV1 operation in ConnectorsApi.
  * @export
- * @interface ConnectorsV1ApiPutConnectorCorrelationConfigV1Request
+ * @interface ConnectorsApiPutConnectorCorrelationConfigV1Request
  */
-export interface ConnectorsV1ApiPutConnectorCorrelationConfigV1Request {
+export interface ConnectorsApiPutConnectorCorrelationConfigV1Request {
     /**
      * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
      * @type {string}
-     * @memberof ConnectorsV1ApiPutConnectorCorrelationConfigV1
+     * @memberof ConnectorsApiPutConnectorCorrelationConfigV1
      */
     readonly scriptName: string
 
     /**
      * connector correlation config xml file
      * @type {File}
-     * @memberof ConnectorsV1ApiPutConnectorCorrelationConfigV1
+     * @memberof ConnectorsApiPutConnectorCorrelationConfigV1
      */
     readonly file: File
 }
 
 /**
- * Request parameters for putConnectorSourceConfigV1 operation in ConnectorsV1Api.
+ * Request parameters for putConnectorSourceConfigV1 operation in ConnectorsApi.
  * @export
- * @interface ConnectorsV1ApiPutConnectorSourceConfigV1Request
+ * @interface ConnectorsApiPutConnectorSourceConfigV1Request
  */
-export interface ConnectorsV1ApiPutConnectorSourceConfigV1Request {
+export interface ConnectorsApiPutConnectorSourceConfigV1Request {
     /**
      * The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
      * @type {string}
-     * @memberof ConnectorsV1ApiPutConnectorSourceConfigV1
+     * @memberof ConnectorsApiPutConnectorSourceConfigV1
      */
     readonly scriptName: string
 
     /**
      * connector source config xml file
      * @type {File}
-     * @memberof ConnectorsV1ApiPutConnectorSourceConfigV1
+     * @memberof ConnectorsApiPutConnectorSourceConfigV1
      */
     readonly file: File
 }
 
 /**
- * Request parameters for putConnectorSourceTemplateV1 operation in ConnectorsV1Api.
+ * Request parameters for putConnectorSourceTemplateV1 operation in ConnectorsApi.
  * @export
- * @interface ConnectorsV1ApiPutConnectorSourceTemplateV1Request
+ * @interface ConnectorsApiPutConnectorSourceTemplateV1Request
  */
-export interface ConnectorsV1ApiPutConnectorSourceTemplateV1Request {
+export interface ConnectorsApiPutConnectorSourceTemplateV1Request {
     /**
      * The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
      * @type {string}
-     * @memberof ConnectorsV1ApiPutConnectorSourceTemplateV1
+     * @memberof ConnectorsApiPutConnectorSourceTemplateV1
      */
     readonly scriptName: string
 
     /**
      * connector source template xml file
      * @type {File}
-     * @memberof ConnectorsV1ApiPutConnectorSourceTemplateV1
+     * @memberof ConnectorsApiPutConnectorSourceTemplateV1
      */
     readonly file: File
 }
 
 /**
- * Request parameters for putConnectorTranslationsV1 operation in ConnectorsV1Api.
+ * Request parameters for putConnectorTranslationsV1 operation in ConnectorsApi.
  * @export
- * @interface ConnectorsV1ApiPutConnectorTranslationsV1Request
+ * @interface ConnectorsApiPutConnectorTranslationsV1Request
  */
-export interface ConnectorsV1ApiPutConnectorTranslationsV1Request {
+export interface ConnectorsApiPutConnectorTranslationsV1Request {
     /**
      * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
      * @type {string}
-     * @memberof ConnectorsV1ApiPutConnectorTranslationsV1
+     * @memberof ConnectorsApiPutConnectorTranslationsV1
      */
     readonly scriptName: string
 
     /**
      * The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
      * @type {'de' | 'no' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'}
-     * @memberof ConnectorsV1ApiPutConnectorTranslationsV1
+     * @memberof ConnectorsApiPutConnectorTranslationsV1
      */
-    readonly locale: PutConnectorTranslationsV1LocaleV1
+    readonly locale: PutConnectorTranslationsV1LocaleEnum
 }
 
 /**
- * Request parameters for updateConnectorV1 operation in ConnectorsV1Api.
+ * Request parameters for updateConnectorV1 operation in ConnectorsApi.
  * @export
- * @interface ConnectorsV1ApiUpdateConnectorV1Request
+ * @interface ConnectorsApiUpdateConnectorV1Request
  */
-export interface ConnectorsV1ApiUpdateConnectorV1Request {
+export interface ConnectorsApiUpdateConnectorV1Request {
     /**
      * The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
      * @type {string}
-     * @memberof ConnectorsV1ApiUpdateConnectorV1
+     * @memberof ConnectorsApiUpdateConnectorV1
      */
     readonly scriptName: string
 
     /**
      * A list of connector detail update operations 
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof ConnectorsV1ApiUpdateConnectorV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof ConnectorsApiUpdateConnectorV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * ConnectorsV1Api - object-oriented interface
+ * ConnectorsApi - object-oriented interface
  * @export
- * @class ConnectorsV1Api
+ * @class ConnectorsApi
  * @extends {BaseAPI}
  */
-export class ConnectorsV1Api extends BaseAPI {
+export class ConnectorsApi extends BaseAPI {
     /**
      * Create custom connector.    
      * @summary Create custom connector
-     * @param {ConnectorsV1ApiCreateCustomConnectorV1Request} requestParameters Request parameters.
+     * @param {ConnectorsApiCreateCustomConnectorV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectorsV1Api
+     * @memberof ConnectorsApi
      */
-    public createCustomConnectorV1(requestParameters: ConnectorsV1ApiCreateCustomConnectorV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConnectorsV1ApiFp(this.configuration).createCustomConnectorV1(requestParameters.v3createconnectordtoV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createCustomConnectorV1(requestParameters: ConnectorsApiCreateCustomConnectorV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).createCustomConnectorV1(requestParameters.v3createconnectordto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Delete a custom connector that using its script name.
      * @summary Delete connector by script name
-     * @param {ConnectorsV1ApiDeleteCustomConnectorV1Request} requestParameters Request parameters.
+     * @param {ConnectorsApiDeleteCustomConnectorV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectorsV1Api
+     * @memberof ConnectorsApi
      */
-    public deleteCustomConnectorV1(requestParameters: ConnectorsV1ApiDeleteCustomConnectorV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConnectorsV1ApiFp(this.configuration).deleteCustomConnectorV1(requestParameters.scriptName, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteCustomConnectorV1(requestParameters: ConnectorsApiDeleteCustomConnectorV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).deleteCustomConnectorV1(requestParameters.scriptName, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Fetches a connector\'s correlation config using its script name.    
      * @summary Get connector correlation configuration
-     * @param {ConnectorsV1ApiGetConnectorCorrelationConfigV1Request} requestParameters Request parameters.
+     * @param {ConnectorsApiGetConnectorCorrelationConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectorsV1Api
+     * @memberof ConnectorsApi
      */
-    public getConnectorCorrelationConfigV1(requestParameters: ConnectorsV1ApiGetConnectorCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConnectorsV1ApiFp(this.configuration).getConnectorCorrelationConfigV1(requestParameters.scriptName, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getConnectorCorrelationConfigV1(requestParameters: ConnectorsApiGetConnectorCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).getConnectorCorrelationConfigV1(requestParameters.scriptName, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Fetches list of connectors that have \'RELEASED\' status using filtering and pagination.
      * @summary Get connector list
-     * @param {ConnectorsV1ApiGetConnectorListV1Request} requestParameters Request parameters.
+     * @param {ConnectorsApiGetConnectorListV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectorsV1Api
+     * @memberof ConnectorsApi
      */
-    public getConnectorListV1(requestParameters: ConnectorsV1ApiGetConnectorListV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return ConnectorsV1ApiFp(this.configuration).getConnectorListV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.locale, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getConnectorListV1(requestParameters: ConnectorsApiGetConnectorListV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).getConnectorListV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.locale, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Fetches a connector\'s source config using its script name.    
      * @summary Get connector source configuration
-     * @param {ConnectorsV1ApiGetConnectorSourceConfigV1Request} requestParameters Request parameters.
+     * @param {ConnectorsApiGetConnectorSourceConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectorsV1Api
+     * @memberof ConnectorsApi
      */
-    public getConnectorSourceConfigV1(requestParameters: ConnectorsV1ApiGetConnectorSourceConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConnectorsV1ApiFp(this.configuration).getConnectorSourceConfigV1(requestParameters.scriptName, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getConnectorSourceConfigV1(requestParameters: ConnectorsApiGetConnectorSourceConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).getConnectorSourceConfigV1(requestParameters.scriptName, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Fetches a connector\'s source template using its script name.    
      * @summary Get connector source template
-     * @param {ConnectorsV1ApiGetConnectorSourceTemplateV1Request} requestParameters Request parameters.
+     * @param {ConnectorsApiGetConnectorSourceTemplateV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectorsV1Api
+     * @memberof ConnectorsApi
      */
-    public getConnectorSourceTemplateV1(requestParameters: ConnectorsV1ApiGetConnectorSourceTemplateV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConnectorsV1ApiFp(this.configuration).getConnectorSourceTemplateV1(requestParameters.scriptName, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getConnectorSourceTemplateV1(requestParameters: ConnectorsApiGetConnectorSourceTemplateV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).getConnectorSourceTemplateV1(requestParameters.scriptName, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Fetches a connector\'s translations using its script name.    
      * @summary Get connector translations
-     * @param {ConnectorsV1ApiGetConnectorTranslationsV1Request} requestParameters Request parameters.
+     * @param {ConnectorsApiGetConnectorTranslationsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectorsV1Api
+     * @memberof ConnectorsApi
      */
-    public getConnectorTranslationsV1(requestParameters: ConnectorsV1ApiGetConnectorTranslationsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConnectorsV1ApiFp(this.configuration).getConnectorTranslationsV1(requestParameters.scriptName, requestParameters.locale, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getConnectorTranslationsV1(requestParameters: ConnectorsApiGetConnectorTranslationsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).getConnectorTranslationsV1(requestParameters.scriptName, requestParameters.locale, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Fetches a connector that using its script name.    
      * @summary Get connector by script name
-     * @param {ConnectorsV1ApiGetConnectorV1Request} requestParameters Request parameters.
+     * @param {ConnectorsApiGetConnectorV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectorsV1Api
+     * @memberof ConnectorsApi
      */
-    public getConnectorV1(requestParameters: ConnectorsV1ApiGetConnectorV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConnectorsV1ApiFp(this.configuration).getConnectorV1(requestParameters.scriptName, requestParameters.locale, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getConnectorV1(requestParameters: ConnectorsApiGetConnectorV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).getConnectorV1(requestParameters.scriptName, requestParameters.locale, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Update a connector\'s correlation config using its script name.    
      * @summary Update connector correlation configuration
-     * @param {ConnectorsV1ApiPutConnectorCorrelationConfigV1Request} requestParameters Request parameters.
+     * @param {ConnectorsApiPutConnectorCorrelationConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectorsV1Api
+     * @memberof ConnectorsApi
      */
-    public putConnectorCorrelationConfigV1(requestParameters: ConnectorsV1ApiPutConnectorCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConnectorsV1ApiFp(this.configuration).putConnectorCorrelationConfigV1(requestParameters.scriptName, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putConnectorCorrelationConfigV1(requestParameters: ConnectorsApiPutConnectorCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).putConnectorCorrelationConfigV1(requestParameters.scriptName, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Update a connector\'s source config using its script name.    
      * @summary Update connector source configuration
-     * @param {ConnectorsV1ApiPutConnectorSourceConfigV1Request} requestParameters Request parameters.
+     * @param {ConnectorsApiPutConnectorSourceConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectorsV1Api
+     * @memberof ConnectorsApi
      */
-    public putConnectorSourceConfigV1(requestParameters: ConnectorsV1ApiPutConnectorSourceConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConnectorsV1ApiFp(this.configuration).putConnectorSourceConfigV1(requestParameters.scriptName, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putConnectorSourceConfigV1(requestParameters: ConnectorsApiPutConnectorSourceConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).putConnectorSourceConfigV1(requestParameters.scriptName, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Update a connector\'s source template using its script name.    
      * @summary Update connector source template
-     * @param {ConnectorsV1ApiPutConnectorSourceTemplateV1Request} requestParameters Request parameters.
+     * @param {ConnectorsApiPutConnectorSourceTemplateV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectorsV1Api
+     * @memberof ConnectorsApi
      */
-    public putConnectorSourceTemplateV1(requestParameters: ConnectorsV1ApiPutConnectorSourceTemplateV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConnectorsV1ApiFp(this.configuration).putConnectorSourceTemplateV1(requestParameters.scriptName, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putConnectorSourceTemplateV1(requestParameters: ConnectorsApiPutConnectorSourceTemplateV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).putConnectorSourceTemplateV1(requestParameters.scriptName, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Update a connector\'s translations using its script name.    
      * @summary Update connector translations
-     * @param {ConnectorsV1ApiPutConnectorTranslationsV1Request} requestParameters Request parameters.
+     * @param {ConnectorsApiPutConnectorTranslationsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectorsV1Api
+     * @memberof ConnectorsApi
      */
-    public putConnectorTranslationsV1(requestParameters: ConnectorsV1ApiPutConnectorTranslationsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConnectorsV1ApiFp(this.configuration).putConnectorTranslationsV1(requestParameters.scriptName, requestParameters.locale, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putConnectorTranslationsV1(requestParameters: ConnectorsApiPutConnectorTranslationsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).putConnectorTranslationsV1(requestParameters.scriptName, requestParameters.locale, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API updates a custom connector by script name using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable:   * connectorMetadata  * applicationXml  * correlationConfigXml  * sourceConfigXml 
      * @summary Update connector by script name
-     * @param {ConnectorsV1ApiUpdateConnectorV1Request} requestParameters Request parameters.
+     * @param {ConnectorsApiUpdateConnectorV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ConnectorsV1Api
+     * @memberof ConnectorsApi
      */
-    public updateConnectorV1(requestParameters: ConnectorsV1ApiUpdateConnectorV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConnectorsV1ApiFp(this.configuration).updateConnectorV1(requestParameters.scriptName, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateConnectorV1(requestParameters: ConnectorsApiUpdateConnectorV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).updateConnectorV1(requestParameters.scriptName, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
 /**
  * @export
  */
-export const GetConnectorListV1LocaleV1 = {
+export const GetConnectorListV1LocaleEnum = {
     De: 'de',
     No: 'no',
     Fi: 'fi',
@@ -1780,11 +1780,11 @@ export const GetConnectorListV1LocaleV1 = {
     Da: 'da',
     Nl: 'nl'
 } as const;
-export type GetConnectorListV1LocaleV1 = typeof GetConnectorListV1LocaleV1[keyof typeof GetConnectorListV1LocaleV1];
+export type GetConnectorListV1LocaleEnum = typeof GetConnectorListV1LocaleEnum[keyof typeof GetConnectorListV1LocaleEnum];
 /**
  * @export
  */
-export const GetConnectorTranslationsV1LocaleV1 = {
+export const GetConnectorTranslationsV1LocaleEnum = {
     De: 'de',
     No: 'no',
     Fi: 'fi',
@@ -1805,11 +1805,11 @@ export const GetConnectorTranslationsV1LocaleV1 = {
     Da: 'da',
     Nl: 'nl'
 } as const;
-export type GetConnectorTranslationsV1LocaleV1 = typeof GetConnectorTranslationsV1LocaleV1[keyof typeof GetConnectorTranslationsV1LocaleV1];
+export type GetConnectorTranslationsV1LocaleEnum = typeof GetConnectorTranslationsV1LocaleEnum[keyof typeof GetConnectorTranslationsV1LocaleEnum];
 /**
  * @export
  */
-export const GetConnectorV1LocaleV1 = {
+export const GetConnectorV1LocaleEnum = {
     De: 'de',
     No: 'no',
     Fi: 'fi',
@@ -1830,11 +1830,11 @@ export const GetConnectorV1LocaleV1 = {
     Da: 'da',
     Nl: 'nl'
 } as const;
-export type GetConnectorV1LocaleV1 = typeof GetConnectorV1LocaleV1[keyof typeof GetConnectorV1LocaleV1];
+export type GetConnectorV1LocaleEnum = typeof GetConnectorV1LocaleEnum[keyof typeof GetConnectorV1LocaleEnum];
 /**
  * @export
  */
-export const PutConnectorTranslationsV1LocaleV1 = {
+export const PutConnectorTranslationsV1LocaleEnum = {
     De: 'de',
     No: 'no',
     Fi: 'fi',
@@ -1855,6 +1855,6 @@ export const PutConnectorTranslationsV1LocaleV1 = {
     Da: 'da',
     Nl: 'nl'
 } as const;
-export type PutConnectorTranslationsV1LocaleV1 = typeof PutConnectorTranslationsV1LocaleV1[keyof typeof PutConnectorTranslationsV1LocaleV1];
+export type PutConnectorTranslationsV1LocaleEnum = typeof PutConnectorTranslationsV1LocaleEnum[keyof typeof PutConnectorTranslationsV1LocaleEnum];
 
 

@@ -1,21 +1,21 @@
 ---
-id: v1-multihostintegrations-schemas-inner-v1
-title: MultihostintegrationsSchemasInnerV1
-pagination_label: MultihostintegrationsSchemasInnerV1
-sidebar_label: MultihostintegrationsSchemasInnerV1
+id: v1-multihostintegrations-schemas-inner
+title: MultihostintegrationsSchemasInner
+pagination_label: MultihostintegrationsSchemasInner
+sidebar_label: MultihostintegrationsSchemasInner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'MultihostintegrationsSchemasInnerV1', 'v1MultihostintegrationsSchemasInnerV1']
-slug: /tools/sdk/typescript/multi_host_integration/models/multihostintegrations-schemas-inner-v1
-tags: ['SDK', 'Software Development Kit', 'MultihostintegrationsSchemasInnerV1', 'v1MultihostintegrationsSchemasInnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'MultihostintegrationsSchemasInner', 'v1MultihostintegrationsSchemasInner']
+slug: /tools/sdk/typescript/multi_host_integration/models/multihostintegrations-schemas-inner
+tags: ['SDK', 'Software Development Kit', 'MultihostintegrationsSchemasInner', 'v1MultihostintegrationsSchemasInner']
 ---
 
-# MultihostintegrationsSchemasInnerV1
+# MultihostintegrationsSchemasInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | Type of object being referenced. | [default to undefined]
-**id** | **(optional)** **string** | Schema ID. | [default to undefined]
-**name** | **(optional)** **string** | Schema\'s human-readable display name. | [default to undefined]
+**type** | **(optional)** `string` | Type of object being referenced. | [default to undefined]
+**id** | **(optional)** `string` | Schema ID. | [default to undefined]
+**name** | **(optional)** `string` | Schema\'s human-readable display name. | [default to undefined]
 

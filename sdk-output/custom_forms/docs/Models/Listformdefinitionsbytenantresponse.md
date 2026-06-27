@@ -1,20 +1,20 @@
 ---
-id: v1-listformdefinitionsbytenantresponse-v1
-title: ListformdefinitionsbytenantresponseV1
-pagination_label: ListformdefinitionsbytenantresponseV1
-sidebar_label: ListformdefinitionsbytenantresponseV1
+id: v1-listformdefinitionsbytenantresponse
+title: Listformdefinitionsbytenantresponse
+pagination_label: Listformdefinitionsbytenantresponse
+sidebar_label: Listformdefinitionsbytenantresponse
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ListformdefinitionsbytenantresponseV1', 'v1ListformdefinitionsbytenantresponseV1']
-slug: /tools/sdk/typescript/custom_forms/models/listformdefinitionsbytenantresponse-v1
-tags: ['SDK', 'Software Development Kit', 'ListformdefinitionsbytenantresponseV1', 'v1ListformdefinitionsbytenantresponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Listformdefinitionsbytenantresponse', 'v1Listformdefinitionsbytenantresponse']
+slug: /tools/sdk/typescript/custom_forms/models/listformdefinitionsbytenantresponse
+tags: ['SDK', 'Software Development Kit', 'Listformdefinitionsbytenantresponse', 'v1Listformdefinitionsbytenantresponse']
 ---
 
-# ListformdefinitionsbytenantresponseV1
+# Listformdefinitionsbytenantresponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **(optional)** **number** | Count number of results. | [default to undefined]
-**results** | **(optional)** **Array&lt;FormdefinitionresponseV1&gt;** | List of FormDefinitionResponse items. | [default to undefined]
+**count** | **(optional)** `number` | Count number of results. | [default to undefined]
+**results** | **(optional)** `Array<Formdefinitionresponse>` | List of FormDefinitionResponse items. | [default to undefined]
 

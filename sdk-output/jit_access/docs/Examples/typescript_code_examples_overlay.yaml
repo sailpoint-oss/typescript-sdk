@@ -4,14 +4,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/jit_access/methods/jit-access#get-jit-activation-config-v1
       source: |
-        import { JITAccessV1Api } from 'sailpoint-api-client';
+        import { JITAccessApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new JITAccessV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new JITAccessApi(configuration);
         const configType: string = 'policy'; // 'policy' | Configuration kind to read. Only **policy** (JIT activation policy) is supported today.  (default to undefined)
-        const result = await apiInstance.getJitActivationConfigV1(configType);
+        const result = await apiInstance.getJitActivationConfigV1({ configType: configType });
         console.log(result);
 - path: /jit-activation-config/v1/{configType}
   method: PATCH
@@ -19,13 +18,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/jit_access/methods/jit-access#patch-jit-activation-config-v1
       source: |
-        import { JITAccessV1Api } from 'sailpoint-api-client';
+        import { JITAccessApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new JITAccessV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new JITAccessApi(configuration);
         const configType: string = 'policy'; // 'policy' | Configuration kind to update. Only **policy** (JIT activation policy) is supported today.  (default to undefined)
-        const jitaccessoperationrequestV1: Array&lt;JitaccessoperationrequestV1&gt; = ; // Array<JitaccessoperationrequestV1> | 
-        const result = await apiInstance.patchJitActivationConfigV1(configType, jitaccessoperationrequestV1);
+        const jitaccessoperationrequest: Array&lt;Jitaccessoperationrequest&gt; = ; // Array<Jitaccessoperationrequest> | 
+        const result = await apiInstance.patchJitActivationConfigV1({ configType: configType, jitaccessoperationrequest: jitaccessoperationrequest });
         console.log(result);

@@ -1,22 +1,22 @@
 ---
-id: v1-sourceclassificationstatus-v1
-title: SourceclassificationstatusV1
-pagination_label: SourceclassificationstatusV1
-sidebar_label: SourceclassificationstatusV1
+id: v1-sourceclassificationstatus
+title: Sourceclassificationstatus
+pagination_label: Sourceclassificationstatus
+sidebar_label: Sourceclassificationstatus
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SourceclassificationstatusV1', 'v1SourceclassificationstatusV1']
-slug: /tools/sdk/typescript/classify_source/models/sourceclassificationstatus-v1
-tags: ['SDK', 'Software Development Kit', 'SourceclassificationstatusV1', 'v1SourceclassificationstatusV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Sourceclassificationstatus', 'v1Sourceclassificationstatus']
+slug: /tools/sdk/typescript/classify_source/models/sourceclassificationstatus
+tags: ['SDK', 'Software Development Kit', 'Sourceclassificationstatus', 'v1Sourceclassificationstatus']
 ---
 
-# SourceclassificationstatusV1
+# Sourceclassificationstatus
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | **(optional)** **string** | Status of Classification Process | [default to undefined]
-**started** | **(optional)** **string** | Time when the process was started | [default to undefined]
-**updated** | **(optional)** **string** | Time when the process status was last updated | [default to undefined]
-**counts** | **(optional)** **SourceclassificationstatusAllOfCountsV1** |  | [default to undefined]
+**status** | **(optional)** `string` | Status of Classification Process | [default to undefined]
+**started** | **(optional)** `string` | Time when the process was started | [default to undefined]
+**updated** | **(optional)** `string` | Time when the process status was last updated | [default to undefined]
+**counts** | **(optional)** `SourceclassificationstatusAllOfCounts` |  | [default to undefined]
 

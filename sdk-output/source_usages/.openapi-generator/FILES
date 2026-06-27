@@ -8,8 +8,8 @@ GetStatusBySourceIdV1429Response.md
 Index.md
 Localeorigin.md
 README.md
-SourceUsagesV1Api.md
-SourceUsagesV1ApideveloperSite_code_examples.yaml
+SourceUsagesApi.md
+SourceUsagesApideveloperSite_code_examples.yaml
 Sourceusage.md
 Sourceusagestatus.md
 api.ts

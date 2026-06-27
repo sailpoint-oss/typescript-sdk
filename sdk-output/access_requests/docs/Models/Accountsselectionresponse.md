@@ -1,19 +1,19 @@
 ---
-id: v1-accountsselectionresponse-v1
-title: AccountsselectionresponseV1
-pagination_label: AccountsselectionresponseV1
-sidebar_label: AccountsselectionresponseV1
+id: v1-accountsselectionresponse
+title: Accountsselectionresponse
+pagination_label: Accountsselectionresponse
+sidebar_label: Accountsselectionresponse
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccountsselectionresponseV1', 'v1AccountsselectionresponseV1']
-slug: /tools/sdk/typescript/access_requests/models/accountsselectionresponse-v1
-tags: ['SDK', 'Software Development Kit', 'AccountsselectionresponseV1', 'v1AccountsselectionresponseV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accountsselectionresponse', 'v1Accountsselectionresponse']
+slug: /tools/sdk/typescript/access_requests/models/accountsselectionresponse
+tags: ['SDK', 'Software Development Kit', 'Accountsselectionresponse', 'v1Accountsselectionresponse']
 ---
 
-# AccountsselectionresponseV1
+# Accountsselectionresponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identities** | **(optional)** **Array&lt;IdentityaccountselectionsV1&gt;** | A list of available account selections per identity in the request, for all the requested items | [default to undefined]
+**identities** | **(optional)** `Array<Identityaccountselections>` | A list of available account selections per identity in the request, for all the requested items | [default to undefined]
 

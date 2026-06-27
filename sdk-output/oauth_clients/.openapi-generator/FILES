@@ -16,8 +16,8 @@ JsonpatchoperationValue.md
 ListOauthClientsV1401Response.md
 ListOauthClientsV1429Response.md
 Localeorigin.md
-OAuthClientsV1Api.md
-OAuthClientsV1ApideveloperSite_code_examples.yaml
+OAuthClientsApi.md
+OAuthClientsApideveloperSite_code_examples.yaml
 README.md
 api.ts
 base.ts

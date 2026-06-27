@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -53,33 +53,33 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -87,127 +87,146 @@ export interface ErrorresponsedtoV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * Role Change Propagation Config Input
  * @export
- * @interface RolePropagationConfigInputV1
+ * @interface RolePropagationConfigInput
  */
-export interface RolePropagationConfigInputV1 {
+export interface RolePropagationConfigInput {
     /**
      * Indicates if the Role Change Propagation process should be enabled for the tenant
      * @type {boolean}
-     * @memberof RolePropagationConfigInputV1
+     * @memberof RolePropagationConfigInput
      */
     'enabled'?: boolean;
 }
 /**
  * Role Change Propagation Config Response
  * @export
- * @interface RolePropagationConfigResponseV1
+ * @interface RolePropagationConfigResponse
  */
-export interface RolePropagationConfigResponseV1 {
+export interface RolePropagationConfigResponse {
     /**
      * Indicates if the Role Change Propagation process is enabled for the tenant
      * @type {boolean}
-     * @memberof RolePropagationConfigResponseV1
+     * @memberof RolePropagationConfigResponse
      */
     'enabled'?: boolean;
     /**
      * The time when Role Change Propagation Process was last enabled on the tenant
      * @type {string}
-     * @memberof RolePropagationConfigResponseV1
+     * @memberof RolePropagationConfigResponse
      */
     'enabledDate'?: string;
     /**
      * The time when Role Change Propagation Configuration was first created for the tenant
      * @type {string}
-     * @memberof RolePropagationConfigResponseV1
+     * @memberof RolePropagationConfigResponse
      */
     'createdDate'?: string;
     /**
      * The time when Role Change Propagation Config was updated on the tenant
      * @type {string}
-     * @memberof RolePropagationConfigResponseV1
+     * @memberof RolePropagationConfigResponse
      */
     'modifiedDate'?: string;
 }
 /**
+ * Running Role Propagation Response
+ * @export
+ * @interface RolePropagationOngoingResponse
+ */
+export interface RolePropagationOngoingResponse {
+    /**
+     * Indicates if the role propagation process is currently running on the tenant
+     * @type {boolean}
+     * @memberof RolePropagationOngoingResponse
+     */
+    'isRunning'?: boolean;
+    /**
+     * 
+     * @type {RolePropagationOngoingResponseRolePropagationDetails}
+     * @memberof RolePropagationOngoingResponse
+     */
+    'rolePropagationDetails'?: RolePropagationOngoingResponseRolePropagationDetails;
+}
+/**
  * Details of the ongoing role propagation process
  * @export
- * @interface RolePropagationOngoingResponseRolePropagationDetailsV1
+ * @interface RolePropagationOngoingResponseRolePropagationDetails
  */
-export interface RolePropagationOngoingResponseRolePropagationDetailsV1 {
+export interface RolePropagationOngoingResponseRolePropagationDetails {
     /**
      * Id of the Role Propagation process triggered.
      * @type {string}
-     * @memberof RolePropagationOngoingResponseRolePropagationDetailsV1
+     * @memberof RolePropagationOngoingResponseRolePropagationDetails
      */
     'id'?: string;
     /**
      * Status of the Role Propagation process.
      * @type {string}
-     * @memberof RolePropagationOngoingResponseRolePropagationDetailsV1
+     * @memberof RolePropagationOngoingResponseRolePropagationDetails
      */
-    'status'?: RolePropagationOngoingResponseRolePropagationDetailsV1StatusV1;
+    'status'?: RolePropagationOngoingResponseRolePropagationDetailsStatusEnum;
     /**
      * Current execution stage of the Role Propagation process.
      * @type {string}
-     * @memberof RolePropagationOngoingResponseRolePropagationDetailsV1
+     * @memberof RolePropagationOngoingResponseRolePropagationDetails
      */
-    'executionStage'?: RolePropagationOngoingResponseRolePropagationDetailsV1ExecutionStageV1;
+    'executionStage'?: RolePropagationOngoingResponseRolePropagationDetailsExecutionStageEnum;
     /**
      * Time when the Role Propagation process was launched.
      * @type {string}
-     * @memberof RolePropagationOngoingResponseRolePropagationDetailsV1
+     * @memberof RolePropagationOngoingResponseRolePropagationDetails
      */
     'launched'?: string;
     /**
      * 
-     * @type {RolePropagationStatusResponseLaunchedByV1}
-     * @memberof RolePropagationOngoingResponseRolePropagationDetailsV1
+     * @type {RolePropagationStatusResponseLaunchedBy}
+     * @memberof RolePropagationOngoingResponseRolePropagationDetails
      */
-    'launchedBy'?: RolePropagationStatusResponseLaunchedByV1;
+    'launchedBy'?: RolePropagationStatusResponseLaunchedBy;
     /**
      * 
-     * @type {RolePropagationStatusResponseTerminatedByV1}
-     * @memberof RolePropagationOngoingResponseRolePropagationDetailsV1
+     * @type {RolePropagationStatusResponseTerminatedBy}
+     * @memberof RolePropagationOngoingResponseRolePropagationDetails
      */
-    'terminatedBy'?: RolePropagationStatusResponseTerminatedByV1;
+    'terminatedBy'?: RolePropagationStatusResponseTerminatedBy;
     /**
      * Time when the Role Propagation process was completed.
      * @type {string}
-     * @memberof RolePropagationOngoingResponseRolePropagationDetailsV1
+     * @memberof RolePropagationOngoingResponseRolePropagationDetails
      */
     'completed'?: string;
     /**
      * Reason for failure if the Role Propagation process failed.
      * @type {string}
-     * @memberof RolePropagationOngoingResponseRolePropagationDetailsV1
+     * @memberof RolePropagationOngoingResponseRolePropagationDetails
      */
     'failureReason'?: string;
     /**
      * Indicates if the role refresh was skipped during the Role Propagation process.
      * @type {boolean}
-     * @memberof RolePropagationOngoingResponseRolePropagationDetailsV1
+     * @memberof RolePropagationOngoingResponseRolePropagationDetails
      */
     'skipRoleRefresh'?: boolean;
 }
 
-export const RolePropagationOngoingResponseRolePropagationDetailsV1StatusV1 = {
+export const RolePropagationOngoingResponseRolePropagationDetailsStatusEnum = {
     Running: 'RUNNING',
     Completed: 'COMPLETED'
 } as const;
 
-export type RolePropagationOngoingResponseRolePropagationDetailsV1StatusV1 = typeof RolePropagationOngoingResponseRolePropagationDetailsV1StatusV1[keyof typeof RolePropagationOngoingResponseRolePropagationDetailsV1StatusV1];
-export const RolePropagationOngoingResponseRolePropagationDetailsV1ExecutionStageV1 = {
+export type RolePropagationOngoingResponseRolePropagationDetailsStatusEnum = typeof RolePropagationOngoingResponseRolePropagationDetailsStatusEnum[keyof typeof RolePropagationOngoingResponseRolePropagationDetailsStatusEnum];
+export const RolePropagationOngoingResponseRolePropagationDetailsExecutionStageEnum = {
     Pending: 'PENDING',
     DataAggregationRunning: 'DATA_AGGREGATION_RUNNING',
     LaunchProvisioning: 'LAUNCH_PROVISIONING',
@@ -216,215 +235,196 @@ export const RolePropagationOngoingResponseRolePropagationDetailsV1ExecutionStag
     Terminated: 'TERMINATED'
 } as const;
 
-export type RolePropagationOngoingResponseRolePropagationDetailsV1ExecutionStageV1 = typeof RolePropagationOngoingResponseRolePropagationDetailsV1ExecutionStageV1[keyof typeof RolePropagationOngoingResponseRolePropagationDetailsV1ExecutionStageV1];
+export type RolePropagationOngoingResponseRolePropagationDetailsExecutionStageEnum = typeof RolePropagationOngoingResponseRolePropagationDetailsExecutionStageEnum[keyof typeof RolePropagationOngoingResponseRolePropagationDetailsExecutionStageEnum];
 
-/**
- * Running Role Propagation Response
- * @export
- * @interface RolePropagationOngoingResponseV1
- */
-export interface RolePropagationOngoingResponseV1 {
-    /**
-     * Indicates if the role propagation process is currently running on the tenant
-     * @type {boolean}
-     * @memberof RolePropagationOngoingResponseV1
-     */
-    'isRunning'?: boolean;
-    /**
-     * 
-     * @type {RolePropagationOngoingResponseRolePropagationDetailsV1}
-     * @memberof RolePropagationOngoingResponseV1
-     */
-    'rolePropagationDetails'?: RolePropagationOngoingResponseRolePropagationDetailsV1;
-}
 /**
  * Role Propagation Response
  * @export
- * @interface RolePropagationResponseV1
+ * @interface RolePropagationResponse
  */
-export interface RolePropagationResponseV1 {
+export interface RolePropagationResponse {
     /**
      * Id of the Role Propagation process triggered.
      * @type {string}
-     * @memberof RolePropagationResponseV1
+     * @memberof RolePropagationResponse
      */
     'rolePropagationId'?: string;
 }
 /**
+ * Role Propagation Status Response
+ * @export
+ * @interface RolePropagationStatusResponse
+ */
+export interface RolePropagationStatusResponse {
+    /**
+     * Id of the Role Propagation process triggered.
+     * @type {string}
+     * @memberof RolePropagationStatusResponse
+     */
+    'id'?: string;
+    /**
+     * Status of the Role Propagation process.
+     * @type {string}
+     * @memberof RolePropagationStatusResponse
+     */
+    'status'?: RolePropagationStatusResponseStatusEnum;
+    /**
+     * Current execution stage of the Role Propagation process.
+     * @type {string}
+     * @memberof RolePropagationStatusResponse
+     */
+    'executionStage'?: RolePropagationStatusResponseExecutionStageEnum;
+    /**
+     * Time when the Role Propagation process was launched.
+     * @type {string}
+     * @memberof RolePropagationStatusResponse
+     */
+    'launched'?: string;
+    /**
+     * 
+     * @type {RolePropagationStatusResponseLaunchedBy}
+     * @memberof RolePropagationStatusResponse
+     */
+    'launchedBy'?: RolePropagationStatusResponseLaunchedBy;
+    /**
+     * 
+     * @type {RolePropagationStatusResponseTerminatedBy}
+     * @memberof RolePropagationStatusResponse
+     */
+    'terminatedBy'?: RolePropagationStatusResponseTerminatedBy;
+    /**
+     * Time when the Role Propagation process was completed.
+     * @type {string}
+     * @memberof RolePropagationStatusResponse
+     */
+    'completed'?: string;
+    /**
+     * Reason for failure if the Role Propagation process failed.
+     * @type {string}
+     * @memberof RolePropagationStatusResponse
+     */
+    'failureReason'?: string;
+    /**
+     * Indicates if the role refresh was skipped during the Role Propagation process.
+     * @type {boolean}
+     * @memberof RolePropagationStatusResponse
+     */
+    'skipRoleRefresh'?: boolean;
+}
+
+export const RolePropagationStatusResponseStatusEnum = {
+    Running: 'RUNNING',
+    Completed: 'COMPLETED'
+} as const;
+
+export type RolePropagationStatusResponseStatusEnum = typeof RolePropagationStatusResponseStatusEnum[keyof typeof RolePropagationStatusResponseStatusEnum];
+export const RolePropagationStatusResponseExecutionStageEnum = {
+    Pending: 'PENDING',
+    DataAggregationRunning: 'DATA_AGGREGATION_RUNNING',
+    LaunchProvisioning: 'LAUNCH_PROVISIONING',
+    Succeeded: 'SUCCEEDED',
+    Failed: 'FAILED',
+    Terminated: 'TERMINATED'
+} as const;
+
+export type RolePropagationStatusResponseExecutionStageEnum = typeof RolePropagationStatusResponseExecutionStageEnum[keyof typeof RolePropagationStatusResponseExecutionStageEnum];
+
+/**
  * Identity who launched the Role Propagation process.
  * @export
- * @interface RolePropagationStatusResponseLaunchedByV1
+ * @interface RolePropagationStatusResponseLaunchedBy
  */
-export interface RolePropagationStatusResponseLaunchedByV1 {
+export interface RolePropagationStatusResponseLaunchedBy {
     /**
      * DTO type of the identity who launched the Role Propagation process.
      * @type {string}
-     * @memberof RolePropagationStatusResponseLaunchedByV1
+     * @memberof RolePropagationStatusResponseLaunchedBy
      */
-    'type'?: RolePropagationStatusResponseLaunchedByV1TypeV1;
+    'type'?: RolePropagationStatusResponseLaunchedByTypeEnum;
     /**
      * ID of the identity who launched the Role Propagation process.
      * @type {string}
-     * @memberof RolePropagationStatusResponseLaunchedByV1
+     * @memberof RolePropagationStatusResponseLaunchedBy
      */
     'id'?: string;
     /**
      * Name of the identity who launched the Role Propagation process.
      * @type {string}
-     * @memberof RolePropagationStatusResponseLaunchedByV1
+     * @memberof RolePropagationStatusResponseLaunchedBy
      */
     'name'?: string;
 }
 
-export const RolePropagationStatusResponseLaunchedByV1TypeV1 = {
+export const RolePropagationStatusResponseLaunchedByTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type RolePropagationStatusResponseLaunchedByV1TypeV1 = typeof RolePropagationStatusResponseLaunchedByV1TypeV1[keyof typeof RolePropagationStatusResponseLaunchedByV1TypeV1];
+export type RolePropagationStatusResponseLaunchedByTypeEnum = typeof RolePropagationStatusResponseLaunchedByTypeEnum[keyof typeof RolePropagationStatusResponseLaunchedByTypeEnum];
 
 /**
  * Identity who terminated the Role Propagation process.
  * @export
- * @interface RolePropagationStatusResponseTerminatedByV1
+ * @interface RolePropagationStatusResponseTerminatedBy
  */
-export interface RolePropagationStatusResponseTerminatedByV1 {
+export interface RolePropagationStatusResponseTerminatedBy {
     /**
      * DTO type of the Identity who terminated the Role Propagation process.
      * @type {string}
-     * @memberof RolePropagationStatusResponseTerminatedByV1
+     * @memberof RolePropagationStatusResponseTerminatedBy
      */
-    'type'?: RolePropagationStatusResponseTerminatedByV1TypeV1;
+    'type'?: RolePropagationStatusResponseTerminatedByTypeEnum;
     /**
      * ID of the Identity who terminated the Role Propagation process.
      * @type {string}
-     * @memberof RolePropagationStatusResponseTerminatedByV1
+     * @memberof RolePropagationStatusResponseTerminatedBy
      */
     'id'?: string;
     /**
      * Name of the Identity who terminated the Role Propagation process.
      * @type {string}
-     * @memberof RolePropagationStatusResponseTerminatedByV1
+     * @memberof RolePropagationStatusResponseTerminatedBy
      */
     'name'?: string;
 }
 
-export const RolePropagationStatusResponseTerminatedByV1TypeV1 = {
+export const RolePropagationStatusResponseTerminatedByTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type RolePropagationStatusResponseTerminatedByV1TypeV1 = typeof RolePropagationStatusResponseTerminatedByV1TypeV1[keyof typeof RolePropagationStatusResponseTerminatedByV1TypeV1];
-
-/**
- * Role Propagation Status Response
- * @export
- * @interface RolePropagationStatusResponseV1
- */
-export interface RolePropagationStatusResponseV1 {
-    /**
-     * Id of the Role Propagation process triggered.
-     * @type {string}
-     * @memberof RolePropagationStatusResponseV1
-     */
-    'id'?: string;
-    /**
-     * Status of the Role Propagation process.
-     * @type {string}
-     * @memberof RolePropagationStatusResponseV1
-     */
-    'status'?: RolePropagationStatusResponseV1StatusV1;
-    /**
-     * Current execution stage of the Role Propagation process.
-     * @type {string}
-     * @memberof RolePropagationStatusResponseV1
-     */
-    'executionStage'?: RolePropagationStatusResponseV1ExecutionStageV1;
-    /**
-     * Time when the Role Propagation process was launched.
-     * @type {string}
-     * @memberof RolePropagationStatusResponseV1
-     */
-    'launched'?: string;
-    /**
-     * 
-     * @type {RolePropagationStatusResponseLaunchedByV1}
-     * @memberof RolePropagationStatusResponseV1
-     */
-    'launchedBy'?: RolePropagationStatusResponseLaunchedByV1;
-    /**
-     * 
-     * @type {RolePropagationStatusResponseTerminatedByV1}
-     * @memberof RolePropagationStatusResponseV1
-     */
-    'terminatedBy'?: RolePropagationStatusResponseTerminatedByV1;
-    /**
-     * Time when the Role Propagation process was completed.
-     * @type {string}
-     * @memberof RolePropagationStatusResponseV1
-     */
-    'completed'?: string;
-    /**
-     * Reason for failure if the Role Propagation process failed.
-     * @type {string}
-     * @memberof RolePropagationStatusResponseV1
-     */
-    'failureReason'?: string;
-    /**
-     * Indicates if the role refresh was skipped during the Role Propagation process.
-     * @type {boolean}
-     * @memberof RolePropagationStatusResponseV1
-     */
-    'skipRoleRefresh'?: boolean;
-}
-
-export const RolePropagationStatusResponseV1StatusV1 = {
-    Running: 'RUNNING',
-    Completed: 'COMPLETED'
-} as const;
-
-export type RolePropagationStatusResponseV1StatusV1 = typeof RolePropagationStatusResponseV1StatusV1[keyof typeof RolePropagationStatusResponseV1StatusV1];
-export const RolePropagationStatusResponseV1ExecutionStageV1 = {
-    Pending: 'PENDING',
-    DataAggregationRunning: 'DATA_AGGREGATION_RUNNING',
-    LaunchProvisioning: 'LAUNCH_PROVISIONING',
-    Succeeded: 'SUCCEEDED',
-    Failed: 'FAILED',
-    Terminated: 'TERMINATED'
-} as const;
-
-export type RolePropagationStatusResponseV1ExecutionStageV1 = typeof RolePropagationStatusResponseV1ExecutionStageV1[keyof typeof RolePropagationStatusResponseV1ExecutionStageV1];
+export type RolePropagationStatusResponseTerminatedByTypeEnum = typeof RolePropagationStatusResponseTerminatedByTypeEnum[keyof typeof RolePropagationStatusResponseTerminatedByTypeEnum];
 
 /**
  * 
  * @export
- * @interface StartRolePropagationV1401ResponseV1
+ * @interface StartRolePropagationV1401Response
  */
-export interface StartRolePropagationV1401ResponseV1 {
+export interface StartRolePropagationV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof StartRolePropagationV1401ResponseV1
+     * @memberof StartRolePropagationV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface StartRolePropagationV1429ResponseV1
+ * @interface StartRolePropagationV1429Response
  */
-export interface StartRolePropagationV1429ResponseV1 {
+export interface StartRolePropagationV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof StartRolePropagationV1429ResponseV1
+     * @memberof StartRolePropagationV1429Response
      */
     'message'?: any;
 }
 
 /**
- * RolePropagationV1Api - axios parameter creator
+ * RolePropagationApi - axios parameter creator
  * @export
  */
-export const RolePropagationV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const RolePropagationApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This endpoint terminates the ongoing role change propagation process for a tenant.
@@ -585,14 +585,14 @@ export const RolePropagationV1ApiAxiosParamCreator = function (configuration?: C
         /**
          * This endpoint enables or disables the Role Change Propagation Process for the tenant
          * @summary Update Role Change Propagation Configuration
-         * @param {RolePropagationConfigInputV1} rolePropagationConfigInputV1 
+         * @param {RolePropagationConfigInput} rolePropagationConfigInput 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setRolePropagationConfigV1: async (rolePropagationConfigInputV1: RolePropagationConfigInputV1, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'rolePropagationConfigInputV1' is not null or undefined
-            assertParamExists('setRolePropagationConfigV1', 'rolePropagationConfigInputV1', rolePropagationConfigInputV1)
+        setRolePropagationConfigV1: async (rolePropagationConfigInput: RolePropagationConfigInput, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'rolePropagationConfigInput' is not null or undefined
+            assertParamExists('setRolePropagationConfigV1', 'rolePropagationConfigInput', rolePropagationConfigInput)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -619,7 +619,7 @@ export const RolePropagationV1ApiAxiosParamCreator = function (configuration?: C
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(rolePropagationConfigInputV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(rolePropagationConfigInput, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -673,11 +673,11 @@ export const RolePropagationV1ApiAxiosParamCreator = function (configuration?: C
 };
 
 /**
- * RolePropagationV1Api - functional programming interface
+ * RolePropagationApi - functional programming interface
  * @export
  */
-export const RolePropagationV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = RolePropagationV1ApiAxiosParamCreator(configuration)
+export const RolePropagationApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = RolePropagationApiAxiosParamCreator(configuration)
     return {
         /**
          * This endpoint terminates the ongoing role change propagation process for a tenant.
@@ -689,7 +689,7 @@ export const RolePropagationV1ApiFp = function(configuration?: Configuration) {
         async cancelRolePropagationV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.cancelRolePropagationV1(xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['RolePropagationV1Api.cancelRolePropagationV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['RolePropagationApi.cancelRolePropagationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -699,10 +699,10 @@ export const RolePropagationV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getOngoingRolePropagationV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RolePropagationOngoingResponseV1>> {
+        async getOngoingRolePropagationV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RolePropagationOngoingResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOngoingRolePropagationV1(xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['RolePropagationV1Api.getOngoingRolePropagationV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['RolePropagationApi.getOngoingRolePropagationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -712,10 +712,10 @@ export const RolePropagationV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRolePropagationConfigV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RolePropagationConfigResponseV1>> {
+        async getRolePropagationConfigV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RolePropagationConfigResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRolePropagationConfigV1(xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['RolePropagationV1Api.getRolePropagationConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['RolePropagationApi.getRolePropagationConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -726,24 +726,24 @@ export const RolePropagationV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRolePropagationStatusV1(rolePropagationId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RolePropagationStatusResponseV1>> {
+        async getRolePropagationStatusV1(rolePropagationId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RolePropagationStatusResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRolePropagationStatusV1(rolePropagationId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['RolePropagationV1Api.getRolePropagationStatusV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['RolePropagationApi.getRolePropagationStatusV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This endpoint enables or disables the Role Change Propagation Process for the tenant
          * @summary Update Role Change Propagation Configuration
-         * @param {RolePropagationConfigInputV1} rolePropagationConfigInputV1 
+         * @param {RolePropagationConfigInput} rolePropagationConfigInput 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setRolePropagationConfigV1(rolePropagationConfigInputV1: RolePropagationConfigInputV1, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RolePropagationConfigResponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setRolePropagationConfigV1(rolePropagationConfigInputV1, xSailPointExperimental, axiosOptions);
+        async setRolePropagationConfigV1(rolePropagationConfigInput: RolePropagationConfigInput, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RolePropagationConfigResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setRolePropagationConfigV1(rolePropagationConfigInput, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['RolePropagationV1Api.setRolePropagationConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['RolePropagationApi.setRolePropagationConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -754,267 +754,267 @@ export const RolePropagationV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startRolePropagationV1(skipRoleRefresh?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RolePropagationResponseV1>> {
+        async startRolePropagationV1(skipRoleRefresh?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RolePropagationResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.startRolePropagationV1(skipRoleRefresh, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['RolePropagationV1Api.startRolePropagationV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['RolePropagationApi.startRolePropagationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * RolePropagationV1Api - factory interface
+ * RolePropagationApi - factory interface
  * @export
  */
-export const RolePropagationV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = RolePropagationV1ApiFp(configuration)
+export const RolePropagationApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = RolePropagationApiFp(configuration)
     return {
         /**
          * This endpoint terminates the ongoing role change propagation process for a tenant.
          * @summary Terminate Role Propagation process
-         * @param {RolePropagationV1ApiCancelRolePropagationV1Request} requestParameters Request parameters.
+         * @param {RolePropagationApiCancelRolePropagationV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        cancelRolePropagationV1(requestParameters: RolePropagationV1ApiCancelRolePropagationV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        cancelRolePropagationV1(requestParameters: RolePropagationApiCancelRolePropagationV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.cancelRolePropagationV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint returns the information of ongoing role change propagation process for a tenant. It returns the information whether the role propagation process is currently running or not, If it is running it returns the details of the ongoing role propagation process. The execution stage of the role propagation process can be one of the following: - PENDING - The role propagation process is queued to be executed. - DATA_AGGREGATION_RUNNING - The role propagation process is currently aggregating data. - LAUNCH_PROVISIONING - The role propagation process has started to provision the access to the identities. - SUCCEEDED - The role propagation process has successfully completed. - FAILED - The role propagation process has failed. - TERMINATED - The role propagation process was externally terminated.
          * @summary Get ongoing Role Propagation process
-         * @param {RolePropagationV1ApiGetOngoingRolePropagationV1Request} requestParameters Request parameters.
+         * @param {RolePropagationApiGetOngoingRolePropagationV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getOngoingRolePropagationV1(requestParameters: RolePropagationV1ApiGetOngoingRolePropagationV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RolePropagationOngoingResponseV1> {
+        getOngoingRolePropagationV1(requestParameters: RolePropagationApiGetOngoingRolePropagationV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RolePropagationOngoingResponse> {
             return localVarFp.getOngoingRolePropagationV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint fetches the Role Change Propagation Configuration for the tenant
          * @summary Get Role Change Propagation Configuration
-         * @param {RolePropagationV1ApiGetRolePropagationConfigV1Request} requestParameters Request parameters.
+         * @param {RolePropagationApiGetRolePropagationConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getRolePropagationConfigV1(requestParameters: RolePropagationV1ApiGetRolePropagationConfigV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RolePropagationConfigResponseV1> {
+        getRolePropagationConfigV1(requestParameters: RolePropagationApiGetRolePropagationConfigV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RolePropagationConfigResponse> {
             return localVarFp.getRolePropagationConfigV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint returns the information of the specified role change propagation process. The execution stage of the role propagation process can be one of the following:     - PENDING - The role propagation process is queued to be executed.     - DATA_AGGREGATION_RUNNING - The role propagation process is currently aggregating data.     - LAUNCH_PROVISIONING - The role propagation process has started to provision the access to the identities.     - SUCCEEDED - The role propagation process has successfully completed.     - FAILED - The role propagation process has failed.     - TERMINATED - The role propagation process was externally terminated.
          * @summary Get status of Role-Propagation process
-         * @param {RolePropagationV1ApiGetRolePropagationStatusV1Request} requestParameters Request parameters.
+         * @param {RolePropagationApiGetRolePropagationStatusV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getRolePropagationStatusV1(requestParameters: RolePropagationV1ApiGetRolePropagationStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RolePropagationStatusResponseV1> {
+        getRolePropagationStatusV1(requestParameters: RolePropagationApiGetRolePropagationStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RolePropagationStatusResponse> {
             return localVarFp.getRolePropagationStatusV1(requestParameters.rolePropagationId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint enables or disables the Role Change Propagation Process for the tenant
          * @summary Update Role Change Propagation Configuration
-         * @param {RolePropagationV1ApiSetRolePropagationConfigV1Request} requestParameters Request parameters.
+         * @param {RolePropagationApiSetRolePropagationConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setRolePropagationConfigV1(requestParameters: RolePropagationV1ApiSetRolePropagationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RolePropagationConfigResponseV1> {
-            return localVarFp.setRolePropagationConfigV1(requestParameters.rolePropagationConfigInputV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        setRolePropagationConfigV1(requestParameters: RolePropagationApiSetRolePropagationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RolePropagationConfigResponse> {
+            return localVarFp.setRolePropagationConfigV1(requestParameters.rolePropagationConfigInput, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint initiates a role change propagation process for a tenant asynchronously.  If all preconditions are met, the request is accepted and a rolePropagationId is returned which  can be used to view the status. API throws 4xx if any of the following conditions are met - Role propagation feature is disabled  - There is an ongoing role propagation for the tenant - Role refresh needs to be kicked off as part of the role propagation (skipRoleRefresh=false) and there is an ongoing refresh for the tenant
          * @summary Initiate Role Propagation process
-         * @param {RolePropagationV1ApiStartRolePropagationV1Request} requestParameters Request parameters.
+         * @param {RolePropagationApiStartRolePropagationV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startRolePropagationV1(requestParameters: RolePropagationV1ApiStartRolePropagationV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RolePropagationResponseV1> {
+        startRolePropagationV1(requestParameters: RolePropagationApiStartRolePropagationV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RolePropagationResponse> {
             return localVarFp.startRolePropagationV1(requestParameters.skipRoleRefresh, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for cancelRolePropagationV1 operation in RolePropagationV1Api.
+ * Request parameters for cancelRolePropagationV1 operation in RolePropagationApi.
  * @export
- * @interface RolePropagationV1ApiCancelRolePropagationV1Request
+ * @interface RolePropagationApiCancelRolePropagationV1Request
  */
-export interface RolePropagationV1ApiCancelRolePropagationV1Request {
+export interface RolePropagationApiCancelRolePropagationV1Request {
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof RolePropagationV1ApiCancelRolePropagationV1
+     * @memberof RolePropagationApiCancelRolePropagationV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getOngoingRolePropagationV1 operation in RolePropagationV1Api.
+ * Request parameters for getOngoingRolePropagationV1 operation in RolePropagationApi.
  * @export
- * @interface RolePropagationV1ApiGetOngoingRolePropagationV1Request
+ * @interface RolePropagationApiGetOngoingRolePropagationV1Request
  */
-export interface RolePropagationV1ApiGetOngoingRolePropagationV1Request {
+export interface RolePropagationApiGetOngoingRolePropagationV1Request {
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof RolePropagationV1ApiGetOngoingRolePropagationV1
+     * @memberof RolePropagationApiGetOngoingRolePropagationV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getRolePropagationConfigV1 operation in RolePropagationV1Api.
+ * Request parameters for getRolePropagationConfigV1 operation in RolePropagationApi.
  * @export
- * @interface RolePropagationV1ApiGetRolePropagationConfigV1Request
+ * @interface RolePropagationApiGetRolePropagationConfigV1Request
  */
-export interface RolePropagationV1ApiGetRolePropagationConfigV1Request {
+export interface RolePropagationApiGetRolePropagationConfigV1Request {
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof RolePropagationV1ApiGetRolePropagationConfigV1
+     * @memberof RolePropagationApiGetRolePropagationConfigV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getRolePropagationStatusV1 operation in RolePropagationV1Api.
+ * Request parameters for getRolePropagationStatusV1 operation in RolePropagationApi.
  * @export
- * @interface RolePropagationV1ApiGetRolePropagationStatusV1Request
+ * @interface RolePropagationApiGetRolePropagationStatusV1Request
  */
-export interface RolePropagationV1ApiGetRolePropagationStatusV1Request {
+export interface RolePropagationApiGetRolePropagationStatusV1Request {
     /**
      * The ID of the role propagation process to retrieve the status for.
      * @type {string}
-     * @memberof RolePropagationV1ApiGetRolePropagationStatusV1
+     * @memberof RolePropagationApiGetRolePropagationStatusV1
      */
     readonly rolePropagationId: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof RolePropagationV1ApiGetRolePropagationStatusV1
+     * @memberof RolePropagationApiGetRolePropagationStatusV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for setRolePropagationConfigV1 operation in RolePropagationV1Api.
+ * Request parameters for setRolePropagationConfigV1 operation in RolePropagationApi.
  * @export
- * @interface RolePropagationV1ApiSetRolePropagationConfigV1Request
+ * @interface RolePropagationApiSetRolePropagationConfigV1Request
  */
-export interface RolePropagationV1ApiSetRolePropagationConfigV1Request {
+export interface RolePropagationApiSetRolePropagationConfigV1Request {
     /**
      * 
-     * @type {RolePropagationConfigInputV1}
-     * @memberof RolePropagationV1ApiSetRolePropagationConfigV1
+     * @type {RolePropagationConfigInput}
+     * @memberof RolePropagationApiSetRolePropagationConfigV1
      */
-    readonly rolePropagationConfigInputV1: RolePropagationConfigInputV1
+    readonly rolePropagationConfigInput: RolePropagationConfigInput
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof RolePropagationV1ApiSetRolePropagationConfigV1
+     * @memberof RolePropagationApiSetRolePropagationConfigV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for startRolePropagationV1 operation in RolePropagationV1Api.
+ * Request parameters for startRolePropagationV1 operation in RolePropagationApi.
  * @export
- * @interface RolePropagationV1ApiStartRolePropagationV1Request
+ * @interface RolePropagationApiStartRolePropagationV1Request
  */
-export interface RolePropagationV1ApiStartRolePropagationV1Request {
+export interface RolePropagationApiStartRolePropagationV1Request {
     /**
      * When true, the role refresh is not performed. Keeping it false is recommended.
      * @type {boolean}
-     * @memberof RolePropagationV1ApiStartRolePropagationV1
+     * @memberof RolePropagationApiStartRolePropagationV1
      */
     readonly skipRoleRefresh?: boolean
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof RolePropagationV1ApiStartRolePropagationV1
+     * @memberof RolePropagationApiStartRolePropagationV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * RolePropagationV1Api - object-oriented interface
+ * RolePropagationApi - object-oriented interface
  * @export
- * @class RolePropagationV1Api
+ * @class RolePropagationApi
  * @extends {BaseAPI}
  */
-export class RolePropagationV1Api extends BaseAPI {
+export class RolePropagationApi extends BaseAPI {
     /**
      * This endpoint terminates the ongoing role change propagation process for a tenant.
      * @summary Terminate Role Propagation process
-     * @param {RolePropagationV1ApiCancelRolePropagationV1Request} requestParameters Request parameters.
+     * @param {RolePropagationApiCancelRolePropagationV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof RolePropagationV1Api
+     * @memberof RolePropagationApi
      */
-    public cancelRolePropagationV1(requestParameters: RolePropagationV1ApiCancelRolePropagationV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return RolePropagationV1ApiFp(this.configuration).cancelRolePropagationV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public cancelRolePropagationV1(requestParameters: RolePropagationApiCancelRolePropagationV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return RolePropagationApiFp(this.configuration).cancelRolePropagationV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint returns the information of ongoing role change propagation process for a tenant. It returns the information whether the role propagation process is currently running or not, If it is running it returns the details of the ongoing role propagation process. The execution stage of the role propagation process can be one of the following: - PENDING - The role propagation process is queued to be executed. - DATA_AGGREGATION_RUNNING - The role propagation process is currently aggregating data. - LAUNCH_PROVISIONING - The role propagation process has started to provision the access to the identities. - SUCCEEDED - The role propagation process has successfully completed. - FAILED - The role propagation process has failed. - TERMINATED - The role propagation process was externally terminated.
      * @summary Get ongoing Role Propagation process
-     * @param {RolePropagationV1ApiGetOngoingRolePropagationV1Request} requestParameters Request parameters.
+     * @param {RolePropagationApiGetOngoingRolePropagationV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof RolePropagationV1Api
+     * @memberof RolePropagationApi
      */
-    public getOngoingRolePropagationV1(requestParameters: RolePropagationV1ApiGetOngoingRolePropagationV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return RolePropagationV1ApiFp(this.configuration).getOngoingRolePropagationV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getOngoingRolePropagationV1(requestParameters: RolePropagationApiGetOngoingRolePropagationV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return RolePropagationApiFp(this.configuration).getOngoingRolePropagationV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint fetches the Role Change Propagation Configuration for the tenant
      * @summary Get Role Change Propagation Configuration
-     * @param {RolePropagationV1ApiGetRolePropagationConfigV1Request} requestParameters Request parameters.
+     * @param {RolePropagationApiGetRolePropagationConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof RolePropagationV1Api
+     * @memberof RolePropagationApi
      */
-    public getRolePropagationConfigV1(requestParameters: RolePropagationV1ApiGetRolePropagationConfigV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return RolePropagationV1ApiFp(this.configuration).getRolePropagationConfigV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getRolePropagationConfigV1(requestParameters: RolePropagationApiGetRolePropagationConfigV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return RolePropagationApiFp(this.configuration).getRolePropagationConfigV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint returns the information of the specified role change propagation process. The execution stage of the role propagation process can be one of the following:     - PENDING - The role propagation process is queued to be executed.     - DATA_AGGREGATION_RUNNING - The role propagation process is currently aggregating data.     - LAUNCH_PROVISIONING - The role propagation process has started to provision the access to the identities.     - SUCCEEDED - The role propagation process has successfully completed.     - FAILED - The role propagation process has failed.     - TERMINATED - The role propagation process was externally terminated.
      * @summary Get status of Role-Propagation process
-     * @param {RolePropagationV1ApiGetRolePropagationStatusV1Request} requestParameters Request parameters.
+     * @param {RolePropagationApiGetRolePropagationStatusV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof RolePropagationV1Api
+     * @memberof RolePropagationApi
      */
-    public getRolePropagationStatusV1(requestParameters: RolePropagationV1ApiGetRolePropagationStatusV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return RolePropagationV1ApiFp(this.configuration).getRolePropagationStatusV1(requestParameters.rolePropagationId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getRolePropagationStatusV1(requestParameters: RolePropagationApiGetRolePropagationStatusV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return RolePropagationApiFp(this.configuration).getRolePropagationStatusV1(requestParameters.rolePropagationId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint enables or disables the Role Change Propagation Process for the tenant
      * @summary Update Role Change Propagation Configuration
-     * @param {RolePropagationV1ApiSetRolePropagationConfigV1Request} requestParameters Request parameters.
+     * @param {RolePropagationApiSetRolePropagationConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof RolePropagationV1Api
+     * @memberof RolePropagationApi
      */
-    public setRolePropagationConfigV1(requestParameters: RolePropagationV1ApiSetRolePropagationConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return RolePropagationV1ApiFp(this.configuration).setRolePropagationConfigV1(requestParameters.rolePropagationConfigInputV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public setRolePropagationConfigV1(requestParameters: RolePropagationApiSetRolePropagationConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return RolePropagationApiFp(this.configuration).setRolePropagationConfigV1(requestParameters.rolePropagationConfigInput, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint initiates a role change propagation process for a tenant asynchronously.  If all preconditions are met, the request is accepted and a rolePropagationId is returned which  can be used to view the status. API throws 4xx if any of the following conditions are met - Role propagation feature is disabled  - There is an ongoing role propagation for the tenant - Role refresh needs to be kicked off as part of the role propagation (skipRoleRefresh=false) and there is an ongoing refresh for the tenant
      * @summary Initiate Role Propagation process
-     * @param {RolePropagationV1ApiStartRolePropagationV1Request} requestParameters Request parameters.
+     * @param {RolePropagationApiStartRolePropagationV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof RolePropagationV1Api
+     * @memberof RolePropagationApi
      */
-    public startRolePropagationV1(requestParameters: RolePropagationV1ApiStartRolePropagationV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return RolePropagationV1ApiFp(this.configuration).startRolePropagationV1(requestParameters.skipRoleRefresh, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public startRolePropagationV1(requestParameters: RolePropagationApiStartRolePropagationV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return RolePropagationApiFp(this.configuration).startRolePropagationV1(requestParameters.skipRoleRefresh, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

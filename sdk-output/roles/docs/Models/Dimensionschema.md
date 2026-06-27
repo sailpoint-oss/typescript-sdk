@@ -1,19 +1,19 @@
 ---
-id: v1-dimensionschema-v1
-title: DimensionschemaV1
-pagination_label: DimensionschemaV1
-sidebar_label: DimensionschemaV1
+id: v1-dimensionschema
+title: Dimensionschema
+pagination_label: Dimensionschema
+sidebar_label: Dimensionschema
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'DimensionschemaV1', 'v1DimensionschemaV1']
-slug: /tools/sdk/typescript/roles/models/dimensionschema-v1
-tags: ['SDK', 'Software Development Kit', 'DimensionschemaV1', 'v1DimensionschemaV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Dimensionschema', 'v1Dimensionschema']
+slug: /tools/sdk/typescript/roles/models/dimensionschema
+tags: ['SDK', 'Software Development Kit', 'Dimensionschema', 'v1Dimensionschema']
 ---
 
-# DimensionschemaV1
+# Dimensionschema
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dimensionAttributes** | **(optional)** **Array&lt;DimensionattributeV1&gt;** |  | [default to undefined]
+**dimensionAttributes** | **(optional)** `Array<Dimensionattribute>` |  | [default to undefined]
 

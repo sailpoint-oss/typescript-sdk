@@ -1,22 +1,22 @@
 ---
-id: v1-rolemetadatabulkupdatebyidrequest-v1
-title: RolemetadatabulkupdatebyidrequestV1
-pagination_label: RolemetadatabulkupdatebyidrequestV1
-sidebar_label: RolemetadatabulkupdatebyidrequestV1
+id: v1-rolemetadatabulkupdatebyidrequest
+title: Rolemetadatabulkupdatebyidrequest
+pagination_label: Rolemetadatabulkupdatebyidrequest
+sidebar_label: Rolemetadatabulkupdatebyidrequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RolemetadatabulkupdatebyidrequestV1', 'v1RolemetadatabulkupdatebyidrequestV1']
-slug: /tools/sdk/typescript/roles/models/rolemetadatabulkupdatebyidrequest-v1
-tags: ['SDK', 'Software Development Kit', 'RolemetadatabulkupdatebyidrequestV1', 'v1RolemetadatabulkupdatebyidrequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Rolemetadatabulkupdatebyidrequest', 'v1Rolemetadatabulkupdatebyidrequest']
+slug: /tools/sdk/typescript/roles/models/rolemetadatabulkupdatebyidrequest
+tags: ['SDK', 'Software Development Kit', 'Rolemetadatabulkupdatebyidrequest', 'v1Rolemetadatabulkupdatebyidrequest']
 ---
 
-# RolemetadatabulkupdatebyidrequestV1
+# Rolemetadatabulkupdatebyidrequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**roles** | **Array&lt;string&gt;** | Roles\' Id to be updated | [default to undefined]
-**operation** | **string** | The operation to be performed | [default to undefined]
-**replaceScope** | **(optional)** **string** | The choice of update scope. | [default to undefined]
-**values** | **Array&lt;RolemetadatabulkupdatebyidrequestValuesInnerV1&gt;** | The metadata to be updated, including attribute key and value. | [default to undefined]
+**roles** | `Array<string>` | Roles\' Id to be updated | [default to undefined]
+**operation** | `string` | The operation to be performed | [default to undefined]
+**replaceScope** | **(optional)** `string` | The choice of update scope. | [default to undefined]
+**values** | `Array<RolemetadatabulkupdatebyidrequestValuesInner>` | The metadata to be updated, including attribute key and value. | [default to undefined]
 

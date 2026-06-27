@@ -1,21 +1,21 @@
 ---
-id: v1-source-schemas-inner-v1
-title: SourceSchemasInnerV1
-pagination_label: SourceSchemasInnerV1
-sidebar_label: SourceSchemasInnerV1
+id: v1-source-schemas-inner
+title: SourceSchemasInner
+pagination_label: SourceSchemasInner
+sidebar_label: SourceSchemasInner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'SourceSchemasInnerV1', 'v1SourceSchemasInnerV1']
-slug: /tools/sdk/typescript/sources/models/source-schemas-inner-v1
-tags: ['SDK', 'Software Development Kit', 'SourceSchemasInnerV1', 'v1SourceSchemasInnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'SourceSchemasInner', 'v1SourceSchemasInner']
+slug: /tools/sdk/typescript/sources/models/source-schemas-inner
+tags: ['SDK', 'Software Development Kit', 'SourceSchemasInner', 'v1SourceSchemasInner']
 ---
 
-# SourceSchemasInnerV1
+# SourceSchemasInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** **string** | Type of object being referenced. | [default to undefined]
-**id** | **(optional)** **string** | Schema ID. | [default to undefined]
-**name** | **(optional)** **string** | Schema\'s human-readable display name. | [default to undefined]
+**type** | **(optional)** `string` | Type of object being referenced. | [default to undefined]
+**id** | **(optional)** `string` | Schema ID. | [default to undefined]
+**name** | **(optional)** `string` | Schema\'s human-readable display name. | [default to undefined]
 

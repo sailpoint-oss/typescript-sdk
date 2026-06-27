@@ -1,20 +1,20 @@
 ---
-id: v1-promptinsightsmetrics-v1
-title: PromptinsightsmetricsV1
-pagination_label: PromptinsightsmetricsV1
-sidebar_label: PromptinsightsmetricsV1
+id: v1-promptinsightsmetrics
+title: Promptinsightsmetrics
+pagination_label: Promptinsightsmetrics
+sidebar_label: Promptinsightsmetrics
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'PromptinsightsmetricsV1', 'v1PromptinsightsmetricsV1']
-slug: /tools/sdk/typescript/prompt_insights/models/promptinsightsmetrics-v1
-tags: ['SDK', 'Software Development Kit', 'PromptinsightsmetricsV1', 'v1PromptinsightsmetricsV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Promptinsightsmetrics', 'v1Promptinsightsmetrics']
+slug: /tools/sdk/typescript/prompt_insights/models/promptinsightsmetrics
+tags: ['SDK', 'Software Development Kit', 'Promptinsightsmetrics', 'v1Promptinsightsmetrics']
 ---
 
-# PromptinsightsmetricsV1
+# Promptinsightsmetrics
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**promptsScanned** | **(optional)** **number** | Count of prompts scanned in the interval. | [default to undefined]
-**promptsRedacted** | **(optional)** **number** | Count of prompts redacted in the interval. | [default to undefined]
+**promptsScanned** | **(optional)** `number` | Count of prompts scanned in the interval. | [default to undefined]
+**promptsRedacted** | **(optional)** `number` | Count of prompts redacted in the interval. | [default to undefined]
 

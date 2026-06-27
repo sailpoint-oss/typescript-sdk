@@ -24,45 +24,26 @@ import type { RequestArgs } from './base';
 import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
 
 /**
- * Arbitrary map containing a configuration based on the EffectType.
- * @export
- * @interface ConditioneffectConfigV1
- */
-export interface ConditioneffectConfigV1 {
-    /**
-     * Effect type\'s label.
-     * @type {string}
-     * @memberof ConditioneffectConfigV1
-     */
-    'defaultValueLabel'?: string;
-    /**
-     * Element\'s identifier.
-     * @type {string}
-     * @memberof ConditioneffectConfigV1
-     */
-    'element'?: string;
-}
-/**
  * Effect produced by a condition.
  * @export
- * @interface ConditioneffectV1
+ * @interface Conditioneffect
  */
-export interface ConditioneffectV1 {
+export interface Conditioneffect {
     /**
      * Type of effect to perform when the conditions are evaluated for this logic block. HIDE ConditionEffectTypeHide  Disables validations. SHOW ConditionEffectTypeShow  Enables validations. DISABLE ConditionEffectTypeDisable  Disables validations. ENABLE ConditionEffectTypeEnable  Enables validations. REQUIRE ConditionEffectTypeRequire OPTIONAL ConditionEffectTypeOptional SUBMIT_MESSAGE ConditionEffectTypeSubmitMessage SUBMIT_NOTIFICATION ConditionEffectTypeSubmitNotification SET_DEFAULT_VALUE ConditionEffectTypeSetDefaultValue  This value is ignored on purpose.
      * @type {string}
-     * @memberof ConditioneffectV1
+     * @memberof Conditioneffect
      */
-    'effectType'?: ConditioneffectV1EffectTypeV1;
+    'effectType'?: ConditioneffectEffectTypeEnum;
     /**
      * 
-     * @type {ConditioneffectConfigV1}
-     * @memberof ConditioneffectV1
+     * @type {ConditioneffectConfig}
+     * @memberof Conditioneffect
      */
-    'config'?: ConditioneffectConfigV1;
+    'config'?: ConditioneffectConfig;
 }
 
-export const ConditioneffectV1EffectTypeV1 = {
+export const ConditioneffectEffectTypeEnum = {
     Hide: 'HIDE',
     Show: 'SHOW',
     Disable: 'DISABLE',
@@ -74,53 +55,72 @@ export const ConditioneffectV1EffectTypeV1 = {
     SetDefaultValue: 'SET_DEFAULT_VALUE'
 } as const;
 
-export type ConditioneffectV1EffectTypeV1 = typeof ConditioneffectV1EffectTypeV1[keyof typeof ConditioneffectV1EffectTypeV1];
+export type ConditioneffectEffectTypeEnum = typeof ConditioneffectEffectTypeEnum[keyof typeof ConditioneffectEffectTypeEnum];
 
+/**
+ * Arbitrary map containing a configuration based on the EffectType.
+ * @export
+ * @interface ConditioneffectConfig
+ */
+export interface ConditioneffectConfig {
+    /**
+     * Effect type\'s label.
+     * @type {string}
+     * @memberof ConditioneffectConfig
+     */
+    'defaultValueLabel'?: string;
+    /**
+     * Element\'s identifier.
+     * @type {string}
+     * @memberof ConditioneffectConfig
+     */
+    'element'?: string;
+}
 /**
  * 
  * @export
- * @interface ConditionruleV1
+ * @interface Conditionrule
  */
-export interface ConditionruleV1 {
+export interface Conditionrule {
     /**
      * Defines the type of object being selected. It will be either a reference to a form input (by input name) or a form element (by technical key). INPUT ConditionRuleSourceTypeInput ELEMENT ConditionRuleSourceTypeElement
      * @type {string}
-     * @memberof ConditionruleV1
+     * @memberof Conditionrule
      */
-    'sourceType'?: ConditionruleV1SourceTypeV1;
+    'sourceType'?: ConditionruleSourceTypeEnum;
     /**
      * Source - if the sourceType is ConditionRuleSourceTypeInput, the source type is the name of the form input to accept. However, if the sourceType is ConditionRuleSourceTypeElement, the source is the name of a technical key of an element to retrieve its value.
      * @type {string}
-     * @memberof ConditionruleV1
+     * @memberof Conditionrule
      */
     'source'?: string;
     /**
      * ConditionRuleComparisonOperatorType value. EQ ConditionRuleComparisonOperatorTypeEquals  This comparison operator compares the source and target for equality. NE ConditionRuleComparisonOperatorTypeNotEquals  This comparison operator compares the source and target for inequality. CO ConditionRuleComparisonOperatorTypeContains  This comparison operator searches the source to see whether it contains the value. NOT_CO ConditionRuleComparisonOperatorTypeNotContains IN ConditionRuleComparisonOperatorTypeIncludes  This comparison operator searches the source if it equals any of the values. NOT_IN ConditionRuleComparisonOperatorTypeNotIncludes EM ConditionRuleComparisonOperatorTypeEmpty NOT_EM ConditionRuleComparisonOperatorTypeNotEmpty SW ConditionRuleComparisonOperatorTypeStartsWith  Checks whether a string starts with another substring of the same string. This operator is case-sensitive. NOT_SW ConditionRuleComparisonOperatorTypeNotStartsWith EW ConditionRuleComparisonOperatorTypeEndsWith  Checks whether a string ends with another substring of the same string. This operator is case-sensitive. NOT_EW ConditionRuleComparisonOperatorTypeNotEndsWith
      * @type {string}
-     * @memberof ConditionruleV1
+     * @memberof Conditionrule
      */
-    'operator'?: ConditionruleV1OperatorV1;
+    'operator'?: ConditionruleOperatorEnum;
     /**
      * ConditionRuleValueType type. STRING ConditionRuleValueTypeString  This value is a static string. STRING_LIST ConditionRuleValueTypeStringList  This value is an array of string values. INPUT ConditionRuleValueTypeInput  This value is a reference to a form input. ELEMENT ConditionRuleValueTypeElement  This value is a reference to a form element (by technical key). LIST ConditionRuleValueTypeList BOOLEAN ConditionRuleValueTypeBoolean
      * @type {string}
-     * @memberof ConditionruleV1
+     * @memberof Conditionrule
      */
-    'valueType'?: ConditionruleV1ValueTypeV1;
+    'valueType'?: ConditionruleValueTypeEnum;
     /**
      * Based on the ValueType.
      * @type {string}
-     * @memberof ConditionruleV1
+     * @memberof Conditionrule
      */
     'value'?: string;
 }
 
-export const ConditionruleV1SourceTypeV1 = {
+export const ConditionruleSourceTypeEnum = {
     Input: 'INPUT',
     Element: 'ELEMENT'
 } as const;
 
-export type ConditionruleV1SourceTypeV1 = typeof ConditionruleV1SourceTypeV1[keyof typeof ConditionruleV1SourceTypeV1];
-export const ConditionruleV1OperatorV1 = {
+export type ConditionruleSourceTypeEnum = typeof ConditionruleSourceTypeEnum[keyof typeof ConditionruleSourceTypeEnum];
+export const ConditionruleOperatorEnum = {
     Eq: 'EQ',
     Ne: 'NE',
     Co: 'CO',
@@ -135,8 +135,8 @@ export const ConditionruleV1OperatorV1 = {
     NotEw: 'NOT_EW'
 } as const;
 
-export type ConditionruleV1OperatorV1 = typeof ConditionruleV1OperatorV1[keyof typeof ConditionruleV1OperatorV1];
-export const ConditionruleV1ValueTypeV1 = {
+export type ConditionruleOperatorEnum = typeof ConditionruleOperatorEnum[keyof typeof ConditionruleOperatorEnum];
+export const ConditionruleValueTypeEnum = {
     String: 'STRING',
     StringList: 'STRING_LIST',
     Input: 'INPUT',
@@ -145,127 +145,127 @@ export const ConditionruleV1ValueTypeV1 = {
     Boolean: 'BOOLEAN'
 } as const;
 
-export type ConditionruleV1ValueTypeV1 = typeof ConditionruleV1ValueTypeV1[keyof typeof ConditionruleV1ValueTypeV1];
+export type ConditionruleValueTypeEnum = typeof ConditionruleValueTypeEnum[keyof typeof ConditionruleValueTypeEnum];
 
 /**
  * 
  * @export
- * @interface CreateFormDefinitionFileRequestV1RequestV1
+ * @interface CreateFormDefinitionFileRequestV1Request
  */
-export interface CreateFormDefinitionFileRequestV1RequestV1 {
+export interface CreateFormDefinitionFileRequestV1Request {
     /**
      * File specifying the multipart
      * @type {File}
-     * @memberof CreateFormDefinitionFileRequestV1RequestV1
+     * @memberof CreateFormDefinitionFileRequestV1Request
      */
     'file': File;
 }
 /**
  * 
  * @export
- * @interface CreateformdefinitionrequestV1
+ * @interface Createformdefinitionrequest
  */
-export interface CreateformdefinitionrequestV1 {
+export interface Createformdefinitionrequest {
     /**
      * Description is the form definition description
      * @type {string}
-     * @memberof CreateformdefinitionrequestV1
+     * @memberof Createformdefinitionrequest
      */
     'description'?: string;
     /**
      * FormConditions is the conditional logic that modify the form dynamically modify the form as the recipient is interacting out the form
-     * @type {Array<FormconditionV1>}
-     * @memberof CreateformdefinitionrequestV1
+     * @type {Array<Formcondition>}
+     * @memberof Createformdefinitionrequest
      */
-    'formConditions'?: Array<FormconditionV1>;
+    'formConditions'?: Array<Formcondition>;
     /**
      * FormElements is a list of nested form elements
-     * @type {Array<FormelementV1>}
-     * @memberof CreateformdefinitionrequestV1
+     * @type {Array<Formelement>}
+     * @memberof Createformdefinitionrequest
      */
-    'formElements'?: Array<FormelementV1>;
+    'formElements'?: Array<Formelement>;
     /**
      * FormInput is a list of form inputs that are required when creating a form-instance object
-     * @type {Array<FormdefinitioninputV1>}
-     * @memberof CreateformdefinitionrequestV1
+     * @type {Array<Formdefinitioninput>}
+     * @memberof Createformdefinitionrequest
      */
-    'formInput'?: Array<FormdefinitioninputV1>;
+    'formInput'?: Array<Formdefinitioninput>;
     /**
      * Name is the form definition name
      * @type {string}
-     * @memberof CreateformdefinitionrequestV1
+     * @memberof Createformdefinitionrequest
      */
     'name': string;
     /**
      * 
-     * @type {FormownerV1}
-     * @memberof CreateformdefinitionrequestV1
+     * @type {Formowner}
+     * @memberof Createformdefinitionrequest
      */
-    'owner': FormownerV1;
+    'owner': Formowner;
     /**
      * UsedBy is a list of objects where when any system uses a particular form it reaches out to the form service to record it is currently being used
-     * @type {Array<FormusedbyV1>}
-     * @memberof CreateformdefinitionrequestV1
+     * @type {Array<Formusedby>}
+     * @memberof Createformdefinitionrequest
      */
-    'usedBy'?: Array<FormusedbyV1>;
+    'usedBy'?: Array<Formusedby>;
 }
 /**
  * 
  * @export
- * @interface CreateforminstancerequestV1
+ * @interface Createforminstancerequest
  */
-export interface CreateforminstancerequestV1 {
+export interface Createforminstancerequest {
     /**
      * 
-     * @type {ForminstancecreatedbyV1}
-     * @memberof CreateforminstancerequestV1
+     * @type {Forminstancecreatedby}
+     * @memberof Createforminstancerequest
      */
-    'createdBy': ForminstancecreatedbyV1;
+    'createdBy': Forminstancecreatedby;
     /**
      * Expire is required
      * @type {string}
-     * @memberof CreateforminstancerequestV1
+     * @memberof Createforminstancerequest
      */
     'expire': string;
     /**
      * FormDefinitionID is the id of the form definition that created this form
      * @type {string}
-     * @memberof CreateforminstancerequestV1
+     * @memberof Createforminstancerequest
      */
     'formDefinitionId': string;
     /**
      * FormInput is an object of form input labels to value
      * @type {{ [key: string]: any; }}
-     * @memberof CreateforminstancerequestV1
+     * @memberof Createforminstancerequest
      */
     'formInput'?: { [key: string]: any; };
     /**
      * Recipients is required
-     * @type {Array<ForminstancerecipientV1>}
-     * @memberof CreateforminstancerequestV1
+     * @type {Array<Forminstancerecipient>}
+     * @memberof Createforminstancerequest
      */
-    'recipients': Array<ForminstancerecipientV1>;
+    'recipients': Array<Forminstancerecipient>;
     /**
      * StandAloneForm is a boolean flag to indicate if this form should be available for users to complete via the standalone form UI or should this only be available to be completed by as an embedded form
      * @type {boolean}
-     * @memberof CreateforminstancerequestV1
+     * @memberof Createforminstancerequest
      */
     'standAloneForm'?: boolean;
     /**
      * State is required, if not present initial state is FormInstanceStateAssigned ASSIGNED FormInstanceStateAssigned IN_PROGRESS FormInstanceStateInProgress SUBMITTED FormInstanceStateSubmitted COMPLETED FormInstanceStateCompleted CANCELLED FormInstanceStateCancelled
      * @type {string}
-     * @memberof CreateforminstancerequestV1
+     * @memberof Createforminstancerequest
      */
-    'state'?: CreateforminstancerequestV1StateV1;
+    'state'?: CreateforminstancerequestStateEnum;
     /**
      * TTL an epoch timestamp in seconds, it most be in seconds or dynamodb will ignore it SEE: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/time-to-live-ttl-before-you-start.html
      * @type {number}
-     * @memberof CreateforminstancerequestV1
+     * @memberof Createforminstancerequest
      */
     'ttl'?: number;
 }
 
-export const CreateforminstancerequestV1StateV1 = {
+export const CreateforminstancerequestStateEnum = {
     Assigned: 'ASSIGNED',
     InProgress: 'IN_PROGRESS',
     Submitted: 'SUBMITTED',
@@ -273,394 +273,369 @@ export const CreateforminstancerequestV1StateV1 = {
     Cancelled: 'CANCELLED'
 } as const;
 
-export type CreateforminstancerequestV1StateV1 = typeof CreateforminstancerequestV1StateV1[keyof typeof CreateforminstancerequestV1StateV1];
+export type CreateforminstancerequestStateEnum = typeof CreateforminstancerequestStateEnum[keyof typeof CreateforminstancerequestStateEnum];
 
 /**
  * 
  * @export
- * @interface ErrorV1
+ * @interface Errormessage
  */
-export interface ErrorV1 {
-    /**
-     * DetailCode is the text of the status code returned
-     * @type {string}
-     * @memberof ErrorV1
-     */
-    'detailCode'?: string;
-    /**
-     * 
-     * @type {Array<ErrormessageV1>}
-     * @memberof ErrorV1
-     */
-    'messages'?: Array<ErrormessageV1>;
-    /**
-     * TrackingID is the request tracking unique identifier
-     * @type {string}
-     * @memberof ErrorV1
-     */
-    'trackingId'?: string;
-}
-/**
- * 
- * @export
- * @interface ErrormessageV1
- */
-export interface ErrormessageV1 {
+export interface Errormessage {
     /**
      * Locale is the current Locale
      * @type {string}
-     * @memberof ErrormessageV1
+     * @memberof Errormessage
      */
     'locale'?: string;
     /**
      * LocaleOrigin holds possible values of how the locale was selected
      * @type {string}
-     * @memberof ErrormessageV1
+     * @memberof Errormessage
      */
     'localeOrigin'?: string;
     /**
      * Text is the actual text of the error message
      * @type {string}
-     * @memberof ErrormessageV1
+     * @memberof Errormessage
      */
     'text'?: string;
 }
 /**
  * 
  * @export
- * @interface ExportFormDefinitionsByTenantV1200ResponseInnerSelfV1
+ * @interface ExportFormDefinitionsByTenantV1200ResponseInner
  */
-export interface ExportFormDefinitionsByTenantV1200ResponseInnerSelfV1 {
+export interface ExportFormDefinitionsByTenantV1200ResponseInner {
     /**
      * 
-     * @type {FormdefinitionselfimportexportdtoV1}
-     * @memberof ExportFormDefinitionsByTenantV1200ResponseInnerSelfV1
+     * @type {Formdefinitionresponse}
+     * @memberof ExportFormDefinitionsByTenantV1200ResponseInner
      */
-    'object'?: FormdefinitionselfimportexportdtoV1;
-}
-/**
- * 
- * @export
- * @interface ExportFormDefinitionsByTenantV1200ResponseInnerV1
- */
-export interface ExportFormDefinitionsByTenantV1200ResponseInnerV1 {
+    'object'?: Formdefinitionresponse;
     /**
      * 
-     * @type {FormdefinitionresponseV1}
-     * @memberof ExportFormDefinitionsByTenantV1200ResponseInnerV1
+     * @type {ExportFormDefinitionsByTenantV1200ResponseInnerSelf}
+     * @memberof ExportFormDefinitionsByTenantV1200ResponseInner
      */
-    'object'?: FormdefinitionresponseV1;
-    /**
-     * 
-     * @type {ExportFormDefinitionsByTenantV1200ResponseInnerSelfV1}
-     * @memberof ExportFormDefinitionsByTenantV1200ResponseInnerV1
-     */
-    'self'?: ExportFormDefinitionsByTenantV1200ResponseInnerSelfV1;
+    'self'?: ExportFormDefinitionsByTenantV1200ResponseInnerSelf;
     /**
      * 
      * @type {number}
-     * @memberof ExportFormDefinitionsByTenantV1200ResponseInnerV1
+     * @memberof ExportFormDefinitionsByTenantV1200ResponseInner
      */
     'version'?: number;
 }
 /**
+ * 
+ * @export
+ * @interface ExportFormDefinitionsByTenantV1200ResponseInnerSelf
+ */
+export interface ExportFormDefinitionsByTenantV1200ResponseInnerSelf {
+    /**
+     * 
+     * @type {Formdefinitionselfimportexportdto}
+     * @memberof ExportFormDefinitionsByTenantV1200ResponseInnerSelf
+     */
+    'object'?: Formdefinitionselfimportexportdto;
+}
+/**
  * Represent a form conditional.
  * @export
- * @interface FormconditionV1
+ * @interface Formcondition
  */
-export interface FormconditionV1 {
+export interface Formcondition {
     /**
      * ConditionRuleLogicalOperatorType value. AND ConditionRuleLogicalOperatorTypeAnd OR ConditionRuleLogicalOperatorTypeOr
      * @type {string}
-     * @memberof FormconditionV1
+     * @memberof Formcondition
      */
-    'ruleOperator'?: FormconditionV1RuleOperatorV1;
+    'ruleOperator'?: FormconditionRuleOperatorEnum;
     /**
      * List of rules.
-     * @type {Array<ConditionruleV1>}
-     * @memberof FormconditionV1
+     * @type {Array<Conditionrule>}
+     * @memberof Formcondition
      */
-    'rules'?: Array<ConditionruleV1>;
+    'rules'?: Array<Conditionrule>;
     /**
      * List of effects.
-     * @type {Array<ConditioneffectV1>}
-     * @memberof FormconditionV1
+     * @type {Array<Conditioneffect>}
+     * @memberof Formcondition
      */
-    'effects'?: Array<ConditioneffectV1>;
+    'effects'?: Array<Conditioneffect>;
 }
 
-export const FormconditionV1RuleOperatorV1 = {
+export const FormconditionRuleOperatorEnum = {
     And: 'AND',
     Or: 'OR'
 } as const;
 
-export type FormconditionV1RuleOperatorV1 = typeof FormconditionV1RuleOperatorV1[keyof typeof FormconditionV1RuleOperatorV1];
+export type FormconditionRuleOperatorEnum = typeof FormconditionRuleOperatorEnum[keyof typeof FormconditionRuleOperatorEnum];
 
 /**
  * 
  * @export
- * @interface FormdefinitiondynamicschemarequestAttributesV1
+ * @interface Formdefinitiondynamicschemarequest
  */
-export interface FormdefinitiondynamicschemarequestAttributesV1 {
-    /**
-     * FormDefinitionID is a unique guid identifying this form definition
-     * @type {string}
-     * @memberof FormdefinitiondynamicschemarequestAttributesV1
-     */
-    'formDefinitionId'?: string;
-}
-/**
- * 
- * @export
- * @interface FormdefinitiondynamicschemarequestV1
- */
-export interface FormdefinitiondynamicschemarequestV1 {
+export interface Formdefinitiondynamicschemarequest {
     /**
      * 
-     * @type {FormdefinitiondynamicschemarequestAttributesV1}
-     * @memberof FormdefinitiondynamicschemarequestV1
+     * @type {FormdefinitiondynamicschemarequestAttributes}
+     * @memberof Formdefinitiondynamicschemarequest
      */
-    'attributes'?: FormdefinitiondynamicschemarequestAttributesV1;
+    'attributes'?: FormdefinitiondynamicschemarequestAttributes;
     /**
      * Description is the form definition dynamic schema description text
      * @type {string}
-     * @memberof FormdefinitiondynamicschemarequestV1
+     * @memberof Formdefinitiondynamicschemarequest
      */
     'description'?: string;
     /**
      * ID is a unique identifier
      * @type {string}
-     * @memberof FormdefinitiondynamicschemarequestV1
+     * @memberof Formdefinitiondynamicschemarequest
      */
     'id'?: string;
     /**
      * Type is the form definition dynamic schema type
      * @type {string}
-     * @memberof FormdefinitiondynamicschemarequestV1
+     * @memberof Formdefinitiondynamicschemarequest
      */
     'type'?: string;
     /**
      * VersionNumber is the form definition dynamic schema version number
      * @type {number}
-     * @memberof FormdefinitiondynamicschemarequestV1
+     * @memberof Formdefinitiondynamicschemarequest
      */
     'versionNumber'?: number;
 }
 /**
  * 
  * @export
- * @interface FormdefinitiondynamicschemaresponseV1
+ * @interface FormdefinitiondynamicschemarequestAttributes
  */
-export interface FormdefinitiondynamicschemaresponseV1 {
-    /**
-     * OutputSchema holds a JSON schema generated dynamically
-     * @type {{ [key: string]: any; }}
-     * @memberof FormdefinitiondynamicschemaresponseV1
-     */
-    'outputSchema'?: { [key: string]: any; };
-}
-/**
- * 
- * @export
- * @interface FormdefinitionfileuploadresponseV1
- */
-export interface FormdefinitionfileuploadresponseV1 {
-    /**
-     * Created is the date the file was uploaded
-     * @type {string}
-     * @memberof FormdefinitionfileuploadresponseV1
-     */
-    'created'?: string;
-    /**
-     * fileId is a unique ULID that serves as an identifier for the form definition file
-     * @type {string}
-     * @memberof FormdefinitionfileuploadresponseV1
-     */
-    'fileId'?: string;
+export interface FormdefinitiondynamicschemarequestAttributes {
     /**
      * FormDefinitionID is a unique guid identifying this form definition
      * @type {string}
-     * @memberof FormdefinitionfileuploadresponseV1
+     * @memberof FormdefinitiondynamicschemarequestAttributes
      */
     'formDefinitionId'?: string;
 }
 /**
  * 
  * @export
- * @interface FormdefinitioninputV1
+ * @interface Formdefinitiondynamicschemaresponse
  */
-export interface FormdefinitioninputV1 {
+export interface Formdefinitiondynamicschemaresponse {
+    /**
+     * OutputSchema holds a JSON schema generated dynamically
+     * @type {{ [key: string]: any; }}
+     * @memberof Formdefinitiondynamicschemaresponse
+     */
+    'outputSchema'?: { [key: string]: any; };
+}
+/**
+ * 
+ * @export
+ * @interface Formdefinitionfileuploadresponse
+ */
+export interface Formdefinitionfileuploadresponse {
+    /**
+     * Created is the date the file was uploaded
+     * @type {string}
+     * @memberof Formdefinitionfileuploadresponse
+     */
+    'created'?: string;
+    /**
+     * fileId is a unique ULID that serves as an identifier for the form definition file
+     * @type {string}
+     * @memberof Formdefinitionfileuploadresponse
+     */
+    'fileId'?: string;
+    /**
+     * FormDefinitionID is a unique guid identifying this form definition
+     * @type {string}
+     * @memberof Formdefinitionfileuploadresponse
+     */
+    'formDefinitionId'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface Formdefinitioninput
+ */
+export interface Formdefinitioninput {
     /**
      * Unique identifier for the form input.
      * @type {string}
-     * @memberof FormdefinitioninputV1
+     * @memberof Formdefinitioninput
      */
     'id'?: string;
     /**
      * FormDefinitionInputType value. STRING FormDefinitionInputTypeString
      * @type {string}
-     * @memberof FormdefinitioninputV1
+     * @memberof Formdefinitioninput
      */
-    'type'?: FormdefinitioninputV1TypeV1;
+    'type'?: FormdefinitioninputTypeEnum;
     /**
      * Name for the form input.
      * @type {string}
-     * @memberof FormdefinitioninputV1
+     * @memberof Formdefinitioninput
      */
     'label'?: string;
     /**
      * Form input\'s description.
      * @type {string}
-     * @memberof FormdefinitioninputV1
+     * @memberof Formdefinitioninput
      */
     'description'?: string;
 }
 
-export const FormdefinitioninputV1TypeV1 = {
+export const FormdefinitioninputTypeEnum = {
     String: 'STRING',
     Array: 'ARRAY'
 } as const;
 
-export type FormdefinitioninputV1TypeV1 = typeof FormdefinitioninputV1TypeV1[keyof typeof FormdefinitioninputV1TypeV1];
+export type FormdefinitioninputTypeEnum = typeof FormdefinitioninputTypeEnum[keyof typeof FormdefinitioninputTypeEnum];
 
 /**
  * 
  * @export
- * @interface FormdefinitionresponseV1
+ * @interface Formdefinitionresponse
  */
-export interface FormdefinitionresponseV1 {
+export interface Formdefinitionresponse {
     /**
      * Unique guid identifying the form definition.
      * @type {string}
-     * @memberof FormdefinitionresponseV1
+     * @memberof Formdefinitionresponse
      */
     'id'?: string;
     /**
      * Name of the form definition.
      * @type {string}
-     * @memberof FormdefinitionresponseV1
+     * @memberof Formdefinitionresponse
      */
     'name'?: string;
     /**
      * Form definition\'s description.
      * @type {string}
-     * @memberof FormdefinitionresponseV1
+     * @memberof Formdefinitionresponse
      */
     'description'?: string;
     /**
      * 
-     * @type {FormownerV1}
-     * @memberof FormdefinitionresponseV1
+     * @type {Formowner}
+     * @memberof Formdefinitionresponse
      */
-    'owner'?: FormownerV1;
+    'owner'?: Formowner;
     /**
      * List of objects using the form definition. Whenever a system uses a form, the API reaches out to the form service to record that the system is currently using it.
-     * @type {Array<FormusedbyV1>}
-     * @memberof FormdefinitionresponseV1
+     * @type {Array<Formusedby>}
+     * @memberof Formdefinitionresponse
      */
-    'usedBy'?: Array<FormusedbyV1>;
+    'usedBy'?: Array<Formusedby>;
     /**
      * List of form inputs required to create a form-instance object.
-     * @type {Array<FormdefinitioninputV1>}
-     * @memberof FormdefinitionresponseV1
+     * @type {Array<Formdefinitioninput>}
+     * @memberof Formdefinitionresponse
      */
-    'formInput'?: Array<FormdefinitioninputV1>;
+    'formInput'?: Array<Formdefinitioninput>;
     /**
      * List of nested form elements.
-     * @type {Array<FormelementV1>}
-     * @memberof FormdefinitionresponseV1
+     * @type {Array<Formelement>}
+     * @memberof Formdefinitionresponse
      */
-    'formElements'?: Array<FormelementV1>;
+    'formElements'?: Array<Formelement>;
     /**
      * Conditional logic that can dynamically modify the form as the recipient is interacting with it.
-     * @type {Array<FormconditionV1>}
-     * @memberof FormdefinitionresponseV1
+     * @type {Array<Formcondition>}
+     * @memberof Formdefinitionresponse
      */
-    'formConditions'?: Array<FormconditionV1>;
+    'formConditions'?: Array<Formcondition>;
     /**
      * Created is the date the form definition was created
      * @type {string}
-     * @memberof FormdefinitionresponseV1
+     * @memberof Formdefinitionresponse
      */
     'created'?: string;
     /**
      * Modified is the last date the form definition was modified
      * @type {string}
-     * @memberof FormdefinitionresponseV1
+     * @memberof Formdefinitionresponse
      */
     'modified'?: string;
 }
 /**
  * Self block for imported/exported object.
  * @export
- * @interface FormdefinitionselfimportexportdtoV1
+ * @interface Formdefinitionselfimportexportdto
  */
-export interface FormdefinitionselfimportexportdtoV1 {
+export interface Formdefinitionselfimportexportdto {
     /**
      * Imported/exported object\'s DTO type.
      * @type {string}
-     * @memberof FormdefinitionselfimportexportdtoV1
+     * @memberof Formdefinitionselfimportexportdto
      */
-    'type'?: FormdefinitionselfimportexportdtoV1TypeV1;
+    'type'?: FormdefinitionselfimportexportdtoTypeEnum;
     /**
      * Imported/exported object\'s ID.
      * @type {string}
-     * @memberof FormdefinitionselfimportexportdtoV1
+     * @memberof Formdefinitionselfimportexportdto
      */
     'id'?: string;
     /**
      * Imported/exported object\'s display name.
      * @type {string}
-     * @memberof FormdefinitionselfimportexportdtoV1
+     * @memberof Formdefinitionselfimportexportdto
      */
     'name'?: string;
 }
 
-export const FormdefinitionselfimportexportdtoV1TypeV1 = {
+export const FormdefinitionselfimportexportdtoTypeEnum = {
     FormDefinition: 'FORM_DEFINITION'
 } as const;
 
-export type FormdefinitionselfimportexportdtoV1TypeV1 = typeof FormdefinitionselfimportexportdtoV1TypeV1[keyof typeof FormdefinitionselfimportexportdtoV1TypeV1];
+export type FormdefinitionselfimportexportdtoTypeEnum = typeof FormdefinitionselfimportexportdtoTypeEnum[keyof typeof FormdefinitionselfimportexportdtoTypeEnum];
 
 /**
  * 
  * @export
- * @interface FormelementV1
+ * @interface Formelement
  */
-export interface FormelementV1 {
+export interface Formelement {
     /**
      * Form element identifier.
      * @type {string}
-     * @memberof FormelementV1
+     * @memberof Formelement
      */
     'id'?: string;
     /**
      * FormElementType value.  TEXT FormElementTypeText TOGGLE FormElementTypeToggle TEXTAREA FormElementTypeTextArea HIDDEN FormElementTypeHidden PHONE FormElementTypePhone EMAIL FormElementTypeEmail SELECT FormElementTypeSelect DATE FormElementTypeDate SECTION FormElementTypeSection COLUMN_SET FormElementTypeColumns IMAGE FormElementTypeImage DESCRIPTION FormElementTypeDescription
      * @type {string}
-     * @memberof FormelementV1
+     * @memberof Formelement
      */
-    'elementType'?: FormelementV1ElementTypeV1;
+    'elementType'?: FormelementElementTypeEnum;
     /**
      * Config object.
      * @type {{ [key: string]: any; }}
-     * @memberof FormelementV1
+     * @memberof Formelement
      */
     'config'?: { [key: string]: any; };
     /**
      * Technical key.
      * @type {string}
-     * @memberof FormelementV1
+     * @memberof Formelement
      */
     'key'?: string;
     /**
      * 
-     * @type {Array<FormelementvalidationssetV1>}
-     * @memberof FormelementV1
+     * @type {Array<Formelementvalidationsset>}
+     * @memberof Formelement
      */
-    'validations'?: Array<FormelementvalidationssetV1> | null;
+    'validations'?: Array<Formelementvalidationsset> | null;
 }
 
-export const FormelementV1ElementTypeV1 = {
+export const FormelementElementTypeEnum = {
     Text: 'TEXT',
     Toggle: 'TOGGLE',
     Textarea: 'TEXTAREA',
@@ -675,95 +650,95 @@ export const FormelementV1ElementTypeV1 = {
     Description: 'DESCRIPTION'
 } as const;
 
-export type FormelementV1ElementTypeV1 = typeof FormelementV1ElementTypeV1[keyof typeof FormelementV1ElementTypeV1];
+export type FormelementElementTypeEnum = typeof FormelementElementTypeEnum[keyof typeof FormelementElementTypeEnum];
 
 /**
  * 
  * @export
- * @interface FormelementdatasourceconfigoptionsV1
+ * @interface Formelementdatasourceconfigoptions
  */
-export interface FormelementdatasourceconfigoptionsV1 {
+export interface Formelementdatasourceconfigoptions {
     /**
      * Label is the main label to display to the user when selecting this option
      * @type {string}
-     * @memberof FormelementdatasourceconfigoptionsV1
+     * @memberof Formelementdatasourceconfigoptions
      */
     'label'?: string;
     /**
      * SubLabel is the sub label to display below the label in diminutive styling to help describe or identify this option
      * @type {string}
-     * @memberof FormelementdatasourceconfigoptionsV1
+     * @memberof Formelementdatasourceconfigoptions
      */
     'subLabel'?: string;
     /**
      * Value is the value to save as an entry when the user selects this option
      * @type {string}
-     * @memberof FormelementdatasourceconfigoptionsV1
+     * @memberof Formelementdatasourceconfigoptions
      */
     'value'?: string;
 }
 /**
  * 
  * @export
- * @interface FormelementdynamicdatasourceV1
+ * @interface Formelementdynamicdatasource
  */
-export interface FormelementdynamicdatasourceV1 {
+export interface Formelementdynamicdatasource {
     /**
      * 
-     * @type {FormelementdynamicdatasourceconfigV1}
-     * @memberof FormelementdynamicdatasourceV1
+     * @type {Formelementdynamicdatasourceconfig}
+     * @memberof Formelementdynamicdatasource
      */
-    'config'?: FormelementdynamicdatasourceconfigV1;
+    'config'?: Formelementdynamicdatasourceconfig;
     /**
      * DataSourceType is a FormElementDataSourceType value STATIC FormElementDataSourceTypeStatic INTERNAL FormElementDataSourceTypeInternal SEARCH FormElementDataSourceTypeSearch FORM_INPUT FormElementDataSourceTypeFormInput
      * @type {string}
-     * @memberof FormelementdynamicdatasourceV1
+     * @memberof Formelementdynamicdatasource
      */
-    'dataSourceType'?: FormelementdynamicdatasourceV1DataSourceTypeV1;
+    'dataSourceType'?: FormelementdynamicdatasourceDataSourceTypeEnum;
 }
 
-export const FormelementdynamicdatasourceV1DataSourceTypeV1 = {
+export const FormelementdynamicdatasourceDataSourceTypeEnum = {
     Static: 'STATIC',
     Internal: 'INTERNAL',
     Search: 'SEARCH',
     FormInput: 'FORM_INPUT'
 } as const;
 
-export type FormelementdynamicdatasourceV1DataSourceTypeV1 = typeof FormelementdynamicdatasourceV1DataSourceTypeV1[keyof typeof FormelementdynamicdatasourceV1DataSourceTypeV1];
+export type FormelementdynamicdatasourceDataSourceTypeEnum = typeof FormelementdynamicdatasourceDataSourceTypeEnum[keyof typeof FormelementdynamicdatasourceDataSourceTypeEnum];
 
 /**
  * 
  * @export
- * @interface FormelementdynamicdatasourceconfigV1
+ * @interface Formelementdynamicdatasourceconfig
  */
-export interface FormelementdynamicdatasourceconfigV1 {
+export interface Formelementdynamicdatasourceconfig {
     /**
      * AggregationBucketField is the aggregation bucket field name
      * @type {string}
-     * @memberof FormelementdynamicdatasourceconfigV1
+     * @memberof Formelementdynamicdatasourceconfig
      */
     'aggregationBucketField'?: string;
     /**
      * Indices is a list of indices to use
      * @type {Array<string>}
-     * @memberof FormelementdynamicdatasourceconfigV1
+     * @memberof Formelementdynamicdatasourceconfig
      */
-    'indices'?: Array<FormelementdynamicdatasourceconfigV1IndicesV1>;
+    'indices'?: Array<FormelementdynamicdatasourceconfigIndicesEnum>;
     /**
      * ObjectType is a PreDefinedSelectOption value IDENTITY PreDefinedSelectOptionIdentity ACCESS_PROFILE PreDefinedSelectOptionAccessProfile SOURCES PreDefinedSelectOptionSources ROLE PreDefinedSelectOptionRole ENTITLEMENT PreDefinedSelectOptionEntitlement
      * @type {string}
-     * @memberof FormelementdynamicdatasourceconfigV1
+     * @memberof Formelementdynamicdatasourceconfig
      */
-    'objectType'?: FormelementdynamicdatasourceconfigV1ObjectTypeV1;
+    'objectType'?: FormelementdynamicdatasourceconfigObjectTypeEnum;
     /**
      * Query is a text
      * @type {string}
-     * @memberof FormelementdynamicdatasourceconfigV1
+     * @memberof Formelementdynamicdatasourceconfig
      */
     'query'?: string;
 }
 
-export const FormelementdynamicdatasourceconfigV1IndicesV1 = {
+export const FormelementdynamicdatasourceconfigIndicesEnum = {
     Accessprofiles: 'accessprofiles',
     Accountactivities: 'accountactivities',
     Entitlements: 'entitlements',
@@ -773,8 +748,8 @@ export const FormelementdynamicdatasourceconfigV1IndicesV1 = {
     Star: '*'
 } as const;
 
-export type FormelementdynamicdatasourceconfigV1IndicesV1 = typeof FormelementdynamicdatasourceconfigV1IndicesV1[keyof typeof FormelementdynamicdatasourceconfigV1IndicesV1];
-export const FormelementdynamicdatasourceconfigV1ObjectTypeV1 = {
+export type FormelementdynamicdatasourceconfigIndicesEnum = typeof FormelementdynamicdatasourceconfigIndicesEnum[keyof typeof FormelementdynamicdatasourceconfigIndicesEnum];
+export const FormelementdynamicdatasourceconfigObjectTypeEnum = {
     Identity: 'IDENTITY',
     AccessProfile: 'ACCESS_PROFILE',
     Sources: 'SOURCES',
@@ -782,36 +757,36 @@ export const FormelementdynamicdatasourceconfigV1ObjectTypeV1 = {
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type FormelementdynamicdatasourceconfigV1ObjectTypeV1 = typeof FormelementdynamicdatasourceconfigV1ObjectTypeV1[keyof typeof FormelementdynamicdatasourceconfigV1ObjectTypeV1];
+export type FormelementdynamicdatasourceconfigObjectTypeEnum = typeof FormelementdynamicdatasourceconfigObjectTypeEnum[keyof typeof FormelementdynamicdatasourceconfigObjectTypeEnum];
 
 /**
  * 
  * @export
- * @interface FormelementpreviewrequestV1
+ * @interface Formelementpreviewrequest
  */
-export interface FormelementpreviewrequestV1 {
+export interface Formelementpreviewrequest {
     /**
      * 
-     * @type {FormelementdynamicdatasourceV1}
-     * @memberof FormelementpreviewrequestV1
+     * @type {Formelementdynamicdatasource}
+     * @memberof Formelementpreviewrequest
      */
-    'dataSource'?: FormelementdynamicdatasourceV1;
+    'dataSource'?: Formelementdynamicdatasource;
 }
 /**
  * Set of FormElementValidation items.
  * @export
- * @interface FormelementvalidationssetV1
+ * @interface Formelementvalidationsset
  */
-export interface FormelementvalidationssetV1 {
+export interface Formelementvalidationsset {
     /**
      * The type of data validation that you wish to enforce, e.g., a required field, a minimum length, etc.
      * @type {string}
-     * @memberof FormelementvalidationssetV1
+     * @memberof Formelementvalidationsset
      */
-    'validationType'?: FormelementvalidationssetV1ValidationTypeV1;
+    'validationType'?: FormelementvalidationssetValidationTypeEnum;
 }
 
-export const FormelementvalidationssetV1ValidationTypeV1 = {
+export const FormelementvalidationssetValidationTypeEnum = {
     Required: 'REQUIRED',
     MinLength: 'MIN_LENGTH',
     MaxLength: 'MAX_LENGTH',
@@ -826,185 +801,185 @@ export const FormelementvalidationssetV1ValidationTypeV1 = {
     Textarea: 'TEXTAREA'
 } as const;
 
-export type FormelementvalidationssetV1ValidationTypeV1 = typeof FormelementvalidationssetV1ValidationTypeV1[keyof typeof FormelementvalidationssetV1ValidationTypeV1];
+export type FormelementvalidationssetValidationTypeEnum = typeof FormelementvalidationssetValidationTypeEnum[keyof typeof FormelementvalidationssetValidationTypeEnum];
 
 /**
  * 
  * @export
- * @interface FormerrorV1
+ * @interface Formerror
  */
-export interface FormerrorV1 {
+export interface Formerror {
     /**
      * Key is the technical key
      * @type {string}
-     * @memberof FormerrorV1
+     * @memberof Formerror
      */
     'key'?: string;
     /**
      * Messages is a list of web.ErrorMessage items
-     * @type {Array<ErrormessageV1>}
-     * @memberof FormerrorV1
+     * @type {Array<Errormessage>}
+     * @memberof Formerror
      */
-    'messages'?: Array<ErrormessageV1>;
+    'messages'?: Array<Errormessage>;
     /**
      * Value is the value associated with a Key
      * @type {any}
-     * @memberof FormerrorV1
+     * @memberof Formerror
      */
     'value'?: any;
 }
 /**
  * 
  * @export
- * @interface ForminstancecreatedbyV1
+ * @interface Forminstancecreatedby
  */
-export interface ForminstancecreatedbyV1 {
+export interface Forminstancecreatedby {
     /**
      * ID is a unique identifier
      * @type {string}
-     * @memberof ForminstancecreatedbyV1
+     * @memberof Forminstancecreatedby
      */
     'id'?: string;
     /**
      * Type is a form instance created by type enum value WORKFLOW_EXECUTION FormInstanceCreatedByTypeWorkflowExecution SOURCE FormInstanceCreatedByTypeSource
      * @type {string}
-     * @memberof ForminstancecreatedbyV1
+     * @memberof Forminstancecreatedby
      */
-    'type'?: ForminstancecreatedbyV1TypeV1;
+    'type'?: ForminstancecreatedbyTypeEnum;
 }
 
-export const ForminstancecreatedbyV1TypeV1 = {
+export const ForminstancecreatedbyTypeEnum = {
     WorkflowExecution: 'WORKFLOW_EXECUTION',
     Source: 'SOURCE'
 } as const;
 
-export type ForminstancecreatedbyV1TypeV1 = typeof ForminstancecreatedbyV1TypeV1[keyof typeof ForminstancecreatedbyV1TypeV1];
+export type ForminstancecreatedbyTypeEnum = typeof ForminstancecreatedbyTypeEnum[keyof typeof ForminstancecreatedbyTypeEnum];
 
 /**
  * 
  * @export
- * @interface ForminstancerecipientV1
+ * @interface Forminstancerecipient
  */
-export interface ForminstancerecipientV1 {
+export interface Forminstancerecipient {
     /**
      * ID is a unique identifier
      * @type {string}
-     * @memberof ForminstancerecipientV1
+     * @memberof Forminstancerecipient
      */
     'id'?: string;
     /**
      * Type is a FormInstanceRecipientType value IDENTITY FormInstanceRecipientIdentity
      * @type {string}
-     * @memberof ForminstancerecipientV1
+     * @memberof Forminstancerecipient
      */
-    'type'?: ForminstancerecipientV1TypeV1;
+    'type'?: ForminstancerecipientTypeEnum;
 }
 
-export const ForminstancerecipientV1TypeV1 = {
+export const ForminstancerecipientTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type ForminstancerecipientV1TypeV1 = typeof ForminstancerecipientV1TypeV1[keyof typeof ForminstancerecipientV1TypeV1];
+export type ForminstancerecipientTypeEnum = typeof ForminstancerecipientTypeEnum[keyof typeof ForminstancerecipientTypeEnum];
 
 /**
  * 
  * @export
- * @interface ForminstanceresponseV1
+ * @interface Forminstanceresponse
  */
-export interface ForminstanceresponseV1 {
+export interface Forminstanceresponse {
     /**
      * Unique guid identifying this form instance
      * @type {string}
-     * @memberof ForminstanceresponseV1
+     * @memberof Forminstanceresponse
      */
     'id'?: string;
     /**
      * Expire is the maximum amount of time that a form can be in progress. After this time is reached then the form will be moved to a CANCELED state automatically. The user will no longer be able to complete the submission. When a form instance is expires an audit log will be generated for that record
      * @type {string}
-     * @memberof ForminstanceresponseV1
+     * @memberof Forminstanceresponse
      */
     'expire'?: string;
     /**
      * State the state of the form instance ASSIGNED FormInstanceStateAssigned IN_PROGRESS FormInstanceStateInProgress SUBMITTED FormInstanceStateSubmitted COMPLETED FormInstanceStateCompleted CANCELLED FormInstanceStateCancelled
      * @type {string}
-     * @memberof ForminstanceresponseV1
+     * @memberof Forminstanceresponse
      */
-    'state'?: ForminstanceresponseV1StateV1;
+    'state'?: ForminstanceresponseStateEnum;
     /**
      * StandAloneForm is a boolean flag to indicate if this form should be available for users to complete via the standalone form UI or should this only be available to be completed by as an embedded form
      * @type {boolean}
-     * @memberof ForminstanceresponseV1
+     * @memberof Forminstanceresponse
      */
     'standAloneForm'?: boolean;
     /**
      * StandAloneFormURL is the URL where this form may be completed by the designated recipients using the standalone form UI
      * @type {string}
-     * @memberof ForminstanceresponseV1
+     * @memberof Forminstanceresponse
      */
     'standAloneFormUrl'?: string;
     /**
      * 
-     * @type {ForminstancecreatedbyV1}
-     * @memberof ForminstanceresponseV1
+     * @type {Forminstancecreatedby}
+     * @memberof Forminstanceresponse
      */
-    'createdBy'?: ForminstancecreatedbyV1;
+    'createdBy'?: Forminstancecreatedby;
     /**
      * FormDefinitionID is the id of the form definition that created this form
      * @type {string}
-     * @memberof ForminstanceresponseV1
+     * @memberof Forminstanceresponse
      */
     'formDefinitionId'?: string;
     /**
      * FormInput is an object of form input labels to value
      * @type {{ [key: string]: any; }}
-     * @memberof ForminstanceresponseV1
+     * @memberof Forminstanceresponse
      */
     'formInput'?: { [key: string]: any; } | null;
     /**
      * FormElements is the configuration of the form, this would be a repeat of the fields from the form-config
-     * @type {Array<FormelementV1>}
-     * @memberof ForminstanceresponseV1
+     * @type {Array<Formelement>}
+     * @memberof Forminstanceresponse
      */
-    'formElements'?: Array<FormelementV1>;
+    'formElements'?: Array<Formelement>;
     /**
      * FormData is the data provided by the form on submit. The data is in a key -> value map
      * @type {{ [key: string]: any; }}
-     * @memberof ForminstanceresponseV1
+     * @memberof Forminstanceresponse
      */
     'formData'?: { [key: string]: any; } | null;
     /**
      * FormErrors is an array of form validation errors from the last time the form instance was transitioned to the SUBMITTED state. If the form instance had validation errors then it would be moved to the IN PROGRESS state where the client can retrieve these errors
-     * @type {Array<FormerrorV1>}
-     * @memberof ForminstanceresponseV1
+     * @type {Array<Formerror>}
+     * @memberof Forminstanceresponse
      */
-    'formErrors'?: Array<FormerrorV1>;
+    'formErrors'?: Array<Formerror>;
     /**
      * FormConditions is the conditional logic that modify the form dynamically modify the form as the recipient is interacting out the form
-     * @type {Array<FormconditionV1>}
-     * @memberof ForminstanceresponseV1
+     * @type {Array<Formcondition>}
+     * @memberof Forminstanceresponse
      */
-    'formConditions'?: Array<FormconditionV1>;
+    'formConditions'?: Array<Formcondition>;
     /**
      * Created is the date the form instance was assigned
      * @type {string}
-     * @memberof ForminstanceresponseV1
+     * @memberof Forminstanceresponse
      */
     'created'?: string;
     /**
      * Modified is the last date the form instance was modified
      * @type {string}
-     * @memberof ForminstanceresponseV1
+     * @memberof Forminstanceresponse
      */
     'modified'?: string;
     /**
      * Recipients references to the recipient of a form. The recipients are those who are responsible for filling out a form and completing it
-     * @type {Array<ForminstancerecipientV1>}
-     * @memberof ForminstanceresponseV1
+     * @type {Array<Forminstancerecipient>}
+     * @memberof Forminstanceresponse
      */
-    'recipients'?: Array<ForminstancerecipientV1>;
+    'recipients'?: Array<Forminstancerecipient>;
 }
 
-export const ForminstanceresponseV1StateV1 = {
+export const ForminstanceresponseStateEnum = {
     Assigned: 'ASSIGNED',
     InProgress: 'IN_PROGRESS',
     Submitted: 'SUBMITTED',
@@ -1012,286 +987,286 @@ export const ForminstanceresponseV1StateV1 = {
     Cancelled: 'CANCELLED'
 } as const;
 
-export type ForminstanceresponseV1StateV1 = typeof ForminstanceresponseV1StateV1[keyof typeof ForminstanceresponseV1StateV1];
+export type ForminstanceresponseStateEnum = typeof ForminstanceresponseStateEnum[keyof typeof ForminstanceresponseStateEnum];
 
 /**
  * 
  * @export
- * @interface FormownerV1
+ * @interface Formowner
  */
-export interface FormownerV1 {
+export interface Formowner {
     /**
      * FormOwnerType value. IDENTITY FormOwnerTypeIdentity
      * @type {string}
-     * @memberof FormownerV1
+     * @memberof Formowner
      */
-    'type'?: FormownerV1TypeV1;
+    'type'?: FormownerTypeEnum;
     /**
      * Unique identifier of the form\'s owner.
      * @type {string}
-     * @memberof FormownerV1
+     * @memberof Formowner
      */
     'id'?: string;
     /**
      * Name of the form\'s owner.
      * @type {string}
-     * @memberof FormownerV1
+     * @memberof Formowner
      */
     'name'?: string;
 }
 
-export const FormownerV1TypeV1 = {
+export const FormownerTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type FormownerV1TypeV1 = typeof FormownerV1TypeV1[keyof typeof FormownerV1TypeV1];
+export type FormownerTypeEnum = typeof FormownerTypeEnum[keyof typeof FormownerTypeEnum];
 
 /**
  * 
  * @export
- * @interface FormusedbyV1
+ * @interface Formusedby
  */
-export interface FormusedbyV1 {
+export interface Formusedby {
     /**
      * FormUsedByType value.  WORKFLOW FormUsedByTypeWorkflow SOURCE FormUsedByTypeSource MySailPoint FormUsedByType
      * @type {string}
-     * @memberof FormusedbyV1
+     * @memberof Formusedby
      */
-    'type'?: FormusedbyV1TypeV1;
+    'type'?: FormusedbyTypeEnum;
     /**
      * Unique identifier of the system using the form.
      * @type {string}
-     * @memberof FormusedbyV1
+     * @memberof Formusedby
      */
     'id'?: string;
     /**
      * Name of the system using the form.
      * @type {string}
-     * @memberof FormusedbyV1
+     * @memberof Formusedby
      */
     'name'?: string;
 }
 
-export const FormusedbyV1TypeV1 = {
+export const FormusedbyTypeEnum = {
     Workflow: 'WORKFLOW',
     Source: 'SOURCE',
     MySailPoint: 'MySailPoint'
 } as const;
 
-export type FormusedbyV1TypeV1 = typeof FormusedbyV1TypeV1[keyof typeof FormusedbyV1TypeV1];
+export type FormusedbyTypeEnum = typeof FormusedbyTypeEnum[keyof typeof FormusedbyTypeEnum];
 
 /**
  * 
  * @export
- * @interface ImportFormDefinitionsV1202ResponseErrorsInnerV1
+ * @interface ImportFormDefinitionsV1202Response
  */
-export interface ImportFormDefinitionsV1202ResponseErrorsInnerV1 {
+export interface ImportFormDefinitionsV1202Response {
+    /**
+     * 
+     * @type {Array<ImportFormDefinitionsV1202ResponseErrorsInner>}
+     * @memberof ImportFormDefinitionsV1202Response
+     */
+    'errors'?: Array<ImportFormDefinitionsV1202ResponseErrorsInner>;
+    /**
+     * 
+     * @type {Array<ImportFormDefinitionsV1RequestInner>}
+     * @memberof ImportFormDefinitionsV1202Response
+     */
+    'importedObjects'?: Array<ImportFormDefinitionsV1RequestInner>;
+    /**
+     * 
+     * @type {Array<ImportFormDefinitionsV1202ResponseErrorsInner>}
+     * @memberof ImportFormDefinitionsV1202Response
+     */
+    'infos'?: Array<ImportFormDefinitionsV1202ResponseErrorsInner>;
+    /**
+     * 
+     * @type {Array<ImportFormDefinitionsV1202ResponseErrorsInner>}
+     * @memberof ImportFormDefinitionsV1202Response
+     */
+    'warnings'?: Array<ImportFormDefinitionsV1202ResponseErrorsInner>;
+}
+/**
+ * 
+ * @export
+ * @interface ImportFormDefinitionsV1202ResponseErrorsInner
+ */
+export interface ImportFormDefinitionsV1202ResponseErrorsInner {
     /**
      * 
      * @type {{ [key: string]: object; }}
-     * @memberof ImportFormDefinitionsV1202ResponseErrorsInnerV1
+     * @memberof ImportFormDefinitionsV1202ResponseErrorsInner
      */
     'detail'?: { [key: string]: object; };
     /**
      * 
      * @type {string}
-     * @memberof ImportFormDefinitionsV1202ResponseErrorsInnerV1
+     * @memberof ImportFormDefinitionsV1202ResponseErrorsInner
      */
     'key'?: string;
     /**
      * 
      * @type {string}
-     * @memberof ImportFormDefinitionsV1202ResponseErrorsInnerV1
+     * @memberof ImportFormDefinitionsV1202ResponseErrorsInner
      */
     'text'?: string;
 }
 /**
  * 
  * @export
- * @interface ImportFormDefinitionsV1202ResponseV1
+ * @interface ImportFormDefinitionsV1RequestInner
  */
-export interface ImportFormDefinitionsV1202ResponseV1 {
+export interface ImportFormDefinitionsV1RequestInner {
     /**
      * 
-     * @type {Array<ImportFormDefinitionsV1202ResponseErrorsInnerV1>}
-     * @memberof ImportFormDefinitionsV1202ResponseV1
+     * @type {Formdefinitionresponse}
+     * @memberof ImportFormDefinitionsV1RequestInner
      */
-    'errors'?: Array<ImportFormDefinitionsV1202ResponseErrorsInnerV1>;
-    /**
-     * 
-     * @type {Array<ImportFormDefinitionsV1RequestInnerV1>}
-     * @memberof ImportFormDefinitionsV1202ResponseV1
-     */
-    'importedObjects'?: Array<ImportFormDefinitionsV1RequestInnerV1>;
-    /**
-     * 
-     * @type {Array<ImportFormDefinitionsV1202ResponseErrorsInnerV1>}
-     * @memberof ImportFormDefinitionsV1202ResponseV1
-     */
-    'infos'?: Array<ImportFormDefinitionsV1202ResponseErrorsInnerV1>;
-    /**
-     * 
-     * @type {Array<ImportFormDefinitionsV1202ResponseErrorsInnerV1>}
-     * @memberof ImportFormDefinitionsV1202ResponseV1
-     */
-    'warnings'?: Array<ImportFormDefinitionsV1202ResponseErrorsInnerV1>;
-}
-/**
- * 
- * @export
- * @interface ImportFormDefinitionsV1RequestInnerV1
- */
-export interface ImportFormDefinitionsV1RequestInnerV1 {
-    /**
-     * 
-     * @type {FormdefinitionresponseV1}
-     * @memberof ImportFormDefinitionsV1RequestInnerV1
-     */
-    'object'?: FormdefinitionresponseV1;
+    'object'?: Formdefinitionresponse;
     /**
      * 
      * @type {string}
-     * @memberof ImportFormDefinitionsV1RequestInnerV1
+     * @memberof ImportFormDefinitionsV1RequestInner
      */
     'self'?: string;
     /**
      * 
      * @type {number}
-     * @memberof ImportFormDefinitionsV1RequestInnerV1
+     * @memberof ImportFormDefinitionsV1RequestInner
      */
     'version'?: number;
 }
 /**
  * 
  * @export
- * @interface ListformdefinitionsbytenantresponseV1
+ * @interface Listformdefinitionsbytenantresponse
  */
-export interface ListformdefinitionsbytenantresponseV1 {
+export interface Listformdefinitionsbytenantresponse {
     /**
      * Count number of results.
      * @type {number}
-     * @memberof ListformdefinitionsbytenantresponseV1
+     * @memberof Listformdefinitionsbytenantresponse
      */
     'count'?: number;
     /**
      * List of FormDefinitionResponse items.
-     * @type {Array<FormdefinitionresponseV1>}
-     * @memberof ListformdefinitionsbytenantresponseV1
+     * @type {Array<Formdefinitionresponse>}
+     * @memberof Listformdefinitionsbytenantresponse
      */
-    'results'?: Array<FormdefinitionresponseV1>;
+    'results'?: Array<Formdefinitionresponse>;
 }
 /**
  * 
  * @export
- * @interface ListformelementdatabyelementidresponseV1
+ * @interface Listformelementdatabyelementidresponse
  */
-export interface ListformelementdatabyelementidresponseV1 {
+export interface Listformelementdatabyelementidresponse {
     /**
      * Results holds a list of FormElementDataSourceConfigOptions items
-     * @type {Array<FormelementdatasourceconfigoptionsV1>}
-     * @memberof ListformelementdatabyelementidresponseV1
+     * @type {Array<Formelementdatasourceconfigoptions>}
+     * @memberof Listformelementdatabyelementidresponse
      */
-    'results'?: Array<FormelementdatasourceconfigoptionsV1>;
+    'results'?: Array<Formelementdatasourceconfigoptions>;
 }
 /**
  * List of FormInstanceResponse items
  * @export
- * @interface ListforminstancesbytenantresponseV1
+ * @interface Listforminstancesbytenantresponse
  */
-export interface ListforminstancesbytenantresponseV1 {
+export interface Listforminstancesbytenantresponse {
     /**
      * Unique guid identifying this form instance
      * @type {string}
-     * @memberof ListforminstancesbytenantresponseV1
+     * @memberof Listforminstancesbytenantresponse
      */
     'id'?: string;
     /**
      * Expire is the maximum amount of time that a form can be in progress. After this time is reached then the form will be moved to a CANCELED state automatically. The user will no longer be able to complete the submission. When a form instance is expires an audit log will be generated for that record
      * @type {string}
-     * @memberof ListforminstancesbytenantresponseV1
+     * @memberof Listforminstancesbytenantresponse
      */
     'expire'?: string;
     /**
      * State the state of the form instance ASSIGNED FormInstanceStateAssigned IN_PROGRESS FormInstanceStateInProgress SUBMITTED FormInstanceStateSubmitted COMPLETED FormInstanceStateCompleted CANCELLED FormInstanceStateCancelled
      * @type {string}
-     * @memberof ListforminstancesbytenantresponseV1
+     * @memberof Listforminstancesbytenantresponse
      */
-    'state'?: ListforminstancesbytenantresponseV1StateV1;
+    'state'?: ListforminstancesbytenantresponseStateEnum;
     /**
      * StandAloneForm is a boolean flag to indicate if this form should be available for users to complete via the standalone form UI or should this only be available to be completed by as an embedded form
      * @type {boolean}
-     * @memberof ListforminstancesbytenantresponseV1
+     * @memberof Listforminstancesbytenantresponse
      */
     'standAloneForm'?: boolean;
     /**
      * StandAloneFormURL is the URL where this form may be completed by the designated recipients using the standalone form UI
      * @type {string}
-     * @memberof ListforminstancesbytenantresponseV1
+     * @memberof Listforminstancesbytenantresponse
      */
     'standAloneFormUrl'?: string;
     /**
      * 
-     * @type {ForminstancecreatedbyV1}
-     * @memberof ListforminstancesbytenantresponseV1
+     * @type {Forminstancecreatedby}
+     * @memberof Listforminstancesbytenantresponse
      */
-    'createdBy'?: ForminstancecreatedbyV1;
+    'createdBy'?: Forminstancecreatedby;
     /**
      * FormDefinitionID is the id of the form definition that created this form
      * @type {string}
-     * @memberof ListforminstancesbytenantresponseV1
+     * @memberof Listforminstancesbytenantresponse
      */
     'formDefinitionId'?: string;
     /**
      * FormInput is an object of form input labels to value
      * @type {{ [key: string]: any; }}
-     * @memberof ListforminstancesbytenantresponseV1
+     * @memberof Listforminstancesbytenantresponse
      */
     'formInput'?: { [key: string]: any; } | null;
     /**
      * FormElements is the configuration of the form, this would be a repeat of the fields from the form-config
-     * @type {Array<FormelementV1>}
-     * @memberof ListforminstancesbytenantresponseV1
+     * @type {Array<Formelement>}
+     * @memberof Listforminstancesbytenantresponse
      */
-    'formElements'?: Array<FormelementV1>;
+    'formElements'?: Array<Formelement>;
     /**
      * FormData is the data provided by the form on submit. The data is in a key -> value map
      * @type {{ [key: string]: any; }}
-     * @memberof ListforminstancesbytenantresponseV1
+     * @memberof Listforminstancesbytenantresponse
      */
     'formData'?: { [key: string]: any; } | null;
     /**
      * FormErrors is an array of form validation errors from the last time the form instance was transitioned to the SUBMITTED state. If the form instance had validation errors then it would be moved to the IN PROGRESS state where the client can retrieve these errors
-     * @type {Array<FormerrorV1>}
-     * @memberof ListforminstancesbytenantresponseV1
+     * @type {Array<Formerror>}
+     * @memberof Listforminstancesbytenantresponse
      */
-    'formErrors'?: Array<FormerrorV1>;
+    'formErrors'?: Array<Formerror>;
     /**
      * FormConditions is the conditional logic that modify the form dynamically modify the form as the recipient is interacting out the form
-     * @type {Array<FormconditionV1>}
-     * @memberof ListforminstancesbytenantresponseV1
+     * @type {Array<Formcondition>}
+     * @memberof Listforminstancesbytenantresponse
      */
-    'formConditions'?: Array<FormconditionV1>;
+    'formConditions'?: Array<Formcondition>;
     /**
      * Created is the date the form instance was assigned
      * @type {string}
-     * @memberof ListforminstancesbytenantresponseV1
+     * @memberof Listforminstancesbytenantresponse
      */
     'created'?: string;
     /**
      * Modified is the last date the form instance was modified
      * @type {string}
-     * @memberof ListforminstancesbytenantresponseV1
+     * @memberof Listforminstancesbytenantresponse
      */
     'modified'?: string;
     /**
      * Recipients references to the recipient of a form. The recipients are those who are responsible for filling out a form and completing it
-     * @type {Array<ForminstancerecipientV1>}
-     * @memberof ListforminstancesbytenantresponseV1
+     * @type {Array<Forminstancerecipient>}
+     * @memberof Listforminstancesbytenantresponse
      */
-    'recipients'?: Array<ForminstancerecipientV1>;
+    'recipients'?: Array<Forminstancerecipient>;
 }
 
-export const ListforminstancesbytenantresponseV1StateV1 = {
+export const ListforminstancesbytenantresponseStateEnum = {
     Assigned: 'ASSIGNED',
     InProgress: 'IN_PROGRESS',
     Submitted: 'SUBMITTED',
@@ -1299,80 +1274,105 @@ export const ListforminstancesbytenantresponseV1StateV1 = {
     Cancelled: 'CANCELLED'
 } as const;
 
-export type ListforminstancesbytenantresponseV1StateV1 = typeof ListforminstancesbytenantresponseV1StateV1[keyof typeof ListforminstancesbytenantresponseV1StateV1];
+export type ListforminstancesbytenantresponseStateEnum = typeof ListforminstancesbytenantresponseStateEnum[keyof typeof ListforminstancesbytenantresponseStateEnum];
 
 /**
  * 
  * @export
- * @interface ListpredefinedselectoptionsresponseV1
+ * @interface Listpredefinedselectoptionsresponse
  */
-export interface ListpredefinedselectoptionsresponseV1 {
+export interface Listpredefinedselectoptionsresponse {
     /**
      * Results holds a list of PreDefinedSelectOption items
      * @type {Array<string>}
-     * @memberof ListpredefinedselectoptionsresponseV1
+     * @memberof Listpredefinedselectoptionsresponse
      */
     'results'?: Array<string>;
 }
 /**
- * PreviewDataSourceResponse is the response sent by `/form-definitions/{formDefinitionID}/data-source` endpoint
- * @export
- * @interface PreviewdatasourceresponseV1
- */
-export interface PreviewdatasourceresponseV1 {
-    /**
-     * Results holds a list of FormElementDataSourceConfigOptions items
-     * @type {Array<FormelementdatasourceconfigoptionsV1>}
-     * @memberof PreviewdatasourceresponseV1
-     */
-    'results'?: Array<FormelementdatasourceconfigoptionsV1>;
-}
-/**
  * 
  * @export
- * @interface SearchFormDefinitionsByTenantV1400ResponseV1
+ * @interface ModelError
  */
-export interface SearchFormDefinitionsByTenantV1400ResponseV1 {
+export interface ModelError {
     /**
-     * 
+     * DetailCode is the text of the status code returned
      * @type {string}
-     * @memberof SearchFormDefinitionsByTenantV1400ResponseV1
+     * @memberof ModelError
      */
     'detailCode'?: string;
     /**
      * 
-     * @type {Array<ErrormessageV1>}
-     * @memberof SearchFormDefinitionsByTenantV1400ResponseV1
+     * @type {Array<Errormessage>}
+     * @memberof ModelError
      */
-    'messages'?: Array<ErrormessageV1>;
+    'messages'?: Array<Errormessage>;
+    /**
+     * TrackingID is the request tracking unique identifier
+     * @type {string}
+     * @memberof ModelError
+     */
+    'trackingId'?: string;
+}
+/**
+ * PreviewDataSourceResponse is the response sent by `/form-definitions/{formDefinitionID}/data-source` endpoint
+ * @export
+ * @interface Previewdatasourceresponse
+ */
+export interface Previewdatasourceresponse {
+    /**
+     * Results holds a list of FormElementDataSourceConfigOptions items
+     * @type {Array<Formelementdatasourceconfigoptions>}
+     * @memberof Previewdatasourceresponse
+     */
+    'results'?: Array<Formelementdatasourceconfigoptions>;
+}
+/**
+ * 
+ * @export
+ * @interface SearchFormDefinitionsByTenantV1400Response
+ */
+export interface SearchFormDefinitionsByTenantV1400Response {
+    /**
+     * 
+     * @type {string}
+     * @memberof SearchFormDefinitionsByTenantV1400Response
+     */
+    'detailCode'?: string;
+    /**
+     * 
+     * @type {Array<Errormessage>}
+     * @memberof SearchFormDefinitionsByTenantV1400Response
+     */
+    'messages'?: Array<Errormessage>;
     /**
      * 
      * @type {number}
-     * @memberof SearchFormDefinitionsByTenantV1400ResponseV1
+     * @memberof SearchFormDefinitionsByTenantV1400Response
      */
     'statusCode'?: number;
     /**
      * 
      * @type {string}
-     * @memberof SearchFormDefinitionsByTenantV1400ResponseV1
+     * @memberof SearchFormDefinitionsByTenantV1400Response
      */
     'trackingId'?: string;
 }
 
 /**
- * CustomFormsV1Api - axios parameter creator
+ * CustomFormsApi - axios parameter creator
  * @export
  */
-export const CustomFormsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const CustomFormsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * 
          * @summary Generate json schema dynamically.
-         * @param {FormdefinitiondynamicschemarequestV1} [body] Body is the request payload to create a form definition dynamic schema
+         * @param {Formdefinitiondynamicschemarequest} [body] Body is the request payload to create a form definition dynamic schema
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createFormDefinitionDynamicSchemaV1: async (body?: FormdefinitiondynamicschemarequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createFormDefinitionDynamicSchemaV1: async (body?: Formdefinitiondynamicschemarequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/form-definitions/v1/forms-action-dynamic-schema`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1447,11 +1447,11 @@ export const CustomFormsV1ApiAxiosParamCreator = function (configuration?: Confi
         /**
          * 
          * @summary Creates a form definition.
-         * @param {CreateformdefinitionrequestV1} [body] Body is the request payload to create form definition request
+         * @param {Createformdefinitionrequest} [body] Body is the request payload to create form definition request
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createFormDefinitionV1: async (body?: CreateformdefinitionrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createFormDefinitionV1: async (body?: Createformdefinitionrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/form-definitions/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1481,11 +1481,11 @@ export const CustomFormsV1ApiAxiosParamCreator = function (configuration?: Confi
         /**
          * 
          * @summary Creates a form instance.
-         * @param {CreateforminstancerequestV1} [body] Body is the request payload to create a form instance
+         * @param {Createforminstancerequest} [body] Body is the request payload to create a form instance
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createFormInstanceV1: async (body?: CreateforminstancerequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createFormInstanceV1: async (body?: Createforminstancerequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/form-instances/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1743,11 +1743,11 @@ export const CustomFormsV1ApiAxiosParamCreator = function (configuration?: Confi
         /**
          * 
          * @summary Import form definitions from export.
-         * @param {Array<ImportFormDefinitionsV1RequestInnerV1>} [body] Body is the request payload to import form definitions
+         * @param {Array<ImportFormDefinitionsV1RequestInner>} [body] Body is the request payload to import form definitions
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        importFormDefinitionsV1: async (body?: Array<ImportFormDefinitionsV1RequestInnerV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        importFormDefinitionsV1: async (body?: Array<ImportFormDefinitionsV1RequestInner>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/form-definitions/v1/import`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2035,11 +2035,11 @@ export const CustomFormsV1ApiAxiosParamCreator = function (configuration?: Confi
          * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the &#x60;in&#x60; operator. The &#x60;not&#x60; composite operator must be used in front of the field. For example, the following is valid: &#x60;not value in (\&quot;ID01\&quot;)&#x60;
          * @param {string} [query] String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a \&quot;starts with\&quot; filter against  several fields.
-         * @param {FormelementpreviewrequestV1} [formelementpreviewrequestV1] Body is the request payload to create a form definition dynamic schema
+         * @param {Formelementpreviewrequest} [formelementpreviewrequest] Body is the request payload to create a form definition dynamic schema
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        showPreviewDataSourceV1: async (formDefinitionID: string, limit?: number, filters?: string, query?: string, formelementpreviewrequestV1?: FormelementpreviewrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        showPreviewDataSourceV1: async (formDefinitionID: string, limit?: number, filters?: string, query?: string, formelementpreviewrequest?: Formelementpreviewrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'formDefinitionID' is not null or undefined
             assertParamExists('showPreviewDataSourceV1', 'formDefinitionID', formDefinitionID)
             const localVarPath = `/form-definitions/v1/{formDefinitionID}/data-source`
@@ -2074,7 +2074,7 @@ export const CustomFormsV1ApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(formelementpreviewrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(formelementpreviewrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2085,23 +2085,23 @@ export const CustomFormsV1ApiAxiosParamCreator = function (configuration?: Confi
 };
 
 /**
- * CustomFormsV1Api - functional programming interface
+ * CustomFormsApi - functional programming interface
  * @export
  */
-export const CustomFormsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = CustomFormsV1ApiAxiosParamCreator(configuration)
+export const CustomFormsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = CustomFormsApiAxiosParamCreator(configuration)
     return {
         /**
          * 
          * @summary Generate json schema dynamically.
-         * @param {FormdefinitiondynamicschemarequestV1} [body] Body is the request payload to create a form definition dynamic schema
+         * @param {Formdefinitiondynamicschemarequest} [body] Body is the request payload to create a form definition dynamic schema
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createFormDefinitionDynamicSchemaV1(body?: FormdefinitiondynamicschemarequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormdefinitiondynamicschemaresponseV1>> {
+        async createFormDefinitionDynamicSchemaV1(body?: Formdefinitiondynamicschemarequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Formdefinitiondynamicschemaresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createFormDefinitionDynamicSchemaV1(body, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomFormsV1Api.createFormDefinitionDynamicSchemaV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.createFormDefinitionDynamicSchemaV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2112,36 +2112,36 @@ export const CustomFormsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createFormDefinitionFileRequestV1(formDefinitionID: string, file: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormdefinitionfileuploadresponseV1>> {
+        async createFormDefinitionFileRequestV1(formDefinitionID: string, file: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Formdefinitionfileuploadresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createFormDefinitionFileRequestV1(formDefinitionID, file, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomFormsV1Api.createFormDefinitionFileRequestV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.createFormDefinitionFileRequestV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * 
          * @summary Creates a form definition.
-         * @param {CreateformdefinitionrequestV1} [body] Body is the request payload to create form definition request
+         * @param {Createformdefinitionrequest} [body] Body is the request payload to create form definition request
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createFormDefinitionV1(body?: CreateformdefinitionrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormdefinitionresponseV1>> {
+        async createFormDefinitionV1(body?: Createformdefinitionrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Formdefinitionresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createFormDefinitionV1(body, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomFormsV1Api.createFormDefinitionV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.createFormDefinitionV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * 
          * @summary Creates a form instance.
-         * @param {CreateforminstancerequestV1} [body] Body is the request payload to create a form instance
+         * @param {Createforminstancerequest} [body] Body is the request payload to create a form instance
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createFormInstanceV1(body?: CreateforminstancerequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ForminstanceresponseV1>> {
+        async createFormInstanceV1(body?: Createforminstancerequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Forminstanceresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createFormInstanceV1(body, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomFormsV1Api.createFormInstanceV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.createFormInstanceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2154,7 +2154,7 @@ export const CustomFormsV1ApiFp = function(configuration?: Configuration) {
         async deleteFormDefinitionV1(formDefinitionID: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteFormDefinitionV1(formDefinitionID, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomFormsV1Api.deleteFormDefinitionV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.deleteFormDefinitionV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2167,10 +2167,10 @@ export const CustomFormsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async exportFormDefinitionsByTenantV1(offset?: number, limit?: number, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ExportFormDefinitionsByTenantV1200ResponseInnerV1>>> {
+        async exportFormDefinitionsByTenantV1(offset?: number, limit?: number, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ExportFormDefinitionsByTenantV1200ResponseInner>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.exportFormDefinitionsByTenantV1(offset, limit, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomFormsV1Api.exportFormDefinitionsByTenantV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.exportFormDefinitionsByTenantV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2184,7 +2184,7 @@ export const CustomFormsV1ApiFp = function(configuration?: Configuration) {
         async getFileFromS3V1(formDefinitionID: string, fileID: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFileFromS3V1(formDefinitionID, fileID, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomFormsV1Api.getFileFromS3V1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.getFileFromS3V1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2194,10 +2194,10 @@ export const CustomFormsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getFormDefinitionByKeyV1(formDefinitionID: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormdefinitionresponseV1>> {
+        async getFormDefinitionByKeyV1(formDefinitionID: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Formdefinitionresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFormDefinitionByKeyV1(formDefinitionID, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomFormsV1Api.getFormDefinitionByKeyV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.getFormDefinitionByKeyV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2207,10 +2207,10 @@ export const CustomFormsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getFormInstanceByKeyV1(formInstanceID: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ForminstanceresponseV1>> {
+        async getFormInstanceByKeyV1(formInstanceID: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Forminstanceresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFormInstanceByKeyV1(formInstanceID, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomFormsV1Api.getFormInstanceByKeyV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.getFormInstanceByKeyV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2224,20 +2224,20 @@ export const CustomFormsV1ApiFp = function(configuration?: Configuration) {
         async getFormInstanceFileV1(formInstanceID: string, fileID: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFormInstanceFileV1(formInstanceID, fileID, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomFormsV1Api.getFormInstanceFileV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.getFormInstanceFileV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * 
          * @summary Import form definitions from export.
-         * @param {Array<ImportFormDefinitionsV1RequestInnerV1>} [body] Body is the request payload to import form definitions
+         * @param {Array<ImportFormDefinitionsV1RequestInner>} [body] Body is the request payload to import form definitions
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importFormDefinitionsV1(body?: Array<ImportFormDefinitionsV1RequestInnerV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ImportFormDefinitionsV1202ResponseV1>> {
+        async importFormDefinitionsV1(body?: Array<ImportFormDefinitionsV1RequestInner>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ImportFormDefinitionsV1202Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.importFormDefinitionsV1(body, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomFormsV1Api.importFormDefinitionsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.importFormDefinitionsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2248,10 +2248,10 @@ export const CustomFormsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchFormDefinitionV1(formDefinitionID: string, body?: Array<{ [key: string]: object; }>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormdefinitionresponseV1>> {
+        async patchFormDefinitionV1(formDefinitionID: string, body?: Array<{ [key: string]: object; }>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Formdefinitionresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchFormDefinitionV1(formDefinitionID, body, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomFormsV1Api.patchFormDefinitionV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.patchFormDefinitionV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2262,10 +2262,10 @@ export const CustomFormsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchFormInstanceV1(formInstanceID: string, body?: Array<{ [key: string]: object; }>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ForminstanceresponseV1>> {
+        async patchFormInstanceV1(formInstanceID: string, body?: Array<{ [key: string]: object; }>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Forminstanceresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchFormInstanceV1(formInstanceID, body, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomFormsV1Api.patchFormInstanceV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.patchFormInstanceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2278,10 +2278,10 @@ export const CustomFormsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchFormDefinitionsByTenantV1(offset?: number, limit?: number, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListformdefinitionsbytenantresponseV1>> {
+        async searchFormDefinitionsByTenantV1(offset?: number, limit?: number, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Listformdefinitionsbytenantresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchFormDefinitionsByTenantV1(offset, limit, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomFormsV1Api.searchFormDefinitionsByTenantV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.searchFormDefinitionsByTenantV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2295,10 +2295,10 @@ export const CustomFormsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchFormElementDataByElementIDV1(formInstanceID: string, formElementID: string, limit?: number, filters?: string, query?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListformelementdatabyelementidresponseV1>> {
+        async searchFormElementDataByElementIDV1(formInstanceID: string, formElementID: string, limit?: number, filters?: string, query?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Listformelementdatabyelementidresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchFormElementDataByElementIDV1(formInstanceID, formElementID, limit, filters, query, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomFormsV1Api.searchFormElementDataByElementIDV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.searchFormElementDataByElementIDV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2310,10 +2310,10 @@ export const CustomFormsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchFormInstancesByTenantV1(offset?: number, limit?: number, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListforminstancesbytenantresponseV1>>> {
+        async searchFormInstancesByTenantV1(offset?: number, limit?: number, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Listforminstancesbytenantresponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchFormInstancesByTenantV1(offset, limit, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomFormsV1Api.searchFormInstancesByTenantV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.searchFormInstancesByTenantV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2322,10 +2322,10 @@ export const CustomFormsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchPreDefinedSelectOptionsV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListpredefinedselectoptionsresponseV1>> {
+        async searchPreDefinedSelectOptionsV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Listpredefinedselectoptionsresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchPreDefinedSelectOptionsV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomFormsV1Api.searchPreDefinedSelectOptionsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.searchPreDefinedSelectOptionsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2335,184 +2335,184 @@ export const CustomFormsV1ApiFp = function(configuration?: Configuration) {
          * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the &#x60;in&#x60; operator. The &#x60;not&#x60; composite operator must be used in front of the field. For example, the following is valid: &#x60;not value in (\&quot;ID01\&quot;)&#x60;
          * @param {string} [query] String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a \&quot;starts with\&quot; filter against  several fields.
-         * @param {FormelementpreviewrequestV1} [formelementpreviewrequestV1] Body is the request payload to create a form definition dynamic schema
+         * @param {Formelementpreviewrequest} [formelementpreviewrequest] Body is the request payload to create a form definition dynamic schema
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async showPreviewDataSourceV1(formDefinitionID: string, limit?: number, filters?: string, query?: string, formelementpreviewrequestV1?: FormelementpreviewrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PreviewdatasourceresponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.showPreviewDataSourceV1(formDefinitionID, limit, filters, query, formelementpreviewrequestV1, axiosOptions);
+        async showPreviewDataSourceV1(formDefinitionID: string, limit?: number, filters?: string, query?: string, formelementpreviewrequest?: Formelementpreviewrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Previewdatasourceresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.showPreviewDataSourceV1(formDefinitionID, limit, filters, query, formelementpreviewrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['CustomFormsV1Api.showPreviewDataSourceV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.showPreviewDataSourceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * CustomFormsV1Api - factory interface
+ * CustomFormsApi - factory interface
  * @export
  */
-export const CustomFormsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = CustomFormsV1ApiFp(configuration)
+export const CustomFormsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = CustomFormsApiFp(configuration)
     return {
         /**
          * 
          * @summary Generate json schema dynamically.
-         * @param {CustomFormsV1ApiCreateFormDefinitionDynamicSchemaV1Request} requestParameters Request parameters.
+         * @param {CustomFormsApiCreateFormDefinitionDynamicSchemaV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createFormDefinitionDynamicSchemaV1(requestParameters: CustomFormsV1ApiCreateFormDefinitionDynamicSchemaV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<FormdefinitiondynamicschemaresponseV1> {
+        createFormDefinitionDynamicSchemaV1(requestParameters: CustomFormsApiCreateFormDefinitionDynamicSchemaV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Formdefinitiondynamicschemaresponse> {
             return localVarFp.createFormDefinitionDynamicSchemaV1(requestParameters.body, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Parameter `{formDefinitionID}` should match a form definition ID.
          * @summary Upload new form definition file.
-         * @param {CustomFormsV1ApiCreateFormDefinitionFileRequestV1Request} requestParameters Request parameters.
+         * @param {CustomFormsApiCreateFormDefinitionFileRequestV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createFormDefinitionFileRequestV1(requestParameters: CustomFormsV1ApiCreateFormDefinitionFileRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<FormdefinitionfileuploadresponseV1> {
+        createFormDefinitionFileRequestV1(requestParameters: CustomFormsApiCreateFormDefinitionFileRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Formdefinitionfileuploadresponse> {
             return localVarFp.createFormDefinitionFileRequestV1(requestParameters.formDefinitionID, requestParameters.file, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Creates a form definition.
-         * @param {CustomFormsV1ApiCreateFormDefinitionV1Request} requestParameters Request parameters.
+         * @param {CustomFormsApiCreateFormDefinitionV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createFormDefinitionV1(requestParameters: CustomFormsV1ApiCreateFormDefinitionV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<FormdefinitionresponseV1> {
+        createFormDefinitionV1(requestParameters: CustomFormsApiCreateFormDefinitionV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Formdefinitionresponse> {
             return localVarFp.createFormDefinitionV1(requestParameters.body, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Creates a form instance.
-         * @param {CustomFormsV1ApiCreateFormInstanceV1Request} requestParameters Request parameters.
+         * @param {CustomFormsApiCreateFormInstanceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createFormInstanceV1(requestParameters: CustomFormsV1ApiCreateFormInstanceV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ForminstanceresponseV1> {
+        createFormInstanceV1(requestParameters: CustomFormsApiCreateFormInstanceV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Forminstanceresponse> {
             return localVarFp.createFormInstanceV1(requestParameters.body, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Parameter `{formDefinitionID}` should match a form definition ID.
          * @summary Deletes a form definition.
-         * @param {CustomFormsV1ApiDeleteFormDefinitionV1Request} requestParameters Request parameters.
+         * @param {CustomFormsApiDeleteFormDefinitionV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteFormDefinitionV1(requestParameters: CustomFormsV1ApiDeleteFormDefinitionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
+        deleteFormDefinitionV1(requestParameters: CustomFormsApiDeleteFormDefinitionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
             return localVarFp.deleteFormDefinitionV1(requestParameters.formDefinitionID, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * No parameters required.
          * @summary List form definitions by tenant.
-         * @param {CustomFormsV1ApiExportFormDefinitionsByTenantV1Request} requestParameters Request parameters.
+         * @param {CustomFormsApiExportFormDefinitionsByTenantV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        exportFormDefinitionsByTenantV1(requestParameters: CustomFormsV1ApiExportFormDefinitionsByTenantV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ExportFormDefinitionsByTenantV1200ResponseInnerV1>> {
+        exportFormDefinitionsByTenantV1(requestParameters: CustomFormsApiExportFormDefinitionsByTenantV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ExportFormDefinitionsByTenantV1200ResponseInner>> {
             return localVarFp.exportFormDefinitionsByTenantV1(requestParameters.offset, requestParameters.limit, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Download definition file by fileid.
-         * @param {CustomFormsV1ApiGetFileFromS3V1Request} requestParameters Request parameters.
+         * @param {CustomFormsApiGetFileFromS3V1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getFileFromS3V1(requestParameters: CustomFormsV1ApiGetFileFromS3V1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<File> {
+        getFileFromS3V1(requestParameters: CustomFormsApiGetFileFromS3V1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<File> {
             return localVarFp.getFileFromS3V1(requestParameters.formDefinitionID, requestParameters.fileID, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Parameter `{formDefinitionID}` should match a form definition ID.
          * @summary Return a form definition.
-         * @param {CustomFormsV1ApiGetFormDefinitionByKeyV1Request} requestParameters Request parameters.
+         * @param {CustomFormsApiGetFormDefinitionByKeyV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getFormDefinitionByKeyV1(requestParameters: CustomFormsV1ApiGetFormDefinitionByKeyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<FormdefinitionresponseV1> {
+        getFormDefinitionByKeyV1(requestParameters: CustomFormsApiGetFormDefinitionByKeyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Formdefinitionresponse> {
             return localVarFp.getFormDefinitionByKeyV1(requestParameters.formDefinitionID, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Parameter `{formInstanceID}` should match a form instance ID.  Only the assigned recipient (`recipients[].id` when `type` is `IDENTITY`) may call this.
          * @summary Returns a form instance.
-         * @param {CustomFormsV1ApiGetFormInstanceByKeyV1Request} requestParameters Request parameters.
+         * @param {CustomFormsApiGetFormInstanceByKeyV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getFormInstanceByKeyV1(requestParameters: CustomFormsV1ApiGetFormInstanceByKeyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ForminstanceresponseV1> {
+        getFormInstanceByKeyV1(requestParameters: CustomFormsApiGetFormInstanceByKeyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Forminstanceresponse> {
             return localVarFp.getFormInstanceByKeyV1(requestParameters.formInstanceID, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Download instance file by fileid.
-         * @param {CustomFormsV1ApiGetFormInstanceFileV1Request} requestParameters Request parameters.
+         * @param {CustomFormsApiGetFormInstanceFileV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getFormInstanceFileV1(requestParameters: CustomFormsV1ApiGetFormInstanceFileV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<File> {
+        getFormInstanceFileV1(requestParameters: CustomFormsApiGetFormInstanceFileV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<File> {
             return localVarFp.getFormInstanceFileV1(requestParameters.formInstanceID, requestParameters.fileID, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Import form definitions from export.
-         * @param {CustomFormsV1ApiImportFormDefinitionsV1Request} requestParameters Request parameters.
+         * @param {CustomFormsApiImportFormDefinitionsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        importFormDefinitionsV1(requestParameters: CustomFormsV1ApiImportFormDefinitionsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ImportFormDefinitionsV1202ResponseV1> {
+        importFormDefinitionsV1(requestParameters: CustomFormsApiImportFormDefinitionsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ImportFormDefinitionsV1202Response> {
             return localVarFp.importFormDefinitionsV1(requestParameters.body, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Parameter `{formDefinitionID}` should match a form definition ID.
          * @summary Patch a form definition.
-         * @param {CustomFormsV1ApiPatchFormDefinitionV1Request} requestParameters Request parameters.
+         * @param {CustomFormsApiPatchFormDefinitionV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchFormDefinitionV1(requestParameters: CustomFormsV1ApiPatchFormDefinitionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<FormdefinitionresponseV1> {
+        patchFormDefinitionV1(requestParameters: CustomFormsApiPatchFormDefinitionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Formdefinitionresponse> {
             return localVarFp.patchFormDefinitionV1(requestParameters.formDefinitionID, requestParameters.body, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Parameter `{formInstanceID}` should match a form instance ID.  Only the assigned recipient (`recipients[].id` when `type` is `IDENTITY`) may call this.
          * @summary Patch a form instance.
-         * @param {CustomFormsV1ApiPatchFormInstanceV1Request} requestParameters Request parameters.
+         * @param {CustomFormsApiPatchFormInstanceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchFormInstanceV1(requestParameters: CustomFormsV1ApiPatchFormInstanceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ForminstanceresponseV1> {
+        patchFormInstanceV1(requestParameters: CustomFormsApiPatchFormInstanceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Forminstanceresponse> {
             return localVarFp.patchFormInstanceV1(requestParameters.formInstanceID, requestParameters.body, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * No parameters required.
          * @summary Export form definitions by tenant.
-         * @param {CustomFormsV1ApiSearchFormDefinitionsByTenantV1Request} requestParameters Request parameters.
+         * @param {CustomFormsApiSearchFormDefinitionsByTenantV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchFormDefinitionsByTenantV1(requestParameters: CustomFormsV1ApiSearchFormDefinitionsByTenantV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ListformdefinitionsbytenantresponseV1> {
+        searchFormDefinitionsByTenantV1(requestParameters: CustomFormsApiSearchFormDefinitionsByTenantV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Listformdefinitionsbytenantresponse> {
             return localVarFp.searchFormDefinitionsByTenantV1(requestParameters.offset, requestParameters.limit, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Parameter `{formInstanceID}` should match a form instance ID. Parameter `{formElementID}` should match a form element ID at the data source configuration.
          * @summary Retrieves dynamic data by element.
-         * @param {CustomFormsV1ApiSearchFormElementDataByElementIDV1Request} requestParameters Request parameters.
+         * @param {CustomFormsApiSearchFormElementDataByElementIDV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchFormElementDataByElementIDV1(requestParameters: CustomFormsV1ApiSearchFormElementDataByElementIDV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ListformelementdatabyelementidresponseV1> {
+        searchFormElementDataByElementIDV1(requestParameters: CustomFormsApiSearchFormElementDataByElementIDV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Listformelementdatabyelementidresponse> {
             return localVarFp.searchFormElementDataByElementIDV1(requestParameters.formInstanceID, requestParameters.formElementID, requestParameters.limit, requestParameters.filters, requestParameters.query, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Returns a list of form instances for the tenant. Optionally filter by form definition ID.
          * @summary List form instances by tenant.
-         * @param {CustomFormsV1ApiSearchFormInstancesByTenantV1Request} requestParameters Request parameters.
+         * @param {CustomFormsApiSearchFormInstancesByTenantV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchFormInstancesByTenantV1(requestParameters: CustomFormsV1ApiSearchFormInstancesByTenantV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ListforminstancesbytenantresponseV1>> {
+        searchFormInstancesByTenantV1(requestParameters: CustomFormsApiSearchFormInstancesByTenantV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Listforminstancesbytenantresponse>> {
             return localVarFp.searchFormInstancesByTenantV1(requestParameters.offset, requestParameters.limit, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2521,604 +2521,604 @@ export const CustomFormsV1ApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchPreDefinedSelectOptionsV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ListpredefinedselectoptionsresponseV1> {
+        searchPreDefinedSelectOptionsV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Listpredefinedselectoptionsresponse> {
             return localVarFp.searchPreDefinedSelectOptionsV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Preview form definition data source.
-         * @param {CustomFormsV1ApiShowPreviewDataSourceV1Request} requestParameters Request parameters.
+         * @param {CustomFormsApiShowPreviewDataSourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        showPreviewDataSourceV1(requestParameters: CustomFormsV1ApiShowPreviewDataSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PreviewdatasourceresponseV1> {
-            return localVarFp.showPreviewDataSourceV1(requestParameters.formDefinitionID, requestParameters.limit, requestParameters.filters, requestParameters.query, requestParameters.formelementpreviewrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        showPreviewDataSourceV1(requestParameters: CustomFormsApiShowPreviewDataSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Previewdatasourceresponse> {
+            return localVarFp.showPreviewDataSourceV1(requestParameters.formDefinitionID, requestParameters.limit, requestParameters.filters, requestParameters.query, requestParameters.formelementpreviewrequest, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createFormDefinitionDynamicSchemaV1 operation in CustomFormsV1Api.
+ * Request parameters for createFormDefinitionDynamicSchemaV1 operation in CustomFormsApi.
  * @export
- * @interface CustomFormsV1ApiCreateFormDefinitionDynamicSchemaV1Request
+ * @interface CustomFormsApiCreateFormDefinitionDynamicSchemaV1Request
  */
-export interface CustomFormsV1ApiCreateFormDefinitionDynamicSchemaV1Request {
+export interface CustomFormsApiCreateFormDefinitionDynamicSchemaV1Request {
     /**
      * Body is the request payload to create a form definition dynamic schema
-     * @type {FormdefinitiondynamicschemarequestV1}
-     * @memberof CustomFormsV1ApiCreateFormDefinitionDynamicSchemaV1
+     * @type {Formdefinitiondynamicschemarequest}
+     * @memberof CustomFormsApiCreateFormDefinitionDynamicSchemaV1
      */
-    readonly body?: FormdefinitiondynamicschemarequestV1
+    readonly body?: Formdefinitiondynamicschemarequest
 }
 
 /**
- * Request parameters for createFormDefinitionFileRequestV1 operation in CustomFormsV1Api.
+ * Request parameters for createFormDefinitionFileRequestV1 operation in CustomFormsApi.
  * @export
- * @interface CustomFormsV1ApiCreateFormDefinitionFileRequestV1Request
+ * @interface CustomFormsApiCreateFormDefinitionFileRequestV1Request
  */
-export interface CustomFormsV1ApiCreateFormDefinitionFileRequestV1Request {
+export interface CustomFormsApiCreateFormDefinitionFileRequestV1Request {
     /**
      * FormDefinitionID  String specifying FormDefinitionID
      * @type {string}
-     * @memberof CustomFormsV1ApiCreateFormDefinitionFileRequestV1
+     * @memberof CustomFormsApiCreateFormDefinitionFileRequestV1
      */
     readonly formDefinitionID: string
 
     /**
      * File specifying the multipart
      * @type {File}
-     * @memberof CustomFormsV1ApiCreateFormDefinitionFileRequestV1
+     * @memberof CustomFormsApiCreateFormDefinitionFileRequestV1
      */
     readonly file: File
 }
 
 /**
- * Request parameters for createFormDefinitionV1 operation in CustomFormsV1Api.
+ * Request parameters for createFormDefinitionV1 operation in CustomFormsApi.
  * @export
- * @interface CustomFormsV1ApiCreateFormDefinitionV1Request
+ * @interface CustomFormsApiCreateFormDefinitionV1Request
  */
-export interface CustomFormsV1ApiCreateFormDefinitionV1Request {
+export interface CustomFormsApiCreateFormDefinitionV1Request {
     /**
      * Body is the request payload to create form definition request
-     * @type {CreateformdefinitionrequestV1}
-     * @memberof CustomFormsV1ApiCreateFormDefinitionV1
+     * @type {Createformdefinitionrequest}
+     * @memberof CustomFormsApiCreateFormDefinitionV1
      */
-    readonly body?: CreateformdefinitionrequestV1
+    readonly body?: Createformdefinitionrequest
 }
 
 /**
- * Request parameters for createFormInstanceV1 operation in CustomFormsV1Api.
+ * Request parameters for createFormInstanceV1 operation in CustomFormsApi.
  * @export
- * @interface CustomFormsV1ApiCreateFormInstanceV1Request
+ * @interface CustomFormsApiCreateFormInstanceV1Request
  */
-export interface CustomFormsV1ApiCreateFormInstanceV1Request {
+export interface CustomFormsApiCreateFormInstanceV1Request {
     /**
      * Body is the request payload to create a form instance
-     * @type {CreateforminstancerequestV1}
-     * @memberof CustomFormsV1ApiCreateFormInstanceV1
+     * @type {Createforminstancerequest}
+     * @memberof CustomFormsApiCreateFormInstanceV1
      */
-    readonly body?: CreateforminstancerequestV1
+    readonly body?: Createforminstancerequest
 }
 
 /**
- * Request parameters for deleteFormDefinitionV1 operation in CustomFormsV1Api.
+ * Request parameters for deleteFormDefinitionV1 operation in CustomFormsApi.
  * @export
- * @interface CustomFormsV1ApiDeleteFormDefinitionV1Request
+ * @interface CustomFormsApiDeleteFormDefinitionV1Request
  */
-export interface CustomFormsV1ApiDeleteFormDefinitionV1Request {
+export interface CustomFormsApiDeleteFormDefinitionV1Request {
     /**
      * Form definition ID
      * @type {string}
-     * @memberof CustomFormsV1ApiDeleteFormDefinitionV1
+     * @memberof CustomFormsApiDeleteFormDefinitionV1
      */
     readonly formDefinitionID: string
 }
 
 /**
- * Request parameters for exportFormDefinitionsByTenantV1 operation in CustomFormsV1Api.
+ * Request parameters for exportFormDefinitionsByTenantV1 operation in CustomFormsApi.
  * @export
- * @interface CustomFormsV1ApiExportFormDefinitionsByTenantV1Request
+ * @interface CustomFormsApiExportFormDefinitionsByTenantV1Request
  */
-export interface CustomFormsV1ApiExportFormDefinitionsByTenantV1Request {
+export interface CustomFormsApiExportFormDefinitionsByTenantV1Request {
     /**
      * Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
      * @type {number}
-     * @memberof CustomFormsV1ApiExportFormDefinitionsByTenantV1
+     * @memberof CustomFormsApiExportFormDefinitionsByTenantV1
      */
     readonly offset?: number
 
     /**
      * Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
      * @type {number}
-     * @memberof CustomFormsV1ApiExportFormDefinitionsByTenantV1
+     * @memberof CustomFormsApiExportFormDefinitionsByTenantV1
      */
     readonly limit?: number
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in*
      * @type {string}
-     * @memberof CustomFormsV1ApiExportFormDefinitionsByTenantV1
+     * @memberof CustomFormsApiExportFormDefinitionsByTenantV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, created, modified**
      * @type {string}
-     * @memberof CustomFormsV1ApiExportFormDefinitionsByTenantV1
+     * @memberof CustomFormsApiExportFormDefinitionsByTenantV1
      */
     readonly sorters?: string
 }
 
 /**
- * Request parameters for getFileFromS3V1 operation in CustomFormsV1Api.
+ * Request parameters for getFileFromS3V1 operation in CustomFormsApi.
  * @export
- * @interface CustomFormsV1ApiGetFileFromS3V1Request
+ * @interface CustomFormsApiGetFileFromS3V1Request
  */
-export interface CustomFormsV1ApiGetFileFromS3V1Request {
+export interface CustomFormsApiGetFileFromS3V1Request {
     /**
      * FormDefinitionID  Form definition ID
      * @type {string}
-     * @memberof CustomFormsV1ApiGetFileFromS3V1
+     * @memberof CustomFormsApiGetFileFromS3V1
      */
     readonly formDefinitionID: string
 
     /**
      * FileID  String specifying the hashed name of the uploaded file we are retrieving.
      * @type {string}
-     * @memberof CustomFormsV1ApiGetFileFromS3V1
+     * @memberof CustomFormsApiGetFileFromS3V1
      */
     readonly fileID: string
 }
 
 /**
- * Request parameters for getFormDefinitionByKeyV1 operation in CustomFormsV1Api.
+ * Request parameters for getFormDefinitionByKeyV1 operation in CustomFormsApi.
  * @export
- * @interface CustomFormsV1ApiGetFormDefinitionByKeyV1Request
+ * @interface CustomFormsApiGetFormDefinitionByKeyV1Request
  */
-export interface CustomFormsV1ApiGetFormDefinitionByKeyV1Request {
+export interface CustomFormsApiGetFormDefinitionByKeyV1Request {
     /**
      * Form definition ID
      * @type {string}
-     * @memberof CustomFormsV1ApiGetFormDefinitionByKeyV1
+     * @memberof CustomFormsApiGetFormDefinitionByKeyV1
      */
     readonly formDefinitionID: string
 }
 
 /**
- * Request parameters for getFormInstanceByKeyV1 operation in CustomFormsV1Api.
+ * Request parameters for getFormInstanceByKeyV1 operation in CustomFormsApi.
  * @export
- * @interface CustomFormsV1ApiGetFormInstanceByKeyV1Request
+ * @interface CustomFormsApiGetFormInstanceByKeyV1Request
  */
-export interface CustomFormsV1ApiGetFormInstanceByKeyV1Request {
+export interface CustomFormsApiGetFormInstanceByKeyV1Request {
     /**
      * Form instance ID
      * @type {string}
-     * @memberof CustomFormsV1ApiGetFormInstanceByKeyV1
+     * @memberof CustomFormsApiGetFormInstanceByKeyV1
      */
     readonly formInstanceID: string
 }
 
 /**
- * Request parameters for getFormInstanceFileV1 operation in CustomFormsV1Api.
+ * Request parameters for getFormInstanceFileV1 operation in CustomFormsApi.
  * @export
- * @interface CustomFormsV1ApiGetFormInstanceFileV1Request
+ * @interface CustomFormsApiGetFormInstanceFileV1Request
  */
-export interface CustomFormsV1ApiGetFormInstanceFileV1Request {
+export interface CustomFormsApiGetFormInstanceFileV1Request {
     /**
      * FormInstanceID  Form instance ID
      * @type {string}
-     * @memberof CustomFormsV1ApiGetFormInstanceFileV1
+     * @memberof CustomFormsApiGetFormInstanceFileV1
      */
     readonly formInstanceID: string
 
     /**
      * FileID  String specifying the hashed name of the uploaded file we are retrieving.
      * @type {string}
-     * @memberof CustomFormsV1ApiGetFormInstanceFileV1
+     * @memberof CustomFormsApiGetFormInstanceFileV1
      */
     readonly fileID: string
 }
 
 /**
- * Request parameters for importFormDefinitionsV1 operation in CustomFormsV1Api.
+ * Request parameters for importFormDefinitionsV1 operation in CustomFormsApi.
  * @export
- * @interface CustomFormsV1ApiImportFormDefinitionsV1Request
+ * @interface CustomFormsApiImportFormDefinitionsV1Request
  */
-export interface CustomFormsV1ApiImportFormDefinitionsV1Request {
+export interface CustomFormsApiImportFormDefinitionsV1Request {
     /**
      * Body is the request payload to import form definitions
-     * @type {Array<ImportFormDefinitionsV1RequestInnerV1>}
-     * @memberof CustomFormsV1ApiImportFormDefinitionsV1
+     * @type {Array<ImportFormDefinitionsV1RequestInner>}
+     * @memberof CustomFormsApiImportFormDefinitionsV1
      */
-    readonly body?: Array<ImportFormDefinitionsV1RequestInnerV1>
+    readonly body?: Array<ImportFormDefinitionsV1RequestInner>
 }
 
 /**
- * Request parameters for patchFormDefinitionV1 operation in CustomFormsV1Api.
+ * Request parameters for patchFormDefinitionV1 operation in CustomFormsApi.
  * @export
- * @interface CustomFormsV1ApiPatchFormDefinitionV1Request
+ * @interface CustomFormsApiPatchFormDefinitionV1Request
  */
-export interface CustomFormsV1ApiPatchFormDefinitionV1Request {
+export interface CustomFormsApiPatchFormDefinitionV1Request {
     /**
      * Form definition ID
      * @type {string}
-     * @memberof CustomFormsV1ApiPatchFormDefinitionV1
+     * @memberof CustomFormsApiPatchFormDefinitionV1
      */
     readonly formDefinitionID: string
 
     /**
      * Body is the request payload to patch a form definition, check: https://jsonpatch.com
      * @type {Array<{ [key: string]: object; }>}
-     * @memberof CustomFormsV1ApiPatchFormDefinitionV1
+     * @memberof CustomFormsApiPatchFormDefinitionV1
      */
     readonly body?: Array<{ [key: string]: object; }>
 }
 
 /**
- * Request parameters for patchFormInstanceV1 operation in CustomFormsV1Api.
+ * Request parameters for patchFormInstanceV1 operation in CustomFormsApi.
  * @export
- * @interface CustomFormsV1ApiPatchFormInstanceV1Request
+ * @interface CustomFormsApiPatchFormInstanceV1Request
  */
-export interface CustomFormsV1ApiPatchFormInstanceV1Request {
+export interface CustomFormsApiPatchFormInstanceV1Request {
     /**
      * Form instance ID
      * @type {string}
-     * @memberof CustomFormsV1ApiPatchFormInstanceV1
+     * @memberof CustomFormsApiPatchFormInstanceV1
      */
     readonly formInstanceID: string
 
     /**
      * Body is the request payload to patch a form instance, check: https://jsonpatch.com
      * @type {Array<{ [key: string]: object; }>}
-     * @memberof CustomFormsV1ApiPatchFormInstanceV1
+     * @memberof CustomFormsApiPatchFormInstanceV1
      */
     readonly body?: Array<{ [key: string]: object; }>
 }
 
 /**
- * Request parameters for searchFormDefinitionsByTenantV1 operation in CustomFormsV1Api.
+ * Request parameters for searchFormDefinitionsByTenantV1 operation in CustomFormsApi.
  * @export
- * @interface CustomFormsV1ApiSearchFormDefinitionsByTenantV1Request
+ * @interface CustomFormsApiSearchFormDefinitionsByTenantV1Request
  */
-export interface CustomFormsV1ApiSearchFormDefinitionsByTenantV1Request {
+export interface CustomFormsApiSearchFormDefinitionsByTenantV1Request {
     /**
      * Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
      * @type {number}
-     * @memberof CustomFormsV1ApiSearchFormDefinitionsByTenantV1
+     * @memberof CustomFormsApiSearchFormDefinitionsByTenantV1
      */
     readonly offset?: number
 
     /**
      * Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
      * @type {number}
-     * @memberof CustomFormsV1ApiSearchFormDefinitionsByTenantV1
+     * @memberof CustomFormsApiSearchFormDefinitionsByTenantV1
      */
     readonly limit?: number
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in*
      * @type {string}
-     * @memberof CustomFormsV1ApiSearchFormDefinitionsByTenantV1
+     * @memberof CustomFormsApiSearchFormDefinitionsByTenantV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, created, modified**
      * @type {string}
-     * @memberof CustomFormsV1ApiSearchFormDefinitionsByTenantV1
+     * @memberof CustomFormsApiSearchFormDefinitionsByTenantV1
      */
     readonly sorters?: string
 }
 
 /**
- * Request parameters for searchFormElementDataByElementIDV1 operation in CustomFormsV1Api.
+ * Request parameters for searchFormElementDataByElementIDV1 operation in CustomFormsApi.
  * @export
- * @interface CustomFormsV1ApiSearchFormElementDataByElementIDV1Request
+ * @interface CustomFormsApiSearchFormElementDataByElementIDV1Request
  */
-export interface CustomFormsV1ApiSearchFormElementDataByElementIDV1Request {
+export interface CustomFormsApiSearchFormElementDataByElementIDV1Request {
     /**
      * Form instance ID
      * @type {string}
-     * @memberof CustomFormsV1ApiSearchFormElementDataByElementIDV1
+     * @memberof CustomFormsApiSearchFormElementDataByElementIDV1
      */
     readonly formInstanceID: string
 
     /**
      * Form element ID
      * @type {string}
-     * @memberof CustomFormsV1ApiSearchFormElementDataByElementIDV1
+     * @memberof CustomFormsApiSearchFormElementDataByElementIDV1
      */
     readonly formElementID: string
 
     /**
      * Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
      * @type {number}
-     * @memberof CustomFormsV1ApiSearchFormElementDataByElementIDV1
+     * @memberof CustomFormsApiSearchFormElementDataByElementIDV1
      */
     readonly limit?: number
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the &#x60;in&#x60; operator. The &#x60;not&#x60; composite operator must be used in front of the field. For example, the following is valid: &#x60;not value in (\&quot;ID01\&quot;)&#x60;
      * @type {string}
-     * @memberof CustomFormsV1ApiSearchFormElementDataByElementIDV1
+     * @memberof CustomFormsApiSearchFormElementDataByElementIDV1
      */
     readonly filters?: string
 
     /**
      * String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a \&quot;starts with\&quot; filter against  several fields.
      * @type {string}
-     * @memberof CustomFormsV1ApiSearchFormElementDataByElementIDV1
+     * @memberof CustomFormsApiSearchFormElementDataByElementIDV1
      */
     readonly query?: string
 }
 
 /**
- * Request parameters for searchFormInstancesByTenantV1 operation in CustomFormsV1Api.
+ * Request parameters for searchFormInstancesByTenantV1 operation in CustomFormsApi.
  * @export
- * @interface CustomFormsV1ApiSearchFormInstancesByTenantV1Request
+ * @interface CustomFormsApiSearchFormInstancesByTenantV1Request
  */
-export interface CustomFormsV1ApiSearchFormInstancesByTenantV1Request {
+export interface CustomFormsApiSearchFormInstancesByTenantV1Request {
     /**
      * Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
      * @type {number}
-     * @memberof CustomFormsV1ApiSearchFormInstancesByTenantV1
+     * @memberof CustomFormsApiSearchFormInstancesByTenantV1
      */
     readonly offset?: number
 
     /**
      * Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
      * @type {number}
-     * @memberof CustomFormsV1ApiSearchFormInstancesByTenantV1
+     * @memberof CustomFormsApiSearchFormInstancesByTenantV1
      */
     readonly limit?: number
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq*
      * @type {string}
-     * @memberof CustomFormsV1ApiSearchFormInstancesByTenantV1
+     * @memberof CustomFormsApiSearchFormInstancesByTenantV1
      */
     readonly filters?: string
 }
 
 /**
- * Request parameters for showPreviewDataSourceV1 operation in CustomFormsV1Api.
+ * Request parameters for showPreviewDataSourceV1 operation in CustomFormsApi.
  * @export
- * @interface CustomFormsV1ApiShowPreviewDataSourceV1Request
+ * @interface CustomFormsApiShowPreviewDataSourceV1Request
  */
-export interface CustomFormsV1ApiShowPreviewDataSourceV1Request {
+export interface CustomFormsApiShowPreviewDataSourceV1Request {
     /**
      * Form definition ID
      * @type {string}
-     * @memberof CustomFormsV1ApiShowPreviewDataSourceV1
+     * @memberof CustomFormsApiShowPreviewDataSourceV1
      */
     readonly formDefinitionID: string
 
     /**
      * Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
      * @type {number}
-     * @memberof CustomFormsV1ApiShowPreviewDataSourceV1
+     * @memberof CustomFormsApiShowPreviewDataSourceV1
      */
     readonly limit?: number
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the &#x60;in&#x60; operator. The &#x60;not&#x60; composite operator must be used in front of the field. For example, the following is valid: &#x60;not value in (\&quot;ID01\&quot;)&#x60;
      * @type {string}
-     * @memberof CustomFormsV1ApiShowPreviewDataSourceV1
+     * @memberof CustomFormsApiShowPreviewDataSourceV1
      */
     readonly filters?: string
 
     /**
      * String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a \&quot;starts with\&quot; filter against  several fields.
      * @type {string}
-     * @memberof CustomFormsV1ApiShowPreviewDataSourceV1
+     * @memberof CustomFormsApiShowPreviewDataSourceV1
      */
     readonly query?: string
 
     /**
      * Body is the request payload to create a form definition dynamic schema
-     * @type {FormelementpreviewrequestV1}
-     * @memberof CustomFormsV1ApiShowPreviewDataSourceV1
+     * @type {Formelementpreviewrequest}
+     * @memberof CustomFormsApiShowPreviewDataSourceV1
      */
-    readonly formelementpreviewrequestV1?: FormelementpreviewrequestV1
+    readonly formelementpreviewrequest?: Formelementpreviewrequest
 }
 
 /**
- * CustomFormsV1Api - object-oriented interface
+ * CustomFormsApi - object-oriented interface
  * @export
- * @class CustomFormsV1Api
+ * @class CustomFormsApi
  * @extends {BaseAPI}
  */
-export class CustomFormsV1Api extends BaseAPI {
+export class CustomFormsApi extends BaseAPI {
     /**
      * 
      * @summary Generate json schema dynamically.
-     * @param {CustomFormsV1ApiCreateFormDefinitionDynamicSchemaV1Request} requestParameters Request parameters.
+     * @param {CustomFormsApiCreateFormDefinitionDynamicSchemaV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFormsV1Api
+     * @memberof CustomFormsApi
      */
-    public createFormDefinitionDynamicSchemaV1(requestParameters: CustomFormsV1ApiCreateFormDefinitionDynamicSchemaV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomFormsV1ApiFp(this.configuration).createFormDefinitionDynamicSchemaV1(requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createFormDefinitionDynamicSchemaV1(requestParameters: CustomFormsApiCreateFormDefinitionDynamicSchemaV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomFormsApiFp(this.configuration).createFormDefinitionDynamicSchemaV1(requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Parameter `{formDefinitionID}` should match a form definition ID.
      * @summary Upload new form definition file.
-     * @param {CustomFormsV1ApiCreateFormDefinitionFileRequestV1Request} requestParameters Request parameters.
+     * @param {CustomFormsApiCreateFormDefinitionFileRequestV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFormsV1Api
+     * @memberof CustomFormsApi
      */
-    public createFormDefinitionFileRequestV1(requestParameters: CustomFormsV1ApiCreateFormDefinitionFileRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomFormsV1ApiFp(this.configuration).createFormDefinitionFileRequestV1(requestParameters.formDefinitionID, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createFormDefinitionFileRequestV1(requestParameters: CustomFormsApiCreateFormDefinitionFileRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomFormsApiFp(this.configuration).createFormDefinitionFileRequestV1(requestParameters.formDefinitionID, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Creates a form definition.
-     * @param {CustomFormsV1ApiCreateFormDefinitionV1Request} requestParameters Request parameters.
+     * @param {CustomFormsApiCreateFormDefinitionV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFormsV1Api
+     * @memberof CustomFormsApi
      */
-    public createFormDefinitionV1(requestParameters: CustomFormsV1ApiCreateFormDefinitionV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomFormsV1ApiFp(this.configuration).createFormDefinitionV1(requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createFormDefinitionV1(requestParameters: CustomFormsApiCreateFormDefinitionV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomFormsApiFp(this.configuration).createFormDefinitionV1(requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Creates a form instance.
-     * @param {CustomFormsV1ApiCreateFormInstanceV1Request} requestParameters Request parameters.
+     * @param {CustomFormsApiCreateFormInstanceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFormsV1Api
+     * @memberof CustomFormsApi
      */
-    public createFormInstanceV1(requestParameters: CustomFormsV1ApiCreateFormInstanceV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomFormsV1ApiFp(this.configuration).createFormInstanceV1(requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createFormInstanceV1(requestParameters: CustomFormsApiCreateFormInstanceV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomFormsApiFp(this.configuration).createFormInstanceV1(requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Parameter `{formDefinitionID}` should match a form definition ID.
      * @summary Deletes a form definition.
-     * @param {CustomFormsV1ApiDeleteFormDefinitionV1Request} requestParameters Request parameters.
+     * @param {CustomFormsApiDeleteFormDefinitionV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFormsV1Api
+     * @memberof CustomFormsApi
      */
-    public deleteFormDefinitionV1(requestParameters: CustomFormsV1ApiDeleteFormDefinitionV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomFormsV1ApiFp(this.configuration).deleteFormDefinitionV1(requestParameters.formDefinitionID, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteFormDefinitionV1(requestParameters: CustomFormsApiDeleteFormDefinitionV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomFormsApiFp(this.configuration).deleteFormDefinitionV1(requestParameters.formDefinitionID, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * No parameters required.
      * @summary List form definitions by tenant.
-     * @param {CustomFormsV1ApiExportFormDefinitionsByTenantV1Request} requestParameters Request parameters.
+     * @param {CustomFormsApiExportFormDefinitionsByTenantV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFormsV1Api
+     * @memberof CustomFormsApi
      */
-    public exportFormDefinitionsByTenantV1(requestParameters: CustomFormsV1ApiExportFormDefinitionsByTenantV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomFormsV1ApiFp(this.configuration).exportFormDefinitionsByTenantV1(requestParameters.offset, requestParameters.limit, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public exportFormDefinitionsByTenantV1(requestParameters: CustomFormsApiExportFormDefinitionsByTenantV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomFormsApiFp(this.configuration).exportFormDefinitionsByTenantV1(requestParameters.offset, requestParameters.limit, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Download definition file by fileid.
-     * @param {CustomFormsV1ApiGetFileFromS3V1Request} requestParameters Request parameters.
+     * @param {CustomFormsApiGetFileFromS3V1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFormsV1Api
+     * @memberof CustomFormsApi
      */
-    public getFileFromS3V1(requestParameters: CustomFormsV1ApiGetFileFromS3V1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomFormsV1ApiFp(this.configuration).getFileFromS3V1(requestParameters.formDefinitionID, requestParameters.fileID, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getFileFromS3V1(requestParameters: CustomFormsApiGetFileFromS3V1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomFormsApiFp(this.configuration).getFileFromS3V1(requestParameters.formDefinitionID, requestParameters.fileID, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Parameter `{formDefinitionID}` should match a form definition ID.
      * @summary Return a form definition.
-     * @param {CustomFormsV1ApiGetFormDefinitionByKeyV1Request} requestParameters Request parameters.
+     * @param {CustomFormsApiGetFormDefinitionByKeyV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFormsV1Api
+     * @memberof CustomFormsApi
      */
-    public getFormDefinitionByKeyV1(requestParameters: CustomFormsV1ApiGetFormDefinitionByKeyV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomFormsV1ApiFp(this.configuration).getFormDefinitionByKeyV1(requestParameters.formDefinitionID, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getFormDefinitionByKeyV1(requestParameters: CustomFormsApiGetFormDefinitionByKeyV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomFormsApiFp(this.configuration).getFormDefinitionByKeyV1(requestParameters.formDefinitionID, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Parameter `{formInstanceID}` should match a form instance ID.  Only the assigned recipient (`recipients[].id` when `type` is `IDENTITY`) may call this.
      * @summary Returns a form instance.
-     * @param {CustomFormsV1ApiGetFormInstanceByKeyV1Request} requestParameters Request parameters.
+     * @param {CustomFormsApiGetFormInstanceByKeyV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFormsV1Api
+     * @memberof CustomFormsApi
      */
-    public getFormInstanceByKeyV1(requestParameters: CustomFormsV1ApiGetFormInstanceByKeyV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomFormsV1ApiFp(this.configuration).getFormInstanceByKeyV1(requestParameters.formInstanceID, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getFormInstanceByKeyV1(requestParameters: CustomFormsApiGetFormInstanceByKeyV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomFormsApiFp(this.configuration).getFormInstanceByKeyV1(requestParameters.formInstanceID, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Download instance file by fileid.
-     * @param {CustomFormsV1ApiGetFormInstanceFileV1Request} requestParameters Request parameters.
+     * @param {CustomFormsApiGetFormInstanceFileV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFormsV1Api
+     * @memberof CustomFormsApi
      */
-    public getFormInstanceFileV1(requestParameters: CustomFormsV1ApiGetFormInstanceFileV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomFormsV1ApiFp(this.configuration).getFormInstanceFileV1(requestParameters.formInstanceID, requestParameters.fileID, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getFormInstanceFileV1(requestParameters: CustomFormsApiGetFormInstanceFileV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomFormsApiFp(this.configuration).getFormInstanceFileV1(requestParameters.formInstanceID, requestParameters.fileID, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Import form definitions from export.
-     * @param {CustomFormsV1ApiImportFormDefinitionsV1Request} requestParameters Request parameters.
+     * @param {CustomFormsApiImportFormDefinitionsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFormsV1Api
+     * @memberof CustomFormsApi
      */
-    public importFormDefinitionsV1(requestParameters: CustomFormsV1ApiImportFormDefinitionsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomFormsV1ApiFp(this.configuration).importFormDefinitionsV1(requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public importFormDefinitionsV1(requestParameters: CustomFormsApiImportFormDefinitionsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomFormsApiFp(this.configuration).importFormDefinitionsV1(requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Parameter `{formDefinitionID}` should match a form definition ID.
      * @summary Patch a form definition.
-     * @param {CustomFormsV1ApiPatchFormDefinitionV1Request} requestParameters Request parameters.
+     * @param {CustomFormsApiPatchFormDefinitionV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFormsV1Api
+     * @memberof CustomFormsApi
      */
-    public patchFormDefinitionV1(requestParameters: CustomFormsV1ApiPatchFormDefinitionV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomFormsV1ApiFp(this.configuration).patchFormDefinitionV1(requestParameters.formDefinitionID, requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchFormDefinitionV1(requestParameters: CustomFormsApiPatchFormDefinitionV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomFormsApiFp(this.configuration).patchFormDefinitionV1(requestParameters.formDefinitionID, requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Parameter `{formInstanceID}` should match a form instance ID.  Only the assigned recipient (`recipients[].id` when `type` is `IDENTITY`) may call this.
      * @summary Patch a form instance.
-     * @param {CustomFormsV1ApiPatchFormInstanceV1Request} requestParameters Request parameters.
+     * @param {CustomFormsApiPatchFormInstanceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFormsV1Api
+     * @memberof CustomFormsApi
      */
-    public patchFormInstanceV1(requestParameters: CustomFormsV1ApiPatchFormInstanceV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomFormsV1ApiFp(this.configuration).patchFormInstanceV1(requestParameters.formInstanceID, requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchFormInstanceV1(requestParameters: CustomFormsApiPatchFormInstanceV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomFormsApiFp(this.configuration).patchFormInstanceV1(requestParameters.formInstanceID, requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * No parameters required.
      * @summary Export form definitions by tenant.
-     * @param {CustomFormsV1ApiSearchFormDefinitionsByTenantV1Request} requestParameters Request parameters.
+     * @param {CustomFormsApiSearchFormDefinitionsByTenantV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFormsV1Api
+     * @memberof CustomFormsApi
      */
-    public searchFormDefinitionsByTenantV1(requestParameters: CustomFormsV1ApiSearchFormDefinitionsByTenantV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomFormsV1ApiFp(this.configuration).searchFormDefinitionsByTenantV1(requestParameters.offset, requestParameters.limit, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public searchFormDefinitionsByTenantV1(requestParameters: CustomFormsApiSearchFormDefinitionsByTenantV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomFormsApiFp(this.configuration).searchFormDefinitionsByTenantV1(requestParameters.offset, requestParameters.limit, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Parameter `{formInstanceID}` should match a form instance ID. Parameter `{formElementID}` should match a form element ID at the data source configuration.
      * @summary Retrieves dynamic data by element.
-     * @param {CustomFormsV1ApiSearchFormElementDataByElementIDV1Request} requestParameters Request parameters.
+     * @param {CustomFormsApiSearchFormElementDataByElementIDV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFormsV1Api
+     * @memberof CustomFormsApi
      */
-    public searchFormElementDataByElementIDV1(requestParameters: CustomFormsV1ApiSearchFormElementDataByElementIDV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomFormsV1ApiFp(this.configuration).searchFormElementDataByElementIDV1(requestParameters.formInstanceID, requestParameters.formElementID, requestParameters.limit, requestParameters.filters, requestParameters.query, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public searchFormElementDataByElementIDV1(requestParameters: CustomFormsApiSearchFormElementDataByElementIDV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomFormsApiFp(this.configuration).searchFormElementDataByElementIDV1(requestParameters.formInstanceID, requestParameters.formElementID, requestParameters.limit, requestParameters.filters, requestParameters.query, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Returns a list of form instances for the tenant. Optionally filter by form definition ID.
      * @summary List form instances by tenant.
-     * @param {CustomFormsV1ApiSearchFormInstancesByTenantV1Request} requestParameters Request parameters.
+     * @param {CustomFormsApiSearchFormInstancesByTenantV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFormsV1Api
+     * @memberof CustomFormsApi
      */
-    public searchFormInstancesByTenantV1(requestParameters: CustomFormsV1ApiSearchFormInstancesByTenantV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomFormsV1ApiFp(this.configuration).searchFormInstancesByTenantV1(requestParameters.offset, requestParameters.limit, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public searchFormInstancesByTenantV1(requestParameters: CustomFormsApiSearchFormInstancesByTenantV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomFormsApiFp(this.configuration).searchFormInstancesByTenantV1(requestParameters.offset, requestParameters.limit, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3126,22 +3126,22 @@ export class CustomFormsV1Api extends BaseAPI {
      * @summary List predefined select options.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFormsV1Api
+     * @memberof CustomFormsApi
      */
     public searchPreDefinedSelectOptionsV1(axiosOptions?: RawAxiosRequestConfig) {
-        return CustomFormsV1ApiFp(this.configuration).searchPreDefinedSelectOptionsV1(axiosOptions).then((request) => request(this.axios, this.basePath));
+        return CustomFormsApiFp(this.configuration).searchPreDefinedSelectOptionsV1(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Preview form definition data source.
-     * @param {CustomFormsV1ApiShowPreviewDataSourceV1Request} requestParameters Request parameters.
+     * @param {CustomFormsApiShowPreviewDataSourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof CustomFormsV1Api
+     * @memberof CustomFormsApi
      */
-    public showPreviewDataSourceV1(requestParameters: CustomFormsV1ApiShowPreviewDataSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomFormsV1ApiFp(this.configuration).showPreviewDataSourceV1(requestParameters.formDefinitionID, requestParameters.limit, requestParameters.filters, requestParameters.query, requestParameters.formelementpreviewrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public showPreviewDataSourceV1(requestParameters: CustomFormsApiShowPreviewDataSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return CustomFormsApiFp(this.configuration).showPreviewDataSourceV1(requestParameters.formDefinitionID, requestParameters.limit, requestParameters.filters, requestParameters.query, requestParameters.formelementpreviewrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

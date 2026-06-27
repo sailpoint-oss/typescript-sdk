@@ -26,38 +26,171 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface ApplicationdiscoveryrequestV1
+ * @interface Applicationdiscoveryrequest
  */
-export interface ApplicationdiscoveryrequestV1 {
+export interface Applicationdiscoveryrequest {
     /**
      * List of dataset Ids to discover applications
      * @type {Array<string>}
-     * @memberof ApplicationdiscoveryrequestV1
+     * @memberof Applicationdiscoveryrequest
      */
     'datasetIds': Array<string>;
 }
 /**
- * The target(source) of app discovery
+ * 
  * @export
- * @interface ApplicationdiscoveryresponseTargetV1
+ * @interface Applicationdiscoveryresponse
  */
-export interface ApplicationdiscoveryresponseTargetV1 {
+export interface Applicationdiscoveryresponse {
+    /**
+     * System-generated unique ID of the Object
+     * @type {string}
+     * @memberof Applicationdiscoveryresponse
+     */
+    'id'?: string;
+    /**
+     * Type of task for app discovery
+     * @type {string}
+     * @memberof Applicationdiscoveryresponse
+     */
+    'type'?: ApplicationdiscoveryresponseTypeEnum;
+    /**
+     * Name of the task for app discovery
+     * @type {string}
+     * @memberof Applicationdiscoveryresponse
+     */
+    'uniqueName'?: string;
+    /**
+     * Description of the app discovery aggregation
+     * @type {string}
+     * @memberof Applicationdiscoveryresponse
+     */
+    'description'?: string;
+    /**
+     * Name of the parent of the task for app discovery
+     * @type {string}
+     * @memberof Applicationdiscoveryresponse
+     */
+    'parentName'?: string | null;
+    /**
+     * Service to execute app discovery
+     * @type {string}
+     * @memberof Applicationdiscoveryresponse
+     */
+    'launcher'?: string;
     /**
      * 
-     * @type {DtotypeV1}
-     * @memberof ApplicationdiscoveryresponseTargetV1
+     * @type {ApplicationdiscoveryresponseTarget}
+     * @memberof Applicationdiscoveryresponse
      */
-    'type'?: DtotypeV1;
+    'target'?: ApplicationdiscoveryresponseTarget;
+    /**
+     * Creation date of app discovery task
+     * @type {string}
+     * @memberof Applicationdiscoveryresponse
+     */
+    'created'?: string;
+    /**
+     * Last modification date of app discovery task
+     * @type {string}
+     * @memberof Applicationdiscoveryresponse
+     */
+    'modified'?: string;
+    /**
+     * Launch date of app discovery task
+     * @type {string}
+     * @memberof Applicationdiscoveryresponse
+     */
+    'launched'?: string | null;
+    /**
+     * Completion date of app discovery task
+     * @type {string}
+     * @memberof Applicationdiscoveryresponse
+     */
+    'completed'?: string | null;
+    /**
+     * 
+     * @type {Taskdefinitionsummary}
+     * @memberof Applicationdiscoveryresponse
+     */
+    'taskDefinitionSummary'?: Taskdefinitionsummary;
+    /**
+     * Completion status of app discovery task
+     * @type {string}
+     * @memberof Applicationdiscoveryresponse
+     */
+    'completionStatus'?: ApplicationdiscoveryresponseCompletionStatusEnum | null;
+    /**
+     * Messages associated with the app discovery task
+     * @type {Array<Taskstatusmessage>}
+     * @memberof Applicationdiscoveryresponse
+     */
+    'messages'?: Array<Taskstatusmessage>;
+    /**
+     * Return values associated with the app discovery task
+     * @type {Array<Taskreturndetails>}
+     * @memberof Applicationdiscoveryresponse
+     */
+    'returns'?: Array<Taskreturndetails>;
+    /**
+     * Attributes of the app discovery task
+     * @type {{ [key: string]: any; }}
+     * @memberof Applicationdiscoveryresponse
+     */
+    'attributes'?: { [key: string]: any; };
+    /**
+     * Current progress of aggregation
+     * @type {string}
+     * @memberof Applicationdiscoveryresponse
+     */
+    'progress'?: string | null;
+    /**
+     * Current percentage completion of app discovery task
+     * @type {number}
+     * @memberof Applicationdiscoveryresponse
+     */
+    'percentComplete'?: number;
+}
+
+export const ApplicationdiscoveryresponseTypeEnum = {
+    Quartz: 'QUARTZ',
+    Qpoc: 'QPOC',
+    QueuedTask: 'QUEUED_TASK'
+} as const;
+
+export type ApplicationdiscoveryresponseTypeEnum = typeof ApplicationdiscoveryresponseTypeEnum[keyof typeof ApplicationdiscoveryresponseTypeEnum];
+export const ApplicationdiscoveryresponseCompletionStatusEnum = {
+    Success: 'SUCCESS',
+    Warning: 'WARNING',
+    Error: 'ERROR',
+    Terminated: 'TERMINATED',
+    Temperror: 'TEMPERROR'
+} as const;
+
+export type ApplicationdiscoveryresponseCompletionStatusEnum = typeof ApplicationdiscoveryresponseCompletionStatusEnum[keyof typeof ApplicationdiscoveryresponseCompletionStatusEnum];
+
+/**
+ * The target(source) of app discovery
+ * @export
+ * @interface ApplicationdiscoveryresponseTarget
+ */
+export interface ApplicationdiscoveryresponseTarget {
+    /**
+     * 
+     * @type {Dtotype}
+     * @memberof ApplicationdiscoveryresponseTarget
+     */
+    'type'?: Dtotype;
     /**
      * ID of the object to which this reference applies
      * @type {string}
-     * @memberof ApplicationdiscoveryresponseTargetV1
+     * @memberof ApplicationdiscoveryresponseTarget
      */
     'id'?: string;
     /**
      * Human-readable display name of the object to which this reference applies
      * @type {string}
-     * @memberof ApplicationdiscoveryresponseTargetV1
+     * @memberof ApplicationdiscoveryresponseTarget
      */
     'name'?: string;
 }
@@ -66,158 +199,25 @@ export interface ApplicationdiscoveryresponseTargetV1 {
 /**
  * 
  * @export
- * @interface ApplicationdiscoveryresponseV1
+ * @interface Basereferencedto
  */
-export interface ApplicationdiscoveryresponseV1 {
-    /**
-     * System-generated unique ID of the Object
-     * @type {string}
-     * @memberof ApplicationdiscoveryresponseV1
-     */
-    'id'?: string;
-    /**
-     * Type of task for app discovery
-     * @type {string}
-     * @memberof ApplicationdiscoveryresponseV1
-     */
-    'type'?: ApplicationdiscoveryresponseV1TypeV1;
-    /**
-     * Name of the task for app discovery
-     * @type {string}
-     * @memberof ApplicationdiscoveryresponseV1
-     */
-    'uniqueName'?: string;
-    /**
-     * Description of the app discovery aggregation
-     * @type {string}
-     * @memberof ApplicationdiscoveryresponseV1
-     */
-    'description'?: string;
-    /**
-     * Name of the parent of the task for app discovery
-     * @type {string}
-     * @memberof ApplicationdiscoveryresponseV1
-     */
-    'parentName'?: string | null;
-    /**
-     * Service to execute app discovery
-     * @type {string}
-     * @memberof ApplicationdiscoveryresponseV1
-     */
-    'launcher'?: string;
+export interface Basereferencedto {
     /**
      * 
-     * @type {ApplicationdiscoveryresponseTargetV1}
-     * @memberof ApplicationdiscoveryresponseV1
+     * @type {Dtotype}
+     * @memberof Basereferencedto
      */
-    'target'?: ApplicationdiscoveryresponseTargetV1;
-    /**
-     * Creation date of app discovery task
-     * @type {string}
-     * @memberof ApplicationdiscoveryresponseV1
-     */
-    'created'?: string;
-    /**
-     * Last modification date of app discovery task
-     * @type {string}
-     * @memberof ApplicationdiscoveryresponseV1
-     */
-    'modified'?: string;
-    /**
-     * Launch date of app discovery task
-     * @type {string}
-     * @memberof ApplicationdiscoveryresponseV1
-     */
-    'launched'?: string | null;
-    /**
-     * Completion date of app discovery task
-     * @type {string}
-     * @memberof ApplicationdiscoveryresponseV1
-     */
-    'completed'?: string | null;
-    /**
-     * 
-     * @type {TaskdefinitionsummaryV1}
-     * @memberof ApplicationdiscoveryresponseV1
-     */
-    'taskDefinitionSummary'?: TaskdefinitionsummaryV1;
-    /**
-     * Completion status of app discovery task
-     * @type {string}
-     * @memberof ApplicationdiscoveryresponseV1
-     */
-    'completionStatus'?: ApplicationdiscoveryresponseV1CompletionStatusV1 | null;
-    /**
-     * Messages associated with the app discovery task
-     * @type {Array<TaskstatusmessageV1>}
-     * @memberof ApplicationdiscoveryresponseV1
-     */
-    'messages'?: Array<TaskstatusmessageV1>;
-    /**
-     * Return values associated with the app discovery task
-     * @type {Array<TaskreturndetailsV1>}
-     * @memberof ApplicationdiscoveryresponseV1
-     */
-    'returns'?: Array<TaskreturndetailsV1>;
-    /**
-     * Attributes of the app discovery task
-     * @type {{ [key: string]: any; }}
-     * @memberof ApplicationdiscoveryresponseV1
-     */
-    'attributes'?: { [key: string]: any; };
-    /**
-     * Current progress of aggregation
-     * @type {string}
-     * @memberof ApplicationdiscoveryresponseV1
-     */
-    'progress'?: string | null;
-    /**
-     * Current percentage completion of app discovery task
-     * @type {number}
-     * @memberof ApplicationdiscoveryresponseV1
-     */
-    'percentComplete'?: number;
-}
-
-export const ApplicationdiscoveryresponseV1TypeV1 = {
-    Quartz: 'QUARTZ',
-    Qpoc: 'QPOC',
-    QueuedTask: 'QUEUED_TASK'
-} as const;
-
-export type ApplicationdiscoveryresponseV1TypeV1 = typeof ApplicationdiscoveryresponseV1TypeV1[keyof typeof ApplicationdiscoveryresponseV1TypeV1];
-export const ApplicationdiscoveryresponseV1CompletionStatusV1 = {
-    Success: 'SUCCESS',
-    Warning: 'WARNING',
-    Error: 'ERROR',
-    Terminated: 'TERMINATED',
-    Temperror: 'TEMPERROR'
-} as const;
-
-export type ApplicationdiscoveryresponseV1CompletionStatusV1 = typeof ApplicationdiscoveryresponseV1CompletionStatusV1[keyof typeof ApplicationdiscoveryresponseV1CompletionStatusV1];
-
-/**
- * 
- * @export
- * @interface BasereferencedtoV1
- */
-export interface BasereferencedtoV1 {
-    /**
-     * 
-     * @type {DtotypeV1}
-     * @memberof BasereferencedtoV1
-     */
-    'type'?: DtotypeV1;
+    'type'?: Dtotype;
     /**
      * ID of the object to which this reference applies
      * @type {string}
-     * @memberof BasereferencedtoV1
+     * @memberof Basereferencedto
      */
     'id'?: string;
     /**
      * Human-readable display name of the object to which this reference applies
      * @type {string}
-     * @memberof BasereferencedtoV1
+     * @memberof Basereferencedto
      */
     'name'?: string;
 }
@@ -229,7 +229,7 @@ export interface BasereferencedtoV1 {
  * @enum {string}
  */
 
-export const DtotypeV1 = {
+export const Dtotype = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
@@ -261,31 +261,31 @@ export const DtotypeV1 = {
     Workgroup: 'WORKGROUP'
 } as const;
 
-export type DtotypeV1 = typeof DtotypeV1[keyof typeof DtotypeV1];
+export type Dtotype = typeof Dtotype[keyof typeof Dtotype];
 
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -294,247 +294,247 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * Discovered applications with their respective associated sources
  * @export
- * @interface FulldiscoveredapplicationsV1
+ * @interface Fulldiscoveredapplications
  */
-export interface FulldiscoveredapplicationsV1 {
+export interface Fulldiscoveredapplications {
     /**
      * Unique identifier for the discovered application.
      * @type {string}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'id'?: string;
     /**
      * Name of the discovered application.
      * @type {string}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'name'?: string;
     /**
      * Source from which the application was discovered.
      * @type {string}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'discoverySource'?: string;
     /**
      * The vendor associated with the discovered application.
      * @type {string}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'discoveredVendor'?: string;
     /**
      * A brief description of the discovered application.
      * @type {string}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'description'?: string;
     /**
      * List of recommended connectors for the application.
      * @type {Array<string>}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'recommendedConnectors'?: Array<string>;
     /**
      * The timestamp when the application was last received via an entitlement aggregation invocation  or a manual csv upload, in ISO 8601 format.
      * @type {string}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'discoveredAt'?: string;
     /**
      * The timestamp when the application was first discovered, in ISO 8601 format.
      * @type {string}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'createdAt'?: string;
     /**
      * The status of an application within the discovery source.  By default this field is set to \"ACTIVE\" when the application is discovered.  If an application has been deleted from within the discovery source, the status will be set to \"INACTIVE\".
      * @type {string}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'status'?: string;
     /**
      * List of associated sources related to this discovered application.
      * @type {Array<string>}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'associatedSources'?: Array<string>;
     /**
      * The operational status of the application.
      * @type {string}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'operationalStatus'?: string;
     /**
      * The category of the discovery source.
      * @type {string}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'discoverySourceCategory'?: string;
     /**
      * The number of licenses associated with the application.
      * @type {number}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'licenseCount'?: number;
     /**
      * Indicates whether the application is sanctioned.
      * @type {boolean}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'isSanctioned'?: boolean;
     /**
      * URL of the application\'s logo.
      * @type {string}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'logo'?: string;
     /**
      * The URL of the application.
      * @type {string}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'appUrl'?: string;
     /**
      * List of groups associated with the application.
      * @type {Array<object>}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'groups'?: Array<object>;
     /**
      * The count of users associated with the application.
      * @type {string}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'usersCount'?: string;
     /**
      * The owners of the application.
      * @type {Array<string>}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'applicationOwner'?: Array<string>;
     /**
      * The IT owners of the application.
      * @type {Array<string>}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'itApplicationOwner'?: Array<string>;
     /**
      * The business criticality level of the application.
      * @type {string}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'businessCriticality'?: string;
     /**
      * The data classification level of the application.
      * @type {string}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'dataClassification'?: string;
     /**
      * The business unit associated with the application.
      * @type {string}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'businessUnit'?: string;
     /**
      * The installation type of the application.
      * @type {string}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'installType'?: string;
     /**
      * The environment in which the application operates.
      * @type {string}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'environment'?: string;
     /**
      * The risk score of the application ranging from 0-100, 100 being highest risk.
      * @type {number}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'riskScore'?: number;
     /**
      * Indicates whether the application is used for business purposes.
      * @type {boolean}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'isBusiness'?: boolean;
     /**
      * The total number of sign-in accounts for the application.
      * @type {number}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'totalSigninsCount'?: number;
     /**
      * The risk level of the application.
      * @type {string}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
-    'riskLevel'?: FulldiscoveredapplicationsV1RiskLevelV1;
+    'riskLevel'?: FulldiscoveredapplicationsRiskLevelEnum;
     /**
      * Indicates whether the application has privileged access.
      * @type {boolean}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'isPrivileged'?: boolean;
     /**
      * The warranty expiration date of the application.
      * @type {string}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'warrantyExpiration'?: string;
     /**
      * Additional attributes of the application useful for visibility of governance posture.
      * @type {object}
-     * @memberof FulldiscoveredapplicationsV1
+     * @memberof Fulldiscoveredapplications
      */
     'attributes'?: object;
 }
 
-export const FulldiscoveredapplicationsV1RiskLevelV1 = {
+export const FulldiscoveredapplicationsRiskLevelEnum = {
     High: 'High',
     Medium: 'Medium',
     Low: 'Low'
 } as const;
 
-export type FulldiscoveredapplicationsV1RiskLevelV1 = typeof FulldiscoveredapplicationsV1RiskLevelV1[keyof typeof FulldiscoveredapplicationsV1RiskLevelV1];
+export type FulldiscoveredapplicationsRiskLevelEnum = typeof FulldiscoveredapplicationsRiskLevelEnum[keyof typeof FulldiscoveredapplicationsRiskLevelEnum];
 
 /**
- * @type GetDiscoveredApplicationsV1200ResponseInnerV1
+ * @type GetDiscoveredApplicationsV1200ResponseInner
  * @export
  */
-export type GetDiscoveredApplicationsV1200ResponseInnerV1 = FulldiscoveredapplicationsV1 | SlimdiscoveredapplicationsV1;
+export type GetDiscoveredApplicationsV1200ResponseInner = Fulldiscoveredapplications | Slimdiscoveredapplications;
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -542,440 +542,440 @@ export type GetDiscoveredApplicationsV1200ResponseInnerV1 = Fulldiscoveredapplic
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * Localized error message to indicate a failed invocation or error if any.
  * @export
- * @interface LocalizedmessageV1
+ * @interface Localizedmessage
  */
-export interface LocalizedmessageV1 {
+export interface Localizedmessage {
     /**
      * Message locale
      * @type {string}
-     * @memberof LocalizedmessageV1
+     * @memberof Localizedmessage
      */
     'locale': string;
     /**
      * Message text
      * @type {string}
-     * @memberof LocalizedmessageV1
+     * @memberof Localizedmessage
      */
     'message': string;
 }
 /**
  * 
  * @export
- * @interface ManualdiscoverapplicationsV1
+ * @interface Manualdiscoverapplications
  */
-export interface ManualdiscoverapplicationsV1 {
+export interface Manualdiscoverapplications {
     /**
      * The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered.
      * @type {File}
-     * @memberof ManualdiscoverapplicationsV1
+     * @memberof Manualdiscoverapplications
      */
     'file': File;
 }
 /**
  * 
  * @export
- * @interface ManualdiscoverapplicationstemplateV1
+ * @interface Manualdiscoverapplicationstemplate
  */
-export interface ManualdiscoverapplicationstemplateV1 {
+export interface Manualdiscoverapplicationstemplate {
     /**
      * Name of the application.
      * @type {string}
-     * @memberof ManualdiscoverapplicationstemplateV1
+     * @memberof Manualdiscoverapplicationstemplate
      */
     'application_name'?: string;
     /**
      * Description of the application.
      * @type {string}
-     * @memberof ManualdiscoverapplicationstemplateV1
+     * @memberof Manualdiscoverapplicationstemplate
      */
     'description'?: string;
 }
 /**
  * Discovered applications
  * @export
- * @interface SlimdiscoveredapplicationsV1
+ * @interface Slimdiscoveredapplications
  */
-export interface SlimdiscoveredapplicationsV1 {
+export interface Slimdiscoveredapplications {
     /**
      * Unique identifier for the discovered application.
      * @type {string}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'id'?: string;
     /**
      * Name of the discovered application.
      * @type {string}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'name'?: string;
     /**
      * Source from which the application was discovered.
      * @type {string}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'discoverySource'?: string;
     /**
      * The vendor associated with the discovered application.
      * @type {string}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'discoveredVendor'?: string;
     /**
      * A brief description of the discovered application.
      * @type {string}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'description'?: string;
     /**
      * List of recommended connectors for the application.
      * @type {Array<string>}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'recommendedConnectors'?: Array<string>;
     /**
      * The timestamp when the application was last received via an entitlement aggregation invocation  or a manual csv upload, in ISO 8601 format.
      * @type {string}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'discoveredAt'?: string;
     /**
      * The timestamp when the application was first discovered, in ISO 8601 format.
      * @type {string}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'createdAt'?: string;
     /**
      * The status of an application within the discovery source.  By default this field is set to \"ACTIVE\" when the application is discovered.  If an application has been deleted from within the discovery source, the status will be set to \"INACTIVE\".
      * @type {string}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'status'?: string;
     /**
      * The operational status of the application.
      * @type {string}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'operationalStatus'?: string;
     /**
      * The category of the discovery source.
      * @type {string}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'discoverySourceCategory'?: string;
     /**
      * The number of licenses associated with the application.
      * @type {number}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'licenseCount'?: number;
     /**
      * Indicates whether the application is sanctioned.
      * @type {boolean}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'isSanctioned'?: boolean;
     /**
      * URL of the application\'s logo.
      * @type {string}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'logo'?: string;
     /**
      * The URL of the application.
      * @type {string}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'appUrl'?: string;
     /**
      * List of groups associated with the application.
      * @type {Array<object>}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'groups'?: Array<object>;
     /**
      * The count of users associated with the application.
      * @type {string}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'usersCount'?: string;
     /**
      * The owners of the application.
      * @type {Array<string>}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'applicationOwner'?: Array<string>;
     /**
      * The IT owners of the application.
      * @type {Array<string>}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'itApplicationOwner'?: Array<string>;
     /**
      * The business criticality level of the application.
      * @type {string}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'businessCriticality'?: string;
     /**
      * The data classification level of the application.
      * @type {string}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'dataClassification'?: string;
     /**
      * The business unit associated with the application.
      * @type {string}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'businessUnit'?: string;
     /**
      * The installation type of the application.
      * @type {string}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'installType'?: string;
     /**
      * The environment in which the application operates.
      * @type {string}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'environment'?: string;
     /**
      * The risk score of the application ranging from 0-100, 100 being highest risk.
      * @type {number}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'riskScore'?: number;
     /**
      * Indicates whether the application is used for business purposes.
      * @type {boolean}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'isBusiness'?: boolean;
     /**
      * The total number of sign-in accounts for the application.
      * @type {number}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'totalSigninsCount'?: number;
     /**
      * The risk level of the application.
      * @type {string}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
-    'riskLevel'?: SlimdiscoveredapplicationsV1RiskLevelV1;
+    'riskLevel'?: SlimdiscoveredapplicationsRiskLevelEnum;
     /**
      * Indicates whether the application has privileged access.
      * @type {boolean}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'isPrivileged'?: boolean;
     /**
      * The warranty expiration date of the application.
      * @type {string}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'warrantyExpiration'?: string;
     /**
      * Additional attributes of the application useful for visibility of governance posture.
      * @type {object}
-     * @memberof SlimdiscoveredapplicationsV1
+     * @memberof Slimdiscoveredapplications
      */
     'attributes'?: object;
 }
 
-export const SlimdiscoveredapplicationsV1RiskLevelV1 = {
+export const SlimdiscoveredapplicationsRiskLevelEnum = {
     High: 'High',
     Medium: 'Medium',
     Low: 'Low'
 } as const;
 
-export type SlimdiscoveredapplicationsV1RiskLevelV1 = typeof SlimdiscoveredapplicationsV1RiskLevelV1[keyof typeof SlimdiscoveredapplicationsV1RiskLevelV1];
+export type SlimdiscoveredapplicationsRiskLevelEnum = typeof SlimdiscoveredapplicationsRiskLevelEnum[keyof typeof SlimdiscoveredapplicationsRiskLevelEnum];
 
 /**
  * 
  * @export
- * @interface StartApplicationDiscoveryV1401ResponseV1
+ * @interface StartApplicationDiscoveryV1401Response
  */
-export interface StartApplicationDiscoveryV1401ResponseV1 {
+export interface StartApplicationDiscoveryV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof StartApplicationDiscoveryV1401ResponseV1
+     * @memberof StartApplicationDiscoveryV1401Response
      */
     'error'?: any;
 }
 /**
- * 
- * @export
- * @interface StartApplicationDiscoveryV1403ResponseOneOfV1
- */
-export interface StartApplicationDiscoveryV1403ResponseOneOfV1 {
-    /**
-     * Error message when quota is exceeded
-     * @type {string}
-     * @memberof StartApplicationDiscoveryV1403ResponseOneOfV1
-     */
-    'error': string;
-}
-/**
- * @type StartApplicationDiscoveryV1403ResponseV1
+ * @type StartApplicationDiscoveryV1403Response
  * @export
  */
-export type StartApplicationDiscoveryV1403ResponseV1 = ErrorresponsedtoV1 | StartApplicationDiscoveryV1403ResponseOneOfV1;
+export type StartApplicationDiscoveryV1403Response = Errorresponsedto | StartApplicationDiscoveryV1403ResponseOneOf;
 
 /**
  * 
  * @export
- * @interface StartApplicationDiscoveryV1429ResponseV1
+ * @interface StartApplicationDiscoveryV1403ResponseOneOf
  */
-export interface StartApplicationDiscoveryV1429ResponseV1 {
+export interface StartApplicationDiscoveryV1403ResponseOneOf {
+    /**
+     * Error message when quota is exceeded
+     * @type {string}
+     * @memberof StartApplicationDiscoveryV1403ResponseOneOf
+     */
+    'error': string;
+}
+/**
+ * 
+ * @export
+ * @interface StartApplicationDiscoveryV1429Response
+ */
+export interface StartApplicationDiscoveryV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof StartApplicationDiscoveryV1429ResponseV1
+     * @memberof StartApplicationDiscoveryV1429Response
      */
     'message'?: any;
 }
 /**
  * Definition of a type of task, used to invoke tasks
  * @export
- * @interface TaskdefinitionsummaryV1
+ * @interface Taskdefinitionsummary
  */
-export interface TaskdefinitionsummaryV1 {
+export interface Taskdefinitionsummary {
     /**
      * System-generated unique ID of the TaskDefinition
      * @type {string}
-     * @memberof TaskdefinitionsummaryV1
+     * @memberof Taskdefinitionsummary
      */
     'id': string;
     /**
      * Name of the TaskDefinition
      * @type {string}
-     * @memberof TaskdefinitionsummaryV1
+     * @memberof Taskdefinitionsummary
      */
     'uniqueName': string;
     /**
      * Description of the TaskDefinition
      * @type {string}
-     * @memberof TaskdefinitionsummaryV1
+     * @memberof Taskdefinitionsummary
      */
     'description': string | null;
     /**
      * Name of the parent of the TaskDefinition
      * @type {string}
-     * @memberof TaskdefinitionsummaryV1
+     * @memberof Taskdefinitionsummary
      */
     'parentName': string;
     /**
      * Executor of the TaskDefinition
      * @type {string}
-     * @memberof TaskdefinitionsummaryV1
+     * @memberof Taskdefinitionsummary
      */
     'executor': string | null;
     /**
      * Formal parameters of the TaskDefinition, without values
      * @type {{ [key: string]: any; }}
-     * @memberof TaskdefinitionsummaryV1
+     * @memberof Taskdefinitionsummary
      */
     'arguments': { [key: string]: any; };
 }
 /**
  * Task return details
  * @export
- * @interface TaskreturndetailsV1
+ * @interface Taskreturndetails
  */
-export interface TaskreturndetailsV1 {
+export interface Taskreturndetails {
     /**
      * Display name of the TaskReturnDetails
      * @type {string}
-     * @memberof TaskreturndetailsV1
+     * @memberof Taskreturndetails
      */
     'name': string;
     /**
      * Attribute the TaskReturnDetails is for
      * @type {string}
-     * @memberof TaskreturndetailsV1
+     * @memberof Taskreturndetails
      */
     'attributeName': string;
 }
 /**
- * 
- * @export
- * @interface TaskstatusmessageParametersInnerV1
- */
-export interface TaskstatusmessageParametersInnerV1 {
-}
-/**
  * TaskStatus Message
  * @export
- * @interface TaskstatusmessageV1
+ * @interface Taskstatusmessage
  */
-export interface TaskstatusmessageV1 {
+export interface Taskstatusmessage {
     /**
      * Type of the message
      * @type {string}
-     * @memberof TaskstatusmessageV1
+     * @memberof Taskstatusmessage
      */
-    'type': TaskstatusmessageV1TypeV1;
+    'type': TaskstatusmessageTypeEnum;
     /**
      * 
-     * @type {LocalizedmessageV1}
-     * @memberof TaskstatusmessageV1
+     * @type {Localizedmessage}
+     * @memberof Taskstatusmessage
      */
-    'localizedText': LocalizedmessageV1 | null;
+    'localizedText': Localizedmessage | null;
     /**
      * Key of the message
      * @type {string}
-     * @memberof TaskstatusmessageV1
+     * @memberof Taskstatusmessage
      */
     'key': string;
     /**
      * Message parameters for internationalization
-     * @type {Array<TaskstatusmessageParametersInnerV1>}
-     * @memberof TaskstatusmessageV1
+     * @type {Array<TaskstatusmessageParametersInner>}
+     * @memberof Taskstatusmessage
      */
-    'parameters': Array<TaskstatusmessageParametersInnerV1> | null;
+    'parameters': Array<TaskstatusmessageParametersInner> | null;
 }
 
-export const TaskstatusmessageV1TypeV1 = {
+export const TaskstatusmessageTypeEnum = {
     Info: 'INFO',
     Warn: 'WARN',
     Error: 'ERROR'
 } as const;
 
-export type TaskstatusmessageV1TypeV1 = typeof TaskstatusmessageV1TypeV1[keyof typeof TaskstatusmessageV1TypeV1];
-
+export type TaskstatusmessageTypeEnum = typeof TaskstatusmessageTypeEnum[keyof typeof TaskstatusmessageTypeEnum];
 
 /**
- * ApplicationDiscoveryV1Api - axios parameter creator
+ * 
+ * @export
+ * @interface TaskstatusmessageParametersInner
+ */
+export interface TaskstatusmessageParametersInner {
+}
+
+/**
+ * ApplicationDiscoveryApi - axios parameter creator
  * @export
  */
-export const ApplicationDiscoveryV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const ApplicationDiscoveryApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Get a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors. 
          * @summary Get discovered applications for tenant
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {GetDiscoveredApplicationsV1DetailV1} [detail] Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior.
+         * @param {GetDiscoveredApplicationsV1DetailEnum} [detail] Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior.
          * @param {string} [filter] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in*  **discoverySourceName**: *eq, in*  **discoverySourceCategory**: *eq, in* 
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource, discoverySourceName, discoverySourceCategory**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getDiscoveredApplicationsV1: async (limit?: number, offset?: number, detail?: GetDiscoveredApplicationsV1DetailV1, filter?: string, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getDiscoveredApplicationsV1: async (limit?: number, offset?: number, detail?: GetDiscoveredApplicationsV1DetailEnum, filter?: string, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/discovered-applications/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1094,16 +1094,16 @@ export const ApplicationDiscoveryV1ApiAxiosParamCreator = function (configuratio
          * Use this API to discover applications.
          * @summary Start Application Discovery
          * @param {string} sourceId The sourceId.
-         * @param {ApplicationdiscoveryrequestV1} applicationdiscoveryrequestV1 
+         * @param {Applicationdiscoveryrequest} applicationdiscoveryrequest 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startApplicationDiscoveryV1: async (sourceId: string, applicationdiscoveryrequestV1: ApplicationdiscoveryrequestV1, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        startApplicationDiscoveryV1: async (sourceId: string, applicationdiscoveryrequest: Applicationdiscoveryrequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('startApplicationDiscoveryV1', 'sourceId', sourceId)
-            // verify required parameter 'applicationdiscoveryrequestV1' is not null or undefined
-            assertParamExists('startApplicationDiscoveryV1', 'applicationdiscoveryrequestV1', applicationdiscoveryrequestV1)
+            // verify required parameter 'applicationdiscoveryrequest' is not null or undefined
+            assertParamExists('startApplicationDiscoveryV1', 'applicationdiscoveryrequest', applicationdiscoveryrequest)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -1131,7 +1131,7 @@ export const ApplicationDiscoveryV1ApiAxiosParamCreator = function (configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(applicationdiscoveryrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(applicationdiscoveryrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1142,27 +1142,27 @@ export const ApplicationDiscoveryV1ApiAxiosParamCreator = function (configuratio
 };
 
 /**
- * ApplicationDiscoveryV1Api - functional programming interface
+ * ApplicationDiscoveryApi - functional programming interface
  * @export
  */
-export const ApplicationDiscoveryV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = ApplicationDiscoveryV1ApiAxiosParamCreator(configuration)
+export const ApplicationDiscoveryApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = ApplicationDiscoveryApiAxiosParamCreator(configuration)
     return {
         /**
          * Get a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors. 
          * @summary Get discovered applications for tenant
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {GetDiscoveredApplicationsV1DetailV1} [detail] Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior.
+         * @param {GetDiscoveredApplicationsV1DetailEnum} [detail] Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior.
          * @param {string} [filter] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in*  **discoverySourceName**: *eq, in*  **discoverySourceCategory**: *eq, in* 
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource, discoverySourceName, discoverySourceCategory**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getDiscoveredApplicationsV1(limit?: number, offset?: number, detail?: GetDiscoveredApplicationsV1DetailV1, filter?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetDiscoveredApplicationsV1200ResponseInnerV1>>> {
+        async getDiscoveredApplicationsV1(limit?: number, offset?: number, detail?: GetDiscoveredApplicationsV1DetailEnum, filter?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetDiscoveredApplicationsV1200ResponseInner>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDiscoveredApplicationsV1(limit, offset, detail, filter, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ApplicationDiscoveryV1Api.getDiscoveredApplicationsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ApplicationDiscoveryApi.getDiscoveredApplicationsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1171,10 +1171,10 @@ export const ApplicationDiscoveryV1ApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getManualDiscoverApplicationsCsvTemplateV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManualdiscoverapplicationstemplateV1>> {
+        async getManualDiscoverApplicationsCsvTemplateV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Manualdiscoverapplicationstemplate>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getManualDiscoverApplicationsCsvTemplateV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ApplicationDiscoveryV1Api.getManualDiscoverApplicationsCsvTemplateV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ApplicationDiscoveryApi.getManualDiscoverApplicationsCsvTemplateV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1187,42 +1187,42 @@ export const ApplicationDiscoveryV1ApiFp = function(configuration?: Configuratio
         async sendManualDiscoverApplicationsCsvTemplateV1(file: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.sendManualDiscoverApplicationsCsvTemplateV1(file, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ApplicationDiscoveryV1Api.sendManualDiscoverApplicationsCsvTemplateV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ApplicationDiscoveryApi.sendManualDiscoverApplicationsCsvTemplateV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Use this API to discover applications.
          * @summary Start Application Discovery
          * @param {string} sourceId The sourceId.
-         * @param {ApplicationdiscoveryrequestV1} applicationdiscoveryrequestV1 
+         * @param {Applicationdiscoveryrequest} applicationdiscoveryrequest 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startApplicationDiscoveryV1(sourceId: string, applicationdiscoveryrequestV1: ApplicationdiscoveryrequestV1, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ApplicationdiscoveryresponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startApplicationDiscoveryV1(sourceId, applicationdiscoveryrequestV1, xSailPointExperimental, axiosOptions);
+        async startApplicationDiscoveryV1(sourceId: string, applicationdiscoveryrequest: Applicationdiscoveryrequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Applicationdiscoveryresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startApplicationDiscoveryV1(sourceId, applicationdiscoveryrequest, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ApplicationDiscoveryV1Api.startApplicationDiscoveryV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ApplicationDiscoveryApi.startApplicationDiscoveryV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * ApplicationDiscoveryV1Api - factory interface
+ * ApplicationDiscoveryApi - factory interface
  * @export
  */
-export const ApplicationDiscoveryV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = ApplicationDiscoveryV1ApiFp(configuration)
+export const ApplicationDiscoveryApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = ApplicationDiscoveryApiFp(configuration)
     return {
         /**
          * Get a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors. 
          * @summary Get discovered applications for tenant
-         * @param {ApplicationDiscoveryV1ApiGetDiscoveredApplicationsV1Request} requestParameters Request parameters.
+         * @param {ApplicationDiscoveryApiGetDiscoveredApplicationsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getDiscoveredApplicationsV1(requestParameters: ApplicationDiscoveryV1ApiGetDiscoveredApplicationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<GetDiscoveredApplicationsV1200ResponseInnerV1>> {
+        getDiscoveredApplicationsV1(requestParameters: ApplicationDiscoveryApiGetDiscoveredApplicationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<GetDiscoveredApplicationsV1200ResponseInner>> {
             return localVarFp.getDiscoveredApplicationsV1(requestParameters.limit, requestParameters.offset, requestParameters.detail, requestParameters.filter, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1231,133 +1231,133 @@ export const ApplicationDiscoveryV1ApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getManualDiscoverApplicationsCsvTemplateV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ManualdiscoverapplicationstemplateV1> {
+        getManualDiscoverApplicationsCsvTemplateV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Manualdiscoverapplicationstemplate> {
             return localVarFp.getManualDiscoverApplicationsCsvTemplateV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Uploading a CSV file with application data for manual correlation to specific ISC connectors.  If a suitable ISC connector is unavailable, the system will recommend generic connectors instead.
          * @summary Upload csv to discover applications
-         * @param {ApplicationDiscoveryV1ApiSendManualDiscoverApplicationsCsvTemplateV1Request} requestParameters Request parameters.
+         * @param {ApplicationDiscoveryApiSendManualDiscoverApplicationsCsvTemplateV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        sendManualDiscoverApplicationsCsvTemplateV1(requestParameters: ApplicationDiscoveryV1ApiSendManualDiscoverApplicationsCsvTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        sendManualDiscoverApplicationsCsvTemplateV1(requestParameters: ApplicationDiscoveryApiSendManualDiscoverApplicationsCsvTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.sendManualDiscoverApplicationsCsvTemplateV1(requestParameters.file, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to discover applications.
          * @summary Start Application Discovery
-         * @param {ApplicationDiscoveryV1ApiStartApplicationDiscoveryV1Request} requestParameters Request parameters.
+         * @param {ApplicationDiscoveryApiStartApplicationDiscoveryV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startApplicationDiscoveryV1(requestParameters: ApplicationDiscoveryV1ApiStartApplicationDiscoveryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ApplicationdiscoveryresponseV1> {
-            return localVarFp.startApplicationDiscoveryV1(requestParameters.sourceId, requestParameters.applicationdiscoveryrequestV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        startApplicationDiscoveryV1(requestParameters: ApplicationDiscoveryApiStartApplicationDiscoveryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Applicationdiscoveryresponse> {
+            return localVarFp.startApplicationDiscoveryV1(requestParameters.sourceId, requestParameters.applicationdiscoveryrequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for getDiscoveredApplicationsV1 operation in ApplicationDiscoveryV1Api.
+ * Request parameters for getDiscoveredApplicationsV1 operation in ApplicationDiscoveryApi.
  * @export
- * @interface ApplicationDiscoveryV1ApiGetDiscoveredApplicationsV1Request
+ * @interface ApplicationDiscoveryApiGetDiscoveredApplicationsV1Request
  */
-export interface ApplicationDiscoveryV1ApiGetDiscoveredApplicationsV1Request {
+export interface ApplicationDiscoveryApiGetDiscoveredApplicationsV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof ApplicationDiscoveryV1ApiGetDiscoveredApplicationsV1
+     * @memberof ApplicationDiscoveryApiGetDiscoveredApplicationsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof ApplicationDiscoveryV1ApiGetDiscoveredApplicationsV1
+     * @memberof ApplicationDiscoveryApiGetDiscoveredApplicationsV1
      */
     readonly offset?: number
 
     /**
      * Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior.
      * @type {'SLIM' | 'FULL'}
-     * @memberof ApplicationDiscoveryV1ApiGetDiscoveredApplicationsV1
+     * @memberof ApplicationDiscoveryApiGetDiscoveredApplicationsV1
      */
-    readonly detail?: GetDiscoveredApplicationsV1DetailV1
+    readonly detail?: GetDiscoveredApplicationsV1DetailEnum
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in*  **discoverySourceName**: *eq, in*  **discoverySourceCategory**: *eq, in* 
      * @type {string}
-     * @memberof ApplicationDiscoveryV1ApiGetDiscoveredApplicationsV1
+     * @memberof ApplicationDiscoveryApiGetDiscoveredApplicationsV1
      */
     readonly filter?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource, discoverySourceName, discoverySourceCategory**
      * @type {string}
-     * @memberof ApplicationDiscoveryV1ApiGetDiscoveredApplicationsV1
+     * @memberof ApplicationDiscoveryApiGetDiscoveredApplicationsV1
      */
     readonly sorters?: string
 }
 
 /**
- * Request parameters for sendManualDiscoverApplicationsCsvTemplateV1 operation in ApplicationDiscoveryV1Api.
+ * Request parameters for sendManualDiscoverApplicationsCsvTemplateV1 operation in ApplicationDiscoveryApi.
  * @export
- * @interface ApplicationDiscoveryV1ApiSendManualDiscoverApplicationsCsvTemplateV1Request
+ * @interface ApplicationDiscoveryApiSendManualDiscoverApplicationsCsvTemplateV1Request
  */
-export interface ApplicationDiscoveryV1ApiSendManualDiscoverApplicationsCsvTemplateV1Request {
+export interface ApplicationDiscoveryApiSendManualDiscoverApplicationsCsvTemplateV1Request {
     /**
      * The CSV file to upload containing &#x60;application_name&#x60; and &#x60;description&#x60; columns. Each row represents an application to be discovered.
      * @type {File}
-     * @memberof ApplicationDiscoveryV1ApiSendManualDiscoverApplicationsCsvTemplateV1
+     * @memberof ApplicationDiscoveryApiSendManualDiscoverApplicationsCsvTemplateV1
      */
     readonly file: File
 }
 
 /**
- * Request parameters for startApplicationDiscoveryV1 operation in ApplicationDiscoveryV1Api.
+ * Request parameters for startApplicationDiscoveryV1 operation in ApplicationDiscoveryApi.
  * @export
- * @interface ApplicationDiscoveryV1ApiStartApplicationDiscoveryV1Request
+ * @interface ApplicationDiscoveryApiStartApplicationDiscoveryV1Request
  */
-export interface ApplicationDiscoveryV1ApiStartApplicationDiscoveryV1Request {
+export interface ApplicationDiscoveryApiStartApplicationDiscoveryV1Request {
     /**
      * The sourceId.
      * @type {string}
-     * @memberof ApplicationDiscoveryV1ApiStartApplicationDiscoveryV1
+     * @memberof ApplicationDiscoveryApiStartApplicationDiscoveryV1
      */
     readonly sourceId: string
 
     /**
      * 
-     * @type {ApplicationdiscoveryrequestV1}
-     * @memberof ApplicationDiscoveryV1ApiStartApplicationDiscoveryV1
+     * @type {Applicationdiscoveryrequest}
+     * @memberof ApplicationDiscoveryApiStartApplicationDiscoveryV1
      */
-    readonly applicationdiscoveryrequestV1: ApplicationdiscoveryrequestV1
+    readonly applicationdiscoveryrequest: Applicationdiscoveryrequest
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof ApplicationDiscoveryV1ApiStartApplicationDiscoveryV1
+     * @memberof ApplicationDiscoveryApiStartApplicationDiscoveryV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * ApplicationDiscoveryV1Api - object-oriented interface
+ * ApplicationDiscoveryApi - object-oriented interface
  * @export
- * @class ApplicationDiscoveryV1Api
+ * @class ApplicationDiscoveryApi
  * @extends {BaseAPI}
  */
-export class ApplicationDiscoveryV1Api extends BaseAPI {
+export class ApplicationDiscoveryApi extends BaseAPI {
     /**
      * Get a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors. 
      * @summary Get discovered applications for tenant
-     * @param {ApplicationDiscoveryV1ApiGetDiscoveredApplicationsV1Request} requestParameters Request parameters.
+     * @param {ApplicationDiscoveryApiGetDiscoveredApplicationsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApplicationDiscoveryV1Api
+     * @memberof ApplicationDiscoveryApi
      */
-    public getDiscoveredApplicationsV1(requestParameters: ApplicationDiscoveryV1ApiGetDiscoveredApplicationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return ApplicationDiscoveryV1ApiFp(this.configuration).getDiscoveredApplicationsV1(requestParameters.limit, requestParameters.offset, requestParameters.detail, requestParameters.filter, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getDiscoveredApplicationsV1(requestParameters: ApplicationDiscoveryApiGetDiscoveredApplicationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return ApplicationDiscoveryApiFp(this.configuration).getDiscoveredApplicationsV1(requestParameters.limit, requestParameters.offset, requestParameters.detail, requestParameters.filter, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1365,44 +1365,44 @@ export class ApplicationDiscoveryV1Api extends BaseAPI {
      * @summary Download csv template for discovery
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApplicationDiscoveryV1Api
+     * @memberof ApplicationDiscoveryApi
      */
     public getManualDiscoverApplicationsCsvTemplateV1(axiosOptions?: RawAxiosRequestConfig) {
-        return ApplicationDiscoveryV1ApiFp(this.configuration).getManualDiscoverApplicationsCsvTemplateV1(axiosOptions).then((request) => request(this.axios, this.basePath));
+        return ApplicationDiscoveryApiFp(this.configuration).getManualDiscoverApplicationsCsvTemplateV1(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Uploading a CSV file with application data for manual correlation to specific ISC connectors.  If a suitable ISC connector is unavailable, the system will recommend generic connectors instead.
      * @summary Upload csv to discover applications
-     * @param {ApplicationDiscoveryV1ApiSendManualDiscoverApplicationsCsvTemplateV1Request} requestParameters Request parameters.
+     * @param {ApplicationDiscoveryApiSendManualDiscoverApplicationsCsvTemplateV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApplicationDiscoveryV1Api
+     * @memberof ApplicationDiscoveryApi
      */
-    public sendManualDiscoverApplicationsCsvTemplateV1(requestParameters: ApplicationDiscoveryV1ApiSendManualDiscoverApplicationsCsvTemplateV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ApplicationDiscoveryV1ApiFp(this.configuration).sendManualDiscoverApplicationsCsvTemplateV1(requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public sendManualDiscoverApplicationsCsvTemplateV1(requestParameters: ApplicationDiscoveryApiSendManualDiscoverApplicationsCsvTemplateV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ApplicationDiscoveryApiFp(this.configuration).sendManualDiscoverApplicationsCsvTemplateV1(requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to discover applications.
      * @summary Start Application Discovery
-     * @param {ApplicationDiscoveryV1ApiStartApplicationDiscoveryV1Request} requestParameters Request parameters.
+     * @param {ApplicationDiscoveryApiStartApplicationDiscoveryV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof ApplicationDiscoveryV1Api
+     * @memberof ApplicationDiscoveryApi
      */
-    public startApplicationDiscoveryV1(requestParameters: ApplicationDiscoveryV1ApiStartApplicationDiscoveryV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ApplicationDiscoveryV1ApiFp(this.configuration).startApplicationDiscoveryV1(requestParameters.sourceId, requestParameters.applicationdiscoveryrequestV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public startApplicationDiscoveryV1(requestParameters: ApplicationDiscoveryApiStartApplicationDiscoveryV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return ApplicationDiscoveryApiFp(this.configuration).startApplicationDiscoveryV1(requestParameters.sourceId, requestParameters.applicationdiscoveryrequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
 /**
  * @export
  */
-export const GetDiscoveredApplicationsV1DetailV1 = {
+export const GetDiscoveredApplicationsV1DetailEnum = {
     Slim: 'SLIM',
     Full: 'FULL'
 } as const;
-export type GetDiscoveredApplicationsV1DetailV1 = typeof GetDiscoveredApplicationsV1DetailV1[keyof typeof GetDiscoveredApplicationsV1DetailV1];
+export type GetDiscoveredApplicationsV1DetailEnum = typeof GetDiscoveredApplicationsV1DetailEnum[keyof typeof GetDiscoveredApplicationsV1DetailEnum];
 
 

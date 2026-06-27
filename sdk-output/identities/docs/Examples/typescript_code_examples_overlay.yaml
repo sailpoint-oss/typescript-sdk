@@ -4,15 +4,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identities/methods/identities#delete-identity-v1
       source: |
-        import { IdentitiesV1Api } from 'sailpoint-api-client';
+        import { IdentitiesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IdentitiesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new IdentitiesApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Identity Id (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.deleteIdentityV1(id);
+        const result = await apiInstance.deleteIdentityV1({ id: id });
         console.log(result);
 - path: /identities/v1/{identityId}/ownership
   method: GET
@@ -20,14 +19,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identities/methods/identities#get-identity-ownership-details-v1
       source: |
-        import { IdentitiesV1Api } from 'sailpoint-api-client';
+        import { IdentitiesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IdentitiesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new IdentitiesApi(configuration);
         const identityId: string = 'ff8081814d2a8036014d701f3fbf53fa'; // string | Identity ID. (default to undefined)
-        const result = await apiInstance.getIdentityOwnershipDetailsV1(identityId);
+        const result = await apiInstance.getIdentityOwnershipDetailsV1({ identityId: identityId });
         console.log(result);
 - path: /identities/v1/{id}
   method: GET
@@ -35,14 +33,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identities/methods/identities#get-identity-v1
       source: |
-        import { IdentitiesV1Api } from 'sailpoint-api-client';
+        import { IdentitiesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IdentitiesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new IdentitiesApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Identity Id (default to undefined)
-        const result = await apiInstance.getIdentityV1(id);
+        const result = await apiInstance.getIdentityV1({ id: id });
         console.log(result);
 - path: /identities/v1/{identityId}/role-assignments/{assignmentId}
   method: GET
@@ -50,15 +47,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identities/methods/identities#get-role-assignment-v1
       source: |
-        import { IdentitiesV1Api } from 'sailpoint-api-client';
+        import { IdentitiesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IdentitiesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new IdentitiesApi(configuration);
         const identityId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Identity Id (default to undefined)
         const assignmentId: string = '1cbb0705b38c4226b1334eadd8874086'; // string | Assignment Id (default to undefined)
-        const result = await apiInstance.getRoleAssignmentV1(identityId, assignmentId);
+        const result = await apiInstance.getRoleAssignmentV1({ identityId: identityId, assignmentId: assignmentId });
         console.log(result);
 - path: /identities/v1/{identityId}/role-assignments
   method: GET
@@ -66,16 +62,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identities/methods/identities#get-role-assignments-v1
       source: |
-        import { IdentitiesV1Api } from 'sailpoint-api-client';
+        import { IdentitiesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IdentitiesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new IdentitiesApi(configuration);
         const identityId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Identity Id to get the role assignments for (default to undefined)
         const roleId: string = 'e7697a1e96d04db1ac7b0f4544915d2c'; // string | Role Id to filter the role assignments with (optional) (default to undefined)
         const roleName: string = 'Engineer'; // string | Role name to filter the role assignments with (optional) (default to undefined)
-        const result = await apiInstance.getRoleAssignmentsV1(identityId);
+        const result = await apiInstance.getRoleAssignmentsV1({ identityId: identityId });
         console.log(result);
 - path: /entitlements/v1/identities/{id}/entitlements
   method: GET
@@ -83,17 +78,16 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identities/methods/identities#list-entitlements-by-identity-v1
       source: |
-        import { IdentitiesV1Api } from 'sailpoint-api-client';
+        import { IdentitiesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IdentitiesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new IdentitiesApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Identity Id (default to undefined)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
-        const result = await apiInstance.listEntitlementsByIdentityV1(id);
+        const result = await apiInstance.listEntitlementsByIdentityV1({ id: id });
         console.log(result);
 - path: /identities/v1
   method: GET
@@ -101,19 +95,18 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identities/methods/identities#list-identities-v1
       source: |
-        import { IdentitiesV1Api } from 'sailpoint-api-client';
+        import { IdentitiesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IdentitiesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new IdentitiesApi(configuration);
         const filters: string = 'id eq "6c9079b270a266a60170a2779fcb0006" or correlated eq false'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq* (optional) (default to undefined)
         const sorters: string = 'name,-cloudStatus'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus** (optional) (default to undefined)
         const defaultFilter: string = 'NONE'; // 'CORRELATED_ONLY' | 'NONE' | Adds additional filter to filters query parameter.  CORRELATED_ONLY adds correlated=true and returns only identities that are correlated.  NONE does not add any and returns all identities that satisfy filters query parameter. (optional) (default to 'CORRELATED_ONLY')
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        const result = await apiInstance.listIdentitiesV1();
+        const result = await apiInstance.listIdentitiesV1({  });
         console.log(result);
 - path: /identities/v1/{id}/reset
   method: POST
@@ -121,14 +114,13 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identities/methods/identities#reset-identity-v1
       source: |
-        import { IdentitiesV1Api } from 'sailpoint-api-client';
+        import { IdentitiesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IdentitiesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new IdentitiesApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Identity Id (default to undefined)
-        const result = await apiInstance.resetIdentityV1(id);
+        const result = await apiInstance.resetIdentityV1({ id: id });
         console.log(result);
 - path: /identities/v1/{id}/verification/account/send
   method: POST
@@ -136,16 +128,15 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identities/methods/identities#send-identity-verification-account-token-v1
       source: |
-        import { IdentitiesV1Api } from 'sailpoint-api-client';
+        import { IdentitiesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IdentitiesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new IdentitiesApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Identity ID (default to undefined)
-        const sendaccountverificationrequestV1: SendaccountverificationrequestV1 = ; // SendaccountverificationrequestV1 | 
+        const sendaccountverificationrequest: Sendaccountverificationrequest = ; // Sendaccountverificationrequest | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.sendIdentityVerificationAccountTokenV1(id, sendaccountverificationrequestV1);
+        const result = await apiInstance.sendIdentityVerificationAccountTokenV1({ id: id, sendaccountverificationrequest: sendaccountverificationrequest });
         console.log(result);
 - path: /identities/v1/invite
   method: POST
@@ -153,15 +144,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identities/methods/identities#start-identities-invite-v1
       source: |
-        import { IdentitiesV1Api } from 'sailpoint-api-client';
+        import { IdentitiesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IdentitiesV1Api(configuration);
-        const inviteidentitiesrequestV1: InviteidentitiesrequestV1 = ; // InviteidentitiesrequestV1 | 
+        const configuration = new Configuration();
+        const apiInstance = new IdentitiesApi(configuration);
+        const inviteidentitiesrequest: Inviteidentitiesrequest = ; // Inviteidentitiesrequest | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.startIdentitiesInviteV1(inviteidentitiesrequestV1);
+        const result = await apiInstance.startIdentitiesInviteV1({ inviteidentitiesrequest: inviteidentitiesrequest });
         console.log(result);
 - path: /identities/v1/process
   method: POST
@@ -169,15 +159,14 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identities/methods/identities#start-identity-processing-v1
       source: |
-        import { IdentitiesV1Api } from 'sailpoint-api-client';
+        import { IdentitiesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IdentitiesV1Api(configuration);
-        const processidentitiesrequestV1: ProcessidentitiesrequestV1 = ; // ProcessidentitiesrequestV1 | 
+        const configuration = new Configuration();
+        const apiInstance = new IdentitiesApi(configuration);
+        const processidentitiesrequest: Processidentitiesrequest = ; // Processidentitiesrequest | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.startIdentityProcessingV1(processidentitiesrequestV1);
+        const result = await apiInstance.startIdentityProcessingV1({ processidentitiesrequest: processidentitiesrequest });
         console.log(result);
 - path: /identities/v1/{identityId}/synchronize-attributes
   method: POST
@@ -185,13 +174,12 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identities/methods/identities#synchronize-attributes-for-identity-v1
       source: |
-        import { IdentitiesV1Api } from 'sailpoint-api-client';
+        import { IdentitiesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new IdentitiesV1Api(configuration);
+        const configuration = new Configuration();
+        const apiInstance = new IdentitiesApi(configuration);
         const identityId: string = 'identityId_example'; // string | The Identity id (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.synchronizeAttributesForIdentityV1(identityId);
+        const result = await apiInstance.synchronizeAttributesForIdentityV1({ identityId: identityId });
         console.log(result);

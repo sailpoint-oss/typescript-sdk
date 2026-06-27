@@ -1,21 +1,21 @@
 ---
-id: v1-outlierfeaturesummary-outlier-feature-display-values-inner-v1
-title: OutlierfeaturesummaryOutlierFeatureDisplayValuesInnerV1
-pagination_label: OutlierfeaturesummaryOutlierFeatureDisplayValuesInnerV1
-sidebar_label: OutlierfeaturesummaryOutlierFeatureDisplayValuesInnerV1
+id: v1-outlierfeaturesummary-outlier-feature-display-values-inner
+title: OutlierfeaturesummaryOutlierFeatureDisplayValuesInner
+pagination_label: OutlierfeaturesummaryOutlierFeatureDisplayValuesInner
+sidebar_label: OutlierfeaturesummaryOutlierFeatureDisplayValuesInner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'OutlierfeaturesummaryOutlierFeatureDisplayValuesInnerV1', 'v1OutlierfeaturesummaryOutlierFeatureDisplayValuesInnerV1']
-slug: /tools/sdk/typescript/iai_outliers/models/outlierfeaturesummary-outlier-feature-display-values-inner-v1
-tags: ['SDK', 'Software Development Kit', 'OutlierfeaturesummaryOutlierFeatureDisplayValuesInnerV1', 'v1OutlierfeaturesummaryOutlierFeatureDisplayValuesInnerV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'OutlierfeaturesummaryOutlierFeatureDisplayValuesInner', 'v1OutlierfeaturesummaryOutlierFeatureDisplayValuesInner']
+slug: /tools/sdk/typescript/iai_outliers/models/outlierfeaturesummary-outlier-feature-display-values-inner
+tags: ['SDK', 'Software Development Kit', 'OutlierfeaturesummaryOutlierFeatureDisplayValuesInner', 'v1OutlierfeaturesummaryOutlierFeatureDisplayValuesInner']
 ---
 
-# OutlierfeaturesummaryOutlierFeatureDisplayValuesInnerV1
+# OutlierfeaturesummaryOutlierFeatureDisplayValuesInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**displayName** | **(optional)** **string** | display name | [default to undefined]
-**value** | **(optional)** **string** | value | [default to undefined]
-**valueType** | **(optional)** **OutliervaluetypeV1** |  | [default to undefined]
+**displayName** | **(optional)** `string` | display name | [default to undefined]
+**value** | **(optional)** `string` | value | [default to undefined]
+**valueType** | **(optional)** `Outliervaluetype` |  | [default to undefined]
 

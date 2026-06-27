@@ -1,15 +1,15 @@
 ---
-id: v1-jitaccessoperationrequest-value-v1
-title: JitaccessoperationrequestValueV1
-pagination_label: JitaccessoperationrequestValueV1
-sidebar_label: JitaccessoperationrequestValueV1
+id: v1-jitaccessoperationrequest-value
+title: JitaccessoperationrequestValue
+pagination_label: JitaccessoperationrequestValue
+sidebar_label: JitaccessoperationrequestValue
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'JitaccessoperationrequestValueV1', 'v1JitaccessoperationrequestValueV1']
-slug: /tools/sdk/typescript/jit_access/models/jitaccessoperationrequest-value-v1
-tags: ['SDK', 'Software Development Kit', 'JitaccessoperationrequestValueV1', 'v1JitaccessoperationrequestValueV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'JitaccessoperationrequestValue', 'v1JitaccessoperationrequestValue']
+slug: /tools/sdk/typescript/jit_access/models/jitaccessoperationrequest-value
+tags: ['SDK', 'Software Development Kit', 'JitaccessoperationrequestValue', 'v1JitaccessoperationrequestValue']
 ---
 
-# JitaccessoperationrequestValueV1
+# JitaccessoperationrequestValue
 
 ## Properties
 

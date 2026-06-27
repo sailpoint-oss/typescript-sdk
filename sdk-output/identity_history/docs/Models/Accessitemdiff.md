@@ -1,22 +1,22 @@
 ---
-id: v1-accessitemdiff-v1
-title: AccessitemdiffV1
-pagination_label: AccessitemdiffV1
-sidebar_label: AccessitemdiffV1
+id: v1-accessitemdiff
+title: Accessitemdiff
+pagination_label: Accessitemdiff
+sidebar_label: Accessitemdiff
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AccessitemdiffV1', 'v1AccessitemdiffV1']
-slug: /tools/sdk/typescript/identity_history/models/accessitemdiff-v1
-tags: ['SDK', 'Software Development Kit', 'AccessitemdiffV1', 'v1AccessitemdiffV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Accessitemdiff', 'v1Accessitemdiff']
+slug: /tools/sdk/typescript/identity_history/models/accessitemdiff
+tags: ['SDK', 'Software Development Kit', 'Accessitemdiff', 'v1Accessitemdiff']
 ---
 
-# AccessitemdiffV1
+# Accessitemdiff
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **(optional)** **string** | the id of the access item | [default to undefined]
-**eventType** | **(optional)** **string** |  | [default to undefined]
-**displayName** | **(optional)** **string** | the display name of the access item | [default to undefined]
-**sourceName** | **(optional)** **string** | the source name of the access item | [default to undefined]
+**id** | **(optional)** `string` | the id of the access item | [default to undefined]
+**eventType** | **(optional)** `string` |  | [default to undefined]
+**displayName** | **(optional)** `string` | the display name of the access item | [default to undefined]
+**sourceName** | **(optional)** `string` | the source name of the access item | [default to undefined]
 

@@ -1,15 +1,15 @@
 ---
-id: v1-completedapprovalstate-v1
-title: CompletedapprovalstateV1
-pagination_label: CompletedapprovalstateV1
-sidebar_label: CompletedapprovalstateV1
+id: v1-completedapprovalstate
+title: Completedapprovalstate
+pagination_label: Completedapprovalstate
+sidebar_label: Completedapprovalstate
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'CompletedapprovalstateV1', 'v1CompletedapprovalstateV1']
-slug: /tools/sdk/typescript/access_request_approvals/models/completedapprovalstate-v1
-tags: ['SDK', 'Software Development Kit', 'CompletedapprovalstateV1', 'v1CompletedapprovalstateV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Completedapprovalstate', 'v1Completedapprovalstate']
+slug: /tools/sdk/typescript/access_request_approvals/models/completedapprovalstate
+tags: ['SDK', 'Software Development Kit', 'Completedapprovalstate', 'v1Completedapprovalstate']
 ---
 
-# CompletedapprovalstateV1
+# Completedapprovalstate
 
 ## Enum
 

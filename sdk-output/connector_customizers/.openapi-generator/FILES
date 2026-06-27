@@ -1,8 +1,8 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
-ConnectorCustomizersV1Api.md
-ConnectorCustomizersV1ApideveloperSite_code_examples.yaml
+ConnectorCustomizersApi.md
+ConnectorCustomizersApideveloperSite_code_examples.yaml
 Connectorcustomizercreaterequest.md
 Connectorcustomizercreateresponse.md
 Connectorcustomizersresponse.md

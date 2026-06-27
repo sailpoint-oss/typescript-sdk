@@ -1,20 +1,20 @@
 ---
-id: v1-identitypreviewrequest-v1
-title: IdentitypreviewrequestV1
-pagination_label: IdentitypreviewrequestV1
-sidebar_label: IdentitypreviewrequestV1
+id: v1-identitypreviewrequest
+title: Identitypreviewrequest
+pagination_label: Identitypreviewrequest
+sidebar_label: Identitypreviewrequest
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'IdentitypreviewrequestV1', 'v1IdentitypreviewrequestV1']
-slug: /tools/sdk/typescript/identity_profiles/models/identitypreviewrequest-v1
-tags: ['SDK', 'Software Development Kit', 'IdentitypreviewrequestV1', 'v1IdentitypreviewrequestV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Identitypreviewrequest', 'v1Identitypreviewrequest']
+slug: /tools/sdk/typescript/identity_profiles/models/identitypreviewrequest
+tags: ['SDK', 'Software Development Kit', 'Identitypreviewrequest', 'v1Identitypreviewrequest']
 ---
 
-# IdentitypreviewrequestV1
+# Identitypreviewrequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identityId** | **(optional)** **string** | The Identity id | [default to undefined]
-**identityAttributeConfig** | **(optional)** **IdentityattributeconfigV1** |  | [default to undefined]
+**identityId** | **(optional)** `string` | The Identity id | [default to undefined]
+**identityAttributeConfig** | **(optional)** `Identityattributeconfig` |  | [default to undefined]
 

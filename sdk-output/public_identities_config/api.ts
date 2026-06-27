@@ -29,7 +29,7 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
  * @enum {string}
  */
 
-export const DtotypeV1 = {
+export const Dtotype = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
@@ -61,31 +61,31 @@ export const DtotypeV1 = {
     Workgroup: 'WORKGROUP'
 } as const;
 
-export type DtotypeV1 = typeof DtotypeV1[keyof typeof DtotypeV1];
+export type Dtotype = typeof Dtotype[keyof typeof Dtotype];
 
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -94,82 +94,82 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetPublicIdentityConfigV1401ResponseV1
+ * @interface GetPublicIdentityConfigV1401Response
  */
-export interface GetPublicIdentityConfigV1401ResponseV1 {
+export interface GetPublicIdentityConfigV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetPublicIdentityConfigV1401ResponseV1
+     * @memberof GetPublicIdentityConfigV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetPublicIdentityConfigV1429ResponseV1
+ * @interface GetPublicIdentityConfigV1429Response
  */
-export interface GetPublicIdentityConfigV1429ResponseV1 {
+export interface GetPublicIdentityConfigV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetPublicIdentityConfigV1429ResponseV1
+     * @memberof GetPublicIdentityConfigV1429Response
      */
     'message'?: any;
 }
 /**
  * The manager for the identity.
  * @export
- * @interface IdentityreferenceV1
+ * @interface Identityreference
  */
-export interface IdentityreferenceV1 {
+export interface Identityreference {
     /**
      * 
-     * @type {DtotypeV1}
-     * @memberof IdentityreferenceV1
+     * @type {Dtotype}
+     * @memberof Identityreference
      */
-    'type'?: DtotypeV1;
+    'type'?: Dtotype;
     /**
      * Identity id
      * @type {string}
-     * @memberof IdentityreferenceV1
+     * @memberof Identityreference
      */
     'id'?: string;
     /**
      * Human-readable display name of identity.
      * @type {string}
-     * @memberof IdentityreferenceV1
+     * @memberof Identityreference
      */
     'name'?: string;
 }
@@ -181,64 +181,64 @@ export interface IdentityreferenceV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * Used to map an attribute key for an Identity to its display name.
  * @export
- * @interface PublicidentityattributeconfigV1
+ * @interface Publicidentityattributeconfig
  */
-export interface PublicidentityattributeconfigV1 {
+export interface Publicidentityattributeconfig {
     /**
      * The attribute key
      * @type {string}
-     * @memberof PublicidentityattributeconfigV1
+     * @memberof Publicidentityattributeconfig
      */
     'key'?: string;
     /**
      * The attribute display name
      * @type {string}
-     * @memberof PublicidentityattributeconfigV1
+     * @memberof Publicidentityattributeconfig
      */
     'name'?: string;
 }
 /**
  * Details of up to 5 Identity attributes that will be publicly accessible for all Identities to anyone in the org.
  * @export
- * @interface PublicidentityconfigV1
+ * @interface Publicidentityconfig
  */
-export interface PublicidentityconfigV1 {
+export interface Publicidentityconfig {
     /**
      * Up to 5 identity attributes that will be available to everyone in the org for all users in the org.
-     * @type {Array<PublicidentityattributeconfigV1>}
-     * @memberof PublicidentityconfigV1
+     * @type {Array<Publicidentityattributeconfig>}
+     * @memberof Publicidentityconfig
      */
-    'attributes'?: Array<PublicidentityattributeconfigV1>;
+    'attributes'?: Array<Publicidentityattributeconfig>;
     /**
      * When this configuration was last modified.
      * @type {string}
-     * @memberof PublicidentityconfigV1
+     * @memberof Publicidentityconfig
      */
     'modified'?: string | null;
     /**
      * 
-     * @type {IdentityreferenceV1}
-     * @memberof PublicidentityconfigV1
+     * @type {Identityreference}
+     * @memberof Publicidentityconfig
      */
-    'modifiedBy'?: IdentityreferenceV1 | null;
+    'modifiedBy'?: Identityreference | null;
 }
 
 /**
- * PublicIdentitiesConfigV1Api - axios parameter creator
+ * PublicIdentitiesConfigApi - axios parameter creator
  * @export
  */
-export const PublicIdentitiesConfigV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const PublicIdentitiesConfigApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Returns the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
@@ -273,13 +273,13 @@ export const PublicIdentitiesConfigV1ApiAxiosParamCreator = function (configurat
         /**
          * Updates the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
          * @summary Update the public identities configuration
-         * @param {PublicidentityconfigV1} publicidentityconfigV1 
+         * @param {Publicidentityconfig} publicidentityconfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updatePublicIdentityConfigV1: async (publicidentityconfigV1: PublicidentityconfigV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'publicidentityconfigV1' is not null or undefined
-            assertParamExists('updatePublicIdentityConfigV1', 'publicidentityconfigV1', publicidentityconfigV1)
+        updatePublicIdentityConfigV1: async (publicidentityconfig: Publicidentityconfig, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'publicidentityconfig' is not null or undefined
+            assertParamExists('updatePublicIdentityConfigV1', 'publicidentityconfig', publicidentityconfig)
             const localVarPath = `/public-identities-config/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -299,7 +299,7 @@ export const PublicIdentitiesConfigV1ApiAxiosParamCreator = function (configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(publicidentityconfigV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(publicidentityconfig, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -310,11 +310,11 @@ export const PublicIdentitiesConfigV1ApiAxiosParamCreator = function (configurat
 };
 
 /**
- * PublicIdentitiesConfigV1Api - functional programming interface
+ * PublicIdentitiesConfigApi - functional programming interface
  * @export
  */
-export const PublicIdentitiesConfigV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = PublicIdentitiesConfigV1ApiAxiosParamCreator(configuration)
+export const PublicIdentitiesConfigApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = PublicIdentitiesConfigApiAxiosParamCreator(configuration)
     return {
         /**
          * Returns the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
@@ -322,34 +322,34 @@ export const PublicIdentitiesConfigV1ApiFp = function(configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPublicIdentityConfigV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PublicidentityconfigV1>> {
+        async getPublicIdentityConfigV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Publicidentityconfig>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPublicIdentityConfigV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PublicIdentitiesConfigV1Api.getPublicIdentityConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PublicIdentitiesConfigApi.getPublicIdentityConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Updates the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
          * @summary Update the public identities configuration
-         * @param {PublicidentityconfigV1} publicidentityconfigV1 
+         * @param {Publicidentityconfig} publicidentityconfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updatePublicIdentityConfigV1(publicidentityconfigV1: PublicidentityconfigV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PublicidentityconfigV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePublicIdentityConfigV1(publicidentityconfigV1, axiosOptions);
+        async updatePublicIdentityConfigV1(publicidentityconfig: Publicidentityconfig, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Publicidentityconfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePublicIdentityConfigV1(publicidentityconfig, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PublicIdentitiesConfigV1Api.updatePublicIdentityConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PublicIdentitiesConfigApi.updatePublicIdentityConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * PublicIdentitiesConfigV1Api - factory interface
+ * PublicIdentitiesConfigApi - factory interface
  * @export
  */
-export const PublicIdentitiesConfigV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = PublicIdentitiesConfigV1ApiFp(configuration)
+export const PublicIdentitiesConfigApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = PublicIdentitiesConfigApiFp(configuration)
     return {
         /**
          * Returns the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
@@ -357,64 +357,64 @@ export const PublicIdentitiesConfigV1ApiFactory = function (configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getPublicIdentityConfigV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PublicidentityconfigV1> {
+        getPublicIdentityConfigV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Publicidentityconfig> {
             return localVarFp.getPublicIdentityConfigV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Updates the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
          * @summary Update the public identities configuration
-         * @param {PublicIdentitiesConfigV1ApiUpdatePublicIdentityConfigV1Request} requestParameters Request parameters.
+         * @param {PublicIdentitiesConfigApiUpdatePublicIdentityConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updatePublicIdentityConfigV1(requestParameters: PublicIdentitiesConfigV1ApiUpdatePublicIdentityConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PublicidentityconfigV1> {
-            return localVarFp.updatePublicIdentityConfigV1(requestParameters.publicidentityconfigV1, axiosOptions).then((request) => request(axios, basePath));
+        updatePublicIdentityConfigV1(requestParameters: PublicIdentitiesConfigApiUpdatePublicIdentityConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Publicidentityconfig> {
+            return localVarFp.updatePublicIdentityConfigV1(requestParameters.publicidentityconfig, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for updatePublicIdentityConfigV1 operation in PublicIdentitiesConfigV1Api.
+ * Request parameters for updatePublicIdentityConfigV1 operation in PublicIdentitiesConfigApi.
  * @export
- * @interface PublicIdentitiesConfigV1ApiUpdatePublicIdentityConfigV1Request
+ * @interface PublicIdentitiesConfigApiUpdatePublicIdentityConfigV1Request
  */
-export interface PublicIdentitiesConfigV1ApiUpdatePublicIdentityConfigV1Request {
+export interface PublicIdentitiesConfigApiUpdatePublicIdentityConfigV1Request {
     /**
      * 
-     * @type {PublicidentityconfigV1}
-     * @memberof PublicIdentitiesConfigV1ApiUpdatePublicIdentityConfigV1
+     * @type {Publicidentityconfig}
+     * @memberof PublicIdentitiesConfigApiUpdatePublicIdentityConfigV1
      */
-    readonly publicidentityconfigV1: PublicidentityconfigV1
+    readonly publicidentityconfig: Publicidentityconfig
 }
 
 /**
- * PublicIdentitiesConfigV1Api - object-oriented interface
+ * PublicIdentitiesConfigApi - object-oriented interface
  * @export
- * @class PublicIdentitiesConfigV1Api
+ * @class PublicIdentitiesConfigApi
  * @extends {BaseAPI}
  */
-export class PublicIdentitiesConfigV1Api extends BaseAPI {
+export class PublicIdentitiesConfigApi extends BaseAPI {
     /**
      * Returns the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
      * @summary Get the public identities configuration
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof PublicIdentitiesConfigV1Api
+     * @memberof PublicIdentitiesConfigApi
      */
     public getPublicIdentityConfigV1(axiosOptions?: RawAxiosRequestConfig) {
-        return PublicIdentitiesConfigV1ApiFp(this.configuration).getPublicIdentityConfigV1(axiosOptions).then((request) => request(this.axios, this.basePath));
+        return PublicIdentitiesConfigApiFp(this.configuration).getPublicIdentityConfigV1(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Updates the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
      * @summary Update the public identities configuration
-     * @param {PublicIdentitiesConfigV1ApiUpdatePublicIdentityConfigV1Request} requestParameters Request parameters.
+     * @param {PublicIdentitiesConfigApiUpdatePublicIdentityConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof PublicIdentitiesConfigV1Api
+     * @memberof PublicIdentitiesConfigApi
      */
-    public updatePublicIdentityConfigV1(requestParameters: PublicIdentitiesConfigV1ApiUpdatePublicIdentityConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return PublicIdentitiesConfigV1ApiFp(this.configuration).updatePublicIdentityConfigV1(requestParameters.publicidentityconfigV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updatePublicIdentityConfigV1(requestParameters: PublicIdentitiesConfigApiUpdatePublicIdentityConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return PublicIdentitiesConfigApiFp(this.configuration).updatePublicIdentityConfigV1(requestParameters.publicidentityconfig, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

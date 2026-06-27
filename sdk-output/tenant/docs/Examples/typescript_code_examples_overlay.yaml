@@ -4,11 +4,10 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/tenant/methods/tenant#get-tenant-v1
       source: |
-        import { TenantV1Api } from 'sailpoint-api-client';
+        import { TenantApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { createConfiguration } from 'sailpoint-api-client';
 
-        const configuration = createConfiguration();
-        const apiInstance = new TenantV1Api(configuration);
-        const result = await apiInstance.getTenantV1();
+        const configuration = new Configuration();
+        const apiInstance = new TenantApi(configuration);
+        const result = await apiInstance.getTenantV1({  });
         console.log(result);

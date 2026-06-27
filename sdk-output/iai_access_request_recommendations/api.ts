@@ -26,242 +26,242 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface AccessrecommendationmessageV1
+ * @interface Accessrecommendationmessage
  */
-export interface AccessrecommendationmessageV1 {
+export interface Accessrecommendationmessage {
     /**
      * Information about why the access item was recommended.
      * @type {string}
-     * @memberof AccessrecommendationmessageV1
+     * @memberof Accessrecommendationmessage
      */
     'interpretation'?: string;
 }
 /**
  * 
  * @export
- * @interface AccessrequestrecommendationactionitemdtoV1
+ * @interface Accessrequestrecommendationactionitemdto
  */
-export interface AccessrequestrecommendationactionitemdtoV1 {
+export interface Accessrequestrecommendationactionitemdto {
     /**
      * The identity ID taking the action.
      * @type {string}
-     * @memberof AccessrequestrecommendationactionitemdtoV1
+     * @memberof Accessrequestrecommendationactionitemdto
      */
     'identityId': string;
     /**
      * 
-     * @type {AccessrequestrecommendationitemV1}
-     * @memberof AccessrequestrecommendationactionitemdtoV1
+     * @type {Accessrequestrecommendationitem}
+     * @memberof Accessrequestrecommendationactionitemdto
      */
-    'access': AccessrequestrecommendationitemV1;
+    'access': Accessrequestrecommendationitem;
 }
 /**
  * 
  * @export
- * @interface AccessrequestrecommendationactionitemresponsedtoV1
+ * @interface Accessrequestrecommendationactionitemresponsedto
  */
-export interface AccessrequestrecommendationactionitemresponsedtoV1 {
+export interface Accessrequestrecommendationactionitemresponsedto {
     /**
      * The identity ID taking the action.
      * @type {string}
-     * @memberof AccessrequestrecommendationactionitemresponsedtoV1
+     * @memberof Accessrequestrecommendationactionitemresponsedto
      */
     'identityId'?: string;
     /**
      * 
-     * @type {AccessrequestrecommendationitemV1}
-     * @memberof AccessrequestrecommendationactionitemresponsedtoV1
+     * @type {Accessrequestrecommendationitem}
+     * @memberof Accessrequestrecommendationactionitemresponsedto
      */
-    'access'?: AccessrequestrecommendationitemV1;
+    'access'?: Accessrequestrecommendationitem;
     /**
      * 
      * @type {string}
-     * @memberof AccessrequestrecommendationactionitemresponsedtoV1
+     * @memberof Accessrequestrecommendationactionitemresponsedto
      */
     'timestamp'?: string;
 }
 /**
  * 
  * @export
- * @interface AccessrequestrecommendationconfigdtoV1
+ * @interface Accessrequestrecommendationconfigdto
  */
-export interface AccessrequestrecommendationconfigdtoV1 {
+export interface Accessrequestrecommendationconfigdto {
     /**
      * The value that internal calculations need to exceed for recommendations to be made.
      * @type {number}
-     * @memberof AccessrequestrecommendationconfigdtoV1
+     * @memberof Accessrequestrecommendationconfigdto
      */
     'scoreThreshold': number;
     /**
      * Use to map an attribute name for determining identities\' start date.
      * @type {string}
-     * @memberof AccessrequestrecommendationconfigdtoV1
+     * @memberof Accessrequestrecommendationconfigdto
      */
     'startDateAttribute'?: string;
     /**
      * Use to only give recommendations based on this attribute.
      * @type {string}
-     * @memberof AccessrequestrecommendationconfigdtoV1
+     * @memberof Accessrequestrecommendationconfigdto
      */
     'restrictionAttribute'?: string;
     /**
      * Use to map an attribute name for determining whether identities are movers.
      * @type {string}
-     * @memberof AccessrequestrecommendationconfigdtoV1
+     * @memberof Accessrequestrecommendationconfigdto
      */
     'moverAttribute'?: string;
     /**
      * Use to map an attribute name for determining whether identities are joiners.
      * @type {string}
-     * @memberof AccessrequestrecommendationconfigdtoV1
+     * @memberof Accessrequestrecommendationconfigdto
      */
     'joinerAttribute'?: string;
     /**
      * Use only the attribute named in restrictionAttribute to make recommendations.
      * @type {boolean}
-     * @memberof AccessrequestrecommendationconfigdtoV1
+     * @memberof Accessrequestrecommendationconfigdto
      */
     'useRestrictionAttribute'?: boolean;
 }
 /**
  * 
  * @export
- * @interface AccessrequestrecommendationitemV1
+ * @interface Accessrequestrecommendationitem
  */
-export interface AccessrequestrecommendationitemV1 {
+export interface Accessrequestrecommendationitem {
     /**
      * ID of access item being recommended.
      * @type {string}
-     * @memberof AccessrequestrecommendationitemV1
+     * @memberof Accessrequestrecommendationitem
      */
     'id'?: string;
     /**
      * 
-     * @type {AccessrequestrecommendationitemtypeV1}
-     * @memberof AccessrequestrecommendationitemV1
+     * @type {Accessrequestrecommendationitemtype}
+     * @memberof Accessrequestrecommendationitem
      */
-    'type'?: AccessrequestrecommendationitemtypeV1;
+    'type'?: Accessrequestrecommendationitemtype;
 }
 
 
 /**
  * 
  * @export
- * @interface AccessrequestrecommendationitemdetailAccessV1
+ * @interface Accessrequestrecommendationitemdetail
  */
-export interface AccessrequestrecommendationitemdetailAccessV1 {
+export interface Accessrequestrecommendationitemdetail {
+    /**
+     * Identity ID for the recommendation
+     * @type {string}
+     * @memberof Accessrequestrecommendationitemdetail
+     */
+    'identityId'?: string;
+    /**
+     * 
+     * @type {AccessrequestrecommendationitemdetailAccess}
+     * @memberof Accessrequestrecommendationitemdetail
+     */
+    'access'?: AccessrequestrecommendationitemdetailAccess;
+    /**
+     * Whether or not the identity has already chosen to ignore this recommendation.
+     * @type {boolean}
+     * @memberof Accessrequestrecommendationitemdetail
+     */
+    'ignored'?: boolean;
+    /**
+     * Whether or not the identity has already chosen to request this recommendation.
+     * @type {boolean}
+     * @memberof Accessrequestrecommendationitemdetail
+     */
+    'requested'?: boolean;
+    /**
+     * Whether or not the identity reportedly viewed this recommendation.
+     * @type {boolean}
+     * @memberof Accessrequestrecommendationitemdetail
+     */
+    'viewed'?: boolean;
+    /**
+     * 
+     * @type {Array<Accessrecommendationmessage>}
+     * @memberof Accessrequestrecommendationitemdetail
+     */
+    'messages'?: Array<Accessrecommendationmessage>;
+    /**
+     * The list of translation messages
+     * @type {Array<Translationmessage>}
+     * @memberof Accessrequestrecommendationitemdetail
+     */
+    'translationMessages'?: Array<Translationmessage>;
+}
+/**
+ * 
+ * @export
+ * @interface AccessrequestrecommendationitemdetailAccess
+ */
+export interface AccessrequestrecommendationitemdetailAccess {
     /**
      * ID of access item being recommended.
      * @type {string}
-     * @memberof AccessrequestrecommendationitemdetailAccessV1
+     * @memberof AccessrequestrecommendationitemdetailAccess
      */
     'id'?: string;
     /**
      * 
-     * @type {AccessrequestrecommendationitemtypeV1}
-     * @memberof AccessrequestrecommendationitemdetailAccessV1
+     * @type {Accessrequestrecommendationitemtype}
+     * @memberof AccessrequestrecommendationitemdetailAccess
      */
-    'type'?: AccessrequestrecommendationitemtypeV1;
+    'type'?: Accessrequestrecommendationitemtype;
     /**
      * Name of the access item
      * @type {string}
-     * @memberof AccessrequestrecommendationitemdetailAccessV1
+     * @memberof AccessrequestrecommendationitemdetailAccess
      */
     'name'?: string;
     /**
      * Description of the access item
      * @type {string}
-     * @memberof AccessrequestrecommendationitemdetailAccessV1
+     * @memberof AccessrequestrecommendationitemdetailAccess
      */
     'description'?: string;
 }
 
 
 /**
- * 
- * @export
- * @interface AccessrequestrecommendationitemdetailV1
- */
-export interface AccessrequestrecommendationitemdetailV1 {
-    /**
-     * Identity ID for the recommendation
-     * @type {string}
-     * @memberof AccessrequestrecommendationitemdetailV1
-     */
-    'identityId'?: string;
-    /**
-     * 
-     * @type {AccessrequestrecommendationitemdetailAccessV1}
-     * @memberof AccessrequestrecommendationitemdetailV1
-     */
-    'access'?: AccessrequestrecommendationitemdetailAccessV1;
-    /**
-     * Whether or not the identity has already chosen to ignore this recommendation.
-     * @type {boolean}
-     * @memberof AccessrequestrecommendationitemdetailV1
-     */
-    'ignored'?: boolean;
-    /**
-     * Whether or not the identity has already chosen to request this recommendation.
-     * @type {boolean}
-     * @memberof AccessrequestrecommendationitemdetailV1
-     */
-    'requested'?: boolean;
-    /**
-     * Whether or not the identity reportedly viewed this recommendation.
-     * @type {boolean}
-     * @memberof AccessrequestrecommendationitemdetailV1
-     */
-    'viewed'?: boolean;
-    /**
-     * 
-     * @type {Array<AccessrecommendationmessageV1>}
-     * @memberof AccessrequestrecommendationitemdetailV1
-     */
-    'messages'?: Array<AccessrecommendationmessageV1>;
-    /**
-     * The list of translation messages
-     * @type {Array<TranslationmessageV1>}
-     * @memberof AccessrequestrecommendationitemdetailV1
-     */
-    'translationMessages'?: Array<TranslationmessageV1>;
-}
-/**
  * The type of access item.
  * @export
  * @enum {string}
  */
 
-export const AccessrequestrecommendationitemtypeV1 = {
+export const Accessrequestrecommendationitemtype = {
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE'
 } as const;
 
-export type AccessrequestrecommendationitemtypeV1 = typeof AccessrequestrecommendationitemtypeV1[keyof typeof AccessrequestrecommendationitemtypeV1];
+export type Accessrequestrecommendationitemtype = typeof Accessrequestrecommendationitemtype[keyof typeof Accessrequestrecommendationitemtype];
 
 
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -270,57 +270,57 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetAccessRequestRecommendationsV1401ResponseV1
+ * @interface GetAccessRequestRecommendationsV1401Response
  */
-export interface GetAccessRequestRecommendationsV1401ResponseV1 {
+export interface GetAccessRequestRecommendationsV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetAccessRequestRecommendationsV1401ResponseV1
+     * @memberof GetAccessRequestRecommendationsV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface GetAccessRequestRecommendationsV1429ResponseV1
+ * @interface GetAccessRequestRecommendationsV1429Response
  */
-export interface GetAccessRequestRecommendationsV1429ResponseV1 {
+export interface GetAccessRequestRecommendationsV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof GetAccessRequestRecommendationsV1429ResponseV1
+     * @memberof GetAccessRequestRecommendationsV1429Response
      */
     'message'?: any;
 }
@@ -330,51 +330,51 @@ export interface GetAccessRequestRecommendationsV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 /**
  * 
  * @export
- * @interface TranslationmessageV1
+ * @interface Translationmessage
  */
-export interface TranslationmessageV1 {
+export interface Translationmessage {
     /**
      * The key of the translation message
      * @type {string}
-     * @memberof TranslationmessageV1
+     * @memberof Translationmessage
      */
     'key'?: string;
     /**
      * The values corresponding to the translation messages
      * @type {Array<string>}
-     * @memberof TranslationmessageV1
+     * @memberof Translationmessage
      */
     'values'?: Array<string>;
 }
 
 /**
- * IAIAccessRequestRecommendationsV1Api - axios parameter creator
+ * IAIAccessRequestRecommendationsApi - axios parameter creator
  * @export
  */
-export const IAIAccessRequestRecommendationsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const IAIAccessRequestRecommendationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This API ignores a recommended access request item. Once an item is ignored, it will be marked as ignored=true if it is still a recommended item. The consumer can decide to hide ignored recommendations.
          * @summary Ignore access request recommendation
-         * @param {AccessrequestrecommendationactionitemdtoV1} accessrequestrecommendationactionitemdtoV1 The recommended access item to ignore for an identity.
+         * @param {Accessrequestrecommendationactionitemdto} accessrequestrecommendationactionitemdto The recommended access item to ignore for an identity.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        addAccessRequestRecommendationsIgnoredItemV1: async (accessrequestrecommendationactionitemdtoV1: AccessrequestrecommendationactionitemdtoV1, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accessrequestrecommendationactionitemdtoV1' is not null or undefined
-            assertParamExists('addAccessRequestRecommendationsIgnoredItemV1', 'accessrequestrecommendationactionitemdtoV1', accessrequestrecommendationactionitemdtoV1)
+        addAccessRequestRecommendationsIgnoredItemV1: async (accessrequestrecommendationactionitemdto: Accessrequestrecommendationactionitemdto, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accessrequestrecommendationactionitemdto' is not null or undefined
+            assertParamExists('addAccessRequestRecommendationsIgnoredItemV1', 'accessrequestrecommendationactionitemdto', accessrequestrecommendationactionitemdto)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -401,7 +401,7 @@ export const IAIAccessRequestRecommendationsV1ApiAxiosParamCreator = function (c
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(accessrequestrecommendationactionitemdtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(accessrequestrecommendationactionitemdto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -411,14 +411,14 @@ export const IAIAccessRequestRecommendationsV1ApiAxiosParamCreator = function (c
         /**
          * This API consumes a notification that a recommended access request item was requested. This API does not actually make the request, it is just a notification. This will help provide feedback in order to improve our recommendations.
          * @summary Accept access request recommendation
-         * @param {AccessrequestrecommendationactionitemdtoV1} accessrequestrecommendationactionitemdtoV1 The recommended access item that was requested for an identity.
+         * @param {Accessrequestrecommendationactionitemdto} accessrequestrecommendationactionitemdto The recommended access item that was requested for an identity.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        addAccessRequestRecommendationsRequestedItemV1: async (accessrequestrecommendationactionitemdtoV1: AccessrequestrecommendationactionitemdtoV1, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accessrequestrecommendationactionitemdtoV1' is not null or undefined
-            assertParamExists('addAccessRequestRecommendationsRequestedItemV1', 'accessrequestrecommendationactionitemdtoV1', accessrequestrecommendationactionitemdtoV1)
+        addAccessRequestRecommendationsRequestedItemV1: async (accessrequestrecommendationactionitemdto: Accessrequestrecommendationactionitemdto, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accessrequestrecommendationactionitemdto' is not null or undefined
+            assertParamExists('addAccessRequestRecommendationsRequestedItemV1', 'accessrequestrecommendationactionitemdto', accessrequestrecommendationactionitemdto)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -445,7 +445,7 @@ export const IAIAccessRequestRecommendationsV1ApiAxiosParamCreator = function (c
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(accessrequestrecommendationactionitemdtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(accessrequestrecommendationactionitemdto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -455,14 +455,14 @@ export const IAIAccessRequestRecommendationsV1ApiAxiosParamCreator = function (c
         /**
          * This API consumes a notification that a recommended access request item was viewed. Future recommendations with this item will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
          * @summary Mark viewed access request recommendations
-         * @param {AccessrequestrecommendationactionitemdtoV1} accessrequestrecommendationactionitemdtoV1 The recommended access that was viewed for an identity.
+         * @param {Accessrequestrecommendationactionitemdto} accessrequestrecommendationactionitemdto The recommended access that was viewed for an identity.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        addAccessRequestRecommendationsViewedItemV1: async (accessrequestrecommendationactionitemdtoV1: AccessrequestrecommendationactionitemdtoV1, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accessrequestrecommendationactionitemdtoV1' is not null or undefined
-            assertParamExists('addAccessRequestRecommendationsViewedItemV1', 'accessrequestrecommendationactionitemdtoV1', accessrequestrecommendationactionitemdtoV1)
+        addAccessRequestRecommendationsViewedItemV1: async (accessrequestrecommendationactionitemdto: Accessrequestrecommendationactionitemdto, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accessrequestrecommendationactionitemdto' is not null or undefined
+            assertParamExists('addAccessRequestRecommendationsViewedItemV1', 'accessrequestrecommendationactionitemdto', accessrequestrecommendationactionitemdto)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -489,7 +489,7 @@ export const IAIAccessRequestRecommendationsV1ApiAxiosParamCreator = function (c
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(accessrequestrecommendationactionitemdtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(accessrequestrecommendationactionitemdto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -499,14 +499,14 @@ export const IAIAccessRequestRecommendationsV1ApiAxiosParamCreator = function (c
         /**
          * This API consumes a notification that a set of recommended access request item were viewed. Future recommendations with these items will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
          * @summary Bulk mark viewed access request recommendations
-         * @param {Array<AccessrequestrecommendationactionitemdtoV1>} accessrequestrecommendationactionitemdtoV1 The recommended access items that were viewed for an identity.
+         * @param {Array<Accessrequestrecommendationactionitemdto>} accessrequestrecommendationactionitemdto The recommended access items that were viewed for an identity.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        addAccessRequestRecommendationsViewedItemsV1: async (accessrequestrecommendationactionitemdtoV1: Array<AccessrequestrecommendationactionitemdtoV1>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accessrequestrecommendationactionitemdtoV1' is not null or undefined
-            assertParamExists('addAccessRequestRecommendationsViewedItemsV1', 'accessrequestrecommendationactionitemdtoV1', accessrequestrecommendationactionitemdtoV1)
+        addAccessRequestRecommendationsViewedItemsV1: async (accessrequestrecommendationactionitemdto: Array<Accessrequestrecommendationactionitemdto>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accessrequestrecommendationactionitemdto' is not null or undefined
+            assertParamExists('addAccessRequestRecommendationsViewedItemsV1', 'accessrequestrecommendationactionitemdto', accessrequestrecommendationactionitemdto)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -533,7 +533,7 @@ export const IAIAccessRequestRecommendationsV1ApiAxiosParamCreator = function (c
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(accessrequestrecommendationactionitemdtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(accessrequestrecommendationactionitemdto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -843,14 +843,14 @@ export const IAIAccessRequestRecommendationsV1ApiAxiosParamCreator = function (c
         /**
          * This API updates the configurations for Access Request Recommender for the tenant.
          * @summary Update access request recommendations config
-         * @param {AccessrequestrecommendationconfigdtoV1} accessrequestrecommendationconfigdtoV1 The desired configurations for Access Request Recommender for the tenant.
+         * @param {Accessrequestrecommendationconfigdto} accessrequestrecommendationconfigdto The desired configurations for Access Request Recommender for the tenant.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setAccessRequestRecommendationsConfigV1: async (accessrequestrecommendationconfigdtoV1: AccessrequestrecommendationconfigdtoV1, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accessrequestrecommendationconfigdtoV1' is not null or undefined
-            assertParamExists('setAccessRequestRecommendationsConfigV1', 'accessrequestrecommendationconfigdtoV1', accessrequestrecommendationconfigdtoV1)
+        setAccessRequestRecommendationsConfigV1: async (accessrequestrecommendationconfigdto: Accessrequestrecommendationconfigdto, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accessrequestrecommendationconfigdto' is not null or undefined
+            assertParamExists('setAccessRequestRecommendationsConfigV1', 'accessrequestrecommendationconfigdto', accessrequestrecommendationconfigdto)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -877,7 +877,7 @@ export const IAIAccessRequestRecommendationsV1ApiAxiosParamCreator = function (c
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(accessrequestrecommendationconfigdtoV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(accessrequestrecommendationconfigdto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -888,66 +888,66 @@ export const IAIAccessRequestRecommendationsV1ApiAxiosParamCreator = function (c
 };
 
 /**
- * IAIAccessRequestRecommendationsV1Api - functional programming interface
+ * IAIAccessRequestRecommendationsApi - functional programming interface
  * @export
  */
-export const IAIAccessRequestRecommendationsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = IAIAccessRequestRecommendationsV1ApiAxiosParamCreator(configuration)
+export const IAIAccessRequestRecommendationsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = IAIAccessRequestRecommendationsApiAxiosParamCreator(configuration)
     return {
         /**
          * This API ignores a recommended access request item. Once an item is ignored, it will be marked as ignored=true if it is still a recommended item. The consumer can decide to hide ignored recommendations.
          * @summary Ignore access request recommendation
-         * @param {AccessrequestrecommendationactionitemdtoV1} accessrequestrecommendationactionitemdtoV1 The recommended access item to ignore for an identity.
+         * @param {Accessrequestrecommendationactionitemdto} accessrequestrecommendationactionitemdto The recommended access item to ignore for an identity.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async addAccessRequestRecommendationsIgnoredItemV1(accessrequestrecommendationactionitemdtoV1: AccessrequestrecommendationactionitemdtoV1, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessrequestrecommendationactionitemresponsedtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addAccessRequestRecommendationsIgnoredItemV1(accessrequestrecommendationactionitemdtoV1, xSailPointExperimental, axiosOptions);
+        async addAccessRequestRecommendationsIgnoredItemV1(accessrequestrecommendationactionitemdto: Accessrequestrecommendationactionitemdto, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accessrequestrecommendationactionitemresponsedto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addAccessRequestRecommendationsIgnoredItemV1(accessrequestrecommendationactionitemdto, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAIAccessRequestRecommendationsV1Api.addAccessRequestRecommendationsIgnoredItemV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAIAccessRequestRecommendationsApi.addAccessRequestRecommendationsIgnoredItemV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API consumes a notification that a recommended access request item was requested. This API does not actually make the request, it is just a notification. This will help provide feedback in order to improve our recommendations.
          * @summary Accept access request recommendation
-         * @param {AccessrequestrecommendationactionitemdtoV1} accessrequestrecommendationactionitemdtoV1 The recommended access item that was requested for an identity.
+         * @param {Accessrequestrecommendationactionitemdto} accessrequestrecommendationactionitemdto The recommended access item that was requested for an identity.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async addAccessRequestRecommendationsRequestedItemV1(accessrequestrecommendationactionitemdtoV1: AccessrequestrecommendationactionitemdtoV1, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessrequestrecommendationactionitemresponsedtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addAccessRequestRecommendationsRequestedItemV1(accessrequestrecommendationactionitemdtoV1, xSailPointExperimental, axiosOptions);
+        async addAccessRequestRecommendationsRequestedItemV1(accessrequestrecommendationactionitemdto: Accessrequestrecommendationactionitemdto, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accessrequestrecommendationactionitemresponsedto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addAccessRequestRecommendationsRequestedItemV1(accessrequestrecommendationactionitemdto, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAIAccessRequestRecommendationsV1Api.addAccessRequestRecommendationsRequestedItemV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAIAccessRequestRecommendationsApi.addAccessRequestRecommendationsRequestedItemV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API consumes a notification that a recommended access request item was viewed. Future recommendations with this item will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
          * @summary Mark viewed access request recommendations
-         * @param {AccessrequestrecommendationactionitemdtoV1} accessrequestrecommendationactionitemdtoV1 The recommended access that was viewed for an identity.
+         * @param {Accessrequestrecommendationactionitemdto} accessrequestrecommendationactionitemdto The recommended access that was viewed for an identity.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async addAccessRequestRecommendationsViewedItemV1(accessrequestrecommendationactionitemdtoV1: AccessrequestrecommendationactionitemdtoV1, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessrequestrecommendationactionitemresponsedtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addAccessRequestRecommendationsViewedItemV1(accessrequestrecommendationactionitemdtoV1, xSailPointExperimental, axiosOptions);
+        async addAccessRequestRecommendationsViewedItemV1(accessrequestrecommendationactionitemdto: Accessrequestrecommendationactionitemdto, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accessrequestrecommendationactionitemresponsedto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addAccessRequestRecommendationsViewedItemV1(accessrequestrecommendationactionitemdto, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAIAccessRequestRecommendationsV1Api.addAccessRequestRecommendationsViewedItemV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAIAccessRequestRecommendationsApi.addAccessRequestRecommendationsViewedItemV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API consumes a notification that a set of recommended access request item were viewed. Future recommendations with these items will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
          * @summary Bulk mark viewed access request recommendations
-         * @param {Array<AccessrequestrecommendationactionitemdtoV1>} accessrequestrecommendationactionitemdtoV1 The recommended access items that were viewed for an identity.
+         * @param {Array<Accessrequestrecommendationactionitemdto>} accessrequestrecommendationactionitemdto The recommended access items that were viewed for an identity.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async addAccessRequestRecommendationsViewedItemsV1(accessrequestrecommendationactionitemdtoV1: Array<AccessrequestrecommendationactionitemdtoV1>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessrequestrecommendationactionitemresponsedtoV1>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addAccessRequestRecommendationsViewedItemsV1(accessrequestrecommendationactionitemdtoV1, xSailPointExperimental, axiosOptions);
+        async addAccessRequestRecommendationsViewedItemsV1(accessrequestrecommendationactionitemdto: Array<Accessrequestrecommendationactionitemdto>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Accessrequestrecommendationactionitemresponsedto>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addAccessRequestRecommendationsViewedItemsV1(accessrequestrecommendationactionitemdto, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAIAccessRequestRecommendationsV1Api.addAccessRequestRecommendationsViewedItemsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAIAccessRequestRecommendationsApi.addAccessRequestRecommendationsViewedItemsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -957,10 +957,10 @@ export const IAIAccessRequestRecommendationsV1ApiFp = function(configuration?: C
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccessRequestRecommendationsConfigV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessrequestrecommendationconfigdtoV1>> {
+        async getAccessRequestRecommendationsConfigV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accessrequestrecommendationconfigdto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestRecommendationsConfigV1(xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAIAccessRequestRecommendationsV1Api.getAccessRequestRecommendationsConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAIAccessRequestRecommendationsApi.getAccessRequestRecommendationsConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -975,10 +975,10 @@ export const IAIAccessRequestRecommendationsV1ApiFp = function(configuration?: C
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccessRequestRecommendationsIgnoredItemsV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessrequestrecommendationactionitemresponsedtoV1>>> {
+        async getAccessRequestRecommendationsIgnoredItemsV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Accessrequestrecommendationactionitemresponsedto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestRecommendationsIgnoredItemsV1(limit, offset, count, filters, sorters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAIAccessRequestRecommendationsV1Api.getAccessRequestRecommendationsIgnoredItemsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAIAccessRequestRecommendationsApi.getAccessRequestRecommendationsIgnoredItemsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -993,10 +993,10 @@ export const IAIAccessRequestRecommendationsV1ApiFp = function(configuration?: C
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccessRequestRecommendationsRequestedItemsV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessrequestrecommendationactionitemresponsedtoV1>>> {
+        async getAccessRequestRecommendationsRequestedItemsV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Accessrequestrecommendationactionitemresponsedto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestRecommendationsRequestedItemsV1(limit, offset, count, filters, sorters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAIAccessRequestRecommendationsV1Api.getAccessRequestRecommendationsRequestedItemsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAIAccessRequestRecommendationsApi.getAccessRequestRecommendationsRequestedItemsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1013,10 +1013,10 @@ export const IAIAccessRequestRecommendationsV1ApiFp = function(configuration?: C
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccessRequestRecommendationsV1(identityId?: string, limit?: number, offset?: number, count?: boolean, includeTranslationMessages?: boolean, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessrequestrecommendationitemdetailV1>>> {
+        async getAccessRequestRecommendationsV1(identityId?: string, limit?: number, offset?: number, count?: boolean, includeTranslationMessages?: boolean, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Accessrequestrecommendationitemdetail>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestRecommendationsV1(identityId, limit, offset, count, includeTranslationMessages, filters, sorters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAIAccessRequestRecommendationsV1Api.getAccessRequestRecommendationsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAIAccessRequestRecommendationsApi.getAccessRequestRecommendationsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1031,593 +1031,593 @@ export const IAIAccessRequestRecommendationsV1ApiFp = function(configuration?: C
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccessRequestRecommendationsViewedItemsV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessrequestrecommendationactionitemresponsedtoV1>>> {
+        async getAccessRequestRecommendationsViewedItemsV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Accessrequestrecommendationactionitemresponsedto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestRecommendationsViewedItemsV1(limit, offset, count, filters, sorters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAIAccessRequestRecommendationsV1Api.getAccessRequestRecommendationsViewedItemsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAIAccessRequestRecommendationsApi.getAccessRequestRecommendationsViewedItemsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This API updates the configurations for Access Request Recommender for the tenant.
          * @summary Update access request recommendations config
-         * @param {AccessrequestrecommendationconfigdtoV1} accessrequestrecommendationconfigdtoV1 The desired configurations for Access Request Recommender for the tenant.
+         * @param {Accessrequestrecommendationconfigdto} accessrequestrecommendationconfigdto The desired configurations for Access Request Recommender for the tenant.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setAccessRequestRecommendationsConfigV1(accessrequestrecommendationconfigdtoV1: AccessrequestrecommendationconfigdtoV1, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessrequestrecommendationconfigdtoV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setAccessRequestRecommendationsConfigV1(accessrequestrecommendationconfigdtoV1, xSailPointExperimental, axiosOptions);
+        async setAccessRequestRecommendationsConfigV1(accessrequestrecommendationconfigdto: Accessrequestrecommendationconfigdto, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accessrequestrecommendationconfigdto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setAccessRequestRecommendationsConfigV1(accessrequestrecommendationconfigdto, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IAIAccessRequestRecommendationsV1Api.setAccessRequestRecommendationsConfigV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['IAIAccessRequestRecommendationsApi.setAccessRequestRecommendationsConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * IAIAccessRequestRecommendationsV1Api - factory interface
+ * IAIAccessRequestRecommendationsApi - factory interface
  * @export
  */
-export const IAIAccessRequestRecommendationsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = IAIAccessRequestRecommendationsV1ApiFp(configuration)
+export const IAIAccessRequestRecommendationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = IAIAccessRequestRecommendationsApiFp(configuration)
     return {
         /**
          * This API ignores a recommended access request item. Once an item is ignored, it will be marked as ignored=true if it is still a recommended item. The consumer can decide to hide ignored recommendations.
          * @summary Ignore access request recommendation
-         * @param {IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsIgnoredItemV1Request} requestParameters Request parameters.
+         * @param {IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsIgnoredItemV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        addAccessRequestRecommendationsIgnoredItemV1(requestParameters: IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsIgnoredItemV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessrequestrecommendationactionitemresponsedtoV1> {
-            return localVarFp.addAccessRequestRecommendationsIgnoredItemV1(requestParameters.accessrequestrecommendationactionitemdtoV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        addAccessRequestRecommendationsIgnoredItemV1(requestParameters: IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsIgnoredItemV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accessrequestrecommendationactionitemresponsedto> {
+            return localVarFp.addAccessRequestRecommendationsIgnoredItemV1(requestParameters.accessrequestrecommendationactionitemdto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API consumes a notification that a recommended access request item was requested. This API does not actually make the request, it is just a notification. This will help provide feedback in order to improve our recommendations.
          * @summary Accept access request recommendation
-         * @param {IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsRequestedItemV1Request} requestParameters Request parameters.
+         * @param {IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsRequestedItemV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        addAccessRequestRecommendationsRequestedItemV1(requestParameters: IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsRequestedItemV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessrequestrecommendationactionitemresponsedtoV1> {
-            return localVarFp.addAccessRequestRecommendationsRequestedItemV1(requestParameters.accessrequestrecommendationactionitemdtoV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        addAccessRequestRecommendationsRequestedItemV1(requestParameters: IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsRequestedItemV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accessrequestrecommendationactionitemresponsedto> {
+            return localVarFp.addAccessRequestRecommendationsRequestedItemV1(requestParameters.accessrequestrecommendationactionitemdto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API consumes a notification that a recommended access request item was viewed. Future recommendations with this item will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
          * @summary Mark viewed access request recommendations
-         * @param {IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsViewedItemV1Request} requestParameters Request parameters.
+         * @param {IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsViewedItemV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        addAccessRequestRecommendationsViewedItemV1(requestParameters: IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsViewedItemV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessrequestrecommendationactionitemresponsedtoV1> {
-            return localVarFp.addAccessRequestRecommendationsViewedItemV1(requestParameters.accessrequestrecommendationactionitemdtoV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        addAccessRequestRecommendationsViewedItemV1(requestParameters: IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsViewedItemV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accessrequestrecommendationactionitemresponsedto> {
+            return localVarFp.addAccessRequestRecommendationsViewedItemV1(requestParameters.accessrequestrecommendationactionitemdto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API consumes a notification that a set of recommended access request item were viewed. Future recommendations with these items will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
          * @summary Bulk mark viewed access request recommendations
-         * @param {IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsViewedItemsV1Request} requestParameters Request parameters.
+         * @param {IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsViewedItemsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        addAccessRequestRecommendationsViewedItemsV1(requestParameters: IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsViewedItemsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccessrequestrecommendationactionitemresponsedtoV1>> {
-            return localVarFp.addAccessRequestRecommendationsViewedItemsV1(requestParameters.accessrequestrecommendationactionitemdtoV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        addAccessRequestRecommendationsViewedItemsV1(requestParameters: IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsViewedItemsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Accessrequestrecommendationactionitemresponsedto>> {
+            return localVarFp.addAccessRequestRecommendationsViewedItemsV1(requestParameters.accessrequestrecommendationactionitemdto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the configurations for Access Request Recommender for the tenant.
          * @summary Get access request recommendations config
-         * @param {IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsConfigV1Request} requestParameters Request parameters.
+         * @param {IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAccessRequestRecommendationsConfigV1(requestParameters: IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsConfigV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessrequestrecommendationconfigdtoV1> {
+        getAccessRequestRecommendationsConfigV1(requestParameters: IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsConfigV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accessrequestrecommendationconfigdto> {
             return localVarFp.getAccessRequestRecommendationsConfigV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the list of ignored access request recommendations.
          * @summary List ignored access request recommendations
-         * @param {IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsIgnoredItemsV1Request} requestParameters Request parameters.
+         * @param {IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsIgnoredItemsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAccessRequestRecommendationsIgnoredItemsV1(requestParameters: IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsIgnoredItemsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccessrequestrecommendationactionitemresponsedtoV1>> {
+        getAccessRequestRecommendationsIgnoredItemsV1(requestParameters: IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsIgnoredItemsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Accessrequestrecommendationactionitemresponsedto>> {
             return localVarFp.getAccessRequestRecommendationsIgnoredItemsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of requested access request recommendations.
          * @summary List accepted access request recommendations
-         * @param {IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsRequestedItemsV1Request} requestParameters Request parameters.
+         * @param {IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsRequestedItemsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAccessRequestRecommendationsRequestedItemsV1(requestParameters: IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsRequestedItemsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccessrequestrecommendationactionitemresponsedtoV1>> {
+        getAccessRequestRecommendationsRequestedItemsV1(requestParameters: IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsRequestedItemsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Accessrequestrecommendationactionitemresponsedto>> {
             return localVarFp.getAccessRequestRecommendationsRequestedItemsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the access request recommendations for the specified identity. The default identity is *me* which indicates the current user.
          * @summary Identity access request recommendations
-         * @param {IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsV1Request} requestParameters Request parameters.
+         * @param {IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAccessRequestRecommendationsV1(requestParameters: IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccessrequestrecommendationitemdetailV1>> {
+        getAccessRequestRecommendationsV1(requestParameters: IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Accessrequestrecommendationitemdetail>> {
             return localVarFp.getAccessRequestRecommendationsV1(requestParameters.identityId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.includeTranslationMessages, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the list of viewed access request recommendations.
          * @summary List viewed access request recommendations
-         * @param {IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsViewedItemsV1Request} requestParameters Request parameters.
+         * @param {IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsViewedItemsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAccessRequestRecommendationsViewedItemsV1(requestParameters: IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsViewedItemsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccessrequestrecommendationactionitemresponsedtoV1>> {
+        getAccessRequestRecommendationsViewedItemsV1(requestParameters: IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsViewedItemsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Accessrequestrecommendationactionitemresponsedto>> {
             return localVarFp.getAccessRequestRecommendationsViewedItemsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API updates the configurations for Access Request Recommender for the tenant.
          * @summary Update access request recommendations config
-         * @param {IAIAccessRequestRecommendationsV1ApiSetAccessRequestRecommendationsConfigV1Request} requestParameters Request parameters.
+         * @param {IAIAccessRequestRecommendationsApiSetAccessRequestRecommendationsConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setAccessRequestRecommendationsConfigV1(requestParameters: IAIAccessRequestRecommendationsV1ApiSetAccessRequestRecommendationsConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessrequestrecommendationconfigdtoV1> {
-            return localVarFp.setAccessRequestRecommendationsConfigV1(requestParameters.accessrequestrecommendationconfigdtoV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        setAccessRequestRecommendationsConfigV1(requestParameters: IAIAccessRequestRecommendationsApiSetAccessRequestRecommendationsConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accessrequestrecommendationconfigdto> {
+            return localVarFp.setAccessRequestRecommendationsConfigV1(requestParameters.accessrequestrecommendationconfigdto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for addAccessRequestRecommendationsIgnoredItemV1 operation in IAIAccessRequestRecommendationsV1Api.
+ * Request parameters for addAccessRequestRecommendationsIgnoredItemV1 operation in IAIAccessRequestRecommendationsApi.
  * @export
- * @interface IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsIgnoredItemV1Request
+ * @interface IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsIgnoredItemV1Request
  */
-export interface IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsIgnoredItemV1Request {
+export interface IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsIgnoredItemV1Request {
     /**
      * The recommended access item to ignore for an identity.
-     * @type {AccessrequestrecommendationactionitemdtoV1}
-     * @memberof IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsIgnoredItemV1
+     * @type {Accessrequestrecommendationactionitemdto}
+     * @memberof IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsIgnoredItemV1
      */
-    readonly accessrequestrecommendationactionitemdtoV1: AccessrequestrecommendationactionitemdtoV1
+    readonly accessrequestrecommendationactionitemdto: Accessrequestrecommendationactionitemdto
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsIgnoredItemV1
+     * @memberof IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsIgnoredItemV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for addAccessRequestRecommendationsRequestedItemV1 operation in IAIAccessRequestRecommendationsV1Api.
+ * Request parameters for addAccessRequestRecommendationsRequestedItemV1 operation in IAIAccessRequestRecommendationsApi.
  * @export
- * @interface IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsRequestedItemV1Request
+ * @interface IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsRequestedItemV1Request
  */
-export interface IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsRequestedItemV1Request {
+export interface IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsRequestedItemV1Request {
     /**
      * The recommended access item that was requested for an identity.
-     * @type {AccessrequestrecommendationactionitemdtoV1}
-     * @memberof IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsRequestedItemV1
+     * @type {Accessrequestrecommendationactionitemdto}
+     * @memberof IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsRequestedItemV1
      */
-    readonly accessrequestrecommendationactionitemdtoV1: AccessrequestrecommendationactionitemdtoV1
+    readonly accessrequestrecommendationactionitemdto: Accessrequestrecommendationactionitemdto
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsRequestedItemV1
+     * @memberof IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsRequestedItemV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for addAccessRequestRecommendationsViewedItemV1 operation in IAIAccessRequestRecommendationsV1Api.
+ * Request parameters for addAccessRequestRecommendationsViewedItemV1 operation in IAIAccessRequestRecommendationsApi.
  * @export
- * @interface IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsViewedItemV1Request
+ * @interface IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsViewedItemV1Request
  */
-export interface IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsViewedItemV1Request {
+export interface IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsViewedItemV1Request {
     /**
      * The recommended access that was viewed for an identity.
-     * @type {AccessrequestrecommendationactionitemdtoV1}
-     * @memberof IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsViewedItemV1
+     * @type {Accessrequestrecommendationactionitemdto}
+     * @memberof IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsViewedItemV1
      */
-    readonly accessrequestrecommendationactionitemdtoV1: AccessrequestrecommendationactionitemdtoV1
+    readonly accessrequestrecommendationactionitemdto: Accessrequestrecommendationactionitemdto
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsViewedItemV1
+     * @memberof IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsViewedItemV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for addAccessRequestRecommendationsViewedItemsV1 operation in IAIAccessRequestRecommendationsV1Api.
+ * Request parameters for addAccessRequestRecommendationsViewedItemsV1 operation in IAIAccessRequestRecommendationsApi.
  * @export
- * @interface IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsViewedItemsV1Request
+ * @interface IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsViewedItemsV1Request
  */
-export interface IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsViewedItemsV1Request {
+export interface IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsViewedItemsV1Request {
     /**
      * The recommended access items that were viewed for an identity.
-     * @type {Array<AccessrequestrecommendationactionitemdtoV1>}
-     * @memberof IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsViewedItemsV1
+     * @type {Array<Accessrequestrecommendationactionitemdto>}
+     * @memberof IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsViewedItemsV1
      */
-    readonly accessrequestrecommendationactionitemdtoV1: Array<AccessrequestrecommendationactionitemdtoV1>
+    readonly accessrequestrecommendationactionitemdto: Array<Accessrequestrecommendationactionitemdto>
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsViewedItemsV1
+     * @memberof IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsViewedItemsV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getAccessRequestRecommendationsConfigV1 operation in IAIAccessRequestRecommendationsV1Api.
+ * Request parameters for getAccessRequestRecommendationsConfigV1 operation in IAIAccessRequestRecommendationsApi.
  * @export
- * @interface IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsConfigV1Request
+ * @interface IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsConfigV1Request
  */
-export interface IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsConfigV1Request {
+export interface IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsConfigV1Request {
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsConfigV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsConfigV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getAccessRequestRecommendationsIgnoredItemsV1 operation in IAIAccessRequestRecommendationsV1Api.
+ * Request parameters for getAccessRequestRecommendationsIgnoredItemsV1 operation in IAIAccessRequestRecommendationsApi.
  * @export
- * @interface IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsIgnoredItemsV1Request
+ * @interface IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsIgnoredItemsV1Request
  */
-export interface IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsIgnoredItemsV1Request {
+export interface IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsIgnoredItemsV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsIgnoredItemsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsIgnoredItemsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsIgnoredItemsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsIgnoredItemsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsIgnoredItemsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsIgnoredItemsV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.id**: *eq, in*  **access.type**: *eq, in*  **identityId**: *eq, in*
      * @type {string}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsIgnoredItemsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsIgnoredItemsV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp**
      * @type {string}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsIgnoredItemsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsIgnoredItemsV1
      */
     readonly sorters?: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsIgnoredItemsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsIgnoredItemsV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getAccessRequestRecommendationsRequestedItemsV1 operation in IAIAccessRequestRecommendationsV1Api.
+ * Request parameters for getAccessRequestRecommendationsRequestedItemsV1 operation in IAIAccessRequestRecommendationsApi.
  * @export
- * @interface IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsRequestedItemsV1Request
+ * @interface IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsRequestedItemsV1Request
  */
-export interface IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsRequestedItemsV1Request {
+export interface IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsRequestedItemsV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsRequestedItemsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsRequestedItemsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsRequestedItemsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsRequestedItemsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsRequestedItemsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsRequestedItemsV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.id**: *eq, in*  **access.type**: *eq, in*  **identityId**: *eq, in*
      * @type {string}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsRequestedItemsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsRequestedItemsV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp**
      * @type {string}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsRequestedItemsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsRequestedItemsV1
      */
     readonly sorters?: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsRequestedItemsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsRequestedItemsV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getAccessRequestRecommendationsV1 operation in IAIAccessRequestRecommendationsV1Api.
+ * Request parameters for getAccessRequestRecommendationsV1 operation in IAIAccessRequestRecommendationsApi.
  * @export
- * @interface IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsV1Request
+ * @interface IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsV1Request
  */
-export interface IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsV1Request {
+export interface IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsV1Request {
     /**
      * Get access request recommendations for an identityId. *me* indicates the current user.
      * @type {string}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsV1
      */
     readonly identityId?: string
 
     /**
      * Max number of results to return.
      * @type {number}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsV1
      */
     readonly count?: boolean
 
     /**
      * If *true* it will populate a list of translation messages in the response.
      * @type {boolean}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsV1
      */
     readonly includeTranslationMessages?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.name**: *co*  **access.type**: *eq, in*  **access.description**: *co, eq, in*
      * @type {string}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, access.type**  By default the recommendations are sorted by highest confidence first.
      * @type {string}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsV1
      */
     readonly sorters?: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for getAccessRequestRecommendationsViewedItemsV1 operation in IAIAccessRequestRecommendationsV1Api.
+ * Request parameters for getAccessRequestRecommendationsViewedItemsV1 operation in IAIAccessRequestRecommendationsApi.
  * @export
- * @interface IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsViewedItemsV1Request
+ * @interface IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsViewedItemsV1Request
  */
-export interface IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsViewedItemsV1Request {
+export interface IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsViewedItemsV1Request {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsViewedItemsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsViewedItemsV1
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsViewedItemsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsViewedItemsV1
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsViewedItemsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsViewedItemsV1
      */
     readonly count?: boolean
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.id**: *eq, in*  **access.type**: *eq, in*  **identityId**: *eq, in*
      * @type {string}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsViewedItemsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsViewedItemsV1
      */
     readonly filters?: string
 
     /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp**
      * @type {string}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsViewedItemsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsViewedItemsV1
      */
     readonly sorters?: string
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsViewedItemsV1
+     * @memberof IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsViewedItemsV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * Request parameters for setAccessRequestRecommendationsConfigV1 operation in IAIAccessRequestRecommendationsV1Api.
+ * Request parameters for setAccessRequestRecommendationsConfigV1 operation in IAIAccessRequestRecommendationsApi.
  * @export
- * @interface IAIAccessRequestRecommendationsV1ApiSetAccessRequestRecommendationsConfigV1Request
+ * @interface IAIAccessRequestRecommendationsApiSetAccessRequestRecommendationsConfigV1Request
  */
-export interface IAIAccessRequestRecommendationsV1ApiSetAccessRequestRecommendationsConfigV1Request {
+export interface IAIAccessRequestRecommendationsApiSetAccessRequestRecommendationsConfigV1Request {
     /**
      * The desired configurations for Access Request Recommender for the tenant.
-     * @type {AccessrequestrecommendationconfigdtoV1}
-     * @memberof IAIAccessRequestRecommendationsV1ApiSetAccessRequestRecommendationsConfigV1
+     * @type {Accessrequestrecommendationconfigdto}
+     * @memberof IAIAccessRequestRecommendationsApiSetAccessRequestRecommendationsConfigV1
      */
-    readonly accessrequestrecommendationconfigdtoV1: AccessrequestrecommendationconfigdtoV1
+    readonly accessrequestrecommendationconfigdto: Accessrequestrecommendationconfigdto
 
     /**
      * Use this header to enable this experimental API.
      * @type {string}
-     * @memberof IAIAccessRequestRecommendationsV1ApiSetAccessRequestRecommendationsConfigV1
+     * @memberof IAIAccessRequestRecommendationsApiSetAccessRequestRecommendationsConfigV1
      */
     readonly xSailPointExperimental?: string
 }
 
 /**
- * IAIAccessRequestRecommendationsV1Api - object-oriented interface
+ * IAIAccessRequestRecommendationsApi - object-oriented interface
  * @export
- * @class IAIAccessRequestRecommendationsV1Api
+ * @class IAIAccessRequestRecommendationsApi
  * @extends {BaseAPI}
  */
-export class IAIAccessRequestRecommendationsV1Api extends BaseAPI {
+export class IAIAccessRequestRecommendationsApi extends BaseAPI {
     /**
      * This API ignores a recommended access request item. Once an item is ignored, it will be marked as ignored=true if it is still a recommended item. The consumer can decide to hide ignored recommendations.
      * @summary Ignore access request recommendation
-     * @param {IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsIgnoredItemV1Request} requestParameters Request parameters.
+     * @param {IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsIgnoredItemV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAIAccessRequestRecommendationsV1Api
+     * @memberof IAIAccessRequestRecommendationsApi
      */
-    public addAccessRequestRecommendationsIgnoredItemV1(requestParameters: IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsIgnoredItemV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIAccessRequestRecommendationsV1ApiFp(this.configuration).addAccessRequestRecommendationsIgnoredItemV1(requestParameters.accessrequestrecommendationactionitemdtoV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public addAccessRequestRecommendationsIgnoredItemV1(requestParameters: IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsIgnoredItemV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IAIAccessRequestRecommendationsApiFp(this.configuration).addAccessRequestRecommendationsIgnoredItemV1(requestParameters.accessrequestrecommendationactionitemdto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API consumes a notification that a recommended access request item was requested. This API does not actually make the request, it is just a notification. This will help provide feedback in order to improve our recommendations.
      * @summary Accept access request recommendation
-     * @param {IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsRequestedItemV1Request} requestParameters Request parameters.
+     * @param {IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsRequestedItemV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAIAccessRequestRecommendationsV1Api
+     * @memberof IAIAccessRequestRecommendationsApi
      */
-    public addAccessRequestRecommendationsRequestedItemV1(requestParameters: IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsRequestedItemV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIAccessRequestRecommendationsV1ApiFp(this.configuration).addAccessRequestRecommendationsRequestedItemV1(requestParameters.accessrequestrecommendationactionitemdtoV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public addAccessRequestRecommendationsRequestedItemV1(requestParameters: IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsRequestedItemV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IAIAccessRequestRecommendationsApiFp(this.configuration).addAccessRequestRecommendationsRequestedItemV1(requestParameters.accessrequestrecommendationactionitemdto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API consumes a notification that a recommended access request item was viewed. Future recommendations with this item will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
      * @summary Mark viewed access request recommendations
-     * @param {IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsViewedItemV1Request} requestParameters Request parameters.
+     * @param {IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsViewedItemV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAIAccessRequestRecommendationsV1Api
+     * @memberof IAIAccessRequestRecommendationsApi
      */
-    public addAccessRequestRecommendationsViewedItemV1(requestParameters: IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsViewedItemV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIAccessRequestRecommendationsV1ApiFp(this.configuration).addAccessRequestRecommendationsViewedItemV1(requestParameters.accessrequestrecommendationactionitemdtoV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public addAccessRequestRecommendationsViewedItemV1(requestParameters: IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsViewedItemV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IAIAccessRequestRecommendationsApiFp(this.configuration).addAccessRequestRecommendationsViewedItemV1(requestParameters.accessrequestrecommendationactionitemdto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API consumes a notification that a set of recommended access request item were viewed. Future recommendations with these items will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
      * @summary Bulk mark viewed access request recommendations
-     * @param {IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsViewedItemsV1Request} requestParameters Request parameters.
+     * @param {IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsViewedItemsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAIAccessRequestRecommendationsV1Api
+     * @memberof IAIAccessRequestRecommendationsApi
      */
-    public addAccessRequestRecommendationsViewedItemsV1(requestParameters: IAIAccessRequestRecommendationsV1ApiAddAccessRequestRecommendationsViewedItemsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIAccessRequestRecommendationsV1ApiFp(this.configuration).addAccessRequestRecommendationsViewedItemsV1(requestParameters.accessrequestrecommendationactionitemdtoV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public addAccessRequestRecommendationsViewedItemsV1(requestParameters: IAIAccessRequestRecommendationsApiAddAccessRequestRecommendationsViewedItemsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IAIAccessRequestRecommendationsApiFp(this.configuration).addAccessRequestRecommendationsViewedItemsV1(requestParameters.accessrequestrecommendationactionitemdto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the configurations for Access Request Recommender for the tenant.
      * @summary Get access request recommendations config
-     * @param {IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsConfigV1Request} requestParameters Request parameters.
+     * @param {IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAIAccessRequestRecommendationsV1Api
+     * @memberof IAIAccessRequestRecommendationsApi
      */
-    public getAccessRequestRecommendationsConfigV1(requestParameters: IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsConfigV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIAccessRequestRecommendationsV1ApiFp(this.configuration).getAccessRequestRecommendationsConfigV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getAccessRequestRecommendationsConfigV1(requestParameters: IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsConfigV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return IAIAccessRequestRecommendationsApiFp(this.configuration).getAccessRequestRecommendationsConfigV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the list of ignored access request recommendations.
      * @summary List ignored access request recommendations
-     * @param {IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsIgnoredItemsV1Request} requestParameters Request parameters.
+     * @param {IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsIgnoredItemsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAIAccessRequestRecommendationsV1Api
+     * @memberof IAIAccessRequestRecommendationsApi
      */
-    public getAccessRequestRecommendationsIgnoredItemsV1(requestParameters: IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsIgnoredItemsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIAccessRequestRecommendationsV1ApiFp(this.configuration).getAccessRequestRecommendationsIgnoredItemsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getAccessRequestRecommendationsIgnoredItemsV1(requestParameters: IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsIgnoredItemsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return IAIAccessRequestRecommendationsApiFp(this.configuration).getAccessRequestRecommendationsIgnoredItemsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a list of requested access request recommendations.
      * @summary List accepted access request recommendations
-     * @param {IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsRequestedItemsV1Request} requestParameters Request parameters.
+     * @param {IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsRequestedItemsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAIAccessRequestRecommendationsV1Api
+     * @memberof IAIAccessRequestRecommendationsApi
      */
-    public getAccessRequestRecommendationsRequestedItemsV1(requestParameters: IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsRequestedItemsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIAccessRequestRecommendationsV1ApiFp(this.configuration).getAccessRequestRecommendationsRequestedItemsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getAccessRequestRecommendationsRequestedItemsV1(requestParameters: IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsRequestedItemsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return IAIAccessRequestRecommendationsApiFp(this.configuration).getAccessRequestRecommendationsRequestedItemsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the access request recommendations for the specified identity. The default identity is *me* which indicates the current user.
      * @summary Identity access request recommendations
-     * @param {IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsV1Request} requestParameters Request parameters.
+     * @param {IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAIAccessRequestRecommendationsV1Api
+     * @memberof IAIAccessRequestRecommendationsApi
      */
-    public getAccessRequestRecommendationsV1(requestParameters: IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIAccessRequestRecommendationsV1ApiFp(this.configuration).getAccessRequestRecommendationsV1(requestParameters.identityId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.includeTranslationMessages, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getAccessRequestRecommendationsV1(requestParameters: IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return IAIAccessRequestRecommendationsApiFp(this.configuration).getAccessRequestRecommendationsV1(requestParameters.identityId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.includeTranslationMessages, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the list of viewed access request recommendations.
      * @summary List viewed access request recommendations
-     * @param {IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsViewedItemsV1Request} requestParameters Request parameters.
+     * @param {IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsViewedItemsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAIAccessRequestRecommendationsV1Api
+     * @memberof IAIAccessRequestRecommendationsApi
      */
-    public getAccessRequestRecommendationsViewedItemsV1(requestParameters: IAIAccessRequestRecommendationsV1ApiGetAccessRequestRecommendationsViewedItemsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIAccessRequestRecommendationsV1ApiFp(this.configuration).getAccessRequestRecommendationsViewedItemsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getAccessRequestRecommendationsViewedItemsV1(requestParameters: IAIAccessRequestRecommendationsApiGetAccessRequestRecommendationsViewedItemsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return IAIAccessRequestRecommendationsApiFp(this.configuration).getAccessRequestRecommendationsViewedItemsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API updates the configurations for Access Request Recommender for the tenant.
      * @summary Update access request recommendations config
-     * @param {IAIAccessRequestRecommendationsV1ApiSetAccessRequestRecommendationsConfigV1Request} requestParameters Request parameters.
+     * @param {IAIAccessRequestRecommendationsApiSetAccessRequestRecommendationsConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof IAIAccessRequestRecommendationsV1Api
+     * @memberof IAIAccessRequestRecommendationsApi
      */
-    public setAccessRequestRecommendationsConfigV1(requestParameters: IAIAccessRequestRecommendationsV1ApiSetAccessRequestRecommendationsConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIAccessRequestRecommendationsV1ApiFp(this.configuration).setAccessRequestRecommendationsConfigV1(requestParameters.accessrequestrecommendationconfigdtoV1, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public setAccessRequestRecommendationsConfigV1(requestParameters: IAIAccessRequestRecommendationsApiSetAccessRequestRecommendationsConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IAIAccessRequestRecommendationsApiFp(this.configuration).setAccessRequestRecommendationsConfigV1(requestParameters.accessrequestrecommendationconfigdto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

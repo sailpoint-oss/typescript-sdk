@@ -29,20 +29,20 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
  * @enum {string}
  */
 
-export const AccesstypeV1 = {
+export const Accesstype = {
     Online: 'ONLINE',
     Offline: 'OFFLINE'
 } as const;
 
-export type AccesstypeV1 = typeof AccesstypeV1[keyof typeof AccesstypeV1];
+export type Accesstype = typeof Accesstype[keyof typeof Accesstype];
 
 
 /**
  * 
  * @export
- * @interface ArrayInnerV1
+ * @interface ArrayInner
  */
-export interface ArrayInnerV1 {
+export interface ArrayInner {
 }
 /**
  * Type of an API Client indicating public or confidentials use
@@ -50,108 +50,108 @@ export interface ArrayInnerV1 {
  * @enum {string}
  */
 
-export const ClienttypeV1 = {
+export const Clienttype = {
     Confidential: 'CONFIDENTIAL',
     Public: 'PUBLIC'
 } as const;
 
-export type ClienttypeV1 = typeof ClienttypeV1[keyof typeof ClienttypeV1];
+export type Clienttype = typeof Clienttype[keyof typeof Clienttype];
 
 
 /**
  * 
  * @export
- * @interface CreateoauthclientrequestV1
+ * @interface Createoauthclientrequest
  */
-export interface CreateoauthclientrequestV1 {
+export interface Createoauthclientrequest {
     /**
      * The name of the business the API Client should belong to
      * @type {string}
-     * @memberof CreateoauthclientrequestV1
+     * @memberof Createoauthclientrequest
      */
     'businessName'?: string | null;
     /**
      * The homepage URL associated with the owner of the API Client
      * @type {string}
-     * @memberof CreateoauthclientrequestV1
+     * @memberof Createoauthclientrequest
      */
     'homepageUrl'?: string | null;
     /**
      * A human-readable name for the API Client
      * @type {string}
-     * @memberof CreateoauthclientrequestV1
+     * @memberof Createoauthclientrequest
      */
     'name': string | null;
     /**
      * A description of the API Client
      * @type {string}
-     * @memberof CreateoauthclientrequestV1
+     * @memberof Createoauthclientrequest
      */
     'description': string | null;
     /**
      * The number of seconds an access token generated for this API Client is valid for
      * @type {number}
-     * @memberof CreateoauthclientrequestV1
+     * @memberof Createoauthclientrequest
      */
     'accessTokenValiditySeconds': number;
     /**
      * The number of seconds a refresh token generated for this API Client is valid for
      * @type {number}
-     * @memberof CreateoauthclientrequestV1
+     * @memberof Createoauthclientrequest
      */
     'refreshTokenValiditySeconds'?: number;
     /**
      * A list of the approved redirect URIs. Provide one or more URIs when assigning the AUTHORIZATION_CODE grant type to a new OAuth Client.
      * @type {Array<string>}
-     * @memberof CreateoauthclientrequestV1
+     * @memberof Createoauthclientrequest
      */
     'redirectUris'?: Array<string> | null;
     /**
      * A list of OAuth 2.0 grant types this API Client can be used with
-     * @type {Array<GranttypeV1>}
-     * @memberof CreateoauthclientrequestV1
+     * @type {Array<Granttype>}
+     * @memberof Createoauthclientrequest
      */
-    'grantTypes': Array<GranttypeV1> | null;
+    'grantTypes': Array<Granttype> | null;
     /**
      * 
-     * @type {AccesstypeV1}
-     * @memberof CreateoauthclientrequestV1
+     * @type {Accesstype}
+     * @memberof Createoauthclientrequest
      */
-    'accessType': AccesstypeV1;
+    'accessType': Accesstype;
     /**
      * 
-     * @type {ClienttypeV1}
-     * @memberof CreateoauthclientrequestV1
+     * @type {Clienttype}
+     * @memberof Createoauthclientrequest
      */
-    'type'?: ClienttypeV1;
+    'type'?: Clienttype;
     /**
      * An indicator of whether the API Client can be used for requests internal within the product.
      * @type {boolean}
-     * @memberof CreateoauthclientrequestV1
+     * @memberof Createoauthclientrequest
      */
     'internal'?: boolean;
     /**
      * An indicator of whether the API Client is enabled for use
      * @type {boolean}
-     * @memberof CreateoauthclientrequestV1
+     * @memberof Createoauthclientrequest
      */
     'enabled': boolean;
     /**
      * An indicator of whether the API Client supports strong authentication
      * @type {boolean}
-     * @memberof CreateoauthclientrequestV1
+     * @memberof Createoauthclientrequest
      */
     'strongAuthSupported'?: boolean;
     /**
      * An indicator of whether the API Client supports the serialization of SAML claims when used with the authorization_code flow
      * @type {boolean}
-     * @memberof CreateoauthclientrequestV1
+     * @memberof Createoauthclientrequest
      */
     'claimsSupported'?: boolean;
     /**
      * Scopes of the API Client. If no scope is specified, the client will be created with the default scope \"sp:scopes:all\". This means the API Client will have all the rights of the owner who created it.
      * @type {Array<string>}
-     * @memberof CreateoauthclientrequestV1
+     * @memberof Createoauthclientrequest
      */
     'scope'?: Array<string> | null;
 }
@@ -160,121 +160,121 @@ export interface CreateoauthclientrequestV1 {
 /**
  * 
  * @export
- * @interface CreateoauthclientresponseV1
+ * @interface Createoauthclientresponse
  */
-export interface CreateoauthclientresponseV1 {
+export interface Createoauthclientresponse {
     /**
      * ID of the OAuth client
      * @type {string}
-     * @memberof CreateoauthclientresponseV1
+     * @memberof Createoauthclientresponse
      */
     'id': string;
     /**
      * Secret of the OAuth client (This field is only returned on the intial create call.)
      * @type {string}
-     * @memberof CreateoauthclientresponseV1
+     * @memberof Createoauthclientresponse
      */
     'secret': string;
     /**
      * The name of the business the API Client should belong to
      * @type {string}
-     * @memberof CreateoauthclientresponseV1
+     * @memberof Createoauthclientresponse
      */
     'businessName': string;
     /**
      * The homepage URL associated with the owner of the API Client
      * @type {string}
-     * @memberof CreateoauthclientresponseV1
+     * @memberof Createoauthclientresponse
      */
     'homepageUrl': string;
     /**
      * A human-readable name for the API Client
      * @type {string}
-     * @memberof CreateoauthclientresponseV1
+     * @memberof Createoauthclientresponse
      */
     'name': string;
     /**
      * A description of the API Client
      * @type {string}
-     * @memberof CreateoauthclientresponseV1
+     * @memberof Createoauthclientresponse
      */
     'description': string;
     /**
      * The number of seconds an access token generated for this API Client is valid for
      * @type {number}
-     * @memberof CreateoauthclientresponseV1
+     * @memberof Createoauthclientresponse
      */
     'accessTokenValiditySeconds': number;
     /**
      * The number of seconds a refresh token generated for this API Client is valid for
      * @type {number}
-     * @memberof CreateoauthclientresponseV1
+     * @memberof Createoauthclientresponse
      */
     'refreshTokenValiditySeconds': number;
     /**
      * A list of the approved redirect URIs used with the authorization_code flow
      * @type {Array<string>}
-     * @memberof CreateoauthclientresponseV1
+     * @memberof Createoauthclientresponse
      */
     'redirectUris': Array<string>;
     /**
      * A list of OAuth 2.0 grant types this API Client can be used with
-     * @type {Array<GranttypeV1>}
-     * @memberof CreateoauthclientresponseV1
+     * @type {Array<Granttype>}
+     * @memberof Createoauthclientresponse
      */
-    'grantTypes': Array<GranttypeV1>;
+    'grantTypes': Array<Granttype>;
     /**
      * 
-     * @type {AccesstypeV1}
-     * @memberof CreateoauthclientresponseV1
+     * @type {Accesstype}
+     * @memberof Createoauthclientresponse
      */
-    'accessType': AccesstypeV1;
+    'accessType': Accesstype;
     /**
      * 
-     * @type {ClienttypeV1}
-     * @memberof CreateoauthclientresponseV1
+     * @type {Clienttype}
+     * @memberof Createoauthclientresponse
      */
-    'type': ClienttypeV1;
+    'type': Clienttype;
     /**
      * An indicator of whether the API Client can be used for requests internal to IDN
      * @type {boolean}
-     * @memberof CreateoauthclientresponseV1
+     * @memberof Createoauthclientresponse
      */
     'internal': boolean;
     /**
      * An indicator of whether the API Client is enabled for use
      * @type {boolean}
-     * @memberof CreateoauthclientresponseV1
+     * @memberof Createoauthclientresponse
      */
     'enabled': boolean;
     /**
      * An indicator of whether the API Client supports strong authentication
      * @type {boolean}
-     * @memberof CreateoauthclientresponseV1
+     * @memberof Createoauthclientresponse
      */
     'strongAuthSupported': boolean;
     /**
      * An indicator of whether the API Client supports the serialization of SAML claims when used with the authorization_code flow
      * @type {boolean}
-     * @memberof CreateoauthclientresponseV1
+     * @memberof Createoauthclientresponse
      */
     'claimsSupported': boolean;
     /**
      * The date and time, down to the millisecond, when the API Client was created
      * @type {string}
-     * @memberof CreateoauthclientresponseV1
+     * @memberof Createoauthclientresponse
      */
     'created': string;
     /**
      * The date and time, down to the millisecond, when the API Client was last updated
      * @type {string}
-     * @memberof CreateoauthclientresponseV1
+     * @memberof Createoauthclientresponse
      */
     'modified': string;
     /**
      * Scopes of the API Client.
      * @type {Array<string>}
-     * @memberof CreateoauthclientresponseV1
+     * @memberof Createoauthclientresponse
      */
     'scope': Array<string> | null;
 }
@@ -283,25 +283,25 @@ export interface CreateoauthclientresponseV1 {
 /**
  * 
  * @export
- * @interface ErrormessagedtoV1
+ * @interface Errormessagedto
  */
-export interface ErrormessagedtoV1 {
+export interface Errormessagedto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {LocaleoriginV1}
-     * @memberof ErrormessagedtoV1
+     * @type {Localeorigin}
+     * @memberof Errormessagedto
      */
-    'localeOrigin'?: LocaleoriginV1 | null;
+    'localeOrigin'?: Localeorigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof ErrormessagedtoV1
+     * @memberof Errormessagedto
      */
     'text'?: string;
 }
@@ -310,164 +310,164 @@ export interface ErrormessagedtoV1 {
 /**
  * 
  * @export
- * @interface ErrorresponsedtoV1
+ * @interface Errorresponsedto
  */
-export interface ErrorresponsedtoV1 {
+export interface Errorresponsedto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof ErrorresponsedtoV1
+     * @memberof Errorresponsedto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'messages'?: Array<ErrormessagedtoV1>;
+    'messages'?: Array<Errormessagedto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<ErrormessagedtoV1>}
-     * @memberof ErrorresponsedtoV1
+     * @type {Array<Errormessagedto>}
+     * @memberof Errorresponsedto
      */
-    'causes'?: Array<ErrormessagedtoV1>;
+    'causes'?: Array<Errormessagedto>;
 }
 /**
  * 
  * @export
- * @interface GetoauthclientresponseV1
+ * @interface Getoauthclientresponse
  */
-export interface GetoauthclientresponseV1 {
+export interface Getoauthclientresponse {
     /**
      * ID of the OAuth client
      * @type {string}
-     * @memberof GetoauthclientresponseV1
+     * @memberof Getoauthclientresponse
      */
     'id': string;
     /**
      * The name of the business the API Client should belong to
      * @type {string}
-     * @memberof GetoauthclientresponseV1
+     * @memberof Getoauthclientresponse
      */
     'businessName': string | null;
     /**
      * The homepage URL associated with the owner of the API Client
      * @type {string}
-     * @memberof GetoauthclientresponseV1
+     * @memberof Getoauthclientresponse
      */
     'homepageUrl': string | null;
     /**
      * A human-readable name for the API Client
      * @type {string}
-     * @memberof GetoauthclientresponseV1
+     * @memberof Getoauthclientresponse
      */
     'name': string;
     /**
      * A description of the API Client
      * @type {string}
-     * @memberof GetoauthclientresponseV1
+     * @memberof Getoauthclientresponse
      */
     'description': string | null;
     /**
      * The number of seconds an access token generated for this API Client is valid for
      * @type {number}
-     * @memberof GetoauthclientresponseV1
+     * @memberof Getoauthclientresponse
      */
     'accessTokenValiditySeconds': number;
     /**
      * The number of seconds a refresh token generated for this API Client is valid for
      * @type {number}
-     * @memberof GetoauthclientresponseV1
+     * @memberof Getoauthclientresponse
      */
     'refreshTokenValiditySeconds': number;
     /**
      * A list of the approved redirect URIs used with the authorization_code flow
      * @type {Array<string>}
-     * @memberof GetoauthclientresponseV1
+     * @memberof Getoauthclientresponse
      */
     'redirectUris': Array<string> | null;
     /**
      * A list of OAuth 2.0 grant types this API Client can be used with
-     * @type {Array<GranttypeV1>}
-     * @memberof GetoauthclientresponseV1
+     * @type {Array<Granttype>}
+     * @memberof Getoauthclientresponse
      */
-    'grantTypes': Array<GranttypeV1>;
+    'grantTypes': Array<Granttype>;
     /**
      * 
-     * @type {AccesstypeV1}
-     * @memberof GetoauthclientresponseV1
+     * @type {Accesstype}
+     * @memberof Getoauthclientresponse
      */
-    'accessType': AccesstypeV1;
+    'accessType': Accesstype;
     /**
      * 
-     * @type {ClienttypeV1}
-     * @memberof GetoauthclientresponseV1
+     * @type {Clienttype}
+     * @memberof Getoauthclientresponse
      */
-    'type': ClienttypeV1;
+    'type': Clienttype;
     /**
      * An indicator of whether the API Client can be used for requests internal to IDN
      * @type {boolean}
-     * @memberof GetoauthclientresponseV1
+     * @memberof Getoauthclientresponse
      */
     'internal': boolean;
     /**
      * An indicator of whether the API Client is enabled for use
      * @type {boolean}
-     * @memberof GetoauthclientresponseV1
+     * @memberof Getoauthclientresponse
      */
     'enabled': boolean;
     /**
      * An indicator of whether the API Client supports strong authentication
      * @type {boolean}
-     * @memberof GetoauthclientresponseV1
+     * @memberof Getoauthclientresponse
      */
     'strongAuthSupported': boolean;
     /**
      * An indicator of whether the API Client supports the serialization of SAML claims when used with the authorization_code flow
      * @type {boolean}
-     * @memberof GetoauthclientresponseV1
+     * @memberof Getoauthclientresponse
      */
     'claimsSupported': boolean;
     /**
      * The date and time, down to the millisecond, when the API Client was created
      * @type {string}
-     * @memberof GetoauthclientresponseV1
+     * @memberof Getoauthclientresponse
      */
     'created': string;
     /**
      * The date and time, down to the millisecond, when the API Client was last updated
      * @type {string}
-     * @memberof GetoauthclientresponseV1
+     * @memberof Getoauthclientresponse
      */
     'modified': string;
     /**
      * 
      * @type {string}
-     * @memberof GetoauthclientresponseV1
+     * @memberof Getoauthclientresponse
      */
     'secret'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof GetoauthclientresponseV1
+     * @memberof Getoauthclientresponse
      */
     'metadata'?: string | null;
     /**
      * The date and time, down to the millisecond, when this API Client was last used to generate an access token. This timestamp does not get updated on every API Client usage, but only once a day. This property can be useful for identifying which API Clients are no longer actively used and can be removed.
      * @type {string}
-     * @memberof GetoauthclientresponseV1
+     * @memberof Getoauthclientresponse
      */
     'lastUsed'?: string | null;
     /**
      * Scopes of the API Client.
      * @type {Array<string>}
-     * @memberof GetoauthclientresponseV1
+     * @memberof Getoauthclientresponse
      */
     'scope': Array<string> | null;
 }
@@ -479,42 +479,42 @@ export interface GetoauthclientresponseV1 {
  * @enum {string}
  */
 
-export const GranttypeV1 = {
+export const Granttype = {
     ClientCredentials: 'CLIENT_CREDENTIALS',
     AuthorizationCode: 'AUTHORIZATION_CODE',
     RefreshToken: 'REFRESH_TOKEN'
 } as const;
 
-export type GranttypeV1 = typeof GranttypeV1[keyof typeof GranttypeV1];
+export type Granttype = typeof Granttype[keyof typeof Granttype];
 
 
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface JsonpatchoperationV1
+ * @interface Jsonpatchoperation
  */
-export interface JsonpatchoperationV1 {
+export interface Jsonpatchoperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
-    'op': JsonpatchoperationV1OpV1;
+    'op': JsonpatchoperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof JsonpatchoperationV1
+     * @memberof Jsonpatchoperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValueV1}
-     * @memberof JsonpatchoperationV1
+     * @type {JsonpatchoperationValue}
+     * @memberof Jsonpatchoperation
      */
-    'value'?: JsonpatchoperationValueV1;
+    'value'?: JsonpatchoperationValue;
 }
 
-export const JsonpatchoperationV1OpV1 = {
+export const JsonpatchoperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -523,38 +523,38 @@ export const JsonpatchoperationV1OpV1 = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationV1OpV1 = typeof JsonpatchoperationV1OpV1[keyof typeof JsonpatchoperationV1OpV1];
+export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
 
 /**
- * @type JsonpatchoperationValueV1
+ * @type JsonpatchoperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValueV1 = Array<ArrayInnerV1> | boolean | number | object | string;
+export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * 
  * @export
- * @interface ListOauthClientsV1401ResponseV1
+ * @interface ListOauthClientsV1401Response
  */
-export interface ListOauthClientsV1401ResponseV1 {
+export interface ListOauthClientsV1401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListOauthClientsV1401ResponseV1
+     * @memberof ListOauthClientsV1401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ListOauthClientsV1429ResponseV1
+ * @interface ListOauthClientsV1429Response
  */
-export interface ListOauthClientsV1429ResponseV1 {
+export interface ListOauthClientsV1429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListOauthClientsV1429ResponseV1
+     * @memberof ListOauthClientsV1429Response
      */
     'message'?: any;
 }
@@ -564,31 +564,31 @@ export interface ListOauthClientsV1429ResponseV1 {
  * @enum {string}
  */
 
-export const LocaleoriginV1 = {
+export const Localeorigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type LocaleoriginV1 = typeof LocaleoriginV1[keyof typeof LocaleoriginV1];
+export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 
 
 
 /**
- * OAuthClientsV1Api - axios parameter creator
+ * OAuthClientsApi - axios parameter creator
  * @export
  */
-export const OAuthClientsV1ApiAxiosParamCreator = function (configuration?: Configuration) {
+export const OAuthClientsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This creates an OAuth client.
          * @summary Create oauth client
-         * @param {CreateoauthclientrequestV1} createoauthclientrequestV1 
+         * @param {Createoauthclientrequest} createoauthclientrequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createOauthClientV1: async (createoauthclientrequestV1: CreateoauthclientrequestV1, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'createoauthclientrequestV1' is not null or undefined
-            assertParamExists('createOauthClientV1', 'createoauthclientrequestV1', createoauthclientrequestV1)
+        createOauthClientV1: async (createoauthclientrequest: Createoauthclientrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'createoauthclientrequest' is not null or undefined
+            assertParamExists('createOauthClientV1', 'createoauthclientrequest', createoauthclientrequest)
             const localVarPath = `/oauth-clients/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -608,7 +608,7 @@ export const OAuthClientsV1ApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createoauthclientrequestV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(createoauthclientrequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -722,15 +722,15 @@ export const OAuthClientsV1ApiAxiosParamCreator = function (configuration?: Conf
          * This performs a targeted update to the field(s) of an OAuth client.
          * @summary Patch oauth client
          * @param {string} id The OAuth client id
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchOauthClientV1: async (id: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchOauthClientV1: async (id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchOauthClientV1', 'id', id)
-            // verify required parameter 'jsonpatchoperationV1' is not null or undefined
-            assertParamExists('patchOauthClientV1', 'jsonpatchoperationV1', jsonpatchoperationV1)
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('patchOauthClientV1', 'jsonpatchoperation', jsonpatchoperation)
             const localVarPath = `/oauth-clients/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -751,7 +751,7 @@ export const OAuthClientsV1ApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationV1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -762,23 +762,23 @@ export const OAuthClientsV1ApiAxiosParamCreator = function (configuration?: Conf
 };
 
 /**
- * OAuthClientsV1Api - functional programming interface
+ * OAuthClientsApi - functional programming interface
  * @export
  */
-export const OAuthClientsV1ApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = OAuthClientsV1ApiAxiosParamCreator(configuration)
+export const OAuthClientsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = OAuthClientsApiAxiosParamCreator(configuration)
     return {
         /**
          * This creates an OAuth client.
          * @summary Create oauth client
-         * @param {CreateoauthclientrequestV1} createoauthclientrequestV1 
+         * @param {Createoauthclientrequest} createoauthclientrequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createOauthClientV1(createoauthclientrequestV1: CreateoauthclientrequestV1, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateoauthclientresponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createOauthClientV1(createoauthclientrequestV1, axiosOptions);
+        async createOauthClientV1(createoauthclientrequest: Createoauthclientrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Createoauthclientresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createOauthClientV1(createoauthclientrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['OAuthClientsV1Api.createOauthClientV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['OAuthClientsApi.createOauthClientV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -791,7 +791,7 @@ export const OAuthClientsV1ApiFp = function(configuration?: Configuration) {
         async deleteOauthClientV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOauthClientV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['OAuthClientsV1Api.deleteOauthClientV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['OAuthClientsApi.deleteOauthClientV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -801,10 +801,10 @@ export const OAuthClientsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getOauthClientV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetoauthclientresponseV1>> {
+        async getOauthClientV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Getoauthclientresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOauthClientV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['OAuthClientsV1Api.getOauthClientV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['OAuthClientsApi.getOauthClientV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -814,231 +814,231 @@ export const OAuthClientsV1ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listOauthClientsV1(filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetoauthclientresponseV1>>> {
+        async listOauthClientsV1(filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Getoauthclientresponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listOauthClientsV1(filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['OAuthClientsV1Api.listOauthClientsV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['OAuthClientsApi.listOauthClientsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * This performs a targeted update to the field(s) of an OAuth client.
          * @summary Patch oauth client
          * @param {string} id The OAuth client id
-         * @param {Array<JsonpatchoperationV1>} jsonpatchoperationV1 A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchOauthClientV1(id: string, jsonpatchoperationV1: Array<JsonpatchoperationV1>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetoauthclientresponseV1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchOauthClientV1(id, jsonpatchoperationV1, axiosOptions);
+        async patchOauthClientV1(id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Getoauthclientresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchOauthClientV1(id, jsonpatchoperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['OAuthClientsV1Api.patchOauthClientV1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['OAuthClientsApi.patchOauthClientV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * OAuthClientsV1Api - factory interface
+ * OAuthClientsApi - factory interface
  * @export
  */
-export const OAuthClientsV1ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = OAuthClientsV1ApiFp(configuration)
+export const OAuthClientsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = OAuthClientsApiFp(configuration)
     return {
         /**
          * This creates an OAuth client.
          * @summary Create oauth client
-         * @param {OAuthClientsV1ApiCreateOauthClientV1Request} requestParameters Request parameters.
+         * @param {OAuthClientsApiCreateOauthClientV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createOauthClientV1(requestParameters: OAuthClientsV1ApiCreateOauthClientV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CreateoauthclientresponseV1> {
-            return localVarFp.createOauthClientV1(requestParameters.createoauthclientrequestV1, axiosOptions).then((request) => request(axios, basePath));
+        createOauthClientV1(requestParameters: OAuthClientsApiCreateOauthClientV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Createoauthclientresponse> {
+            return localVarFp.createOauthClientV1(requestParameters.createoauthclientrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This deletes an OAuth client.
          * @summary Delete oauth client
-         * @param {OAuthClientsV1ApiDeleteOauthClientV1Request} requestParameters Request parameters.
+         * @param {OAuthClientsApiDeleteOauthClientV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteOauthClientV1(requestParameters: OAuthClientsV1ApiDeleteOauthClientV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteOauthClientV1(requestParameters: OAuthClientsApiDeleteOauthClientV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteOauthClientV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets details of an OAuth client.
          * @summary Get oauth client
-         * @param {OAuthClientsV1ApiGetOauthClientV1Request} requestParameters Request parameters.
+         * @param {OAuthClientsApiGetOauthClientV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getOauthClientV1(requestParameters: OAuthClientsV1ApiGetOauthClientV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetoauthclientresponseV1> {
+        getOauthClientV1(requestParameters: OAuthClientsApiGetOauthClientV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Getoauthclientresponse> {
             return localVarFp.getOauthClientV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a list of OAuth clients.
          * @summary List oauth clients
-         * @param {OAuthClientsV1ApiListOauthClientsV1Request} requestParameters Request parameters.
+         * @param {OAuthClientsApiListOauthClientsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listOauthClientsV1(requestParameters: OAuthClientsV1ApiListOauthClientsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<GetoauthclientresponseV1>> {
+        listOauthClientsV1(requestParameters: OAuthClientsApiListOauthClientsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Getoauthclientresponse>> {
             return localVarFp.listOauthClientsV1(requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This performs a targeted update to the field(s) of an OAuth client.
          * @summary Patch oauth client
-         * @param {OAuthClientsV1ApiPatchOauthClientV1Request} requestParameters Request parameters.
+         * @param {OAuthClientsApiPatchOauthClientV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchOauthClientV1(requestParameters: OAuthClientsV1ApiPatchOauthClientV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetoauthclientresponseV1> {
-            return localVarFp.patchOauthClientV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(axios, basePath));
+        patchOauthClientV1(requestParameters: OAuthClientsApiPatchOauthClientV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Getoauthclientresponse> {
+            return localVarFp.patchOauthClientV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createOauthClientV1 operation in OAuthClientsV1Api.
+ * Request parameters for createOauthClientV1 operation in OAuthClientsApi.
  * @export
- * @interface OAuthClientsV1ApiCreateOauthClientV1Request
+ * @interface OAuthClientsApiCreateOauthClientV1Request
  */
-export interface OAuthClientsV1ApiCreateOauthClientV1Request {
+export interface OAuthClientsApiCreateOauthClientV1Request {
     /**
      * 
-     * @type {CreateoauthclientrequestV1}
-     * @memberof OAuthClientsV1ApiCreateOauthClientV1
+     * @type {Createoauthclientrequest}
+     * @memberof OAuthClientsApiCreateOauthClientV1
      */
-    readonly createoauthclientrequestV1: CreateoauthclientrequestV1
+    readonly createoauthclientrequest: Createoauthclientrequest
 }
 
 /**
- * Request parameters for deleteOauthClientV1 operation in OAuthClientsV1Api.
+ * Request parameters for deleteOauthClientV1 operation in OAuthClientsApi.
  * @export
- * @interface OAuthClientsV1ApiDeleteOauthClientV1Request
+ * @interface OAuthClientsApiDeleteOauthClientV1Request
  */
-export interface OAuthClientsV1ApiDeleteOauthClientV1Request {
+export interface OAuthClientsApiDeleteOauthClientV1Request {
     /**
      * The OAuth client id
      * @type {string}
-     * @memberof OAuthClientsV1ApiDeleteOauthClientV1
+     * @memberof OAuthClientsApiDeleteOauthClientV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getOauthClientV1 operation in OAuthClientsV1Api.
+ * Request parameters for getOauthClientV1 operation in OAuthClientsApi.
  * @export
- * @interface OAuthClientsV1ApiGetOauthClientV1Request
+ * @interface OAuthClientsApiGetOauthClientV1Request
  */
-export interface OAuthClientsV1ApiGetOauthClientV1Request {
+export interface OAuthClientsApiGetOauthClientV1Request {
     /**
      * The OAuth client id
      * @type {string}
-     * @memberof OAuthClientsV1ApiGetOauthClientV1
+     * @memberof OAuthClientsApiGetOauthClientV1
      */
     readonly id: string
 }
 
 /**
- * Request parameters for listOauthClientsV1 operation in OAuthClientsV1Api.
+ * Request parameters for listOauthClientsV1 operation in OAuthClientsApi.
  * @export
- * @interface OAuthClientsV1ApiListOauthClientsV1Request
+ * @interface OAuthClientsApiListOauthClientsV1Request
  */
-export interface OAuthClientsV1ApiListOauthClientsV1Request {
+export interface OAuthClientsApiListOauthClientsV1Request {
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull*
      * @type {string}
-     * @memberof OAuthClientsV1ApiListOauthClientsV1
+     * @memberof OAuthClientsApiListOauthClientsV1
      */
     readonly filters?: string
 }
 
 /**
- * Request parameters for patchOauthClientV1 operation in OAuthClientsV1Api.
+ * Request parameters for patchOauthClientV1 operation in OAuthClientsApi.
  * @export
- * @interface OAuthClientsV1ApiPatchOauthClientV1Request
+ * @interface OAuthClientsApiPatchOauthClientV1Request
  */
-export interface OAuthClientsV1ApiPatchOauthClientV1Request {
+export interface OAuthClientsApiPatchOauthClientV1Request {
     /**
      * The OAuth client id
      * @type {string}
-     * @memberof OAuthClientsV1ApiPatchOauthClientV1
+     * @memberof OAuthClientsApiPatchOauthClientV1
      */
     readonly id: string
 
     /**
      * A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
-     * @type {Array<JsonpatchoperationV1>}
-     * @memberof OAuthClientsV1ApiPatchOauthClientV1
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof OAuthClientsApiPatchOauthClientV1
      */
-    readonly jsonpatchoperationV1: Array<JsonpatchoperationV1>
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
- * OAuthClientsV1Api - object-oriented interface
+ * OAuthClientsApi - object-oriented interface
  * @export
- * @class OAuthClientsV1Api
+ * @class OAuthClientsApi
  * @extends {BaseAPI}
  */
-export class OAuthClientsV1Api extends BaseAPI {
+export class OAuthClientsApi extends BaseAPI {
     /**
      * This creates an OAuth client.
      * @summary Create oauth client
-     * @param {OAuthClientsV1ApiCreateOauthClientV1Request} requestParameters Request parameters.
+     * @param {OAuthClientsApiCreateOauthClientV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof OAuthClientsV1Api
+     * @memberof OAuthClientsApi
      */
-    public createOauthClientV1(requestParameters: OAuthClientsV1ApiCreateOauthClientV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return OAuthClientsV1ApiFp(this.configuration).createOauthClientV1(requestParameters.createoauthclientrequestV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createOauthClientV1(requestParameters: OAuthClientsApiCreateOauthClientV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return OAuthClientsApiFp(this.configuration).createOauthClientV1(requestParameters.createoauthclientrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This deletes an OAuth client.
      * @summary Delete oauth client
-     * @param {OAuthClientsV1ApiDeleteOauthClientV1Request} requestParameters Request parameters.
+     * @param {OAuthClientsApiDeleteOauthClientV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof OAuthClientsV1Api
+     * @memberof OAuthClientsApi
      */
-    public deleteOauthClientV1(requestParameters: OAuthClientsV1ApiDeleteOauthClientV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return OAuthClientsV1ApiFp(this.configuration).deleteOauthClientV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteOauthClientV1(requestParameters: OAuthClientsApiDeleteOauthClientV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return OAuthClientsApiFp(this.configuration).deleteOauthClientV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets details of an OAuth client.
      * @summary Get oauth client
-     * @param {OAuthClientsV1ApiGetOauthClientV1Request} requestParameters Request parameters.
+     * @param {OAuthClientsApiGetOauthClientV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof OAuthClientsV1Api
+     * @memberof OAuthClientsApi
      */
-    public getOauthClientV1(requestParameters: OAuthClientsV1ApiGetOauthClientV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return OAuthClientsV1ApiFp(this.configuration).getOauthClientV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getOauthClientV1(requestParameters: OAuthClientsApiGetOauthClientV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return OAuthClientsApiFp(this.configuration).getOauthClientV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a list of OAuth clients.
      * @summary List oauth clients
-     * @param {OAuthClientsV1ApiListOauthClientsV1Request} requestParameters Request parameters.
+     * @param {OAuthClientsApiListOauthClientsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof OAuthClientsV1Api
+     * @memberof OAuthClientsApi
      */
-    public listOauthClientsV1(requestParameters: OAuthClientsV1ApiListOauthClientsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return OAuthClientsV1ApiFp(this.configuration).listOauthClientsV1(requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listOauthClientsV1(requestParameters: OAuthClientsApiListOauthClientsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return OAuthClientsApiFp(this.configuration).listOauthClientsV1(requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This performs a targeted update to the field(s) of an OAuth client.
      * @summary Patch oauth client
-     * @param {OAuthClientsV1ApiPatchOauthClientV1Request} requestParameters Request parameters.
+     * @param {OAuthClientsApiPatchOauthClientV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof OAuthClientsV1Api
+     * @memberof OAuthClientsApi
      */
-    public patchOauthClientV1(requestParameters: OAuthClientsV1ApiPatchOauthClientV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return OAuthClientsV1ApiFp(this.configuration).patchOauthClientV1(requestParameters.id, requestParameters.jsonpatchoperationV1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchOauthClientV1(requestParameters: OAuthClientsApiPatchOauthClientV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return OAuthClientsApiFp(this.configuration).patchOauthClientV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

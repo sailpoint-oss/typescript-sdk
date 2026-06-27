@@ -1,21 +1,21 @@
 ---
-id: v1-argument-v1
-title: ArgumentV1
-pagination_label: ArgumentV1
-sidebar_label: ArgumentV1
+id: v1-argument
+title: Argument
+pagination_label: Argument
+sidebar_label: Argument
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'ArgumentV1', 'v1ArgumentV1']
-slug: /tools/sdk/typescript/connector_rule_management/models/argument-v1
-tags: ['SDK', 'Software Development Kit', 'ArgumentV1', 'v1ArgumentV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Argument', 'v1Argument']
+slug: /tools/sdk/typescript/connector_rule_management/models/argument
+tags: ['SDK', 'Software Development Kit', 'Argument', 'v1Argument']
 ---
 
-# ArgumentV1
+# Argument
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** | the name of the argument | [default to undefined]
-**description** | **(optional)** **string** | the description of the argument | [default to undefined]
-**type** | **(optional)** **string** | the programmatic type of the argument | [default to undefined]
+**name** | `string` | the name of the argument | [default to undefined]
+**description** | **(optional)** `string` | the description of the argument | [default to undefined]
+**type** | **(optional)** `string` | the programmatic type of the argument | [default to undefined]
 

@@ -1,21 +1,21 @@
 ---
-id: v1-roleinsightsidentities-v1
-title: RoleinsightsidentitiesV1
-pagination_label: RoleinsightsidentitiesV1
-sidebar_label: RoleinsightsidentitiesV1
+id: v1-roleinsightsidentities
+title: Roleinsightsidentities
+pagination_label: Roleinsightsidentities
+sidebar_label: Roleinsightsidentities
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'RoleinsightsidentitiesV1', 'v1RoleinsightsidentitiesV1']
-slug: /tools/sdk/typescript/role_insights/models/roleinsightsidentities-v1
-tags: ['SDK', 'Software Development Kit', 'RoleinsightsidentitiesV1', 'v1RoleinsightsidentitiesV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Roleinsightsidentities', 'v1Roleinsightsidentities']
+slug: /tools/sdk/typescript/role_insights/models/roleinsightsidentities
+tags: ['SDK', 'Software Development Kit', 'Roleinsightsidentities', 'v1Roleinsightsidentities']
 ---
 
-# RoleinsightsidentitiesV1
+# Roleinsightsidentities
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **(optional)** **string** | Id for identity | [default to undefined]
-**name** | **(optional)** **string** | Name for identity | [default to undefined]
+**id** | **(optional)** `string` | Id for identity | [default to undefined]
+**name** | **(optional)** `string` | Name for identity | [default to undefined]
 **attributes** | **(optional)**  |  | [default to undefined]
 

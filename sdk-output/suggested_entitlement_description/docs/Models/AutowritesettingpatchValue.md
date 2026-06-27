@@ -1,15 +1,15 @@
 ---
-id: v1-autowritesettingpatch-value-v1
-title: AutowritesettingpatchValueV1
-pagination_label: AutowritesettingpatchValueV1
-sidebar_label: AutowritesettingpatchValueV1
+id: v1-autowritesettingpatch-value
+title: AutowritesettingpatchValue
+pagination_label: AutowritesettingpatchValue
+sidebar_label: AutowritesettingpatchValue
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'AutowritesettingpatchValueV1', 'v1AutowritesettingpatchValueV1']
-slug: /tools/sdk/typescript/suggested_entitlement_description/models/autowritesettingpatch-value-v1
-tags: ['SDK', 'Software Development Kit', 'AutowritesettingpatchValueV1', 'v1AutowritesettingpatchValueV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'AutowritesettingpatchValue', 'v1AutowritesettingpatchValue']
+slug: /tools/sdk/typescript/suggested_entitlement_description/models/autowritesettingpatch-value
+tags: ['SDK', 'Software Development Kit', 'AutowritesettingpatchValue', 'v1AutowritesettingpatchValue']
 ---
 
-# AutowritesettingpatchValueV1
+# AutowritesettingpatchValue
 
 ## Properties
 

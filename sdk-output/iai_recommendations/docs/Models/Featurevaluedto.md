@@ -1,21 +1,21 @@
 ---
-id: v1-featurevaluedto-v1
-title: FeaturevaluedtoV1
-pagination_label: FeaturevaluedtoV1
-sidebar_label: FeaturevaluedtoV1
+id: v1-featurevaluedto
+title: Featurevaluedto
+pagination_label: Featurevaluedto
+sidebar_label: Featurevaluedto
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'FeaturevaluedtoV1', 'v1FeaturevaluedtoV1']
-slug: /tools/sdk/typescript/iai_recommendations/models/featurevaluedto-v1
-tags: ['SDK', 'Software Development Kit', 'FeaturevaluedtoV1', 'v1FeaturevaluedtoV1']
+keywords: ['typescript', 'TypeScript', 'sdk', 'Featurevaluedto', 'v1Featurevaluedto']
+slug: /tools/sdk/typescript/iai_recommendations/models/featurevaluedto
+tags: ['SDK', 'Software Development Kit', 'Featurevaluedto', 'v1Featurevaluedto']
 ---
 
-# FeaturevaluedtoV1
+# Featurevaluedto
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**feature** | **(optional)** **string** | The type of feature | [default to undefined]
-**numerator** | **(optional)** **number** | The number of identities that have access to the feature | [default to undefined]
-**denominator** | **(optional)** **number** | The number of identities with the corresponding feature | [default to undefined]
+**feature** | **(optional)** `string` | The type of feature | [default to undefined]
+**numerator** | **(optional)** `number` | The number of identities that have access to the feature | [default to undefined]
+**denominator** | **(optional)** `number` | The number of identities with the corresponding feature | [default to undefined]
 
