@@ -25,11 +25,23 @@ const fixVersionedModelNames = function (content) {
 
 const fixFiles = function (myArray) {
   for (const file of myArray) {
-    if (!file.endsWith(".ts")) continue;
-    const original = fs.readFileSync(file, "utf8");
-    const fixed = fixVersionedModelNames(original);
-    if (fixed !== original) {
-      fs.writeFileSync(file, fixed, "utf8");
+    if (file.endsWith(".ts")) {
+      const original = fs.readFileSync(file, "utf8");
+      const fixed = fixVersionedModelNames(original);
+      if (fixed !== original) {
+        fs.writeFileSync(file, fixed, "utf8");
+      }
+    } else if (file.endsWith(".md")) {
+      const original = fs.readFileSync(file, "utf8");
+      // Fix API Spec links: add hyphen between version letter and number
+      // e.g., /docs/api/create-access-profile-v1 → /docs/api/create-access-profile-v-1
+      const fixed = original.replace(
+        /\[API Spec\]\(https:\/\/developer\.sailpoint\.com\/docs\/api\/([^)]+)\)/g,
+        (_, slug) => `[API Spec](https://developer.sailpoint.com/docs/api/${slug.replace(/-v(\d+)$/, '-v-$1')})`
+      );
+      if (fixed !== original) {
+        fs.writeFileSync(file, fixed, "utf8");
+      }
     }
   }
 };
