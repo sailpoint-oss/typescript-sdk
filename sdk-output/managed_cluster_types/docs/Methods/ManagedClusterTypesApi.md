@@ -30,7 +30,7 @@ Create a new Managed Cluster Type.
 
 The API returns a result that includes the Managed Cluster Type ID
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-managed-cluster-type-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-managed-cluster-type-v-1)
 
 ### Parameters
 
@@ -67,7 +67,7 @@ console.log(result);
 Delete a managed cluster type
 Delete an existing Managed Cluster Type.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-managed-cluster-type-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-managed-cluster-type-v-1)
 
 ### Parameters
 
@@ -104,7 +104,7 @@ console.log(result);
 Get a managed cluster type
 Get a Managed Cluster Type.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-managed-cluster-type-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-managed-cluster-type-v-1)
 
 ### Parameters
 
@@ -141,7 +141,7 @@ console.log(result);
 List managed cluster types
 Get a list of Managed Cluster Types.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-managed-cluster-types-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-managed-cluster-types-v-1)
 
 ### Parameters
 
@@ -186,7 +186,7 @@ console.log(result);
 Update a managed cluster type
 Update an existing Managed Cluster Type.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-managed-cluster-type-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-managed-cluster-type-v-1)
 
 ### Parameters
 

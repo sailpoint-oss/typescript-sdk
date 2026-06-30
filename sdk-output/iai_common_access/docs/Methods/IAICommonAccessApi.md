@@ -27,7 +27,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Create common access items
 This API is used to add roles/access profiles to the list of common access for a customer. Requires authorization scope of iai:access-modeling:create
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-common-access-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-common-access-v-1)
 
 ### Parameters
 
@@ -69,7 +69,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get a paginated list of common access
 This endpoint returns the current common access for a customer. The returned items can be filtered and sorted. Requires authorization scope of iai:access-modeling:read
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-common-access-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-common-access-v-1)
 
 ### Parameters
 
@@ -119,7 +119,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Bulk update common access status
 This submits an update request to the common access application. At this time there are no parameters. Requires authorization scope of iai:access-modeling:update
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-common-access-status-in-bulk-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-common-access-status-in-bulk-v-1)
 
 ### Parameters
 

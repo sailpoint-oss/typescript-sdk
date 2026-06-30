@@ -39,7 +39,7 @@ Method | HTTP request | Description
 Bulk approve entitlement recommendations
 Approve multiple entitlement recommendations in a single request. Each item in the request must include the recommendation ID and, depending on the record type, either an approved description (SED items) or an approved privilege level (privilege items). Returns a per-item result indicating success or failure.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/approve-bulk-entitlement-recommendations-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/approve-bulk-entitlement-recommendations-v-1)
 
 ### Parameters
 
@@ -76,7 +76,7 @@ console.log(result);
 Create auto-write settings for SED
 Create the initial auto-write settings for a tenant. Returns 409 Conflict if settings already exist. Use PATCH to update existing settings.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-auto-write-settings-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-auto-write-settings-v-1)
 
 ### Parameters
 
@@ -113,7 +113,7 @@ console.log(result);
 Get auto-write settings for SED
 Get the current auto-write configuration for the tenant, including the enabled state and source include/exclude lists.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-auto-write-settings-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-auto-write-settings-v-1)
 
 ### Parameters
 
@@ -150,7 +150,7 @@ Submit sed batch stats request
  of the batchId.'
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-sed-batch-stats-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-sed-batch-stats-v-1)
 
 ### Parameters
 
@@ -188,7 +188,7 @@ List Sed Batch Record
 List Sed Batches.
 API responses with Sed Batch Records
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-sed-batches-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-sed-batches-v-1)
 
 ### Parameters
 
@@ -233,7 +233,7 @@ console.log(result);
 List pending entitlement recommendation approvals
 Returns a list of entitlement recommendations (SED and/or privilege) that are currently awaiting review or approval. Each record includes the recommendation type, entitlement details, and any AI-generated suggestions.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-pending-entitlement-recommendation-approvals-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-pending-entitlement-recommendation-approvals-v-1)
 
 ### Parameters
 
@@ -272,7 +272,7 @@ console.log(result);
 List privileged entitlement recommendations
 Returns a list of privileged entitlement recommendation groups. Each group aggregates individual entitlement instances that share the same entitlement name and connector type, along with a recommendation score and instance count.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-privileged-entitlement-recommendations-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-privileged-entitlement-recommendations-v-1)
 
 ### Parameters
 
@@ -325,7 +325,7 @@ SED field descriptions:
 
 **fullText**: will filter suggested entitlement description records by text found in any of the following fields: entitlement name, entitlement display name, suggested description, source name
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-seds-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-seds-v-1)
 
 ### Parameters
 
@@ -376,7 +376,7 @@ console.log(result);
 Update an entitlement recommendation
 Partially update a single entitlement recommendation record by its ID. Use this endpoint to update the status, description, or privilege level of a specific SED or privilege recommendation.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/patch-entitlement-recommendation-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-entitlement-recommendation-v-1)
 
 ### Parameters
 
@@ -415,7 +415,7 @@ console.log(result);
 Patch suggested entitlement description
 Patch Suggested Entitlement Description
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/patch-sed-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-sed-v-1)
 
 ### Parameters
 
@@ -454,7 +454,7 @@ console.log(result);
 Assign entitlement recommendations for review
 Assign a set of entitlement recommendation records to a reviewer. The assignee can be a specific identity, a governance group, or a role-based assignee such as source owner or entitlement owner. Returns a batch ID that can be used to track the assignment.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/submit-entitlement-recommendations-assignment-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-entitlement-recommendations-assignment-v-1)
 
 ### Parameters
 
@@ -492,7 +492,7 @@ Submit bulk approval request
 Submit Bulk Approval Request for SED.
 Request body takes list of SED Ids. API responses with list of SED Approval Status
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/submit-sed-approval-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-sed-approval-v-1)
 
 ### Parameters
 
@@ -530,7 +530,7 @@ Submit sed assignment request
 Submit Assignment Request.
 Request body has an assignee, and list of SED Ids that are assigned to that assignee API responses with batchId that groups all approval requests together
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/submit-sed-assignment-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-sed-assignment-v-1)
 
 ### Parameters
 
@@ -568,7 +568,7 @@ Submit sed batch request
 Submit Sed Batch Request.
 Request body has one of the following: - a list of entitlement Ids - a list of SED Ids that user wants to have description generated by LLM.  API responses with batchId that groups Ids together
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/submit-sed-batch-request-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-sed-batch-request-v-1)
 
 ### Parameters
 
@@ -605,7 +605,7 @@ console.log(result);
 Update auto-write settings for SED
 Partially update the auto-write settings for a tenant using JSON Patch operations. Only the "replace" operation is supported. Returns 404 if no settings exist yet - use POST to create them first.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-auto-write-settings-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-auto-write-settings-v-1)
 
 ### Parameters
 

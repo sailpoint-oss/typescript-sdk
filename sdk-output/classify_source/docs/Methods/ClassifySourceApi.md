@@ -25,7 +25,7 @@ Cancel classify source\'s accounts process
 Use this API to cancel account classification process on a source.
 A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-classify-machine-account-from-source-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-classify-machine-account-from-source-v-1)
 
 ### Parameters
 
@@ -63,7 +63,7 @@ Source accounts classification status
 Use this API to get the status of Machine Account Classification process for a source.
 A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-classify-machine-account-from-source-status-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-classify-machine-account-from-source-status-v-1)
 
 ### Parameters
 
@@ -101,7 +101,7 @@ Classify source\'s all accounts
 Use this API to classify all the accounts from a source.
 A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/send-classify-machine-account-from-source-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/send-classify-machine-account-from-source-v-1)
 
 ### Parameters
 

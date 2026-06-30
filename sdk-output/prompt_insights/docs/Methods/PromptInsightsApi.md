@@ -31,7 +31,7 @@ Method | HTTP request | Description
 Get prompt insights metrics
 Returns aggregate prompt insights metrics for the requested time window.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-prompt-insights-metrics-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-prompt-insights-metrics-v-1)
 
 ### Parameters
 
@@ -68,7 +68,7 @@ console.log(result);
 List prompt insights
 Returns a paginated list of prompt insights within a lookback window, with optional structured filters. Results are sorted by timestamp descending (most recent first).
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-prompt-insights-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-prompt-insights-v-1)
 
 ### Parameters
 

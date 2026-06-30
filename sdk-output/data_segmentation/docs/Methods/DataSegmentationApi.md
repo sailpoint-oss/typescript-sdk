@@ -32,7 +32,7 @@ Create segment
 This API creates a segment. 
 >**Note:** Segment definitions may take time to propagate to all identities.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-data-segment-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-data-segment-v-1)
 
 ### Parameters
 
@@ -72,7 +72,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Delete segment by id
 This API deletes the segment specified by the given ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-data-segment-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-data-segment-v-1)
 
 ### Parameters
 
@@ -116,7 +116,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get segmentmembership by identity id
 This API returns the segment membership specified by the given identity ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-data-segment-identity-membership-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-data-segment-identity-membership-v-1)
 
 ### Parameters
 
@@ -158,7 +158,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get segment by id
 This API returns the segment specified by the given ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-data-segment-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-data-segment-v-1)
 
 ### Parameters
 
@@ -200,7 +200,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Is segmentation enabled by identity
 This API returns whether or not segmentation is enabled for the identity.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-data-segmentation-enabled-for-user-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-data-segmentation-enabled-for-user-v-1)
 
 ### Parameters
 
@@ -242,7 +242,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get segments
 This API returns the segment specified by the given ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-data-segments-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-data-segments-v-1)
 
 ### Parameters
 
@@ -296,7 +296,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Update segment
 Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/patch-data-segment-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-data-segment-v-1)
 
 ### Parameters
 
@@ -340,7 +340,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Publish segment by id
 This will publish the segment so that it starts applying the segmentation to the desired users if enabled
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/publish-data-segment-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/publish-data-segment-v-1)
 
 ### Parameters
 

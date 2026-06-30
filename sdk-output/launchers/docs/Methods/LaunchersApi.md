@@ -27,7 +27,7 @@ Method | HTTP request | Description
 Create launcher
 Create a Launcher with given information
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-launcher-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-launcher-v-1)
 
 ### Parameters
 
@@ -64,7 +64,7 @@ console.log(result);
 Delete launcher
 Delete the given Launcher ID
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-launcher-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-launcher-v-1)
 
 ### Parameters
 
@@ -101,7 +101,7 @@ console.log(result);
 Get launcher by id
 Get details for the given Launcher ID
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-launcher-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-launcher-v-1)
 
 ### Parameters
 
@@ -138,7 +138,7 @@ console.log(result);
 List all launchers for tenant
 Return a list of Launchers for the authenticated tenant
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-launchers-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-launchers-v-1)
 
 ### Parameters
 
@@ -179,7 +179,7 @@ console.log(result);
 Replace launcher
 Replace the given Launcher ID with given payload
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/put-launcher-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/put-launcher-v-1)
 
 ### Parameters
 
@@ -218,7 +218,7 @@ console.log(result);
 Launch a launcher
 Launch the given Launcher ID
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/start-launcher-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/start-launcher-v-1)
 
 ### Parameters
 

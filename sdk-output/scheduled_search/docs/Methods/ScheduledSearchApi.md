@@ -54,7 +54,7 @@ Create a new scheduled search
 Creates a new scheduled search.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-scheduled-search-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-scheduled-search-v-1)
 
 ### Parameters
 
@@ -92,7 +92,7 @@ Delete a scheduled search
 Deletes the specified scheduled search.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-scheduled-search-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-scheduled-search-v-1)
 
 ### Parameters
 
@@ -129,7 +129,7 @@ console.log(result);
 Get a scheduled search
 Returns the specified scheduled search.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-scheduled-search-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-scheduled-search-v-1)
 
 ### Parameters
 
@@ -167,7 +167,7 @@ List scheduled searches
 Returns a list of scheduled searches.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-scheduled-search-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-scheduled-search-v-1)
 
 ### Parameters
 
@@ -211,7 +211,7 @@ Unsubscribe a recipient from scheduled search
 Unsubscribes a recipient from the specified scheduled search.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/unsubscribe-scheduled-search-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/unsubscribe-scheduled-search-v-1)
 
 ### Parameters
 
@@ -251,7 +251,7 @@ Update an existing scheduled search
 Updates an existing scheduled search.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-scheduled-search-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-scheduled-search-v-1)
 
 ### Parameters
 

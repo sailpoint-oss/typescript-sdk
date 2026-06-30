@@ -37,7 +37,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Create password policy
 This API creates the specified password policy.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-password-policy-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-password-policy-v-1)
 
 ### Parameters
 
@@ -79,7 +79,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Delete password policy by id
 This API deletes the specified password policy.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-password-policy-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-password-policy-v-1)
 
 ### Parameters
 
@@ -121,7 +121,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get password policy by id
 This API returns the password policy for the specified ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-password-policy-by-id-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-password-policy-by-id-v-1)
 
 ### Parameters
 
@@ -164,7 +164,7 @@ List password policies
 This gets list of all Password Policies.
 Requires role of ORG_ADMIN
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-password-policies-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-password-policies-v-1)
 
 ### Parameters
 
@@ -210,7 +210,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Update password policy by id
 This API updates the specified password policy.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/set-password-policy-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/set-password-policy-v-1)
 
 ### Parameters
 

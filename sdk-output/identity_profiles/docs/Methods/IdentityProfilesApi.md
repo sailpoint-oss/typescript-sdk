@@ -42,7 +42,7 @@ Method | HTTP request | Description
 Create identity profile
 Creates an identity profile.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-identity-profile-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-identity-profile-v-1)
 
 ### Parameters
 
@@ -80,7 +80,7 @@ Delete identity profile
 Delete an identity profile by ID.
 On success, this endpoint will return a reference to the bulk delete task result.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-identity-profile-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-identity-profile-v-1)
 
 ### Parameters
 
@@ -121,7 +121,7 @@ On success, this endpoint will return a reference to the bulk delete task result
 
 The following rights are required to access this endpoint: idn:identity-profile:delete
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-identity-profiles-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-identity-profiles-v-1)
 
 ### Parameters
 
@@ -158,7 +158,7 @@ console.log(result);
 Export identity profiles
 This exports existing identity profiles in the format specified by the sp-config service.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/export-identity-profiles-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/export-identity-profiles-v-1)
 
 ### Parameters
 
@@ -203,7 +203,7 @@ console.log(result);
 Generate identity profile preview
 This generates a non-persisted IdentityDetails object that will represent as the preview of the identities attribute when the given policy''s attribute config is applied.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/generate-identity-preview-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/generate-identity-preview-v-1)
 
 ### Parameters
 
@@ -240,7 +240,7 @@ console.log(result);
 Get default identity attribute config
 This returns the default identity attribute config.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-default-identity-attribute-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-default-identity-attribute-config-v-1)
 
 ### Parameters
 
@@ -277,7 +277,7 @@ console.log(result);
 Get identity profile
 Get a single identity profile by ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-identity-profile-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-identity-profile-v-1)
 
 ### Parameters
 
@@ -314,7 +314,7 @@ console.log(result);
 Import identity profiles
 This imports previously exported identity profiles.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/import-identity-profiles-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/import-identity-profiles-v-1)
 
 ### Parameters
 
@@ -351,7 +351,7 @@ console.log(result);
 List identity profiles
 Get a list of identity profiles, based on the specified query parameters.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-identity-profiles-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-identity-profiles-v-1)
 
 ### Parameters
 
@@ -400,7 +400,7 @@ This should only be run on identity profiles that have the `identityRefreshRequi
 This operation will perform the following activities on all identities under the identity profile.
 1. Updates identity attribute according to the identity profile mappings. 2. Determines the identity's correct manager through manager correlation. 3. Updates the identity's access according to their assigned lifecycle state. 4. Updates the identity's access based on role assignment criteria.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/sync-identity-profile-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/sync-identity-profile-v-1)
 
 ### Parameters
 
@@ -445,7 +445,7 @@ You cannot update these fields:
 * identityRefreshRequired
 * Authoritative Source and Identity Attribute Configuration cannot be modified at the same time.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-identity-profile-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-identity-profile-v-1)
 
 ### Parameters
 

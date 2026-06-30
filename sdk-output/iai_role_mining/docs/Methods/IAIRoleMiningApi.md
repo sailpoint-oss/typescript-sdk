@@ -49,7 +49,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Create request to provision a potential role into an actual role.
 This method starts a job to provision a potential role
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-potential-role-provision-request-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-potential-role-provision-request-v-1)
 
 ### Parameters
 
@@ -99,7 +99,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Create a role mining session
 This submits a create role mining session request to the role mining application.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-role-mining-sessions-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-role-mining-sessions-v-1)
 
 ### Parameters
 
@@ -141,7 +141,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Export (download) details for a potential role in a role mining session
 This endpoint downloads a completed export of information for a potential role in a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/download-role-mining-potential-role-zip-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/download-role-mining-potential-role-zip-v-1)
 
 ### Parameters
 
@@ -187,7 +187,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Asynchronously export details for a potential role in a role mining session and upload to S3
 This endpoint uploads all the information for a potential role in a role mining session to S3 as a downloadable zip archive.  Includes identities and entitlements in the potential role.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/export-role-mining-potential-role-async-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/export-role-mining-potential-role-async-v-1)
 
 ### Parameters
 
@@ -233,7 +233,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieve status of a potential role export job
 This endpoint retrieves information about the current status of a potential role export.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/export-role-mining-potential-role-status-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/export-role-mining-potential-role-status-v-1)
 
 ### Parameters
 
@@ -279,7 +279,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Export (download) details for a potential role in a role mining session
 This endpoint downloads all the information for a potential role in a role mining session. Includes identities and entitlements in the potential role.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/export-role-mining-potential-role-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/export-role-mining-potential-role-v-1)
 
 ### Parameters
 
@@ -323,7 +323,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves all potential role summaries
 Returns all potential role summaries that match the query parameters
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-all-potential-role-summaries-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-all-potential-role-summaries-v-1)
 
 ### Parameters
 
@@ -373,7 +373,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves entitlement popularity distribution for a potential role in a role mining session
 This method returns entitlement popularity distribution for a potential role in a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-entitlement-distribution-potential-role-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-entitlement-distribution-potential-role-v-1)
 
 ### Parameters
 
@@ -419,7 +419,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves entitlements for a potential role in a role mining session
 This method returns entitlements for a potential role in a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-entitlements-potential-role-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-entitlements-potential-role-v-1)
 
 ### Parameters
 
@@ -475,7 +475,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves excluded entitlements for a potential role in a role mining session
 This method returns excluded entitlements for a potential role in a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-excluded-entitlements-potential-role-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-excluded-entitlements-potential-role-v-1)
 
 ### Parameters
 
@@ -529,7 +529,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves identities for a potential role in a role mining session
 This method returns identities for a potential role in a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-identities-potential-role-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-identities-potential-role-v-1)
 
 ### Parameters
 
@@ -583,7 +583,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves the applications of a potential role for a role mining session
 This method returns the applications of a potential role for a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-potential-role-applications-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-potential-role-applications-v-1)
 
 ### Parameters
 
@@ -635,7 +635,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves the entitlements of a potential role for a role mining session
 This method returns the entitlements of a potential role for a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-potential-role-entitlements-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-potential-role-entitlements-v-1)
 
 ### Parameters
 
@@ -687,7 +687,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves potential role source usage
 This method returns source usageCount (as number of days in the last 90 days) for each identity in a potential role.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-potential-role-source-identity-usage-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-potential-role-source-identity-usage-v-1)
 
 ### Parameters
 
@@ -739,7 +739,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves all potential role summaries
 This method returns the potential role summaries for a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-potential-role-summaries-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-potential-role-summaries-v-1)
 
 ### Parameters
 
@@ -791,7 +791,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves a specific potential role
 This method returns a specific potential role for a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-potential-role-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-potential-role-v-1)
 
 ### Parameters
 
@@ -835,7 +835,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves a specific potential role
 This method returns a specific potential role.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-role-mining-potential-role-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-mining-potential-role-v-1)
 
 ### Parameters
 
@@ -877,7 +877,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get role mining session status state
 This method returns a role mining session status for a customer.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-role-mining-session-status-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-mining-session-status-v-1)
 
 ### Parameters
 
@@ -919,7 +919,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get a role mining session
 The method retrieves a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-role-mining-session-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-mining-session-v-1)
 
 ### Parameters
 
@@ -961,7 +961,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves all role mining sessions
 Returns all role mining sessions that match the query parameters
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-role-mining-sessions-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-mining-sessions-v-1)
 
 ### Parameters
 
@@ -1011,7 +1011,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves all saved potential roles
 This method returns all saved potential roles (draft roles).
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-saved-potential-roles-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-saved-potential-roles-v-1)
 
 ### Parameters
 
@@ -1071,7 +1071,7 @@ The following fields can be modified:
 >**NOTE: All other fields cannot be modified.**
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/patch-potential-role-session-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-potential-role-session-v-1)
 
 ### Parameters
 
@@ -1129,7 +1129,7 @@ The following fields can be modified:
 >**NOTE: All other fields cannot be modified.**
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/patch-potential-role-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-potential-role-v-1)
 
 ### Parameters
 
@@ -1175,7 +1175,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Patch a role mining session
 The  method updates an existing role mining session using PATCH. Supports op in {"replace"} and changes to pruneThreshold and/or minNumIdentitiesInPotentialRole. The potential roles in this role mining session is then re-calculated.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/patch-role-mining-session-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-role-mining-session-v-1)
 
 ### Parameters
 
@@ -1219,7 +1219,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Edit entitlements for a potential role to exclude some entitlements
 This endpoint adds or removes entitlements from an exclusion list for a potential role.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-entitlements-potential-role-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-entitlements-potential-role-v-1)
 
 ### Parameters
 

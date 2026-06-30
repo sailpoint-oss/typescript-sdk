@@ -26,7 +26,7 @@ Method | HTTP request | Description
 Get org config settings
 Get the current organization's configuration settings, only external accessible properties.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-org-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-org-config-v-1)
 
 ### Parameters
 
@@ -62,7 +62,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get valid time zones
 List the valid time zones that can be set in organization configurations.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-valid-time-zones-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-valid-time-zones-v-1)
 
 ### Parameters
 
@@ -105,7 +105,7 @@ console.log(result);
 Patch org config
 Patch the current organization's configuration, using http://jsonpatch.com/ syntax. This is commonly used to changing an organization's time zone.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/patch-org-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-org-config-v-1)
 
 ### Parameters
 

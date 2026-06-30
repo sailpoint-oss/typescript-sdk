@@ -31,7 +31,7 @@ Method | HTTP request | Description
 Create transform
 Creates a new transform object immediately. By default, the internal flag is set to false to indicate that this is a custom transform. Only SailPoint employees have the ability to create a transform with internal set to true. Newly created Transforms can be used in the Identity Profile mappings within the UI.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-transform-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-transform-v-1)
 
 ### Parameters
 
@@ -68,7 +68,7 @@ console.log(result);
 Delete a transform
 Deletes the transform specified by the given ID. Attempting to delete a transform that is used in one or more Identity Profile mappings will result in an error. If this occurs, you must first remove the transform from all mappings before deleting the transform.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-transform-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-transform-v-1)
 
 ### Parameters
 
@@ -105,7 +105,7 @@ console.log(result);
 Transform by id
 This API returns the transform specified by the given ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-transform-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-transform-v-1)
 
 ### Parameters
 
@@ -142,7 +142,7 @@ console.log(result);
 List transforms
 Gets a list of all saved transform objects.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-transforms-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-transforms-v-1)
 
 ### Parameters
 
@@ -187,7 +187,7 @@ console.log(result);
 Update a transform
 Replaces the transform specified by the given ID with the transform provided in the request body. Only the "attributes" field is mutable. Attempting to change other properties (ex. "name" and "type") will result in an error.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-transform-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-transform-v-1)
 
 ### Parameters
 

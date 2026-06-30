@@ -34,7 +34,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Terminate Role Propagation process
 This endpoint terminates the ongoing role change propagation process for a tenant.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/cancel-role-propagation-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/cancel-role-propagation-v-1)
 
 ### Parameters
 
@@ -74,7 +74,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get ongoing Role Propagation process
 This endpoint returns the information of ongoing role change propagation process for a tenant. It returns the information whether the role propagation process is currently running or not, If it is running it returns the details of the ongoing role propagation process. The execution stage of the role propagation process can be one of the following: - PENDING - The role propagation process is queued to be executed. - DATA_AGGREGATION_RUNNING - The role propagation process is currently aggregating data. - LAUNCH_PROVISIONING - The role propagation process has started to provision the access to the identities. - SUCCEEDED - The role propagation process has successfully completed. - FAILED - The role propagation process has failed. - TERMINATED - The role propagation process was externally terminated.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-ongoing-role-propagation-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-ongoing-role-propagation-v-1)
 
 ### Parameters
 
@@ -114,7 +114,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get Role Change Propagation Configuration
 This endpoint fetches the Role Change Propagation Configuration for the tenant
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-role-propagation-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-propagation-config-v-1)
 
 ### Parameters
 
@@ -160,7 +160,7 @@ This endpoint returns the information of the specified role change propagation p
     - FAILED - The role propagation process has failed.
     - TERMINATED - The role propagation process was externally terminated.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-role-propagation-status-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-propagation-status-v-1)
 
 ### Parameters
 
@@ -202,7 +202,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Update Role Change Propagation Configuration
 This endpoint enables or disables the Role Change Propagation Process for the tenant
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/set-role-propagation-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/set-role-propagation-config-v-1)
 
 ### Parameters
 
@@ -245,7 +245,7 @@ Initiate Role Propagation process
 This endpoint initiates a role change propagation process for a tenant asynchronously.  If all preconditions are met, the request is accepted and a rolePropagationId is returned which  can be used to view the status.
 API throws 4xx if any of the following conditions are met - Role propagation feature is disabled  - There is an ongoing role propagation for the tenant - Role refresh needs to be kicked off as part of the role propagation (skipRoleRefresh=false) and there is an ongoing refresh for the tenant
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/start-role-propagation-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/start-role-propagation-v-1)
 
 ### Parameters
 

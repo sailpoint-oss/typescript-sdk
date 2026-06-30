@@ -30,7 +30,7 @@ Returns entitlement connections constrained to the authenticated identity.
 This endpoint proxies to Search and supports standard collection query parameters.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-entitlement-connections-for-current-identity-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-entitlement-connections-for-current-identity-v-1)
 
 ### Parameters
 
@@ -81,7 +81,7 @@ This endpoint proxies to Search and supports standard collection query parameter
 The `filters` and `sorters` values support the Entitlement Connections search fields documented by ECS.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-entitlement-connections-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-entitlement-connections-v-1)
 
 ### Parameters
 
@@ -129,7 +129,7 @@ Update entitlement connection
 Applies JSON Patch operations to an entitlement connection selected by `connectionId`.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/patch-entitlement-connection-by-id-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-entitlement-connection-by-id-v-1)
 
 ### Parameters
 
@@ -170,7 +170,7 @@ Applies JSON Patch operations to a single entitlement connection selected by
 `entitlementId`, `identityId`, and `accountId`.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/patch-entitlement-connection-by-query-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-entitlement-connection-by-query-v-1)
 
 ### Parameters
 
@@ -215,7 +215,7 @@ Updates connection type for up to 100 connections in one request.
 The API returns per-item results in a 207 Multi-Status response.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-entitlement-connections-bulk-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-entitlement-connections-bulk-v-1)
 
 ### Parameters
 
