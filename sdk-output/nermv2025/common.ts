@@ -144,7 +144,7 @@ export const toPathString = function (url: URL) {
  */
 export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxios: AxiosInstance, BASE_PATH: string, configuration?: Configuration) {
     return async <T = unknown, R = AxiosResponse<T>>(axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-        let userAgent = `SailPoint-SDK-TypeScript/2.0.4`;
+        let userAgent = `SailPoint-SDK-TypeScript/2.0.5`;
         if (configuration?.consumerIdentifier && configuration?.consumerVersion) {
             userAgent += ` (${configuration.consumerIdentifier}/${configuration.consumerVersion})`;
         }
@@ -152,7 +152,7 @@ export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxi
         const headers = {
             ...{'Accept': 'application/json'},
             ...axiosArgs.axiosOptions.headers,
-            ...{'X-SailPoint-SDK':'typescript-2.0.4'},
+            ...{'X-SailPoint-SDK':'typescript-2.0.5'},
             ...{'User-Agent': userAgent},
         }
 

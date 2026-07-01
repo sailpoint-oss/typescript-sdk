@@ -1284,6 +1284,61 @@ export type FielddetailsdtoTypeEnum = typeof FielddetailsdtoTypeEnum[keyof typeo
 /**
  * 
  * @export
+ * @interface Fielddetailsdtov2
+ */
+export interface Fielddetailsdtov2 {
+    /**
+     * The name of the attribute.
+     * @type {string}
+     * @memberof Fielddetailsdtov2
+     */
+    'name'?: string;
+    /**
+     * The transform to apply to the field
+     * @type {object}
+     * @memberof Fielddetailsdtov2
+     */
+    'transform'?: object;
+    /**
+     * Attributes required for the transform
+     * @type {object}
+     * @memberof Fielddetailsdtov2
+     */
+    'attributes'?: object;
+    /**
+     * Flag indicating whether or not the attribute is required.
+     * @type {boolean}
+     * @memberof Fielddetailsdtov2
+     */
+    'isRequired'?: boolean;
+    /**
+     * The type of the attribute.  string: For text-based data.  int: For whole numbers.  long: For larger whole numbers.  date: For date and time values.  boolean: For true/false values.  secret: For sensitive data like passwords, which will be masked and encrypted. 
+     * @type {string}
+     * @memberof Fielddetailsdtov2
+     */
+    'type'?: Fielddetailsdtov2TypeEnum;
+    /**
+     * Flag indicating whether or not the attribute is multi-valued.
+     * @type {boolean}
+     * @memberof Fielddetailsdtov2
+     */
+    'isMultiValued'?: boolean;
+}
+
+export const Fielddetailsdtov2TypeEnum = {
+    String: 'string',
+    Int: 'int',
+    Long: 'long',
+    Date: 'date',
+    Boolean: 'boolean',
+    Secret: 'secret'
+} as const;
+
+export type Fielddetailsdtov2TypeEnum = typeof Fielddetailsdtov2TypeEnum[keyof typeof Fielddetailsdtov2TypeEnum];
+
+/**
+ * 
+ * @export
  * @interface Identityprofilesconnections
  */
 export interface Identityprofilesconnections {
@@ -2054,6 +2109,51 @@ export interface Provisioningpolicydto {
      * @memberof Provisioningpolicydto
      */
     'fields'?: Array<Fielddetailsdto>;
+}
+
+
+/**
+ * 
+ * @export
+ * @interface Provisioningpolicydtov2
+ */
+export interface Provisioningpolicydtov2 {
+    /**
+     * System-generated unique ID of the provisioning policy.
+     * @type {string}
+     * @memberof Provisioningpolicydtov2
+     */
+    'id'?: string;
+    /**
+     * the provisioning policy name
+     * @type {string}
+     * @memberof Provisioningpolicydtov2
+     */
+    'name': string | null;
+    /**
+     * Subtype ID for which provisioning policy will be created when usageType is CREATE_MACHINE_ACCOUNT.
+     * @type {string}
+     * @memberof Provisioningpolicydtov2
+     */
+    'subtypeId'?: string | null;
+    /**
+     * the description of the provisioning policy
+     * @type {string}
+     * @memberof Provisioningpolicydtov2
+     */
+    'description'?: string;
+    /**
+     * 
+     * @type {Usagetype}
+     * @memberof Provisioningpolicydtov2
+     */
+    'usageType'?: Usagetype;
+    /**
+     * 
+     * @type {Array<Fielddetailsdtov2>}
+     * @memberof Provisioningpolicydtov2
+     */
+    'fields'?: Array<Fielddetailsdtov2>;
 }
 
 
@@ -3325,7 +3425,7 @@ export const TransformreadTypeEnum = {
 export type TransformreadTypeEnum = typeof TransformreadTypeEnum[keyof typeof TransformreadTypeEnum];
 
 /**
- * The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
+ * The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source. CREATE_MACHINE_ACCOUNT - This usage type can be used to create the provisioning template for a source subtype which will be used in creating a machine account. You can use these usage types for all your provisioning policy needs. 
  * @export
  * @enum {string}
  */
@@ -3346,7 +3446,8 @@ export const Usagetype = {
     UpdateIdentity: 'UPDATE_IDENTITY',
     EditGroup: 'EDIT_GROUP',
     Unlock: 'UNLOCK',
-    ChangePassword: 'CHANGE_PASSWORD'
+    ChangePassword: 'CHANGE_PASSWORD',
+    CreateMachineAccount: 'CREATE_MACHINE_ACCOUNT'
 } as const;
 
 export type Usagetype = typeof Usagetype[keyof typeof Usagetype];
@@ -3393,6 +3494,59 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(provisioningpolicydto, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. The V2 API allows you to use a unique identifier (id) for each provisioning policy instead of usageType. This enables read, update, and delete operations on policies using their id. Note: The subtypeId field is required if usageType is CREATE_MACHINE_ACCOUNT. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+         * @summary Create provisioning policy
+         * @param {string} sourceId The Source id
+         * @param {Provisioningpolicydtov2} provisioningpolicydtov2 
+         * @param {boolean} [useDefaultFields] If passed as true, then it uses default fields from the connector template.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createProvisioningPolicyV2: async (sourceId: string, provisioningpolicydtov2: Provisioningpolicydtov2, useDefaultFields?: boolean, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('createProvisioningPolicyV2', 'sourceId', sourceId)
+            // verify required parameter 'provisioningpolicydtov2' is not null or undefined
+            assertParamExists('createProvisioningPolicyV2', 'provisioningpolicydtov2', provisioningpolicydtov2)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/sources/v2/{sourceId}/provisioning-policies`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (useDefaultFields !== undefined) {
+                localVarQueryParameter['useDefaultFields'] = useDefaultFields;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(provisioningpolicydtov2, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -3617,6 +3771,52 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
 
 
     
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deletes the provisioning policy with the specified ID on an application.
+         * @summary Delete provisioning policy by ID
+         * @param {string} sourceId The Source ID.
+         * @param {string} id The provisioning policy ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteProvisioningPolicyV2: async (sourceId: string, id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('deleteProvisioningPolicyV2', 'sourceId', sourceId)
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteProvisioningPolicyV2', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/sources/v2/{sourceId}/provisioning-policies/{id}`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -3974,6 +4174,52 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
 
 
     
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This end-point retrieves the ProvisioningPolicy with the specified ID on the specified Source in Identity Security Cloud.
+         * @summary Get provisioning policy by ID
+         * @param {string} sourceId The Source ID.
+         * @param {string} id The provisioning policy ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getProvisioningPolicyV2: async (sourceId: string, id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('getProvisioningPolicyV2', 'sourceId', sourceId)
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getProvisioningPolicyV2', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/sources/v2/{sourceId}/provisioning-policies/{id}`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -4724,6 +4970,63 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * This end-point lists all the ProvisioningPolicies in IdentityNow.
+         * @summary Lists Provisioning Policies
+         * @param {string} sourceId The Source id
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **subtypeId**: *eq*  **usageType**: *eq*
+         * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+         * @param {number} [limit] Limit Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listProvisioningPoliciesV2: async (sourceId: string, filters?: string, offset?: number, limit?: number, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('listProvisioningPoliciesV2', 'sourceId', sourceId)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/sources/v2/{sourceId}/provisioning-policies`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This end-point lists all the sources in IdentityNow.
          * @summary Lists all sources in identitynow.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -4940,6 +5243,58 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(provisioningpolicydto, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This end-point updates the provisioning policy with the specified ID on the specified source in Identity Security Cloud. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+         * @summary Update provisioning policy by ID
+         * @param {string} sourceId The Source ID.
+         * @param {string} id The provisioning policy ID.
+         * @param {Provisioningpolicydtov2} provisioningpolicydtov2 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putProvisioningPolicyV2: async (sourceId: string, id: string, provisioningpolicydtov2: Provisioningpolicydtov2, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('putProvisioningPolicyV2', 'sourceId', sourceId)
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('putProvisioningPolicyV2', 'id', id)
+            // verify required parameter 'provisioningpolicydtov2' is not null or undefined
+            assertParamExists('putProvisioningPolicyV2', 'provisioningpolicydtov2', provisioningpolicydtov2)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/sources/v2/{sourceId}/provisioning-policies/{id}`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(provisioningpolicydtov2, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5433,6 +5788,58 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * This API selectively updates an existing Provisioning Policy using a JSONPatch payload. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+         * @summary Partial update of provisioning policy
+         * @param {string} sourceId The Source id.
+         * @param {string} id The provisioning policy ID.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation The JSONPatch payload used to update the schema.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateProvisioningPolicyV2: async (sourceId: string, id: string, jsonpatchoperation: Array<Jsonpatchoperation>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('updateProvisioningPolicyV2', 'sourceId', sourceId)
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateProvisioningPolicyV2', 'id', id)
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('updateProvisioningPolicyV2', 'jsonpatchoperation', jsonpatchoperation)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/sources/v2/{sourceId}/provisioning-policies/{id}`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
          * @summary Update source entitlement request configuration
          * @param {string} id The Source id
@@ -5633,6 +6040,22 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. The V2 API allows you to use a unique identifier (id) for each provisioning policy instead of usageType. This enables read, update, and delete operations on policies using their id. Note: The subtypeId field is required if usageType is CREATE_MACHINE_ACCOUNT. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+         * @summary Create provisioning policy
+         * @param {string} sourceId The Source id
+         * @param {Provisioningpolicydtov2} provisioningpolicydtov2 
+         * @param {boolean} [useDefaultFields] If passed as true, then it uses default fields from the connector template.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createProvisioningPolicyV2(sourceId: string, provisioningpolicydtov2: Provisioningpolicydtov2, useDefaultFields?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Provisioningpolicydtov2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createProvisioningPolicyV2(sourceId, provisioningpolicydtov2, useDefaultFields, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.createProvisioningPolicyV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC). 
          * @summary Create schedule on source
          * @param {string} sourceId Source ID.
@@ -5712,6 +6135,21 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProvisioningPolicyV1(sourceId, usageType, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SourcesApi.deleteProvisioningPolicyV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Deletes the provisioning policy with the specified ID on an application.
+         * @summary Delete provisioning policy by ID
+         * @param {string} sourceId The Source ID.
+         * @param {string} id The provisioning policy ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteProvisioningPolicyV2(sourceId: string, id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProvisioningPolicyV2(sourceId, id, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.deleteProvisioningPolicyV2']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -5846,6 +6284,21 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProvisioningPolicyV1(sourceId, usageType, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SourcesApi.getProvisioningPolicyV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This end-point retrieves the ProvisioningPolicy with the specified ID on the specified Source in Identity Security Cloud.
+         * @summary Get provisioning policy by ID
+         * @param {string} sourceId The Source ID.
+         * @param {string} id The provisioning policy ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getProvisioningPolicyV2(sourceId: string, id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Provisioningpolicydtov2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProvisioningPolicyV2(sourceId, id, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getProvisioningPolicyV2']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -6103,6 +6556,23 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * This end-point lists all the ProvisioningPolicies in IdentityNow.
+         * @summary Lists Provisioning Policies
+         * @param {string} sourceId The Source id
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **subtypeId**: *eq*  **usageType**: *eq*
+         * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+         * @param {number} [limit] Limit Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listProvisioningPoliciesV2(sourceId: string, filters?: string, offset?: number, limit?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Provisioningpolicydtov2>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listProvisioningPoliciesV2(sourceId, filters, offset, limit, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.listProvisioningPoliciesV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * This end-point lists all the sources in IdentityNow.
          * @summary Lists all sources in identitynow.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -6175,6 +6645,22 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putProvisioningPolicyV1(sourceId, usageType, provisioningpolicydto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SourcesApi.putProvisioningPolicyV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This end-point updates the provisioning policy with the specified ID on the specified source in Identity Security Cloud. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+         * @summary Update provisioning policy by ID
+         * @param {string} sourceId The Source ID.
+         * @param {string} id The provisioning policy ID.
+         * @param {Provisioningpolicydtov2} provisioningpolicydtov2 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async putProvisioningPolicyV2(sourceId: string, id: string, provisioningpolicydtov2: Provisioningpolicydtov2, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Provisioningpolicydtov2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putProvisioningPolicyV2(sourceId, id, provisioningpolicydtov2, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.putProvisioningPolicyV2']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -6347,6 +6833,22 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * This API selectively updates an existing Provisioning Policy using a JSONPatch payload. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+         * @summary Partial update of provisioning policy
+         * @param {string} sourceId The Source id.
+         * @param {string} id The provisioning policy ID.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation The JSONPatch payload used to update the schema.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateProvisioningPolicyV2(sourceId: string, id: string, jsonpatchoperation: Array<Jsonpatchoperation>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Provisioningpolicydtov2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProvisioningPolicyV2(sourceId, id, jsonpatchoperation, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.updateProvisioningPolicyV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
          * @summary Update source entitlement request configuration
          * @param {string} id The Source id
@@ -6426,6 +6928,16 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.createProvisioningPolicyV1(requestParameters.sourceId, requestParameters.provisioningpolicydto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. The V2 API allows you to use a unique identifier (id) for each provisioning policy instead of usageType. This enables read, update, and delete operations on policies using their id. Note: The subtypeId field is required if usageType is CREATE_MACHINE_ACCOUNT. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+         * @summary Create provisioning policy
+         * @param {SourcesApiCreateProvisioningPolicyV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createProvisioningPolicyV2(requestParameters: SourcesApiCreateProvisioningPolicyV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Provisioningpolicydtov2> {
+            return localVarFp.createProvisioningPolicyV2(requestParameters.sourceId, requestParameters.provisioningpolicydtov2, requestParameters.useDefaultFields, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC). 
          * @summary Create schedule on source
          * @param {SourcesApiCreateSourceScheduleV1Request} requestParameters Request parameters.
@@ -6484,6 +6996,16 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
          */
         deleteProvisioningPolicyV1(requestParameters: SourcesApiDeleteProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteProvisioningPolicyV1(requestParameters.sourceId, requestParameters.usageType, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Deletes the provisioning policy with the specified ID on an application.
+         * @summary Delete provisioning policy by ID
+         * @param {SourcesApiDeleteProvisioningPolicyV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteProvisioningPolicyV2(requestParameters: SourcesApiDeleteProvisioningPolicyV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteProvisioningPolicyV2(requestParameters.sourceId, requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -6584,6 +7106,16 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
          */
         getProvisioningPolicyV1(requestParameters: SourcesApiGetProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Provisioningpolicydto> {
             return localVarFp.getProvisioningPolicyV1(requestParameters.sourceId, requestParameters.usageType, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This end-point retrieves the ProvisioningPolicy with the specified ID on the specified Source in Identity Security Cloud.
+         * @summary Get provisioning policy by ID
+         * @param {SourcesApiGetProvisioningPolicyV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getProvisioningPolicyV2(requestParameters: SourcesApiGetProvisioningPolicyV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Provisioningpolicydtov2> {
+            return localVarFp.getProvisioningPolicyV2(requestParameters.sourceId, requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the existing attribute synchronization configuration for a source specified by the given ID. The response contains all attributes, regardless of whether they enabled or not.
@@ -6766,6 +7298,16 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.listProvisioningPoliciesV1(requestParameters.sourceId, requestParameters.offset, requestParameters.limit, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This end-point lists all the ProvisioningPolicies in IdentityNow.
+         * @summary Lists Provisioning Policies
+         * @param {SourcesApiListProvisioningPoliciesV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listProvisioningPoliciesV2(requestParameters: SourcesApiListProvisioningPoliciesV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Provisioningpolicydtov2>> {
+            return localVarFp.listProvisioningPoliciesV2(requestParameters.sourceId, requestParameters.filters, requestParameters.offset, requestParameters.limit, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This end-point lists all the sources in IdentityNow.
          * @summary Lists all sources in identitynow.
          * @param {SourcesApiListSourcesV1Request} requestParameters Request parameters.
@@ -6814,6 +7356,16 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
          */
         putProvisioningPolicyV1(requestParameters: SourcesApiPutProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Provisioningpolicydto> {
             return localVarFp.putProvisioningPolicyV1(requestParameters.sourceId, requestParameters.usageType, requestParameters.provisioningpolicydto, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This end-point updates the provisioning policy with the specified ID on the specified source in Identity Security Cloud. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+         * @summary Update provisioning policy by ID
+         * @param {SourcesApiPutProvisioningPolicyV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putProvisioningPolicyV2(requestParameters: SourcesApiPutProvisioningPolicyV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Provisioningpolicydtov2> {
+            return localVarFp.putProvisioningPolicyV2(requestParameters.sourceId, requestParameters.id, requestParameters.provisioningpolicydtov2, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Replaces the attribute synchronization configuration for the source specified by the given ID with the configuration provided in the request body. Only the \"enabled\" field of the values in the \"attributes\" array is mutable. Attempting to change other attributes or add new values to the \"attributes\" array will result in an error. 
@@ -6936,6 +7488,16 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.updateProvisioningPolicyV1(requestParameters.sourceId, requestParameters.usageType, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This API selectively updates an existing Provisioning Policy using a JSONPatch payload. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+         * @summary Partial update of provisioning policy
+         * @param {SourcesApiUpdateProvisioningPolicyV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateProvisioningPolicyV2(requestParameters: SourcesApiUpdateProvisioningPolicyV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Provisioningpolicydtov2> {
+            return localVarFp.updateProvisioningPolicyV2(requestParameters.sourceId, requestParameters.id, requestParameters.jsonpatchoperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
          * @summary Update source entitlement request configuration
          * @param {SourcesApiUpdateSourceEntitlementRequestConfigV1Request} requestParameters Request parameters.
@@ -6997,6 +7559,41 @@ export interface SourcesApiCreateProvisioningPolicyV1Request {
      * @memberof SourcesApiCreateProvisioningPolicyV1
      */
     readonly provisioningpolicydto: Provisioningpolicydto
+}
+
+/**
+ * Request parameters for createProvisioningPolicyV2 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiCreateProvisioningPolicyV2Request
+ */
+export interface SourcesApiCreateProvisioningPolicyV2Request {
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof SourcesApiCreateProvisioningPolicyV2
+     */
+    readonly sourceId: string
+
+    /**
+     * 
+     * @type {Provisioningpolicydtov2}
+     * @memberof SourcesApiCreateProvisioningPolicyV2
+     */
+    readonly provisioningpolicydtov2: Provisioningpolicydtov2
+
+    /**
+     * If passed as true, then it uses default fields from the connector template.
+     * @type {boolean}
+     * @memberof SourcesApiCreateProvisioningPolicyV2
+     */
+    readonly useDefaultFields?: boolean
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SourcesApiCreateProvisioningPolicyV2
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -7109,6 +7706,34 @@ export interface SourcesApiDeleteProvisioningPolicyV1Request {
      * @memberof SourcesApiDeleteProvisioningPolicyV1
      */
     readonly usageType: Usagetype
+}
+
+/**
+ * Request parameters for deleteProvisioningPolicyV2 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiDeleteProvisioningPolicyV2Request
+ */
+export interface SourcesApiDeleteProvisioningPolicyV2Request {
+    /**
+     * The Source ID.
+     * @type {string}
+     * @memberof SourcesApiDeleteProvisioningPolicyV2
+     */
+    readonly sourceId: string
+
+    /**
+     * The provisioning policy ID.
+     * @type {string}
+     * @memberof SourcesApiDeleteProvisioningPolicyV2
+     */
+    readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SourcesApiDeleteProvisioningPolicyV2
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -7277,6 +7902,34 @@ export interface SourcesApiGetProvisioningPolicyV1Request {
      * @memberof SourcesApiGetProvisioningPolicyV1
      */
     readonly usageType: Usagetype
+}
+
+/**
+ * Request parameters for getProvisioningPolicyV2 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiGetProvisioningPolicyV2Request
+ */
+export interface SourcesApiGetProvisioningPolicyV2Request {
+    /**
+     * The Source ID.
+     * @type {string}
+     * @memberof SourcesApiGetProvisioningPolicyV2
+     */
+    readonly sourceId: string
+
+    /**
+     * The provisioning policy ID.
+     * @type {string}
+     * @memberof SourcesApiGetProvisioningPolicyV2
+     */
+    readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SourcesApiGetProvisioningPolicyV2
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -7672,6 +8325,48 @@ export interface SourcesApiListProvisioningPoliciesV1Request {
 }
 
 /**
+ * Request parameters for listProvisioningPoliciesV2 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiListProvisioningPoliciesV2Request
+ */
+export interface SourcesApiListProvisioningPoliciesV2Request {
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof SourcesApiListProvisioningPoliciesV2
+     */
+    readonly sourceId: string
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **subtypeId**: *eq*  **usageType**: *eq*
+     * @type {string}
+     * @memberof SourcesApiListProvisioningPoliciesV2
+     */
+    readonly filters?: string
+
+    /**
+     * Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+     * @type {number}
+     * @memberof SourcesApiListProvisioningPoliciesV2
+     */
+    readonly offset?: number
+
+    /**
+     * Limit Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+     * @type {number}
+     * @memberof SourcesApiListProvisioningPoliciesV2
+     */
+    readonly limit?: number
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SourcesApiListProvisioningPoliciesV2
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
  * Request parameters for listSourcesV1 operation in SourcesApi.
  * @export
  * @interface SourcesApiListSourcesV1Request
@@ -7809,6 +8504,41 @@ export interface SourcesApiPutProvisioningPolicyV1Request {
      * @memberof SourcesApiPutProvisioningPolicyV1
      */
     readonly provisioningpolicydto: Provisioningpolicydto
+}
+
+/**
+ * Request parameters for putProvisioningPolicyV2 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiPutProvisioningPolicyV2Request
+ */
+export interface SourcesApiPutProvisioningPolicyV2Request {
+    /**
+     * The Source ID.
+     * @type {string}
+     * @memberof SourcesApiPutProvisioningPolicyV2
+     */
+    readonly sourceId: string
+
+    /**
+     * The provisioning policy ID.
+     * @type {string}
+     * @memberof SourcesApiPutProvisioningPolicyV2
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {Provisioningpolicydtov2}
+     * @memberof SourcesApiPutProvisioningPolicyV2
+     */
+    readonly provisioningpolicydtov2: Provisioningpolicydtov2
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SourcesApiPutProvisioningPolicyV2
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -8071,6 +8801,41 @@ export interface SourcesApiUpdateProvisioningPolicyV1Request {
 }
 
 /**
+ * Request parameters for updateProvisioningPolicyV2 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiUpdateProvisioningPolicyV2Request
+ */
+export interface SourcesApiUpdateProvisioningPolicyV2Request {
+    /**
+     * The Source id.
+     * @type {string}
+     * @memberof SourcesApiUpdateProvisioningPolicyV2
+     */
+    readonly sourceId: string
+
+    /**
+     * The provisioning policy ID.
+     * @type {string}
+     * @memberof SourcesApiUpdateProvisioningPolicyV2
+     */
+    readonly id: string
+
+    /**
+     * The JSONPatch payload used to update the schema.
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof SourcesApiUpdateProvisioningPolicyV2
+     */
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SourcesApiUpdateProvisioningPolicyV2
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
  * Request parameters for updateSourceEntitlementRequestConfigV1 operation in SourcesApi.
  * @export
  * @interface SourcesApiUpdateSourceEntitlementRequestConfigV1Request
@@ -8195,6 +8960,18 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
+     * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. The V2 API allows you to use a unique identifier (id) for each provisioning policy instead of usageType. This enables read, update, and delete operations on policies using their id. Note: The subtypeId field is required if usageType is CREATE_MACHINE_ACCOUNT. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+     * @summary Create provisioning policy
+     * @param {SourcesApiCreateProvisioningPolicyV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public createProvisioningPolicyV2(requestParameters: SourcesApiCreateProvisioningPolicyV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).createProvisioningPolicyV2(requestParameters.sourceId, requestParameters.provisioningpolicydtov2, requestParameters.useDefaultFields, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC). 
      * @summary Create schedule on source
      * @param {SourcesApiCreateSourceScheduleV1Request} requestParameters Request parameters.
@@ -8264,6 +9041,18 @@ export class SourcesApi extends BaseAPI {
      */
     public deleteProvisioningPolicyV1(requestParameters: SourcesApiDeleteProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return SourcesApiFp(this.configuration).deleteProvisioningPolicyV1(requestParameters.sourceId, requestParameters.usageType, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Deletes the provisioning policy with the specified ID on an application.
+     * @summary Delete provisioning policy by ID
+     * @param {SourcesApiDeleteProvisioningPolicyV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public deleteProvisioningPolicyV2(requestParameters: SourcesApiDeleteProvisioningPolicyV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).deleteProvisioningPolicyV2(requestParameters.sourceId, requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -8384,6 +9173,18 @@ export class SourcesApi extends BaseAPI {
      */
     public getProvisioningPolicyV1(requestParameters: SourcesApiGetProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return SourcesApiFp(this.configuration).getProvisioningPolicyV1(requestParameters.sourceId, requestParameters.usageType, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This end-point retrieves the ProvisioningPolicy with the specified ID on the specified Source in Identity Security Cloud.
+     * @summary Get provisioning policy by ID
+     * @param {SourcesApiGetProvisioningPolicyV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public getProvisioningPolicyV2(requestParameters: SourcesApiGetProvisioningPolicyV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getProvisioningPolicyV2(requestParameters.sourceId, requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -8603,6 +9404,18 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
+     * This end-point lists all the ProvisioningPolicies in IdentityNow.
+     * @summary Lists Provisioning Policies
+     * @param {SourcesApiListProvisioningPoliciesV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public listProvisioningPoliciesV2(requestParameters: SourcesApiListProvisioningPoliciesV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).listProvisioningPoliciesV2(requestParameters.sourceId, requestParameters.filters, requestParameters.offset, requestParameters.limit, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This end-point lists all the sources in IdentityNow.
      * @summary Lists all sources in identitynow.
      * @param {SourcesApiListSourcesV1Request} requestParameters Request parameters.
@@ -8660,6 +9473,18 @@ export class SourcesApi extends BaseAPI {
      */
     public putProvisioningPolicyV1(requestParameters: SourcesApiPutProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return SourcesApiFp(this.configuration).putProvisioningPolicyV1(requestParameters.sourceId, requestParameters.usageType, requestParameters.provisioningpolicydto, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This end-point updates the provisioning policy with the specified ID on the specified source in Identity Security Cloud. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+     * @summary Update provisioning policy by ID
+     * @param {SourcesApiPutProvisioningPolicyV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public putProvisioningPolicyV2(requestParameters: SourcesApiPutProvisioningPolicyV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).putProvisioningPolicyV2(requestParameters.sourceId, requestParameters.id, requestParameters.provisioningpolicydtov2, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -8804,6 +9629,18 @@ export class SourcesApi extends BaseAPI {
      */
     public updateProvisioningPolicyV1(requestParameters: SourcesApiUpdateProvisioningPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return SourcesApiFp(this.configuration).updateProvisioningPolicyV1(requestParameters.sourceId, requestParameters.usageType, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API selectively updates an existing Provisioning Policy using a JSONPatch payload. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+     * @summary Partial update of provisioning policy
+     * @param {SourcesApiUpdateProvisioningPolicyV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public updateProvisioningPolicyV2(requestParameters: SourcesApiUpdateProvisioningPolicyV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).updateProvisioningPolicyV2(requestParameters.sourceId, requestParameters.id, requestParameters.jsonpatchoperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
