@@ -37,12 +37,6 @@ access-history certifications. Paged slices include a next link only when more r
 The privilegedAccess slice contains the full result and is not paged.
 The outliers slice is omitted when the tenant lacks the IDA-outliers license.
 
-A single match returns HTTP 200 with IntelIdentityAggregate.
-
-Zero matches returns HTTP 404 with detailCode IDC_IDENTITY_NOT_FOUND.
-
-Multiple matches returns HTTP 409 with detailCode IDC_IDENTITY_AMBIGUOUS and candidates listing each match.
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-identity-intelligence-v-1)
 

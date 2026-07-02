@@ -26,25 +26,6 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Errorbody
- */
-export interface Errorbody {
-    /**
-     * Machine-readable error code returned by the Intelligence service.
-     * @type {string}
-     * @memberof Errorbody
-     */
-    'detailCode'?: string;
-    /**
-     * Human-readable explanation of the error suitable for client logging.
-     * @type {string}
-     * @memberof Errorbody
-     */
-    'message'?: string;
-}
-/**
- * 
- * @export
  * @interface Errormessagedto
  */
 export interface Errormessagedto {
@@ -459,7 +440,7 @@ export interface Intelidentityaggregate {
      * @type {boolean}
      * @memberof Intelidentityaggregate
      */
-    'isManager': boolean;
+    'isManager'?: boolean;
     /**
      * First page of accounts for the identity.
      * @type {Intelaccountsslice}
@@ -498,83 +479,6 @@ export const IntelidentityaggregateSubtypeEnum = {
 } as const;
 
 export type IntelidentityaggregateSubtypeEnum = typeof IntelidentityaggregateSubtypeEnum[keyof typeof IntelidentityaggregateSubtypeEnum];
-
-/**
- * 
- * @export
- * @interface Intelidentityambiguousbody
- */
-export interface Intelidentityambiguousbody {
-    /**
-     * Constant detail code indicating that more than one identity matched the filter.
-     * @type {string}
-     * @memberof Intelidentityambiguousbody
-     */
-    'detailCode': IntelidentityambiguousbodyDetailCodeEnum;
-    /**
-     * Optional explanatory text describing why the filter was considered ambiguous.
-     * @type {string}
-     * @memberof Intelidentityambiguousbody
-     */
-    'message'?: string;
-    /**
-     * Collection of identities that matched the ambiguous filter expression.
-     * @type {Array<Intelidentityambiguouscandidate>}
-     * @memberof Intelidentityambiguousbody
-     */
-    'candidates': Array<Intelidentityambiguouscandidate>;
-}
-
-export const IntelidentityambiguousbodyDetailCodeEnum = {
-    IdcIdentityAmbiguous: 'IDC_IDENTITY_AMBIGUOUS'
-} as const;
-
-export type IntelidentityambiguousbodyDetailCodeEnum = typeof IntelidentityambiguousbodyDetailCodeEnum[keyof typeof IntelidentityambiguousbodyDetailCodeEnum];
-
-/**
- * 
- * @export
- * @interface Intelidentityambiguouscandidate
- */
-export interface Intelidentityambiguouscandidate {
-    /**
-     * Identity identifier for one of the ambiguous matching identities.
-     * @type {string}
-     * @memberof Intelidentityambiguouscandidate
-     */
-    'id': string;
-    /**
-     * Display name for the ambiguous matching identity when available.
-     * @type {string}
-     * @memberof Intelidentityambiguouscandidate
-     */
-    'displayName'?: string;
-}
-/**
- * 
- * @export
- * @interface Intelidentitynotfoundbody
- */
-export interface Intelidentitynotfoundbody {
-    /**
-     * Constant detail code indicating that no identity matched the supplied filter.
-     * @type {string}
-     * @memberof Intelidentitynotfoundbody
-     */
-    'detailCode': IntelidentitynotfoundbodyDetailCodeEnum;
-    /**
-     * Optional explanatory text describing why no identity was found.
-     * @type {string}
-     * @memberof Intelidentitynotfoundbody
-     */
-    'message'?: string;
-}
-
-export const IntelidentitynotfoundbodyDetailCodeEnum = {
-    IdcIdentityNotFound: 'IDC_IDENTITY_NOT_FOUND'
-} as const;
-
-export type IntelidentitynotfoundbodyDetailCodeEnum = typeof IntelidentitynotfoundbodyDetailCodeEnum[keyof typeof IntelidentitynotfoundbodyDetailCodeEnum];
 
 /**
  * One outlier access-item row.
@@ -760,7 +664,7 @@ export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 export const IntelligenceApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Requires tenant license idn:response-and-remediation.  Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope. Supported queryable fields are id and email only. The response embeds the first page of accounts, rare access, access-history access items, and access-history certifications. Paged slices include a next link only when more results exist. The privilegedAccess slice contains the full result and is not paged. The outliers slice is omitted when the tenant lacks the IDA-outliers license.  A single match returns HTTP 200 with IntelIdentityAggregate.  Zero matches returns HTTP 404 with detailCode IDC_IDENTITY_NOT_FOUND.  Multiple matches returns HTTP 409 with detailCode IDC_IDENTITY_AMBIGUOUS and candidates listing each match. 
+         * Requires tenant license idn:response-and-remediation.  Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope. Supported queryable fields are id and email only. The response embeds the first page of accounts, rare access, access-history access items, and access-history certifications. Paged slices include a next link only when more results exist. The privilegedAccess slice contains the full result and is not paged. The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
          * @summary Get identity by filter
          * @param {string} filters Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*
          * @param {*} [axiosOptions] Override http request option.
@@ -983,7 +887,7 @@ export const IntelligenceApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IntelligenceApiAxiosParamCreator(configuration)
     return {
         /**
-         * Requires tenant license idn:response-and-remediation.  Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope. Supported queryable fields are id and email only. The response embeds the first page of accounts, rare access, access-history access items, and access-history certifications. Paged slices include a next link only when more results exist. The privilegedAccess slice contains the full result and is not paged. The outliers slice is omitted when the tenant lacks the IDA-outliers license.  A single match returns HTTP 200 with IntelIdentityAggregate.  Zero matches returns HTTP 404 with detailCode IDC_IDENTITY_NOT_FOUND.  Multiple matches returns HTTP 409 with detailCode IDC_IDENTITY_AMBIGUOUS and candidates listing each match. 
+         * Requires tenant license idn:response-and-remediation.  Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope. Supported queryable fields are id and email only. The response embeds the first page of accounts, rare access, access-history access items, and access-history certifications. Paged slices include a next link only when more results exist. The privilegedAccess slice contains the full result and is not paged. The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
          * @summary Get identity by filter
          * @param {string} filters Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*
          * @param {*} [axiosOptions] Override http request option.
@@ -1066,7 +970,7 @@ export const IntelligenceApiFactory = function (configuration?: Configuration, b
     const localVarFp = IntelligenceApiFp(configuration)
     return {
         /**
-         * Requires tenant license idn:response-and-remediation.  Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope. Supported queryable fields are id and email only. The response embeds the first page of accounts, rare access, access-history access items, and access-history certifications. Paged slices include a next link only when more results exist. The privilegedAccess slice contains the full result and is not paged. The outliers slice is omitted when the tenant lacks the IDA-outliers license.  A single match returns HTTP 200 with IntelIdentityAggregate.  Zero matches returns HTTP 404 with detailCode IDC_IDENTITY_NOT_FOUND.  Multiple matches returns HTTP 409 with detailCode IDC_IDENTITY_AMBIGUOUS and candidates listing each match. 
+         * Requires tenant license idn:response-and-remediation.  Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope. Supported queryable fields are id and email only. The response embeds the first page of accounts, rare access, access-history access items, and access-history certifications. Paged slices include a next link only when more results exist. The privilegedAccess slice contains the full result and is not paged. The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
          * @summary Get identity by filter
          * @param {IntelligenceApiGetIdentityIntelligenceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -1252,7 +1156,7 @@ export interface IntelligenceApiGetIntelIdentityRareAccessV1Request {
  */
 export class IntelligenceApi extends BaseAPI {
     /**
-     * Requires tenant license idn:response-and-remediation.  Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope. Supported queryable fields are id and email only. The response embeds the first page of accounts, rare access, access-history access items, and access-history certifications. Paged slices include a next link only when more results exist. The privilegedAccess slice contains the full result and is not paged. The outliers slice is omitted when the tenant lacks the IDA-outliers license.  A single match returns HTTP 200 with IntelIdentityAggregate.  Zero matches returns HTTP 404 with detailCode IDC_IDENTITY_NOT_FOUND.  Multiple matches returns HTTP 409 with detailCode IDC_IDENTITY_AMBIGUOUS and candidates listing each match. 
+     * Requires tenant license idn:response-and-remediation.  Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope. Supported queryable fields are id and email only. The response embeds the first page of accounts, rare access, access-history access items, and access-history certifications. Paged slices include a next link only when more results exist. The privilegedAccess slice contains the full result and is not paged. The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
      * @summary Get identity by filter
      * @param {IntelligenceApiGetIdentityIntelligenceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.

@@ -1,7 +1,6 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
-Errorbody.md
 Errormessagedto.md
 Errorresponsedto.md
 GetIdentityIntelligenceV1401Response.md
@@ -16,9 +15,6 @@ Intelaccesssourcewire.md
 Intelaccountsslice.md
 Intelcertificationhistoryevent.md
 Intelidentityaggregate.md
-Intelidentityambiguousbody.md
-Intelidentityambiguouscandidate.md
-Intelidentitynotfoundbody.md
 IntelligenceApi.md
 IntelligenceApideveloperSite_code_examples.yaml
 Inteloutlieraccessitem.md
