@@ -55,11 +55,23 @@ Name | Type | Description  | Notes
 ```typescript
 import { {{classname}} } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+{{#allParams}}
+{{#isModel}}
+{{^isArray}}
+import { {{{dataType}}} } from 'sailpoint-api-client/dist/{{#lambda.lowercase}}{{packageName}}{{/lambda.lowercase}}/api';
+{{/isArray}}
+{{/isModel}}
+{{#isArray}}
+{{#items.isModel}}
+import { {{#items}}{{{dataType}}}{{/items}} } from 'sailpoint-api-client/dist/{{#lambda.lowercase}}{{packageName}}{{/lambda.lowercase}}/api';
+{{/items.isModel}}
+{{/isArray}}
+{{/allParams}}
 
 const configuration = new Configuration();
 const apiInstance = new {{classname}}(configuration);
 {{#allParams}}
-{{^isBodyParam}}const {{paramName}}: {{#isString}}string{{/isString}}{{^isString}}{{dataType}}{{/isString}} = {{{example}}}; // {{description}}{{^required}} (optional){{/required}}{{/isBodyParam}}{{#isBodyParam}}const {{paramName}}: {{dataType}} = {{#requestBodyExamples}}{{{example}}}{{/requestBodyExamples}}{{^requestBodyExamples}}{}{{/requestBodyExamples}}; // {{description}}{{^required}} (optional){{/required}}{{/isBodyParam}}
+{{^isBodyParam}}const {{paramName}}: {{#isString}}string{{/isString}}{{^isString}}{{{dataType}}}{{/isString}} = {{{example}}}; // {{description}}{{^required}} (optional){{/required}}{{/isBodyParam}}{{#isBodyParam}}const {{paramName}}: {{{dataType}}} = {{#requestBodyExamples}}{{{example}}}{{/requestBodyExamples}}{{^requestBodyExamples}}{}{{/requestBodyExamples}}; // {{description}}{{^required}} (optional){{/required}}{{/isBodyParam}}
 {{/allParams}}
 const result = await apiInstance.{{nickname}}({ {{#requiredParams}}{{paramName}}: {{paramName}}{{^-last}}, {{/-last}}{{/requiredParams}} });
 console.log(result);
