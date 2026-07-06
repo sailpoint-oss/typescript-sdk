@@ -53,6 +53,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConnectorCustomizersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Connectorcustomizercreaterequest } from 'sailpoint-api-client/dist/connector_customizers/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorCustomizersApi(configuration);
@@ -241,6 +242,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConnectorCustomizersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Connectorcustomizerupdaterequest } from 'sailpoint-api-client/dist/connector_customizers/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorCustomizersApi(configuration);

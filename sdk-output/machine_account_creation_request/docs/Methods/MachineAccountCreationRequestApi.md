@@ -57,6 +57,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { MachineAccountCreationRequestApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Machineaccountcreaterequestinput } from 'sailpoint-api-client/dist/machine_account_creation_request/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountCreationRequestApi(configuration);

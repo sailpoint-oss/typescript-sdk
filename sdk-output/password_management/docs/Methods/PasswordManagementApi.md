@@ -76,6 +76,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { PasswordManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Passworddigittokenreset } from 'sailpoint-api-client/dist/password_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordManagementApi(configuration);
@@ -152,6 +153,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { PasswordManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Passwordinfoquerydto } from 'sailpoint-api-client/dist/password_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordManagementApi(configuration);
@@ -208,6 +210,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { PasswordManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Passwordchangerequest } from 'sailpoint-api-client/dist/password_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordManagementApi(configuration);

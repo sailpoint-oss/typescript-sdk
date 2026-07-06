@@ -113,7 +113,7 @@
 
         const configuration = new Configuration();
         const apiInstance = new IAIOutliersApi(configuration);
-        const requestBody: Array&lt;string&gt; = ; // Array<string> | 
+        const requestBody: Array<string> = ; // Array<string> | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.ignoreIdentityOutliersV1({ requestBody: requestBody });
         console.log(result);
@@ -149,7 +149,7 @@
 
         const configuration = new Configuration();
         const apiInstance = new IAIOutliersApi(configuration);
-        const requestBody: Array&lt;string&gt; = ; // Array<string> | 
+        const requestBody: Array<string> = ; // Array<string> | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.unIgnoreIdentityOutliersV1({ requestBody: requestBody });
         console.log(result);

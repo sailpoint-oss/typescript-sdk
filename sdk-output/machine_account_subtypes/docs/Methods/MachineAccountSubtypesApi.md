@@ -57,6 +57,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { MachineAccountSubtypesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { CreateSourceSubtypeV1Request } from 'sailpoint-api-client/dist/machine_account_subtypes/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountSubtypesApi(configuration);
@@ -281,7 +282,7 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new MachineAccountSubtypesApi(configuration);
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API.
-const requestBody: Array&lt;string&gt; = ; // 
+const requestBody: Array<string> = ; // 
 const result = await apiInstance.loadBulkSourceSubtypesV1({ xSailPointExperimental: xSailPointExperimental, requestBody: requestBody });
 console.log(result);
 ```
@@ -325,7 +326,7 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new MachineAccountSubtypesApi(configuration);
 const subtypeId: string = 6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa; // The ID of the subtype.
-const requestBody: Array&lt;object&gt; = [{"op":"replace","path":"/displayName","value":"Test New DisplayName"}]; // A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+const requestBody: Array<object> = [{"op":"replace","path":"/displayName","value":"Test New DisplayName"}]; // A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.patchMachineAccountSubtypeV1({ subtypeId: subtypeId, requestBody: requestBody });
 console.log(result);
@@ -365,12 +366,13 @@ Name | Type | Description  | Notes
 ```typescript
 import { MachineAccountSubtypesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/machine_account_subtypes/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountSubtypesApi(configuration);
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API.
 const subtypeId: string = 00eebcf881994e419d72e757fd30dc0e; // machine account subtype ID.
-const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = ; // The JSONPatch payload used to update the object.
+const jsonpatchoperation: Array<Jsonpatchoperation> = ; // The JSONPatch payload used to update the object.
 const result = await apiInstance.updateMachineAccountSubtypeApprovalConfigV1({ xSailPointExperimental: xSailPointExperimental, subtypeId: subtypeId, jsonpatchoperation: jsonpatchoperation });
 console.log(result);
 ```

@@ -35,11 +35,12 @@
       source: |
         import { AuthProfileApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/auth_profile/api';
 
         const configuration = new Configuration();
         const apiInstance = new AuthProfileApi(configuration);
         const id: string = '2c91808a7813090a017814121919ecca'; // string | ID of the Auth Profile to patch. (default to undefined)
-        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = ; // Array<Jsonpatchoperation> | 
+        const jsonpatchoperation: Array<Jsonpatchoperation> = ; // Array<Jsonpatchoperation> | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.patchProfileConfigV1({ id: id, jsonpatchoperation: jsonpatchoperation });
         console.log(result);

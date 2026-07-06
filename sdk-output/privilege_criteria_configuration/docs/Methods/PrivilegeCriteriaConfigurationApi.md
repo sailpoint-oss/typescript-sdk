@@ -153,7 +153,7 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new PrivilegeCriteriaConfigurationApi(configuration);
 const criteriaConfigId: string = 6d123044-5834-4e8d-a49f-9c70089b0de1; // The Id of the privilege criteria configuration to update.
-const requestBody: Array&lt;object&gt; = [{"op":"replace","path":"/config/privilegeClassificationMode","value":"SINGLE_PRIVILEGE_LEVEL"},{"op":"replace","path":"/config/criteriaPrivilegeLevel/connectorMediumEnabled","value":true}]; // A list of criteria configuration operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+const requestBody: Array<object> = [{"op":"replace","path":"/config/privilegeClassificationMode","value":"SINGLE_PRIVILEGE_LEVEL"},{"op":"replace","path":"/config/criteriaPrivilegeLevel/connectorMediumEnabled","value":true}]; // A list of criteria configuration operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 const result = await apiInstance.patchPrivilegeCriteriaConfigV1({ criteriaConfigId: criteriaConfigId, requestBody: requestBody });
 console.log(result);
 ```

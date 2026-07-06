@@ -349,7 +349,7 @@ import { Configuration } from 'sailpoint-api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIOutliersApi(configuration);
-const requestBody: Array&lt;string&gt; = ; // 
+const requestBody: Array<string> = ; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.ignoreIdentityOutliersV1({ requestBody: requestBody });
 console.log(result);
@@ -448,7 +448,7 @@ import { Configuration } from 'sailpoint-api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIOutliersApi(configuration);
-const requestBody: Array&lt;string&gt; = ; // 
+const requestBody: Array<string> = ; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.unIgnoreIdentityOutliersV1({ requestBody: requestBody });
 console.log(result);

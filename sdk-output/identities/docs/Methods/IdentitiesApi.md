@@ -402,6 +402,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { IdentitiesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Sendaccountverificationrequest } from 'sailpoint-api-client/dist/identities/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentitiesApi(configuration);
@@ -450,6 +451,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { IdentitiesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Inviteidentitiesrequest } from 'sailpoint-api-client/dist/identities/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentitiesApi(configuration);
@@ -499,6 +501,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { IdentitiesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Processidentitiesrequest } from 'sailpoint-api-client/dist/identities/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentitiesApi(configuration);

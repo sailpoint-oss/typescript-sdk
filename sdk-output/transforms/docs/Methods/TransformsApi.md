@@ -54,6 +54,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { TransformsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Transform } from 'sailpoint-api-client/dist/transforms/api';
 
 const configuration = new Configuration();
 const apiInstance = new TransformsApi(configuration);
@@ -211,6 +212,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { TransformsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Transform } from 'sailpoint-api-client/dist/transforms/api';
 
 const configuration = new Configuration();
 const apiInstance = new TransformsApi(configuration);

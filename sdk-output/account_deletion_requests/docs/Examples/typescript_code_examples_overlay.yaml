@@ -6,6 +6,7 @@
       source: |
         import { AccountDeletionRequestsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Accountdeleterequestinput } from 'sailpoint-api-client/dist/account_deletion_requests/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccountDeletionRequestsApi(configuration);

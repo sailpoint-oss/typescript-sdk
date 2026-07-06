@@ -53,6 +53,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ManagedClusterTypesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Managedclustertype } from 'sailpoint-api-client/dist/managed_cluster_types/api';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClusterTypesApi(configuration);
@@ -210,6 +211,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ManagedClusterTypesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatch } from 'sailpoint-api-client/dist/managed_cluster_types/api';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClusterTypesApi(configuration);

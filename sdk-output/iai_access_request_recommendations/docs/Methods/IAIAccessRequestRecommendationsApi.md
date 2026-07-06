@@ -58,6 +58,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { IAIAccessRequestRecommendationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Accessrequestrecommendationactionitemdto } from 'sailpoint-api-client/dist/iai_access_request_recommendations/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
@@ -100,6 +101,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { IAIAccessRequestRecommendationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Accessrequestrecommendationactionitemdto } from 'sailpoint-api-client/dist/iai_access_request_recommendations/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
@@ -142,6 +144,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { IAIAccessRequestRecommendationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Accessrequestrecommendationactionitemdto } from 'sailpoint-api-client/dist/iai_access_request_recommendations/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
@@ -184,10 +187,11 @@ Name | Type | Description  | Notes
 ```typescript
 import { IAIAccessRequestRecommendationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Accessrequestrecommendationactionitemdto } from 'sailpoint-api-client/dist/iai_access_request_recommendations/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
-const accessrequestrecommendationactionitemdto: Array&lt;Accessrequestrecommendationactionitemdto&gt; = ; // The recommended access items that were viewed for an identity.
+const accessrequestrecommendationactionitemdto: Array<Accessrequestrecommendationactionitemdto> = ; // The recommended access items that were viewed for an identity.
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.addAccessRequestRecommendationsViewedItemsV1({ accessrequestrecommendationactionitemdto: accessrequestrecommendationactionitemdto });
 console.log(result);
@@ -470,6 +474,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { IAIAccessRequestRecommendationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Accessrequestrecommendationconfigdto } from 'sailpoint-api-client/dist/iai_access_request_recommendations/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);

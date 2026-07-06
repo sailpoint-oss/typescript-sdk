@@ -50,6 +50,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { IdentityAttributesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Identityattribute2 } from 'sailpoint-api-client/dist/identity_attributes/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityAttributesApi(configuration);
@@ -124,6 +125,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { IdentityAttributesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Identityattributenames } from 'sailpoint-api-client/dist/identity_attributes/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityAttributesApi(configuration);
@@ -242,6 +244,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { IdentityAttributesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Identityattribute2 } from 'sailpoint-api-client/dist/identity_attributes/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityAttributesApi(configuration);

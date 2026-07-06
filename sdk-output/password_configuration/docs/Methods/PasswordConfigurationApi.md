@@ -55,6 +55,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { PasswordConfigurationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Passwordorgconfig } from 'sailpoint-api-client/dist/password_configuration/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordConfigurationApi(configuration);
@@ -127,6 +128,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { PasswordConfigurationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Passwordorgconfig } from 'sailpoint-api-client/dist/password_configuration/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordConfigurationApi(configuration);

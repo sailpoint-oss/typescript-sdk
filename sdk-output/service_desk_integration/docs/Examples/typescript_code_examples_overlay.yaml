@@ -6,6 +6,7 @@
       source: |
         import { ServiceDeskIntegrationApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Servicedeskintegrationdto } from 'sailpoint-api-client/dist/service_desk_integration/api';
 
         const configuration = new Configuration();
         const apiInstance = new ServiceDeskIntegrationApi(configuration);
@@ -106,11 +107,12 @@
       source: |
         import { ServiceDeskIntegrationApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/service_desk_integration/api';
 
         const configuration = new Configuration();
         const apiInstance = new ServiceDeskIntegrationApi(configuration);
         const id: string = 'anId'; // string | ID of the Service Desk integration to update (default to undefined)
-        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = ; // Array<Jsonpatchoperation> | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
+        const jsonpatchoperation: Array<Jsonpatchoperation> = ; // Array<Jsonpatchoperation> | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
         const result = await apiInstance.patchServiceDeskIntegrationV1({ id: id, jsonpatchoperation: jsonpatchoperation });
         console.log(result);
 - path: /service-desk-integrations/v1/{id}
@@ -121,6 +123,7 @@
       source: |
         import { ServiceDeskIntegrationApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Servicedeskintegrationdto } from 'sailpoint-api-client/dist/service_desk_integration/api';
 
         const configuration = new Configuration();
         const apiInstance = new ServiceDeskIntegrationApi(configuration);
@@ -136,6 +139,7 @@
       source: |
         import { ServiceDeskIntegrationApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Queuedcheckconfigdetails } from 'sailpoint-api-client/dist/service_desk_integration/api';
 
         const configuration = new Configuration();
         const apiInstance = new ServiceDeskIntegrationApi(configuration);

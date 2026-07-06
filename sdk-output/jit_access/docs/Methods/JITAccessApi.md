@@ -97,11 +97,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { JITAccessApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jitaccessoperationrequest } from 'sailpoint-api-client/dist/jit_access/api';
 
 const configuration = new Configuration();
 const apiInstance = new JITAccessApi(configuration);
 const configType: string = policy; // Configuration kind to update. Only **policy** (JIT activation policy) is supported today. 
-const jitaccessoperationrequest: Array&lt;Jitaccessoperationrequest&gt; = ; // 
+const jitaccessoperationrequest: Array<Jitaccessoperationrequest> = ; // 
 const result = await apiInstance.patchJitActivationConfigV1({ configType: configType, jitaccessoperationrequest: jitaccessoperationrequest });
 console.log(result);
 ```

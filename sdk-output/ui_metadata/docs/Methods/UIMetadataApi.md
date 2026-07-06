@@ -91,6 +91,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { UIMetadataApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Tenantuimetadataitemupdaterequest } from 'sailpoint-api-client/dist/ui_metadata/api';
 
 const configuration = new Configuration();
 const apiInstance = new UIMetadataApi(configuration);

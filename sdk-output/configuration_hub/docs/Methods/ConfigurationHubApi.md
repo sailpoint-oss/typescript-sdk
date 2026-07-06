@@ -75,6 +75,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConfigurationHubApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Deployrequest } from 'sailpoint-api-client/dist/configuration_hub/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
@@ -116,6 +117,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConfigurationHubApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Objectmappingrequest } from 'sailpoint-api-client/dist/configuration_hub/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
@@ -158,6 +160,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConfigurationHubApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Objectmappingbulkcreaterequest } from 'sailpoint-api-client/dist/configuration_hub/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
@@ -196,6 +199,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConfigurationHubApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Scheduledactionpayload } from 'sailpoint-api-client/dist/configuration_hub/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
@@ -773,6 +777,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConfigurationHubApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Objectmappingbulkpatchrequest } from 'sailpoint-api-client/dist/configuration_hub/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
@@ -812,6 +817,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConfigurationHubApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatch } from 'sailpoint-api-client/dist/configuration_hub/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);

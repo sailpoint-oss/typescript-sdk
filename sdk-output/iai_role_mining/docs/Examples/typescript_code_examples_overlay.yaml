@@ -6,6 +6,7 @@
       source: |
         import { IAIRoleMiningApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Roleminingpotentialroleprovisionrequest } from 'sailpoint-api-client/dist/iai_role_mining/api';
 
         const configuration = new Configuration();
         const apiInstance = new IAIRoleMiningApi(configuration);
@@ -25,6 +26,7 @@
       source: |
         import { IAIRoleMiningApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Roleminingsessiondto } from 'sailpoint-api-client/dist/iai_role_mining/api';
 
         const configuration = new Configuration();
         const apiInstance = new IAIRoleMiningApi(configuration);
@@ -57,6 +59,7 @@
       source: |
         import { IAIRoleMiningApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Roleminingpotentialroleexportrequest } from 'sailpoint-api-client/dist/iai_role_mining/api';
 
         const configuration = new Configuration();
         const apiInstance = new IAIRoleMiningApi(configuration);
@@ -385,12 +388,13 @@
       source: |
         import { IAIRoleMiningApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Jsonpatchoperationrolemining } from 'sailpoint-api-client/dist/iai_role_mining/api';
 
         const configuration = new Configuration();
         const apiInstance = new IAIRoleMiningApi(configuration);
         const sessionId: string = '8c190e67-87aa-4ed9-a90b-d9d5344523fb'; // string | The role mining session id (default to undefined)
         const potentialRoleId: string = '8c190e67-87aa-4ed9-a90b-d9d5344523fb'; // string | The potential role summary id (default to undefined)
-        const jsonpatchoperationrolemining: Array&lt;Jsonpatchoperationrolemining&gt; = [{"op":"remove","path":"/description"},{"op":"replace","path":"/description","value":"Acct I - Potential Role"},{"op":"remove","path":"/saved"},{"op":"replace","path":"/saved","value":"false"},{"op":"remove","path":"/name"},{"op":"replace","path":"/name","value":"Potential Role Accounting"}]; // Array<Jsonpatchoperationrolemining> | 
+        const jsonpatchoperationrolemining: Array<Jsonpatchoperationrolemining> = [{"op":"remove","path":"/description"},{"op":"replace","path":"/description","value":"Acct I - Potential Role"},{"op":"remove","path":"/saved"},{"op":"replace","path":"/saved","value":"false"},{"op":"remove","path":"/name"},{"op":"replace","path":"/name","value":"Potential Role Accounting"}]; // Array<Jsonpatchoperationrolemining> | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.patchPotentialRoleSessionV1({ sessionId: sessionId, potentialRoleId: potentialRoleId, jsonpatchoperationrolemining: jsonpatchoperationrolemining });
         console.log(result);
@@ -402,12 +406,13 @@
       source: |
         import { IAIRoleMiningApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Jsonpatchoperationrolemining } from 'sailpoint-api-client/dist/iai_role_mining/api';
 
         const configuration = new Configuration();
         const apiInstance = new IAIRoleMiningApi(configuration);
         const sessionId: string = '8c190e67-87aa-4ed9-a90b-d9d5344523fb'; // string | The role mining session id (default to undefined)
         const potentialRoleId: string = '8c190e67-87aa-4ed9-a90b-d9d5344523fb'; // string | The potential role summary id (default to undefined)
-        const jsonpatchoperationrolemining: Array&lt;Jsonpatchoperationrolemining&gt; = [{"op":"remove","path":"/description"},{"op":"replace","path":"/description","value":"Acct I - Potential Role"},{"op":"remove","path":"/saved"},{"op":"replace","path":"/saved","value":"false"},{"op":"remove","path":"/name"},{"op":"replace","path":"/name","value":"Potential Role Accounting"}]; // Array<Jsonpatchoperationrolemining> | 
+        const jsonpatchoperationrolemining: Array<Jsonpatchoperationrolemining> = [{"op":"remove","path":"/description"},{"op":"replace","path":"/description","value":"Acct I - Potential Role"},{"op":"remove","path":"/saved"},{"op":"replace","path":"/saved","value":"false"},{"op":"remove","path":"/name"},{"op":"replace","path":"/name","value":"Potential Role Accounting"}]; // Array<Jsonpatchoperationrolemining> | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.patchPotentialRoleV1({ sessionId: sessionId, potentialRoleId: potentialRoleId, jsonpatchoperationrolemining: jsonpatchoperationrolemining });
         console.log(result);
@@ -419,11 +424,12 @@
       source: |
         import { IAIRoleMiningApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/iai_role_mining/api';
 
         const configuration = new Configuration();
         const apiInstance = new IAIRoleMiningApi(configuration);
         const sessionId: string = '8c190e67-87aa-4ed9-a90b-d9d5344523fb'; // string | The role mining session id to be patched (default to undefined)
-        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/pruneThreshold","value":"83"},{"op":"replace","path":"/minNumIdentitiesInPotentialRole","value":"10"},{"op":"replace","path":"/saved","value":"false"},{"op":"replace","path":"/name","value":"RM Session - 07/10/22"},{"op":"add","path":"/name","value":"RM Session - 07/10/22"}]; // Array<Jsonpatchoperation> | Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
+        const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/pruneThreshold","value":"83"},{"op":"replace","path":"/minNumIdentitiesInPotentialRole","value":"10"},{"op":"replace","path":"/saved","value":"false"},{"op":"replace","path":"/name","value":"RM Session - 07/10/22"},{"op":"add","path":"/name","value":"RM Session - 07/10/22"}]; // Array<Jsonpatchoperation> | Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.patchRoleMiningSessionV1({ sessionId: sessionId, jsonpatchoperation: jsonpatchoperation });
         console.log(result);
@@ -435,6 +441,7 @@
       source: |
         import { IAIRoleMiningApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Roleminingpotentialroleeditentitlements } from 'sailpoint-api-client/dist/iai_role_mining/api';
 
         const configuration = new Configuration();
         const apiInstance = new IAIRoleMiningApi(configuration);

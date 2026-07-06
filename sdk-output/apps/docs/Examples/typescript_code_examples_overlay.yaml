@@ -6,6 +6,7 @@
       source: |
         import { AppsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Sourceappcreatedto } from 'sailpoint-api-client/dist/apps/api';
 
         const configuration = new Configuration();
         const apiInstance = new AppsApi(configuration);
@@ -25,7 +26,7 @@
         const configuration = new Configuration();
         const apiInstance = new AppsApi(configuration);
         const id: string = '2c91808a7813090a017814121e121518'; // string | ID of the source app (default to undefined)
-        const requestBody: Array&lt;string&gt; = ["c9575abb5e3a4e3db82b2f989a738aa2","c9dc28e148a24d65b3ccb5fb8ca5ddd9"]; // Array<string> | List of access profile IDs for removal
+        const requestBody: Array<string> = ["c9575abb5e3a4e3db82b2f989a738aa2","c9dc28e148a24d65b3ccb5fb8ca5ddd9"]; // Array<string> | List of access profile IDs for removal
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.deleteAccessProfilesFromSourceAppByBulkV1({ id: id, requestBody: requestBody });
@@ -196,12 +197,13 @@
       source: |
         import { AppsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/apps/api';
 
         const configuration = new Configuration();
         const apiInstance = new AppsApi(configuration);
         const id: string = '2c91808a7813090a017814121e121518'; // string | ID of the source app to patch (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/enabled","value":true},{"op":"replace","path":"/matchAllAccounts","value":true}]; // Array<Jsonpatchoperation> |  (optional)
+        const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/enabled","value":true},{"op":"replace","path":"/matchAllAccounts","value":true}]; // Array<Jsonpatchoperation> |  (optional)
         const result = await apiInstance.patchSourceAppV1({ id: id });
         console.log(result);
 - path: /user-apps/v1/{id}
@@ -212,12 +214,13 @@
       source: |
         import { AppsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/apps/api';
 
         const configuration = new Configuration();
         const apiInstance = new AppsApi(configuration);
         const id: string = '2c91808a7813090a017814121e121518'; // string | ID of the user app to patch (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = ; // Array<Jsonpatchoperation> |  (optional)
+        const jsonpatchoperation: Array<Jsonpatchoperation> = ; // Array<Jsonpatchoperation> |  (optional)
         const result = await apiInstance.patchUserAppV1({ id: id });
         console.log(result);
 - path: /source-apps/v1/bulk-update
@@ -228,6 +231,7 @@
       source: |
         import { AppsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Sourceappbulkupdaterequest } from 'sailpoint-api-client/dist/apps/api';
 
         const configuration = new Configuration();
         const apiInstance = new AppsApi(configuration);

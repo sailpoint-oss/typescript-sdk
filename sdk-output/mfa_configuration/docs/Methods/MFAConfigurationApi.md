@@ -154,6 +154,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { MFAConfigurationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Mfaduoconfig } from 'sailpoint-api-client/dist/mfa_configuration/api';
 
 const configuration = new Configuration();
 const apiInstance = new MFAConfigurationApi(configuration);
@@ -191,10 +192,11 @@ Name | Type | Description  | Notes
 ```typescript
 import { MFAConfigurationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Kbaanswerrequestitem } from 'sailpoint-api-client/dist/mfa_configuration/api';
 
 const configuration = new Configuration();
 const apiInstance = new MFAConfigurationApi(configuration);
-const kbaanswerrequestitem: Array&lt;Kbaanswerrequestitem&gt; = [{"id":"173423","answer":"822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34"},{"id":"c54fee53-2d63-4fc5-9259-3e93b9994135","answer":"9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08"}]; // 
+const kbaanswerrequestitem: Array<Kbaanswerrequestitem> = [{"id":"173423","answer":"822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34"},{"id":"c54fee53-2d63-4fc5-9259-3e93b9994135","answer":"9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08"}]; // 
 const result = await apiInstance.setMFAKBAConfigV1({ kbaanswerrequestitem: kbaanswerrequestitem });
 console.log(result);
 ```
@@ -228,6 +230,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { MFAConfigurationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Mfaoktaconfig } from 'sailpoint-api-client/dist/mfa_configuration/api';
 
 const configuration = new Configuration();
 const apiInstance = new MFAConfigurationApi(configuration);

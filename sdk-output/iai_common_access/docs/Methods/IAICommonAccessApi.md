@@ -51,6 +51,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { IAICommonAccessApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Commonaccessitemrequest } from 'sailpoint-api-client/dist/iai_common_access/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAICommonAccessApi(configuration);
@@ -143,10 +144,11 @@ Name | Type | Description  | Notes
 ```typescript
 import { IAICommonAccessApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Commonaccessidstatus } from 'sailpoint-api-client/dist/iai_common_access/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAICommonAccessApi(configuration);
-const commonaccessidstatus: Array&lt;Commonaccessidstatus&gt; = ; // Confirm or deny in bulk the common access ids that are (or aren\&#39;t) common access
+const commonaccessidstatus: Array<Commonaccessidstatus> = ; // Confirm or deny in bulk the common access ids that are (or aren\&#39;t) common access
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.updateCommonAccessStatusInBulkV1({ commonaccessidstatus: commonaccessidstatus });
 console.log(result);

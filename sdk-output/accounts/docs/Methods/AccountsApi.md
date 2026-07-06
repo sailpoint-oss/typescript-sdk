@@ -98,6 +98,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccountsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Accountattributescreate } from 'sailpoint-api-client/dist/accounts/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
@@ -256,6 +257,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccountsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Accounttogglerequest } from 'sailpoint-api-client/dist/accounts/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
@@ -294,6 +296,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccountsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Identitiesaccountsbulkrequest } from 'sailpoint-api-client/dist/accounts/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
@@ -369,6 +372,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccountsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Accounttogglerequest } from 'sailpoint-api-client/dist/accounts/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
@@ -407,6 +411,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccountsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Identitiesaccountsbulkrequest } from 'sailpoint-api-client/dist/accounts/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
@@ -577,6 +582,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccountsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Accountattributes } from 'sailpoint-api-client/dist/accounts/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
@@ -654,6 +660,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccountsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Accountunlockrequest } from 'sailpoint-api-client/dist/accounts/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
@@ -707,7 +714,7 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // Account ID.
-const requestBody: Array&lt;object&gt; = [{"op":"remove","path":"/identityId"}]; // A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+const requestBody: Array<object> = [{"op":"remove","path":"/identityId"}]; // A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 const result = await apiInstance.updateAccountV1({ id: id, requestBody: requestBody });
 console.log(result);
 ```

@@ -54,6 +54,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ManagedClientsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Managedclientrequest } from 'sailpoint-api-client/dist/managed_clients/api';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClientsApi(configuration);
@@ -285,11 +286,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { ManagedClientsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/managed_clients/api';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClientsApi(configuration);
 const id: string = 4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7; // Managed client ID.
-const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = ; // JSONPatch payload used to update the object.
+const jsonpatchoperation: Array<Jsonpatchoperation> = ; // JSONPatch payload used to update the object.
 const result = await apiInstance.updateManagedClientV1({ id: id, jsonpatchoperation: jsonpatchoperation });
 console.log(result);
 ```

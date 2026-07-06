@@ -50,6 +50,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { MachineAccountMappingsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Attributemappings } from 'sailpoint-api-client/dist/machine_account_mappings/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountMappingsApi(configuration);
@@ -168,6 +169,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { MachineAccountMappingsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Attributemappings } from 'sailpoint-api-client/dist/machine_account_mappings/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountMappingsApi(configuration);

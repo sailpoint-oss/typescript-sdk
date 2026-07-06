@@ -63,6 +63,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { MultiHostIntegrationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Multihostintegrationscreate } from 'sailpoint-api-client/dist/multi_host_integration/api';
 
 const configuration = new Configuration();
 const apiInstance = new MultiHostIntegrationApi(configuration);
@@ -103,11 +104,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { MultiHostIntegrationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Multihostintegrationscreatesources } from 'sailpoint-api-client/dist/multi_host_integration/api';
 
 const configuration = new Configuration();
 const apiInstance = new MultiHostIntegrationApi(configuration);
 const multihostId: string = 2c91808568c529c60168cca6f90c1326; // ID of the Multi-Host Integration.
-const multihostintegrationscreatesources: Array&lt;Multihostintegrationscreatesources&gt; = ; // The specifics of the sources to create within Multi-Host Integration.
+const multihostintegrationscreatesources: Array<Multihostintegrationscreatesources> = ; // The specifics of the sources to create within Multi-Host Integration.
 const result = await apiInstance.createSourcesWithinMultiHostV1({ multihostId: multihostId, multihostintegrationscreatesources: multihostintegrationscreatesources });
 console.log(result);
 ```
@@ -148,7 +150,7 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new MultiHostIntegrationApi(configuration);
 const multiHostId: string = 004091cb79b04636b88662afa50a4440; // ID of the Multi-Host Integration
-const requestBody: Array&lt;string&gt; = ; // The delete bulk sources within multi-host integration request body
+const requestBody: Array<string> = ; // The delete bulk sources within multi-host integration request body
 const result = await apiInstance.deleteMultiHostSourcesV1({ multiHostId: multiHostId, requestBody: requestBody });
 console.log(result);
 ```
@@ -600,11 +602,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { MultiHostIntegrationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { UpdateMultiHostSourcesV1RequestInner } from 'sailpoint-api-client/dist/multi_host_integration/api';
 
 const configuration = new Configuration();
 const apiInstance = new MultiHostIntegrationApi(configuration);
 const multihostId: string = anId; // ID of the Multi-Host Integration to update.
-const updateMultiHostSourcesV1RequestInner: Array&lt;UpdateMultiHostSourcesV1RequestInner&gt; = [{"op":"add","path":"/description","value":"MDK Multi-Host Integration 222 description"}]; // This endpoint allows you to update a Multi-Host Integration. 
+const updateMultiHostSourcesV1RequestInner: Array<UpdateMultiHostSourcesV1RequestInner> = [{"op":"add","path":"/description","value":"MDK Multi-Host Integration 222 description"}]; // This endpoint allows you to update a Multi-Host Integration. 
 const result = await apiInstance.updateMultiHostSourcesV1({ multihostId: multihostId, updateMultiHostSourcesV1RequestInner: updateMultiHostSourcesV1RequestInner });
 console.log(result);
 ```

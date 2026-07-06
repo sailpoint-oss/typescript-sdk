@@ -6,6 +6,7 @@
       source: |
         import { ManagedClientsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Managedclientrequest } from 'sailpoint-api-client/dist/managed_clients/api';
 
         const configuration = new Configuration();
         const apiInstance = new ManagedClientsApi(configuration);
@@ -94,10 +95,11 @@
       source: |
         import { ManagedClientsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/managed_clients/api';
 
         const configuration = new Configuration();
         const apiInstance = new ManagedClientsApi(configuration);
         const id: string = '4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7'; // string | Managed client ID. (default to undefined)
-        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = ; // Array<Jsonpatchoperation> | JSONPatch payload used to update the object.
+        const jsonpatchoperation: Array<Jsonpatchoperation> = ; // Array<Jsonpatchoperation> | JSONPatch payload used to update the object.
         const result = await apiInstance.updateManagedClientV1({ id: id, jsonpatchoperation: jsonpatchoperation });
         console.log(result);

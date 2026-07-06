@@ -67,6 +67,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { WorkReassignmentApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Configurationitemrequest } from 'sailpoint-api-client/dist/work_reassignment/api';
 
 const configuration = new Configuration();
 const apiInstance = new WorkReassignmentApi(configuration);
@@ -160,7 +161,7 @@ const configuration = new Configuration();
 const apiInstance = new WorkReassignmentApi(configuration);
 const identityId: string = 2c91808781a71ddb0181b9090b5c504e; // unique identity id
 const configType: Configtypeenum = accessRequests; // Reassignment work type
-const exclusionFilters: Array&lt;string&gt; = SELF_REVIEW_DELEGATION; // Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - &#x60;SELF_REVIEW_DELEGATION&#x60;: This will exclude delegations of self-review reassignments (optional)
+const exclusionFilters: Array<string> = SELF_REVIEW_DELEGATION; // Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - &#x60;SELF_REVIEW_DELEGATION&#x60;: This will exclude delegations of self-review reassignments (optional)
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.getEvaluateReassignmentConfigurationV1({ identityId: identityId, configType: configType });
 console.log(result);
@@ -362,6 +363,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { WorkReassignmentApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Configurationitemrequest } from 'sailpoint-api-client/dist/work_reassignment/api';
 
 const configuration = new Configuration();
 const apiInstance = new WorkReassignmentApi(configuration);
@@ -405,6 +407,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { WorkReassignmentApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Tenantconfigurationrequest } from 'sailpoint-api-client/dist/work_reassignment/api';
 
 const configuration = new Configuration();
 const apiInstance = new WorkReassignmentApi(configuration);

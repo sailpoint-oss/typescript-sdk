@@ -63,6 +63,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { CustomUserLevelsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Userlevelrequest } from 'sailpoint-api-client/dist/custom_user_levels/api';
 
 const configuration = new Configuration();
 const apiInstance = new CustomUserLevelsApi(configuration);
@@ -382,7 +383,7 @@ import { Configuration } from 'sailpoint-api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomUserLevelsApi(configuration);
-const requestBody: Array&lt;string&gt; = ; // List of user level ids. Max 50 identifiers can be passed in a single request.
+const requestBody: Array<string> = ; // List of user level ids. Max 50 identifiers can be passed in a single request.
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.showUserLevelCountsV1({ requestBody: requestBody });
 console.log(result);
@@ -422,6 +423,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { CustomUserLevelsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatch } from 'sailpoint-api-client/dist/custom_user_levels/api';
 
 const configuration = new Configuration();
 const apiInstance = new CustomUserLevelsApi(configuration);

@@ -67,6 +67,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { PersonalAccessTokensApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Createpersonalaccesstokenrequest } from 'sailpoint-api-client/dist/personal_access_tokens/api';
 
 const configuration = new Configuration();
 const apiInstance = new PersonalAccessTokensApi(configuration);
@@ -190,11 +191,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { PersonalAccessTokensApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/personal_access_tokens/api';
 
 const configuration = new Configuration();
 const apiInstance = new PersonalAccessTokensApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // The Personal Access Token id
-const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/name","value":"New name"},{"op":"replace","path":"/scope","value":["sp:scopes:all"]},{"op":"replace","path":"/expirationDate","value":"2027-12-31T23:59:59.999Z"}]; // A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope * expirationDate * userAwareTokenNeverExpires  **Important:** See the endpoint description for validation rules regarding the relationship between &#x60;expirationDate&#x60; and &#x60;userAwareTokenNeverExpires&#x60;. 
+const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/name","value":"New name"},{"op":"replace","path":"/scope","value":["sp:scopes:all"]},{"op":"replace","path":"/expirationDate","value":"2027-12-31T23:59:59.999Z"}]; // A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope * expirationDate * userAwareTokenNeverExpires  **Important:** See the endpoint description for validation rules regarding the relationship between &#x60;expirationDate&#x60; and &#x60;userAwareTokenNeverExpires&#x60;. 
 const result = await apiInstance.patchPersonalAccessTokenV1({ id: id, jsonpatchoperation: jsonpatchoperation });
 console.log(result);
 ```

@@ -78,6 +78,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ServiceDeskIntegrationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Servicedeskintegrationdto } from 'sailpoint-api-client/dist/service_desk_integration/api';
 
 const configuration = new Configuration();
 const apiInstance = new ServiceDeskIntegrationApi(configuration);
@@ -338,11 +339,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { ServiceDeskIntegrationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/service_desk_integration/api';
 
 const configuration = new Configuration();
 const apiInstance = new ServiceDeskIntegrationApi(configuration);
 const id: string = anId; // ID of the Service Desk integration to update
-const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = ; // A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
+const jsonpatchoperation: Array<Jsonpatchoperation> = ; // A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
 const result = await apiInstance.patchServiceDeskIntegrationV1({ id: id, jsonpatchoperation: jsonpatchoperation });
 console.log(result);
 ```
@@ -377,6 +379,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ServiceDeskIntegrationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Servicedeskintegrationdto } from 'sailpoint-api-client/dist/service_desk_integration/api';
 
 const configuration = new Configuration();
 const apiInstance = new ServiceDeskIntegrationApi(configuration);
@@ -415,6 +418,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ServiceDeskIntegrationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Queuedcheckconfigdetails } from 'sailpoint-api-client/dist/service_desk_integration/api';
 
 const configuration = new Configuration();
 const apiInstance = new ServiceDeskIntegrationApi(configuration);

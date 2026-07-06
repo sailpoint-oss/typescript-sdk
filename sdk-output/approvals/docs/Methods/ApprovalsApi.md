@@ -62,6 +62,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ApprovalsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Bulkapproverequestdto } from 'sailpoint-api-client/dist/approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
@@ -101,6 +102,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ApprovalsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Approvalapproverequest } from 'sailpoint-api-client/dist/approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
@@ -142,6 +144,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ApprovalsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Approvalcancelrequest } from 'sailpoint-api-client/dist/approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
@@ -182,6 +185,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ApprovalsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Bulkcancelrequestdto } from 'sailpoint-api-client/dist/approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
@@ -404,6 +408,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ApprovalsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Bulkreassignrequestdto } from 'sailpoint-api-client/dist/approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
@@ -444,6 +449,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ApprovalsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Approvalconfig } from 'sailpoint-api-client/dist/approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
@@ -483,6 +489,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ApprovalsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Bulkrejectrequestdto } from 'sailpoint-api-client/dist/approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
@@ -522,6 +529,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ApprovalsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Approvalrejectrequest } from 'sailpoint-api-client/dist/approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
@@ -561,6 +569,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ApprovalsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Approvalattributesrequest } from 'sailpoint-api-client/dist/approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
@@ -600,6 +609,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ApprovalsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Approvalcommentsrequest } from 'sailpoint-api-client/dist/approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
@@ -639,6 +649,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ApprovalsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Approvalreassignrequest } from 'sailpoint-api-client/dist/approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);

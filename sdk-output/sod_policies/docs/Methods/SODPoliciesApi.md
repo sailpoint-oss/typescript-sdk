@@ -88,6 +88,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SODPoliciesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Sodpolicy } from 'sailpoint-api-client/dist/sod_policies/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
@@ -509,11 +510,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { SODPoliciesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/sod_policies/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
 const id: string = 2c918083-5d19-1a86-015d-28455b4a2329; // The ID of the SOD policy being modified.
-const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/description","value":"Modified description"},{"op":"replace","path":"/conflictingAccessCriteria/leftCriteria/name","value":"money-in-modified"},{"op":"replace","path":"/conflictingAccessCriteria/rightCriteria","value":{"name":"money-out-modified","criteriaList":[{"type":"ENTITLEMENT","id":"2c918087682f9a86016839c0509c1ab2"}]}}]; // A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
+const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/description","value":"Modified description"},{"op":"replace","path":"/conflictingAccessCriteria/leftCriteria/name","value":"money-in-modified"},{"op":"replace","path":"/conflictingAccessCriteria/rightCriteria","value":{"name":"money-out-modified","criteriaList":[{"type":"ENTITLEMENT","id":"2c918087682f9a86016839c0509c1ab2"}]}}]; // A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
 const result = await apiInstance.patchSodPolicyV1({ id: id, jsonpatchoperation: jsonpatchoperation });
 console.log(result);
 ```
@@ -548,6 +550,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SODPoliciesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Sodpolicyschedule } from 'sailpoint-api-client/dist/sod_policies/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
@@ -588,6 +591,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SODPoliciesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Sodpolicy } from 'sailpoint-api-client/dist/sod_policies/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
@@ -663,6 +667,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SODPoliciesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Multipolicyrequest } from 'sailpoint-api-client/dist/sod_policies/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);

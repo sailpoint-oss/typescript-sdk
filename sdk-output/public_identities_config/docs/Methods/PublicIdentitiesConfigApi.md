@@ -89,6 +89,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { PublicIdentitiesConfigApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Publicidentityconfig } from 'sailpoint-api-client/dist/public_identities_config/api';
 
 const configuration = new Configuration();
 const apiInstance = new PublicIdentitiesConfigApi(configuration);

@@ -6,6 +6,7 @@
       source: |
         import { AccessProfilesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Accessprofile } from 'sailpoint-api-client/dist/access_profiles/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessProfilesApi(configuration);
@@ -34,6 +35,7 @@
       source: |
         import { AccessProfilesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Accessprofilebulkdeleterequest } from 'sailpoint-api-client/dist/access_profiles/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessProfilesApi(configuration);
@@ -102,11 +104,12 @@
       source: |
         import { AccessProfilesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/access_profiles/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessProfilesApi(configuration);
         const id: string = '2c91808a7813090a017814121919ecca'; // string | ID of the Access Profile to patch (default to undefined)
-        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"add","path":"/entitlements","value":[{"id":"2c9180857725c14301772a93bb77242d","type":"ENTITLEMENT","name":"AD User Group"}]}]; // Array<Jsonpatchoperation> | 
+        const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"add","path":"/entitlements","value":[{"id":"2c9180857725c14301772a93bb77242d","type":"ENTITLEMENT","name":"AD User Group"}]}]; // Array<Jsonpatchoperation> | 
         const result = await apiInstance.patchAccessProfileV1({ id: id, jsonpatchoperation: jsonpatchoperation });
         console.log(result);
 - path: /access-profiles/v1/bulk-update-requestable
@@ -117,10 +120,11 @@
       source: |
         import { AccessProfilesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { AccessprofilebulkupdaterequestInner } from 'sailpoint-api-client/dist/access_profiles/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessProfilesApi(configuration);
-        const accessprofilebulkupdaterequestInner: Array&lt;AccessprofilebulkupdaterequestInner&gt; = [{"id":"464ae7bf-791e-49fd-b746-06a2e4a89635","requestable":false}]; // Array<AccessprofilebulkupdaterequestInner> | 
+        const accessprofilebulkupdaterequestInner: Array<AccessprofilebulkupdaterequestInner> = [{"id":"464ae7bf-791e-49fd-b746-06a2e4a89635","requestable":false}]; // Array<AccessprofilebulkupdaterequestInner> | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.updateAccessProfilesInBulkV1({ accessprofilebulkupdaterequestInner: accessprofilebulkupdaterequestInner });
         console.log(result);

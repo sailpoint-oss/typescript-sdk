@@ -65,6 +65,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { IdentityProfilesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Identityprofile } from 'sailpoint-api-client/dist/identity_profiles/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityProfilesApi(configuration);
@@ -147,7 +148,7 @@ import { Configuration } from 'sailpoint-api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityProfilesApi(configuration);
-const requestBody: Array&lt;string&gt; = ; // Identity Profile bulk delete request body.
+const requestBody: Array<string> = ; // Identity Profile bulk delete request body.
 const result = await apiInstance.deleteIdentityProfilesV1({ requestBody: requestBody });
 console.log(result);
 ```
@@ -226,6 +227,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { IdentityProfilesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Identitypreviewrequest } from 'sailpoint-api-client/dist/identity_profiles/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityProfilesApi(configuration);
@@ -337,10 +339,11 @@ Name | Type | Description  | Notes
 ```typescript
 import { IdentityProfilesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Identityprofileexportedobject } from 'sailpoint-api-client/dist/identity_profiles/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityProfilesApi(configuration);
-const identityprofileexportedobject: Array&lt;Identityprofileexportedobject&gt; = ; // Previously exported Identity Profiles.
+const identityprofileexportedobject: Array<Identityprofileexportedobject> = ; // Previously exported Identity Profiles.
 const result = await apiInstance.importIdentityProfilesV1({ identityprofileexportedobject: identityprofileexportedobject });
 console.log(result);
 ```
@@ -469,11 +472,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { IdentityProfilesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/identity_profiles/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityProfilesApi(configuration);
 const identityProfileId: string = ef38f94347e94562b5bb8424a56397d8; // Identity profile ID.
-const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"add","path":"/identityAttributeConfig/attributeTransforms/0","value":{"identityAttributeName":"location","transformDefinition":{"type":"accountAttribute","attributes":{"sourceName":"Employees","attributeName":"location","sourceId":"2c91808878b7d63b0178c66ffcdc4ce4"}}}}]; // List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"add","path":"/identityAttributeConfig/attributeTransforms/0","value":{"identityAttributeName":"location","transformDefinition":{"type":"accountAttribute","attributes":{"sourceName":"Employees","attributeName":"location","sourceId":"2c91808878b7d63b0178c66ffcdc4ce4"}}}}]; // List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 const result = await apiInstance.updateIdentityProfileV1({ identityProfileId: identityProfileId, jsonpatchoperation: jsonpatchoperation });
 console.log(result);
 ```

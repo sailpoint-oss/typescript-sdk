@@ -85,6 +85,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { TriggersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Completeinvocation } from 'sailpoint-api-client/dist/triggers/api';
 
 const configuration = new Configuration();
 const apiInstance = new TriggersApi(configuration);
@@ -125,6 +126,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { TriggersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Subscriptionpostrequest } from 'sailpoint-api-client/dist/triggers/api';
 
 const configuration = new Configuration();
 const apiInstance = new TriggersApi(configuration);
@@ -339,11 +341,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { TriggersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { SubscriptionpatchrequestInner } from 'sailpoint-api-client/dist/triggers/api';
 
 const configuration = new Configuration();
 const apiInstance = new TriggersApi(configuration);
 const id: string = 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde; // ID of the Subscription to patch
-const subscriptionpatchrequestInner: Array&lt;SubscriptionpatchrequestInner&gt; = ; // 
+const subscriptionpatchrequestInner: Array<SubscriptionpatchrequestInner> = ; // 
 const result = await apiInstance.patchSubscriptionV1({ id: id, subscriptionpatchrequestInner: subscriptionpatchrequestInner });
 console.log(result);
 ```
@@ -377,6 +380,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { TriggersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Testinvocation } from 'sailpoint-api-client/dist/triggers/api';
 
 const configuration = new Configuration();
 const apiInstance = new TriggersApi(configuration);
@@ -415,6 +419,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { TriggersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Validatefilterinputdto } from 'sailpoint-api-client/dist/triggers/api';
 
 const configuration = new Configuration();
 const apiInstance = new TriggersApi(configuration);
@@ -462,6 +467,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { TriggersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Subscriptionputrequest } from 'sailpoint-api-client/dist/triggers/api';
 
 const configuration = new Configuration();
 const apiInstance = new TriggersApi(configuration);

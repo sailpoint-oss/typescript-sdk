@@ -52,6 +52,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { JITActivationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jitactivationactivaterequest } from 'sailpoint-api-client/dist/jit_activations/api';
 
 const configuration = new Configuration();
 const apiInstance = new JITActivationsApi(configuration);
@@ -95,6 +96,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { JITActivationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jitactivationdeactivaterequest } from 'sailpoint-api-client/dist/jit_activations/api';
 
 const configuration = new Configuration();
 const apiInstance = new JITActivationsApi(configuration);
@@ -139,6 +141,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { JITActivationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jitactivationextendrequest } from 'sailpoint-api-client/dist/jit_activations/api';
 
 const configuration = new Configuration();
 const apiInstance = new JITActivationsApi(configuration);

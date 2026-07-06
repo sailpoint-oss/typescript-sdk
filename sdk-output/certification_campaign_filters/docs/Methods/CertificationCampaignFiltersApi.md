@@ -76,6 +76,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationCampaignFiltersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Campaignfilterdetails } from 'sailpoint-api-client/dist/certification_campaign_filters/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignFiltersApi(configuration);
@@ -116,7 +117,7 @@ import { Configuration } from 'sailpoint-api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignFiltersApi(configuration);
-const requestBody: Array&lt;string&gt; = ; // A json list of IDs of campaign filters to delete.
+const requestBody: Array<string> = ; // A json list of IDs of campaign filters to delete.
 const result = await apiInstance.deleteCampaignFiltersV1({ requestBody: requestBody });
 console.log(result);
 ```
@@ -229,6 +230,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationCampaignFiltersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Campaignfilterdetails } from 'sailpoint-api-client/dist/certification_campaign_filters/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignFiltersApi(configuration);

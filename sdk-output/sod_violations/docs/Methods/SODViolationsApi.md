@@ -64,6 +64,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SODViolationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Identitywithnewaccess } from 'sailpoint-api-client/dist/sod_violations/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODViolationsApi(configuration);
@@ -101,6 +102,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SODViolationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Identitywithnewaccess } from 'sailpoint-api-client/dist/sod_violations/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODViolationsApi(configuration);

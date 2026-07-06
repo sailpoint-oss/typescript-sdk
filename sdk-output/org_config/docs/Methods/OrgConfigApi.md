@@ -128,10 +128,11 @@ Name | Type | Description  | Notes
 ```typescript
 import { OrgConfigApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/org_config/api';
 
 const configuration = new Configuration();
 const apiInstance = new OrgConfigApi(configuration);
-const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/timeZone","value":"America/Toronto"}]; // A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/timeZone","value":"America/Toronto"}]; // A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 const result = await apiInstance.patchOrgConfigV1({ jsonpatchoperation: jsonpatchoperation });
 console.log(result);
 ```

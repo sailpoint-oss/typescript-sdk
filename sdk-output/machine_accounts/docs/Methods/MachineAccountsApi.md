@@ -61,6 +61,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { MachineAccountsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { CreateMachineAccountSubtypeV1Request } from 'sailpoint-api-client/dist/machine_accounts/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountsApi(configuration);
@@ -401,7 +402,7 @@ const configuration = new Configuration();
 const apiInstance = new MachineAccountsApi(configuration);
 const sourceId: string = 6d0458373bec4b4b80460992b76016da; // The ID of the source.
 const technicalName: string = foo; // The technical name of the subtype.
-const requestBody: Array&lt;object&gt; = [{"op":"replace","path":"/displayName","value":"Test New DisplayName"}]; // A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+const requestBody: Array<object> = [{"op":"replace","path":"/displayName","value":"Test New DisplayName"}]; // A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.patchMachineAccountSubtypeByTechnicalNameV1({ sourceId: sourceId, technicalName: technicalName, requestBody: requestBody });
 console.log(result);
@@ -446,7 +447,7 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new MachineAccountsApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // Machine Account ID.
-const requestBody: Array&lt;object&gt; = [{"op":"add","path":"/environment","value":"test"}]; // A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable:           * description           * ownerIdentity           * subType           * accessType           * environment           * attributes           * classificationMethod           * manuallyEdited           * nativeIdentity           * uuid           * source           * manuallyCorrelated           * enabled           * locked           * hasEntitlements           * connectorAttributes
+const requestBody: Array<object> = [{"op":"add","path":"/environment","value":"test"}]; // A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable:           * description           * ownerIdentity           * subType           * accessType           * environment           * attributes           * classificationMethod           * manuallyEdited           * nativeIdentity           * uuid           * source           * manuallyCorrelated           * enabled           * locked           * hasEntitlements           * connectorAttributes
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.updateMachineAccountV1({ id: id, requestBody: requestBody });
 console.log(result);

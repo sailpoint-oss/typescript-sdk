@@ -6,6 +6,7 @@
       source: |
         import { NotificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Domainaddress } from 'sailpoint-api-client/dist/notifications/api';
 
         const configuration = new Configuration();
         const apiInstance = new NotificationsApi(configuration);
@@ -20,6 +21,7 @@
       source: |
         import { NotificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Templatedto } from 'sailpoint-api-client/dist/notifications/api';
 
         const configuration = new Configuration();
         const apiInstance = new NotificationsApi(configuration);
@@ -34,6 +36,7 @@
       source: |
         import { NotificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Emailstatusdto } from 'sailpoint-api-client/dist/notifications/api';
 
         const configuration = new Configuration();
         const apiInstance = new NotificationsApi(configuration);
@@ -48,10 +51,11 @@
       source: |
         import { NotificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Templatebulkdeletedto } from 'sailpoint-api-client/dist/notifications/api';
 
         const configuration = new Configuration();
         const apiInstance = new NotificationsApi(configuration);
-        const templatebulkdeletedto: Array&lt;Templatebulkdeletedto&gt; = ; // Array<Templatebulkdeletedto> | 
+        const templatebulkdeletedto: Array<Templatebulkdeletedto> = ; // Array<Templatebulkdeletedto> | 
         const result = await apiInstance.deleteNotificationTemplatesInBulkV1({ templatebulkdeletedto: templatebulkdeletedto });
         console.log(result);
 - path: /verified-from-addresses/v1/{id}
@@ -213,6 +217,7 @@
       source: |
         import { NotificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Mailfromattributesdto } from 'sailpoint-api-client/dist/notifications/api';
 
         const configuration = new Configuration();
         const apiInstance = new NotificationsApi(configuration);
@@ -227,6 +232,7 @@
       source: |
         import { NotificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Sendtestnotificationrequestdto } from 'sailpoint-api-client/dist/notifications/api';
 
         const configuration = new Configuration();
         const apiInstance = new NotificationsApi(configuration);

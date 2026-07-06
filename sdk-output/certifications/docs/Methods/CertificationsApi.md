@@ -392,11 +392,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Reviewdecision } from 'sailpoint-api-client/dist/certifications/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationsApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // The ID of the identity campaign certification on which to make decisions
-const reviewdecision: Array&lt;Reviewdecision&gt; = [{"id":"ef38f94347e94562b5bb8424a56396b5","decision":"APPROVE","bulk":true,"comments":"This user still needs access to this source."},{"id":"ef38f94347e94562b5bb8424a56397d8","decision":"APPROVE","bulk":true,"comments":"This user still needs access to this source too."}]; // A non-empty array of decisions to be made.
+const reviewdecision: Array<Reviewdecision> = [{"id":"ef38f94347e94562b5bb8424a56396b5","decision":"APPROVE","bulk":true,"comments":"This user still needs access to this source."},{"id":"ef38f94347e94562b5bb8424a56397d8","decision":"APPROVE","bulk":true,"comments":"This user still needs access to this source too."}]; // A non-empty array of decisions to be made.
 const result = await apiInstance.makeIdentityDecisionV1({ id: id, reviewdecision: reviewdecision });
 console.log(result);
 ```
@@ -431,6 +432,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Reviewreassign } from 'sailpoint-api-client/dist/certifications/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationsApi(configuration);
@@ -512,6 +514,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Reviewreassign } from 'sailpoint-api-client/dist/certifications/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationsApi(configuration);

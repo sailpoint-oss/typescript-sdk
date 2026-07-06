@@ -57,6 +57,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessRequestsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Bulkapproveaccessrequest } from 'sailpoint-api-client/dist/access_requests/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestsApi(configuration);
@@ -95,6 +96,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessRequestsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Bulkcancelaccessrequest } from 'sailpoint-api-client/dist/access_requests/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestsApi(configuration);
@@ -133,6 +135,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessRequestsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Cancelaccessrequest } from 'sailpoint-api-client/dist/access_requests/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestsApi(configuration);
@@ -181,6 +184,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessRequestsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Closeaccessrequest } from 'sailpoint-api-client/dist/access_requests/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestsApi(configuration);
@@ -268,6 +272,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessRequestsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Accessrequest } from 'sailpoint-api-client/dist/access_requests/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestsApi(configuration);
@@ -538,6 +543,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessRequestsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Accountsselectionrequest } from 'sailpoint-api-client/dist/access_requests/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestsApi(configuration);
@@ -579,6 +585,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessRequestsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Accessrequestconfig } from 'sailpoint-api-client/dist/access_requests/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestsApi(configuration);
@@ -616,6 +623,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessRequestsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Accessrequestconfigv2 } from 'sailpoint-api-client/dist/access_requests/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestsApi(configuration);

@@ -69,6 +69,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ParameterStorageApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Parameterstoragenewparameter } from 'sailpoint-api-client/dist/parameter_storage/api';
 
 const configuration = new Configuration();
 const apiInstance = new ParameterStorageApi(configuration);
@@ -344,6 +345,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ParameterStorageApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Parameterstorageupdateparameter } from 'sailpoint-api-client/dist/parameter_storage/api';
 
 const configuration = new Configuration();
 const apiInstance = new ParameterStorageApi(configuration);

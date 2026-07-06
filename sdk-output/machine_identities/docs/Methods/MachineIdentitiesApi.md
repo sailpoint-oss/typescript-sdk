@@ -56,6 +56,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { MachineIdentitiesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Machineidentityrequest } from 'sailpoint-api-client/dist/machine_identities/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
@@ -283,6 +284,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { MachineIdentitiesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Machineidentityaggregationrequest } from 'sailpoint-api-client/dist/machine_identities/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
@@ -332,7 +334,7 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // Machine Identity ID.
-const requestBody: Array&lt;object&gt; = [{"op":"add","path":"/attributes/securityRisk","value":"medium"}]; // A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+const requestBody: Array<object> = [{"op":"add","path":"/attributes/securityRisk","value":"medium"}]; // A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.updateMachineIdentityV1({ id: id, requestBody: requestBody });
 console.log(result);

@@ -226,6 +226,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { RolePropagationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { RolePropagationConfigInput } from 'sailpoint-api-client/dist/role_propagation/api';
 
 const configuration = new Configuration();
 const apiInstance = new RolePropagationApi(configuration);

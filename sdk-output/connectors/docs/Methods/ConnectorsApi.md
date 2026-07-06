@@ -71,6 +71,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConnectorsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { V3createconnectordto } from 'sailpoint-api-client/dist/connectors/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorsApi(configuration);
@@ -548,11 +549,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConnectorsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/connectors/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorsApi(configuration);
 const scriptName: string = aScriptName; // The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
-const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = ; // A list of connector detail update operations 
+const jsonpatchoperation: Array<Jsonpatchoperation> = ; // A list of connector detail update operations 
 const result = await apiInstance.updateConnectorV1({ scriptName: scriptName, jsonpatchoperation: jsonpatchoperation });
 console.log(result);
 ```

@@ -123,6 +123,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { MachineClassificationConfigApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Machineclassificationconfig } from 'sailpoint-api-client/dist/machine_classification_config/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineClassificationConfigApi(configuration);

@@ -57,6 +57,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConnectorRuleManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Connectorrulecreaterequest } from 'sailpoint-api-client/dist/connector_rule_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorRuleManagementApi(configuration);
@@ -210,6 +211,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConnectorRuleManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Connectorruleupdaterequest } from 'sailpoint-api-client/dist/connector_rule_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorRuleManagementApi(configuration);
@@ -248,6 +250,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConnectorRuleManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Sourcecode } from 'sailpoint-api-client/dist/connector_rule_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorRuleManagementApi(configuration);

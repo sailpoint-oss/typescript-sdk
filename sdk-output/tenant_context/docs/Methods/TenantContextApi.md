@@ -88,6 +88,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { TenantContextApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/tenant_context/api';
 
 const configuration = new Configuration();
 const apiInstance = new TenantContextApi(configuration);

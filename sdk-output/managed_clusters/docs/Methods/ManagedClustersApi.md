@@ -55,6 +55,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ManagedClustersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Managedclusterrequest } from 'sailpoint-api-client/dist/managed_clusters/api';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClustersApi(configuration);
@@ -249,6 +250,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ManagedClustersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { PutClientLogConfigurationV1Request } from 'sailpoint-api-client/dist/managed_clusters/api';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClustersApi(configuration);
@@ -288,11 +290,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { ManagedClustersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/managed_clusters/api';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClustersApi(configuration);
 const id: string = 2c9180897de347a2017de8859e8c5039; // Managed cluster ID.
-const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = ; // JSONPatch payload used to update the object.
+const jsonpatchoperation: Array<Jsonpatchoperation> = ; // JSONPatch payload used to update the object.
 const result = await apiInstance.updateManagedClusterV1({ id: id, jsonpatchoperation: jsonpatchoperation });
 console.log(result);
 ```

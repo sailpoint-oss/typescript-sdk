@@ -108,6 +108,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { DataAccessSecurityApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Basecreateapplicationrequest } from 'sailpoint-api-client/dist/data_access_security/api';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -145,6 +146,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { DataAccessSecurityApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Createidentitycollectorrequest } from 'sailpoint-api-client/dist/data_access_security/api';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -182,6 +184,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { DataAccessSecurityApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Createschedulerequest } from 'sailpoint-api-client/dist/data_access_security/api';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -219,6 +222,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { DataAccessSecurityApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Assignresourceownerrequest } from 'sailpoint-api-client/dist/data_access_security/api';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -297,6 +301,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { DataAccessSecurityApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Reelectrequest } from 'sailpoint-api-client/dist/data_access_security/api';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -890,6 +895,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { DataAccessSecurityApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Basecreateapplicationrequest } from 'sailpoint-api-client/dist/data_access_security/api';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -929,6 +935,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { DataAccessSecurityApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Updateidentitycollectorrequest } from 'sailpoint-api-client/dist/data_access_security/api';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -968,6 +975,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { DataAccessSecurityApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Updateschedulerequest } from 'sailpoint-api-client/dist/data_access_security/api';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);

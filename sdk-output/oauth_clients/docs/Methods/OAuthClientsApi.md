@@ -52,6 +52,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { OAuthClientsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Createoauthclientrequest } from 'sailpoint-api-client/dist/oauth_clients/api';
 
 const configuration = new Configuration();
 const apiInstance = new OAuthClientsApi(configuration);
@@ -201,11 +202,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { OAuthClientsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/oauth_clients/api';
 
 const configuration = new Configuration();
 const apiInstance = new OAuthClientsApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // The OAuth client id
-const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/strongAuthSupported","value":true},{"op":"replace","path":"/businessName","value":"acme-solar"}]; // A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
+const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/strongAuthSupported","value":true},{"op":"replace","path":"/businessName","value":"acme-solar"}]; // A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
 const result = await apiInstance.patchOauthClientV1({ id: id, jsonpatchoperation: jsonpatchoperation });
 console.log(result);
 ```

@@ -66,6 +66,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessModelMetadataApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Attributedto } from 'sailpoint-api-client/dist/access_model_metadata/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessModelMetadataApi(configuration);
@@ -105,6 +106,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessModelMetadataApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Attributevaluedto } from 'sailpoint-api-client/dist/access_model_metadata/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessModelMetadataApi(configuration);
@@ -306,11 +308,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessModelMetadataApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/access_model_metadata/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessModelMetadataApi(configuration);
 const key: string = iscPrivacy; // Technical name of the Attribute.
-const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = ; // JSON Patch array to apply
+const jsonpatchoperation: Array<Jsonpatchoperation> = ; // JSON Patch array to apply
 const result = await apiInstance.updateAccessModelMetadataAttributeV1({ key: key, jsonpatchoperation: jsonpatchoperation });
 console.log(result);
 ```
@@ -348,12 +351,13 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessModelMetadataApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/access_model_metadata/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessModelMetadataApi(configuration);
 const key: string = iscPrivacy; // Technical name of the Attribute.
 const value: string = public; // Technical name of the Attribute value.
-const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = ; // JSON Patch array to apply
+const jsonpatchoperation: Array<Jsonpatchoperation> = ; // JSON Patch array to apply
 const result = await apiInstance.updateAccessModelMetadataAttributeValueV1({ key: key, value: value, jsonpatchoperation: jsonpatchoperation });
 console.log(result);
 ```
@@ -390,6 +394,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessModelMetadataApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Entitlementattributebulkupdatefilterrequest } from 'sailpoint-api-client/dist/access_model_metadata/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessModelMetadataApi(configuration);
@@ -430,6 +435,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessModelMetadataApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Entitlementattributebulkupdateidsrequest } from 'sailpoint-api-client/dist/access_model_metadata/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessModelMetadataApi(configuration);
@@ -470,6 +476,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessModelMetadataApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Entitlementattributebulkupdatequeryrequest } from 'sailpoint-api-client/dist/access_model_metadata/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessModelMetadataApi(configuration);

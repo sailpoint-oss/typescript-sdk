@@ -6,6 +6,7 @@
       source: |
         import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Provisioningpolicydto } from 'sailpoint-api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -21,6 +22,7 @@
       source: |
         import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Provisioningpolicydtov2 } from 'sailpoint-api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -38,6 +40,7 @@
       source: |
         import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Schedule3 } from 'sailpoint-api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -53,6 +56,7 @@
       source: |
         import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Schema } from 'sailpoint-api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -68,6 +72,7 @@
       source: |
         import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Source } from 'sailpoint-api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -626,6 +631,7 @@
       source: |
         import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Correlationconfig } from 'sailpoint-api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -641,6 +647,7 @@
       source: |
         import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Nativechangedetectionconfig } from 'sailpoint-api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -656,6 +663,7 @@
       source: |
         import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Provisioningpolicydto } from 'sailpoint-api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -672,6 +680,7 @@
       source: |
         import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Provisioningpolicydtov2 } from 'sailpoint-api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -689,6 +698,7 @@
       source: |
         import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Attrsyncsourceconfig } from 'sailpoint-api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -705,6 +715,7 @@
       source: |
         import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Schema } from 'sailpoint-api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -721,6 +732,7 @@
       source: |
         import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Source } from 'sailpoint-api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -736,6 +748,7 @@
       source: |
         import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Resourceobjectsrequest } from 'sailpoint-api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -794,11 +807,12 @@
       source: |
         import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '00eebcf881994e419d72e757fd30dc0e'; // string | Human account source ID. (default to undefined)
-        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = ; // Array<Jsonpatchoperation> | The JSONPatch payload used to update the object.
+        const jsonpatchoperation: Array<Jsonpatchoperation> = ; // Array<Jsonpatchoperation> | The JSONPatch payload used to update the object.
         const result = await apiInstance.updateAccountDeletionApprovalConfigV1({ sourceId: sourceId, jsonpatchoperation: jsonpatchoperation });
         console.log(result);
 - path: /sources/v1/{sourceId}/approval-config/machine-account-delete
@@ -809,11 +823,12 @@
       source: |
         import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '00eebcf881994e419d72e757fd30dc0e'; // string | machine account source ID. (default to undefined)
-        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = ; // Array<Jsonpatchoperation> | The JSONPatch payload used to update the object.
+        const jsonpatchoperation: Array<Jsonpatchoperation> = ; // Array<Jsonpatchoperation> | The JSONPatch payload used to update the object.
         const result = await apiInstance.updateMachineAccountDeletionApprovalConfigV1({ sourceId: sourceId, jsonpatchoperation: jsonpatchoperation });
         console.log(result);
 - path: /sources/v1/{sourceId}/password-policies
@@ -824,11 +839,12 @@
       source: |
         import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { PasswordpolicyholdersdtoInner } from 'sailpoint-api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '8c190e6787aa4ed9a90bd9d5344523fb'; // string | The Source id (default to undefined)
-        const passwordpolicyholdersdtoInner: Array&lt;PasswordpolicyholdersdtoInner&gt; = ; // Array<PasswordpolicyholdersdtoInner> | 
+        const passwordpolicyholdersdtoInner: Array<PasswordpolicyholdersdtoInner> = ; // Array<PasswordpolicyholdersdtoInner> | 
         const result = await apiInstance.updatePasswordPolicyHoldersV1({ sourceId: sourceId, passwordpolicyholdersdtoInner: passwordpolicyholdersdtoInner });
         console.log(result);
 - path: /sources/v1/{sourceId}/provisioning-policies/bulk-update
@@ -839,11 +855,12 @@
       source: |
         import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Provisioningpolicydto } from 'sailpoint-api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source id. (default to undefined)
-        const provisioningpolicydto: Array&lt;Provisioningpolicydto&gt; = ; // Array<Provisioningpolicydto> | 
+        const provisioningpolicydto: Array<Provisioningpolicydto> = ; // Array<Provisioningpolicydto> | 
         const result = await apiInstance.updateProvisioningPoliciesInBulkV1({ sourceId: sourceId, provisioningpolicydto: provisioningpolicydto });
         console.log(result);
 - path: /sources/v1/{sourceId}/provisioning-policies/{usageType}
@@ -854,12 +871,13 @@
       source: |
         import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source id. (default to undefined)
         const usageType: Usagetype = CREATE; // Usagetype | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. (default to undefined)
-        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"add","path":"/fields/0","value":{"name":"email","transform":{"type":"identityAttribute","attributes":{"name":"email"}},"attributes":{},"isRequired":false,"type":"string","isMultiValued":false}}]; // Array<Jsonpatchoperation> | The JSONPatch payload used to update the schema.
+        const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"add","path":"/fields/0","value":{"name":"email","transform":{"type":"identityAttribute","attributes":{"name":"email"}},"attributes":{},"isRequired":false,"type":"string","isMultiValued":false}}]; // Array<Jsonpatchoperation> | The JSONPatch payload used to update the schema.
         const result = await apiInstance.updateProvisioningPolicyV1({ sourceId: sourceId, usageType: usageType, jsonpatchoperation: jsonpatchoperation });
         console.log(result);
 - path: /sources/v2/{sourceId}/provisioning-policies/{id}
@@ -870,12 +888,13 @@
       source: |
         import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source id. (default to undefined)
         const id: string = 'f5dd23fe-3414-42b7-bb1c-869400ad7a10'; // string | The provisioning policy ID. (default to undefined)
-        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"add","path":"/fields/0","value":{"name":"email","transform":{"type":"identityAttribute","attributes":{"name":"email"}},"attributes":{},"isRequired":false,"type":"string","isMultiValued":false}}]; // Array<Jsonpatchoperation> | The JSONPatch payload used to update the schema.
+        const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"add","path":"/fields/0","value":{"name":"email","transform":{"type":"identityAttribute","attributes":{"name":"email"}},"attributes":{},"isRequired":false,"type":"string","isMultiValued":false}}]; // Array<Jsonpatchoperation> | The JSONPatch payload used to update the schema.
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.updateProvisioningPolicyV2({ sourceId: sourceId, id: id, jsonpatchoperation: jsonpatchoperation });
         console.log(result);
@@ -887,6 +906,7 @@
       source: |
         import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Sourceentitlementrequestconfig } from 'sailpoint-api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -903,12 +923,13 @@
       source: |
         import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source id. (default to undefined)
         const scheduleType: string = 'ACCOUNT_AGGREGATION'; // 'ACCOUNT_AGGREGATION' | 'GROUP_AGGREGATION' | The Schedule type. (default to undefined)
-        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/cronExpression","value":"0 0 6 * * ?"}]; // Array<Jsonpatchoperation> | The JSONPatch payload used to update the schedule.
+        const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/cronExpression","value":"0 0 6 * * ?"}]; // Array<Jsonpatchoperation> | The JSONPatch payload used to update the schedule.
         const result = await apiInstance.updateSourceScheduleV1({ sourceId: sourceId, scheduleType: scheduleType, jsonpatchoperation: jsonpatchoperation });
         console.log(result);
 - path: /sources/v1/{sourceId}/schemas/{schemaId}
@@ -919,12 +940,13 @@
       source: |
         import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source id. (default to undefined)
         const schemaId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Schema id. (default to undefined)
-        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"add","path":"/attributes/-","value":{"name":"location","type":"STRING","schema":null,"description":"Employee location","isMulti":false,"isEntitlement":false,"isGroup":false}}]; // Array<Jsonpatchoperation> | The JSONPatch payload used to update the schema.
+        const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"add","path":"/attributes/-","value":{"name":"location","type":"STRING","schema":null,"description":"Employee location","isMulti":false,"isEntitlement":false,"isGroup":false}}]; // Array<Jsonpatchoperation> | The JSONPatch payload used to update the schema.
         const result = await apiInstance.updateSourceSchemaV1({ sourceId: sourceId, schemaId: schemaId, jsonpatchoperation: jsonpatchoperation });
         console.log(result);
 - path: /sources/v1/{id}
@@ -935,10 +957,11 @@
       source: |
         import { SourcesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
         const id: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
-        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/description","value":"new description"}]; // Array<Jsonpatchoperation> | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
+        const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/description","value":"new description"}]; // Array<Jsonpatchoperation> | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
         const result = await apiInstance.updateSourceV1({ id: id, jsonpatchoperation: jsonpatchoperation });
         console.log(result);

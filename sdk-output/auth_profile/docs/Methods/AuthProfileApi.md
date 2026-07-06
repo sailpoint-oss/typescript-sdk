@@ -141,11 +141,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { AuthProfileApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/auth_profile/api';
 
 const configuration = new Configuration();
 const apiInstance = new AuthProfileApi(configuration);
 const id: string = 2c91808a7813090a017814121919ecca; // ID of the Auth Profile to patch.
-const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = ; // 
+const jsonpatchoperation: Array<Jsonpatchoperation> = ; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.patchProfileConfigV1({ id: id, jsonpatchoperation: jsonpatchoperation });
 console.log(result);

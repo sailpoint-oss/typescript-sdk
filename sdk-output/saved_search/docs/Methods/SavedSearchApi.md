@@ -61,6 +61,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SavedSearchApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { CreateSavedSearchV1Request } from 'sailpoint-api-client/dist/saved_search/api';
 
 const configuration = new Configuration();
 const apiInstance = new SavedSearchApi(configuration);
@@ -138,6 +139,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SavedSearchApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Searcharguments } from 'sailpoint-api-client/dist/saved_search/api';
 
 const configuration = new Configuration();
 const apiInstance = new SavedSearchApi(configuration);
@@ -262,6 +264,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SavedSearchApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Savedsearch } from 'sailpoint-api-client/dist/saved_search/api';
 
 const configuration = new Configuration();
 const apiInstance = new SavedSearchApi(configuration);

@@ -74,6 +74,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SearchApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Search } from 'sailpoint-api-client/dist/search/api';
 
 const configuration = new Configuration();
 const apiInstance = new SearchApi(configuration);
@@ -114,6 +115,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SearchApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Search } from 'sailpoint-api-client/dist/search/api';
 
 const configuration = new Configuration();
 const apiInstance = new SearchApi(configuration);
@@ -193,6 +195,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SearchApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Search } from 'sailpoint-api-client/dist/search/api';
 
 const configuration = new Configuration();
 const apiInstance = new SearchApi(configuration);

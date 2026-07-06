@@ -70,6 +70,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { CustomFormsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Formdefinitiondynamicschemarequest } from 'sailpoint-api-client/dist/custom_forms/api';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
@@ -146,6 +147,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { CustomFormsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Createformdefinitionrequest } from 'sailpoint-api-client/dist/custom_forms/api';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
@@ -183,6 +185,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { CustomFormsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Createforminstancerequest } from 'sailpoint-api-client/dist/custom_forms/api';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
@@ -454,10 +457,11 @@ Name | Type | Description  | Notes
 ```typescript
 import { CustomFormsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { ImportFormDefinitionsV1RequestInner } from 'sailpoint-api-client/dist/custom_forms/api';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
-const body: Array&lt;ImportFormDefinitionsV1RequestInner&gt; = [{"version":1,"self":{"name":"All fields not required","id":"05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa","type":"FORM_DEFINITION"},"object":{"id":"05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa","name":"All fields not required","description":"description","owner":{"type":"IDENTITY","id":"3447d8ec2602455ab6f1e8408a0f0150"},"usedBy":[{"type":"WORKFLOW","id":"5008594c-dacc-4295-8fee-41df60477304"},{"type":"WORKFLOW","id":"97e75a75-c179-4fbc-a2da-b5fa4aaa8743"}],"formInput":[{"type":"STRING","label":"input1","description":"A single dynamic scalar value (i.e. number, string, date, etc) that can be passed into the form for use in conditional logic"}],"formElements":[{"id":"3069272797630701","elementType":"SECTION","config":{"label":"First Section","formElements":[{"id":"3069272797630700","elementType":"TEXT","key":"firstName","config":{"label":"First Name"}},{"id":"3498415402897539","elementType":"TEXT","key":"lastName","config":{"label":"Last Name"}}]}}],"formConditions":[{"ruleOperator":"AND","rules":[{"sourceType":"INPUT","source":"Department","operator":"EQ","valueType":"STRING","value":"Sales"}],"effects":[{"effectType":"HIDE","config":{"element":"2614088730489570"}}]}],"created":"2022-10-04T19:27:04.456Z","modified":"2022-11-16T20:45:02.172Z"}}]; // Body is the request payload to import form definitions (optional)
+const body: Array<ImportFormDefinitionsV1RequestInner> = [{"version":1,"self":{"name":"All fields not required","id":"05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa","type":"FORM_DEFINITION"},"object":{"id":"05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa","name":"All fields not required","description":"description","owner":{"type":"IDENTITY","id":"3447d8ec2602455ab6f1e8408a0f0150"},"usedBy":[{"type":"WORKFLOW","id":"5008594c-dacc-4295-8fee-41df60477304"},{"type":"WORKFLOW","id":"97e75a75-c179-4fbc-a2da-b5fa4aaa8743"}],"formInput":[{"type":"STRING","label":"input1","description":"A single dynamic scalar value (i.e. number, string, date, etc) that can be passed into the form for use in conditional logic"}],"formElements":[{"id":"3069272797630701","elementType":"SECTION","config":{"label":"First Section","formElements":[{"id":"3069272797630700","elementType":"TEXT","key":"firstName","config":{"label":"First Name"}},{"id":"3498415402897539","elementType":"TEXT","key":"lastName","config":{"label":"Last Name"}}]}}],"formConditions":[{"ruleOperator":"AND","rules":[{"sourceType":"INPUT","source":"Department","operator":"EQ","valueType":"STRING","value":"Sales"}],"effects":[{"effectType":"HIDE","config":{"element":"2614088730489570"}}]}],"created":"2022-10-04T19:27:04.456Z","modified":"2022-11-16T20:45:02.172Z"}}]; // Body is the request payload to import form definitions (optional)
 const result = await apiInstance.importFormDefinitionsV1({  });
 console.log(result);
 ```
@@ -496,7 +500,7 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
 const formDefinitionID: string = 00000000-0000-0000-0000-000000000000; // Form definition ID
-const body: Array&lt;{ [key: string]: object; }&gt; = [{"op":"replace","path":"/description","value":"test-description"}]; // Body is the request payload to patch a form definition, check: https://jsonpatch.com (optional)
+const body: Array<{ [key: string]: object; }> = [{"op":"replace","path":"/description","value":"test-description"}]; // Body is the request payload to patch a form definition, check: https://jsonpatch.com (optional)
 const result = await apiInstance.patchFormDefinitionV1({ formDefinitionID: formDefinitionID });
 console.log(result);
 ```
@@ -537,7 +541,7 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
 const formInstanceID: string = 00000000-0000-0000-0000-000000000000; // Form instance ID
-const body: Array&lt;{ [key: string]: object; }&gt; = [{"op":"replace","path":"/state","value":"SUBMITTED"},{"op":"replace","path":"/formData","value":{"a-key-1":"a-value-1","a-key-2":true,"a-key-3":1}}]; // Body is the request payload to patch a form instance, check: https://jsonpatch.com (optional)
+const body: Array<{ [key: string]: object; }> = [{"op":"replace","path":"/state","value":"SUBMITTED"},{"op":"replace","path":"/formData","value":{"a-key-1":"a-value-1","a-key-2":true,"a-key-3":1}}]; // Body is the request payload to patch a form instance, check: https://jsonpatch.com (optional)
 const result = await apiInstance.patchFormInstanceV1({ formInstanceID: formInstanceID });
 console.log(result);
 ```
@@ -738,6 +742,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { CustomFormsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Formelementpreviewrequest } from 'sailpoint-api-client/dist/custom_forms/api';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);

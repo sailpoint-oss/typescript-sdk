@@ -62,6 +62,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Bulkapproveentitlementrecommendationrequest } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -99,6 +100,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Autowritesetting } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -400,11 +402,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
 const id: string = 79db50d4-723c-4aa0-a824-83c2205d82d1; // The unique identifier of the entitlement recommendation to update.
-const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = ; // The patch operations to apply to the entitlement recommendation record.
+const jsonpatchoperation: Array<Jsonpatchoperation> = ; // The patch operations to apply to the entitlement recommendation record.
 const result = await apiInstance.patchEntitlementRecommendationV1({ id: id, jsonpatchoperation: jsonpatchoperation });
 console.log(result);
 ```
@@ -439,11 +442,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Sedpatch } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
 const id: string = ebab396f-0af1-4050-89b7-dafc63ec70e7; // id is sed id
-const sedpatch: Array&lt;Sedpatch&gt; = ; // Sed Patch Request
+const sedpatch: Array<Sedpatch> = ; // Sed Patch Request
 const result = await apiInstance.patchSedV1({ id: id, sedpatch: sedpatch });
 console.log(result);
 ```
@@ -477,6 +481,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Entitlementrecommendationassignrequest } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -515,10 +520,11 @@ Name | Type | Description  | Notes
 ```typescript
 import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Sedapproval } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
-const sedapproval: Array&lt;Sedapproval&gt; = ; // Sed Approval
+const sedapproval: Array<Sedapproval> = ; // Sed Approval
 const result = await apiInstance.submitSedApprovalV1({ sedapproval: sedapproval });
 console.log(result);
 ```
@@ -553,6 +559,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Sedassignment } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -591,6 +598,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Sedbatchrequest } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -628,10 +636,11 @@ Name | Type | Description  | Notes
 ```typescript
 import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Autowritesettingpatch } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
-const autowritesettingpatch: Array&lt;Autowritesettingpatch&gt; = ; // Patch operations for auto-write settings
+const autowritesettingpatch: Array<Autowritesettingpatch> = ; // Patch operations for auto-write settings
 const result = await apiInstance.updateAutoWriteSettingsV1({ autowritesettingpatch: autowritesettingpatch });
 console.log(result);
 ```

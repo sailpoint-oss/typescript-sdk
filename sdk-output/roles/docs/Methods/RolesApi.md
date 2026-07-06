@@ -103,6 +103,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { RolesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Role } from 'sailpoint-api-client/dist/roles/api';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
@@ -143,6 +144,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { RolesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Rolebulkdeleterequest } from 'sailpoint-api-client/dist/roles/api';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
@@ -544,11 +546,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { RolesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/roles/api';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
 const id: string = 2c91808a7813090a017814121e121518; // ID of the Role to patch
-const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/requestable","value":true},{"op":"replace","path":"/enabled","value":true}]; // 
+const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/requestable","value":true},{"op":"replace","path":"/enabled","value":true}]; // 
 const result = await apiInstance.patchRoleV1({ id: id, jsonpatchoperation: jsonpatchoperation });
 console.log(result);
 ```
@@ -590,6 +593,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { RolesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Rolelistfilterdto } from 'sailpoint-api-client/dist/roles/api';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
@@ -678,6 +682,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { RolesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Rolemetadatabulkupdatebyfilterrequest } from 'sailpoint-api-client/dist/roles/api';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
@@ -718,6 +723,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { RolesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Rolemetadatabulkupdatebyidrequest } from 'sailpoint-api-client/dist/roles/api';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
@@ -758,6 +764,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { RolesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Rolemetadatabulkupdatebyqueryrequest } from 'sailpoint-api-client/dist/roles/api';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);

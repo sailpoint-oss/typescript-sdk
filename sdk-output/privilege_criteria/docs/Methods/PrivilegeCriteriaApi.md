@@ -50,6 +50,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { PrivilegeCriteriaApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Createprivilegecriteriarequest } from 'sailpoint-api-client/dist/privilege_criteria/api';
 
 const configuration = new Configuration();
 const apiInstance = new PrivilegeCriteriaApi(configuration);
@@ -199,6 +200,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { PrivilegeCriteriaApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Privilegecriteriadto } from 'sailpoint-api-client/dist/privilege_criteria/api';
 
 const configuration = new Configuration();
 const apiInstance = new PrivilegeCriteriaApi(configuration);

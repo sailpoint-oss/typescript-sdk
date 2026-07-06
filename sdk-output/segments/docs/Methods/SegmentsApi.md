@@ -67,6 +67,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SegmentsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Segment } from 'sailpoint-api-client/dist/segments/api';
 
 const configuration = new Configuration();
 const apiInstance = new SegmentsApi(configuration);
@@ -226,7 +227,7 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new SegmentsApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // The segment ID to modify.
-const requestBody: Array&lt;object&gt; = [{"op":"replace","path":"/visibilityCriteria","value":{"expression":{"operator":"AND","children":[{"operator":"EQUALS","attribute":"location","value":{"type":"STRING","value":"Philadelphia"}},{"operator":"EQUALS","attribute":"department","value":{"type":"STRING","value":"HR"}}]}}}]; // A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * owner * visibilityCriteria * active 
+const requestBody: Array<object> = [{"op":"replace","path":"/visibilityCriteria","value":{"expression":{"operator":"AND","children":[{"operator":"EQUALS","attribute":"location","value":{"type":"STRING","value":"Philadelphia"}},{"operator":"EQUALS","attribute":"department","value":{"type":"STRING","value":"HR"}}]}}}]; // A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * owner * visibilityCriteria * active 
 const result = await apiInstance.patchSegmentV1({ id: id, requestBody: requestBody });
 console.log(result);
 ```

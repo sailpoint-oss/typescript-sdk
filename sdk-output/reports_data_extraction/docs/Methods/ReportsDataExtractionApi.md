@@ -170,6 +170,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ReportsDataExtractionApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Reportdetails } from 'sailpoint-api-client/dist/reports_data_extraction/api';
 
 const configuration = new Configuration();
 const apiInstance = new ReportsDataExtractionApi(configuration);

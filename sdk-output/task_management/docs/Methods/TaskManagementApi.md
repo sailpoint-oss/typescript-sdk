@@ -131,11 +131,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { TaskManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/task_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new TaskManagementApi(configuration);
 const id: string = 00eebcf881994e419d72e757fd30dc0e; // Task ID.
-const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = ; // The JSONPatch payload used to update the object.
+const jsonpatchoperation: Array<Jsonpatchoperation> = ; // The JSONPatch payload used to update the object.
 const result = await apiInstance.updateTaskStatusV1({ id: id, jsonpatchoperation: jsonpatchoperation });
 console.log(result);
 ```

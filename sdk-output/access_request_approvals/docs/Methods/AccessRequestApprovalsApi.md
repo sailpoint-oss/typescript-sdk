@@ -69,6 +69,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessRequestApprovalsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Commentdto } from 'sailpoint-api-client/dist/access_request_approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestApprovalsApi(configuration);
@@ -108,6 +109,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessRequestApprovalsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Forwardapprovaldto } from 'sailpoint-api-client/dist/access_request_approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestApprovalsApi(configuration);
@@ -324,6 +326,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessRequestApprovalsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Commentdto } from 'sailpoint-api-client/dist/access_request_approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestApprovalsApi(configuration);

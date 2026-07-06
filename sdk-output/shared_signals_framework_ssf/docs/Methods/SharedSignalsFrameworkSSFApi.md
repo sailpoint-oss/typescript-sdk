@@ -65,6 +65,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SharedSignalsFrameworkSSFApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Createstreamrequest } from 'sailpoint-api-client/dist/shared_signals_framework_ssf/api';
 
 const configuration = new Configuration();
 const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
@@ -289,6 +290,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SharedSignalsFrameworkSSFApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Verificationrequest } from 'sailpoint-api-client/dist/shared_signals_framework_ssf/api';
 
 const configuration = new Configuration();
 const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
@@ -329,6 +331,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SharedSignalsFrameworkSSFApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Replacestreamconfigurationrequest } from 'sailpoint-api-client/dist/shared_signals_framework_ssf/api';
 
 const configuration = new Configuration();
 const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
@@ -369,6 +372,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SharedSignalsFrameworkSSFApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Updatestreamconfigurationrequest } from 'sailpoint-api-client/dist/shared_signals_framework_ssf/api';
 
 const configuration = new Configuration();
 const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
@@ -406,6 +410,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SharedSignalsFrameworkSSFApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Updatestreamstatusrequest } from 'sailpoint-api-client/dist/shared_signals_framework_ssf/api';
 
 const configuration = new Configuration();
 const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);

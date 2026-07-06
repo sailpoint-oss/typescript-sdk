@@ -462,11 +462,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { EntitlementsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/entitlements/api';
 
 const configuration = new Configuration();
 const apiInstance = new EntitlementsApi(configuration);
 const id: string = 2c91808a7813090a017814121e121518; // ID of the entitlement to patch
-const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"add","path":"/segments/-","value":"f7b1b8a3-5fed-4fd4-ad29-82014e137e19"}]; //  (optional)
+const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"add","path":"/segments/-","value":"f7b1b8a3-5fed-4fd4-ad29-82014e137e19"}]; //  (optional)
 const result = await apiInstance.patchEntitlementV1({ id: id });
 console.log(result);
 ```
@@ -501,6 +502,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { EntitlementsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Entitlementrequestconfig } from 'sailpoint-api-client/dist/entitlements/api';
 
 const configuration = new Configuration();
 const apiInstance = new EntitlementsApi(configuration);
@@ -589,6 +591,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { EntitlementsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Entitlementbulkupdaterequest } from 'sailpoint-api-client/dist/entitlements/api';
 
 const configuration = new Configuration();
 const apiInstance = new EntitlementsApi(configuration);

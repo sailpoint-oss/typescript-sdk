@@ -72,6 +72,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SearchAttributeConfigurationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Searchattributeconfig } from 'sailpoint-api-client/dist/search_attribute_configuration/api';
 
 const configuration = new Configuration();
 const apiInstance = new SearchAttributeConfigurationApi(configuration);
@@ -245,11 +246,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { SearchAttributeConfigurationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/search_attribute_configuration/api';
 
 const configuration = new Configuration();
 const apiInstance = new SearchAttributeConfigurationApi(configuration);
 const name: string = promotedMailAttribute; // Name of the search attribute configuration to patch.
-const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/name","value":"newAttributeName"},{"op":"replace","path":"/displayName","value":"new attribute display name"},{"op":"add","path":"/applicationAttributes","value":{"2c91808b79fd2422017a0b35d30f3968":"employeeNumber"}}]; // 
+const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/name","value":"newAttributeName"},{"op":"replace","path":"/displayName","value":"new attribute display name"},{"op":"add","path":"/applicationAttributes","value":{"2c91808b79fd2422017a0b35d30f3968":"employeeNumber"}}]; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.patchSearchAttributeConfigV1({ name: name, jsonpatchoperation: jsonpatchoperation });
 console.log(result);

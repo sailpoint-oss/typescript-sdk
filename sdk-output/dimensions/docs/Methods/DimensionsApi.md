@@ -57,6 +57,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { DimensionsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Dimension } from 'sailpoint-api-client/dist/dimensions/api';
 
 const configuration = new Configuration();
 const apiInstance = new DimensionsApi(configuration);
@@ -99,6 +100,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { DimensionsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Dimensionbulkdeleterequest } from 'sailpoint-api-client/dist/dimensions/api';
 
 const configuration = new Configuration();
 const apiInstance = new DimensionsApi(configuration);
@@ -377,12 +379,13 @@ Name | Type | Description  | Notes
 ```typescript
 import { DimensionsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/dimensions/api';
 
 const configuration = new Configuration();
 const apiInstance = new DimensionsApi(configuration);
 const roleId: string = 6603fba3004f43c687610a29195252ce; // Parent Role Id of the dimension.
 const dimensionId: string = 2c9180835d191a86015d28455b4a2329; // Id of the Dimension
-const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/description","value":"Test Description"},{"op":"replace","path":"/name","value":"new name"}]; // 
+const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/description","value":"Test Description"},{"op":"replace","path":"/name","value":"new name"}]; // 
 const result = await apiInstance.patchDimensionV1({ roleId: roleId, dimensionId: dimensionId, jsonpatchoperation: jsonpatchoperation });
 console.log(result);
 ```

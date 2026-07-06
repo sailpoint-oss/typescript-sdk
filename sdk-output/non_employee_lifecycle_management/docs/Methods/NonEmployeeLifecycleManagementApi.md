@@ -108,6 +108,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Nonemployeeapprovaldecision } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -147,6 +148,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Nonemployeerequestbody } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -184,6 +186,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Nonemployeerequestbody } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -223,6 +226,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Nonemployeeschemaattributebody } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -261,6 +265,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Nonemployeesourcerequestbody } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -336,6 +341,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { DeleteNonEmployeeRecordsInBulkV1Request } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -1202,11 +1208,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // Non-employee record id (UUID)
-const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/endDate","value":"2019-08-23T18:40:35.772Z"}]; // A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/endDate","value":"2019-08-23T18:40:35.772Z"}]; // A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
 const result = await apiInstance.patchNonEmployeeRecordV1({ id: id, jsonpatchoperation: jsonpatchoperation });
 console.log(result);
 ```
@@ -1244,12 +1251,13 @@ Name | Type | Description  | Notes
 ```typescript
 import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
 const attributeId: string = ef38f94347e94562b5bb8424a56397d8; // The Schema Attribute Id (UUID)
 const sourceId: string = ef38f94347e94562b5bb8424a56397d8; // The Source id
-const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/label","value":{"new attribute label":null}}]; // A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update \&#39;:\&#39; \&#39;label\&#39;, \&#39;helpText\&#39;, \&#39;placeholder\&#39;, \&#39;required\&#39;.
+const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/label","value":{"new attribute label":null}}]; // A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update \&#39;:\&#39; \&#39;label\&#39;, \&#39;helpText\&#39;, \&#39;placeholder\&#39;, \&#39;required\&#39;.
 const result = await apiInstance.patchNonEmployeeSchemaAttributeV1({ attributeId: attributeId, sourceId: sourceId, jsonpatchoperation: jsonpatchoperation });
 console.log(result);
 ```
@@ -1284,11 +1292,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
 const sourceId: string = e136567de87e4d029e60b3c3c55db56d; // Source Id
-const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/name","value":{"new name":null}},{"op":"replace","path":"/approvers","value":["2c91809f703bb37a017040a2fe8748c7","48b1f463c9e8427db5a5071bd81914b8"]}]; // A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/name","value":{"new name":null}},{"op":"replace","path":"/approvers","value":["2c91809f703bb37a017040a2fe8748c7","48b1f463c9e8427db5a5071bd81914b8"]}]; // A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 const result = await apiInstance.patchNonEmployeeSourceV1({ sourceId: sourceId, jsonpatchoperation: jsonpatchoperation });
 console.log(result);
 ```
@@ -1323,6 +1332,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Nonemployeerejectapprovaldecision } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -1366,6 +1376,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Nonemployeerequestbody } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);

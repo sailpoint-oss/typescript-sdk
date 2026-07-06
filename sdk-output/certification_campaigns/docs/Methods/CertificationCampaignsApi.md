@@ -142,6 +142,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationCampaignsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Campaigncompleteoptions } from 'sailpoint-api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -181,6 +182,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationCampaignsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Campaigntemplate } from 'sailpoint-api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -219,6 +221,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationCampaignsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Campaign2 } from 'sailpoint-api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -333,6 +336,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationCampaignsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Campaignsdeleterequest } from 'sailpoint-api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -656,6 +660,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationCampaignsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Adminreviewreassign } from 'sailpoint-api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -696,11 +701,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationCampaignsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
 const id: string = 2c9180835d191a86015d28455b4a2329; // ID of the campaign template being modified.
-const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/description","value":"Updated description!"},{"op":"replace","path":"/campaign/filter/id","value":"ff80818155fe8c080155fe8d925b0316"}]; // A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
+const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/description","value":"Updated description!"},{"op":"replace","path":"/campaign/filter/id","value":"ff80818155fe8c080155fe8d925b0316"}]; // A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
 const result = await apiInstance.patchCampaignTemplateV1({ id: id, jsonpatchoperation: jsonpatchoperation });
 console.log(result);
 ```
@@ -735,6 +741,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationCampaignsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Campaignreportsconfig } from 'sailpoint-api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -774,6 +781,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationCampaignsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Schedule2 } from 'sailpoint-api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -892,6 +900,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationCampaignsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Activatecampaignoptions } from 'sailpoint-api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -980,11 +989,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationCampaignsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Jsonpatchoperation } from 'sailpoint-api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
 const id: string = 2c91808571bcfcf80171c23e4b4221fc; // ID of the campaign template being modified.
-const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = [{"op":"replace","path":"/name","value":"This field has been updated!"},{"op":"copy","from":"/name","path":"/description"}]; // A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
+const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/name","value":"This field has been updated!"},{"op":"copy","from":"/name","path":"/description"}]; // A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
 const result = await apiInstance.updateCampaignV1({ id: id, jsonpatchoperation: jsonpatchoperation });
 console.log(result);
 ```

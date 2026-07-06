@@ -187,6 +187,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { WorkItemsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Workitemforward } from 'sailpoint-api-client/dist/work_items/api';
 
 const configuration = new Configuration();
 const apiInstance = new WorkItemsApi(configuration);

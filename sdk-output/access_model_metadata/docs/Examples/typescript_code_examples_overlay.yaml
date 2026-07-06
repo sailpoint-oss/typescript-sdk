@@ -6,6 +6,7 @@
       source: |
         import { AccessModelMetadataApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Attributedto } from 'sailpoint-api-client/dist/access_model_metadata/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessModelMetadataApi(configuration);
@@ -20,6 +21,7 @@
       source: |
         import { AccessModelMetadataApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Attributevaluedto } from 'sailpoint-api-client/dist/access_model_metadata/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessModelMetadataApi(configuration);
@@ -97,11 +99,12 @@
       source: |
         import { AccessModelMetadataApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/access_model_metadata/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessModelMetadataApi(configuration);
         const key: string = 'iscPrivacy'; // string | Technical name of the Attribute. (default to undefined)
-        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = ; // Array<Jsonpatchoperation> | JSON Patch array to apply
+        const jsonpatchoperation: Array<Jsonpatchoperation> = ; // Array<Jsonpatchoperation> | JSON Patch array to apply
         const result = await apiInstance.updateAccessModelMetadataAttributeV1({ key: key, jsonpatchoperation: jsonpatchoperation });
         console.log(result);
 - path: /access-model-metadata/v1/attributes/{key}/values/{value}
@@ -112,12 +115,13 @@
       source: |
         import { AccessModelMetadataApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/access_model_metadata/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessModelMetadataApi(configuration);
         const key: string = 'iscPrivacy'; // string | Technical name of the Attribute. (default to undefined)
         const value: string = 'public'; // string | Technical name of the Attribute value. (default to undefined)
-        const jsonpatchoperation: Array&lt;Jsonpatchoperation&gt; = ; // Array<Jsonpatchoperation> | JSON Patch array to apply
+        const jsonpatchoperation: Array<Jsonpatchoperation> = ; // Array<Jsonpatchoperation> | JSON Patch array to apply
         const result = await apiInstance.updateAccessModelMetadataAttributeValueV1({ key: key, value: value, jsonpatchoperation: jsonpatchoperation });
         console.log(result);
 - path: /access-model-metadata/v1/bulk-update/filter
@@ -128,6 +132,7 @@
       source: |
         import { AccessModelMetadataApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Entitlementattributebulkupdatefilterrequest } from 'sailpoint-api-client/dist/access_model_metadata/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessModelMetadataApi(configuration);
@@ -142,6 +147,7 @@
       source: |
         import { AccessModelMetadataApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Entitlementattributebulkupdateidsrequest } from 'sailpoint-api-client/dist/access_model_metadata/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessModelMetadataApi(configuration);
@@ -156,6 +162,7 @@
       source: |
         import { AccessModelMetadataApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
+        import { Entitlementattributebulkupdatequeryrequest } from 'sailpoint-api-client/dist/access_model_metadata/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessModelMetadataApi(configuration);

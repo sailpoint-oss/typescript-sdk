@@ -52,6 +52,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SPConfigApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Exportpayload } from 'sailpoint-api-client/dist/sp_config/api';
 
 const configuration = new Configuration();
 const apiInstance = new SPConfigApi(configuration);
@@ -259,6 +260,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { SPConfigApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Importoptions } from 'sailpoint-api-client/dist/sp_config/api';
 
 const configuration = new Configuration();
 const apiInstance = new SPConfigApi(configuration);

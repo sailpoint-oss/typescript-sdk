@@ -81,6 +81,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { PasswordSyncGroupsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Passwordsyncgroup } from 'sailpoint-api-client/dist/password_sync_groups/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordSyncGroupsApi(configuration);
@@ -234,6 +235,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { PasswordSyncGroupsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Passwordsyncgroup } from 'sailpoint-api-client/dist/password_sync_groups/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordSyncGroupsApi(configuration);

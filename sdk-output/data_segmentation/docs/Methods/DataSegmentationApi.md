@@ -55,6 +55,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { DataSegmentationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { DataSegment } from 'sailpoint-api-client/dist/data_segmentation/api';
 
 const configuration = new Configuration();
 const apiInstance = new DataSegmentationApi(configuration);
@@ -325,7 +326,7 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new DataSegmentationApi(configuration);
 const segmentId: string = ef38f943-47e9-4562-b5bb-8424a56397d8; // The segment ID to modify.
-const requestBody: Array&lt;object&gt; = [{"op":"replace","path":"/memberFilter","value":{"expression":{"operator":"AND","children":[{"operator":"EQUALS","attribute":"location","value":{"type":"STRING","value":"Philadelphia"}},{"operator":"EQUALS","attribute":"department","value":{"type":"STRING","value":"HR"}}]}}}]; // A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * membership * memberFilter * memberSelection * scopes * enabled 
+const requestBody: Array<object> = [{"op":"replace","path":"/memberFilter","value":{"expression":{"operator":"AND","children":[{"operator":"EQUALS","attribute":"location","value":{"type":"STRING","value":"Philadelphia"}},{"operator":"EQUALS","attribute":"department","value":{"type":"STRING","value":"HR"}}]}}}]; // A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * membership * memberFilter * memberSelection * scopes * enabled 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.patchDataSegmentV1({ segmentId: segmentId, requestBody: requestBody });
 console.log(result);
@@ -370,7 +371,7 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new DataSegmentationApi(configuration);
 const segmentId: string = segmentId_example; // The segmentId.
-const requestBody: Array&lt;string&gt; = ; // A list of segment ids that you wish to publish
+const requestBody: Array<string> = ; // A list of segment ids that you wish to publish
 const publishAll: boolean = true; // This flag decides whether you want to publish all unpublished or a list of specific segment ids (optional)
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.publishDataSegmentV1({ segmentId: segmentId, requestBody: requestBody });

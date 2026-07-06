@@ -77,6 +77,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ScheduledSearchApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { CreateScheduledSearchV1Request } from 'sailpoint-api-client/dist/scheduled_search/api';
 
 const configuration = new Configuration();
 const apiInstance = new ScheduledSearchApi(configuration);
@@ -235,6 +236,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ScheduledSearchApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Typedreference } from 'sailpoint-api-client/dist/scheduled_search/api';
 
 const configuration = new Configuration();
 const apiInstance = new ScheduledSearchApi(configuration);
@@ -275,6 +277,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { ScheduledSearchApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Scheduledsearch } from 'sailpoint-api-client/dist/scheduled_search/api';
 
 const configuration = new Configuration();
 const apiInstance = new ScheduledSearchApi(configuration);

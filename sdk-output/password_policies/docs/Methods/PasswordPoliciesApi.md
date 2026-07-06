@@ -61,6 +61,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { PasswordPoliciesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Passwordpolicyv3dto } from 'sailpoint-api-client/dist/password_policies/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordPoliciesApi(configuration);
@@ -235,6 +236,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { PasswordPoliciesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Passwordpolicyv3dto } from 'sailpoint-api-client/dist/password_policies/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordPoliciesApi(configuration);

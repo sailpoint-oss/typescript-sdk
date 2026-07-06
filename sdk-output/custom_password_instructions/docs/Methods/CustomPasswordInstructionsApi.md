@@ -62,6 +62,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { CustomPasswordInstructionsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Custompasswordinstruction } from 'sailpoint-api-client/dist/custom_password_instructions/api';
 
 const configuration = new Configuration();
 const apiInstance = new CustomPasswordInstructionsApi(configuration);

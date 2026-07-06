@@ -144,6 +144,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { TaggedObjectsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Bulkremovetaggedobject } from 'sailpoint-api-client/dist/tagged_objects/api';
 
 const configuration = new Configuration();
 const apiInstance = new TaggedObjectsApi(configuration);
@@ -310,6 +311,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { TaggedObjectsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Taggedobject } from 'sailpoint-api-client/dist/tagged_objects/api';
 
 const configuration = new Configuration();
 const apiInstance = new TaggedObjectsApi(configuration);
@@ -349,6 +351,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { TaggedObjectsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Taggedobject } from 'sailpoint-api-client/dist/tagged_objects/api';
 
 const configuration = new Configuration();
 const apiInstance = new TaggedObjectsApi(configuration);
@@ -386,6 +389,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { TaggedObjectsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
+import { Bulkaddtaggedobject } from 'sailpoint-api-client/dist/tagged_objects/api';
 
 const configuration = new Configuration();
 const apiInstance = new TaggedObjectsApi(configuration);
