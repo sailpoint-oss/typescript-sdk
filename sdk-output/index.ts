@@ -93,7 +93,6 @@ import { PasswordSyncGroupsApi as _PasswordSyncGroupsApi } from "./password_sync
 import { PersonalAccessTokensApi as _PersonalAccessTokensApi } from "./personal_access_tokens/api";
 import { PrivilegeCriteriaApi as _PrivilegeCriteriaApi } from "./privilege_criteria/api";
 import { PrivilegeCriteriaConfigurationApi as _PrivilegeCriteriaConfigurationApi } from "./privilege_criteria_configuration/api";
-import { PromptInsightsApi as _PromptInsightsApi } from "./prompt_insights/api";
 import { PublicIdentitiesApi as _PublicIdentitiesApi } from "./public_identities/api";
 import { PublicIdentitiesConfigApi as _PublicIdentitiesConfigApi } from "./public_identities_config/api";
 import { ReportsDataExtractionApi as _ReportsDataExtractionApi } from "./reports_data_extraction/api";
@@ -206,7 +205,6 @@ export { _PasswordSyncGroupsApi as PasswordSyncGroupsApi };
 export { _PersonalAccessTokensApi as PersonalAccessTokensApi };
 export { _PrivilegeCriteriaApi as PrivilegeCriteriaApi };
 export { _PrivilegeCriteriaConfigurationApi as PrivilegeCriteriaConfigurationApi };
-export { _PromptInsightsApi as PromptInsightsApi };
 export { _PublicIdentitiesApi as PublicIdentitiesApi };
 export { _PublicIdentitiesConfigApi as PublicIdentitiesConfigApi };
 export { _ReportsDataExtractionApi as ReportsDataExtractionApi };
@@ -337,7 +335,6 @@ export namespace SailPoint {
   export const PersonalAccessTokensApi = _PersonalAccessTokensApi;
   export const PrivilegeCriteriaApi = _PrivilegeCriteriaApi;
   export const PrivilegeCriteriaConfigurationApi = _PrivilegeCriteriaConfigurationApi;
-  export const PromptInsightsApi = _PromptInsightsApi;
   export const PublicIdentitiesApi = _PublicIdentitiesApi;
   export const PublicIdentitiesConfigApi = _PublicIdentitiesConfigApi;
   export const ReportsDataExtractionApi = _ReportsDataExtractionApi;
