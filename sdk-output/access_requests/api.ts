@@ -1274,6 +1274,33 @@ export interface Entitlementrevocationrequestconfig {
     'approvalSchemes'?: Array<Entitlementapprovalscheme>;
 }
 /**
+ * A single JIT entitlement snapshot entry from the provisioning plan.
+ * @export
+ * @interface Entitlementstatesnapshotjitdetail
+ */
+export interface Entitlementstatesnapshotjitdetail {
+    [key: string]: any;
+
+    /**
+     * Application id for the entitlement attribute (same as EntitlementStateSnapshot.applicationId).
+     * @type {string}
+     * @memberof Entitlementstatesnapshotjitdetail
+     */
+    'applicationId'?: string;
+    /**
+     * Account attribute name for the entitlement (EntitlementStateSnapshot.attributeName).
+     * @type {string}
+     * @memberof Entitlementstatesnapshotjitdetail
+     */
+    'attributeName'?: string;
+    /**
+     * Entitlement values for that attribute (EntitlementStateSnapshot.attributeValues).
+     * @type {Array<string>}
+     * @memberof Entitlementstatesnapshotjitdetail
+     */
+    'attributeValues'?: Array<string>;
+}
+/**
  * 
  * @export
  * @interface Errormessagedto
@@ -2199,6 +2226,12 @@ export interface Requesteditemstatus {
      * @memberof Requesteditemstatus
      */
     'privilegeLevel'?: string | null;
+    /**
+     * JIT (Just-In-Time) details for the requested access item, if applicable.
+     * @type {Array<Entitlementstatesnapshotjitdetail>}
+     * @memberof Requesteditemstatus
+     */
+    'jitDetails'?: Array<Entitlementstatesnapshotjitdetail> | null;
 }
 
 export const RequesteditemstatusTypeEnum = {

@@ -43,4 +43,5 @@ Name | Type | Description | Notes
 **clientMetadata** | **(optional)**  | Arbitrary key-value pairs, if any were included in the corresponding access request | [default to undefined]
 **requestedAccounts** | **(optional)** `Array<Requestedaccountref>` | The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources. | [default to undefined]
 **privilegeLevel** | **(optional)** `string` | The privilege level of the requested access item, if applicable. | [default to undefined]
+**jitDetails** | **(optional)** `Array<Entitlementstatesnapshotjitdetail>` | JIT (Just-In-Time) details for the requested access item, if applicable. | [default to undefined]
 
