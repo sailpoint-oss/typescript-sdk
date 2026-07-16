@@ -14,6 +14,21 @@
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.createMachineIdentityV1({ machineidentityrequest: machineidentityrequest });
         console.log(result);
+- path: /machine-identities/v2
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_identities/methods/machine-identities#create-machine-identity-v2
+      source: |
+        import { MachineIdentitiesApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { Machineidentityv2 } from 'sailpoint-api-client/dist/machine_identities/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineIdentitiesApi(configuration);
+        const machineidentityv2: Machineidentityv2 = ; // Machineidentityv2 | 
+        const result = await apiInstance.createMachineIdentityV2({ machineidentityv2: machineidentityv2 });
+        console.log(result);
 - path: /machine-identities/v1/{id}
   method: DELETE
   xCodeSample:
@@ -29,6 +44,36 @@
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.deleteMachineIdentityV1({ id: id });
         console.log(result);
+- path: /machine-identities/v2/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_identities/methods/machine-identities#delete-machine-identity-v2
+      source: |
+        import { MachineIdentitiesApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineIdentitiesApi(configuration);
+        const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Machine Identity ID. (default to undefined)
+        const result = await apiInstance.deleteMachineIdentityV2({ id: id });
+        console.log(result);
+- path: /sources/v1/{sourceId}/resources/{resourceId}/correlation-configs/{configId}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_identities/methods/machine-identities#delete-ownership-correlation-config-v1
+      source: |
+        import { MachineIdentitiesApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineIdentitiesApi(configuration);
+        const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source ID. (default to undefined)
+        const resourceId: string = 'aws:iam-role'; // string | The source resource ID (for example, account or aws:iam-role). (default to undefined)
+        const configId: string = 'f5dd23fe-3414-42b7-bb1c-869400ad7a10'; // string | The correlation config ID. (default to undefined)
+        const result = await apiInstance.deleteOwnershipCorrelationConfigV1({ sourceId: sourceId, resourceId: resourceId, configId: configId });
+        console.log(result);
 - path: /machine-identities/v1/{id}
   method: GET
   xCodeSample:
@@ -43,6 +88,36 @@
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Machine Identity ID (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.getMachineIdentityV1({ id: id });
+        console.log(result);
+- path: /machine-identities/v2/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_identities/methods/machine-identities#get-machine-identity-v2
+      source: |
+        import { MachineIdentitiesApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineIdentitiesApi(configuration);
+        const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Machine Identity ID. (default to undefined)
+        const result = await apiInstance.getMachineIdentityV2({ id: id });
+        console.log(result);
+- path: /sources/v1/{sourceId}/resources/{resourceId}/correlation-configs/{configId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_identities/methods/machine-identities#get-ownership-correlation-config-v1
+      source: |
+        import { MachineIdentitiesApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineIdentitiesApi(configuration);
+        const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source ID. (default to undefined)
+        const resourceId: string = 'aws:iam-role'; // string | The source resource ID (for example, account or aws:iam-role). (default to undefined)
+        const configId: string = 'f5dd23fe-3414-42b7-bb1c-869400ad7a10'; // string | The correlation config ID. (default to undefined)
+        const result = await apiInstance.getOwnershipCorrelationConfigV1({ sourceId: sourceId, resourceId: resourceId, configId: configId });
         console.log(result);
 - path: /machine-identities/v1
   method: GET
@@ -63,6 +138,24 @@
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const result = await apiInstance.listMachineIdentitiesV1({  });
         console.log(result);
+- path: /machine-identities/v2
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_identities/methods/machine-identities#list-machine-identities-v2
+      source: |
+        import { MachineIdentitiesApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineIdentitiesApi(configuration);
+        const filters: string = 'identityId eq "2c9180858082150f0180893dbaf44201"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq*  **subtype**: *eq, in*  **owners.primaryIdentity.id**: *eq, in, sw*  **owners.primaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryIdentity.id**: *eq, in, sw*  **owners.secondaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryGovernanceGroup.id**: *eq, in*  **owners.secondaryGovernanceGroup.name**: *eq, in, isnull, pr*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw*  **risk.severity**: *eq, in* (optional) (default to undefined)
+        const sorters: string = 'nativeIdentity'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **nativeIdentity, name, owners.primaryIdentity.name, source.name, created, modified** (optional) (default to undefined)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const result = await apiInstance.listMachineIdentitiesV2({  });
+        console.log(result);
 - path: /machine-identity-user-entitlements/v1
   method: GET
   xCodeSample:
@@ -81,6 +174,43 @@
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const result = await apiInstance.listMachineIdentityUserEntitlementsV1({  });
+        console.log(result);
+- path: /sources/v1/{sourceId}/resources/{resourceId}/correlation-configs
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_identities/methods/machine-identities#list-ownership-correlation-configs-v1
+      source: |
+        import { MachineIdentitiesApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineIdentitiesApi(configuration);
+        const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source ID. (default to undefined)
+        const resourceId: string = 'aws:iam-role'; // string | The source resource ID (for example, account or aws:iam-role). (default to undefined)
+        const type: string = 'OWNER_PRIMARY'; // 'OWNER_PRIMARY' | 'OWNER_SECONDARY' | When set, filters to the given config type. (optional) (default to undefined)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const result = await apiInstance.listOwnershipCorrelationConfigsV1({ sourceId: sourceId, resourceId: resourceId });
+        console.log(result);
+- path: /sources/v1/{sourceId}/resources/{resourceId}/correlation-configs/{configId}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_identities/methods/machine-identities#patch-ownership-correlation-config-v1
+      source: |
+        import { MachineIdentitiesApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/machine_identities/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineIdentitiesApi(configuration);
+        const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source ID. (default to undefined)
+        const resourceId: string = 'aws:iam-role'; // string | The source resource ID (for example, account or aws:iam-role). (default to undefined)
+        const configId: string = 'f5dd23fe-3414-42b7-bb1c-869400ad7a10'; // string | The correlation config ID. (default to undefined)
+        const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/attributes","value":{"syncPrimaryToMachineAccounts":true}}]; // Array<Jsonpatchoperation> | The JSONPatch payload used to update the correlation config.
+        const result = await apiInstance.patchOwnershipCorrelationConfigV1({ sourceId: sourceId, resourceId: resourceId, configId: configId, jsonpatchoperation: jsonpatchoperation });
         console.log(result);
 - path: /sources/v1/{sourceId}/aggregate-agents
   method: POST
@@ -114,4 +244,20 @@
         const requestBody: Array<object> = [{"op":"add","path":"/attributes/securityRisk","value":"medium"}]; // Array<object> | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.updateMachineIdentityV1({ id: id, requestBody: requestBody });
+        console.log(result);
+- path: /machine-identities/v2/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_identities/methods/machine-identities#update-machine-identity-v2
+      source: |
+        import { MachineIdentitiesApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/machine_identities/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineIdentitiesApi(configuration);
+        const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Machine Identity ID. (default to undefined)
+        const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"add","path":"/attributes/securityRisk","value":"medium"}]; // Array<Jsonpatchoperation> | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        const result = await apiInstance.updateMachineIdentityV2({ id: id, jsonpatchoperation: jsonpatchoperation });
         console.log(result);

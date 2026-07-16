@@ -338,8 +338,11 @@ console.log(result);
 [[Back to top]](#)
 
 ## get-workflow-executions-v1
+:::caution deprecated
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 List workflow executions
-Use this API to list a specified workflow's executions. Workflow executions are available for up to 90 days before being archived. By default, you can get a maximum of 250 executions. To get executions past the first 250 records, you can do the following:
+[Deprecated] This endpoint will be removed in July 2028. Use this API to list a specified workflow's executions. Workflow executions are available for up to 90 days before being archived. By default, you can get a maximum of 250 executions. To get executions past the first 250 records, you can do the following:
 1. Use the [Get Workflows](https://developer.sailpoint.com/idn/api/beta/list-workflows) endpoint to get your workflows.
 2. Get your workflow ID from the response.
 3. You can then do either of the following:

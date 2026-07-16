@@ -26,6 +26,13 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
+ * @interface ArrayInner
+ */
+export interface ArrayInner {
+}
+/**
+ * 
+ * @export
  * @interface Basecommondto
  */
 export interface Basecommondto {
@@ -80,6 +87,237 @@ export interface Basereferencedto {
     'name'?: string;
 }
 
+
+/**
+ * Reference to a Business Application associated with a machine identity.
+ * @export
+ * @interface Businessapplicationref
+ */
+export interface Businessapplicationref {
+    /**
+     * Reference type.
+     * @type {string}
+     * @memberof Businessapplicationref
+     */
+    'type'?: string;
+    /**
+     * Business Application ID.
+     * @type {string}
+     * @memberof Businessapplicationref
+     */
+    'id'?: string;
+    /**
+     * Business Application display name.
+     * @type {string}
+     * @memberof Businessapplicationref
+     */
+    'name'?: string | null;
+    /**
+     * 
+     * @type {Sanctionedstatus}
+     * @memberof Businessapplicationref
+     */
+    'sanctionedStatus'?: Sanctionedstatus;
+    /**
+     * Whether the Business Application reference was manually assigned or automatically correlated.
+     * @type {string}
+     * @memberof Businessapplicationref
+     */
+    'correlationType'?: BusinessapplicationrefCorrelationTypeEnum;
+}
+
+export const BusinessapplicationrefCorrelationTypeEnum = {
+    Manual: 'MANUAL',
+    Automatic: 'AUTOMATIC'
+} as const;
+
+export type BusinessapplicationrefCorrelationTypeEnum = typeof BusinessapplicationrefCorrelationTypeEnum[keyof typeof BusinessapplicationrefCorrelationTypeEnum];
+
+/**
+ * A single condition expression within a correlation rule.
+ * @export
+ * @interface Correlationcondition
+ */
+export interface Correlationcondition {
+    /**
+     * System-generated unique ID of the condition.
+     * @type {string}
+     * @memberof Correlationcondition
+     */
+    'id'?: string;
+    /**
+     * The left-hand attribute name of the condition.
+     * @type {string}
+     * @memberof Correlationcondition
+     */
+    'leftAttributeName': string;
+    /**
+     * The comparison operator applied between the left and right attributes.
+     * @type {string}
+     * @memberof Correlationcondition
+     */
+    'operatorType': string;
+    /**
+     * The right-hand attribute name. Use an empty string when there is no RHS attribute.
+     * @type {string}
+     * @memberof Correlationcondition
+     */
+    'rightAttributeName': string;
+    /**
+     * Optional transform applied before comparison.
+     * @type {string}
+     * @memberof Correlationcondition
+     */
+    'transform'?: string | null;
+    /**
+     * The position of this condition within the rule.
+     * @type {number}
+     * @memberof Correlationcondition
+     */
+    'ordinal': number;
+}
+/**
+ * An ownership correlation config scoped to a source resource. Configs are of type OWNER_PRIMARY or OWNER_SECONDARY and drive how machine identity owners are correlated.
+ * @export
+ * @interface Correlationconfig
+ */
+export interface Correlationconfig {
+    /**
+     * System-generated unique ID of the correlation config.
+     * @type {string}
+     * @memberof Correlationconfig
+     */
+    'id': string;
+    /**
+     * The source ID this config belongs to.
+     * @type {string}
+     * @memberof Correlationconfig
+     */
+    'sourceId': string;
+    /**
+     * The source resource identifier for this config scope.
+     * @type {string}
+     * @memberof Correlationconfig
+     */
+    'resourceId': string;
+    /**
+     * The correlation config type.
+     * @type {string}
+     * @memberof Correlationconfig
+     */
+    'type': CorrelationconfigTypeEnum;
+    /**
+     * JSON object of config attributes. May include syncPrimaryToMachineAccounts (boolean) on OWNER_PRIMARY only.
+     * @type {{ [key: string]: any; }}
+     * @memberof Correlationconfig
+     */
+    'attributes': { [key: string]: any; };
+    /**
+     * The ordered set of correlation rules for this config.
+     * @type {Array<Correlationrule>}
+     * @memberof Correlationconfig
+     */
+    'rules': Array<Correlationrule>;
+    /**
+     * Creation date of the config.
+     * @type {string}
+     * @memberof Correlationconfig
+     */
+    'created'?: string;
+    /**
+     * Last modification date of the config.
+     * @type {string}
+     * @memberof Correlationconfig
+     */
+    'modified'?: string;
+}
+
+export const CorrelationconfigTypeEnum = {
+    OwnerPrimary: 'OWNER_PRIMARY',
+    OwnerSecondary: 'OWNER_SECONDARY'
+} as const;
+
+export type CorrelationconfigTypeEnum = typeof CorrelationconfigTypeEnum[keyof typeof CorrelationconfigTypeEnum];
+
+/**
+ * A single correlation rule within an ownership correlation config.
+ * @export
+ * @interface Correlationrule
+ */
+export interface Correlationrule {
+    /**
+     * Omit for new rules (server mints a UUID). Send only when updating a rule that already exists on this config (merge on PATCH). Unknown ids are rejected.
+     * @type {string}
+     * @memberof Correlationrule
+     */
+    'id'?: string;
+    /**
+     * The evaluation priority of the rule. Lower values are evaluated first.
+     * @type {number}
+     * @memberof Correlationrule
+     */
+    'priority': number;
+    /**
+     * Whether this rule is the default rule for the config.
+     * @type {boolean}
+     * @memberof Correlationrule
+     */
+    'defaultRule': boolean;
+    /**
+     * The rule subject type. When either ruleType or ruleAction.type is GOVERNANCE_GROUP, both must be; ruleType GOVERNANCE_GROUP is allowed only when the parent config type is OWNER_SECONDARY.
+     * @type {string}
+     * @memberof Correlationrule
+     */
+    'ruleType': CorrelationruleRuleTypeEnum;
+    /**
+     * 
+     * @type {Correlationruleaction}
+     * @memberof Correlationrule
+     */
+    'ruleAction': Correlationruleaction;
+    /**
+     * The conditions that must match for this rule to apply.
+     * @type {Array<Correlationcondition>}
+     * @memberof Correlationrule
+     */
+    'conditionExpressions': Array<Correlationcondition>;
+}
+
+export const CorrelationruleRuleTypeEnum = {
+    Identity: 'IDENTITY',
+    Account: 'ACCOUNT',
+    GovernanceGroup: 'GOVERNANCE_GROUP'
+} as const;
+
+export type CorrelationruleRuleTypeEnum = typeof CorrelationruleRuleTypeEnum[keyof typeof CorrelationruleRuleTypeEnum];
+
+/**
+ * The action applied when a correlation rule matches.
+ * @export
+ * @interface Correlationruleaction
+ */
+export interface Correlationruleaction {
+    /**
+     * The target owner type resolved by this action.
+     * @type {string}
+     * @memberof Correlationruleaction
+     */
+    'type': CorrelationruleactionTypeEnum;
+    /**
+     * Action-specific payload.
+     * @type {{ [key: string]: any; }}
+     * @memberof Correlationruleaction
+     */
+    'payload'?: { [key: string]: any; };
+}
+
+export const CorrelationruleactionTypeEnum = {
+    Identity: 'IDENTITY',
+    Account: 'ACCOUNT',
+    GovernanceGroup: 'GOVERNANCE_GROUP'
+} as const;
+
+export type CorrelationruleactionTypeEnum = typeof CorrelationruleactionTypeEnum[keyof typeof CorrelationruleactionTypeEnum];
 
 /**
  * An enumeration of the types of DTOs supported within the IdentityNow infrastructure.
@@ -180,6 +418,50 @@ export interface Errorresponsedto {
      */
     'causes'?: Array<Errormessagedto>;
 }
+/**
+ * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
+ * @export
+ * @interface Jsonpatchoperation
+ */
+export interface Jsonpatchoperation {
+    /**
+     * The operation to be performed
+     * @type {string}
+     * @memberof Jsonpatchoperation
+     */
+    'op': JsonpatchoperationOpEnum;
+    /**
+     * A string JSON Pointer representing the target path to an element to be affected by the operation
+     * @type {string}
+     * @memberof Jsonpatchoperation
+     */
+    'path': string;
+    /**
+     * 
+     * @type {JsonpatchoperationValue}
+     * @memberof Jsonpatchoperation
+     */
+    'value'?: JsonpatchoperationValue;
+}
+
+export const JsonpatchoperationOpEnum = {
+    Add: 'add',
+    Remove: 'remove',
+    Replace: 'replace',
+    Move: 'move',
+    Copy: 'copy',
+    Test: 'test'
+} as const;
+
+export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
+
+/**
+ * @type JsonpatchoperationValue
+ * The value to be used for the operation, required for \"add\" and \"replace\" operations
+ * @export
+ */
+export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
+
 /**
  * 
  * @export
@@ -308,6 +590,62 @@ export interface MachineIdentityResponseUserEntitlements {
      */
     'source'?: object;
 }
+/**
+ * Risk data for the machine identity; null when no risk data has landed yet.
+ * @export
+ * @interface MachineIdentityV2Risk
+ */
+export interface MachineIdentityV2Risk {
+    /**
+     * Normalised risk score 0.0-100.0.
+     * @type {number}
+     * @memberof MachineIdentityV2Risk
+     */
+    'score'?: number;
+    /**
+     * Risk severity bucket.
+     * @type {string}
+     * @memberof MachineIdentityV2Risk
+     */
+    'severity'?: MachineIdentityV2RiskSeverityEnum;
+}
+
+export const MachineIdentityV2RiskSeverityEnum = {
+    Critical: 'CRITICAL',
+    High: 'HIGH',
+    Medium: 'MEDIUM',
+    Low: 'LOW'
+} as const;
+
+export type MachineIdentityV2RiskSeverityEnum = typeof MachineIdentityV2RiskSeverityEnum[keyof typeof MachineIdentityV2RiskSeverityEnum];
+
+/**
+ * The source of the machine identity.
+ * @export
+ * @interface MachineIdentityV2Source
+ */
+export interface MachineIdentityV2Source {
+    /**
+     * 
+     * @type {Dtotype}
+     * @memberof MachineIdentityV2Source
+     */
+    'type'?: Dtotype;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof MachineIdentityV2Source
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof MachineIdentityV2Source
+     */
+    'name'?: string;
+}
+
+
 /**
  * 
  * @export
@@ -555,6 +893,52 @@ export interface MachineidentityaggregationresponseTarget {
      * Human-readable display name of the object to which this reference applies
      * @type {string}
      * @memberof MachineidentityaggregationresponseTarget
+     */
+    'name'?: string;
+}
+
+
+/**
+ * Owner configuration for a machine identity. A single primary (human IDENTITY) owner plus additional owners that are either up to ten human (IDENTITY) references or exactly one GOVERNANCE_GROUP reference - not both.
+ * @export
+ * @interface Machineidentityownersv2
+ */
+export interface Machineidentityownersv2 {
+    /**
+     * 
+     * @type {Machineidentityownersv2Primary}
+     * @memberof Machineidentityownersv2
+     */
+    'primary'?: Machineidentityownersv2Primary;
+    /**
+     * Additional owners. Entries are either up to ten human (IDENTITY) references or exactly one GOVERNANCE_GROUP reference - not both. Governance-group owners appear here with type GOVERNANCE_GROUP.
+     * @type {Array<Basereferencedto>}
+     * @memberof Machineidentityownersv2
+     */
+    'secondary'?: Array<Basereferencedto>;
+}
+/**
+ * The identity selected as the primary owner.
+ * @export
+ * @interface Machineidentityownersv2Primary
+ */
+export interface Machineidentityownersv2Primary {
+    /**
+     * 
+     * @type {Dtotype}
+     * @memberof Machineidentityownersv2Primary
+     */
+    'type'?: Dtotype;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof Machineidentityownersv2Primary
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof Machineidentityownersv2Primary
      */
     'name'?: string;
 }
@@ -834,6 +1218,205 @@ export interface MachineidentityuserentitlementresponseSource {
 
 
 /**
+ * 
+ * @export
+ * @interface Machineidentityv2
+ */
+export interface Machineidentityv2 {
+    /**
+     * System-generated unique ID of the Object
+     * @type {string}
+     * @memberof Machineidentityv2
+     */
+    'id'?: string;
+    /**
+     * Name of the Object
+     * @type {string}
+     * @memberof Machineidentityv2
+     */
+    'name': string | null;
+    /**
+     * Creation date of the Object
+     * @type {string}
+     * @memberof Machineidentityv2
+     */
+    'created'?: string;
+    /**
+     * Last modification date of the Object
+     * @type {string}
+     * @memberof Machineidentityv2
+     */
+    'modified'?: string;
+    /**
+     * Description of the machine identity.
+     * @type {string}
+     * @memberof Machineidentityv2
+     */
+    'description'?: string;
+    /**
+     * A map of custom machine identity attributes.
+     * @type {{ [key: string]: any; }}
+     * @memberof Machineidentityv2
+     */
+    'attributes'?: { [key: string]: any; };
+    /**
+     * A map of attributes sourced from the connector during aggregation.
+     * @type {{ [key: string]: any; }}
+     * @memberof Machineidentityv2
+     */
+    'connectorAttributes'?: { [key: string]: any; };
+    /**
+     * Indicates if the machine identity has been manually edited.
+     * @type {boolean}
+     * @memberof Machineidentityv2
+     */
+    'manuallyEdited'?: boolean;
+    /**
+     * Indicates if the machine identity has been manually created.
+     * @type {boolean}
+     * @memberof Machineidentityv2
+     */
+    'manuallyCreated'?: boolean;
+    /**
+     * 
+     * @type {Machineidentityownersv2}
+     * @memberof Machineidentityv2
+     */
+    'owners'?: Machineidentityownersv2;
+    /**
+     * The subtype value associated to the machine identity.
+     * @type {string}
+     * @memberof Machineidentityv2
+     */
+    'subtype'?: string;
+    /**
+     * The source id associated to the machine identity.
+     * @type {string}
+     * @memberof Machineidentityv2
+     */
+    'sourceId'?: string;
+    /**
+     * The UUID associated to the machine identity directly aggregated from a source.
+     * @type {string}
+     * @memberof Machineidentityv2
+     */
+    'uuid'?: string;
+    /**
+     * The native identity associated to the machine identity directly aggregated from a source.
+     * @type {string}
+     * @memberof Machineidentityv2
+     */
+    'nativeIdentity'?: string;
+    /**
+     * The dataset id associated to the source from which the identity was retrieved.
+     * @type {string}
+     * @memberof Machineidentityv2
+     */
+    'datasetId'?: string;
+    /**
+     * The environment the machine identity belongs to.
+     * @type {string}
+     * @memberof Machineidentityv2
+     */
+    'environment'?: string;
+    /**
+     * Indicates whether the machine identity still exists on the source.
+     * @type {string}
+     * @memberof Machineidentityv2
+     */
+    'existsOnSource'?: string;
+    /**
+     * Operational status read from stored attributes.status; null when absent.
+     * @type {string}
+     * @memberof Machineidentityv2
+     */
+    'status'?: string | null;
+    /**
+     * 
+     * @type {Resourcev2}
+     * @memberof Machineidentityv2
+     */
+    'resource'?: Resourcev2;
+    /**
+     * 
+     * @type {MachineIdentityV2Source}
+     * @memberof Machineidentityv2
+     */
+    'source'?: MachineIdentityV2Source;
+    /**
+     * The user entitlements associated to the machine identity.
+     * @type {Array<Userentitlementv2>}
+     * @memberof Machineidentityv2
+     */
+    'userEntitlements'?: Array<Userentitlementv2>;
+    /**
+     * Optional Business Application references associated with this machine identity.
+     * @type {Array<Businessapplicationref>}
+     * @memberof Machineidentityv2
+     */
+    'businessApplicationRefs'?: Array<Businessapplicationref> | null;
+    /**
+     * 
+     * @type {Sanctionedstatus}
+     * @memberof Machineidentityv2
+     */
+    'effectiveSanctionedStatus'?: Sanctionedstatus;
+    /**
+     * 
+     * @type {MachineIdentityV2Risk}
+     * @memberof Machineidentityv2
+     */
+    'risk'?: MachineIdentityV2Risk;
+}
+
+
+/**
+ * The source resource a machine identity is derived from.
+ * @export
+ * @interface Resourcev2
+ */
+export interface Resourcev2 {
+    /**
+     * The source resource identifier.
+     * @type {string}
+     * @memberof Resourcev2
+     */
+    'id'?: string;
+    /**
+     * The type of the source resource.
+     * @type {string}
+     * @memberof Resourcev2
+     */
+    'type'?: string;
+    /**
+     * The display name of the source resource.
+     * @type {string}
+     * @memberof Resourcev2
+     */
+    'name'?: string;
+    /**
+     * The set of features supported by the source resource.
+     * @type {Array<string>}
+     * @memberof Resourcev2
+     */
+    'features'?: Array<string>;
+}
+/**
+ * Sanctioned status for a Business Application or derived machine identity effective status.
+ * @export
+ * @enum {string}
+ */
+
+export const Sanctionedstatus = {
+    Sanctioned: 'SANCTIONED',
+    Unsanctioned: 'UNSANCTIONED',
+    Unknown: 'UNKNOWN'
+} as const;
+
+export type Sanctionedstatus = typeof Sanctionedstatus[keyof typeof Sanctionedstatus];
+
+
+/**
  * Definition of a type of task, used to invoke tasks
  * @export
  * @interface Taskdefinitionsummary
@@ -942,6 +1525,64 @@ export type TaskstatusmessageTypeEnum = typeof TaskstatusmessageTypeEnum[keyof t
  */
 export interface TaskstatusmessageParametersInner {
 }
+/**
+ * A user entitlement associated to a machine identity.
+ * @export
+ * @interface Userentitlementv2
+ */
+export interface Userentitlementv2 {
+    /**
+     * The source ID of the entitlement.
+     * @type {string}
+     * @memberof Userentitlementv2
+     */
+    'sourceId'?: string;
+    /**
+     * The ID of the entitlement.
+     * @type {string}
+     * @memberof Userentitlementv2
+     */
+    'entitlementId'?: string;
+    /**
+     * The display name of the entitlement.
+     * @type {string}
+     * @memberof Userentitlementv2
+     */
+    'displayName'?: string;
+    /**
+     * 
+     * @type {Userentitlementv2Source}
+     * @memberof Userentitlementv2
+     */
+    'source'?: Userentitlementv2Source;
+}
+/**
+ * The source of the entitlement.
+ * @export
+ * @interface Userentitlementv2Source
+ */
+export interface Userentitlementv2Source {
+    /**
+     * 
+     * @type {Dtotype}
+     * @memberof Userentitlementv2Source
+     */
+    'type'?: Dtotype;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof Userentitlementv2Source
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof Userentitlementv2Source
+     */
+    'name'?: string;
+}
+
+
 
 /**
  * MachineIdentitiesApi - axios parameter creator
@@ -994,6 +1635,42 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
             };
         },
         /**
+         * Use this API to create a machine identity. Additional owners may be either up to ten human (IDENTITY) references or exactly one GOVERNANCE_GROUP reference - not both. The maximum supported length for the description field is 2000 characters.
+         * @summary Create machine identity
+         * @param {Machineidentityv2} machineidentityv2 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMachineIdentityV2: async (machineidentityv2: Machineidentityv2, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'machineidentityv2' is not null or undefined
+            assertParamExists('createMachineIdentityV2', 'machineidentityv2', machineidentityv2)
+            const localVarPath = `/machine-identities/v2`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(machineidentityv2, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * The API returns successful response if the requested machine identity was deleted.
          * @summary Delete machine identity
          * @param {string} id Machine Identity ID
@@ -1036,6 +1713,82 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
             };
         },
         /**
+         * The API returns a successful response if the requested machine identity was deleted.
+         * @summary Delete machine identity
+         * @param {string} id Machine Identity ID.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteMachineIdentityV2: async (id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteMachineIdentityV2', 'id', id)
+            const localVarPath = `/machine-identities/v2/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deletes the ownership correlation config with the specified ID for the given source resource.
+         * @summary Delete ownership correlation config
+         * @param {string} sourceId The Source ID.
+         * @param {string} resourceId The source resource ID (for example, account or aws:iam-role).
+         * @param {string} configId The correlation config ID.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteOwnershipCorrelationConfigV1: async (sourceId: string, resourceId: string, configId: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('deleteOwnershipCorrelationConfigV1', 'sourceId', sourceId)
+            // verify required parameter 'resourceId' is not null or undefined
+            assertParamExists('deleteOwnershipCorrelationConfigV1', 'resourceId', resourceId)
+            // verify required parameter 'configId' is not null or undefined
+            assertParamExists('deleteOwnershipCorrelationConfigV1', 'configId', configId)
+            const localVarPath = `/sources/v1/{sourceId}/resources/{resourceId}/correlation-configs/{configId}`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
+                .replace(`{${"resourceId"}}`, encodeURIComponent(String(resourceId)))
+                .replace(`{${"configId"}}`, encodeURIComponent(String(configId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API returns a single machine identity using the Machine Identity ID.
          * @summary Get machine identity details
          * @param {string} id Machine Identity ID
@@ -1068,6 +1821,82 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
             if (xSailPointExperimental != null) {
                 localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
             }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns a single machine identity using the Machine Identity ID.
+         * @summary Get machine identity details
+         * @param {string} id Machine Identity ID.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMachineIdentityV2: async (id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getMachineIdentityV2', 'id', id)
+            const localVarPath = `/machine-identities/v2/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This end-point retrieves a single ownership correlation config by ID for the specified source resource.
+         * @summary Get ownership correlation config
+         * @param {string} sourceId The Source ID.
+         * @param {string} resourceId The source resource ID (for example, account or aws:iam-role).
+         * @param {string} configId The correlation config ID.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getOwnershipCorrelationConfigV1: async (sourceId: string, resourceId: string, configId: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('getOwnershipCorrelationConfigV1', 'sourceId', sourceId)
+            // verify required parameter 'resourceId' is not null or undefined
+            assertParamExists('getOwnershipCorrelationConfigV1', 'resourceId', resourceId)
+            // verify required parameter 'configId' is not null or undefined
+            assertParamExists('getOwnershipCorrelationConfigV1', 'configId', configId)
+            const localVarPath = `/sources/v1/{sourceId}/resources/{resourceId}/correlation-configs/{configId}`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
+                .replace(`{${"resourceId"}}`, encodeURIComponent(String(resourceId)))
+                .replace(`{${"configId"}}`, encodeURIComponent(String(configId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -1141,6 +1970,61 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
             };
         },
         /**
+         * This API returns a list of machine identities.
+         * @summary List machine identities
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq*  **subtype**: *eq, in*  **owners.primaryIdentity.id**: *eq, in, sw*  **owners.primaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryIdentity.id**: *eq, in, sw*  **owners.secondaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryGovernanceGroup.id**: *eq, in*  **owners.secondaryGovernanceGroup.name**: *eq, in, isnull, pr*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw*  **risk.severity**: *eq, in*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **nativeIdentity, name, owners.primaryIdentity.name, source.name, created, modified**
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMachineIdentitiesV2: async (filters?: string, sorters?: string, count?: boolean, limit?: number, offset?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/machine-identities/v2`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API returns a list of user entitlements associated with machine identities.
          * @summary List machine identity\'s user entitlements
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **machineIdentityId**: *eq, in*  **machineIdentityName**: *eq, in, sw*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*
@@ -1197,6 +2081,112 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Returns the OWNER_PRIMARY and OWNER_SECONDARY correlation configs for the specified source resource, creating default rows if they are missing. Use the optional type query parameter to return a single matching config.
+         * @summary List ownership correlation configs
+         * @param {string} sourceId The Source ID.
+         * @param {string} resourceId The source resource ID (for example, account or aws:iam-role).
+         * @param {ListOwnershipCorrelationConfigsV1TypeEnum} [type] When set, filters to the given config type.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listOwnershipCorrelationConfigsV1: async (sourceId: string, resourceId: string, type?: ListOwnershipCorrelationConfigsV1TypeEnum, count?: boolean, limit?: number, offset?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('listOwnershipCorrelationConfigsV1', 'sourceId', sourceId)
+            // verify required parameter 'resourceId' is not null or undefined
+            assertParamExists('listOwnershipCorrelationConfigsV1', 'resourceId', resourceId)
+            const localVarPath = `/sources/v1/{sourceId}/resources/{resourceId}/correlation-configs`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
+                .replace(`{${"resourceId"}}`, encodeURIComponent(String(resourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Selectively updates an ownership correlation config using an RFC 6902 JSONPatch payload. Only replace on /attributes (full object) and replace on /rules (full array; merge by stable rule id, remove rules omitted from the array) are allowed.
+         * @summary Patch ownership correlation config
+         * @param {string} sourceId The Source ID.
+         * @param {string} resourceId The source resource ID (for example, account or aws:iam-role).
+         * @param {string} configId The correlation config ID.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation The JSONPatch payload used to update the correlation config.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchOwnershipCorrelationConfigV1: async (sourceId: string, resourceId: string, configId: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('patchOwnershipCorrelationConfigV1', 'sourceId', sourceId)
+            // verify required parameter 'resourceId' is not null or undefined
+            assertParamExists('patchOwnershipCorrelationConfigV1', 'resourceId', resourceId)
+            // verify required parameter 'configId' is not null or undefined
+            assertParamExists('patchOwnershipCorrelationConfigV1', 'configId', configId)
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('patchOwnershipCorrelationConfigV1', 'jsonpatchoperation', jsonpatchoperation)
+            const localVarPath = `/sources/v1/{sourceId}/resources/{resourceId}/correlation-configs/{configId}`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
+                .replace(`{${"resourceId"}}`, encodeURIComponent(String(resourceId)))
+                .replace(`{${"configId"}}`, encodeURIComponent(String(configId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1299,6 +2289,46 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * Use this API to selectively update machine identity details using a JSONPatch payload.  Patchable fields include **name**, **description**, **nativeIdentity**, **subtype**, **environment**, **attributes**, **owners**, **userEntitlements**, and **manuallyEdited** only. 
+         * @summary Partial update of machine identity
+         * @param {string} id Machine Identity ID.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateMachineIdentityV2: async (id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateMachineIdentityV2', 'id', id)
+            // verify required parameter 'jsonpatchoperation' is not null or undefined
+            assertParamExists('updateMachineIdentityV2', 'jsonpatchoperation', jsonpatchoperation)
+            const localVarPath = `/machine-identities/v2/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -1324,6 +2354,19 @@ export const MachineIdentitiesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Use this API to create a machine identity. Additional owners may be either up to ten human (IDENTITY) references or exactly one GOVERNANCE_GROUP reference - not both. The maximum supported length for the description field is 2000 characters.
+         * @summary Create machine identity
+         * @param {Machineidentityv2} machineidentityv2 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createMachineIdentityV2(machineidentityv2: Machineidentityv2, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Machineidentityv2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createMachineIdentityV2(machineidentityv2, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.createMachineIdentityV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * The API returns successful response if the requested machine identity was deleted.
          * @summary Delete machine identity
          * @param {string} id Machine Identity ID
@@ -1338,6 +2381,34 @@ export const MachineIdentitiesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * The API returns a successful response if the requested machine identity was deleted.
+         * @summary Delete machine identity
+         * @param {string} id Machine Identity ID.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteMachineIdentityV2(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMachineIdentityV2(id, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.deleteMachineIdentityV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Deletes the ownership correlation config with the specified ID for the given source resource.
+         * @summary Delete ownership correlation config
+         * @param {string} sourceId The Source ID.
+         * @param {string} resourceId The source resource ID (for example, account or aws:iam-role).
+         * @param {string} configId The correlation config ID.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteOwnershipCorrelationConfigV1(sourceId: string, resourceId: string, configId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOwnershipCorrelationConfigV1(sourceId, resourceId, configId, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.deleteOwnershipCorrelationConfigV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * This API returns a single machine identity using the Machine Identity ID.
          * @summary Get machine identity details
          * @param {string} id Machine Identity ID
@@ -1349,6 +2420,34 @@ export const MachineIdentitiesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMachineIdentityV1(id, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.getMachineIdentityV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This API returns a single machine identity using the Machine Identity ID.
+         * @summary Get machine identity details
+         * @param {string} id Machine Identity ID.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMachineIdentityV2(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Machineidentityv2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMachineIdentityV2(id, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.getMachineIdentityV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This end-point retrieves a single ownership correlation config by ID for the specified source resource.
+         * @summary Get ownership correlation config
+         * @param {string} sourceId The Source ID.
+         * @param {string} resourceId The source resource ID (for example, account or aws:iam-role).
+         * @param {string} configId The correlation config ID.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getOwnershipCorrelationConfigV1(sourceId: string, resourceId: string, configId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Correlationconfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOwnershipCorrelationConfigV1(sourceId, resourceId, configId, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.getOwnershipCorrelationConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1370,6 +2469,23 @@ export const MachineIdentitiesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * This API returns a list of machine identities.
+         * @summary List machine identities
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq*  **subtype**: *eq, in*  **owners.primaryIdentity.id**: *eq, in, sw*  **owners.primaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryIdentity.id**: *eq, in, sw*  **owners.secondaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryGovernanceGroup.id**: *eq, in*  **owners.secondaryGovernanceGroup.name**: *eq, in, isnull, pr*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw*  **risk.severity**: *eq, in*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **nativeIdentity, name, owners.primaryIdentity.name, source.name, created, modified**
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listMachineIdentitiesV2(filters?: string, sorters?: string, count?: boolean, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Machineidentityv2>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listMachineIdentitiesV2(filters, sorters, count, limit, offset, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.listMachineIdentitiesV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * This API returns a list of user entitlements associated with machine identities.
          * @summary List machine identity\'s user entitlements
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **machineIdentityId**: *eq, in*  **machineIdentityName**: *eq, in, sw*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*
@@ -1385,6 +2501,40 @@ export const MachineIdentitiesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listMachineIdentityUserEntitlementsV1(filters, sorters, xSailPointExperimental, count, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.listMachineIdentityUserEntitlementsV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Returns the OWNER_PRIMARY and OWNER_SECONDARY correlation configs for the specified source resource, creating default rows if they are missing. Use the optional type query parameter to return a single matching config.
+         * @summary List ownership correlation configs
+         * @param {string} sourceId The Source ID.
+         * @param {string} resourceId The source resource ID (for example, account or aws:iam-role).
+         * @param {ListOwnershipCorrelationConfigsV1TypeEnum} [type] When set, filters to the given config type.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listOwnershipCorrelationConfigsV1(sourceId: string, resourceId: string, type?: ListOwnershipCorrelationConfigsV1TypeEnum, count?: boolean, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Correlationconfig>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listOwnershipCorrelationConfigsV1(sourceId, resourceId, type, count, limit, offset, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.listOwnershipCorrelationConfigsV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Selectively updates an ownership correlation config using an RFC 6902 JSONPatch payload. Only replace on /attributes (full object) and replace on /rules (full array; merge by stable rule id, remove rules omitted from the array) are allowed.
+         * @summary Patch ownership correlation config
+         * @param {string} sourceId The Source ID.
+         * @param {string} resourceId The source resource ID (for example, account or aws:iam-role).
+         * @param {string} configId The correlation config ID.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation The JSONPatch payload used to update the correlation config.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchOwnershipCorrelationConfigV1(sourceId: string, resourceId: string, configId: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Correlationconfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchOwnershipCorrelationConfigV1(sourceId, resourceId, configId, jsonpatchoperation, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.patchOwnershipCorrelationConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1417,6 +2567,20 @@ export const MachineIdentitiesApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.updateMachineIdentityV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         * Use this API to selectively update machine identity details using a JSONPatch payload.  Patchable fields include **name**, **description**, **nativeIdentity**, **subtype**, **environment**, **attributes**, **owners**, **userEntitlements**, and **manuallyEdited** only. 
+         * @summary Partial update of machine identity
+         * @param {string} id Machine Identity ID.
+         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateMachineIdentityV2(id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Machineidentityv2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateMachineIdentityV2(id, jsonpatchoperation, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.updateMachineIdentityV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -1438,6 +2602,16 @@ export const MachineIdentitiesApiFactory = function (configuration?: Configurati
             return localVarFp.createMachineIdentityV1(requestParameters.machineidentityrequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Use this API to create a machine identity. Additional owners may be either up to ten human (IDENTITY) references or exactly one GOVERNANCE_GROUP reference - not both. The maximum supported length for the description field is 2000 characters.
+         * @summary Create machine identity
+         * @param {MachineIdentitiesApiCreateMachineIdentityV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMachineIdentityV2(requestParameters: MachineIdentitiesApiCreateMachineIdentityV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Machineidentityv2> {
+            return localVarFp.createMachineIdentityV2(requestParameters.machineidentityv2, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * The API returns successful response if the requested machine identity was deleted.
          * @summary Delete machine identity
          * @param {MachineIdentitiesApiDeleteMachineIdentityV1Request} requestParameters Request parameters.
@@ -1446,6 +2620,26 @@ export const MachineIdentitiesApiFactory = function (configuration?: Configurati
          */
         deleteMachineIdentityV1(requestParameters: MachineIdentitiesApiDeleteMachineIdentityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteMachineIdentityV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * The API returns a successful response if the requested machine identity was deleted.
+         * @summary Delete machine identity
+         * @param {MachineIdentitiesApiDeleteMachineIdentityV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteMachineIdentityV2(requestParameters: MachineIdentitiesApiDeleteMachineIdentityV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteMachineIdentityV2(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Deletes the ownership correlation config with the specified ID for the given source resource.
+         * @summary Delete ownership correlation config
+         * @param {MachineIdentitiesApiDeleteOwnershipCorrelationConfigV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteOwnershipCorrelationConfigV1(requestParameters: MachineIdentitiesApiDeleteOwnershipCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteOwnershipCorrelationConfigV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.configId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a single machine identity using the Machine Identity ID.
@@ -1458,6 +2652,26 @@ export const MachineIdentitiesApiFactory = function (configuration?: Configurati
             return localVarFp.getMachineIdentityV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This API returns a single machine identity using the Machine Identity ID.
+         * @summary Get machine identity details
+         * @param {MachineIdentitiesApiGetMachineIdentityV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMachineIdentityV2(requestParameters: MachineIdentitiesApiGetMachineIdentityV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Machineidentityv2> {
+            return localVarFp.getMachineIdentityV2(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This end-point retrieves a single ownership correlation config by ID for the specified source resource.
+         * @summary Get ownership correlation config
+         * @param {MachineIdentitiesApiGetOwnershipCorrelationConfigV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getOwnershipCorrelationConfigV1(requestParameters: MachineIdentitiesApiGetOwnershipCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Correlationconfig> {
+            return localVarFp.getOwnershipCorrelationConfigV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.configId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API returns a list of machine identities.
          * @summary List machine identities
          * @param {MachineIdentitiesApiListMachineIdentitiesV1Request} requestParameters Request parameters.
@@ -1468,6 +2682,16 @@ export const MachineIdentitiesApiFactory = function (configuration?: Configurati
             return localVarFp.listMachineIdentitiesV1(requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This API returns a list of machine identities.
+         * @summary List machine identities
+         * @param {MachineIdentitiesApiListMachineIdentitiesV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMachineIdentitiesV2(requestParameters: MachineIdentitiesApiListMachineIdentitiesV2Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Machineidentityv2>> {
+            return localVarFp.listMachineIdentitiesV2(requestParameters.filters, requestParameters.sorters, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API returns a list of user entitlements associated with machine identities.
          * @summary List machine identity\'s user entitlements
          * @param {MachineIdentitiesApiListMachineIdentityUserEntitlementsV1Request} requestParameters Request parameters.
@@ -1476,6 +2700,26 @@ export const MachineIdentitiesApiFactory = function (configuration?: Configurati
          */
         listMachineIdentityUserEntitlementsV1(requestParameters: MachineIdentitiesApiListMachineIdentityUserEntitlementsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Machineidentityuserentitlementresponse>> {
             return localVarFp.listMachineIdentityUserEntitlementsV1(requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Returns the OWNER_PRIMARY and OWNER_SECONDARY correlation configs for the specified source resource, creating default rows if they are missing. Use the optional type query parameter to return a single matching config.
+         * @summary List ownership correlation configs
+         * @param {MachineIdentitiesApiListOwnershipCorrelationConfigsV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listOwnershipCorrelationConfigsV1(requestParameters: MachineIdentitiesApiListOwnershipCorrelationConfigsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Correlationconfig>> {
+            return localVarFp.listOwnershipCorrelationConfigsV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.type, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Selectively updates an ownership correlation config using an RFC 6902 JSONPatch payload. Only replace on /attributes (full object) and replace on /rules (full array; merge by stable rule id, remove rules omitted from the array) are allowed.
+         * @summary Patch ownership correlation config
+         * @param {MachineIdentitiesApiPatchOwnershipCorrelationConfigV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchOwnershipCorrelationConfigV1(requestParameters: MachineIdentitiesApiPatchOwnershipCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Correlationconfig> {
+            return localVarFp.patchOwnershipCorrelationConfigV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.configId, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Starts a machine identity (AI Agents) aggregation on the specified source.
@@ -1496,6 +2740,16 @@ export const MachineIdentitiesApiFactory = function (configuration?: Configurati
          */
         updateMachineIdentityV1(requestParameters: MachineIdentitiesApiUpdateMachineIdentityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Machineidentityresponse> {
             return localVarFp.updateMachineIdentityV1(requestParameters.id, requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this API to selectively update machine identity details using a JSONPatch payload.  Patchable fields include **name**, **description**, **nativeIdentity**, **subtype**, **environment**, **attributes**, **owners**, **userEntitlements**, and **manuallyEdited** only. 
+         * @summary Partial update of machine identity
+         * @param {MachineIdentitiesApiUpdateMachineIdentityV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateMachineIdentityV2(requestParameters: MachineIdentitiesApiUpdateMachineIdentityV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Machineidentityv2> {
+            return localVarFp.updateMachineIdentityV2(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1522,6 +2776,20 @@ export interface MachineIdentitiesApiCreateMachineIdentityV1Request {
 }
 
 /**
+ * Request parameters for createMachineIdentityV2 operation in MachineIdentitiesApi.
+ * @export
+ * @interface MachineIdentitiesApiCreateMachineIdentityV2Request
+ */
+export interface MachineIdentitiesApiCreateMachineIdentityV2Request {
+    /**
+     * 
+     * @type {Machineidentityv2}
+     * @memberof MachineIdentitiesApiCreateMachineIdentityV2
+     */
+    readonly machineidentityv2: Machineidentityv2
+}
+
+/**
  * Request parameters for deleteMachineIdentityV1 operation in MachineIdentitiesApi.
  * @export
  * @interface MachineIdentitiesApiDeleteMachineIdentityV1Request
@@ -1543,6 +2811,48 @@ export interface MachineIdentitiesApiDeleteMachineIdentityV1Request {
 }
 
 /**
+ * Request parameters for deleteMachineIdentityV2 operation in MachineIdentitiesApi.
+ * @export
+ * @interface MachineIdentitiesApiDeleteMachineIdentityV2Request
+ */
+export interface MachineIdentitiesApiDeleteMachineIdentityV2Request {
+    /**
+     * Machine Identity ID.
+     * @type {string}
+     * @memberof MachineIdentitiesApiDeleteMachineIdentityV2
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for deleteOwnershipCorrelationConfigV1 operation in MachineIdentitiesApi.
+ * @export
+ * @interface MachineIdentitiesApiDeleteOwnershipCorrelationConfigV1Request
+ */
+export interface MachineIdentitiesApiDeleteOwnershipCorrelationConfigV1Request {
+    /**
+     * The Source ID.
+     * @type {string}
+     * @memberof MachineIdentitiesApiDeleteOwnershipCorrelationConfigV1
+     */
+    readonly sourceId: string
+
+    /**
+     * The source resource ID (for example, account or aws:iam-role).
+     * @type {string}
+     * @memberof MachineIdentitiesApiDeleteOwnershipCorrelationConfigV1
+     */
+    readonly resourceId: string
+
+    /**
+     * The correlation config ID.
+     * @type {string}
+     * @memberof MachineIdentitiesApiDeleteOwnershipCorrelationConfigV1
+     */
+    readonly configId: string
+}
+
+/**
  * Request parameters for getMachineIdentityV1 operation in MachineIdentitiesApi.
  * @export
  * @interface MachineIdentitiesApiGetMachineIdentityV1Request
@@ -1561,6 +2871,48 @@ export interface MachineIdentitiesApiGetMachineIdentityV1Request {
      * @memberof MachineIdentitiesApiGetMachineIdentityV1
      */
     readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for getMachineIdentityV2 operation in MachineIdentitiesApi.
+ * @export
+ * @interface MachineIdentitiesApiGetMachineIdentityV2Request
+ */
+export interface MachineIdentitiesApiGetMachineIdentityV2Request {
+    /**
+     * Machine Identity ID.
+     * @type {string}
+     * @memberof MachineIdentitiesApiGetMachineIdentityV2
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getOwnershipCorrelationConfigV1 operation in MachineIdentitiesApi.
+ * @export
+ * @interface MachineIdentitiesApiGetOwnershipCorrelationConfigV1Request
+ */
+export interface MachineIdentitiesApiGetOwnershipCorrelationConfigV1Request {
+    /**
+     * The Source ID.
+     * @type {string}
+     * @memberof MachineIdentitiesApiGetOwnershipCorrelationConfigV1
+     */
+    readonly sourceId: string
+
+    /**
+     * The source resource ID (for example, account or aws:iam-role).
+     * @type {string}
+     * @memberof MachineIdentitiesApiGetOwnershipCorrelationConfigV1
+     */
+    readonly resourceId: string
+
+    /**
+     * The correlation config ID.
+     * @type {string}
+     * @memberof MachineIdentitiesApiGetOwnershipCorrelationConfigV1
+     */
+    readonly configId: string
 }
 
 /**
@@ -1613,6 +2965,48 @@ export interface MachineIdentitiesApiListMachineIdentitiesV1Request {
 }
 
 /**
+ * Request parameters for listMachineIdentitiesV2 operation in MachineIdentitiesApi.
+ * @export
+ * @interface MachineIdentitiesApiListMachineIdentitiesV2Request
+ */
+export interface MachineIdentitiesApiListMachineIdentitiesV2Request {
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq*  **subtype**: *eq, in*  **owners.primaryIdentity.id**: *eq, in, sw*  **owners.primaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryIdentity.id**: *eq, in, sw*  **owners.secondaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryGovernanceGroup.id**: *eq, in*  **owners.secondaryGovernanceGroup.name**: *eq, in, isnull, pr*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw*  **risk.severity**: *eq, in*
+     * @type {string}
+     * @memberof MachineIdentitiesApiListMachineIdentitiesV2
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **nativeIdentity, name, owners.primaryIdentity.name, source.name, created, modified**
+     * @type {string}
+     * @memberof MachineIdentitiesApiListMachineIdentitiesV2
+     */
+    readonly sorters?: string
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof MachineIdentitiesApiListMachineIdentitiesV2
+     */
+    readonly count?: boolean
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof MachineIdentitiesApiListMachineIdentitiesV2
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof MachineIdentitiesApiListMachineIdentitiesV2
+     */
+    readonly offset?: number
+}
+
+/**
  * Request parameters for listMachineIdentityUserEntitlementsV1 operation in MachineIdentitiesApi.
  * @export
  * @interface MachineIdentitiesApiListMachineIdentityUserEntitlementsV1Request
@@ -1659,6 +3053,90 @@ export interface MachineIdentitiesApiListMachineIdentityUserEntitlementsV1Reques
      * @memberof MachineIdentitiesApiListMachineIdentityUserEntitlementsV1
      */
     readonly offset?: number
+}
+
+/**
+ * Request parameters for listOwnershipCorrelationConfigsV1 operation in MachineIdentitiesApi.
+ * @export
+ * @interface MachineIdentitiesApiListOwnershipCorrelationConfigsV1Request
+ */
+export interface MachineIdentitiesApiListOwnershipCorrelationConfigsV1Request {
+    /**
+     * The Source ID.
+     * @type {string}
+     * @memberof MachineIdentitiesApiListOwnershipCorrelationConfigsV1
+     */
+    readonly sourceId: string
+
+    /**
+     * The source resource ID (for example, account or aws:iam-role).
+     * @type {string}
+     * @memberof MachineIdentitiesApiListOwnershipCorrelationConfigsV1
+     */
+    readonly resourceId: string
+
+    /**
+     * When set, filters to the given config type.
+     * @type {'OWNER_PRIMARY' | 'OWNER_SECONDARY'}
+     * @memberof MachineIdentitiesApiListOwnershipCorrelationConfigsV1
+     */
+    readonly type?: ListOwnershipCorrelationConfigsV1TypeEnum
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof MachineIdentitiesApiListOwnershipCorrelationConfigsV1
+     */
+    readonly count?: boolean
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof MachineIdentitiesApiListOwnershipCorrelationConfigsV1
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof MachineIdentitiesApiListOwnershipCorrelationConfigsV1
+     */
+    readonly offset?: number
+}
+
+/**
+ * Request parameters for patchOwnershipCorrelationConfigV1 operation in MachineIdentitiesApi.
+ * @export
+ * @interface MachineIdentitiesApiPatchOwnershipCorrelationConfigV1Request
+ */
+export interface MachineIdentitiesApiPatchOwnershipCorrelationConfigV1Request {
+    /**
+     * The Source ID.
+     * @type {string}
+     * @memberof MachineIdentitiesApiPatchOwnershipCorrelationConfigV1
+     */
+    readonly sourceId: string
+
+    /**
+     * The source resource ID (for example, account or aws:iam-role).
+     * @type {string}
+     * @memberof MachineIdentitiesApiPatchOwnershipCorrelationConfigV1
+     */
+    readonly resourceId: string
+
+    /**
+     * The correlation config ID.
+     * @type {string}
+     * @memberof MachineIdentitiesApiPatchOwnershipCorrelationConfigV1
+     */
+    readonly configId: string
+
+    /**
+     * The JSONPatch payload used to update the correlation config.
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof MachineIdentitiesApiPatchOwnershipCorrelationConfigV1
+     */
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
 }
 
 /**
@@ -1718,6 +3196,27 @@ export interface MachineIdentitiesApiUpdateMachineIdentityV1Request {
 }
 
 /**
+ * Request parameters for updateMachineIdentityV2 operation in MachineIdentitiesApi.
+ * @export
+ * @interface MachineIdentitiesApiUpdateMachineIdentityV2Request
+ */
+export interface MachineIdentitiesApiUpdateMachineIdentityV2Request {
+    /**
+     * Machine Identity ID.
+     * @type {string}
+     * @memberof MachineIdentitiesApiUpdateMachineIdentityV2
+     */
+    readonly id: string
+
+    /**
+     * A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+     * @type {Array<Jsonpatchoperation>}
+     * @memberof MachineIdentitiesApiUpdateMachineIdentityV2
+     */
+    readonly jsonpatchoperation: Array<Jsonpatchoperation>
+}
+
+/**
  * MachineIdentitiesApi - object-oriented interface
  * @export
  * @class MachineIdentitiesApi
@@ -1737,6 +3236,18 @@ export class MachineIdentitiesApi extends BaseAPI {
     }
 
     /**
+     * Use this API to create a machine identity. Additional owners may be either up to ten human (IDENTITY) references or exactly one GOVERNANCE_GROUP reference - not both. The maximum supported length for the description field is 2000 characters.
+     * @summary Create machine identity
+     * @param {MachineIdentitiesApiCreateMachineIdentityV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineIdentitiesApi
+     */
+    public createMachineIdentityV2(requestParameters: MachineIdentitiesApiCreateMachineIdentityV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineIdentitiesApiFp(this.configuration).createMachineIdentityV2(requestParameters.machineidentityv2, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * The API returns successful response if the requested machine identity was deleted.
      * @summary Delete machine identity
      * @param {MachineIdentitiesApiDeleteMachineIdentityV1Request} requestParameters Request parameters.
@@ -1746,6 +3257,30 @@ export class MachineIdentitiesApi extends BaseAPI {
      */
     public deleteMachineIdentityV1(requestParameters: MachineIdentitiesApiDeleteMachineIdentityV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return MachineIdentitiesApiFp(this.configuration).deleteMachineIdentityV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * The API returns a successful response if the requested machine identity was deleted.
+     * @summary Delete machine identity
+     * @param {MachineIdentitiesApiDeleteMachineIdentityV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineIdentitiesApi
+     */
+    public deleteMachineIdentityV2(requestParameters: MachineIdentitiesApiDeleteMachineIdentityV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineIdentitiesApiFp(this.configuration).deleteMachineIdentityV2(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Deletes the ownership correlation config with the specified ID for the given source resource.
+     * @summary Delete ownership correlation config
+     * @param {MachineIdentitiesApiDeleteOwnershipCorrelationConfigV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineIdentitiesApi
+     */
+    public deleteOwnershipCorrelationConfigV1(requestParameters: MachineIdentitiesApiDeleteOwnershipCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineIdentitiesApiFp(this.configuration).deleteOwnershipCorrelationConfigV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.configId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1761,6 +3296,30 @@ export class MachineIdentitiesApi extends BaseAPI {
     }
 
     /**
+     * This API returns a single machine identity using the Machine Identity ID.
+     * @summary Get machine identity details
+     * @param {MachineIdentitiesApiGetMachineIdentityV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineIdentitiesApi
+     */
+    public getMachineIdentityV2(requestParameters: MachineIdentitiesApiGetMachineIdentityV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineIdentitiesApiFp(this.configuration).getMachineIdentityV2(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This end-point retrieves a single ownership correlation config by ID for the specified source resource.
+     * @summary Get ownership correlation config
+     * @param {MachineIdentitiesApiGetOwnershipCorrelationConfigV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineIdentitiesApi
+     */
+    public getOwnershipCorrelationConfigV1(requestParameters: MachineIdentitiesApiGetOwnershipCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineIdentitiesApiFp(this.configuration).getOwnershipCorrelationConfigV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.configId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This API returns a list of machine identities.
      * @summary List machine identities
      * @param {MachineIdentitiesApiListMachineIdentitiesV1Request} requestParameters Request parameters.
@@ -1773,6 +3332,18 @@ export class MachineIdentitiesApi extends BaseAPI {
     }
 
     /**
+     * This API returns a list of machine identities.
+     * @summary List machine identities
+     * @param {MachineIdentitiesApiListMachineIdentitiesV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineIdentitiesApi
+     */
+    public listMachineIdentitiesV2(requestParameters: MachineIdentitiesApiListMachineIdentitiesV2Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineIdentitiesApiFp(this.configuration).listMachineIdentitiesV2(requestParameters.filters, requestParameters.sorters, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This API returns a list of user entitlements associated with machine identities.
      * @summary List machine identity\'s user entitlements
      * @param {MachineIdentitiesApiListMachineIdentityUserEntitlementsV1Request} requestParameters Request parameters.
@@ -1782,6 +3353,30 @@ export class MachineIdentitiesApi extends BaseAPI {
      */
     public listMachineIdentityUserEntitlementsV1(requestParameters: MachineIdentitiesApiListMachineIdentityUserEntitlementsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
         return MachineIdentitiesApiFp(this.configuration).listMachineIdentityUserEntitlementsV1(requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Returns the OWNER_PRIMARY and OWNER_SECONDARY correlation configs for the specified source resource, creating default rows if they are missing. Use the optional type query parameter to return a single matching config.
+     * @summary List ownership correlation configs
+     * @param {MachineIdentitiesApiListOwnershipCorrelationConfigsV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineIdentitiesApi
+     */
+    public listOwnershipCorrelationConfigsV1(requestParameters: MachineIdentitiesApiListOwnershipCorrelationConfigsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineIdentitiesApiFp(this.configuration).listOwnershipCorrelationConfigsV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.type, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Selectively updates an ownership correlation config using an RFC 6902 JSONPatch payload. Only replace on /attributes (full object) and replace on /rules (full array; merge by stable rule id, remove rules omitted from the array) are allowed.
+     * @summary Patch ownership correlation config
+     * @param {MachineIdentitiesApiPatchOwnershipCorrelationConfigV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineIdentitiesApi
+     */
+    public patchOwnershipCorrelationConfigV1(requestParameters: MachineIdentitiesApiPatchOwnershipCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineIdentitiesApiFp(this.configuration).patchOwnershipCorrelationConfigV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.configId, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1807,7 +3402,27 @@ export class MachineIdentitiesApi extends BaseAPI {
     public updateMachineIdentityV1(requestParameters: MachineIdentitiesApiUpdateMachineIdentityV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return MachineIdentitiesApiFp(this.configuration).updateMachineIdentityV1(requestParameters.id, requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
+
+    /**
+     * Use this API to selectively update machine identity details using a JSONPatch payload.  Patchable fields include **name**, **description**, **nativeIdentity**, **subtype**, **environment**, **attributes**, **owners**, **userEntitlements**, and **manuallyEdited** only. 
+     * @summary Partial update of machine identity
+     * @param {MachineIdentitiesApiUpdateMachineIdentityV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineIdentitiesApi
+     */
+    public updateMachineIdentityV2(requestParameters: MachineIdentitiesApiUpdateMachineIdentityV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineIdentitiesApiFp(this.configuration).updateMachineIdentityV2(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
 }
 
+/**
+ * @export
+ */
+export const ListOwnershipCorrelationConfigsV1TypeEnum = {
+    OwnerPrimary: 'OWNER_PRIMARY',
+    OwnerSecondary: 'OWNER_SECONDARY'
+} as const;
+export type ListOwnershipCorrelationConfigsV1TypeEnum = typeof ListOwnershipCorrelationConfigsV1TypeEnum[keyof typeof ListOwnershipCorrelationConfigsV1TypeEnum];
 
 
